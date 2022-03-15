@@ -7,4 +7,4 @@ To install the plugin or an update from the official QGis repository, follow the
 
 ![](<../.gitbook/assets/image (1).png>)
 
-1. Test
+3. Test
