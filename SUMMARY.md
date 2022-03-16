@@ -10,6 +10,6 @@
 ## 💿 Installation
 
 * [Requeriments](installation/requeriments.md)
-* [From Repository](installation/from-repository.md)
-* [From Local File](installation/from-local-file.md)
+* [From repository](installation/from-repository.md)
+* [From local file](installation/from-local-file.md)
 * [Dependencies](installation/dependencies.md)
