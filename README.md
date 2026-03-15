@@ -1,5 +1,16 @@
-# What is QGISRed?
+# Welcome to QGISRed 🚀
 
-QGISRed is a tool to help the hydraulic engineer in the task of modelling a water distribution network and in the decision-making process, within the environment of a Geographic Information System (GIS). This tool is designed as a plugin to the free software QGis. However, QGISRed uses the source code of the GISRed software, an application designed as a desktop tool for the Windows operating system.&#x20;
+**QGISRed** is a powerful plugin for QGIS designed to facilitate the creation and analysis of hydraulic models of water distribution networks. 
 
-The QGISRed plugin is developed with the objective of being able to take advantage of all the tools that a GIS environment can provide in a native way. For example, geo-processing tools, use of satellite images, style management, etc. On the contrary, this plugin will have some limitations against the potential that may include the GISRed tool.
+The best thing about QGISRed is that it combines the power of a **GIS Environment** with the precision of **EPANET**, allowing you to work with digital twins of any complexity.
+
+### Why use QGISRed?
+* **Full georeferencing**: Take advantage of all the advantages of QGIS to geolocate your assets.
+* **Simple Data Management**: Use SHP and DBF files with an intuitive relational structure.
+* **Specialized Tools**: Includes utilities for network debugging, demand management and analysis of results without leaving QGIS.
+* **Digital Twins**: Supports elements such as connections, manual valves and meters for an advanced level of detail.
+
+---
+![QGISRed logo](assets/images/image1.png)
+
+Ready to get started? See [Credits](introduction/credits.md), [Installation Guide](installation/README.md), or jump directly to [Quick Guide](quick-start/README.md).

@@ -1,9 +1,11 @@
-# Dependencies
+#Dependency Management
 
-1.-  Once installed, when the user wants to use some plugin tool, a message will appear indicating the need to install the QGISRed dependencies mentioned above.
+When trying to use a QGISRed tool for the first time, you will see a prompt asking you to install additional dependencies.
 
-![](../.gitbook/assets/image.png)
+> 💡 **TIP**:
+> These dependencies do not require administrator permissions and are installed automatically.
 
-2.- Clicking on the "Yes" button will download and install the necessary dependencies for the operation of the plugin (does not require administrator permissions).
+![Dependencies Dialog](../assets/images/image13.png)
 
-3.- In the case of pressing the "No" button, when the user tries again to use any tool of the plugin will indicate the need to install the plugin dependencies.
+* If you press **Yes**, the plugin will download the necessary components (`GISRed libraries`).
+* If you press **No**, you will not be able to use the analysis tools until you install them.

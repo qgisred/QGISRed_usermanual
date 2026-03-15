@@ -17,5 +17,4 @@ If you detect a problem with the plugin, [search if an issue already exists](htt
 
 ### Comment an issue
 
-Scan through our [existing issues](https://github.com/neslerel/QGISRed/issues) to find one that you are interesting. You can narrow down the search using `labels` as filters. If you find an issue that you can participate, you are welcome to comment it and try to help us.
-
+Scan through our [existing issues](https://github.com/neslerel/QGISRed/issues) to find one that you are interesting. You can narrow down the search using `labels` as filters. If you find an issue that you can participate in, you are welcome to comment on it and try to help us.
