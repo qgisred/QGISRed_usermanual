@@ -16,13 +16,16 @@
     * [Flujo de trabajo típico](guia-rapida/flujo-de-trabajo.md)
 
 ## 🗂️ Gestión de Proyectos
-* [📁 Gestión de Proyectos](gestion-proyectos/README.md)
+* [📁 Barra General](gestion-proyectos/README.md)
     * [Gestor de proyectos](gestion-proyectos/gestor-proyectos.md)
     * [Crear proyecto](gestion-proyectos/crear-proyecto.md)
     * [Abrir e importar](gestion-proyectos/abrir-importar.md)
-    * [Gestor de capas y leyenda](gestion-proyectos/capas-y-leyenda.md)
-    * [Configuración del proyecto](gestion-proyectos/configuracion.md)
-    * [Guardar y copia de seguridad](gestion-proyectos/guardar-backup.md)
+
+## 📋 Proyecto Activo
+* [🗃️ Barra Project](proyecto-activo/README.md)
+    * [Resumen y gestión de capas](proyecto-activo/capas-y-leyenda.md)
+    * [Configuración del proyecto](proyecto-activo/configuracion.md)
+    * [Guardar y copia de seguridad](proyecto-activo/guardar-backup.md)
 
 ## ✏️ Edición y Modelado
 * [🏗️ Herramientas de Edición](edicion/README.md)
