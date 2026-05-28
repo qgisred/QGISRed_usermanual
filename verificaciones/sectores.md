@@ -2,60 +2,94 @@
 
 **Barra Debug → Check hydraulic sectors**
 
-La herramienta de sectores hidráulicos analiza cómo está conectada cada parte de la red respecto a las fuentes de suministro (Reservoirs y Tanks) y a los puntos de consumo (Junctions con demanda). El resultado es una capa de coloración que clasifica cada tubería y nudo en uno de cuatro tipos.
+La herramienta de sectores hidráulicos recorre la red mediante un algoritmo BFS (búsqueda en anchura) desde todas las fuentes de suministro y clasifica cada subred conectada según si tiene o no fuente hidráulica (H) y si tiene o no demanda (Q). El resultado se vuelca en capas SHP y en un informe CSV.
 
-![Mapa de sectores hidráulicos: zonas coloreadas por tipo A, B, C y D](../assets/images/debug/sectores-hidraulicos.png)
-*Sectores hidráulicos: cada color corresponde a un tipo. Los sectores tipo C (sin fuente) aparecen en rojo.*
-
----
-
-## Tipos de sector
-
-| Tipo | Fuente | Demanda | Estado | Significado |
-|------|--------|---------|--------|-------------|
-| **A** | ✅ Sí | ✅ Sí | Funcional | El sector tiene fuente y consumidores. Puede simularse. |
-| **B** | ✅ Sí | ❌ No | Latente | El sector tiene fuente pero ningún nudo con demanda asignada. Puede simularse pero no produce flujo. |
-| **C** | ❌ No | ✅ Sí | **Aislado crítico** | Hay nudos con demanda pero ninguna fuente. El sector no puede abastecerse: EPANET lo rechazará con error de convergencia. |
-| **D** | ❌ No | ❌ No | Pasivo | Sin fuente ni demanda. Hidráulicamente compatible (no requiere flujo), pero está desconectado. |
+![Mapa de sectores hidráulicos: zonas coloreadas por tipo H-Q, H-nQ, nH-Q y nH-nQ](../assets/images/debug/sectores-hidraulicos.png)
+*Sectores hidráulicos: cada color representa un tipo de clasificación. Los sectores nH-Q (sin fuente con demanda) aparecen en rojo.*
 
 ---
 
-## Cómo interpretar el resultado
+## Clasificación de sectores
 
-### Sector tipo A — Funcional
+La herramienta asigna a cada sector uno de estos cuatro tipos. Estas son las **etiquetas reales** que aparecen en la capa SHP y en el informe CSV:
 
-Es el estado deseable. Todo sector que vaya a simular debe ser tipo A. Si el proyecto tiene varios sectores tipo A independientes (por ejemplo, sectores de presión separados por válvulas cerradas), cada uno se puede simular por separado pero en el mismo modelo EPANET todos deben poder resolverse.
+| Etiqueta | Fuente (H) | Demanda (Q) | Significado |
+|----------|-----------|-------------|-------------|
+| **H-Q** | ✅ Sí | ✅ Sí | Sector funcional: tiene fuente de suministro y nudos con demanda. Puede simularse correctamente. |
+| **H-nQ** | ✅ Sí | ❌ No | Sector latente: tiene fuente pero ningún nudo con demanda > 0. Puede simularse pero sin flujo real. |
+| **nH-Q** | ❌ No | ✅ Sí | **Sector crítico**: nudos con demanda pero sin ninguna fuente conectada. EPANET no convergirá. |
+| **nH-nQ** | ❌ No | ❌ No | Sector pasivo: ni fuente ni demanda. No causa error en la simulación pero está desconectado. |
 
-### Sector tipo B — Latente
+> **H** = presencia de al menos un Tank o Reservoir en el sector.  
+> **Q** = presencia de al menos un Junction con demanda base > 0.  
+> **n** = negación (ausencia de esa condición).
 
-Indica que existe una fuente conectada pero no hay demandas en esa zona. Puede ser:
-- Una zona de la red aún sin datos de demanda asignados (pendiente de completar).
-- Un ramal de reserva o bypass sin nudos de consumo (correcto).
+Existe además un pseudo-sector especial llamado **ClosedLinks** que agrupa las tuberías con estado `Closed` que quedan fuera de cualquier sector conectado. No cuenta en el total de sectores del informe.
 
-En el primer caso, debes asignar demandas antes de simular para obtener resultados realistas.
+---
 
-### Sector tipo C — Aislado crítico
+## Salidas generadas
 
-Es el error más grave. Significa que hay nudos con demanda que no tienen ningún camino conectado a un Reservoir o Tank. EPANET no puede calcular la presión en estos nudos y el modelo fallará.
+La herramienta produce tres salidas que se añaden automáticamente al proyecto:
+
+| Salida | Tipo | Contenido |
+|--------|------|-----------|
+| `HydraulicSectors` | Capa SHP | Geometría de todos los elementos coloreados por tipo de sector |
+| `HydraulicSectors_IsolatedDemands` | Capa SHP | Nudos y acometidas del tipo **nH-Q** con su demanda aislada |
+| `{Red}_HydraulicSectors_Report.csv` | CSV | Tabla con ID de sector, número de elementos y clasificación |
+
+El CSV tiene el formato:
+```
+SectorID; NumElements; Classification
+S1; 1 243; H-Q
+S2; 47; H-nQ
+S3; 12; nH-Q
+S4; 3; nH-nQ
+```
+
+---
+
+## Cómo interpretar cada tipo
+
+### H-Q — Funcional
+
+Estado correcto. Todo sector que se vaya a simular debe ser H-Q. Una red correctamente construida tendrá un único sector H-Q grande (o varios si hay sectorización hidráulica real con válvulas cerradas entre ellos).
+
+### H-nQ — Latente
+
+Hay una fuente conectada pero todos los nudos de ese sector tienen demanda = 0. Causas habituales:
+
+- Zona de la red importada sin datos de demanda asignados todavía.
+- Bypass o ramal de reserva sin consumidores (puede ser correcto por diseño).
+
+En el primer caso, hay que asignar demandas antes de que la simulación sea realista.
+
+### nH-Q — Crítico (el más importante a corregir)
+
+Es el único tipo que impide la simulación. Hay nudos con demanda que no tienen ningún camino hasta un Tank o Reservoir.
 
 **Causas frecuentes:**
-- Tubería que debería conectar este sector a una fuente falta o está desconectada.
-- Válvula cerrada que bloquea el único camino a la fuente (si es por diseño, puede ser correcto en algunas condiciones de operación).
-- Error topológico: el nudo visualmente parece conectado pero hay una ruptura de conectividad (verifica con **Check connectivity**).
+- Falta una tubería que debería enlazar este sector con la red principal.
+- Hay una válvula cerrada entre este sector y la fuente (correcto operacionalmente, pero hay que modelarlo así a propósito).
+- Error topológico: la tubería de conexión existe visualmente pero hay una rotura de conectividad — se detecta con **Check connectivity**.
 
-### Sector tipo D — Pasivo
+La capa `HydraulicSectors_IsolatedDemands` muestra exactamente qué nudos y acometidas tienen demanda sin fuente, facilitando la localización del problema.
 
-Fragmentos sin fuente ni demanda. Habitualmente son restos de tuberías importadas sin datos o ramales de proyecto aún incompletos. No causan error en la simulación, pero pueden enmascarar problemas reales. Considera eliminarlos si no forman parte del modelo definitivo.
+### nH-nQ — Pasivo
+
+Fragmentos desconectados sin consumo. Suelen ser restos de importación o ramales de proyecto incompletos. No causan error de simulación, pero ensucian el modelo. Si no son parte del diseño, elimínalos con **Delete elements** o con la opción **Delete isolated subzones** de **Check connectivity**.
 
 ---
 
 ## Flujo de trabajo recomendado
 
-1. Ejecuta **Check && commit data** para asegurar que la topología básica es correcta.
-2. Ejecuta **Check connectivity** para identificar zonas aisladas.
-3. Ejecuta **Check hydraulic sectors** para clasificar las zonas.
-4. Corrige todos los sectores tipo C antes de simular.
-5. Decide si los sectores tipo D son intencionados o deben eliminarse.
-6. Vuelve a ejecutar **Check hydraulic sectors** para confirmar que el modelo queda en estado correcto.
+Antes de simular por primera vez, o tras importar una red nueva:
 
-> La herramienta genera una capa auxiliar `HydraulicSectors` que se añade al grupo de capas del proyecto. Esta capa es informativa y no forma parte del modelo EPANET exportado.
+1. **Check && commit data** — asegura que la topología básica y los atributos son coherentes.
+2. **Remove overlapping elements** — elimina nudos y tuberías duplicadas que podrían generar sectores artificiales.
+3. **Check connectivity** — identifica zonas aisladas visualmente y, si hay "basura" topológica, usa **Delete isolated subzones**.
+4. **Check hydraulic sectors** — obtén la clasificación completa. Anota cuántos sectores nH-Q hay.
+5. **Corregir los sectores nH-Q** — añade las tuberías o corrige los errores topológicos hasta que desaparezcan.
+6. Vuelve a ejecutar **Check hydraulic sectors** — confirma que todos los sectores son H-Q, H-nQ o nH-nQ (ninguno nH-Q).
+
+> Solo cuando no haya sectores **nH-Q** la simulación EPANET puede ejecutarse sin errores de convergencia.
