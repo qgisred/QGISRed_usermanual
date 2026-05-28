@@ -61,8 +61,8 @@
     * [Visor de Resultados](analisis/resultados.md)
     * [Exportación del Modelo](analisis/exportacion.md)
 
-## 🧬 Gemelo Digital
-* [🏢 Elementos Avanzados](gemelo-digital/README.md)
+## 🧬 Digital Twin
+* [🧬 Digital Twin](gemelo-digital/README.md)
     * [Acometidas y Válvulas de Corte](gemelo-digital/acometidas.md)
     * [Sensores y Medidores](gemelo-digital/sensores.md)
 
