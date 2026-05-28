@@ -35,11 +35,11 @@
     * [Patrones y curvas](edicion/curvas.md)
     * [Controles y reglas](edicion/controles.md)
 
-## ✅ Verificación y Depuración
-* [🔍 Verificaciones](verificaciones/README.md)
-    * [Topología y Conectividad](verificaciones/topologia.md)
-    * [Análisis de Atributos](verificaciones/atributos.md)
-    * [Sectores Hidráulicos](verificaciones/sectores.md)
+## ✅ Debug
+* [✅ Debug](verificaciones/README.md)
+    * [Topología y conectividad](verificaciones/topologia.md)
+    * [Verificación de atributos](verificaciones/atributos.md)
+    * [Sectores hidráulicos](verificaciones/sectores.md)
 
 ## 🔧 Herramientas
 * [🛠️ Herramientas Avanzadas](herramientas/README.md)
