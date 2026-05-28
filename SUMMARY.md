@@ -28,13 +28,12 @@
     * [Guardar y copia de seguridad](proyecto-activo/guardar-backup.md)
 
 ## ✏️ Edición y Modelado
-* [🏗️ Herramientas de Edición](edicion/README.md)
+* [✏️ Edition](edicion/README.md)
     * [Creación de elementos](edicion/creacion.md)
-    * [Manipulación y Vértices](edicion/manipulacion.md)
-    * [Edición de propiedades](edicion/propiedades.md)
-* [⚙️ Curvas y Controles](edicion/configuracion.md)
-    * [Patrones y Curvas](edicion/curvas.md)
-    * [Controles y Reglas](edicion/controles.md)
+    * [Manipulación geométrica y topológica](edicion/manipulacion.md)
+    * [Propiedades de elementos](edicion/propiedades.md)
+    * [Patrones y curvas](edicion/curvas.md)
+    * [Controles y reglas](edicion/controles.md)
 
 ## ✅ Verificación y Depuración
 * [🔍 Verificaciones](verificaciones/README.md)
