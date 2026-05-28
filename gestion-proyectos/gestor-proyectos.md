@@ -4,7 +4,7 @@
 
 El Gestor de proyectos es la ventana central de administración de QGISRed. Permite acceder a todos los proyectos conocidos sin necesidad de recordar dónde están almacenados.
 
-![Ventana del Gestor de proyectos de QGISRed](../assets/images/image22.png)
+![Ventana del Gestor de proyectos de QGISRed](../assets/images/general/gestor-proyectos.png)
 *Ventana del Gestor de proyectos: lista de proyectos recientes y operaciones disponibles.*
 
 ---

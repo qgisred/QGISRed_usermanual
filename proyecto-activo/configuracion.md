@@ -10,7 +10,7 @@ La barra **Project** agrupa tres diálogos de configuración que afectan al comp
 
 Abre el diálogo principal de opciones de EPANET. Es equivalente a la sección `[OPTIONS]` del archivo `.inp`.
 
-![Diálogo de opciones del proyecto: pestañas de Hidráulica, Calidad, Tiempos y Energía](../assets/images/image19.png)
+![Diálogo de opciones del proyecto: pestañas de Hidráulica, Calidad, Tiempos y Energía](../assets/images/proyecto/opciones-proyecto.png)
 *Diálogo de Opciones del proyecto con sus cuatro pestañas.*
 
 ### Pestaña Hidráulica
@@ -70,7 +70,7 @@ Permite definir el coste energético de las bombas para el análisis de consumo:
 
 Define los valores que se asignan automáticamente a los nuevos elementos al crearlos con las herramientas de edición.
 
-![Diálogo de valores por defecto con secciones para nudos, tuberías y prefijos](../assets/images/image20.png)
+![Diálogo de valores por defecto con secciones para nudos, tuberías y prefijos](../assets/images/proyecto/valores-defecto.png)
 *Diálogo de valores por defecto: parámetros iniciales para cada tipo de elemento.*
 
 ### Prefijos de ID
@@ -114,7 +114,7 @@ Los prefijos son configurables. El número inicial también puede establecerse.
 
 Gestiona la lista de materiales disponibles para las tuberías y sus propiedades de envejecimiento.
 
-![Tabla de materiales: código, nombre, rugosidad inicial e incremento anual](../assets/images/image29.png)
+![Tabla de materiales: código, nombre, rugosidad inicial e incremento anual](../assets/images/proyecto/tabla-materiales.png)
 *Tabla de materiales con rugosidad inicial e incremento por año.*
 
 ### Campos de la tabla

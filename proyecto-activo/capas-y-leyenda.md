@@ -8,7 +8,7 @@
 
 Controla qué capas del proyecto están activas en QGIS y permite recuperar capas que se hayan eliminado accidentalmente.
 
-![Diálogo del Gestor de capas de QGISRed](../assets/images/image17.png)
+![Diálogo del Gestor de capas de QGISRed](../assets/images/proyecto/gestor-capas.png)
 *Gestor de capas: lista de todas las capas del proyecto con su estado de carga.*
 
 ### Capas base (Inputs)
@@ -55,7 +55,7 @@ Pumps: 8
 
 Abre un panel flotante que permite personalizar la **simbología** de las capas del proyecto sin necesidad de navegar por el menú de propiedades de capa de QGIS.
 
-![Panel del Editor de leyenda de QGISRed](../assets/images/image18.png)
+![Panel del Editor de leyenda de QGISRed](../assets/images/proyecto/editor-leyenda.png)
 *Panel del Editor de leyenda: estilos predefinidos y personalización de colores y tamaños.*
 
 ### Estilos predefinidos
