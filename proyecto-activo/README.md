@@ -1,4 +1,4 @@
-# 📋 Proyecto Activo
+# 📋 Proyecto
 
 La barra **Project** agrupa las herramientas de administración del proyecto que ya está abierto en QGISRed. Todos sus botones requieren un proyecto válido cargado; si no hay ninguno, el plugin avisará con el mensaje _"No valid project is opened"_.
 

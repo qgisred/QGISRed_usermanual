@@ -1,4 +1,4 @@
-# 🗂️ Gestión de Proyectos
+# 🗂️ General
 
 La barra **General** es el punto de entrada a cualquier sesión de trabajo con QGISRed. Contiene las cuatro acciones para gestionar el ciclo de vida de los proyectos: crearlos, abrirlos, importarlos y administrar el historial.
 

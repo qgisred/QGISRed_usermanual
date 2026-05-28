@@ -15,14 +15,14 @@
     * [Resumen de barras de herramientas](guia-rapida/toolbars.md)
     * [Flujo de trabajo típico](guia-rapida/flujo-de-trabajo.md)
 
-## 🗂️ Gestión de Proyectos
-* [📁 Barra General](gestion-proyectos/README.md)
+## 🗂️ General
+* [📁 General](gestion-proyectos/README.md)
     * [Gestor de proyectos](gestion-proyectos/gestor-proyectos.md)
     * [Crear proyecto](gestion-proyectos/crear-proyecto.md)
     * [Abrir e importar](gestion-proyectos/abrir-importar.md)
 
-## 📋 Proyecto Activo
-* [🗃️ Barra Project](proyecto-activo/README.md)
+## 📋 Proyecto
+* [🗃️ Proyecto](proyecto-activo/README.md)
     * [Resumen y gestión de capas](proyecto-activo/capas-y-leyenda.md)
     * [Configuración del proyecto](proyecto-activo/configuracion.md)
     * [Guardar y copia de seguridad](proyecto-activo/guardar-backup.md)
