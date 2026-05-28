@@ -20,15 +20,15 @@ El desarrollo se enmarca dentro de las actividades de investigación y transfere
 
 | Entidad | Logo |
 | :--- | :--- |
-| **Portal QGISRed** | [![Logo QGISRed](../assets/images/image1_1.png)](http://qgisred.upv.es) |
-| **REDHISP** | [![Logo REDHISP](../assets/images/image3.png)](http://www.redhisp.upv.es) |
-| **IIAMA** | [![Logo IIAMA](../assets/images/image4.png)](http://www.iiama.upv.es) |
-| **UPV** | [![Logo UPV](../assets/images/image5.png)](http://www.upv.es) |
+| **Portal QGISRed** | [![Logo QGISRed](../assets/images/creditos/logo-qgisred-portal.png)](http://qgisred.upv.es) |
+| **REDHISP** | [![Logo REDHISP](../assets/images/creditos/logo-redhisp.png)](http://www.redhisp.upv.es) |
+| **IIAMA** | [![Logo IIAMA](../assets/images/creditos/logo-iiama.png)](http://www.iiama.upv.es) |
+| **UPV** | [![Logo UPV](../assets/images/creditos/logo-upv.png)](http://www.upv.es) |
 
 ### Colaboradores
 | Entidad | Logo |
 | :--- | :--- |
-| **WaterPi** | [![Logo WaterPi](../assets/images/image6.png)](http://www.waterpi.com) |
+| **WaterPi** | [![Logo WaterPi](../assets/images/creditos/logo-waterpi.png)](http://www.waterpi.com) |
 
 ---
 

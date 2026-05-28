@@ -20,4 +20,4 @@ Este tutorial muestra cómo construir el modelo "Red1_SI" dibujando cada element
 2.  **Reglas y Controles**: Define leyes de control (ej: apagar bomba si el nivel del depósito es > 5m).
 3.  **Simular**: Ejecuta el modelo y verifica que los resultados coinciden con el diseño esperado.
 
-![Construcción de Red](../assets/images/image34.png)
+![Construcción de red desde cero en QGISRed](../assets/images/ejemplos/construccion-red.png)
