@@ -32,4 +32,14 @@ El desarrollo se enmarca dentro de las actividades de investigación y transfere
 
 ---
 
+### Financiación
+
+Las versiones de QGISRed a partir de la **0.18** están financiadas por el **Banco Interamericano de Desarrollo (BID)** a través del contrato C-RG-T4041-P001.
+
+| Entidad | Logo |
+| :--- | :--- |
+| **[Banco Interamericano de Desarrollo (BID)](https://www.iadb.org/es)** | [![Logo BID](../assets/images/creditos/logo-bid.png)](https://www.iadb.org/es) |
+
+---
+
 > 💡 **NOTA**: QGISRed es software gratuito desarrollado con el objetivo de facilitar la gestión del ciclo integral del agua mediante herramientas de Gemelo Digital de libre acceso.
