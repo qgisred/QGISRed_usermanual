@@ -1,0 +1,74 @@
+# Element Explorer
+
+El **Element Explorer** es un panel flotante (dock) que QGISRed mantiene como instancia única. Agrupa dos funcionalidades relacionadas en sendas pestañas: búsqueda de elementos por ID y visualización de propiedades del elemento seleccionado en el mapa.
+
+![Panel Element Explorer con las dos pestañas Find Elements y Properties](../assets/images/consultas/element-explorer.png)
+*Panel Element Explorer: pestaña Find Elements (izquierda) y pestaña Properties (derecha).*
+
+Los botones **Find elements by ID** y **Element properties** de la barra Queries abren este mismo panel y activan la pestaña correspondiente. Cambiar de pestaña dentro del panel no cierra ninguna funcionalidad.
+
+---
+
+## Pestaña Find Elements — Buscar por ID
+
+**Barra Queries → Find elements by ID…**
+
+Localiza cualquier elemento de la red escribiendo su ID y lo resalta en el mapa.
+
+### Elementos que se pueden buscar
+
+- Pipes, Junctions, Demands, Reservoirs, Tanks, Pumps, Valves, Sources
+
+### Proceso
+
+1. Activa **Find elements by ID**. El panel se abre o se trae al frente.
+2. Selecciona el tipo de elemento en el desplegable de capa.
+3. Escribe el ID en el campo de texto y pulsa **Find** o Intro.
+4. QGISRed centra el mapa en el elemento y lo resalta. El resultado aparece en el panel con fondo amarillo claro.
+
+### Búsqueda múltiple
+
+Separa varios IDs con coma o punto y coma para resaltarlos todos simultáneamente.
+
+### Si el ID no existe
+
+El panel muestra un aviso y el mapa no cambia.
+
+---
+
+## Pestaña Properties — Propiedades del elemento
+
+**Barra Queries → Element properties…**
+
+Activa una herramienta de identificación interactiva: al hacer clic sobre cualquier elemento del mapa, el panel muestra todos sus atributos en la pestaña Properties.
+
+### Proceso
+
+1. Activa **Element properties**. El cursor cambia a modo identificación.
+2. Haz clic sobre cualquier elemento de la red.
+3. El panel muestra los campos del elemento pulsado. Puedes seguir haciendo clic en otros elementos sin desactivar la herramienta.
+
+### Información mostrada
+
+Los atributos se organizan según el tipo de elemento. Para una **tubería** típica:
+
+| Campo | Descripción |
+|-------|-------------|
+| `Id` | Identificador único |
+| `Length` | Longitud (m) |
+| `Diameter` | Diámetro (mm) |
+| `Roughness` | Coeficiente de rugosidad |
+| `Material` | Material |
+| `InstallYear` | Año de instalación |
+| `Status` | Estado (Open / Closed / CV) |
+| `Tag` | Etiqueta libre |
+
+Para **nudos** se muestran `Elevation`, `Demand`, `Pattern`, `InitQuality`, etc. Cada tipo de elemento tiene su propio conjunto de campos.
+
+Si el proyecto tiene resultados de simulación cargados, el panel añade una sección con los valores calculados (presión, caudal, velocidad…) para el período activo en el visor de resultados.
+
+### Notas de uso
+
+- Al desactivar el botón, el cursor vuelve al modo de navegación estándar de QGIS.
+- Si haces clic en una zona sin elementos, el panel conserva la última selección.
+- El fondo del panel tiene un tinte amarillo claro para diferenciarlo del resto de paneles de QGIS.
