@@ -41,12 +41,12 @@
     * [Verificación de atributos](verificaciones/atributos.md)
     * [Sectores hidráulicos](verificaciones/sectores.md)
 
-## 🔧 Herramientas
-* [🛠️ Herramientas Avanzadas](herramientas/README.md)
-    * [Interpolación de Cotas](herramientas/elevacion.md)
-    * [Gestión de Rugosidad](herramientas/rugosidad.md)
-    * [Gestor de Demandas](herramientas/demandas.md)
-    * [Escenarios y Cerradas](herramientas/escenarios.md)
+## 🔧 Tools
+* [🔧 Tools](herramientas/README.md)
+    * [Longitudes y elevaciones](herramientas/elevacion.md)
+    * [Rugosidades](herramientas/rugosidad.md)
+    * [Gestor de demandas](herramientas/demandas.md)
+    * [Escenarios y análisis](herramientas/escenarios.md)
 
 ## 🔍 Consultas
 * [🗺️ Consultas y Análisis Espacial](consultas/README.md)
