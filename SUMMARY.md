@@ -11,9 +11,18 @@
     * [Gestión de dependencias](instalacion/dependencias.md)
 
 ## ⚡ Guía Rápida
-* [🧭 Primeros pasos](guia-rapida/README.md)
-    * [Explorador de Proyectos](guia-rapida/archivo.md)
-    * [Gestión de Capas e Inputs](guia-rapida/proyecto.md)
+* [🧭 La interfaz de QGISRed](guia-rapida/README.md)
+    * [Resumen de barras de herramientas](guia-rapida/toolbars.md)
+    * [Flujo de trabajo típico](guia-rapida/flujo-de-trabajo.md)
+
+## 🗂️ Gestión de Proyectos
+* [📁 Gestión de Proyectos](gestion-proyectos/README.md)
+    * [Gestor de proyectos](gestion-proyectos/gestor-proyectos.md)
+    * [Crear proyecto](gestion-proyectos/crear-proyecto.md)
+    * [Abrir e importar](gestion-proyectos/abrir-importar.md)
+    * [Gestor de capas y leyenda](gestion-proyectos/capas-y-leyenda.md)
+    * [Configuración del proyecto](gestion-proyectos/configuracion.md)
+    * [Guardar y copia de seguridad](gestion-proyectos/guardar-backup.md)
 
 ## ✏️ Edición y Modelado
 * [🏗️ Herramientas de Edición](edicion/README.md)
@@ -24,16 +33,26 @@
     * [Patrones y Curvas](edicion/curvas.md)
     * [Controles y Reglas](edicion/controles.md)
 
-## ✅ Calidad del Modelo
+## ✅ Verificación y Depuración
 * [🔍 Verificaciones](verificaciones/README.md)
     * [Topología y Conectividad](verificaciones/topologia.md)
     * [Análisis de Atributos](verificaciones/atributos.md)
     * [Sectores Hidráulicos](verificaciones/sectores.md)
+
+## 🔧 Herramientas
 * [🛠️ Herramientas Avanzadas](herramientas/README.md)
     * [Interpolación de Cotas](herramientas/elevacion.md)
     * [Gestión de Rugosidad](herramientas/rugosidad.md)
     * [Gestor de Demandas](herramientas/demandas.md)
     * [Escenarios y Cerradas](herramientas/escenarios.md)
+
+## 🔍 Consultas
+* [🗺️ Consultas y Análisis Espacial](consultas/README.md)
+    * [Buscar elemento por ID](consultas/buscar-por-id.md)
+    * [Propiedades del elemento](consultas/propiedades-elemento.md)
+    * [Mapas temáticos](consultas/mapas-tematicos.md)
+    * [Consultas por propiedades](consultas/consultas-propiedades.md)
+    * [Estadísticas](consultas/estadisticas.md)
 
 ## 📊 Simulación y Resultados
 * [🧪 Análisis Hidráulico](analisis/README.md)
@@ -43,10 +62,10 @@
 
 ## 🧬 Gemelo Digital
 * [🏢 Elementos Avanzados](gemelo-digital/README.md)
-    * [Acometidas y Telelectura](gemelo-digital/acometidas.md)
-    * [Sensores y Telecontrol](gemelo-digital/sensores.md)
+    * [Acometidas y Válvulas de Corte](gemelo-digital/acometidas.md)
+    * [Sensores y Medidores](gemelo-digital/sensores.md)
 
-## 📖 Tutoriales
+## 🎓 Tutoriales
 * [🎓 Ejemplos Prácticos](ejemplos/README.md)
     * [Ejemplo 1: Desde INP](ejemplos/ejemplo-1.md)
     * [Ejemplo 2: Creación Manual](ejemplos/ejemplo-2.md)
