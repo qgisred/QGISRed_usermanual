@@ -55,8 +55,8 @@
     * [Consultas por propiedades](consultas/consultas-propiedades.md)
     * [Estadísticas](consultas/estadisticas.md)
 
-## 📊 Simulación y Resultados
-* [🧪 Análisis Hidráulico](analisis/README.md)
+## 📊 Analysis
+* [🧪 Analysis](analisis/README.md)
     * [Ejecución y Opciones](analisis/ejecucion.md)
     * [Visor de Resultados](analisis/resultados.md)
     * [Exportación del Modelo](analisis/exportacion.md)

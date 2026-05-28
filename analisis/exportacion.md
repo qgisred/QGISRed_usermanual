@@ -1,21 +1,57 @@
 # Exportación del Modelo
 
-QGISRed permite exportar el modelo de red al formato estándar **INP** de EPANET. Esta función resulta útil para compartir el modelo con otros usuarios, ejecutarlo directamente en la interfaz gráfica de EPANET o integrarlo con otras herramientas de análisis hidráulico.
+La barra Analysis ofrece dos vías de exportación: el modelo completo como archivo EPANET `.inp`, y los resultados de simulación como tablas CSV.
 
-Para acceder a la exportación, utiliza la opción **Export to INP** desde el menú correspondiente de QGISRed.
+---
 
-### Opciones de Exportación
+## Export model to INP…
 
-Al lanzar la exportación, aparece el siguiente diálogo con las opciones disponibles:
+**Barra Analysis → Export model to INP…**
 
-![Diálogo de exportación al formato INP](../assets/images/image69.png)
+Exporta el modelo completo al formato estándar **INP** de EPANET. Útil para compartir el modelo con otros usuarios, ejecutarlo en la interfaz gráfica de EPANET o integrarlo con herramientas de terceros.
 
-Las opciones que presenta el diálogo son:
+![Diálogo de exportación al formato INP](../assets/images/analisis/export-inp-dialog.png)
+*Diálogo Export to INP: ruta de destino, exportación de datos de campo y apertura automática en EPANET.*
 
-*   **INP file**: Ruta completa del archivo `.inp` que se generará. Puedes escribirla directamente o usar el botón `...` para navegar hasta la carpeta deseada.
-*   **Export field data files**: Si esta opción está marcada, se exportarán también los archivos de datos de campo (ficheros auxiliares asociados al modelo).
-*   **Open INP file with EPANET**: Si está activada, una vez completada la exportación se abrirá automáticamente el archivo INP en la aplicación EPANET instalada en tu equipo.
-    *   **Epanet path**: Ruta al ejecutable de EPANET detectado en el sistema. Puedes seleccionar una versión diferente desde el desplegable si tienes varias instaladas.
-    *   **Specific Epanet path**: Permite indicar manualmente la ruta a un ejecutable de EPANET que no aparezca en el listado anterior.
+### Opciones del diálogo
 
-Una vez configuradas las opciones, pulsa el botón **Export to INP** para generar el archivo.
+| Opción | Descripción |
+|--------|-------------|
+| **INP file** | Ruta completa del archivo `.inp` a generar. Usa el botón `…` para navegar. |
+| **Export field data files** | Exporta también los archivos auxiliares de datos de campo asociados al modelo. |
+| **Open INP file with EPANET** | Si está activo, abre el `.inp` en EPANET al finalizar la exportación. |
+| **Epanet path** | Ejecutable de EPANET detectado en el sistema. El desplegable muestra todas las versiones instaladas. |
+| **Specific Epanet path** | Ruta manual a un ejecutable de EPANET no detectado automáticamente. |
+
+Pulsa **Export to INP** para generar el archivo con la configuración elegida.
+
+---
+
+## Export results to CSV…
+
+**Barra Analysis → Export results to CSV…**
+
+Exporta los resultados de la última simulación a dos archivos CSV: uno para nudos y otro para tuberías. Es el método estándar para llevar los resultados a Excel, Python, R u otras herramientas de análisis externo.
+
+> Solo disponible si existe un archivo `.out` de simulación para el escenario activo.
+
+### Opciones del diálogo
+
+| Opción | Descripción |
+|--------|-------------|
+| **Nodes CSV** | Ruta del archivo de salida para los resultados de nudos. Por defecto `{Red}_{Escenario}_Nodes.csv` en la carpeta `Results/`. |
+| **Links CSV** | Ruta del archivo de salida para los resultados de tuberías. Por defecto `{Red}_{Escenario}_Links.csv`. |
+| **List separator** | Separador de campos (detectado automáticamente del sistema regional; habitual `;` en locales europeas). |
+| **Decimal separator** | Separador decimal (detectado del sistema; habitual `,` en locales europeas). |
+
+### Contenido de los archivos
+
+**Nodes CSV** — una fila por instante de tiempo por nudo, con columnas:
+
+`Time | ID | Pressure | Head | Demand | Quality`
+
+**Links CSV** — una fila por instante de tiempo por tubería/válvula/bomba, con columnas:
+
+`Time | ID | Status | Flow | Velocity | HeadLoss | UnitHdLoss | FricFactor | ReactRate | Quality`
+
+> Los separadores se adaptan a la configuración regional del sistema operativo para que el archivo se abra correctamente en Excel sin necesidad de conversión.
