@@ -49,7 +49,7 @@
 
 ## 🔍 Queries
 * [🗺️ Queries](consultas/README.md)
-    * [Element Explorer](consultas/element-explorer.md)
+    * [Element Explorer](consultas/explorador-elementos.md)
     * [Mapas temáticos](consultas/mapas-tematicos.md)
     * [Consultas por propiedades](consultas/consultas-propiedades.md)
     * [Estadísticas](consultas/estadisticas.md)
