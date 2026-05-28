@@ -81,7 +81,7 @@ Herramientas para garantizar la integridad topológica y de atributos del modelo
 | **Verificar diámetros** | Revisa que los diámetros estén dentro de rangos válidos |
 | **Verificar materiales** | Detecta tuberías sin material asignado |
 | **Verificar fechas** | Comprueba coherencia en las fechas de instalación |
-| **Sectores hidráulicos** | Calcula y visualiza los sectores de la red (Tipos A, B, C y D) |
+| **Sectores hidráulicos** | Calcula y visualiza los sectores de la red (H-Q, H-nQ, nH-Q, nH-nQ) según su relación con fuentes y nudos de demanda |
 
 ---
 
@@ -96,10 +96,10 @@ Utilidades para automatizar tareas de preparación y gestión del modelo.
 | **Asignar rugosidades** | Calcula el coeficiente de rugosidad a partir del material y la antigüedad |
 | **Convertir rugosidades** | Transforma los coeficientes de rugosidad entre fórmulas (D-W ↔ H-W ↔ C-M) |
 | **Gestor de demandas** | Distribuye consumos entre nudos desde polígonos de área o puntos georeferenciados |
-| **Constructor de escenarios** | Crea variantes del modelo activando/desactivando tuberías (cerradas) |
+| **Constructor de escenarios** | Exporta e importa en bloque parámetros del modelo (rugosidades, demandas, cotas, estados, calidades) para gestionar variantes sin duplicar proyectos |
 | **Segmentos aislados** | Calcula los segmentos que quedarían aislados al cerrar cada válvula de corte |
 | **Sectores de demanda** | Genera sectores basados en la demanda y patrones de consumo |
-| **Árbol de mínimo coste** | Calcula el árbol de mínima longitud que conecta todos los nudos |
+| **Árbol de mínimo coste** | Calcula el árbol de expansión de mínima resistencia hidráulica desde un nudo origen seleccionado |
 
 ---
 
