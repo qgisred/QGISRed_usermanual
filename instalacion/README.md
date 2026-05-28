@@ -1,13 +1,24 @@
 # 💻 Instalación de QGISRed
 
-Para empezar a usar QGISRed, necesitas tener instalado **QGIS (v3.2 o superior)** en un entorno **Windows**.
-
-### Secciones de esta guía:
-*   [Requisitos del sistema](requisitos.md)
-*   [Instalación desde repositorio](desde-repositorio.md)
-*   [Instalación desde ZIP local](desde-archivo-local.md)
-*   [Dependencias necesarias](dependencias.md)
+QGISRed es un plugin gratuito para QGIS que se instala en pocos minutos. Hay dos métodos: desde el repositorio oficial de QGIS (recomendado) o desde un archivo ZIP local.
 
 ---
-> ❗ **IMPORTANTE**:
-> QGISRed requiere **.NET Framework 4.5** o superior para funcionar correctamente.
+
+## Requisitos previos
+
+| Requisito | Versión mínima |
+|-----------|---------------|
+| **Sistema operativo** | Windows (x86 o x64) |
+| **QGIS** | 3.28 o superior (compatible hasta 4.x) |
+| **.NET Framework** | 4.8 |
+
+> QGISRed solo está disponible para **Windows**. El motor de cálculo (GISRed libraries) se basa en DLLs compiladas en .NET y no tiene versión nativa para Linux o macOS.
+
+---
+
+## En esta sección
+
+* [Requisitos del sistema](requisitos.md) — detalles de compatibilidad y verificación previa
+* [Instalación desde repositorio](desde-repositorio.md) — método recomendado, con actualizaciones automáticas
+* [Instalación desde ZIP local](desde-archivo-local.md) — para versiones específicas o sin acceso al repositorio
+* [Gestión de dependencias](dependencias.md) — qué son las GISRed libraries y cómo se instalan
