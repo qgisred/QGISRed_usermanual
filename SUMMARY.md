@@ -47,8 +47,8 @@
     * [Demandas y escenarios](herramientas/demandas-escenarios.md)
     * [Sectores de demanda y árbol](herramientas/sectores-arbol.md)
 
-## 🔍 Consultas
-* [🗺️ Consultas y Análisis Espacial](consultas/README.md)
+## 🔍 Queries
+* [🗺️ Queries](consultas/README.md)
     * [Buscar elemento por ID](consultas/buscar-por-id.md)
     * [Propiedades del elemento](consultas/propiedades-elemento.md)
     * [Mapas temáticos](consultas/mapas-tematicos.md)
