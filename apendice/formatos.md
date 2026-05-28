@@ -1,24 +1,43 @@
-# Formatos de Datos y Archivos DBF
+# Formatos y Gestión DBF
 
-Para los usuarios avanzados que prefieran editar los datos directamente desde las tablas de QGIS o archivos externos, aquí se detallan los formatos técnicos requeridos.
+Referencia para usuarios que editen los datos del proyecto directamente en las tablas de atributos de QGIS o desde herramientas externas, sin pasar por los diálogos de QGISRed.
 
-### Formato de Fechas
-El campo `InstalDate` en la capa de tuberías debe seguir estrictamente el formato:
-**`yyyyMMdd`**
-*   **yyyy**: Año (4 dígitos).
-*   **MM**: Mes (2 dígitos, con cero inicial si es necesario).
-*   **dd**: Día (2 dígitos).
-*   *Ejemplo*: `20230715` para el 15 de julio de 2023.
+---
 
-### Gestión de Patrones y Curvas (DBF)
-Los datos de patrones y curvas se almacenan en tablas `.dbf`. Al editarlas manualmente ten en cuenta:
-*   **Orden**: Existe un campo de orden que indica la posición del factor dentro de la serie.
-*   **Separadores**: Si editas fuera de QGIS, asegúrate de mantener la coherencia con el separador decimal (punto).
+## Formato de fechas
 
-### Gestión de Reglas (Rules)
-Las reglas en las tablas de atributos pueden aparecer desordenadas. Para visualizarlas correctamente, ordena la tabla por estas columnas en este orden:
-1.  **RuleOrder**: Agrupa todas las líneas de una misma regla.
-2.  **LineOrder**: Define el orden lógico de las condiciones (IF, AND, OR, THEN, ELSE).
+El campo `InstalDate` de la capa `Pipes` almacena la fecha de instalación como cadena de texto con el formato:
 
-### Campo "Name"
-QGISRed añade una columna `Name` a las reglas y controles. Este campo no afecta a la simulación pero permite identificar visualmente la función de cada línea en el formulario del plugin.
+```
+yyyyMMdd
+```
+
+| Componente | Descripción | Ejemplo |
+|------------|-------------|---------|
+| `yyyy` | Año (4 dígitos) | `2023` |
+| `MM` | Mes (2 dígitos, con cero inicial) | `07` |
+| `dd` | Día (2 dígitos, con cero inicial) | `15` |
+
+**Ejemplo correcto**: `20230715` (15 de julio de 2023)
+
+Si el valor no sigue este formato exacto, la herramienta **Check pipe installation dates** (barra Debug) lo marcará como incidencia y la herramienta **Set roughness coefficients** (barra Tools) no podrá calcular la rugosidad por envejecimiento para esa tubería.
+
+---
+
+## Patrones y curvas (DBF)
+
+Los patrones de demanda y las curvas (H-Q, eficiencia, volumen) se almacenan en tablas DBF independientes. Si los editas directamente fuera de QGIS:
+
+- **Separador decimal**: usa siempre el **punto** (`.`), independientemente de la configuración regional del sistema. Las comas como separador decimal provocan errores de lectura.
+- **Campo de orden**: cada tabla tiene un campo numérico de orden (`Order` o similar) que determina la secuencia de los puntos o factores dentro de la serie. No alteres este campo ni dejes huecos en la numeración.
+
+---
+
+## Reglas (Rules)
+
+Las reglas de control se almacenan como registros individuales en la tabla DBF de reglas. Cada regla ocupa varias filas (una por línea lógica: IF, AND, OR, THEN, ELSE). Si visualizas la tabla fuera del gestor de reglas de QGISRed, ordena las filas por estas dos columnas en este orden para que las reglas sean legibles:
+
+1. **`RuleOrder`** — agrupa todas las líneas de una misma regla.
+2. **`LineOrder`** — define el orden lógico de las condiciones dentro de cada regla.
+
+El campo **`Name`** almacena una etiqueta descriptiva visible en el gestor de reglas. No afecta a la simulación y puede dejarse vacío.
