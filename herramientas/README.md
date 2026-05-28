@@ -37,7 +37,6 @@ La barra **Tools** agrupa las herramientas de procesamiento masivo: cálculo aut
 
 ## En esta sección
 
-* [Longitudes y elevaciones](elevacion.md) — cálculo de longitudes y asignación de cotas desde MDT
-* [Rugosidades](rugosidad.md) — asignación por envejecimiento y conversión entre fórmulas
-* [Gestor de demandas](demandas.md) — asignación masiva de demandas desde capas externas
-* [Escenarios y análisis](escenarios.md) — escenarios, segmentos aislados, sectores de demanda y árbol
+* [Propiedades hidráulicas](propiedades-hidraulicas.md) — longitudes, elevaciones, rugosidad por envejecimiento y conversión entre fórmulas
+* [Demandas y escenarios](demandas-escenarios.md) — asignación masiva de demandas, gestión de escenarios y segmentos aislados
+* [Sectores de demanda y árbol](sectores-arbol.md) — sectorización por caudalímetros y árbol de mínimo coste

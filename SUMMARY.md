@@ -43,10 +43,9 @@
 
 ## 🔧 Tools
 * [🔧 Tools](herramientas/README.md)
-    * [Longitudes y elevaciones](herramientas/elevacion.md)
-    * [Rugosidades](herramientas/rugosidad.md)
-    * [Gestor de demandas](herramientas/demandas.md)
-    * [Escenarios y análisis](herramientas/escenarios.md)
+    * [Propiedades hidráulicas](herramientas/propiedades-hidraulicas.md)
+    * [Demandas y escenarios](herramientas/demandas-escenarios.md)
+    * [Sectores de demanda y árbol](herramientas/sectores-arbol.md)
 
 ## 🔍 Consultas
 * [🗺️ Consultas y Análisis Espacial](consultas/README.md)
