@@ -8,49 +8,41 @@ Mantente al día con las últimas mejoras de QGISRed.
 *Esta versión ha sido financiada por el [Banco Interamericano de Desarrollo (BID)](https://www.iadb.org/es) a través del contrato C-RG-T4041-P001.*
 
 **Novedades**:
-*   Mejoras en el Gestor de Proyectos: nuevos botones para mover y exportar proyectos, y nuevas opciones para renombrar proyectos.
-*   Identificación de todas las capas gestionadas por QGISRed mediante un ID propio en lugar del nombre, lo que permite trabajar en varios idiomas.
-*   Revisión de los símbolos de mapa, etiquetas y avisos asociados a todas las capas gestionadas por QGISRed.
-*   Almacenamiento de los estilos de todas las capas en archivos `.qml` a tres niveles: por defecto, nivel de usuario y nivel de proyecto.
-*   Incrustación de símbolos en los archivos de estilo `.qml` para evitar dependencias de ruta.
-*   Revisión de todas las herramientas de edición gráfica para un funcionamiento más fluido y robusto.
-*   Posibilidad de definir una cuadrícula de fondo para crear trazados de tuberías con geometría regular.
-*   Al crear una nueva tubería, si uno de sus extremos solapa el trazado de una existente, se crea automáticamente una conexión en T.
-*   El símbolo de demandas múltiples se ha sustituido por un doble círculo.
-*   Cada herramienta de edición o interacción con el mapa tiene ahora su propio icono asociado al cursor, facilitando identificar la herramienta activa.
-*   Mayor integración del editor de propiedades de elementos, manteniendo las propiedades de capa y actualizando los datos en todas las ventanas afectadas, incluida la tabla de atributos.
-*   Almacenamiento en una tabla dedicada de todas las magnitudes gestionadas por QGISRed, especificando las unidades y decimales a mostrar según el sistema de unidades y el caso.
-*   Nuevo Editor de Leyendas propio para personalizar rangos, clases, colores y tamaños de todas las leyendas gestionadas por QGISRed, con asistentes de configuración automática.
-*   Reorganización de las capas del grupo Queries y almacenamiento de los archivos SHP correspondientes en las carpetas del proyecto.
-*   Nueva barra de herramientas Queries con todas las opciones de consulta de datos y resultados.
-*   Nueva herramienta para localizar cualquier elemento en el mapa por su ID e identificar sus elementos conectados con opción de navegación entre ellos.
-*   Nuevo panel para visualizar datos y resultados de cualquier elemento de red seleccionado, sincronizado con el instante de simulación activo.
-*   Nuevo diálogo para crear mapas temáticos de propiedades de los distintos tipos de elementos gestionados por QGISRed.
-*   Nuevo panel para localizar en el mapa los elementos que cumplen criterios sobre datos o resultados, sincronizado con el instante de simulación activo.
-*   Mejora del formato de exportación del archivo INP, equiparable al exportado por el Toolkit de EPANET.
-*   Sustitución del motor de cálculo EPANET 2.2 por la nueva versión 2.3, hasta la revisión 2.3.5.
-*   Incorporación del informe de estado (Status Report) al panel de resultados en una nueva pestaña siempre accesible.
-*   Lectura de resultados de simulación directamente desde los archivos binarios de EPANET para una navegación más rápida y eficiente.
-*   Exportación de todos los resultados de simulación a un archivo CSV estructurado.
-*   Nueva opción para visualizar diversas estadísticas de los resultados a lo largo de todo el período de simulación.
-*   Nueva ventana para mostrar curvas de evolución temporal de cualquier variable de un elemento. Posibilidad de superponer varias curvas de la misma o distinta magnitud.
-*   Revisión del algoritmo de asignación de demandas puntuales en el Gestor de Demandas, con carga automática de la capa de enlaces y una nueva capa de puntos de demanda.
-*   Revisión de la herramienta de identificación de sectores hidráulicos y detección de puntos de consumo aislados.
-*   Revisión del algoritmo de identificación de segmentos aislados y detección de demandas aisladas.
-*   Nuevas opciones de Gemelo Digital a nivel de proyecto para trasladar demandas de acometidas a nudos y clasificarlas por patrones.
-*   Reescritura del código del plugin para evitar archivos de gran tamaño y mejorar la trazabilidad, el mantenimiento y la escalabilidad.
-*   Compatibilidad de QGISRed 0.18 con las nuevas versiones de QGIS 4.0.
-*   Traducción completa al español de todos los diálogos, paneles, mensajes y nombres de capa gestionados por QGISRed.
-*   Rediseño de todos los iconos gestionados por QGISRed con una apariencia más uniforme y atractiva.
-*   Manual de usuario provisional en inglés y español alojado en GitBook para consulta en línea.
-*   Nuevo sistema de notificaciones para alertar a los usuarios sobre nuevas versiones, cursos, actualizaciones del manual, etc.
+*   Mejoras en el Gestor de Proyectos. Nuevos botones para Mover y Exportar proyectos, y nuevas opciones para Renombrar proyectos.
+*   Identificación de todas las capas gestionadas por QGISRed mediante un Id propio, en lugar de hacerlo por el nombre, lo que permite trabajar en varios idiomas.
+*   Revisión de los símbolos, etiquetas y avisos del mapa asociados a todas las capas gestionadas por QGISRed.
+*   Mayor integración del Editor de Propiedades de los Elementos, manteniendo las propiedades de las capas, y el refresco de los datos en todas las ventanas afectadas, incluida la tabla de atributos.
+*   Almacenamiento del estilo de todas las capas gestionadas por QGISRed en ficheros .qml a tres niveles: por defecto, nivel de usuario y nivel de proyecto.
+*   Almacenamiento en una tabla propia de todas las magnitudes manejadas por QGISRed, especificando las unidades y decimales a mostrar en los distintos sistemas de unidades y según la casuística.
+*   Creación de un Editor de Leyendas propio para personalizar rangos o clases, colores y tamaños de todas las leyendas manejadas por QGISRed.
+*   Asistentes para personalizar las leyendas automáticamente.
+*   Adición de un nuevo menú y una nueva barra de herramientas para alojar las nuevas opciones orientadas a realizar consultas sobre datos y resultados.
+*   Reorganización de las capas del grupo de Consultas, y del almacenamiento de los ficheros shp correspondientes en la estructura de carpetas del proyecto.
+*   Nueva herramienta para localizar en el mapa cualquier elemento a través de su Id e identificar los elementos conectados, con la opción de navegar a través de los mismos.
+*   Nuevo panel para observar los datos y resultados de cualquier elemento de la red seleccionado. Sincronización de los resultados con el instante actual de la simulación.
+*   Nuevo diálogo para crear mapas temáticos de algunas magnitudes asociadas a los distintos tipos de elementos manejados por QGISRed.
+*   Nuevo panel para localizar en el mapa los elementos que cumplen determinados criterios en relación a los datos o los resultados. Sincronización con los resultados para el instante actual de la simulación.
+*   Mejora del formato en que se exporta el fichero INP desde QGISRed, similar al que se exportaría desde la Toolkit de EPANET.
+*   Sustitución del motor de cálculo de EPANET 2.2 por la nueva versión 2.3, hasta la revisión más reciente 2.3.5.
+*   Lectura de los resultados de una simulación directamente desde los ficheros binarios de EPANET para una navegación más rápida y ágil.
+*   Incorporación del Informe de Estado al panel de resultados en una nueva pestaña, siempre accesible.
+*   Exportación de todos los resultados de una simulación a un fichero CSV estructurado.
+*   Nueva opción para mostrar diversas estadísticas sobre los resultados a lo largo de todo el periodo de simulación.
+*   Nueva ventana para mostrar la curva de evolución en el tiempo de cualquier magnitud de un elemento a lo largo del periodo de simulación. Posibilidad de superponer varias curvas para la misma o distinta magnitud.
+*   Mejoras en el Constructor de Demandas para las demandas puntuales. Revisión de los algoritmos y carga automática de los enlaces. Nuevo tema para los puntos de demanda.
+*   Revisión de la herramienta de identificación de los sectores hidráulicos y detección de los consumos aislados.
+*   Revisión del algoritmo para identificar cerradas. Detección de los consumos aislados.
+*   Nuevas opciones a nivel de proyecto para trasladar las demandas de las acometidas a los nudos. Clasificación de las demandas por patrones.
+*   Compatibilización de la versión 0.18 con las nuevas versiones de QGIS 4.0.
+*   Traducción de todos los diálogos, paneles, mensajes y nombres de capas de QGISRed al idioma español.
+*   Rediseño de todos los iconos manejados por QGISRed con un aspecto más uniforme y agradable.
+*   Alojamiento en web del manual provisional de QGISRed en inglés y español para su consulta on-line a través de la plataforma colaborativa GitBook.
+*   Mención al Banco Interamericano de Desarrollo (BID) por el soporte financiero a todas las mejoras realizadas en la presente versión 0.18.
 
 **Correcciones**:
-*   Corregido error al cargar datos de campo relacionado con el separador decimal.
-*   Corregido error que impedía cancelar la demanda de zonas aisladas.
-*   Limitado el tamaño del campo `Description` usado para informar sobre las demandas de acometidas cargadas en cada nudo.
-*   Corregido error por el que el final del informe de EPANET no aparecía en ciertos casos.
-*   Corregido error al tener capas abiertas en varias aplicaciones simultáneamente (p. ej., dos ventanas de QGIS).
+*   Resuelto un problema al cargar los datos de campo relacionado con el separador decimal.
+*   Corregido un error que impedía cancelar las demandas de las zonas que quedan aisladas.
+*   Limitación del tamaño del campo Descripción, usado para informar sobre las demandas de las acometidas cargadas a cada nudo.
 
 ---
 
