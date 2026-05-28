@@ -66,13 +66,7 @@
     * [Acometidas y Válvulas de Corte](gemelo-digital/acometidas.md)
     * [Sensores y Medidores](gemelo-digital/sensores.md)
 
-## 🎓 Tutoriales
-* [🎓 Ejemplos Prácticos](ejemplos/README.md)
-    * [Ejemplo 1: Desde INP](ejemplos/ejemplo-1.md)
-    * [Ejemplo 2: Creación Manual](ejemplos/ejemplo-2.md)
-
 ## 📂 Apéndice Técnico
-* [🏗️ Lista de Materiales](apendice/materiales.md)
 * [🔢 Formatos y Gestión DBF](apendice/formatos.md)
 
 ---
