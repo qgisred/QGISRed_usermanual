@@ -1,15 +1,15 @@
 # Gestión de Dependencias
 
-QGISRed necesita un conjunto de librerías de cálculo externas llamadas **GISRed libraries** para poder ejecutar la mayor parte de sus herramientas. Estas librerías son DLLs compiladas en .NET que contienen el motor hidráulico (basado en el toolkit de EPANET 2.3) y los algoritmos de procesamiento geoespacial.
+QGISRed necesita un conjunto de librerías de cálculo externas llamadas **dependencias** para poder ejecutar la mayor parte de sus herramientas. Estas librerías son DLLs compiladas en .NET que contienen el motor hidráulico (basado en el toolkit de EPANET 2.3) y los algoritmos de procesamiento geoespacial.
 
 ---
 
 ## Primera instalación
 
-La primera vez que intentas usar cualquier herramienta de QGISRed, el plugin detecta que las GISRed libraries no están instaladas y muestra un diálogo de confirmación:
+La primera vez que intentas usar cualquier herramienta de QGISRed, el plugin detecta que las dependencias no están instaladas y muestra un diálogo de confirmación:
 
 ![Diálogo de instalación de dependencias](../assets/images/instalacion/dialogo-dependencias.png)
-*Diálogo de instalación de dependencias: QGISRed solicita permiso para descargar las GISRed libraries.*
+*Diálogo de instalación de dependencias: QGISRed solicita permiso para descargar las dependencias.*
 
 - **Sí**: QGISRed descarga e instala las libraries automáticamente. La descarga requiere conexión a internet y puede tardar unos segundos según la velocidad de la conexión.
 - **No**: La herramienta no se ejecuta. El diálogo volverá a aparecer la próxima vez que intentes usar el plugin.
@@ -20,7 +20,7 @@ La primera vez que intentas usar cualquier herramienta de QGISRed, el plugin det
 
 ## Dónde se instalan
 
-Las GISRed libraries se almacenan en:
+Las dependencias se almacenan en:
 
 ```
 C:\Users\{tu_usuario}\AppData\Roaming\QGISRed\
@@ -32,7 +32,7 @@ Puedes acceder a esta carpeta escribiendo `%APPDATA%\QGISRed` directamente en la
 
 ## Actualización de dependencias
 
-Cuando se publica una nueva versión de QGISRed que incluye una versión actualizada de las GISRed libraries, el plugin lo detecta automáticamente al arrancar y propone la actualización con el mismo diálogo de confirmación.
+Cuando se publica una nueva versión de QGISRed que incluye una versión actualizada de las dependencias, el plugin lo detecta automáticamente al arrancar y propone la actualización con el mismo diálogo de confirmación.
 
 ---
 

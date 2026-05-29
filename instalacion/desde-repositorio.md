@@ -18,7 +18,7 @@ Al terminar, aparecerán en QGIS la barra principal de QGISRed y el menú **QGIS
 
 ## Primera ejecución
 
-La primera vez que uses cualquier herramienta del plugin, QGISRed detecta que las **GISRed libraries** (el motor de cálculo) no están instaladas y muestra un diálogo de instalación. Consulta [Gestión de dependencias](dependencias.md) para más detalles.
+La primera vez que uses cualquier herramienta del plugin, QGISRed detecta que las **dependencias** no están instaladas y muestra un diálogo de instalación. Consulta [Gestión de dependencias](dependencias.md) para más detalles.
 
 ---
 

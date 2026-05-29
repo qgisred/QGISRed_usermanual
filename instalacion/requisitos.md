@@ -42,6 +42,6 @@ En Windows 10 versión 1903 o superior, .NET Framework 4.8 viene preinstalado. E
 
 ## Conexión a internet
 
-Necesaria **la primera vez** que se usa el plugin, para descargar las GISRed libraries (las DLLs del motor de cálculo). Las descargas posteriores (actualizaciones del plugin) también requieren conexión.
+Necesaria **la primera vez** que se usa el plugin, para descargar las dependencias (las DLLs del motor de cálculo). Las descargas posteriores (actualizaciones del plugin) también requieren conexión.
 
 Una vez instaladas las dependencias, QGISRed puede funcionar **sin conexión a internet**.

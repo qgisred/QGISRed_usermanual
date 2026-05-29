@@ -36,5 +36,5 @@ QGIS mostrará un aviso indicando que el complemento no procede del repositorio 
 ## Notas
 
 - Si ya tienes una versión anterior de QGISRed instalada, la instalación desde ZIP la reemplaza. Los proyectos existentes no se ven afectados.
-- Las **GISRed libraries** (motor de cálculo) no están incluidas en el ZIP del plugin. Se descargan por separado la primera vez que usas el plugin, igual que en la instalación desde repositorio. Si el equipo no tiene conexión a internet, consulta la sección [Gestión de dependencias](dependencias.md) para ver cómo instalarlas manualmente.
+- Las **dependencias** no están incluidas en el ZIP del plugin. Se descargan por separado la primera vez que usas el plugin, igual que en la instalación desde repositorio. Si el equipo no tiene conexión a internet, consulta la sección [Gestión de dependencias](dependencias.md) para ver cómo instalarlas manualmente.
 - Esta instalación **no recibe actualizaciones automáticas**. Para actualizar, tendrás que repetir el proceso con el ZIP de la versión nueva.
