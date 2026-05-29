@@ -21,14 +21,14 @@ El desarrollo se enmarca dentro de las actividades de investigación y transfere
 | Entidad | Logo |
 | :--- | :--- |
 | **Portal QGISRed** | [![Logo QGISRed](../assets/images/creditos/logo-qgisred.png)](http://qgisred.upv.es) |
-| **REDHISP** | [![Logo REDHISP](../assets/images/creditos/logo-redhisp.png)](http://www.redhisp.upv.es) |
+| **REDHISP** | ![Logo REDHISP](../assets/images/creditos/logo-redhisp.png) |
 | **IIAMA** | [![Logo IIAMA](../assets/images/creditos/logo-iiama.png)](http://www.iiama.upv.es) |
 | **UPV** | [![Logo UPV](../assets/images/creditos/logo-upv.png)](http://www.upv.es) |
 
 ### Colaboradores
 | Entidad | Logo |
 | :--- | :--- |
-| **WaterPi** | [![Logo WaterPi](../assets/images/creditos/logo-waterpi.png)](http://www.waterpi.com) |
+| **WaterPi** | ![Logo WaterPi](../assets/images/creditos/logo-waterpi.png) |
 
 ---
 
