@@ -20,7 +20,7 @@ El desarrollo se enmarca dentro de las actividades de investigación y transfere
 
 | Entidad | Logo |
 | :--- | :--- |
-| **Portal QGISRed** | [![Logo QGISRed](../assets/images/creditos/logo-qgisred-portal.png)](http://qgisred.upv.es) |
+| **Portal QGISRed** | [![Logo QGISRed](../assets/images/creditos/logo-qgisred.png)](http://qgisred.upv.es) |
 | **REDHISP** | [![Logo REDHISP](../assets/images/creditos/logo-redhisp.png)](http://www.redhisp.upv.es) |
 | **IIAMA** | [![Logo IIAMA](../assets/images/creditos/logo-iiama.png)](http://www.iiama.upv.es) |
 | **UPV** | [![Logo UPV](../assets/images/creditos/logo-upv.png)](http://www.upv.es) |
@@ -38,7 +38,7 @@ Las versiones de QGISRed a partir de la **0.18** están financiadas por el **Ban
 
 | Entidad | Logo |
 | :--- | :--- |
-| **[Banco Interamericano de Desarrollo (BID)](https://www.iadb.org/es)** | [![Logo BID](../assets/images/creditos/logo-bid.png)](https://www.iadb.org/es) |
+| **Banco Interamericano de Desarrollo (BID)** | [![Logo BID](../assets/images/creditos/logo-bid.png)](https://www.iadb.org/es) |
 
 ---
 
