@@ -70,7 +70,19 @@ El caso más habitual: tienes un modelo EPANET existente y quieres trabajar con 
 
 ### Importar desde SHPs externos
 
-Si dispones de capas SHP con la geometría de la red pero sin la estructura interna de QGISRed, el importador puede intentar mapear las columnas de atributos a los campos esperados por el plugin. Este proceso requiere configurar manualmente la correspondencia de campos.
+Si dispones de capas SHP con la geometría de la red pero sin la estructura interna de QGISRed, el importador permite mapear las columnas de atributos de cada capa a los campos esperados por el plugin.
+
+Para cada tipo de elemento puedes seleccionar la capa SHP correspondiente y asignar sus campos a los atributos del modelo. Los campos reconocidos automáticamente (si el nombre coincide) se preseleccionan:
+
+**Tuberías** — campos mapeables: ID, Longitud, Diámetro, Rugosidad, Coef. pérdidas, **Material**, Fecha instalación, Estado inicial, Coef. reacción en masa, Coef. reacción en pared, Tag, Descripción.
+
+**Acometidas** — campos mapeables: ID, Longitud, Diámetro, Rugosidad, **Material**, Demanda base, Patrón, Activa, Fecha instalación, Tag, Descripción.
+
+Los demás elementos (válvulas, bombas, depósitos, embalses, nudos, válvulas de aislamiento, medidores) disponen de sus propios conjuntos de campos mapeables.
+
+Cuando la importación crea un proyecto nuevo, también se solicita el **catálogo de materiales** (igual que al crear un proyecto desde cero) y los parámetros básicos de EPANET (unidades y fórmula de pérdida de carga). Si se importa sobre un proyecto ya existente, estos parámetros se omiten.
+
+> 💡 El campo **Material** de tuberías y acometidas se cruza con el catálogo de materiales del proyecto para estimar automáticamente la rugosidad en función de la antigüedad de la tubería.
 
 ---
 

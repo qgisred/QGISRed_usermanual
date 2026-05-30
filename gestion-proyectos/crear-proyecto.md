@@ -36,9 +36,16 @@ En el mismo diálogo puedes configurar los parámetros básicos del modelo:
 |-----------|-------------|
 | **Unidades de caudal** | LPS (litros/segundo), GPM, CMH, etc. Determina si el proyecto trabaja en sistema SI o US |
 | **Fórmula de pérdida de carga** | Darcy-Weisbach (D-W), Hazen-Williams (H-W) o Chezy-Manning (C-M) |
-| **Modelo de calidad** | Ninguno, Cloro (Chemical), Edad del agua (Age) o Trazador (Trace) |
 
 Estos parámetros se pueden cambiar después desde _Opciones del proyecto_, pero es recomendable establecerlos desde el principio porque afectan a las unidades que se muestran en todas las propiedades de la red.
+
+### 5. Catálogo de materiales
+
+Selecciona el **catálogo de materiales** que se usará en el proyecto. Este catálogo es un archivo `.dbf` que define los materiales de tubería disponibles (nombre, coeficiente de rugosidad inicial e incremento por envejecimiento).
+
+QGISRed busca los catálogos disponibles en las carpetas `materials` y `global_defaults` de `%APPDATA%\QGISRed\`. Si no hay ningún catálogo instalado, el desplegable aparecerá vacío y el proyecto se creará sin materiales predefinidos.
+
+> El catálogo de materiales se usa para estimar automáticamente la rugosidad de las tuberías en función de su material y antigüedad, lo que facilita la calibración del modelo hidráulico.
 
 ---
 
