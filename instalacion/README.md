@@ -8,7 +8,7 @@ QGISRed es un plugin gratuito para QGIS que se instala en pocos minutos. Hay dos
 
 | Requisito | Versión mínima |
 |-----------|---------------|
-| **Sistema operativo** | Windows (x86 o x64) |
+| **Sistema operativo** | Windows x64 |
 | **QGIS** | 3.28 o superior (compatible hasta 4.x) |
 | **.NET Framework** | 4.8 |
 

@@ -48,4 +48,9 @@ Significa que las libraries no se instalaron correctamente en sesiones anteriore
 
 **El equipo no tiene acceso a internet**
 
-Copia manualmente el contenido de la carpeta `%APPDATA%\QGISRed\` de otro equipo donde el plugin funcione correctamente (misma versión de QGISRed). La carpeta debe contener las DLLs con el mismo número de versión.
+Puedes instalar las dependencias sin conexión si dispones de los archivos necesarios:
+
+1. **ZIP de dependencias**: solicita a alguien con el plugin ya instalado el contenido de su carpeta `%APPDATA%\QGISRed\` (misma versión de QGISRed). Copia esos archivos en tu propia carpeta `%APPDATA%\QGISRed\`.
+2. **Instalador de .NET Framework 4.8.1**: descárgalo en otro equipo con internet o solicita el MSI a alguien. Ejecútalo antes de usar el plugin.
+
+Una vez copiadas las DLLs y con .NET Framework 4.8.1 instalado, el plugin funcionará sin haber requerido conexión a internet en ningún momento.
