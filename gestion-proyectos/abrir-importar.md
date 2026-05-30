@@ -64,9 +64,6 @@ El caso más habitual: tienes un modelo EPANET existente y quieres trabajar con 
 - Opciones de simulación (unidades, fórmula, tiempos, energía, calidad)
 - Demandas múltiples por nudo
 
-**Qué no se importa:**
-- Coordenadas de vértices intermedios si el INP no las incluye en la sección `[VERTICES]`
-- El archivo `.rpt` de resultados
 
 ### Importar desde SHPs externos
 
