@@ -24,7 +24,7 @@ La primera vez que uses cualquier herramienta del plugin, QGISRed detecta que la
 
 ## Actualizaciones automáticas
 
-QGIS comprueba periódicamente si hay versiones nuevas de los plugins instalados. Cuando haya una actualización de QGISRed disponible, aparecerá una notificación en la barra de menús de QGIS. Para actualizar:
+Al arrancar QGIS, QGISRed comprueba si hay una nueva versión disponible. Si existe, se abrirá automáticamente la ventana de noticias de QGISRed informando de la nueva versión. Para actualizar desde ahí:
 
 1. Ve a **Complementos → Administrar e instalar complementos…**
 2. Abre la pestaña **Actualizables**.

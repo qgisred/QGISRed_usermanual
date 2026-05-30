@@ -1,6 +1,6 @@
 # Gestión de Dependencias
 
-QGISRed necesita un conjunto de librerías de cálculo externas llamadas **dependencias** para poder ejecutar la mayor parte de sus herramientas. Estas librerías son DLLs compiladas en .NET que contienen el motor hidráulico (basado en el toolkit de EPANET 2.3) y los algoritmos de procesamiento geoespacial.
+QGISRed necesita un conjunto de librerías de cálculo externas **(las dependencias del plugin de QGISRed)** para poder ejecutar la mayor parte de sus herramientas. Estas librerías son DLLs compiladas en .NET que contienen el motor hidráulico (basado en el toolkit de EPANET 2.3) y los algoritmos de procesamiento geoespacial.
 
 ---
 
