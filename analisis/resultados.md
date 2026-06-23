@@ -6,13 +6,121 @@ Una vez completada la simulación, QGISRed ofrece dos herramientas complementari
 
 ## Panel de resultados (Results dock)
 
-El Results dock se ancla en la zona derecha de la pantalla. Contiene dos pestañas:
+El Results dock se ancla en la zona derecha de la pantalla. Contiene **tres pestañas**:
 
-- **Pestaña 0 — Resultados**: visualización interactiva sobre el mapa con selección de variable y navegación temporal.
-- **Pestaña 1 — Status Report**: informe de texto del motor EPANET (accesible también desde **Status report** en la barra).
+- **Results**: visualización interactiva sobre el mapa con selección de variable, navegación temporal y opciones de mapa.
+- **Report**: informe de texto del motor EPANET.
+- **Appearance**: configuración completa del aspecto visual de los resultados en el mapa.
 
 ![Panel de resultados con selector de variable y barra de tiempo](../assets/images/analisis/results-dock.png)
 *Results dock: selección de variable, modo de estadística y navegación por instantes de tiempo.*
+
+---
+
+### Pestaña Results
+
+#### Grupo Timing
+
+Muestra el instante de tiempo actual en formato `HH:MM:SS` (o en formato am/pm si está activo). Incluye botones para alternar entre formato civil y formato de tiempo transcurrido.
+
+Cuando está activo un modo de estadística (Maximum, Minimum…), el área de tiempo muestra el nombre y la descripción de la estadística en lugar del reloj.
+
+#### Navegación temporal (Time controls)
+
+| Control | Descripción |
+|---------|-------------|
+| **Slider de tiempo** | Desliza por los instantes del informe. |
+| **Combo de instantes** (`cbTimes`) | Lista desplegable con todos los instantes disponibles. |
+| **Botones de avance/retroceso** | Siguiente, anterior, inicio, fin. |
+| **Play / Play backward** | Animación automática hacia adelante o atrás. |
+| **Slider de velocidad** | Controla la velocidad de la animación (1–10). |
+| **Loop** | Repite la animación en bucle. |
+
+#### Reported Times y Statistics
+
+Dos combos situados bajo los controles de tiempo:
+
+| Combo | Descripción |
+|-------|-------------|
+| **Reported Times** (`cbResultTimes`) | Filtra qué instantes se muestran: Single Period, Step times o All calculation times. |
+| **Statistics** (`cbStatistics`) | Aplica una estadística sobre todos los períodos: Maximum, Minimum, Range, Average, StdDev, Warning. Cuando está activo, el reloj se sustituye por el nombre de la estadística. |
+
+#### Grupo Mapping — Nodes
+
+| Control | Descripción |
+|---------|-------------|
+| **Combo Nodes** (`cbNodes`) | Propiedad a visualizar en nudos: Pressure, Head, Demand, Quality. |
+| **Show Node Labels** | Muestra etiquetas con el tipo, el Id y el valor sobre cada nudo en el mapa. |
+| **Show Node Histogram** | Abre un histograma integrado en el dock con la distribución del valor actual en nudos. |
+| **Show Node Evolution** | Abre un mini-gráfico integrado con la evolución temporal del nudo seleccionado en el mapa. |
+
+#### Grupo Mapping — Links
+
+| Control | Descripción |
+|---------|-------------|
+| **Combo Links** (`cbLinks`) | Propiedad a visualizar en tuberías/válvulas/bombas: Flow, Velocity, HeadLoss, UnitHdLoss, FricFactor, Status, ReactRate, Quality. |
+| **Show Link Labels** | Muestra etiquetas con el tipo, el Id y el valor sobre cada tubería. |
+| **Show Flow Directions** | Añade flechas de sentido de flujo sobre las tuberías. |
+| **Show Link Histogram** | Histograma integrado en el dock con la distribución del valor actual en tuberías. |
+| **Show Link Evolution** | Mini-gráfico integrado con la evolución temporal de la tubería seleccionada en el mapa. |
+
+> El botón **Appearance** (icono en la cabecera del grupo Nodes) lleva directamente a la pestaña Appearance sin necesidad de navegar por las pestañas.
+
+---
+
+### Pestaña Report
+
+Muestra el informe de texto generado por el motor EPANET al finalizar la simulación. Incluye:
+
+- Balance de masa general de la red.
+- Lista de nudos con presión negativa o fuera de rango.
+- Advertencias de bombas operando fuera de su curva.
+- Estado de convergencia del cálculo hidráulico en cada paso.
+- Resumen de reacciones de calidad (si se simuló calidad).
+- En caso de error, el contenido completo del informe se muestra automáticamente aquí.
+
+> El informe de estado es el primer lugar donde mirar cuando una simulación produce resultados inesperados o no converge.
+
+---
+
+### Pestaña Appearance
+
+Concentra todas las opciones de presentación visual de los resultados en el mapa. Los ajustes se guardan automáticamente en `{Red}_Results_Config.cfg` dentro de la carpeta `Results/` del proyecto y se restauran en la siguiente sesión.
+
+#### Map Labels
+
+| Opción | Descripción |
+|--------|-------------|
+| **Font size (pt)** | Tamaño de la fuente de las etiquetas en el mapa (6–24 pt, por defecto 10). |
+| **Nodes / Links decimals** | Número de decimales mostrados en las etiquetas de nudos y tuberías respectivamente (0–6). El control se etiqueta con el nombre de la variable activa en ese momento. |
+| **Text color** | **Black**: texto negro siempre. **By range**: el color del texto sigue la paleta del rango de valores activo. |
+| **Show ID alongside value** | Añade el Id del elemento en la primera línea de la etiqueta. |
+
+#### Symbology
+
+| Opción | Descripción |
+|--------|-------------|
+| **Black border on nodes** | Añade un contorno negro a los marcadores de nudos para mejorar la visibilidad sobre fondos complejos. |
+| **Proportional to value** | Escala el tamaño de los nudos y el grosor de las tuberías linealmente con el valor representado. No aplica al campo Status. |
+| **Nodes factor** | Factor de escala base del tamaño de los marcadores de nudo (0.25–4.0, por defecto 1.0). |
+| **Links factor** | Factor de escala base del grosor de las tuberías (0.25–4.0, por defecto 1.0). |
+| **Arrows factor** | Factor de escala de las flechas de dirección de flujo (0.25–4.0, por defecto 1.0). |
+
+#### Map Background
+
+Permite fijar un color de fondo sólido para el lienzo del mapa mientras se visualizan resultados. El color se restaura al original al cerrarse el dock. El botón **×** elimina el color de fondo.
+
+#### Reset all
+
+Devuelve todos los parámetros de la pestaña Appearance a sus valores por defecto.
+
+---
+
+### Escenarios
+
+El dock soporta múltiples escenarios de resultado. Cada escenario se identifica por un nombre (por defecto `Base`) y se almacena como archivos `.out` / `.hyd` en la subcarpeta `Results/` del proyecto. El nombre del escenario activo aparece en el título del panel.
+
+---
 
 ### Propiedades disponibles
 
@@ -37,65 +145,6 @@ El Results dock se ancla en la zona derecha de la pantalla. Contiene dos pestañ
 | `Status` | Estado operacional (Open / Active / Closed) |
 | `ReactRate` | Tasa de reacción (modelos de calidad) |
 | `Quality` | Calidad del agua |
-
-### Navegación temporal
-
-El dock incluye una barra de tiempo con:
-
-- **Slider** y **combo de instantes** (`cbTimes`): permiten saltar a cualquier período de la simulación.
-- **Botones de avance/retroceso**: siguiente instante, instante anterior, ir al inicio, ir al final.
-
-### Modos de tiempo
-
-El selector `cbResultTimes` controla qué instantes se muestran:
-
-| Modo | Comportamiento |
-|------|----------------|
-| **Single Period** | Un único instante de tiempo fijo |
-| **Step times** | Avanza paso a paso por los instantes del informe |
-| **All calculation times** | Incluye todos los pasos de cálculo internos del solver |
-
-### Modos de estadística
-
-El selector `cbStatistics` aplica una estadística sobre todos los períodos de la simulación en lugar de mostrar un instante concreto:
-
-| Estadística | Significado |
-|-------------|-------------|
-| (Ninguna) | Valor en el instante seleccionado |
-| **Maximum** | Valor máximo de toda la simulación |
-| **Minimum** | Valor mínimo de toda la simulación |
-| **Range** | Diferencia entre máximo y mínimo |
-| **Average** | Valor medio de toda la simulación |
-| **StdDev** | Desviación estándar |
-| **Warning** | Marca los elementos que superan umbrales de aviso |
-
-### Escenarios
-
-El dock soporta múltiples escenarios de resultado. Cada escenario se identifica por un nombre (por defecto `Base`) y se almacena como archivos `.out` / `.hyd` en la subcarpeta `Results/` del proyecto. El nombre del escenario activo aparece en el título del panel.
-
-### Opciones de visualización
-
-El dock de resultados incluye opciones adicionales para el aspecto de los elementos en el mapa:
-
-| Opción | Descripción |
-|--------|-------------|
-| **Proportional to value** | Escala el tamaño de los nodos y el grosor de las tuberías linealmente con el valor representado. El slider de tamaño base controla el máximo. No aplica al campo Status. |
-| **Black border on nodes** | Añade un contorno negro a los marcadores de nodos para mejorar su visibilidad sobre fondos complejos. |
-
-### Etiquetas y tooltips en el mapa
-
-Las etiquetas visibles sobre el mapa muestran el tipo traducido y el Id del elemento en la primera línea (ej. "Junction J-01"), y el valor con sus unidades en la segunda. Cuando se muestra una estadística temporal (Mín/Máx), también se indica el instante correspondiente.
-
-El tooltip del mapa (al pasar el cursor sobre cualquier capa gestionada por QGISRed) muestra en negrita la variable seleccionada, el tipo y el Id del elemento, y el valor con su unidad según el CSV de unidades del proyecto. Los tooltips son visibles en **todas las capas activas**, independientemente de cuál esté seleccionada en la leyenda.
-
-### Evolución temporal rápida
-
-El dock de resultados incorpora dos checkboxes:
-
-- **Show Node Evolution**: abre un mini-gráfico integrado con la curva temporal del nudo seleccionado en el mapa.
-- **Show Link Evolution**: equivalente para tuberías, válvulas y bombas.
-
-Son una alternativa rápida al dock completo de Series Temporales cuando solo se necesita ver la evolución de un único elemento.
 
 ---
 
