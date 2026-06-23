@@ -42,6 +42,24 @@ Lanza la simulación EPANET con las opciones configuradas y carga los resultados
 
 Si la simulación detecta problemas (presiones negativas, nudos desconectados, bombas en cavitación), el informe de estado los registra con nivel de aviso.
 
+### Opciones del diálogo de progreso
+
+El diálogo de progreso incluye la casilla **"Do not show this progress window again"**. Si la marcas y la simulación finaliza correctamente, las ejecuciones siguientes lanzarán el cálculo directamente sin mostrar el diálogo.
+
+> Para volver a activar el diálogo de progreso, accede a las **Propiedades del Proyecto** y desmarca la opción *"Do not show progress window when running simulation"*.
+
+### Mensajes de estado durante la ejecución
+
+El diálogo de progreso informa de las distintas fases del cálculo:
+
+- **Saving results…**: indica que los resultados se están escribiendo en disco tras completarse el cálculo hidráulico.
+- Si los ficheros de resultados (`.out`, `.hyd`) están **bloqueados por otra aplicación** (por ejemplo, EPANET Desktop abierto con el mismo proyecto), el plugin lo detecta y notifica al usuario con un aviso específico.
+
+### Gestión de errores
+
+- Si EPANET devuelve un error durante el cálculo, el contenido del informe (`.rpt`) se muestra automáticamente en el log de incidencias sin necesidad de buscarlo manualmente.
+- Las excepciones inesperadas durante el proceso también se capturan y muestran en el log, evitando fallos silenciosos.
+
 ---
 
 ## Results browser

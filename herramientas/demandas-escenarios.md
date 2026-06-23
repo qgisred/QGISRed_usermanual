@@ -34,13 +34,46 @@ Asigna consumos a los nudos de la red de forma masiva a partir de capas SHP exte
 
 ### Resultado en el mapa
 
-La capa resultante se muestra con colores por categoría y etiquetas con el valor de demanda. Los nudos sin categoría aparecen en naranja (`Undefined`).
+La capa resultante se muestra con colores por categoría y etiquetas con el valor de demanda. Los nudos sin categoría asignada aparecen en naranja bajo el grupo **Uncategorized**.
 
 ### Limpieza de demandas
 
 El gestor permite borrar demandas existentes antes de asignar las nuevas:
 - **Borrar demandas de nudos seleccionados**: elimina valores de `Demand` y entradas de `MultipleDemands`.
 - **Eliminar patrones huérfanos**: elimina patrones que ya no estén referenciados por ningún nudo.
+
+### Asignación de demanda desde capa de tramos
+
+Cuando se usa una capa de tramos (geometría de línea) para distribuir demandas mediante el campo `%Dem`, los registros sin ese campo relleno reciben automáticamente el porcentaje restante hasta completar el 100 %, distribuido de forma proporcional entre ellos.
+
+### Patrones por sectores
+
+La sección de patrones por sectores permite asignar un patrón de demanda a cada sector de la red. Dispone de **dos modos excluyentes**:
+
+| Modo | Descripción |
+|------|-------------|
+| **Importar tema de sectores externo** | Selecciona un SHP externo con botón `...` y elige los campos de Id de sector, Id de patrón y Prioridad desde los combos correspondientes. |
+| **Usar tema de sectores del proyecto** | Selecciona una capa de sectores ya cargada en QGIS. Se muestran los sectores con un combo por fila para elegir el patrón. Los nudos sin sector se agrupan en un sector extra. |
+
+### Eficiencia por sectores
+
+La sección de eficiencia hidráulica por sectores también presenta **dos modos excluyentes**:
+
+| Modo | Descripción |
+|------|-------------|
+| **Importar tema de eficiencia (SHP externo)** | Carga un SHP externo con los campos de Id de sector, eficiencia y prioridad. Opcionalmente, guarda el resultado como capa interna del proyecto con el botón **Import/Save**. Una vez guardado, la opción de importar queda bloqueada. |
+| **Usar tema de sectores propio del proyecto** | Selecciona una capa de sectores existente; el plugin identifica automáticamente los campos de eficiencia. |
+
+#### Correcciones de eficiencia y patrones
+
+Tras definir las eficiencias por sectores, el gestor ofrece opciones adicionales de corrección:
+
+- **Corregir eficiencias de categorías para cumplir la eficiencia de sectores**: ajusta proporcionalmente las eficiencias de cada categoría de demanda para que la eficiencia resultante en cada sector coincida con el objetivo declarado. Excluyente con la corrección hacia eficiencia global.
+- **Corregir patrones de sectores para cumplir el patrón global**: tras asignar patrones por sectores, corrige esos patrones para que su combinación cumpla con el patrón global previamente declarado. Las opciones de corrección se desglosan por ámbito del patrón (global o por categoría).
+
+### Capa de acometidas aisladas con demanda
+
+Al ejecutar el análisis de segmentos aislados o de sectores hidráulicos, el plugin genera una capa adicional con las **acometidas que tienen demanda asignada pero pertenecen a sectores hidráulicos aislados** (sin suministro). Esta capa se representa con marcadores circulares de contorno rojo e incluye los campos `Id`, `BaseDemand` y `Category`.
 
 ---
 

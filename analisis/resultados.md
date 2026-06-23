@@ -73,6 +73,30 @@ El selector `cbStatistics` aplica una estadística sobre todos los períodos de 
 
 El dock soporta múltiples escenarios de resultado. Cada escenario se identifica por un nombre (por defecto `Base`) y se almacena como archivos `.out` / `.hyd` en la subcarpeta `Results/` del proyecto. El nombre del escenario activo aparece en el título del panel.
 
+### Opciones de visualización
+
+El dock de resultados incluye opciones adicionales para el aspecto de los elementos en el mapa:
+
+| Opción | Descripción |
+|--------|-------------|
+| **Proportional to value** | Escala el tamaño de los nodos y el grosor de las tuberías linealmente con el valor representado. El slider de tamaño base controla el máximo. No aplica al campo Status. |
+| **Black border on nodes** | Añade un contorno negro a los marcadores de nodos para mejorar su visibilidad sobre fondos complejos. |
+
+### Etiquetas y tooltips en el mapa
+
+Las etiquetas visibles sobre el mapa muestran el tipo traducido y el Id del elemento en la primera línea (ej. "Junction J-01"), y el valor con sus unidades en la segunda. Cuando se muestra una estadística temporal (Mín/Máx), también se indica el instante correspondiente.
+
+El tooltip del mapa (al pasar el cursor sobre cualquier capa gestionada por QGISRed) muestra en negrita la variable seleccionada, el tipo y el Id del elemento, y el valor con su unidad según el CSV de unidades del proyecto. Los tooltips son visibles en **todas las capas activas**, independientemente de cuál esté seleccionada en la leyenda.
+
+### Evolución temporal rápida
+
+El dock de resultados incorpora dos checkboxes:
+
+- **Show Node Evolution**: abre un mini-gráfico integrado con la curva temporal del nudo seleccionado en el mapa.
+- **Show Link Evolution**: equivalente para tuberías, válvulas y bombas.
+
+Son una alternativa rápida al dock completo de Series Temporales cuando solo se necesita ver la evolución de un único elemento.
+
 ---
 
 ## Series temporales (Time series…)
@@ -102,6 +126,15 @@ Activa una herramienta de selección interactiva que dibuja la evolución tempor
 - Por defecto se representa la propiedad activa en el Results dock para el tipo de elemento pulsado.
 - **Clic derecho** sobre un elemento: abre un menú contextual para elegir cualquier otra propiedad disponible para ese elemento sin cambiar la vista del Results dock.
 
+### Propiedades adicionales para depósitos
+
+Para el tipo de elemento **Tank** (depósito), están disponibles dos magnitudes adicionales:
+
+| Magnitud | Descripción |
+|----------|-------------|
+| **Volume** | Volumen almacenado en m³ (o ft³ según las unidades del proyecto). |
+| **TankSpill** | Caudal de desbordamiento. Solo es distinto de cero si el depósito tiene activada la opción de overflow en EPANET. |
+
 ### Configuración de curvas
 
 Desde el panel Time series puedes ajustar para cada curva:
@@ -111,6 +144,26 @@ Desde el panel Time series puedes ajustar para cada curva:
 - Marcadores: símbolo, tamaño, color, hueco.
 - Mostrar valores en cada punto de la curva.
 - Visibilidad (mostrar / ocultar sin borrar).
+
+### Sincronización con la tabla de valores
+
+Al mover el cursor sobre el gráfico, la fila correspondiente de la tabla de valores se resalta automáticamente en tiempo real.
+
+### Copiar tabla al portapapeles
+
+La función de copiar genera **dos filas de cabecera**: la primera con el nombre del elemento o magnitud y la segunda con la unidad. Facilita el pegado directo en hojas de cálculo.
+
+### Exportar e importar configuración del gráfico
+
+Los botones **Export chart configuration** e **Import chart configuration** guardan y recuperan la configuración completa de curvas, ejes y estilos en un archivo `.cfg`. También es posible exportar la configuración de la plantilla general (ejes, estilos) aunque no haya curvas cargadas, y aplicarla al importarla sobre un gráfico nuevo.
+
+### Múltiples ventanas de gráfico
+
+El botón **New chart window** abre una nueva ventana de Series Temporales independiente. Cada ventana tiene su propio contexto de curvas, propiedad y elementos seleccionados. Puedes mantener varias ventanas abiertas simultáneamente para comparar distintas variables o zonas de la red.
+
+### Sincronización del formato horario
+
+La columna "Hora del día" en la tabla de valores utiliza automáticamente el mismo formato (24 h o am/pm) que el panel de Resultados.
 
 ### Cierre
 

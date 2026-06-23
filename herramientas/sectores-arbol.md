@@ -47,3 +47,7 @@ El árbol resultante muestra qué camino seguiría el agua desde el nudo de orig
 - Detectar tuberías redundantes en la topología (no aparecen en el árbol porque hay un camino más corto).
 - Analizar la estructura de suministro en condiciones de emergencia con parte de la red cerrada.
 - Planificar esquemas de sectorización de presión.
+
+### Identificación del nodo raíz
+
+En la capa de nudos generada por el árbol, el nudo de origen (raíz) se identifica con el valor **"ROOT"** en el campo `NodeType`. El resto de nudos llevan su tipo EPANET habitual (Junction, Tank, Reservoir…). Esto permite crear reglas de simbología específicas para el nodo raíz directamente en QGIS.
