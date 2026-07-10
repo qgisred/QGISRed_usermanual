@@ -72,3 +72,19 @@ Si el proyecto tiene resultados de simulación cargados, el panel añade una sec
 - Al desactivar el botón, el cursor vuelve al modo de navegación estándar de QGIS.
 - Si haces clic en una zona sin elementos, el panel conserva la última selección.
 - El fondo del panel tiene un tinte amarillo claro para diferenciarlo del resto de paneles de QGIS.
+- Los clics sobre capas que no pertenecen al proyecto QGISRed activo (capas de fondo, capas auxiliares externas, etc.) son ignorados: el panel no actualiza su contenido.
+
+### Resolución del campo ID por capa
+
+QGISRed resuelve automáticamente el **nombre del campo identificador** de cada capa de la red mediante la función interna `getIdFieldName(layer)`. Esto permite que el plugin detecte correctamente el ID en capas con convenciones de nomenclatura distintas:
+
+| Tipo de capa | Campo ID típico |
+|--------------|-----------------|
+| Pipes | `PipeID` |
+| Junctions | `JunctionID` |
+| Tanks | `TankID` |
+| Reservoirs | `ReservoirID` |
+| Pumps | `PumpID` |
+| Valves | `ValveID` |
+
+Si el proyecto usa convenciones de nomenclatura personalizadas, la resolución automática evita errores de búsqueda o identificación. No es necesario configurar nada manualmente: el explorador detecta el campo correcto al activarse sobre cualquier capa de la red.

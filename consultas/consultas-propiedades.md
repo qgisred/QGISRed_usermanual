@@ -89,3 +89,7 @@ Si el proyecto tiene resultados de simulación cargados, los campos de resultado
 - La consulta no modifica ningún dato del modelo ni crea capas nuevas: solo cambia la simbología temporal.
 - El resaltado en magenta es visible sobre cualquier fondo de mapa.
 - Al cerrar el panel, el resaltado desaparece y la simbología vuelve al estado anterior.
+
+## Resolución del campo ID
+
+El panel utiliza la misma lógica de resolución automática del campo identificador que el Element Explorer (`getIdFieldName(layer)`). Los campos de consulta por ID (`PipeID`, `TankID`, etc.) se detectan automáticamente según el tipo de capa, por lo que las consultas sobre el campo `Id` funcionan correctamente independientemente del nombre real del campo en el shapefile del proyecto. Ver [Element Explorer](explorador-elementos.md) para más detalles.
