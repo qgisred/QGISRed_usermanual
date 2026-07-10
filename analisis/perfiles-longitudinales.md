@@ -6,6 +6,9 @@ El perfil longitudinal muestra la evolución de una variable hidráulica a lo la
 
 > **Requisito previo**: debe haberse ejecutado una simulación EPANET antes de abrir el perfil. Si no hay resultados disponibles, el plugin muestra el mensaje _"Run a simulation first to build a longitudinal profile."_
 
+![Dock de perfil longitudinal con recorrido dibujado en el mapa y gráfico de presión](../assets/images/analisis/perfil-longitudinal-dock.png)
+*Perfil longitudinal: recorrido resaltado en rojo en el mapa (izquierda) y gráfico de altura piezométrica + cota del terreno (derecha).*
+
 ---
 
 ## Abrir y construir el perfil

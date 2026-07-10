@@ -2,7 +2,10 @@
 
 **Barra Tools → Demand Sector Builder…**
 
-El **Demand Sector Builder** es un diálogo modal que permite crear y gestionar múltiples **sectorizaciones con nombre** de la red, cada una con sus propios sectores de demanda. Cada sectorización agrupa los nudos de la red en zonas según la topología y los límites definidos por el usuario, y genera las capas auxiliares necesarias para usarlas en el Nodal Demand Builder o para análisis de balance hídrico.
+El **Demand Sector Builder** es un diálogo modal que permite crear y gestionar múltiples **sectorizaciones con nombre** de la red
+
+![Diálogo Demand Sector Builder con lista de sectorizaciones y configuración de temas](../assets/images/herramientas/constructor-sectores.png)
+*Demand Sector Builder: lista de sectorizaciones (panel izquierdo), parámetros de detección y temas a generar (panel derecho).*, cada una con sus propios sectores de demanda. Cada sectorización agrupa los nudos de la red en zonas según la topología y los límites definidos por el usuario, y genera las capas auxiliares necesarias para usarlas en el Nodal Demand Builder o para análisis de balance hídrico.
 
 ---
 

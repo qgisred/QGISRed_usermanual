@@ -6,6 +6,9 @@ La herramienta **Edit properties by group** permite modificar en bloque un atrib
 
 El diálogo es **no modal**: se puede seguir interactuando con el mapa mientras está abierto.
 
+![Diálogo Edit properties by group con filtro y acción configurados](../assets/images/edicion/edicion-por-grupo.png)
+*Diálogo de edición por grupo: filtro por campo numérico y acción Multiply by sobre tuberías.*
+
 ---
 
 ## Tipos de elementos disponibles
