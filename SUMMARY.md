@@ -32,6 +32,7 @@
     * [Creación de elementos](edicion/creacion.md)
     * [Manipulación geométrica y topológica](edicion/manipulacion.md)
     * [Propiedades de elementos](edicion/propiedades.md)
+    * [Edición por grupo](edicion/edicion-por-grupo.md)
     * [Patrones y curvas](edicion/curvas.md)
     * [Controles y reglas](edicion/controles.md)
 
