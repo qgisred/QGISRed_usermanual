@@ -58,6 +58,7 @@
 * [🧪 Analysis](analisis/README.md)
     * [Ejecución y Opciones](analisis/ejecucion.md)
     * [Visor de Resultados](analisis/resultados.md)
+    * [Perfiles Longitudinales](analisis/perfiles-longitudinales.md)
     * [Exportación del Modelo](analisis/exportacion.md)
 
 ## 🧬 Digital Twin
