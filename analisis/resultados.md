@@ -181,8 +181,20 @@ Para el tipo de elemento **Tank** (depósito), están disponibles dos magnitudes
 
 | Magnitud | Descripción |
 |----------|-------------|
-| **Volume** | Volumen almacenado en m³ (o ft³ según las unidades del proyecto). |
+| **Volume** | Volumen almacenado en m³ (o ft³ según las unidades del proyecto), calculado a partir de los binarios de resultado EPANET. |
 | **TankSpill** | Caudal de desbordamiento. Solo es distinto de cero si el depósito tiene activada la opción de overflow en EPANET. |
+
+### Variables globales de red
+
+Además de los elementos individuales, el panel Time series permite añadir **series globales** que agregan valores sobre toda la red. Estas series no requieren hacer clic en el mapa: se añaden desde el menú de selección de variable del gráfico.
+
+| Variable global | Descripción |
+|-----------------|-------------|
+| **TotalWaterSupply** | Caudal total suministrado por todos los embalses y fuentes de la red. |
+| **TotalWaterDemand** | Demanda total consumida por todos los nudos de la red. |
+| **AverageNodePressure** | Presión media de todos los nudos (excluye depósitos y embalses). |
+| **TotalStoredVolume** | Volumen total almacenado sumando todos los depósitos de la red. |
+| **TotalTankSpill** | Caudal total de desbordamiento sumando todos los depósitos de la red. |
 
 ### Configuración de curvas
 
@@ -193,6 +205,10 @@ Desde el panel Time series puedes ajustar para cada curva:
 - Marcadores: símbolo, tamaño, color, hueco.
 - Mostrar valores en cada punto de la curva.
 - Visibilidad (mostrar / ocultar sin borrar).
+
+### Tabla de valores
+
+La tabla de valores muestra los datos numéricos de todas las curvas activas. La **primera columna** (instante de tiempo) está **fija**: no desaparece al desplazar la tabla horizontalmente cuando hay muchas curvas. Esto facilita identificar en qué instante se encuentra cada fila sin necesidad de volver al principio.
 
 ### Sincronización con la tabla de valores
 
