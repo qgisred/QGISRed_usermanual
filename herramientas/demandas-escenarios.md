@@ -32,6 +32,26 @@ Asigna consumos a los nudos de la red de forma masiva a partir de capas SHP exte
 4. Opcionalmente selecciona nudos en el mapa para limitar la asignación a esa zona.
 5. Confirma. QGISRed escribe los valores en `Junctions` o en `{Red}_MultipleDemands.shp` si hay categorías.
 
+### Restricción a candidatos seleccionados
+
+El diálogo ofrece dos opciones de restricción que pueden combinarse:
+
+| Opción | Efecto |
+|--------|--------|
+| **Restrict demand candidates to selected** | Solo se consideran como candidatos a recibir demanda los **nudos (Junctions) actualmente seleccionados** en el mapa. Los demás nudos se ignoran aunque caigan dentro de la zona de influencia de un punto de consumo. |
+| **Restrict service connection candidates to selected** | Solo se consideran como puntos de servicio candidatos las **acometidas (Service Connections) actualmente seleccionadas** en el mapa. Útil para reasignar demanda a acometidas concretas sin afectar al resto. |
+
+Ambas opciones son independientes y pueden activarse simultáneamente.
+
+### Unidades de demanda personalizadas
+
+Por defecto, el Builder interpreta los valores de demanda en las unidades de caudal del proyecto. Si los datos de origen usan unidades distintas, activa **Custom demand units** e introduce:
+
+- **Units label**: etiqueta descriptiva de las unidades de origen (p. ej., `m³/mes`).
+- **Conversion factor**: factor multiplicador para convertir a las unidades del proyecto (p. ej., si el proyecto usa L/s y los datos vienen en m³/mes: `1000 / 86400 / 30 ≈ 0.000386`).
+
+El Builder aplica el factor automáticamente a todos los valores de consumo antes de asignarlos a los nudos.
+
 ### Resultado en el mapa
 
 La capa resultante se muestra con colores por categoría y etiquetas con el valor de demanda. Los nudos sin categoría asignada aparecen en naranja bajo el grupo **Uncategorized**.
