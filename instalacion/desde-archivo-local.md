@@ -22,8 +22,7 @@ Descarga el archivo `QGISRed.zip` desde:
 4. Haz clic en el botón `…` y selecciona el archivo `QGISRed.zip`.
 5. Haz clic en **Instalar complemento**.
 
-![Instalación desde ZIP](../assets/images/instalacion/instalar-desde-zip.png)
-*Pestaña "Instalar a partir de ZIP" del gestor de complementos de QGIS.*
+<figure><img src="../assets/images/instalacion/instalar-desde-zip.png" alt="Instalación desde ZIP"><figcaption><p>Pestaña "Instalar a partir de ZIP" del gestor de complementos de QGIS.</p></figcaption></figure>
 
 ---
 

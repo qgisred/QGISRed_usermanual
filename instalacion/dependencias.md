@@ -8,8 +8,7 @@ QGISRed necesita un conjunto de librerías de cálculo externas **(las dependenc
 
 La primera vez que intentas usar cualquier herramienta de QGISRed, el plugin detecta que las dependencias no están instaladas y muestra un diálogo de confirmación:
 
-![Diálogo de instalación de dependencias](../assets/images/instalacion/dialogo-dependencias.png)
-*Diálogo de instalación de dependencias: QGISRed solicita permiso para descargar las dependencias.*
+<figure><img src="../assets/images/instalacion/dialogo-dependencias.png" alt="Diálogo de instalación de dependencias"><figcaption><p>QGISRed solicita permiso para descargar las dependencias.</p></figcaption></figure>
 
 - **Sí**: QGISRed descarga e instala las libraries automáticamente. La descarga requiere conexión a internet y puede tardar unos segundos según la velocidad de la conexión.
 - **No**: La herramienta no se ejecuta. El diálogo volverá a aparecer la próxima vez que intentes usar el plugin.
