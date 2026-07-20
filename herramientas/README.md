@@ -2,7 +2,7 @@
 
 La barra **Tools** agrupa las herramientas de procesamiento masivo: cálculo automático de propiedades hidráulicas, asignación de demandas desde fuentes externas, gestión de escenarios y análisis topológico. A diferencia de las herramientas de Edition, estas actúan sobre el conjunto de la red o sobre grandes selecciones, no elemento a elemento.
 
-![Barra de herramientas Tools de QGISRed](../assets/images/herramientas/barra-tools.png)
+<figure><img src="../assets/images/herramientas/barra-tools.png" alt="Barra de herramientas Tools de QGISRed"><figcaption><p>Barra de herramientas Tools de QGISRed</p></figcaption></figure>
 *Barra Tools: propiedades hidráulicas, demandas y escenarios, análisis topológico.*
 
 ---

@@ -28,7 +28,7 @@ La herramienta sobreescribe el valor de `Length` incondicionalmente en todas las
 
 Asigna la cota (campo `Elevation`) a los nudos, depósitos y embalses del proyecto interpolando su valor desde uno o varios Modelos Digitales del Terreno (MDT) en formato ASC.
 
-![Selector de archivos ASC para interpolación de cotas](../assets/images/herramientas/interpolate-elevation.png)
+<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="Selector de archivos ASC para interpolación de cotas"><figcaption><p>Selector de archivos ASC para interpolación de cotas</p></figcaption></figure>
 *Selector de archivos MDT: puedes cargar varios archivos ASC para cubrir toda el área de la red.*
 
 ### Formato ASC soportado

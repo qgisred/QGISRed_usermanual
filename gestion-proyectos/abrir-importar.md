@@ -16,7 +16,7 @@ QGISRed ofrece tres vías para empezar a trabajar con una red existente:
 
 Abre un proyecto QGISRed existente (creado previamente con el plugin) que no aparece en el Gestor de proyectos, o que fue movido de carpeta.
 
-![Diálogo de apertura de proyecto](../assets/images/general/abrir-proyecto.png)
+<figure><img src="../assets/images/general/abrir-proyecto.png" alt="Diálogo de apertura de proyecto"><figcaption><p>Diálogo de apertura de proyecto</p></figcaption></figure>
 *Diálogo de apertura: introduce el nombre de la red y selecciona la carpeta.*
 
 ### Proceso
@@ -46,7 +46,7 @@ Convierte datos externos en un proyecto QGISRed. Soporta dos formatos de entrada
 
 El caso más habitual: tienes un modelo EPANET existente y quieres trabajar con él en QGISRed.
 
-![Diálogo de importación desde archivo INP de EPANET](../assets/images/general/importar-inp.png)
+<figure><img src="../assets/images/general/importar-inp.png" alt="Diálogo de importación desde archivo INP de EPANET"><figcaption><p>Diálogo de importación desde archivo INP de EPANET</p></figcaption></figure>
 *Diálogo de importación: selección de archivo .inp, nombre de red y carpeta destino.*
 
 1. Selecciona el archivo `.inp`.

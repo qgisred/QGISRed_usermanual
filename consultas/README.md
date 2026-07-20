@@ -2,7 +2,7 @@
 
 La barra **Queries** agrupa las herramientas de consulta e inspección interactiva del modelo: búsqueda de elementos por ID, exploración de propiedades individuales, mapas temáticos, consultas por condiciones sobre atributos y estadísticas de la red. A diferencia de las barras de edición o análisis, estas herramientas no modifican el modelo: solo interrogan y visualizan lo que ya existe.
 
-![Barra de herramientas Queries de QGISRed](../assets/images/consultas/barra-queries.png)
+<figure><img src="../assets/images/consultas/barra-queries.png" alt="Barra de herramientas Queries de QGISRed"><figcaption><p>Barra de herramientas Queries de QGISRed</p></figcaption></figure>
 *Barra Queries: los cinco botones de consulta e inspección.*
 
 ---

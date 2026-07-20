@@ -10,7 +10,7 @@ Las tres primeras acciones de la barra Analysis controlan el ciclo de simulació
 
 Abre el diálogo de opciones del motor EPANET. Permite configurar todos los parámetros que controlan cómo se realiza la simulación hidráulica y de calidad.
 
-![Diálogo Analysis Options con pestañas de configuración del motor EPANET](../assets/images/analisis/analysis-options.png)
+<figure><img src="../assets/images/analisis/analysis-options.png" alt="Diálogo Analysis Options con pestañas de configuración del motor EPANET"><figcaption><p>Diálogo Analysis Options con pestañas de configuración del motor EPANET</p></figcaption></figure>
 *Diálogo Analysis Options: configuración completa del motor EPANET.*
 
 ### Parámetros configurables

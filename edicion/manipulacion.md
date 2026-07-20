@@ -22,7 +22,7 @@ La selección se usa como **entrada** para otras herramientas: Reverse elements 
 
 Desplaza uno o varios nudos (Junctions, Tanks, Reservoirs) arrastrando consigo **todos los elementos lineales conectados** (tuberías, válvulas, bombas). La red permanece conectada tras el movimiento.
 
-![Mover un nudo y sus tuberías conectadas en el mapa](../assets/images/edicion/move-nodes.png)
+<figure><img src="../assets/images/edicion/move-nodes.png" alt="Mover un nudo y sus tuberías conectadas en el mapa"><figcaption><p>Mover un nudo y sus tuberías conectadas en el mapa</p></figcaption></figure>
 *Al arrastrar un nudo, todas las tuberías conectadas siguen el desplazamiento.*
 
 ### Cómo usarla
@@ -75,7 +75,7 @@ Haz clic sobre una tubería para **dividirla** en el punto indicado: QGISRed cre
 
 Para **unir** dos tuberías, haz clic sobre el nudo intermedio que comparten: si ese nudo tiene exactamente dos tuberías conectadas y las propiedades de diámetro, material e InstallYear son iguales, QGISRed los funde en un solo tramo y elimina el nudo.
 
-![Dividir una tubería: se crea un nudo intermedio y dos tramos](../assets/images/edicion/split-pipe.png)
+<figure><img src="../assets/images/edicion/split-pipe.png" alt="Dividir una tubería: se crea un nudo intermedio y dos tramos"><figcaption><p>Dividir una tubería: se crea un nudo intermedio y dos tramos</p></figcaption></figure>
 *Clic sobre P-5 crea el nudo J-42 y divide la tubería en P-5 y P-45.*
 
 > Si las dos tuberías tienen diámetros o materiales distintos, la unión no se realiza y el plugin muestra un aviso.

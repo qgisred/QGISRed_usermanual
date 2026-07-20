@@ -4,7 +4,7 @@
 
 Crea un proyecto QGISRed completamente nuevo desde cero, generando la estructura de archivos SHP necesaria para definir una red de distribución.
 
-![Diálogo de creación de nuevo proyecto](../assets/images/general/crear-proyecto.png)
+<figure><img src="../assets/images/general/crear-proyecto.png" alt="Diálogo de creación de nuevo proyecto"><figcaption><p>Diálogo de creación de nuevo proyecto</p></figcaption></figure>
 *Diálogo de creación de proyecto: nombre, carpeta y sistema de referencia.*
 
 ---

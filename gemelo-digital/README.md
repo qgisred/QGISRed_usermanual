@@ -2,7 +2,7 @@
 
 La barra **Digital Twin** añade al modelo hidráulico los elementos de infraestructura que conectan la red con el usuario final y con los sistemas de monitorización en campo: acometidas, válvulas de corte, medidores y sensores. Estos elementos no forman parte del modelo EPANET estrictamente pero enriquecen el gemelo digital con información operacional y de telelectura.
 
-![Barra de herramientas Digital Twin de QGISRed](../assets/images/gemelo-digital/barra-digital-twin.png)
+<figure><img src="../assets/images/gemelo-digital/barra-digital-twin.png" alt="Barra de herramientas Digital Twin de QGISRed"><figcaption><p>Barra de herramientas Digital Twin de QGISRed</p></figcaption></figure>
 *Barra Digital Twin: acometidas, válvulas de corte, medidores y carga de datos de campo.*
 
 ---

@@ -4,7 +4,7 @@
 
 El editor de controles define la **lógica de operación** de la red: cuándo se abre una válvula, cuándo arranca una bomba, o qué secuencia de acciones desencadena un determinado estado del sistema. EPANET soporta dos niveles de control con distinta complejidad.
 
-![Editor de controles y reglas de QGISRed](../assets/images/edicion/editor-controles.png)
+<figure><img src="../assets/images/edicion/editor-controles.png" alt="Editor de controles y reglas de QGISRed"><figcaption><p>Editor de controles y reglas de QGISRed</p></figcaption></figure>
 *Editor de controles: pestañas Simple Controls y Rules, selector de elementos y condiciones.*
 
 ---

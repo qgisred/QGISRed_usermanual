@@ -4,7 +4,7 @@
 
 Abre el panel **Queries by Properties**, una herramienta de filtrado que resalta en el mapa todos los elementos que cumplen una o varias condiciones sobre sus atributos. Es la forma más rápida de encontrar, por ejemplo, todas las tuberías con diámetro menor de 80 mm, todos los nudos con presión por debajo de un umbral, o todas las válvulas en estado cerrado.
 
-![Panel Queries by Properties con condiciones configuradas y resultado resaltado en magenta](../assets/images/consultas/queries-by-properties.png)
+<figure><img src="../assets/images/consultas/queries-by-properties.png" alt="Panel Queries by Properties con condiciones configuradas y resultado resaltado en magenta"><figcaption><p>Panel Queries by Properties con condiciones configuradas y resultado resaltado en magenta</p></figcaption></figure>
 *Panel Queries by Properties: condiciones configuradas sobre atributos de tubería. Los elementos que cumplen la condición se resaltan en magenta en el mapa.*
 
 ---

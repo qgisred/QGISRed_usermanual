@@ -10,7 +10,7 @@ Las cinco primeras herramientas de la barra Edition permiten añadir elementos a
 
 Modo de dibujo lineal: cada clic añade un vértice a la tubería. La herramienta permanece activa hasta que termines el trazado.
 
-![Herramienta Add pipe en acción sobre el mapa de QGIS](../assets/images/edicion/add-pipe.png)
+<figure><img src="../assets/images/edicion/add-pipe.png" alt="Herramienta Add pipe en acción sobre el mapa de QGIS"><figcaption><p>Herramienta Add pipe en acción sobre el mapa de QGIS</p></figcaption></figure>
 *Dibujando una tubería: la línea roja provisional sigue el cursor hasta el siguiente clic.*
 
 ### Proceso
@@ -85,7 +85,7 @@ El proceso es idéntico al del depósito. Los parámetros son más simples:
 
 Inserta una válvula dentro de una tubería existente. La tubería original se **divide en dos tramos** que quedan conectados a través de la válvula.
 
-![Resultado de insertar una válvula: la tubería original queda dividida en dos](../assets/images/edicion/insert-valve.png)
+<figure><img src="../assets/images/edicion/insert-valve.png" alt="Resultado de insertar una válvula: la tubería original queda dividida en dos"><figcaption><p>Resultado de insertar una válvula: la tubería original queda dividida en dos</p></figcaption></figure>
 *La tubería P-12 original queda dividida en P-12 y P-13, con la válvula V-1 entre ellas.*
 
 ### Proceso

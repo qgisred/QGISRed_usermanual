@@ -12,7 +12,7 @@ El Results dock se ancla en la zona derecha de la pantalla. Contiene **tres pest
 - **Report**: informe de texto del motor EPANET.
 - **Appearance**: configuración completa del aspecto visual de los resultados en el mapa.
 
-![Panel de resultados con selector de variable y barra de tiempo](../assets/images/analisis/results-dock.png)
+<figure><img src="../assets/images/analisis/results-dock.png" alt="Panel de resultados con selector de variable y barra de tiempo"><figcaption><p>Panel de resultados con selector de variable y barra de tiempo</p></figcaption></figure>
 *Results dock: selección de variable, modo de estadística y navegación por instantes de tiempo.*
 
 ---
@@ -154,7 +154,7 @@ El dock soporta múltiples escenarios de resultado. Cada escenario se identifica
 
 Activa una herramienta de selección interactiva que dibuja la evolución temporal de cualquier propiedad de resultado para uno o varios elementos de la red.
 
-![Panel Time series con curvas de presión de varios nudos](../assets/images/analisis/time-series-dock.png)
+<figure><img src="../assets/images/analisis/time-series-dock.png" alt="Panel Time series con curvas de presión de varios nudos"><figcaption><p>Panel Time series con curvas de presión de varios nudos</p></figcaption></figure>
 *Panel Time series: evolución temporal de la presión en varios nudos seleccionados simultáneamente.*
 
 ### Proceso

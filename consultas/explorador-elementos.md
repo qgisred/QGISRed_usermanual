@@ -2,7 +2,7 @@
 
 El **Element Explorer** es un panel flotante (dock) que QGISRed mantiene como instancia única. Agrupa dos funcionalidades relacionadas en sendas pestañas: búsqueda de elementos por ID y visualización de propiedades del elemento seleccionado en el mapa.
 
-![Panel Element Explorer con las dos pestañas Find Elements y Properties](../assets/images/consultas/element-explorer.png)
+<figure><img src="../assets/images/consultas/element-explorer.png" alt="Panel Element Explorer con las dos pestañas Find Elements y Properties"><figcaption><p>Panel Element Explorer con las dos pestañas Find Elements y Properties</p></figcaption></figure>
 *Panel Element Explorer: pestaña Find Elements (izquierda) y pestaña Properties (derecha).*
 
 Los botones **Find elements by ID** y **Element properties** de la barra Queries abren este mismo panel y activan la pestaña correspondiente. Cambiar de pestaña dentro del panel no cierra ninguna funcionalidad.

@@ -4,7 +4,7 @@
 
 El diálogo de propiedades es la herramienta central para ver y editar todos los atributos de cualquier elemento de la red. Funciona como un formulario inteligente que carga los datos del elemento pulsado y permite navegar entre elementos sin cerrarlo.
 
-![Diálogo de propiedades de una tubería con todos sus campos](../assets/images/edicion/propiedades-elemento.png)
+<figure><img src="../assets/images/edicion/propiedades-elemento.png" alt="Diálogo de propiedades de una tubería con todos sus campos"><figcaption><p>Diálogo de propiedades de una tubería con todos sus campos</p></figcaption></figure>
 *Diálogo de propiedades: atributos del elemento, navegador de elementos conectados y botón de centrado.*
 
 ---

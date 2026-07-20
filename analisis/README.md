@@ -4,7 +4,7 @@ La barra **Analysis** agrupa las herramientas de simulación hidráulica, visual
 
 > Antes de simular es recomendable haber pasado las [verificaciones de topología y atributos](../verificaciones/README.md) para evitar errores de convergencia.
 
-![Barra de herramientas Analysis de QGISRed](../assets/images/analisis/barra-analysis.png)
+<figure><img src="../assets/images/analisis/barra-analysis.png" alt="Barra de herramientas Analysis de QGISRed"><figcaption><p>Barra de herramientas Analysis de QGISRed</p></figcaption></figure>
 *Barra Analysis: simulación, visor de resultados, series temporales y exportación.*
 
 ---

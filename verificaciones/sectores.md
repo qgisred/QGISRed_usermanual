@@ -4,7 +4,7 @@
 
 La herramienta de sectores hidráulicos recorre la red mediante un algoritmo BFS (búsqueda en anchura) desde todas las fuentes de suministro y clasifica cada subred conectada según si tiene o no fuente hidráulica (H) y si tiene o no demanda (Q). El resultado se vuelca en capas SHP y en un informe CSV.
 
-![Mapa de sectores hidráulicos: zonas coloreadas por tipo H-Q, H-nQ, nH-Q y nH-nQ](../assets/images/debug/sectores-hidraulicos.png)
+<figure><img src="../assets/images/debug/sectores-hidraulicos.png" alt="Mapa de sectores hidráulicos: zonas coloreadas por tipo H-Q, H-nQ, nH-Q y nH-nQ"><figcaption><p>Mapa de sectores hidráulicos: zonas coloreadas por tipo H-Q, H-nQ, nH-Q y nH-nQ</p></figcaption></figure>
 *Sectores hidráulicos: cada color representa un tipo de clasificación. Los sectores nH-Q (sin fuente con demanda) aparecen en rojo.*
 
 ---

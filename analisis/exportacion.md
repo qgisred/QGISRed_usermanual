@@ -10,7 +10,7 @@ La barra Analysis ofrece dos vías de exportación: el modelo completo como arch
 
 Exporta el modelo completo al formato estándar **INP** de EPANET. Útil para compartir el modelo con otros usuarios, ejecutarlo en la interfaz gráfica de EPANET o integrarlo con herramientas de terceros.
 
-![Diálogo de exportación al formato INP](../assets/images/analisis/export-inp-dialog.png)
+<figure><img src="../assets/images/analisis/export-inp-dialog.png" alt="Diálogo de exportación al formato INP"><figcaption><p>Diálogo de exportación al formato INP</p></figcaption></figure>
 *Diálogo Export to INP: ruta de destino, exportación de datos de campo y apertura automática en EPANET.*
 
 ### Opciones del diálogo

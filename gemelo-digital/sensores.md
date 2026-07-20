@@ -10,7 +10,7 @@ Los medidores y sensores del Digital Twin son elementos que registran magnitudes
 
 Coloca un medidor o sensor sobre una tubería haciendo clic en el punto de instalación. El desplegable del botón permite elegir el tipo antes de colocarlo; el último tipo usado queda como acción por defecto del botón.
 
-![Desplegable de tipos de medidor en la barra Digital Twin](../assets/images/gemelo-digital/add-meter-dropdown.png)
+<figure><img src="../assets/images/gemelo-digital/add-meter-dropdown.png" alt="Desplegable de tipos de medidor en la barra Digital Twin"><figcaption><p>Desplegable de tipos de medidor en la barra Digital Twin</p></figcaption></figure>
 *Desplegable Add meter: los 11 tipos de medidor disponibles.*
 
 ### Tipos de medidor disponibles

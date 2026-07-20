@@ -103,7 +103,7 @@ Usa la tolerancia de nudo configurada en **Barra Project → Valores por defecto
 
 Analiza la conectividad de toda la red desde las fuentes de suministro (Reservoirs y Tanks). Identifica qué tuberías y nudos **no están conectados** a ninguna fuente.
 
-![Resultado de Check connectivity: zonas aisladas coloreadas en rojo sobre el mapa](../assets/images/debug/check-connectivity.png)
+<figure><img src="../assets/images/debug/check-connectivity.png" alt="Resultado de Check connectivity: zonas aisladas coloreadas en rojo sobre el mapa"><figcaption><p>Resultado de Check connectivity: zonas aisladas coloreadas en rojo sobre el mapa</p></figcaption></figure>
 *Zonas aisladas identificadas: en rojo los elementos sin conexión a ninguna fuente.*
 
 ### Opción 1: Check connectivity (solo visualización)

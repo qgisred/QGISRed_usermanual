@@ -10,7 +10,7 @@ Las acometidas y las válvulas de corte son los dos elementos que conectan el mo
 
 Dibuja una acometida como polilínea desde la tubería principal hasta el punto de entrega del cliente. La acometida queda almacenada en la capa complementaria `ServiceConnections` del proyecto.
 
-![Herramienta de dibujo de acometidas sobre el mapa](../assets/images/gemelo-digital/add-service-connection.png)
+<figure><img src="../assets/images/gemelo-digital/add-service-connection.png" alt="Herramienta de dibujo de acometidas sobre el mapa"><figcaption><p>Herramienta de dibujo de acometidas sobre el mapa</p></figcaption></figure>
 *Dibujo de acometida: la línea parte de la tubería principal y llega al límite de parcela del cliente.*
 
 ### Proceso

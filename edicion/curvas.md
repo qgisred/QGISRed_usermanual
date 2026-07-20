@@ -4,7 +4,7 @@
 
 El editor de patrones y curvas centraliza la gestión de los datos temporales y funcionales que controlan el comportamiento dinámico del modelo: cómo varía la demanda a lo largo del día, cómo se comporta una bomba según su caudal, o cuál es el volumen de un depósito irregular.
 
-![Editor de patrones y curvas de QGISRed](../assets/images/edicion/editor-curvas.png)
+<figure><img src="../assets/images/edicion/editor-curvas.png" alt="Editor de patrones y curvas de QGISRed"><figcaption><p>Editor de patrones y curvas de QGISRed</p></figcaption></figure>
 *Editor de patrones y curvas: lista de elementos a la izquierda, gráfico y tabla de datos a la derecha.*
 
 ---

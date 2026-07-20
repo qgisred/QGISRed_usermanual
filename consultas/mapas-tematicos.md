@@ -4,7 +4,7 @@
 
 Abre el diálogo de **Thematic Maps**, que genera una representación visual de la red coloreando las tuberías por intervalos de cualquier atributo hidráulico o de resultado de simulación.
 
-![Diálogo de Thematic Maps con selector de campo y rango de colores](../assets/images/consultas/thematic-maps-dialog.png)
+<figure><img src="../assets/images/consultas/thematic-maps-dialog.png" alt="Diálogo de Thematic Maps con selector de campo y rango de colores"><figcaption><p>Diálogo de Thematic Maps con selector de campo y rango de colores</p></figcaption></figure>
 *Diálogo Thematic Maps: selección de campo, número de clases y paleta de color.*
 
 ---

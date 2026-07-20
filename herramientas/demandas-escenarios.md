@@ -10,7 +10,7 @@ Las tres herramientas del segundo grupo de la barra Tools gestionan la asignaci�
 
 Asigna consumos a los nudos de la red de forma masiva a partir de capas SHP externas cargadas en QGIS. Es la herramienta principal para integrar datos de facturación, censos de usuarios o estimaciones por polígono en el modelo EPANET.
 
-![Diálogo del Nodal demand builder con opciones de fuente y método de asignación](../assets/images/herramientas/demand-builder.png)
+<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Diálogo del Nodal demand builder con opciones de fuente y método de asignación"><figcaption><p>Diálogo del Nodal demand builder con opciones de fuente y método de asignación</p></figcaption></figure>
 *Nodal demand builder: capas de origen detectadas automáticamente, configuración de campos y método de distribución.*
 
 ### Fuentes de datos soportadas
@@ -131,7 +131,7 @@ Los archivos de escenario se guardan como CSV en la carpeta del proyecto.
 
 Responde a la pregunta operacional: **"¿Qué válvulas debo cerrar para reparar esta tubería, y qué usuarios quedarán sin servicio?"**
 
-![Resultado de Isolated segments: tubería afectada, válvulas de corte y zona sin servicio](../assets/images/herramientas/isolated-segments.png)
+<figure><img src="../assets/images/herramientas/isolated-segments.png" alt="Resultado de Isolated segments: tubería afectada, válvulas de corte y zona sin servicio"><figcaption><p>Resultado de Isolated segments: tubería afectada, válvulas de corte y zona sin servicio</p></figcaption></figure>
 *En rojo la tubería a reparar, en amarillo las válvulas a cerrar y en azul la zona sin servicio.*
 
 ### Proceso

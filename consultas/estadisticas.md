@@ -4,7 +4,7 @@
 
 Abre el panel **Statistics**, que calcula y visualiza la distribución estadística de cualquier atributo numérico o categórico de la red, con soporte para clasificación automática, segunda clasificación cruzada y representación gráfica.
 
-![Panel Statistics con histograma de diámetros de tuberías](../assets/images/consultas/statistics-panel.png)
+<figure><img src="../assets/images/consultas/statistics-panel.png" alt="Panel Statistics con histograma de diámetros de tuberías"><figcaption><p>Panel Statistics con histograma de diámetros de tuberías</p></figcaption></figure>
 *Panel Statistics: histograma de diámetros de tuberías con clasificación por intervalos.*
 
 ---
