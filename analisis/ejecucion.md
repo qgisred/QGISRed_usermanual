@@ -44,9 +44,13 @@ Si la simulación detecta problemas (presiones negativas, nudos desconectados, b
 
 ### Opciones del diálogo de progreso
 
-El diálogo de progreso incluye la casilla **"Do not show this progress window again"**. Si la marcas y la simulación finaliza correctamente, las ejecuciones siguientes lanzarán el cálculo directamente sin mostrar el diálogo.
+El diálogo de progreso incluye un botón de **Pausa** (icono ‖). Al pulsarlo, la simulación se detiene al finalizar el paso de tiempo en curso y el icono cambia a ▶. Pulsar de nuevo reanuda la ejecución. El botón desaparece una vez que la simulación ha concluido.
+
+El diálogo también incluye la casilla **"Do not show this progress window again"**. Si la marcas y la simulación finaliza correctamente, las ejecuciones siguientes lanzarán el cálculo directamente sin mostrar el diálogo.
 
 > Para volver a activar el diálogo de progreso, accede a las **Propiedades del Proyecto** y desmarca la opción *"Do not show progress window when running simulation"*.
+
+> ⚠️ Cuando la ventana de progreso está oculta, el cursor del sistema cambia a cursor de espera en todas las aplicaciones mientras la simulación está en curso. El cursor se restaura automáticamente al finalizar el cálculo.
 
 ### Mensajes de estado durante la ejecución
 
