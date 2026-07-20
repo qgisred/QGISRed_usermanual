@@ -7,22 +7,29 @@ Setup:
 
 Modes:
     full   — translate all .md files from scratch
-    diff   — translate only files changed between two git refs (incremental)
+    update — translate only files changed since the last translation run (same branch)
+    diff   — translate only files changed between two git refs (new version → new version)
 
 Usage:
-    # Full translation to one language:
-    python translate.py full --lang en
-
-    # Full translation to multiple languages at once:
+    # First run — translate everything:
     python translate.py full --lang en,pt-BR,fr
 
-    # Incremental: only files changed between v0.19_es and v0.20_es:
+    # After adding new commits to v0.19_es — retranslate only what changed:
+    python translate.py update --lang en
+    python translate.py update --lang en,pt-BR,fr
+
+    # Jumping to a new version (v0.19_es → v0.20_es):
     python translate.py diff --old v0.19_es --new v0.20_es --lang en
     python translate.py diff --old v0.19_es --new v0.20_es --lang en,pt-BR,fr
 
 Source directory defaults to the current directory (gitbook root).
 Output goes to a sibling directory named <source>-<lang>, e.g. ../gitbook-en.
 Override with --output.
+
+State file:
+    .translate_state.json is written to the source directory after each run.
+    It records the last translated commit hash per language so `update` knows
+    what to diff against. Add it to .gitignore if you don't want it committed.
 
 Notes:
     - Folder names are remapped per language (see LANGS config below).
@@ -34,6 +41,7 @@ Notes:
 """
 
 import argparse
+import json
 import re
 import shutil
 import subprocess
@@ -417,6 +425,47 @@ def copy_non_md(source_dir: Path, output_dir: Path):
             shutil.copy2(src, dst)
 
 
+# ── Translation state (for `update` mode) ────────────────────────────────────
+
+STATE_FILE = ".translate_state.json"
+
+
+def get_head_hash(repo_dir: Path) -> str:
+    result = subprocess.run(
+        ["git", "rev-parse", "HEAD"],
+        capture_output=True, text=True, cwd=repo_dir,
+    )
+    return result.stdout.strip()
+
+
+def load_state(source_dir: Path) -> dict:
+    path = source_dir / STATE_FILE
+    if path.exists():
+        return json.loads(path.read_text(encoding="utf-8"))
+    return {}
+
+
+def save_state(source_dir: Path, state: dict):
+    path = source_dir / STATE_FILE
+    path.write_text(json.dumps(state, indent=2), encoding="utf-8")
+
+
+def get_files_since(since_hash: str, repo_dir: Path) -> list:
+    """Return .md files changed between since_hash and HEAD."""
+    result = subprocess.run(
+        ["git", "diff", "--name-only", f"{since_hash}..HEAD", "--", "*.md"],
+        capture_output=True, text=True, cwd=repo_dir,
+    )
+    if result.returncode != 0:
+        print(f"  git diff error: {result.stderr}")
+        return []
+    return [
+        repo_dir / p.strip()
+        for p in result.stdout.splitlines()
+        if p.strip().endswith(".md")
+    ]
+
+
 # ── CLI ───────────────────────────────────────────────────────────────────────
 
 def main():
@@ -426,12 +475,17 @@ def main():
     )
     sub = parser.add_subparsers(dest="mode", required=True)
 
-    p_full = sub.add_parser("full", help="Translate all .md files")
+    p_full = sub.add_parser("full", help="Translate all .md files from scratch")
     p_full.add_argument("--lang", required=True, help="Target language(s): en | pt-BR | fr | en,pt-BR,fr")
     p_full.add_argument("--source", default=".", help="Source gitbook directory (default: .)")
     p_full.add_argument("--output", help="Output directory (default: <source>-<lang>)")
 
-    p_diff = sub.add_parser("diff", help="Translate only changed files between two git refs")
+    p_upd = sub.add_parser("update", help="Translate only files changed since last run (same branch)")
+    p_upd.add_argument("--lang", required=True, help="Target language(s)")
+    p_upd.add_argument("--source", default=".", help="Source gitbook directory (default: .)")
+    p_upd.add_argument("--output", help="Output directory")
+
+    p_diff = sub.add_parser("diff", help="Translate files changed between two git refs (new version)")
     p_diff.add_argument("--old", required=True, help="Old git ref, e.g. v0.19_es")
     p_diff.add_argument("--new", required=True, help="New git ref, e.g. v0.20_es")
     p_diff.add_argument("--lang", required=True, help="Target language(s)")
@@ -441,6 +495,7 @@ def main():
     args = parser.parse_args()
     source_dir = Path(args.source).resolve()
     langs = [l.strip() for l in args.lang.split(",")]
+    state = load_state(source_dir)
 
     for lang_key in langs:
         if lang_key not in LANGS:
@@ -458,6 +513,19 @@ def main():
             files = get_all_md_files(source_dir)
             translate_files(files, source_dir, output_dir, lang_key)
             copy_non_md(source_dir, output_dir)
+            state[lang_key] = get_head_hash(source_dir)
+
+        elif args.mode == "update":
+            since = state.get(lang_key)
+            if not since:
+                print(f"  No previous state for '{lang_key}'. Run `full` first.")
+                continue
+            files = get_files_since(since, source_dir)
+            if not files:
+                print(f"  [{lang_key}] No changed .md files since {since[:8]} — nothing to do.")
+                continue
+            translate_files(files, source_dir, output_dir, lang_key)
+            state[lang_key] = get_head_hash(source_dir)
 
         elif args.mode == "diff":
             files = get_diff_files(args.old, args.new, source_dir)
@@ -465,6 +533,9 @@ def main():
                 print(f"  No changed .md files between {args.old} and {args.new}")
                 continue
             translate_files(files, source_dir, output_dir, lang_key)
+            state[lang_key] = get_head_hash(source_dir)
+
+    save_state(source_dir, state)
 
 
 if __name__ == "__main__":
