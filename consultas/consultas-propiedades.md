@@ -17,6 +17,7 @@ El panel tiene un color identificativo **morado** (`#7B1FA2`) en su cabecera par
 - **Área de condiciones**: una o varias filas con campo, operador y valor
 - **Botón Ejecutar**: aplica la consulta y resalta el resultado
 - **Botón Limpiar**: elimina el resaltado del mapa
+- **Etiqueta de tiempo**: cuando hay resultados de simulación cargados, muestra el instante activo con el prefijo "Time:" seguido del valor en negrita en formato `HH:MM:SS`. La etiqueta de estadísticas del resultado se muestra igualmente en negrita.
 
 ---
 
@@ -82,6 +83,8 @@ Todas las condiciones activas se combinan con lógica **AND**: un elemento solo 
 
 Si el proyecto tiene resultados de simulación cargados, los campos de resultado (presión, caudal, velocidad…) también aparecen en el selector de campo, permitiendo filtrar, por ejemplo, tuberías con velocidad inferior a 0.5 m/s o nudos con presión negativa.
 
+> ⚠️ **Campos de calidad condicionales.** Los campos de resultado `Quality` y `ReactRate` solo aparecen cuando el modelo de calidad del proyecto lo permite: `Quality` se oculta con modelo *None* y `ReactRate` únicamente es visible con modelo *Chemical*. Los campos estáticos de calidad (`BulkCoeff`, `WallCoeff`, `ReactCoef`, `IniQuality`) se ocultan cuando el modelo de calidad es *None*, *Age* o *Trace*.
+
 ---
 
 ## Notas de uso
@@ -93,3 +96,5 @@ Si el proyecto tiene resultados de simulación cargados, los campos de resultado
 ## Resolución del campo ID
 
 El panel utiliza la misma lógica de resolución automática del campo identificador que el Element Explorer (`getIdFieldName(layer)`). Los campos de consulta por ID (`PipeID`, `TankID`, etc.) se detectan automáticamente según el tipo de capa, por lo que las consultas sobre el campo `Id` funcionan correctamente independientemente del nombre real del campo en el shapefile del proyecto. Ver [Element Explorer](explorador-elementos.md) para más detalles.
+
+Los alias `PumpCurvID`, `BaseDem` y `SourceQual` se reconocen automáticamente como campos de tipo numérico para bombas, demandas y fuentes respectivamente. El tipo de dato de cada campo (numérico, lista o texto libre) se determina de forma automática a partir del esquema del elemento, sin necesidad de configuración manual.
