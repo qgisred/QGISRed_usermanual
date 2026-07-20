@@ -25,6 +25,8 @@ Exporta el modelo completo al formato estándar **INP** de EPANET. Útil para co
 
 Pulsa **Export to INP** para generar el archivo con la configuración elegida.
 
+> ℹ️ **Precisión decimal según valores por defecto del proyecto.** El número de decimales utilizado para cada campo en el archivo `.inp` generado respeta la precisión configurada en los valores por defecto del proyecto, la misma que se muestra en los paneles de Propiedades y Consultas. En versiones anteriores se aplicaba un formato fijo de 4 a 6 decimales independientemente de la configuración del proyecto.
+
 ---
 
 ## Export results to CSV…
