@@ -4,6 +4,8 @@
 
 Abre el panel **Statistics**, que calcula y visualiza la distribución estadística de cualquier atributo numérico o categórico de la red, con soporte para clasificación automática, segunda clasificación cruzada y representación gráfica.
 
+> **ℹ️ Nota:** El panel Statistics se abre **acoplado** en la ventana principal de QGIS y respeta los paneles ya agrupados en pestañas.
+
 <figure><img src="../assets/images/consultas/statistics-panel.png" alt="Panel Statistics con histograma de diámetros de tuberías"><figcaption><p>Panel Statistics con histograma de diámetros de tuberías</p></figcaption></figure>
 *Panel Statistics: histograma de diámetros de tuberías con clasificación por intervalos.*
 
@@ -22,7 +24,7 @@ El panel Statistics se organiza en dos pestañas:
 
 ### Tipo de elemento y propiedad
 
-Selecciona el tipo de elemento (Junctions, Pipes, Tanks…) y la propiedad a analizar. Las propiedades disponibles dependen del tipo seleccionado e incluyen atributos de diseño y, si hay resultados cargados, campos de simulación.
+Selecciona el tipo de elemento (Junctions, Pipes, Tanks…) y la propiedad a analizar. El selector de propiedad muestra en una **lista unificada** tanto los campos de diseño (Diámetro, Longitud, Rugosidad…) como los campos de resultado de simulación (Presión, Caudal, Velocidad…). Los campos de resultado aparecen con **fondo amarillo/crema** para diferenciarlos visualmente de los campos de diseño.
 
 ### Clasificación principal
 
@@ -34,20 +36,43 @@ Selecciona el tipo de elemento (Junctions, Pipes, Tanks…) y la propiedad a ana
 
 #### Métodos de clasificación disponibles
 
+Los métodos siguientes están disponibles tanto para la clasificación principal como para la segunda clasificación. El método por defecto es **Pretty Breaks**.
+
 | Método | Descripción |
 |--------|-------------|
-| **Jenks** | Minimiza la varianza intra-clase (Natural Breaks). Idóneo para distribuciones no uniformes. |
-| **Pretty Breaks** | Límites de intervalo "redondos". Preferible para presentaciones. |
+| **Jenks (Natural Breaks)** | Minimiza la varianza intra-clase. Idóneo para distribuciones no uniformes. |
+| **Pretty Breaks** | Límites de intervalo "redondos". Preferible para presentaciones. *(Por defecto)* |
+| **Equal Count** | Cada clase contiene el mismo número de elementos. |
+| **Fixed Interval** | Todos los intervalos tienen la misma amplitud. |
 | **Manual** | El usuario define directamente los límites de cada intervalo. |
+
+> **ℹ️ Nota:** Cuando todos los valores son idénticos o muy similares, los extremos de clase duplicados se colapsan mostrando un único valor en lugar de "100.0 - 100.0".
+
+> **ℹ️ Nota:** Cuando se analiza un campo de resultado de simulación dinámico, los **límites de clase se calculan una vez** considerando todos los instantes de tiempo simultáneamente. Al avanzar el paso de simulación, el recuento de elementos por barra varía, pero los límites permanecen constantes, lo que permite **comparar distribuciones entre instantes de tiempo** con total coherencia.
 
 ### Filtrado previo
 
-Antes de calcular, puedes acotar el conjunto de elementos con una condición sobre el campo analizado:
+Antes de calcular, puedes acotar el conjunto de elementos con una condición sobre cualquier campo:
 
 - Campos **numéricos**: `>=`, `<=`, `=`, `>`, `<`, `≠`, `Range`
 - Campos **de lista**: `=`
 - Campos **de texto**: `=`, `≠`, `ILIKE`, `NOT ILIKE`, `LIKE`, `NOT LIKE`
 - Selecciona **No Filter** para incluir todos los elementos sin restricción.
+
+El campo **Valor** incluye un botón de borrado **(×)**: al pulsarlo, limpia el texto introducido y deja sin selección activa, facilitando cambiar el filtro rápidamente.
+
+Cuando el atributo de filtro es un campo de resultado de simulación, el combo muestra el mismo **fondo amarillo/crema** que se usa para estos campos en el selector de propiedad.
+
+> **ℹ️ Nota — Caudal:** Al filtrar por el campo `Flow` con un valor numérico escrito, el valor se interpreta siempre como **valor absoluto**, por lo que no es necesario conocer el signo que EPANET asigna internamente al caudal.
+
+#### Vista previa en el mapa
+
+La sección Filters incluye dos elementos adicionales para explorar el filtro antes de ejecutar el análisis completo:
+
+- **Casilla "Vista previa en el mapa"**: cuando está marcada, los elementos que cumplen la condición de filtro se resaltan en **naranja** sobre el lienzo del mapa. La vista previa se actualiza automáticamente al cambiar cualquier parámetro del filtro.
+- **Contador de coincidencias** (p. ej. *"43 elementos coinciden"*): visible siempre que la sección Filtros esté desplegada, incluso antes de ejecutar el análisis.
+
+Los resaltes se eliminan automáticamente al cerrar el panel o al contraer la sección Filtros.
 
 ### Segunda clasificación *(opcional)*
 
@@ -56,10 +81,12 @@ Un grupo colapsable —contraído por defecto— permite definir un **segundo cr
 | Parámetro | Descripción |
 |-----------|-------------|
 | **Campo** | Segunda propiedad de clasificación |
-| **Método** | Equal Count, Fixed Interval, Manual o Categorized |
+| **Método** | Jenks (Natural Breaks), Pretty Breaks, Equal Count, Fixed Interval o Manual |
 | **Número de clases** | Grupos de la segunda clasificación |
 
 Cuando la segunda clasificación está activa, la tabla de resultados se convierte en una **matriz cruzada**: las filas representan los grupos de la primera clasificación y las columnas los grupos de la segunda.
+
+> **ℹ️ Nota:** Al cambiar el tipo de elemento y volver al anterior, la configuración de la segunda clasificación (método, número de clases, intervalos, valores manuales) se **recupera automáticamente**.
 
 ---
 
@@ -73,7 +100,7 @@ El histograma muestra la distribución de la propiedad analizada:
 
 - **Selector de estadístico**: elige qué se representa en el eje Y: Count (recuento), Sum, Avg, Min, Max o StdD.
 - **Botón expandir**: abre el histograma en una **ventana flotante independiente**, útil para tener el panel de configuración y el gráfico visibles a la vez.
-- El título del gráfico aparece dentro del propio área del gráfico, limitado a dos líneas.
+- El **título del gráfico** incluye el estadístico seleccionado como prefijo y las unidades del campo. Por ejemplo: *"Avg Presión (mca) por Diámetros (mm) para Material PVC"*.
 - Para campos categóricos, el histograma muestra barras por categoría en lugar de intervalos numéricos.
 
 ### Tabla de resultados
@@ -82,7 +109,9 @@ La tabla muestra los mismos datos en formato tabular:
 
 - Los valores se formatean con los decimales correspondientes a cada campo según el CSV de unidades del proyecto.
 - Los números enteros se muestran sin decimales.
+- El **título de la tabla** refleja siempre las dos dimensiones de clasificación activas, incluyendo las unidades de cada campo.
 - La **fila de exportación** incluye un selector de estadístico para elegir qué valor se vuelca al exportar a CSV (Count, Sum, Avg…).
+- La exportación a CSV incluye los **valores de los puntos de corte manuales** de ambas clasificaciones (principal y segunda), con los encabezados de columna acompañados de las unidades entre paréntesis.
 - Cuando la segunda clasificación está activa, la tabla se convierte en una **matriz cruzada** con columnas adicionales para cada grupo de la segunda clasificación.
 
 ---
@@ -97,8 +126,12 @@ Los siguientes campos se tratan como categorías (valores discretos):
 |-------|-------------|
 | `Material` | Material de la tubería |
 | `Type` | Tipo de elemento |
+| `ValveType` | Tipo de válvula |
+| `MeterType` | Tipo de contador |
+| `SourceType` | Tipo de fuente |
 | `IniStatus` | Estado operacional inicial (Open / Closed / CV) |
 | `InstalDate` | Fecha de instalación |
+| `InstDate` | Fecha de instalación |
 | `Tag` | Etiqueta libre |
 
 ### Campos numéricos de entrada
@@ -130,6 +163,8 @@ Disponibles solo si hay resultados cargados:
 | `FricFactor` | Factor de fricción |
 | `ReactRate` | Tasa de reacción |
 | `Quality` | Calidad del agua |
+
+> **⚠️ Nota:** Los campos `Velocity`, `UnitHdLoss`, `FricFactor` y `ReactRate` no están disponibles cuando el tipo de elemento seleccionado es **Pumps** (bombas) o **Valves** (válvulas); son exclusivos de tuberías.
 
 ---
 
