@@ -45,24 +45,30 @@ Dos combos situados bajo los controles de tiempo:
 | **Reported Times** (`cbResultTimes`) | Filtra qué instantes se muestran: Single Period, Step times o All calculation times. |
 | **Statistics** (`cbStatistics`) | Aplica una estadística sobre todos los períodos: Maximum, Minimum, Range, Average, StdDev, Warning. Cuando está activo, el reloj se sustituye por el nombre de la estadística. |
 
+> 💡 En los modos **Maximum** y **Minimum**, las etiquetas del mapa muestran el valor junto con el instante de ocurrencia en el formato `valor (@ HH:MM:SS)`. Al situar el cursor sobre un elemento del mapa, el tooltip incluye una línea adicional `@ HH:MM:SS` con el instante exacto en que se produjo ese máximo o mínimo.
+
 #### Grupo Mapping — Nodes
 
 | Control | Descripción |
 |---------|-------------|
 | **Combo Nodes** (`cbNodes`) | Propiedad a visualizar en nudos: Pressure, Head, Demand, Quality. |
-| **Show Node Labels** | Muestra etiquetas con el tipo, el Id y el valor sobre cada nudo en el mapa. |
+| **Show Node Labels** | Muestra etiquetas con el Id y el valor sobre cada nudo en el mapa. |
 | **Show Node Histogram** | Abre un histograma integrado en el dock con la distribución del valor actual en nudos. |
 | **Show Node Evolution** | Abre un mini-gráfico integrado con la evolución temporal del nudo seleccionado en el mapa. |
+
+> 💡 Cuando se selecciona una variable en el combo **Nodes**, aparece junto al encabezado del grupo una etiqueta con el nombre de la variable en negrita y su unidad entre paréntesis (por ejemplo, **Presión** (m)).
 
 #### Grupo Mapping — Links
 
 | Control | Descripción |
 |---------|-------------|
 | **Combo Links** (`cbLinks`) | Propiedad a visualizar en tuberías/válvulas/bombas: Flow, Velocity, HeadLoss, UnitHdLoss, FricFactor, Status, ReactRate, Quality. |
-| **Show Link Labels** | Muestra etiquetas con el tipo, el Id y el valor sobre cada tubería. |
+| **Show Link Labels** | Muestra etiquetas con el Id y el valor sobre cada tubería. |
 | **Show Flow Directions** | Añade flechas de sentido de flujo sobre las tuberías. |
 | **Show Link Histogram** | Histograma integrado en el dock con la distribución del valor actual en tuberías. |
 | **Show Link Evolution** | Mini-gráfico integrado con la evolución temporal de la tubería seleccionada en el mapa. |
+
+> 💡 Del mismo modo, cuando se selecciona una variable en el combo **Links**, aparece junto al encabezado del grupo una etiqueta con el nombre de la variable en negrita y su unidad entre paréntesis (por ejemplo, **Velocidad** (m/s)).
 
 > El botón **Appearance** (icono en la cabecera del grupo Nodes) lleva directamente a la pestaña Appearance sin necesidad de navegar por las pestañas.
 
@@ -87,20 +93,25 @@ Muestra el informe de texto generado por el motor EPANET al finalizar la simulac
 
 Concentra todas las opciones de presentación visual de los resultados en el mapa. Los ajustes se guardan automáticamente en `{Red}_Results_Config.cfg` dentro de la carpeta `Results/` del proyecto y se restauran en la siguiente sesión.
 
+> 💡 Cada control numérico de la pestaña Appearance dispone de un pequeño botón ↺ individual que restaura únicamente ese campo a su valor por defecto, sin afectar al resto de ajustes.
+
+> ⚠️ Los controles del grupo **Nodes** se deshabilitan automáticamente cuando el combo Nodes está en «None», y lo mismo ocurre para **Links**. Además, el control **Decimals** queda deshabilitado cuando la variable activa es **Status** (variable categórica sin decimales aplicables).
+
 #### Map Labels
 
 | Opción | Descripción |
 |--------|-------------|
-| **Font size (pt)** | Tamaño de la fuente de las etiquetas en el mapa (6–24 pt, por defecto 10). |
+| **Font size (pt)** | Tamaño de la fuente de las etiquetas en el mapa (6–24 pt, por defecto 8). |
 | **Nodes / Links decimals** | Número de decimales mostrados en las etiquetas de nudos y tuberías respectivamente (0–6). El control se etiqueta con el nombre de la variable activa en ese momento. |
-| **Text color** | **Black**: texto negro siempre. **By range**: el color del texto sigue la paleta del rango de valores activo. |
+| **Text color** | Color por defecto: nudos **#333333** (gris oscuro), tuberías **#0A143C** (azul marino). **Black**: texto negro siempre. **By range**: el color del texto sigue la paleta del rango de valores activo. Cuando «Show ID alongside value» está activo, la línea del Id usa el color del propio elemento y la línea del valor usa el color del símbolo o rango. |
+| **Background** | Color de fondo detrás de las etiquetas del mapa. Incluye un selector de color y un botón de borrado para eliminar el fondo. |
 | **Show ID alongside value** | Añade el Id del elemento en la primera línea de la etiqueta. |
 
 #### Symbology
 
 | Opción | Descripción |
 |--------|-------------|
-| **Black border on nodes** | Añade un contorno negro a los marcadores de nudos para mejorar la visibilidad sobre fondos complejos. |
+| **Hide border on junctions** | Oculta el borde/contorno de los marcadores de nudos (junctions). Activar esta opción elimina el contorno que rodea el símbolo del nudo. |
 | **Proportional to value** | Escala el tamaño de los nudos y el grosor de las tuberías linealmente con el valor representado. No aplica al campo Status. |
 | **Nodes factor** | Factor de escala base del tamaño de los marcadores de nudo (0.25–4.0, por defecto 1.0). |
 | **Links factor** | Factor de escala base del grosor de las tuberías (0.25–4.0, por defecto 1.0). |
@@ -145,6 +156,8 @@ El dock soporta múltiples escenarios de resultado. Cada escenario se identifica
 | `Status` | Estado operacional (Open / Active / Closed) |
 | `ReactRate` | Tasa de reacción (modelos de calidad) |
 | `Quality` | Calidad del agua |
+
+> 💡 Las etiquetas del mapa para la variable **Flow** muestran siempre el valor absoluto (sin signo negativo), incluso en los modos de estadística Máximo y Mínimo. El sentido del flujo se indica mediante las flechas de dirección, no mediante el signo del valor.
 
 ---
 
