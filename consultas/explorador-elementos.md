@@ -65,7 +65,9 @@ Los atributos se organizan según el tipo de elemento. Para una **tubería** tí
 
 Para **nudos** se muestran `Elevation`, `Demand`, `Pattern`, `InitQuality`, etc. Cada tipo de elemento tiene su propio conjunto de campos.
 
-Si el proyecto tiene resultados de simulación cargados, el panel añade una sección con los valores calculados (presión, caudal, velocidad…) para el período activo en el visor de resultados.
+Si el proyecto tiene resultados de simulación cargados, el panel añade una sección con los valores calculados (presión, caudal, velocidad…) para el período activo en el visor de resultados. El instante simulado se indica con el prefijo **Time:** seguido del valor en negrita en formato `HH:MM:SS`.
+
+> ⚠️ **Campos de calidad condicionales.** El campo `Quality` solo aparece cuando el modelo de calidad del proyecto no es *None*. El campo `ReactRate` únicamente es visible cuando el modelo de calidad es *Chemical*; permanece oculto para los modelos *None*, *Age* y *Trace*. Estos campos solo se muestran cuando el modelo de calidad del proyecto los soporta.
 
 ### Notas de uso
 
@@ -88,3 +90,19 @@ QGISRed resuelve automáticamente el **nombre del campo identificador** de cada 
 | Valves | `ValveID` |
 
 Si el proyecto usa convenciones de nomenclatura personalizadas, la resolución automática evita errores de búsqueda o identificación. No es necesario configurar nada manualmente: el explorador detecta el campo correcto al activarse sobre cualquier capa de la red.
+
+### Alias de campo adicionales reconocidos automáticamente
+
+El panel reconoce automáticamente los siguientes alias de campo y los presenta con etiqueta, unidades y decimales correctos sin ninguna configuración adicional:
+
+| Alias | Descripción |
+|-------|-------------|
+| `DemPattID` | Patrón de demanda en nudos; se suprime cuando hay demandas múltiples activas y se agrupa correctamente |
+| `HedPattID` | Patrón de curva de altura en bombas |
+| `QualPattID` | Patrón de calidad en fuentes |
+| `NodeID` | Identificador de nudo en capas derivadas |
+| `NodeType` | Tipo de nudo |
+| `LinkID` | Identificador de enlace en capas derivadas |
+| `LinkType` | Tipo de enlace |
+
+> ℹ️ El reconocimiento es automático: el explorador detecta el alias correcto al activarse sobre cualquier capa de la red, sin necesidad de configurar nada manualmente.
