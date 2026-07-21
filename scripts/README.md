@@ -194,13 +194,36 @@ git commit -m "Learn manual EN corrections"
 ### Moving to the next version
 
 ```bash
-# 1. Learn any pending corrections first
+# 1. Learn any pending corrections on v0.19 first
 cd gitbook/scripts
 python translate.py learn --lang en,pt-BR,fr
 git add .translate_memory_*.json && git commit -m "Learn corrections before v0.20"
 
-# 2. Translate only what changed between versions
+# 2. Create the new version branches on the remote
+#    v0.20_es from v0.19_es (inherits scripts + memory files)
+#    v0.20_en/fr/pt-BR from their v0.19 counterparts (starting point for new translations)
+
+# 3. Switch local language directories to the new branches
+cd ../../gitbook-en  && git fetch && git checkout -b v0.20_en origin/v0.20_en
+cd ../gitbook-fr     && git fetch && git checkout -b v0.20_fr origin/v0.20_fr
+cd ../gitbook-pt_br  && git fetch && git checkout -b v0.20_pt-BR origin/v0.20_pt-BR
+
+# 4. Switch the Spanish repo to the new branch
+cd ../gitbook && git checkout v0.20_es
+
+# 5. Translate only what changed between versions
+#    Memory from v0.19 is reused — only new/modified paragraphs hit the API
+cd scripts
 python translate.py diff --old v0.19_es --new v0.20_es --lang en,pt-BR,fr
+
+# 6. Commit state + memory on v0.20_es
+git add .translate_state.json .translate_memory_*.json
+git commit -m "Translate v0.19→v0.20 diff"
+
+# 7. Commit each language branch
+cd ../../gitbook-en  && git add -A && git commit -m "v0.20 en — diff from v0.19"
+cd ../gitbook-fr     && git add -A && git commit -m "v0.20 fr — diff from v0.19"
+cd ../gitbook-pt_br  && git add -A && git commit -m "v0.20 pt-BR — diff from v0.19"
 ```
 
 ---
