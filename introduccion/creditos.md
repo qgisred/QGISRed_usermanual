@@ -20,15 +20,15 @@ El desarrollo se enmarca dentro de las actividades de investigación y transfere
 
 | Entidad | Logo |
 | :--- | :--- |
-| **Portal QGISRed** | [<img src="../assets/images/creditos/logo-qgisred.png" alt="Logo QGISRed" style="height: 80px; width: auto;">](http://qgisred.upv.es) |
-| **REDHISP** | <img src="../assets/images/creditos/logo-redhisp.png" alt="Logo REDHISP" style="height: 80px; width: auto;"> |
-| **IIAMA** | [<img src="../assets/images/creditos/logo-iiama.png" alt="Logo IIAMA" style="height: 80px; width: auto;">](http://www.iiama.upv.es) |
-| **UPV** | [<img src="../assets/images/creditos/logo-upv.png" alt="Logo UPV" style="height: 80px; width: auto;">](http://www.upv.es) |
+| **Portal QGISRed** | [![Logo QGISRed](../assets/images/creditos/logo-qgisred.png)](http://qgisred.upv.es) |
+| **REDHISP** | ![Logo REDHISP](../assets/images/creditos/logo-redhisp.png) |
+| **IIAMA** | [![Logo IIAMA](../assets/images/creditos/logo-iiama.png)](http://www.iiama.upv.es) |
+| **UPV** | [![Logo UPV](../assets/images/creditos/logo-upv.png)](http://www.upv.es) |
 
 ### Colaboradores
 | Entidad | Logo |
 | :--- | :--- |
-| **WaterPi** | <img src="../assets/images/creditos/logo-waterpi.png" alt="Logo WaterPi" style="height: 80px; width: auto;"> |
+| **WaterPi** | ![Logo WaterPi](../assets/images/creditos/logo-waterpi.png) |
 
 ---
 
@@ -38,7 +38,7 @@ Las versiones de QGISRed a partir de la **0.18** están financiadas por el **Ban
 
 | Entidad | Logo |
 | :--- | :--- |
-| **Banco Interamericano de Desarrollo (BID)** | [<img src="../assets/images/creditos/logo-bid.png" alt="Logo BID" style="height: 80px; width: auto;">](https://www.iadb.org/es) |
+| **Banco Interamericano de Desarrollo (BID)** | [![Logo BID](../assets/images/creditos/logo-bid.png)](https://www.iadb.org/es) |
 
 ---
 
