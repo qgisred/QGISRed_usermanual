@@ -9,7 +9,7 @@
 
 ### Desarrollo y Mantenimiento
 *   **Néstor Lerma**
-    *   🏢 WaterPi
+    *   🏢 WaterPi (hasta v 0.17)
     *   📧 [info@waterpi.com](mailto:info@waterpi.com)
 
 ---
