@@ -1,4 +1,4 @@
-#ElementExplorer
+# Element Explorer
 
 Le **Element Explorer** est un panneau flottant (dock) que QGISRed gère comme une instance unique. Il regroupe deux fonctionnalités liées dans des onglets distincts : la recherche d'éléments par ID et la visualisation des propriétés de l'élément sélectionné sur la carte.
 
