@@ -204,7 +204,7 @@ Para o tipo de elemento **Tank**, duas quantidades adicionais estão disponívei
 | Magnitude | Descrição |
 |----------|-------------|
 | **Volume** | Volume armazenado em m³ (ou ft³ dependendo das unidades do projeto), calculado a partir dos binários de saída do EPANET. |
-| **Derramamento de tanque** | Fluxo de transbordamento. Só é diferente de zero se o repositório tiver a opção de overflow do EPANET habilitada. |
+| **TankSpill** | Fluxo de transbordamento. Só é diferente de zero se o tanque tiver a opção de overflow do EPANET habilitada. |
 
 ### Variáveis ​​globais de rede
 
@@ -212,10 +212,10 @@ Além de elementos individuais, o painel Série temporal permite adicionar **sé
 
 | Variável global | Descrição |
 |-----------------|-------------|
-| **Fornecimento total de água** | Vazão total fornecida por todos os reservatórios e fontes da rede. |
-| **Demanda total de água** | Demanda total consumida por todos os nós da rede. |
+| **TotalWaterSupply** | Vazão total fornecida por todos os reservatórios e fontes da rede. |
+| **TotalWaterDemand** | Demanda total consumida por todos os nós da rede. |
 | **AverageNodePressure** | Pressão média de todos os nós (excluindo tanques e reservatórios). |
-| **TotalVolume Armazenado** | Volume total armazenado somando todos os depósitos da rede. |
+| **TotalStoredVolume** | Volume total armazenado somando todos os tanques da rede. |
 | **TotalTankSpill** | Vazão total somando todos os tanques da rede. |
 
 ### Configuração da curva
