@@ -25,7 +25,7 @@
 * [🗃️ Projeto](projeto-ativo/README.md)
     * [Visão geral e gerenciamento de camadas](projeto-ativo/capas-y-leyenda.md)
     * [Configurações do Projeto](projeto-ativo/configuracion.md)
-    * [Salvar e fazer backup](projeto-ativo/guardar-backup.md)
+    * [Salvar, exportar e fechar projeto](projeto-ativo/guardar-backup.md)
 
 ## ✏️ Edição e Modelagem
 * [✏️ Edição](edicao/README.md)

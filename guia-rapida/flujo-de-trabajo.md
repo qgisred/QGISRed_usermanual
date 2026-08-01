@@ -70,7 +70,7 @@ No painel lateral do Results Viewer:
 ## Passo 8 — Salvar
 
 - _Save Map_ salva o projeto QGIS (`.qgz`) com as camadas e estilos visíveis.
-- _Backup_ cria um instantâneo de todos os arquivos SHP em uma subpasta datada.
+- _Exportar projeto_ (do Gerente de Projeto) gera um ZIP portátil do projeto.
 
 ---
 

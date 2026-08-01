@@ -38,6 +38,16 @@ Crie uma cópia completa do projeto com um nome diferente. Útil para criar vari
 
 > 💡 A clonagem copia todos os arquivos SHP, DBF e metadados. Os resultados da simulação **não** são clonados para economizar espaço.
 
+### Exportar
+
+Empacota o projeto selecionado em um ZIP portátil (SHP/DBF, `.qgz` e, opcionalmente, resultados, problemas, consultas, camadas auxiliares e dados complementares). Esta é a única forma de exportar um projeto: não existe mais um botão equivalente na barra **Projeto**.
+
+1. Selecione o projeto da lista (não é necessário abri-lo no QGIS).
+2. Pressione **Exportar**.
+3. Preencha a caixa de diálogo de exportação.
+
+Veja todos os detalhes do diálogo, o que está incluído e o que não está, em [Salvar, exportar e fechar projeto](../projeto-ativo/guardar-backup.md#exportar-el-proyecto).
+
 ### Renomear
 
 Renomeia a rede e atualiza automaticamente o nome de **todos os arquivos** do projeto (SHP, DBF, PRJ, etc.). Não é uma simples mudança de nome na lista: ela move e renomeia os arquivos no disco.

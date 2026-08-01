@@ -26,7 +26,7 @@ A caixa de diálogo de propriedades é a ferramenta central para visualizar e ed
 | **ID** | Identificador exclusivo de tubo |
 | **Comprimento** | Comprimento calculado automaticamente a partir da geometria (m ou pés) |
 | **Diâmetro** | Diâmetro interno (mm ou polegadas) |
-| **Rugosidade** | Rugosidade para a fórmula de perda de carga configurada |
+| **Coeficiente de Rugosidade** | Rugosidade para a fórmula de perda de carga configurada |
 | **Perda Menor** | Coeficiente de perda menor (0 se não aplicável) |
 | **Status de inicialização** | Estado inicial: Aberto, Fechado ou CV (Válvula de Retenção) |
 | **Material** | Código do material (referenciado na Tabela de Materiais) |
@@ -92,7 +92,7 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 |-------|-------------|
 | **ID** | Identificador único |
 | **Diâmetro** | Diâmetro (mm ou polegadas) |
-| **Tipo** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
+| **Tipo de válvula** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
 | **Configuração** | Ponto de regulação de regulação (pressão, caudal ou perda de pressão dependendo do tipo) |
 | **Perda Menor** | Coeficiente de perda menor |
 | **Status de inicialização** | Estado inicial: Aberto, Fechado, Ativo |

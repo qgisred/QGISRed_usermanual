@@ -10,6 +10,7 @@ O perfil longitudinal mostra a evolução de uma variável hidráulica ao longo 
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Doca de perfil longitudinal com rota desenhada no mapa e gráfico de pressão"><figcaption><p>Doca de perfil longitudinal com rota desenhada no mapa e gráfico de pressão</p></figcaption></figure>
 *Perfil longitudinal: percurso destacado em vermelho no mapa (esquerda) e gráfico de altura piezométrica + elevação do terreno (direita).*
+<!-- TODO: Captura de tela obsoleta — os botões Selecionar/Adicionar nó/Remover nó/Mover nó/Ramificação na barra de ferramentas foram substituídos por um único botão Editar trajetórias + botão Ajuda -->
 
 ---
 
@@ -26,10 +27,11 @@ O plugin permite que você mantenha vários docks de perfil abertos ao mesmo tem
 ## Abrir e construir perfil
 
 1. Ative **Perfil longitudinal** na barra Análise. O encaixe do perfil é aberto na área inferior do QGIS.
-2. O modo **Pick** é ativado automaticamente; O cursor muda para o ícone do perfil.
+2. O botão **Editar trajetórias** é ativado automaticamente; o cursor muda para o ícone de lápis.
 3. Clique em um nó da rede (Entroncamentos, Tanques, Reservatórios) para definir o primeiro nó de referência.
 4. Clique em outro nó: o plugin calcula o **caminho topológico mínimo** entre os dois nós e desenha o perfil.
 5. Cada clique adicional estende o caminho concatenando o caminho do último nó para o novo.
+6. Clicar com o botão direito (sem nó em andamento) finaliza a rota de edição.
 
 Se dois nós não estiverem conectados na rede, a mensagem _"O nó selecionado não está conectado ao anterior ao longo da rede."_
 
@@ -69,13 +71,14 @@ O gráfico é atualizado automaticamente quando o instante da hora muda no encai
 
 ### Modos de edição de tour
 
-| Botão | Modo | Função |
-|-------|------|---------|
-| Escolha | **Escolha** | Ativa o mapa para adicionar nós de referência ao final do caminho a cada clique |
-| Adicionar nó | **Adicionar nó** | Converte um nó intermediário existente no caminho em um nó de referência; também se aplica a ramais |
-| Remover nó | **Remover nó** | Remove um nó de referência da travessia (os nós finais não podem ser removidos); também se aplica a filiais |
-| Mover nó | **Mover nó** | Realoca um nó de referência: primeiro clique na posição atual, depois clique na nova posição; também se aplica a ramificações e verifica conflitos com caminhos existentes |
-| Filial | **Filial** | Adicione uma ramificação lateral (veja a seção [Filiais](#ramas)) |
+Todas as ações de edição são controladas a partir de um único botão de alternância, em vez de um botão separado por ação:
+
+| Botão | Função |
+|-------|---------|
+| **Editar trajetórias** (ícone de lápis, alternável) | Ative o modo de edição: clique com o botão esquerdo para traçar a rota nó por nó, clique com o botão direito em um nó para ver suas opções (ver [Atalhos do mouse](#atajos-de-ratón)). Quando desativado, mover o mouse sobre o caminho apenas o destaca e exibe informações, sem modificá-las. |
+| **Ajuda** (ícone ⓘ) | Abre a caixa de diálogo **"Como editar trajetórias"**, com um resumo de todas as ações de edição e atalhos do mouse disponíveis. |
+
+> 📝 Adicionar um nó de etapa intermediária, excluí-lo, movê-lo ou criar uma ramificação não possui mais botão próprio na barra de ferramentas: eles são feitos com **Editar trajetórias** ativo, usando o menu de contexto (clique com o botão direito) ou os atalhos do mouse descritos em [Atalhos do mouse](#atajos-de-ratón). Essas ações funcionam da mesma forma na rota principal e nos ramais.
 
 ### Navegação no gráfico
 
@@ -128,11 +131,11 @@ Quando o envelope está ativo, a tabela de valores adiciona colunas com valor m�
 
 ## Filiais
 
-O modo **Ramal** permite adicionar ramais laterais que compartilham o mesmo gráfico da rota principal.
+A ação **Criar ramificação** permite adicionar ramificações laterais que compartilham o mesmo gráfico com o caminho principal.
 
-1. Ative o modo Filial.
-2. Clique em um nó já pertencente ao caminho principal ou em uma ramificação existente: esse nó define o ponto de ramificação e sua posição no eixo X.
-3. Faça cliques sucessivos para estender a ramificação para outros nós.
+1. Com **Editar trajetórias** ativo, clique com o botão direito em um nó já pertencente ao caminho principal ou uma ramificação existente e escolha **Criar ramificação** no menu de contexto (ou clique duas vezes com o botão direito diretamente sobre ele se for um nó interior com grau de conexão maior que 2; veja [Atalhos do mouse](#atajos-de-ratón)). Esse nó define o ponto de bifurcação e sua posição no eixo X.
+2. Faça cliques sucessivos para estender a ramificação para outros nós.
+3. Clique com o botão direito para finalizar a ramificação.
 
 Cada ramo é desenhado com uma cor diferente da paleta. As distâncias dos ramos são calculadas a partir do ponto de ramificação, de modo que ambas as curvas compartilhem a mesma origem X naquele ponto. Quando a variável selecionada é **Cabeça + Elevação**, os ramos também mostram sua própria curva de elevação do terreno próxima à linha piezométrica.
 
@@ -140,14 +143,40 @@ Cada ramo é desenhado com uma cor diferente da paleta. As distâncias dos ramos
 >
 > - Uma ramificação não pode reutilizar links ou nós que já pertencem ao caminho principal ou a outra ramificação, exceto o nó da ramificação de origem. Se tentada, a operação é rejeitada com uma mensagem de erro.
 > - O nó de origem de uma ramificação não pode ser removido da travessia principal enquanto a ramificação estiver ativa. Para eliminá-lo, é necessário primeiro aparar o galho desde a extremidade mais distante.
-> - O modo **Mover nó** também verifica conflitos com caminhos existentes antes de aplicar a alteração.
-> - Qualquer operação de edição (Adicionar, Remover, Mover) será desfeita silenciosamente se o caminho recalculado resultante for inválido.
+> - **Mover nó de passagem** também verifica conflitos com caminhos existentes antes de aplicar a alteração.
+> - Qualquer operação de edição (declarar, excluir ou mover um nó de etapa) será desfeita silenciosamente se o caminho recalculado resultante for inválido.
 
-Os modos **Adicionar nó**, **Remover nó** e **Mover nó** funcionam tanto no caminho principal quanto nos caminhos de ramificação.
+Declarar, remover ou mover um nó de etapa (anteriormente **Adicionar nó**, **Remover nó** e **Mover nó**) funciona da mesma forma no caminho principal e nos caminhos de ramificação.
 
 As ramificações podem ser excluídas diretamente da **legenda do gráfico**, sem a necessidade de usar o botão Limpar.
 
 O botão **Limpar** exclui o caminho principal e todas as ramificações.
+
+---
+
+## Atalhos do mouse
+
+Com **Editar trajetórias** ativo, além de traçar o caminho clique a clique, o mouse suporta diversos atalhos diretos que evitam passar pelo menu de contexto. Esses atalhos funcionam da mesma forma no caminho principal e nas ramificações.
+
+- **Clique duas vezes com o botão esquerdo em um nó intermediário** da rota (que ainda não é um nó de passagem): declara-o como um nó de passagem (equivalente a **Declarar nó de passagem**).
+- **Clique duas vezes com o botão esquerdo em um nó de passagem já declarado**: exclui-o e o caminho é recalculado (equivalente a **Excluir nó de passagem**).
+- **Clique duas vezes com o botão direito em um nó extremo do caminho** (a origem ou o fim de um caminho, com conexão gratuita disponível): estende o caminho a partir desse ponto (equivalente a **Estender caminho**).
+- **Clique duas vezes com o botão direito em um nó de passagem interior** com grau de conexão maior que 2 (e conexão livre disponível): inicie uma ramificação desse nó (equivalente a **Criar ramificação**).
+- **Simples clique com o botão esquerdo em um nó de passagem**, sem nenhum percurso em andamento: inicia o movimento desse nó; o próximo clique marca o nó de destino (equivalente a **Mover nó de passagem**).
+- **Clique único com o botão direito**: se houver um tour em andamento, finaliza-o; caso contrário, abre o menu de contexto com as ações disponíveis para o nó sob o cursor.
+
+O menu de contexto (simples clique com o botão direito) oferece diferentes opções dependendo do nó indicado:
+
+| Situação do nó | Opções de menu |
+|---------------------|--------------------|
+| Ainda não há rota | **Inicie um novo caminho aqui** |
+| Nó intermédio da rota (ainda não é um nó de passagem) | **Declarar nó de passagem** |
+| Nó da etapa de origem da rota principal | **Estender caminho**, **Criar branch** |
+| Nó extremo de passagem (fim de percurso) | **Estender caminho**, **Criar ramificação**, **Mover nó de passagem**, **Excluir nó de passagem** |
+| Nó de passagem interior do percurso | **Criar ramificação**, **Mover nó de passagem**, **Excluir nó de passagem** |
+| Nó de ramificação (origem de uma ramificação) | **Criar filial** |
+
+> 💡 O botão **Ajuda** na barra de ferramentas dock (ícone ⓘ) abre a caixa de diálogo **"Como editar trajetórias"** a qualquer momento, com as mesmas informações resumidas.
 
 ---
 
@@ -166,7 +195,7 @@ Ao passar o mouse sobre o gráfico, uma linha vertical tracejada indica a posiç
 A interação entre o gráfico e o mapa é bidirecional e atualiza em tempo real:
 
 - Quando você passa o mouse sobre o **gráfico**, o nó mais próximo é destacado na **tela do mapa** com um círculo laranja.
-- Mover o mouse sobre o **mapa** enquanto o modo Seleção de perfil está ativo move o cursor do gráfico para o nó correspondente.
+- Passar o mouse sobre o **mapa** enquanto **Editar trajetórias** está ativo move o cursor do gráfico para o nó correspondente.
 
 ---
 

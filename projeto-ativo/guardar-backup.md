@@ -1,4 +1,4 @@
-# Salvar e fazer backup
+# Salvar, exportar e fechar projeto
 
 ---
 
@@ -26,42 +26,73 @@ Se já existir um `.qgz`, ele o substitui diretamente (equivalente a `Ctrl+S` no
 
 ---
 
-## Backup
+## Exporte o projeto
 
-**Barra do projeto → Backup** (Backup do projeto)
+**Gerente de Projeto → Exportar**
 
-Cria uma cópia completa de todos os arquivos SHP, arquivos DBF e metadados do projeto em uma subpasta com a data e hora atuais.
+> ⚠️ Este botão **não está mais** na barra **Projeto**: o antigo botão _Backup do projeto_ foi removido e não tem substituto nessa barra. A exportação agora é feita a partir de [Gestor de projeto](../gestao-projetos/gestor-proyectos.md) — selecione o projeto na lista (não é necessário mantê-lo aberto) e pressione **Exportar**.
+
+Gera um arquivo ZIP portátil com o projeto: o SHP/DBF da rede, o mapa QGIS (`.qgz`) se existir, e opcionalmente os grupos de conteúdo e dados complementares (cartografia de fundo, MDT, ortofotos...) que esse `.qgz` referencia.
+
+### Antes de exportar
+
+Se o projeto que você exporta é aquele que você abriu no QGIS e seu `.qgz` possui alterações não salvas, o QGISRed pergunta primeiro:
+
+> _"O projeto QGIS possui alterações não salvas. Deseja salvá-lo antes de exportar?"_
+
+- **Sim**: salve o `.qgz` e exporte a versão recém-salva.
+- **Não**: exporta o `.qgz` como estava no último save (alterações pendentes não viajam no ZIP).
+- **Cancelar**: a caixa de diálogo de exportação não abre.
+
+### A caixa de diálogo de exportação
+
+<!-- TODO: captura pendente — caixa de diálogo "QGISRed: Exportar projeto" -->
+
+| Campo | Função |
+|-------|---------|
+| **Nome do arquivo:** | Nome ZIP (sem extensão); por padrão, o nome da rede |
+| **Pasta:** | Pasta de destino; por padrão, a pasta Downloads do usuário |
+| **Conteúdo** | Grupos opcionais a incluir (ver abaixo) |
+| **Dados complementares** | Dados externos referenciados por `.qgz`, selecionáveis ​​um por um |
+| **Abra a pasta que contém quando terminar** | Abra o explorador de arquivos na pasta de destino quando terminar (habilitado por padrão) |
+
+### O que está sempre incluído
+
+- A PCH+DBF+PRJ da rede na raiz da pasta do projeto (Tubulações, Junções, Válvulas, Bombas, Tanques, Reservatórios, Demandas, Fontes...) e os arquivos de opções e metadados (`_Options.dbf`, `_Title.dbf`).
+- O arquivo de mapa `.qgz`, se o QGISRed o encontrar na pasta do projeto ou em sua pasta pai. Se não houver nenhum `.qgz` salvo, a caixa de diálogo avisa que a exibição do mapa não será exportada.
+
+### O que está incluído opcionalmente
+
+Quatro grupos de conteúdo, cada um com sua própria caixa na seção **Conteúdo** (marcada por padrão se o grupo possui dados desta rede; se vazia, a caixa fica desabilitada):
+
+| Caixa | Conteúdo |
+|---------|-----------|
+| **Resultados** | Resultados da simulação salvos em `Results/` |
+| **Problemas** | Incidentes detectados por verificações, em `Issues/` |
+| **Consultas** | Consultas salvas, em `Queries/` |
+| **Camadas Auxiliares** | Camadas auxiliares (por exemplo, do Demands Builder), em `Auxiliary Layers/` |
+
+Se `.qgz` fizer referência a dados complementares, a caixa de diálogo adicionará uma tabela **Dados complementares** com uma linha por camada (nome, localização e estado), cada uma com sua própria caixa de seleção — para que você possa deixar de fora, por exemplo, um MDT de vários GB sem abrir mão do resto.
+
+### O que não está incluído
+
+- Grupos de conteúdo que você deixa desmarcados.
+- Os dados complementares que estão fora da pasta do projeto e de sua pasta pai: a caixa de diálogo os marca como _"Não exportáveis"_ e avisa antes de exportar. Para incluí-los, mova-os com o explorador de arquivos para a pasta do projeto (ou próximo a ela) e reabra o projeto para que o QGISRed os vincule novamente.
+- Camadas de fundo remotas (serviços WMS, XYZ, bancos de dados): não há nada para copiar, portanto nunca bloqueiam a exportação ou aparecem na tabela.
+
+> ⚠️ Se você deixar de fora um grupo de conteúdo ou camada complementar que `.qgz` ainda está usando, o QGISRed avisa antes de exportar. Pressione **OK** uma segunda vez se quiser continuar mesmo assim.
 
 ### Onde está salvo
 
 ```
-{CarpetaProyecto}/Backups/{NombreRed}_{YYYYMMDD_HHMMSS}/
+{CarpetaDestino}/{NombreArchivo}.zip
 ```
 
-Por exemplo:
-```
-RedUrbana/Backups/RedUrbana_20241215_143022/
-    RedUrbana_Junctions.shp
-    RedUrbana_Pipes.shp
-    RedUrbana_Options.dbf
-    ...
-```
+Por padrão, `{CarpetaDestino}` é a pasta de downloads do usuário e `{NombreArchivo}` é o nome da rede, mas ambos são editáveis ​​na caixa de diálogo. Se já existir um ZIP com esse nome, o QGISRed pergunta se você deseja substituí-lo.
 
-Após a conclusão, o QGISRed mostra o caminho completo da cópia criada na barra de mensagens.
+Após a conclusão, QGISRed mostra o caminho completo do ZIP criado na barra de mensagens.
 
-### O que está incluído no backup
-
-- Todos os arquivos SHP+DBF+PRJ na pasta principal do projeto
-- As opções e arquivos de metadados (`_Options.dbf`, `_Title.dbf`)
-- As subpastas de dados auxiliares (Demands Builder, etc.)
-
-### O que não está incluído
-
-- A pasta `Results/` (os resultados da simulação podem ser muito grandes e podem ser regenerados executando a simulação novamente)
-- A pasta `Issues/` (regenerada ao reexecutar as verificações)
-- O arquivo `.qgz` (salve-o manualmente com _Save Map_ se quiser incluí-lo)
-
-> 💡 **Práticas recomendadas**: Faça um backup antes de operações que modificam muitos elementos de uma vez (importações em massa, alterações de CRS, conversões de rugosidade). Também é recomendado antes de atualizar a versão do plugin.
+> 💡 **Práticas recomendadas**: Exporte o projeto antes de operações que modificam muitos elementos de uma vez (importações em massa, alterações de CRS, conversões de rugosidade) e antes de atualizar a versão do plugin. Para recuperar um projeto exportado, use **Importar projeto → aba "Projeto QGISRed"** — veja [Abrir e importar projetos](../gestao-projetos/abrir-importar.md).
 
 ---
 
@@ -83,4 +114,4 @@ Feche o projeto QGISRed atual e limpe a sessão QGIS: exclua todas as camadas ca
 |-----------|-----------|-------|
 | Ferramentas de edição | Atributos e geometria | SHP/DBF em disco, imediatamente |
 | Salvar mapa | Estilos, camadas visíveis, enquadramento | Arquivo `.qgz` |
-| Backup | Todas PCH/DBF do projeto | Subpasta `Backups/` |
+| Exportar projeto (Gerente de Projeto → Exportar) | Rede SHP/DBF, `.qgz` e, opcionalmente, dados suplementares e grupos de conteúdo | Arquivo `.zip` na pasta de sua preferência |

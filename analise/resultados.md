@@ -14,6 +14,7 @@ O encaixe Resultados está ancorado na área direita da tela. Contém **três gu
 
 <figure><img src="../assets/images/analisis/results-dock.png" alt="Painel de resultados com seletor de variáveis ​​e barra de tempo"><figcaption><p>Painel de resultados com seletor de variáveis ​​e barra de tempo</p></figcaption></figure>
 *Dock de resultados: seleção de variáveis, modo estatístico e navegação por instantes de tempo.*
+<!-- TODO: captura de tela desatualizada após adicionar o botão Taxa de reprodução constante próximo ao controle deslizante de velocidade -->
 
 ---
 
@@ -33,8 +34,11 @@ Quando um modo estatístico está ativo (Máximo, Mínimo...), a área de tempo 
 | **Combo de momentos** (`cbTimes`) | Lista suspensa com todos os momentos disponíveis. |
 | **Botões avançar/retroceder** | Próximo, anterior, início, fim. |
 | **Reproduzir / Reproduzir para trás** | Animação automática para frente ou para trás. |
-| **Controle deslizante de velocidade** | Controla a velocidade da animação (1–10). |
+| **Controle deslizante de velocidade** | Controla a velocidade relativa da animação (1–10). Ele fica oculto quando **Taxa de reprodução constante** está ativa. |
+| **Taxa de reprodução constante** | Botão comutável próximo ao controle deslizante de velocidade. Quando ativado, o controle deslizante é substituído pelo campo **"1h in: N seg"**: N são os segundos reais necessários para reproduzir uma hora de tempo simulado (1–3600), portanto, a velocidade de reprodução é constante em relação ao tempo simulado, mesmo que o passo entre os instantes não seja uniforme. Ao desativá-lo, o controle deslizante de velocidade relativa é usado novamente. O estado e o valor são salvos no projeto. |
 | **Circuito** | Repita a animação em loop. |
+
+> 💡 Quando você altera o instante de tempo, ativa ou desativa um modo de estatística, modifica os decimais na aba Aparência ou carrega todos os resultados de uma vez, o QGISRed relê e reformata os valores. Caso a operação demore (redes grandes com muitos elementos), aparece um aviso sobreposto e centralizado no mapa: **"Leitura de resultados… NN%"**. Em operações rápidas não é exibido, para evitar oscilações.
 
 #### Tempos e estatísticas relatados
 
@@ -46,6 +50,8 @@ Dois combos localizados sob os controles de tempo:
 | **Estatísticas** (`cbStatistics`) | Aplica uma estatística em todos os períodos: Máximo, Mínimo, Faixa, Média, StdDev, Aviso. Quando ativo, o relógio é substituído pelo nome da estatística. |
 
 > 💡 Nos modos **Máximo** e **Mínimo**, os rótulos do mapa mostram o valor junto com o horário de ocorrência no formato `valor (@ HH:MM:SS)`. Quando você coloca o cursor sobre um elemento do mapa, a dica de ferramenta inclui uma linha adicional `@ HH:MM:SS` com o momento exato em que ocorreu aquele máximo ou mínimo.
+
+> 💡 Com qualquer modo de estatística ativo, a dica de ferramenta precede o valor com a abreviatura da estatística exibida: **Max**, **Min**, **Avg** (Média), **Rng** (Intervalo) ou **Std** (StdDev). Por exemplo, `Max 45.2` em vez de simplesmente `45.2`.
 
 #### Grupo de Mapeamento — Nós
 
@@ -69,6 +75,8 @@ Dois combos localizados sob os controles de tempo:
 | **Mostrar evolução do link** | Minigráfico integrado com a evolução temporal do pipeline selecionado no mapa. |
 
 > 💡 Da mesma forma, quando uma variável é selecionada no combo **Links**, um rótulo aparece próximo ao cabeçalho do grupo com o nome da variável em negrito e sua unidade entre parênteses (por exemplo, **Velocidade** (m/s)).
+
+> ⚠️ Quando a variável **Links** é **Status**, os rótulos de texto são simplificados: os ~13 estados internos que o EPANET pode retornar são agrupados em apenas dois textos, **"Closed"** (inclui "Temp Closed") e **"Active"** (inclui "Active (Rev Pump)"). Links com qualquer estado **"Aberto*"** não mostram nenhum rótulo, para não sobrecarregar o mapa com a maioria dos pipes (que geralmente são abertos). Não é um erro se, com o Status ativo, a maioria dos pipes aparecer sem etiqueta.
 
 > O botão **Aparência** (ícone no cabeçalho do grupo Nós) leva você diretamente para a aba Aparência sem precisar navegar pelas abas.
 
@@ -103,9 +111,10 @@ Concentra todas as opções de apresentação visual dos resultados no mapa. As 
 |--------|-------------|
 | **Tamanho da fonte (pt)** | Tamanho da fonte dos rótulos no mapa (6–24 pt, padrão 8). |
 | **Decimais de nós/links** | Número de decimais exibidos nos rótulos dos nós e tubulações, respectivamente (0–6). O controle é rotulado com o nome da variável atualmente ativa. |
-| **Cor do texto** | Cor padrão: Nós **#333333** (cinza escuro), tubulação **#0A143C** (azul marinho). **Preto**: texto sempre preto. **Por intervalo**: A cor do texto segue a paleta do intervalo de valores ativo. Quando “Mostrar ID ao lado do valor” está ativo, a linha Id usa a cor do próprio elemento e a linha de valor usa a cor do símbolo ou intervalo. |
-| **Antecedentes** | Cor de fundo atrás dos rótulos do mapa. Inclui um seletor de cores e um botão de exclusão para remover o fundo. |
-| **Mostrar ID ao lado do valor** | Adicione o ID do elemento à primeira linha do rótulo. |
+| **Cor do texto** | Cor padrão: Nós **#333333** (cinza escuro), tubulação **#0A143C** (azul marinho). **Preto**: texto sempre preto. **Por intervalo**: A cor do texto segue a paleta do intervalo de valores ativo. Quando **Mostrar ID do nó** ou **Mostrar ID do link** está ativo, a linha Id usa a cor do próprio elemento e a linha de valor usa a cor do símbolo ou intervalo. |
+| **Antecedentes** | Cor de fundo atrás dos rótulos do mapa. Inclui um seletor de cores e um botão de exclusão para remover o fundo. Ao lado do seletor há um ícone de **cadeado**: aberto (por padrão), o fundo dos rótulos é independente do fundo do mapa; Ao fechá-lo, o seletor e o botão limpar são desabilitados e o fundo dos rótulos fica vinculado à cor **Fundo do mapa** (veja abaixo), portanto, alterar essa cor também altera automaticamente o fundo dos rótulos. |
+| **Buffer** | Cor do contorno (halo) ao redor do texto da etiqueta, com seu próprio seletor de cores e botão de exclusão. É independente do Plano de Fundo e nunca está vinculado ao Plano de Fundo do Mapa. Sem uma cor atribuída (padrão) nenhum halo é desenhado. |
+| **Mostrar ID do nó** / **Mostrar ID do link** | Duas caixas independentes: adicione o ID do nó ou do pipe, respectivamente, na primeira linha de seu rótulo. |
 
 #### Simbologia
 

@@ -31,8 +31,9 @@ Ferramentas abertas de gerenciamento de projetos.
 | **Valores padrão** | Define prefixos de ID, tolerâncias geométricas e valores hidráulicos iniciais |
 | **Tabela de materiais** | Gerenciar a lista de materiais com sua rugosidade inicial e incrementos de idade |
 | **Salvar mapa** | Salve o projeto QGIS (`.qgz`) |
-| **Backup** | Crie uma cópia de todos os arquivos do projeto em uma subpasta datada |
 | **Fechar projeto** | Feche o projeto atual |
+
+> 💡 A exportação do projeto (ZIP portátil) não está mais nesta barra: é feita a partir do botão **Exportar** do Gerenciador de Projetos (ver [Salvar, exportar e fechar projeto](../projeto-ativo/guardar-backup.md)).
 
 ---
 

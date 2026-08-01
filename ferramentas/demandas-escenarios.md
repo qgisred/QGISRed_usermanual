@@ -56,6 +56,8 @@ O Builder aplica automaticamente o fator a todos os valores de consumo antes de 
 
 A camada resultante é exibida com cores por categoria e rótulos com o valor da demanda. Os nós sem categoria atribuída aparecem em laranja no grupo **Sem categoria**.
 
+> 💡 As camadas auxiliares do Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) também podem ser criadas vazias a partir do Layer Manager, sem a necessidade de primeiro executar uma análise (ver [Visão geral e gerenciamento de camadas](../projeto-ativo/capas-y-leyenda.md)).
+
 ### Limpeza de ações judiciais
 
 O gerenciador permite excluir demandas existentes antes de atribuir novas:
@@ -72,8 +74,8 @@ A seção de padrões setoriais permite atribuir um padrão de demanda a cada se
 
 | Modo | Descrição |
 |------|-------------|
-| **Tópico de importação de setores externos** | Selecione um SHP externo com o botão `...` e escolha os campos Sector Id, Pattern Id e Priority nos combos correspondentes. |
-| **Usar tema de fatias do projeto** | Selecione uma camada de fatia já carregada no QGIS. Os setores são mostrados com um combo por linha para escolha do padrão. Nós sem setor são agrupados em um setor extra. |
+| **Importar padrões de um tema setorial** | Selecione a camada poligonal com os setores em uma combinação suspensa que lista as camadas poligonais já carregadas no QGIS (ou importe-a com o botão `...` se ainda não estiver carregada). Em seguida, escolha os campos **Sector Id (opcional)**, **Id demand pattern** e **Priority (optional)** dos combos correspondentes. O campo Sector Id é opcional: caso não seja identificado, o QGISRed gera identificadores internos automaticamente. Opcionalmente, salve o resultado como uma camada interna do projeto com o botão **Importar e salvar**. Depois de salva, esta opção fica bloqueada. |
+| **Use padrões de um tema do setor de projeto** | Selecione uma camada de fatia já carregada no projeto. É exibida uma lista com os setores e, ao lado de cada um, um combo **editável** para escolher o padrão: você pode selecionar um padrão existente na lista ou escrever diretamente o Id de um novo padrão. Nós sem setor são agrupados em um setor extra. |
 
 ### Eficiência por setores
 
@@ -81,8 +83,8 @@ A seção de eficiência hidráulica por setores também apresenta **duas modali
 
 | Modo | Descrição |
 |------|-------------|
-| **Tema eficiência de importação (PCH externa)** | Carrega um SHP externo com os campos ID do Setor, Eficiência e Prioridade. Opcionalmente, salve o resultado como uma camada interna do projeto com o botão **Importar/Salvar**. Depois de salvo, a opção de importação é bloqueada. |
-| **Use o tema setorial próprio do projeto** | Selecione uma camada de fatia existente; O plugin identifica automaticamente os campos de eficiência. |
+| **Importar eficiências de um tema setorial** | Selecione a camada poligonal com os setores em uma combinação suspensa que lista as camadas poligonais já carregadas no QGIS (ou importe-a com o botão `...`) e escolha os campos **Sector Id (opcional)**, **Efficiency** e **Priority (opcional)**. O campo ID do setor é opcional. Opcionalmente, salve o resultado como uma camada interna do projeto com o botão **Importar e salvar**. Depois de salvo, a opção de importação é bloqueada. |
+| **Usar eficiências de um tema do setor de projeto** | Selecione uma camada de fatia existente; O plugin identifica automaticamente os campos de eficiência. |
 
 #### Eficiência e correções de padrões
 

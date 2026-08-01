@@ -63,7 +63,7 @@ Relaciona **Eficiência** (%) a **Fluxo** (Fluxo). É usado para análise de con
 
 ### Curva de volume (curva de volume)
 
-Relaciona o **Volume** armazenado (m³ ou galões) ao **Nível** do tanque (m ou pés). Necessário para tanques com geometria não cilíndrica (bacias cônicas, tanques de formato irregular).
+Relaciona o **Nível** do tanque (m ou pés, eixo X) ao **Volume** armazenado (m³ ou galões, eixo Y). Necessário para tanques com geometria não cilíndrica (bacias cônicas, tanques de formato irregular).
 
 ### Curva de perda de carga GPV (curva de perda de carga)
 

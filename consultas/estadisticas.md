@@ -4,7 +4,7 @@
 
 Abre o painel **Estatísticas**, que calcula e exibe a distribuição estatística de qualquer atributo numérico ou categórico na rede, com suporte para classificação automática, segunda classificação cruzada e representação gráfica.
 
-> **ℹ️ Nota:** O painel Estatísticas abre **encaixado** na janela principal do QGIS e respeita os painéis já agrupados em abas.
+> **ℹ️ Nota:** O painel Estatísticas abre **encaixado** na janela principal do QGIS e respeita os painéis já agrupados em abas. Seus controles também se adaptam a larguras estreitas de painéis, sem serem cortados na borda direita.
 
 <figure><img src="../assets/images/consultas/statistics-panel.png" alt="Painel de estatísticas com histograma de diâmetros de tubos"><figcaption><p>Painel de estatísticas com histograma de diâmetros de tubos</p></figcaption></figure>
 *Painel de Estatísticas: histograma de diâmetros de tubos com classificação por intervalos.*
@@ -48,6 +48,8 @@ Os métodos a seguir estão disponíveis para a classificação principal e para
 
 > **ℹ️ Nota:** Quando todos os valores são idênticos ou muito semelhantes, os endpoints de classe duplicados são recolhidos mostrando um único valor em vez de "100,0 - 100,0".
 
+> **ℹ️ Nota — Campos sem dados úteis:** Caso o campo escolhido para classificar não possua nenhum valor calculado, o painel não apresenta mensagem de erro: gera diretamente uma única classe **NULL** que agrupa todos os elementos sem valor. Se o campo tiver valores, mas todos forem iguais (incluindo o caso em que todos são zero), uma única classe será gerada com esse valor, assim como no caso anterior de endpoints recolhidos. Em ambos os casos o histograma e a tabela são gerados normalmente, sem interromper a análise.
+
 > **ℹ️ Nota:** Ao analisar um campo de resultado de simulação dinâmica, os **limites de classe são calculados uma vez** considerando todos os instantes de tempo simultaneamente. À medida que a etapa de simulação avança, a contagem de elementos por barra varia, mas os limites permanecem constantes, permitindo **comparar distribuições entre instantes de tempo** com total consistência.
 
 ### Pré-filtragem
@@ -64,6 +66,14 @@ O campo **Valor** inclui um botão **(×)** limpar: quando pressionado, limpa o 
 Quando o atributo de filtro é um campo de resultado de simulação, o combo exibe o mesmo **fundo amarelo/creme** usado para esses campos no seletor de propriedades.
 
 > **ℹ️ Nota — Fluxo:** Ao filtrar no campo `Flow` com valor numérico escrito, o valor é sempre interpretado como **valor absoluto**, pelo que não é necessário saber o sinal que o EPANET atribui internamente ao fluxo.
+
+### Restringir à seleção ativa
+
+A caixa de seleção **Apenas elementos selecionados** limita a análise aos elementos atualmente selecionados no mapa. A seleção é avaliada conjuntamente entre a camada **Entradas** e sua camada **Resultados** correspondente: se o elemento for selecionado em qualquer camada do mesmo tipo (por exemplo, `Pipes` em Entradas e seu tema de resultados do pipeline), ele será incluído no cálculo.
+
+> ⚠️ Se você ativar a caixa e nenhum elemento estiver selecionado em nenhuma das camadas, o painel exibe um aviso e não executa a análise.
+
+Enquanto o checkbox estiver ativo, tanto o histograma quanto a tabela exibem uma nota indicando que existe um filtro de seleção (e, se também houver um filtro de atributos ativo, ambos são combinados no mesmo texto).
 
 #### Visualização no mapa
 

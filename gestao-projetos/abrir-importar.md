@@ -5,7 +5,7 @@ QGISRed oferece três maneiras de começar a trabalhar com uma rede existente:
 | Opção | Quando usar |
 |--------|---------------|
 | **Projeto aberto** | O projeto já foi criado com QGISRed e seus arquivos SHP estão em disco |
-| **Importar projeto** | Você possui um arquivo EPANET `.inp` ou SHPs externos sem estrutura QGISRed |
+| **Importar projeto** | Você possui um arquivo EPANET `.inp`, SHPs externos sem estrutura QGISRed ou um ZIP previamente exportado com QGISRed |
 | **Adicionar dados por importação** | Você já tem um projeto aberto e deseja incorporar dados adicionais |
 
 ---
@@ -40,7 +40,7 @@ Abre um projeto QGISRed existente (criado anteriormente com o plugin) que não a
 
 **Barra Geral → Importar projeto**
 
-Converte dados externos em um projeto QGISRed. Suporta dois formatos de entrada:
+Converta dados externos em um projeto QGISRed ou recupere um projeto exportado anteriormente. Suporta três formatos de entrada:
 
 ### Importar do EPANET (`.inp`) {#importar-do-epanet}
 
@@ -80,6 +80,35 @@ Os demais elementos (válvulas, bombas, tanques, reservatórios, nós, válvulas
 Quando a importação cria um novo projeto, também são solicitados o **catálogo de materiais** (igual ao criar um projeto do zero) e os parâmetros básicos do EPANET (unidades e fórmula de queda de pressão). Se importados sobre um projeto existente, esses parâmetros serão ignorados.
 
 > 💡 O campo **Material** de tubos e conexões é cruzado com o catálogo de materiais do projeto para estimar automaticamente a rugosidade com base na idade do tubo.
+
+### Importe um projeto QGISRed exportado (ZIP) {#import-zip}
+
+Recupera um projeto empacotado com o botão **Exportar** de [Gestor de projeto](gestor-proyectos.md) — veja [Salvar, exportar e fechar projeto](../projeto-ativo/guardar-backup.md). Também reconhece ZIPs gerados por versões anteriores do plugin, mesmo que não possuam o manifesto interno das exportações atuais.
+
+<!-- TODO: captura pendente — guia "Projeto QGISRed" da caixa de diálogo de importação -->
+
+1. Na aba **Projeto QGISRed**, pressione o botão **...** próximo a **Arquivo ZIP:** e selecione o arquivo `.zip`.
+2. QGISRed inspeciona o conteúdo ZIP sem extraí-lo ainda e exibe um resumo no campo:
+- **Projeto:** nome da rede que contém o ZIP (substitui qualquer nome digitado anteriormente; o campo do nome do projeto fica oculto nesta aba).
+- Se o ZIP incluir o mapa QGIS, indicar o arquivo `.qgz`/`.qgs`; Caso não esteja incluído avisa que apenas os dados serão importados.
+- Se o ZIP incluir dados complementares (cartografia de fundo, MDT, etc.), indicar quantos elementos e seu tamanho total.
+3. Caso o ZIP inclua dados complementares, será exibida a caixa **Importar os dados complementares incluídos no arquivo ZIP**, marcada por padrão. Desmarque se não quiser trazê-los.
+4. A caixa de seleção **Criar automaticamente uma subpasta para este projeto** decide se o projeto será colocado em uma subpasta com o nome da rede dentro da pasta de destino:
+- Se o ZIP já contém sua própria pasta de projeto (foi exportado junto com os dados de suporte em pastas irmãs), o QGISRed desmarca e desabilita automaticamente esta caixa - aninhá-lo em outra pasta quebraria os caminhos relativos para esses dados.
+- Caso contrário, você pode marcá-lo ou desmarcá-lo livremente.
+5. Pressione **Importar do projeto**.
+
+Se o ZIP não for um projeto QGISRed válido, o QGISRed indica isso sem realmente importar nada:
+
+| Situação | Mensagem |
+|-----------|---------|
+| O ZIP não contém um projeto QGISRed reconhecível | _"O arquivo ZIP não contém um projeto QGISRed válido"_ |
+| O ZIP foi gerado com uma versão do QGISRed mais recente que a instalada | _"Este arquivo ZIP foi criado com uma versão mais recente do QGISRed. Atualize o plugin."_ |
+| O ZIP contém caminhos de arquivo não seguros | _"O arquivo ZIP contém caminhos de arquivo não seguros e não será importado."_ |
+
+> ⚠️ Se já existir um projeto com o mesmo nome (ou arquivos com o mesmo nome) na pasta de destino, o QGISRed pede confirmação antes de sobrescrevê-los.
+
+> 💡 Se o ZIP incluir o mapa QGIS, mas você decidir não importar os dados complementares, o QGISRed avisa que algumas camadas de fundo não estarão disponíveis e permite que o QGIS solicite que você as localize.
 
 ---
 
