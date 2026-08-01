@@ -1,6 +1,6 @@
 # Patterns and Curves
 
-**Barra Edition → Edit patterns and curves…**
+**Edition bar → Edit patterns and curves…**
 
 The patterns and curves editor centralizes the management of temporal and functional data that control the dynamic behavior of the model: how demand varies throughout the day, how a pump behaves according to its flow rate, or what is the volume of an irregular tank.
 
@@ -9,14 +9,14 @@ The patterns and curves editor centralizes the management of temporal and functi
 
 ---
 
-## Demand Patterns (Patterns)
+## Demand Patterns
 
 A pattern defines how you multiply a node's base demand (or other parameter) at each simulation time interval.
 
 ### Structure of a pattern
 
 Each pattern has:
-- A unique **ID** (referenced from the nodes or bombs).
+- A unique **ID** (referenced from the nodes or pumps).
 - A list of **multiplier factors**, one per time interval.
 - The **time step of the pattern** is defined in the simulation options; If the pattern has fewer factors than simulation intervals, the values ​​are repeated cyclically.
 
@@ -41,11 +41,11 @@ The node with base demand 2.0 L/s and pattern `DomResidential` consumes 0.8 L/s 
 
 ---
 
-## Behavior curves (Curves)
+## Behavior curves
 
 The curves relate two physical quantities. EPANET uses four types:
 
-### Pump H-Q curve (Pump curve)
+### Pump H-Q curve
 
 It relates the **Manometric Height** (Head, Y axis) to the **Flow** (Flow, X axis). Defines the working point of the pump at nominal speed.
 
@@ -57,15 +57,15 @@ It relates the **Manometric Height** (Head, Y axis) to the **Flow** (Flow, X axi
 
 > The H-Q curve must have **negative slope** (higher head at lower flow). EPANET will warn if the curve has a positive slope in any section.
 
-### Efficiency curve (Efficiency curve)
+### Efficiency curve
 
 Relates **Efficiency** (%) to **Flow** (Flow). It is used for energy consumption analysis. If not defined, EPANET uses the overall project efficiency.
 
-### Volume curve (Volume curve)
+### Volume curve
 
 Relates the **Level** of the tank (m or ft, X axis) to the **Volume** stored (m³ or gallons, Y axis). Necessary for tanks with non-cylindrical geometry (conical basins, irregularly shaped tanks).
 
-### GPV head loss curve (Head loss curve)
+### GPV head loss curve
 
 For **GPV** (General Purpose Valve) type valves, relate the **Head loss** (m or ft) to the **Flow** (Flow). It allows modeling any hydraulic control device for which the characteristic curve is known.
 

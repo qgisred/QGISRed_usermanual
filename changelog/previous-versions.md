@@ -17,7 +17,7 @@ Here you can check the detailed change history of previous versions of QGISRed.
 * New option to reflect a rush with the invest tool.
 * New option to import connections as points, creating perpendiculars to the pipes or connections to the closest nodes.
 * New IsActive field in connections to define whether it is operational or not.
-* Verification of the contact point of a connection with a pipe or knot at both ends.
+* Verification of the contact point of a connection with a pipe or node at both ends.
 * Before calculating the hydraulic sectorization, the status of the manual valves is now transmitted.
 * When exporting to INP the loss coefficient of the shut-off valves is transmitted to the pipes.
 * Declaration, editing and deletion of meters of various types, as new elements of the Digital Twin.
@@ -117,7 +117,7 @@ Here you can check the detailed change history of previous versions of QGISRed.
 * New tool to obtain the tree of minimum resistance.
 * Update of the Epanet library to **version 2.2**.
 * Improved the roughness coefficient conversion interface.
-* Bug fixes in quality results and knots without coordinates.
+* Bug fixes in quality results and nodes without coordinates.
 * Insertion of valves/pumps avoiding negative lengths.
 
 ---
@@ -141,7 +141,7 @@ Here you can check the detailed change history of previous versions of QGISRed.
 
 **Features**:
 * Writing INP headers in English.
-* Validation to prevent the same final knot in lines.
+* Validation to prevent the same final node in lines.
 * Simplification of duplicate vertices in initial points.
 * Unification of metadata in file `_Metadata.txt`.
 * Notice of new versions available.
@@ -160,7 +160,7 @@ Here you can check the detailed change history of previous versions of QGISRed.
 * Agile creation of pipes, tanks and reservoirs with anchoring.
 * Path editing (move, create, delete vertices).
 * Line orientation inversion.
-* Tools for splitting/joining pipes and knots.
+* Tools for splitting/joining pipes and nodes.
 * Creating/undoing T-connections and crossovers.
 * Displacement of valves and pumps.
 * Multiple selection (Ctrl adds, Shift removes) and delete per polygon.

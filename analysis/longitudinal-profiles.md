@@ -31,7 +31,7 @@ The plugin allows you to keep multiple profile docks open at the same time. Each
 3. Click on a network node (Junctions, Tanks, Reservoirs) to set the first reference node.
 4. Click on another node: the plugin calculates the **minimum topological path** between both nodes and draws the profile.
 5. Each additional click extends the path by concatenating the path from the last node to the new one.
-6. Right click (without knot in progress) ends the editing route.
+6. Right click (without node in progress) ends the editing route.
 
 If two nodes are not connected in the network, the message _"Selected node is not connected to the previous one along the network."_
 
@@ -75,7 +75,7 @@ All editing actions are controlled from a single toggle button, rather than a se
 
 | Button | Function |
 |-------|---------|
-| **Edit trajectories** (pencil icon, toggleable) | Activate editing mode: left click to trace the route knot by knot, right click on a knot to see its options (see [Mouse shortcuts](#atajos-de-ratón)). When disabled, moving the mouse over the path only highlights it and displays information, without modifying it. |
+| **Edit trajectories** (pencil icon, toggleable) | Activate editing mode: left click to trace the route node by node, right click on a node to see its options (see [Mouse shortcuts](#atajos-de-ratón)). When disabled, moving the mouse over the path only highlights it and displays information, without modifying it. |
 | **Help** (ⓘ icon) | Opens the **"How to edit trajectories"** dialog, with a summary of all available editing actions and mouse shortcuts. |
 
 > 📝 Adding an intermediate step node, deleting it, moving it or creating a branch no longer has its own button in the toolbar: they are done with **Edit trajectories** active, using the context menu (right click) or the mouse shortcuts described in [Mouse shortcuts](#atajos-de-ratón). These actions work the same on the main route and on the branches.
@@ -167,7 +167,7 @@ With **Edit trajectories** active, in addition to tracing the path click by clic
 
 The context menu (simple right click) offers different options depending on the indicated node:
 
-| Knot situation | Menu options |
+| Node situation | Menu options |
 |---------------------|--------------------|
 | There is no route yet | **Start new path here** |
 | Intermediate node of the route (not yet a passing node) | **Declare pass node** |

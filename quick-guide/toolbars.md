@@ -43,17 +43,17 @@ Tools to draw and modify the network topology directly on the map.
 
 | Tool | What does it do |
 |-------------|----------|
-| **Add Pipe** | Draw a pipe; automatically creates extreme knots |
+| **Add Pipe** | Draw a pipe; automatically creates extreme nodes |
 | **Add tank** | Convert an existing node into a Tank |
 | **Add reservoir** | Converts an existing node into a reservoir (Reservoir) |
 | **Insert valve** | Split a pipe and insert a valve |
 | **Insert pump** | Split a pipe and insert a pump |
-| **Select elements** | Multiple selection of knots and lines |
-| **Move knots** | Move a knot by dragging it; maintains connectivity |
+| **Select elements** | Multiple selection of nodes and lines |
+| **Move nodes** | Move a node by dragging it; maintains connectivity |
 | **Edit vertices** | Add, move or delete intermediate vertices of a pipe |
 | **Reverse link** | Change the reference flow direction in pipes/valves/pumps |
 | **Split / Join pipes** | Split a pipe at one point or join two consecutive pipes |
-| **Split / Merge knots** | Separate a knot into two or merge overlapping knots |
+| **Split / Merge nodes** | Separate a node into two or merge overlapping nodes |
 | **Create / Revert T** | Create or break a tee connection over an existing pipe |
 | **Create/Revert crossover** | Manage crossovers between geographically overlapping pipes |
 | **Move valve / pump** | Reposition a valve or pump to another pipe |
@@ -75,7 +75,7 @@ Tools to ensure the topological and attribute integrity of the model.
 | **Remove overlapping elements** | Detect and delete duplicate pipes or nodes in the same position |
 | **Simplify link vertices** | Eliminates redundant vertices in straight sections |
 | **Join consecutive pipes** | Merges adjacent pipes with the same diameter, material and year of installation |
-| **Create T connections** | Create connection nodes where pipes intersect without a common knot |
+| **Create T connections** | Create connection nodes where pipes intersect without a common node |
 | **Verify connectivity** | Analyze network connectivity and identify isolated areas |
 | **Eliminate isolated areas** | Deletes subzones without connection to any pressure source |
 | **Check lengths** | Detects pipes that are too short or long with respect to the defined thresholds |

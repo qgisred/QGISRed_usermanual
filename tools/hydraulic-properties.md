@@ -26,9 +26,9 @@ The tool overwrites the value of `Length` unconditionally on all pipes in the se
 
 **Tools Bar → Interpolate elevation from .asc files…**
 
-Assigns the elevation (field `Elevation`) to the nodes, reservoirs and reservoirs of the project by interpolating their value from one or more Digital Terrain Models (DTM) in ASC format.
+Assigns the elevation (field `Elevation`) to the nodes, tanks and reservoirs of the project by interpolating their value from one or more Digital Terrain Models (DTM) in ASC format.
 
-<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="ASC file selector for dimension interpolation"><figcaption><p>ASC file selector for dimension interpolation</p></figcaption></figure>
+<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="ASC file selector for elevation interpolation"><figcaption><p>ASC file selector for elevation interpolation</p></figcaption></figure>
 *MDT File Selector: You can upload multiple ASC files to cover the entire network area.*
 
 ### ASC format supported
@@ -54,8 +54,8 @@ nodata_value  -9999
 
 1. Open the selector and choose one or more `.asc` files. You can combine multiple MDTs to cover the entire network area.
 2. QGISRed projects the coordinate of each node onto the mesh and obtains the elevation by bilinear interpolation between the four neighboring cells.
-3. Only nodes whose current `Elevation` is equal to the default value (typically 0) are updated. Knots with a height already assigned manually are not modified.
-4. Knots that fall outside the range of all loaded MDTs are marked as an incident on the message board.
+3. Only nodes whose current `Elevation` is equal to the default value (typically 0) are updated. Nodes with an elevation already assigned manually are not modified.
+4. Nodes that fall outside the range of all loaded MDTs are marked as an incident on the message board.
 
 > The CRS of the ASC file must match the CRS of the project. If they do not match, the coordinates are not projected and the nodes will be outside the mesh.
 

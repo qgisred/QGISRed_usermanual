@@ -32,7 +32,7 @@ If a `.qgz` already exists, it directly overwrites it (equivalent to `Ctrl+S` in
 
 > ⚠️ This button is **no longer** on the **Project** bar: the old _Project backup_ button has been removed and has no replacement on that bar. The export is now done from [Project manager](../project-management/project-manager.md) — select the project in the list (it is not necessary to have it open) and press **Export**.
 
-Generates a portable ZIP file with the project: the SHP/DBF of the network, the QGIS map (`.qgz`) if it exists, and optionally the content groups and complementary data (background cartography, MDT, orthophotos...) that that `.qgz` reference.
+Generates a portable ZIP file with the project: the SHP/DBF of the network, the QGIS map (`.qgz`) if it exists, and optionally the content groups and complementary data (background cartography, MDT, orthophotos...) referenced by that `.qgz`.
 
 ### Before exporting
 

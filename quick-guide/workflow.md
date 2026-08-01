@@ -25,7 +25,7 @@ The indicator on the main bar (`LPS | D-W`) always reflects the active values.
 
 Activate the **Edition** bar and draw the network on the map:
 
-1. Start with the **pipes** — the extreme knots create themselves.
+1. Start with the **pipes** — the extreme nodes create themselves.
 2. Add **tanks and reservoirs** by clicking on existing nodes.
 3. Insert **valves and pumps** by clicking on a pipe.
 4. Edit the **properties** of each element (diameter, roughness, dimension, demand...).
@@ -62,7 +62,7 @@ From the **Analysis** bar:
 
 In the side panel of the Results Viewer:
 
-- Select which **variable** to show in nodes (Pressure, Demand, Quality) and in pipes (Flow, Speed, Unit Loss...).
+- Select which **variable** to show in nodes (Pressure, Demand, Quality) and in pipes (Flow, Velocity, Unit Loss...).
 - Move the **time slider** to see the evolution throughout the simulated period.
 - Activate **Map Notices** to read values ​​when you mouse over any element.
 - Use **Time Series** to graph the evolution of a specific point.

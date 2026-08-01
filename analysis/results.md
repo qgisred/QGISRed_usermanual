@@ -59,7 +59,7 @@ Two combos located under the time controls:
 |---------|-------------|
 | **Combo Nodes** (`cbNodes`) | Property to display in nodes: Pressure, Head, Demand, Quality. |
 | **Show Node Labels** | Displays labels with the ID and value on each node on the map. |
-| **Show Node Histogram** | Opens a built-in histogram in the dock with the distribution of the current value in knots. |
+| **Show Node Histogram** | Opens a built-in histogram in the dock with the distribution of the current value in nodes. |
 | **Show Node Evolution** | Opens an integrated mini-graph with the temporal evolution of the selected node on the map. |
 
 > 💡 When a variable is selected in the **Nodes** combo, a label appears next to the group header with the variable name in bold and its unit in parentheses (for example, **Pressure** (m)).
@@ -111,7 +111,7 @@ Concentrates all the options for visual presentation of the results on the map. 
 |--------|-------------|
 | **Font size (pt)** | Font size of labels on the map (6–24 pt, default 8). |
 | **Nodes / Links decimals** | Number of decimals displayed on node and pipe labels respectively (0–6). The control is labeled with the name of the currently active variable. |
-| **Text color** | Default Color: Knots **#333333** (Dark Grey), Piping **#0A143C** (Navy Blue). **Black**: always black text. **By range**: The text color follows the palette of the active value range. When **Show Node ID** or **Show Link ID** is active, the Id line uses the color of the element itself and the value line uses the color of the symbol or range. |
+| **Text color** | Default Color: Nodes **#333333** (Dark Grey), Pipes **#0A143C** (Navy Blue). **Black**: always black text. **By range**: The text color follows the palette of the active value range. When **Show Node ID** or **Show Link ID** is active, the Id line uses the color of the element itself and the value line uses the color of the symbol or range. |
 | **Background** | Background color behind map labels. Includes a color picker and a delete button to remove the background. Next to the selector is a **lock** icon: open (by default), the labels background is independent of the map background; When you close it, the selector and clear button are disabled and the labels background is linked to the **Map Background** color (see below), so changing that color also automatically changes the labels background. |
 | **Buffer** | Outline color (halo) around label text, with its own color picker and delete button. It is independent of the Background and is never linked to the Map Background. Without an assigned color (default) no halo is drawn. |
 | **Show Node ID** / **Show Link ID** | Two independent boxes: add the ID of the node or the pipe, respectively, in the first line of its label. |
@@ -120,9 +120,9 @@ Concentrates all the options for visual presentation of the results on the map. 
 
 | Option | Description |
 |--------|-------------|
-| **Hide border on junctions** | Hides the edge/outline of junction markers. Enabling this option removes the outline surrounding the knot symbol. |
+| **Hide border on junctions** | Hides the edge/outline of junction markers. Enabling this option removes the outline surrounding the node symbol. |
 | **Proportional to value** | Scales the size of the nodes and the thickness of the pipes linearly with the represented value. Does not apply to the Status field. |
-| **Nodes factor** | Base scale factor of knot marker size (0.25–4.0, default 1.0). |
+| **Nodes factor** | Base scale factor of node marker size (0.25–4.0, default 1.0). |
 | **Links factor** | Pipe thickness base scaling factor (0.25–4.0, default 1.0). |
 | **Arrows factor** | Flow direction arrows scale factor (0.25–4.0, default 1.0). |
 
@@ -144,7 +144,7 @@ The dock supports multiple outcome scenarios. Each scenario is identified by a n
 
 ### Available properties
 
-**Knots** (Junctions, Tanks, Reservoirs):
+**Nodes** (Junctions, Tanks, Reservoirs):
 
 | Property | Description |
 |-----------|-------------|
@@ -158,7 +158,7 @@ The dock supports multiple outcome scenarios. Each scenario is identified by a n
 | Property | Description |
 |-----------|-------------|
 | `Flow` | Flow rate (with sign or without sign) |
-| `Velocity` | Speed ​​in m/s |
+| `Velocity` | Velocity in m/s |
 | `HeadLoss` | Head loss in m |
 | `UnitHdLoss` | Unit loss in m/km |
 | `FricFactor` | Friction factor |
@@ -170,13 +170,13 @@ The dock supports multiple outcome scenarios. Each scenario is identified by a n
 
 ---
 
-## Time series (Time series…)
+## Time series
 
 **Analysis bar → Time series…**
 
 Activates an interactive selection tool that plots the time evolution of any result property for one or more network elements.
 
-<figure><img src="../assets/images/analisis/time-series-dock.png" alt="Panel Time series with multi-knot pressure curves"><figcaption><p>Panel Time series with multi-knot pressure curves</p></figcaption></figure>
+<figure><img src="../assets/images/analisis/time-series-dock.png" alt="Panel Time series with multi-node pressure curves"><figcaption><p>Panel Time series with multi-node pressure curves</p></figcaption></figure>
 *Panel Time series: time evolution of pressure in several nodes selected simultaneously.*
 
 ### Process

@@ -41,7 +41,7 @@ Exports the results of the last simulation to two CSV files: one for nodes and o
 
 | Option | Description |
 |--------|-------------|
-| **CSV nodes** | Output file path for knot results. By default `{Red}_{Escenario}_Nodes.csv` in folder `Results/`. |
+| **CSV nodes** | Output file path for node results. By default `{Red}_{Escenario}_Nodes.csv` in folder `Results/`. |
 | **CSV Links** | Output file path for pipeline results. By default `{Red}_{Escenario}_Links.csv`. |
 | **List separator** | Field separator (automatically detected from the regional system; common `;` in European premises). |
 | **Decimal separator** | Decimal separator (detected from the system; common `,` in European locations). |

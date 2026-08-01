@@ -71,7 +71,7 @@ If you have SHP layers with the geometry of the network but without the internal
 
 For each element type you can select the corresponding SHP layer and assign its fields to the model attributes. Automatically recognized fields (if the name matches) are preselected:
 
-**Pipes** — mappable fields: ID, Length, Diameter, Roughness, Coeff. losses, **Material**, Installation date, Initial state, Coeff. mass reaction, Coef. wall reaction, Tag, Description.
+**Pipes** — mappable fields: ID, Length, Diameter, Roughness, Minor loss coeff., **Material**, Installation date, Initial status, Bulk reaction coeff., Wall reaction coeff., Tag, Description.
 
 **Services** — mappable fields: ID, Length, Diameter, Roughness, **Material**, Base demand, Pattern, Active, Installation date, Tag, Description.
 

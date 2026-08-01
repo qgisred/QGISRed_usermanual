@@ -17,7 +17,7 @@ The **Debug** bar groups together the model verification and debugging tools. It
 | 2 | **Remove overlapping elements** | Detect and remove duplicate nodes or pipes in the same position |
 | 3 | **Simplify link vertices** | Eliminates intermediate vertices aligned in straight sections |
 | 4 | **Join consecutive pipes** | Merge adjacent pipes with identical diameter, material and year |
-| 5 | **Create T connections** | Detects end knots on pipes and creates the topological join |
+| 5 | **Create T connections** | Detects end nodes on pipes and creates the topological join |
 | 6 | **Check connectivity** | Identifies areas isolated from supply sources |
 | — | *Delete isolated subzones* | (Sub-option) Eliminates subzones with fewer pipes than the defined threshold |
 

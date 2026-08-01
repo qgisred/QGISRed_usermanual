@@ -34,7 +34,7 @@ Opens the main EPANET options dialog. It is equivalent to section `[OPTIONS]` of
 |-------|-------------|
 | **Type of quality analysis** | None (does not simulate quality), Chemical (reagent), Age (water age), Trace (tracer) |
 | **Reagent label** | Name of the modeled product (e.g. "Chlorine") — will appear in the results |
-| **Tracer knot** | For Trace type analysis, tracer source node ID |
+| **Tracer node** | For Trace type analysis, tracer source node ID |
 | **Concentration units** | mg/L or μg/L |
 | **Diffusivity** | Relative molecular diffusion coefficient (1.0 for chlorine in water) |
 | **Tolerance** | Convergence criterion for the quality solver |
@@ -94,7 +94,7 @@ The prefixes are configurable. The starting number can also be set.
 |-------|-------------|
 | **Default diameter** | Diameter (mm or inches) assigned to the new pipes |
 | **Default roughness** | Roughness coefficient according to the active formula |
-| **Default dimension** | Elevation (m or ft) assigned to the new nodes |
+| **Default elevation** | Elevation (m or ft) assigned to the new nodes |
 | **Default base demand** | Initial demand of the new demand nodes |
 | **Default pump speed** | Initial relative speed factor for pumps |
 
@@ -102,7 +102,7 @@ The prefixes are configurable. The starting number can also be set.
 
 | Field | Description |
 |-------|-------------|
-| **Knot Tolerance** | Maximum distance (m or ft) to consider two points to be the same node |
+| **Node Tolerance** | Maximum distance (m or ft) to consider two points to be the same node |
 | **Minimum length for division** | Minimum length of the resulting sections when dividing a pipe |
 | **Maximum length for division** | Maximum length of the resulting sections when dividing a pipe |
 

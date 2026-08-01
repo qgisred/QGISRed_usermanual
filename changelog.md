@@ -7,7 +7,7 @@ Stay up to date with the latest QGISRed improvements.
 **News**:
 
 * Complete restructuring of the Statistics panel: new Setup/Report tabs, histogram with floating window and statistic selector on the Y axis, and second cross classification with results matrix.
-* New display options in the Results panel: size proportional to value in nodes and pipes, and optional black outline in knot markers.
+* New display options in the Results panel: size proportional to value in nodes and pipes, and optional black outline in node markers.
 * Improved map labels: show item type and Id on the first line and value with units on the second.
 * Map tooltips visible on all active layers managed by QGISRed, regardless of the layer selected in the legend.
 * Quick time evolution directly from the Results dock, without having to open the Time Series panel.

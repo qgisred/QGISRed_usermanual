@@ -23,10 +23,10 @@ IF [elemento] [condición]  THEN [acción]
 
 | Type | Usage example |
 |------|---------------|
-| **Deposit level** | If the level of Tank T-1 exceeds 4.5 m → close pump BM-1 |
-| **Knot pressure** | If the pressure in J-120 drops below 10 m → open valve V-3 |
-| **Simulation time** | At 6 hours of simulation → turn on bomb BM-2 |
-| **Clock** | At 23:00 (clock time) → close pipeline P-55 |
+| **Tank level** | If the level of Tank T-1 exceeds 4.5 m → close pump BM-1 |
+| **Node pressure** | If the pressure in J-120 drops below 10 m → open valve V-3 |
+| **Simulation time** | At 6 hours of simulation → turn on pump BM-2 |
+| **Clock** | At 23:00 (clock time) → close pipe P-55 |
 
 ### Available actions
 
@@ -35,20 +35,20 @@ IF [elemento] [condición]  THEN [acción]
 | **OPEN** | Pipes, valves, pumps |
 | **CLOSED** | Pipes, valves, pumps |
 | **Setting = value** | Valves (changes the regulation setpoint) |
-| **Speed ​​= value** | Bombs (changes relative speed) |
+| **Speed = value** | Pumps (changes relative speed) |
 
 ### Complete example
 
 ```
-; Arrancar bomba cuando el depósito esté bajo
+; Start pump when tank is low
 IF TANK T-DEPOSITO1 LEVEL BELOW 1.5
 THEN PUMP BM-ELEVADORA OPEN
 
-; Parar bomba cuando el depósito esté lleno
+; Stop pump when tank is full
 IF TANK T-DEPOSITO1 LEVEL ABOVE 4.0
 THEN PUMP BM-ELEVADORA CLOSED
 
-; Encender bomba de refuerzo a hora punta
+; Turn on booster pump during peak hour
 IF CLOCKTIME 7:00 AM
 THEN PUMP BM-REFUERZO OPEN
 
@@ -58,7 +58,7 @@ THEN PUMP BM-REFUERZO CLOSED
 
 ---
 
-## Operating rules (Rules)
+## Operating rules
 
 The rules allow you to combine **multiple conditions** with logical operators, as well as define alternative actions and priorities. They are equivalent to the `[RULES]` of the EPANET file `.inp`.
 

@@ -16,7 +16,7 @@ The selection is used as **input** for other tools: Reverse elements and Delete 
 
 ---
 
-## Move nodes (Move nodes)
+## Move nodes
 
 **Edition bar → Move nodes**
 
@@ -52,7 +52,7 @@ Allows you to adjust the visual layout of pipes and other linear elements by man
 
 ---
 
-## Reverse elements (Reverse elements)
+## Reverse elements
 
 **Barra Edition → Reverse elements**
 
@@ -76,7 +76,7 @@ Click on a pipe to **split** it at the indicated point: QGISRed creates a new ju
 To **join** two pipes, click on the intermediate node they share: if that node has exactly two connected pipes and the diameter, material and InstallYear properties are the same, QGISRed merges them into a single section and deletes the node.
 
 <figure><img src="../assets/images/edicion/split-pipe.png" alt="Split a pipe: an intermediate node and two sections are created"><figcaption><p>Split a pipe: an intermediate node and two sections are created</p></figcaption></figure>
-*Click on P-5 creates knot J-42 and divides the pipe into P-5 and P-45.*
+*Click on P-5 creates node J-42 and divides the pipe into P-5 and P-45.*
 
 > If the two pipes have different diameters or materials, the connection is not made and the plugin displays a warning.
 
@@ -93,7 +93,7 @@ This tool operates with **two clicks**:
 
 Common use cases:
 - Merge two very close nodes that were separated when importing from `.inp`.
-- Separate a knot at a junction where the pipes are not actually connected.
+- Separate a node at a junction where the pipes are not actually connected.
 
 ---
 
@@ -115,20 +115,20 @@ Click on the existing T connection. QGISRed removes the intermediate node and re
 
 ---
 
-## Create/Remove crossings (Create/Remove crossings)
+## Create/Remove crossings
 
 **Edition bar → Create/Remove crossings**
 
 Manages crossings between pipes that intersect on the map:
 
 - **Create junction**: Click on the intersection point between two pipes that do not have a shared node. QGISRed divides both pipes and creates a common node at the intersection.
-- **Delete junction**: Click on a junction node that has exactly four connected pipes. QGISRed removes the knot and restores the two original pipes that pass above it.
+- **Delete junction**: Click on a junction node that has exactly four connected pipes. QGISRed removes the node and restores the two original pipes that pass above it.
 
 > This tool does not apply snapping to avoid false positives. The crossover detection tolerance uses the value configured in **Default Values**.
 
 ---
 
-## Move valves and pumps (Move valves/pumps)
+## Move valves and pumps
 
 **Barra Edition → Move valves/pumps**
 
@@ -158,7 +158,7 @@ The **Isolation Valves** layer can also be managed with this tool if it is loade
 
 ---
 
-## Delete elements (Delete elements)
+## Delete elements
 
 **Edition bar → Delete elements**
 
@@ -172,7 +172,7 @@ Delete one or more elements from the project. It works in two ways:
 | Situation | What happens |
 |-----------|------------|
 | Delete a pipe | The pipe is removed. End nodes remain if they have other connections; They are eliminated if they become isolated. |
-| Remove a knot with connected pipes | All connected pipes are also removed. |
+| Remove a node with connected pipes | All connected pipes are also removed. |
 | Remove a valve or pump | The two sections of pipe into which it was divided are automatically merged into one. |
 | Delete a Tank or Reservoir | The element is converted to a Junction or removed if it has no connections. |
 

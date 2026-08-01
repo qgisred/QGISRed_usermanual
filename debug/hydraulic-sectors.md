@@ -35,7 +35,7 @@ The tool produces three outputs that are automatically added to the project:
 | Output | Type | Content |
 |--------|------|-----------|
 | `HydraulicSectors` | SHP layer | Geometry of all elements colored by sector type |
-| `HydraulicSectors_IsolatedDemands` | SHP layer | Knots and connections of the **nH-Q** type with their isolated demand |
+| `HydraulicSectors_IsolatedDemands` | SHP layer | Nodes and connections of the **nH-Q** type with their isolated demand |
 | `{Red}_HydraulicSectors_Report.csv` | CSV | Table with sector ID, number of elements and classification |
 
 The CSV has the format:

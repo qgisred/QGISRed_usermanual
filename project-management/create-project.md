@@ -53,14 +53,14 @@ QGISRed looks for the catalogs available in the `materials` and `global_defaults
 
 Upon confirming the creation, QGISRed generates the following files in the chosen folder and automatically uploads them to QGIS:
 
-| Archive | Content |
+| File | Content |
 |---------|-----------|
 | `{Red}_Junctions.shp` | Demand nodes |
 | `{Red}_Pipes.shp` | Pipes |
 | `{Red}_Tanks.shp` | Tanks |
 | `{Red}_Reservoirs.shp` | Reservoirs or feeding points |
 | `{Red}_Valves.shp` | Regulating valves |
-| `{Red}_Pumps.shp` | Bombs |
+| `{Red}_Pumps.shp` | Pumps |
 | `{Red}_Options.dbf` | EPANET options (units, formula, quality...) |
 | `{Red}_Title.dbf` | Project metadata (scenario name, notes…) |
 

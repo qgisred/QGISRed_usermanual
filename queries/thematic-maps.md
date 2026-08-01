@@ -44,7 +44,7 @@ Available only if there are results loaded in the project:
 | Field | Description |
 |-------|-------------|
 | `Flow` | Flow rate (l/s or configured unit) |
-| `Velocity` | Speed ​​(m/s) |
+| `Velocity` | Velocity (m/s) |
 | `HeadLoss` | Head loss (m) |
 | `UnitHdLoss` | Unit loss (m/km) |
 | `FricFactor` | Friction factor |

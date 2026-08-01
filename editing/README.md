@@ -15,7 +15,7 @@ The **Edition** bar contains all the tools to build and edit the network directl
 
 | # | Tool | Function |
 |---|-------------|---------|
-| 1 | **Add pipe** | Draw pipes by clicking on the map; automatically creates knots at the ends |
+| 1 | **Add pipe** | Draw pipes by clicking on the map; automatically creates nodes at the ends |
 | 2 | **Add tank** | Place a Tank on an existing node |
 | 3 | **Add reservoir** | Place a reservoir or feed point (Reservoir) at an existing node |
 | 4 | **Insert valve in pipe** | Insert a valve into an existing pipe, splitting it |
@@ -30,7 +30,7 @@ The **Edition** bar contains all the tools to build and edit the network directl
 | 8 | **Edit link vertices** | Add, move and delete intermediate pipe vertices |
 | 9 | **Reverse elements** | Reverses the direction of orientation of pipes or service connections |
 | 10 | **Split/Join pipes** | Split a pipe at the indicated point or join two adjacent sections |
-| 11 | **Merge/Dissolve junctions** | Merge two knots into one or separate one knot into several |
+| 11 | **Merge/Dissolve junctions** | Merge two nodes into one or separate one node into several |
 | 12 | **Create/Remove T connections** | Create or delete a T-joint between a node and a nearby pipe |
 | 13 | **Create/Remove crossings** | Creates or deletes a junction (shared node) between intersecting pipes |
 | 14 | **Move valves/pumps** | Move a valve or pump from one pipe to another |

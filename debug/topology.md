@@ -13,7 +13,7 @@ It is the main validation tool. It goes through all the elements of the project,
 ### What is valid
 
 - Duplicate IDs on any layer.
-- Pipes without valid end knots (broken connectivity).
+- Pipes without valid end nodes (broken connectivity).
 - References to curves or patterns that do not exist in the project.
 - Empty mandatory values ​​(null diameter, empty dimension...).
 - Internal consistency of file `_Options.dbf`.
@@ -93,7 +93,7 @@ When digitizing networks by hand, it is common for a branch to be left "floating
 
 ### Tolerance
 
-Uses the knot tolerance configured in **Project Bar → Default Values**. If the end of the pipe is less than that distance from the axis of another pipe, it is considered a tee to solve.
+Uses the node tolerance configured in **Project Bar → Default Values**. If the end of the pipe is less than that distance from the axis of another pipe, it is considered a tee to solve.
 
 ---
 

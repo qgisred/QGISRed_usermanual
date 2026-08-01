@@ -28,10 +28,10 @@ The properties dialog is the central tool for viewing and editing all attributes
 | **Diameter** | Inner diameter (mm or inches) |
 | **Roughness Coeff** | Roughness for the configured head loss formula |
 | **MinorLoss** | Minor loss coefficient (0 if not applicable) |
-| **InitStatus** | Initial state: Open, Closed or CV (Check Valve) |
+| **InitStatus** | Initial status: Open, Closed or CV (Check Valve) |
 | **Material** | Material code (referenced in the Materials Table) |
 | **InstallYear** | Year of installation (`YYYY` format), used to calculate aging roughness |
-| **BulkCoeff** | Mass reaction coefficient (for Chemical type quality models) |
+| **BulkCoeff** | Bulk reaction coefficient (for Chemical type quality models) |
 | **WallCoeff** | Wall reaction coefficient (for Chemical type quality models) |
 
 ---
@@ -41,7 +41,7 @@ The properties dialog is the central tool for viewing and editing all attributes
 | Field | Description |
 |-------|-------------|
 | **ID** | Unique node identifier |
-| **Elevation** | Knot height (m or ft) |
+| **Elevation** | Node elevation (m or ft) |
 | **Demand** | Base demand (in project flow units) |
 | **Pattern** | ID of the applied demand pattern |
 | **EmitterCoeff** | Emitter coefficient (to model pressure-dependent leaks) |
@@ -59,7 +59,7 @@ The nodes can have more than one demand (user categories: residential, industria
 
 ---
 
-## Tanks fields
+## Tank fields
 
 | Field | Description |
 |-------|-------------|
@@ -86,7 +86,7 @@ The nodes can have more than one demand (user categories: residential, industria
 
 ---
 
-## Valve fields (Valves)
+## Valve fields
 
 | Field | Description |
 |-------|-------------|
@@ -95,11 +95,11 @@ The nodes can have more than one demand (user categories: residential, industria
 | **Valve Type** | Valve type: PRV, PSV, PBV, FCV, TCV, GPV |
 | **Setting** | Regulation setpoint (pressure, flow or pressure loss depending on the type) |
 | **MinorLoss** | Minor loss coefficient |
-| **InitStatus** | Initial state: Open, Closed, Active |
+| **InitStatus** | Initial status: Open, Closed, Active |
 
 ---
 
-## Bomb Fields (Pumps)
+## Pump fields
 
 | Field | Description |
 |-------|-------------|
@@ -111,7 +111,7 @@ The nodes can have more than one demand (user categories: residential, industria
 | **EfficiencyCurve** | Efficiency curve ID (for energy analysis) |
 | **EnergyPrice** | Specific energy price for this pump |
 | **PricePattern** | Energy price variation pattern |
-| **InitStatus** | Initial state: Open or Closed |
+| **InitStatus** | Initial status: Open or Closed |
 
 ---
 

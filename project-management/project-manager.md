@@ -18,7 +18,7 @@ The window shows all projects that have ever been opened on this computer. For e
 
 ## Available operations
 
-### Load (Load)
+### Load
 
 Allows you to add a project that does not appear in the history to the list (for example, if the project was created on another computer and the folder was copied).
 

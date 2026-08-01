@@ -23,32 +23,32 @@ Line drawing mode: Each click adds a vertex to the pipe. The tool remains active
 ### What QGISRed creates when confirming
 
 - A record in `{Red}_Pipes.shp` with the geometry drawn.
-- Up to two new knots in `{Red}_Junctions.shp` (one per end), if a knot did not already exist within the configured tolerance.
+- Up to two new nodes in `{Red}_Junctions.shp` (one per end), if a node did not already exist within the configured tolerance.
 - The diameter, roughness and demand values ​​are taken from the **Default Values** of the project.
 
 ### Connect to existing elements
 
-If the start or end point falls within the tolerance of an existing node, valve, pump, reservoir or reservoir, the new pipe **connects to that element** instead of creating a new node.
+If the start or end point falls within the tolerance of an existing node, valve, pump, tank or reservoir, the new pipe **connects to that element** instead of creating a new node.
 
-> Setting to the nearest knot uses the tolerance configured in **Project Bar → Defaults → Knot Tolerance**. You can review or change it before drawing dense networks.
+> Setting to the nearest node uses the tolerance configured in **Project Bar → Defaults → Node Tolerance**. You can review or change it before drawing dense networks.
 
 ---
 
-## Add tank (Add tank)
+## Add tank
 
-**Barra Edition → Add tank**
+**Edition bar → Add tank**
 
-Place a Storage Tank (Tank) on the map. The tanks have a variable level and participate in the hydraulic simulation.
+Place a Tank on the map. Tanks have a variable level and participate in the hydraulic simulation.
 
 ### Process
 
-1. Activate the tool. The cursor shows the deposit icon.
+1. Activate the tool. The cursor shows the tank icon.
 2. Click on an **existing node** or on an empty point on the map.
 - If you click on an existing node, that node **becomes** a Tank.
 - If you click on an empty point, QGISRed creates a new Tank (no initial connection; you will need to connect it with a pipe).
-3. QGISRed opens the properties dialog of the new deposit so you can enter the data (bottom elevation, initial level, minimum level, maximum level, diameter).
+3. QGISRed opens the properties dialog of the new tank so you can enter the data (bottom elevation, initial level, minimum level, maximum level, diameter).
 
-### Main parameters of the repository
+### Main tank parameters
 
 | Parameter | Description |
 |-----------|-------------|
@@ -62,13 +62,13 @@ Place a Storage Tank (Tank) on the map. The tanks have a variable level and part
 
 ---
 
-## Add reservoir (Add reservoir)
+## Add reservoir
 
 **Edition bar → Add reservoir**
 
 Place an external reservoir or feeding point (Reservoir). Unlike the Tank, the Reservoir has **fixed level** (constant piezometric head) and represents a water source of unlimited capacity.
 
-The process is identical to that of the deposit. The parameters are simpler:
+The process is identical to that of the tank. The parameters are simpler:
 
 | Parameter | Description |
 |-----------|-------------|
@@ -79,9 +79,9 @@ The process is identical to that of the deposit. The parameters are simpler:
 
 ---
 
-## Insert valve in pipe (Insert valve in pipe)
+## Insert valve in pipe
 
-**Barra Edition → Insert valve in pipe**
+**Edition bar → Insert valve in pipe**
 
 Insert a valve into an existing pipe. The original pipe is **divided into two sections** that are connected through the valve.
 
@@ -93,7 +93,7 @@ Insert a valve into an existing pipe. The original pipe is **divided into two se
 1. Activate the tool. The cursor changes to the valve icon.
 2. Click on the pipe where you want to insert the valve.
 3. QGISRed determines the exact insertion point (projection of the click on the axis of the pipe) and:
-- Create a knot at that point.
+- Create a node at that point.
 - Divides the original pipe into two sections with the same diameter and material attributes.
 - Create the valve between the two new ends.
 4. The properties dialog opens to configure the valve type and setting.
@@ -111,9 +111,9 @@ Insert a valve into an existing pipe. The original pipe is **divided into two se
 
 ---
 
-## Insert pump in pipe (Insert pump in pipe)
+## Insert pump in pipe
 
-**Barra Edition → Insert pump in pipe**
+**Edition bar → Insert pump in pipe**
 
 Insert a pump into an existing pipe, splitting it exactly the same as with valves.
 

@@ -152,7 +152,7 @@ Any numeric field in the model: `Diameter`, `Length`, `Roughness`, `Elevation`, 
 
 Available only if results are uploaded:
 
-**Knots:**
+**Nodes:**
 
 | Field | Description |
 |-------|-------------|
@@ -167,7 +167,7 @@ Available only if results are uploaded:
 |-------|-------------|
 | `Status` | State in simulation |
 | `Flow` | Flow rate (l/s) |
-| `Velocity` | Speed ​​(m/s) |
+| `Velocity` | Velocity (m/s) |
 | `HeadLoss` | Head loss (m) |
 | `UnitHdLoss` | Unit loss (m/km) |
 | `FricFactor` | Friction factor |

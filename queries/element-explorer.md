@@ -63,7 +63,7 @@ Attributes are organized by element type. For a typical **pipe**:
 | `Status` | Status (Open / Closed / CV) |
 | `Tag` | Free label |
 
-For **knots** `Elevation`, `Demand`, `Pattern`, `InitQuality`, etc. are shown. Each item type has its own set of fields.
+For **nodes** `Elevation`, `Demand`, `Pattern`, `InitQuality`, etc. are shown. Each item type has its own set of fields.
 
 If the project has simulation results loaded, the panel adds a section with the calculated values ​​(pressure, flow, velocity...) for the active period in the results viewer. The simulated time is indicated by the prefix **Time:** followed by the bold value in the format `HH:MM:SS`.
 
@@ -97,11 +97,11 @@ The panel automatically recognizes the following field aliases and presents them
 
 | Alias ​​| Description |
 |-------|-------------|
-| `DemPattID` | Demand pattern in knots; is suppressed when multiple requests are active and is grouped correctly |
+| `DemPattID` | Demand pattern in nodes; is suppressed when multiple requests are active and is grouped correctly |
 | `HedPattID` | Pump height curve pattern |
 | `QualPattID` | Quality pattern in fonts |
 | `NodeID` | Node identifier in derived layers |
-| `NodeType` | Knot type |
+| `NodeType` | Node type |
 | `LinkID` | Link identifier in derived layers |
 | `LinkType` | Link type |
 

@@ -27,7 +27,7 @@ The dialog is **modeless**: you can still interact with the map while it is open
 | **Isolation Valves** | Isolation valves |
 | **Meters** | Flowmeters |
 
-> 🧪 **Chemical Quality Fields:** The BulkCoeff and WallCoeff (pipes) and ReactCoef and InitQuality (reservoirs, reservoirs, and nodes) fields only appear in the field selectors when the project's quality model is set to **Chemical**.
+> 🧪 **Chemical Quality Fields:** The BulkCoeff and WallCoeff (pipes) and ReactCoef and InitQuality (tanks, reservoirs, and nodes) fields only appear in the field selectors when the project's quality model is set to **Chemical**.
 
 ---
 
@@ -147,7 +147,7 @@ Filter: `Material = FD` — Do: `Roughness → Multiply by → 1.1`
 **Close all isolation valves**
 Element: Isolation Valves — Filter: No Filter — Do: `InitStatus → Replace with → CLOSED`
 
-**Assign pattern to a selected knot set**
+**Assign pattern to a selected node set**
 Check "Only selected features" — Element: Junctions — Do: `Pattern → Replace with → PAT_RESIDENCIAL`
 
 **Replace text in labels**
