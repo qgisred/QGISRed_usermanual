@@ -2,7 +2,7 @@
 
 **Barra Edition → Modifier les motifs et les courbes…**
 
-L'éditeur de motifs et de courbes centralise la gestion des données temporelles et fonctionnelles qui contrôlent le comportement dynamique du modèle : comment varie la demande au cours de la journée, comment se comporte une pompe en fonction de son débit, ou encore quel est le volume d'un réservoir irrégulier.
+L'éditeur de motifs et de courbes centralise la gestion des données temporelles et fonctionnelles qui contrôlent le comportement dynamique du modèle : comment varie la demande au cours de la journée, comment se comporte une pompe en fonction de son débit, ou encore quel est le volume d'un château d'eau irrégulier.
 
 <figure><img src="../assets/images/edicion/editor-curvas.png" alt="Éditeur de motifs et de courbes QGISRed"><figcaption><p>Éditeur de motifs et de courbes QGISRed</p></figcaption></figure>
 *Éditeur de motifs et de courbes : liste des éléments à gauche, graphique et tableau de données à droite.*
@@ -63,7 +63,7 @@ Associe l'**Efficacité** (%) au **Débit** (Débit). Il est utilisé pour l’a
 
 ### Courbe de volume (Courbe de volume)
 
-Relie le **Niveau** du réservoir (m ou ft, axe X) au **Volume** stocké (m³ ou gallons, axe Y). Nécessaire pour les réservoirs à géométrie non cylindrique (bassins coniques, réservoirs de forme irrégulière).
+Relie le **Niveau** du château d'eau (m ou ft, axe X) au **Volume** stocké (m³ ou gallons, axe Y). Nécessaire pour les châteaux d'eau à géométrie non cylindrique (bassins coniques, châteaux d'eau de forme irrégulière).
 
 ### Courbe de perte de charge GPV (Courbe de perte de charge)
 
@@ -79,4 +79,4 @@ Pour les vannes de type **GPV** (General Purpose Valve), reliez la **Perte de ch
 4. Le graphique montre la courbe résultante avec l'interpolation ou l'ajustement correspondant.
 5. Appuyez sur **OK** pour enregistrer. Les courbes sont stockées dans `{Red}_Options.dbf`.
 
-> Pour référencer une courbe d'une pompe ou d'un réservoir, copiez son **ID** exact dans le champ correspondant de la boîte de dialogue des propriétés de l'élément.
+> Pour référencer une courbe d'une pompe ou d'un château d'eau, copiez son **ID** exact dans le champ correspondant de la boîte de dialogue des propriétés de l'élément.

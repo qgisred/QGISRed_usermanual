@@ -11,7 +11,7 @@ Ouvre la boîte de dialogue **Cartes thématiques**, qui génère une représent
 
 ## Elément actif : tuyaux
 
-Dans la version actuelle, **Les cartes thématiques fonctionnent exclusivement sur la couche Pipes**. Les options pour d'autres types d'éléments (nœuds, vannes, pompes, réservoirs, réservoirs) sont présentes dans l'interface mais sont automatiquement masquées car non encore implémentées. Lorsqu'elle est disponible, la boîte de dialogue affiche un sélecteur de type d'élément.
+Dans la version actuelle, **Les cartes thématiques fonctionnent exclusivement sur la couche Pipes**. Les options pour d'autres types d'éléments (nœuds, vannes, pompes, châteaux d'eau, réservoirs) sont présentes dans l'interface mais sont automatiquement masquées car non encore implémentées. Lorsqu'elle est disponible, la boîte de dialogue affiche un sélecteur de type d'élément.
 
 ---
 

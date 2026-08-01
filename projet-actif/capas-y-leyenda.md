@@ -16,7 +16,7 @@ Au dessus des onglets le champ **CRS** est toujours visible, avec le système de
 
 ### Éléments de base et onglets Digital Twin
 
-- **Éléments de base** regroupe les 6 éléments de base d'EPANET (Tuyaux, Jonctions, Réservoirs, Vannes, Pompes) plus les couches complémentaires Demandes et Sources Multiples.
+- **Éléments de base** regroupe les 6 éléments de base d'EPANET (Tuyaux, Jonctions, Châteaux d'eau, Réservoirs, Vannes, Pompes) plus les couches complémentaires Demandes et Sources Multiples.
 - **Digital Twin** rassemble les couches du jumeau numérique : connexions de service, vannes d'isolement et compteurs.
 
 Pour chaque élément, la ligne affiche l'une des deux choses suivantes selon que son fichier existe ou non sur le disque :

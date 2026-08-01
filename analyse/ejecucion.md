@@ -48,7 +48,7 @@ La boîte de dialogue de progression comprend un bouton **Pause** (icône ‖). 
 
 La boîte de dialogue inclut également la case à cocher **"Ne plus afficher cette fenêtre de progression"**. Si vous le cochez et que la simulation se termine avec succès, les exécutions suivantes lanceront directement le calcul sans afficher la boîte de dialogue.
 
-> ⚠️ **Exception pour les grands réseaux** : si le produit (nombre de nœuds : jonctions + réservoirs + réservoirs) × (nombre d'instants de calcul = Durée / pas de temps hydraulique) dépasse **500 000**, la boîte de dialogue de progression est toujours affichée dans ce run, même si la case "Ne plus afficher cette fenêtre de progression" est cochée lors d'un run précédent. De plus, dans ce cas, la boîte elle-même est masquée dans la boîte de dialogue, puisque la préférence enregistrée reste inefficace pendant toute la durée de ce grand réseau.
+> ⚠️ **Exception pour les grands réseaux** : si le produit (nombre de nœuds : jonctions + châteaux d'eau + réservoirs) × (nombre d'instants de calcul = Durée / pas de temps hydraulique) dépasse **500 000**, la boîte de dialogue de progression est toujours affichée dans ce run, même si la case "Ne plus afficher cette fenêtre de progression" est cochée lors d'un run précédent. De plus, dans ce cas, la boîte elle-même est masquée dans la boîte de dialogue, puisque la préférence enregistrée reste inefficace pendant toute la durée de ce grand réseau.
 
 > Pour réactiver la boîte de dialogue de progression sur les réseaux qui ne dépassent pas ce seuil, accédez à **Propriétés du projet** et décochez l'option *"Ne pas afficher la fenêtre de progression lors de l'exécution de la simulation"*.
 

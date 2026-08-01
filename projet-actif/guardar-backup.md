@@ -58,7 +58,7 @@ Si le projet que vous exportez est celui que vous avez ouvert dans QGIS et que s
 
 ### Ce qui est toujours inclus
 
-- Le SHP+DBF+PRJ du réseau à la racine du dossier projet (Tuyaux, Jonctions, Vannes, Pompes, Réservoirs, Réservoirs, Demandes, Sources...) et les fichiers d'options et de métadonnées (`_Options.dbf`, `_Title.dbf`).
+- Le SHP+DBF+PRJ du réseau à la racine du dossier projet (Tuyaux, Jonctions, Vannes, Pompes, Châteaux d'eau, Réservoirs, Demandes, Sources...) et les fichiers d'options et de métadonnées (`_Options.dbf`, `_Title.dbf`).
 - Le fichier carte `.qgz`, si QGISRed le trouve dans le dossier du projet ou dans son dossier parent. S'il n'y a pas de `.qgz` enregistré, la boîte de dialogue avertit que l'affichage de la carte ne sera pas exporté.
 
 ### Ce qui est inclus en option

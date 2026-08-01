@@ -28,47 +28,47 @@ Mode dessin au trait : chaque clic ajoute un sommet au tuyau. L'outil reste act
 
 ### Se connecter aux éléments existants
 
-Si le point de départ ou d'arrivée se situe dans la tolérance d'un nœud, d'une vanne, d'une pompe, d'un réservoir ou d'un réservoir existant, le nouveau tuyau **se connecte à cet élément** au lieu de créer un nouveau nœud.
+Si le point de départ ou d'arrivée se situe dans la tolérance d'un nœud, d'une vanne, d'une pompe, d'un château d'eau ou d'un réservoir existant, le nouveau tuyau **se connecte à cet élément** au lieu de créer un nouveau nœud.
 
 > Le réglage au nœud le plus proche utilise la tolérance configurée dans **Barre de projet → Valeurs par défaut → Tolérance de nœud**. Vous pouvez le consulter ou le modifier avant de dessiner des réseaux denses.
 
 ---
 
-## Ajouter un réservoir (Ajouter un réservoir)
+## Ajouter un château d'eau (Add tank)
 
-**Édition Barra → Ajouter un réservoir**
+**Édition Barra → Ajouter un château d'eau**
 
-Placez un réservoir de stockage (réservoir) sur la carte. Les réservoirs ont un niveau variable et participent à la simulation hydraulique.
+Placez un château d'eau de stockage (Tank) sur la carte. Les châteaux d'eau ont un niveau variable et participent à la simulation hydraulique.
 
 ### Processus
 
-1. Activez l'outil. Le curseur affiche l'icône de dépôt.
+1. Activez l'outil. Le curseur affiche l'icône de château d'eau.
 2. Cliquez sur un **nœud existant** ou sur un point vide de la carte.
 - Si vous cliquez sur un nœud existant, ce nœud **devient** un Tank.
 - Si vous cliquez sur un point vide, QGISRed crée un nouveau Tank (pas de connexion initiale ; vous devrez le connecter avec un tuyau).
 3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau gisement afin que vous puissiez saisir les données (élévation du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
 
-### Principaux paramètres du référentiel
+### Principaux paramètres du château d'eau
 
 | Paramètre | Descriptif |
 |-----------|-------------|
-| **Élévation** | Élévation du fond du réservoir (m ou pi) |
+| **Élévation** | Élévation du fond du château d'eau (m ou pi) |
 | **NiveauInit** | Niveau d'eau initial au-dessus du fond |
 | **Niveau Min** | Niveau de fonctionnement minimum |
 | **Niveau Max** | Niveau de fonctionnement maximum |
-| **Diamètre** | Diamètre du réservoir (pour section circulaire) ; si vous utilisez la courbe de volume, mettez 0 |
+| **Diamètre** | Diamètre du château d'eau (pour section circulaire) ; si vous utilisez la courbe de volume, mettez 0 |
 | **VolMin** | Volume minimum (facultatif) |
 | **VolCourbe** | ID de courbe de volume (pour géométrie non cylindrique) |
 
 ---
 
-## Ajouter un réservoir (Ajouter un réservoir)
+## Ajouter un réservoir (Add reservoir)
 
 **Barre d'édition → Ajouter un réservoir**
 
-Placer un réservoir externe ou un point d'alimentation (Réservoir). Contrairement au Réservoir, le Réservoir a **niveau fixe** (hauteur piézométrique constante) et représente une source d'eau de capacité illimitée.
+Placer un réservoir externe ou un point d'alimentation (Réservoir). Contrairement au Château d'eau, le Réservoir a **niveau fixe** (hauteur piézométrique constante) et représente une source d'eau de capacité illimitée.
 
-Le processus est identique à celui du dépôt. Les paramètres sont plus simples :
+Le processus est identique à celui du château d'eau. Les paramètres sont plus simples :
 
 | Paramètre | Descriptif |
 |-----------|-------------|

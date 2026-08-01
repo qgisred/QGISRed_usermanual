@@ -23,7 +23,7 @@ IF [elemento] [condición]  THEN [acción]
 
 | Tapez | Exemple d'utilisation |
 |------|---------------|
-| **Niveau de dépôt** | Si le niveau du réservoir T-1 dépasse 4,5 m → fermer la pompe BM-1 |
+| **Niveau de dépôt** | Si le niveau du château d'eau T-1 dépasse 4,5 m → fermer la pompe BM-1 |
 | **Pression du nœud** | Si la pression dans J-120 descend en dessous de 10 m → ouvrir la vanne V-3 |
 | **Temps de simulation** | A 6 heures de simulation → allumer la bombe BM-2 |
 | **Horloge** | À 23h00 (heure d'horloge) → fermer le pipeline P-55 |
@@ -118,7 +118,7 @@ La boîte de dialogue QGISRed présente les règles dans un format texte directe
 
 ## Conseils de modélisation
 
-- Pour un système avec pompe et réservoir, définir toujours **deux commandes par pompe** : une pour démarrer (niveau bas) et une pour arrêter (niveau haut). Sans la commande d'arrêt, la pompe fonctionne indéfiniment.
+- Pour un système avec pompe et château d'eau, définir toujours **deux commandes par pompe** : une pour démarrer (niveau bas) et une pour arrêter (niveau haut). Sans la commande d'arrêt, la pompe fonctionne indéfiniment.
 - Les contrôles simples sont traités **avant** les règles à chaque pas de temps. Si vous disposez d’un contrôle simple et d’une règle qui agissent sur le même élément, le résultat peut être contradictoire.
 - L'ordre des contrôles simples **n'a pas d'importance** ; Celui des règles non plus, car la priorité les ordonne. Mais si deux règles ont la même priorité et des conditions contradictoires, le résultat est indéterminé.
 - Eviter de créer des boucles de contrôle (la règle A active B, la règle B désactive A dans le même pas de temps) : EPANET risque de ne pas converger.

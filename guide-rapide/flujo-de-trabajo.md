@@ -8,7 +8,7 @@ C'est le chemin habituel pour construire, vérifier et simuler un réseau de dis
 
 Utilisez la barre **Général** pour commencer :
 
-- **Nouveau projet à partir de zéro** : _Créer un projet_ → choisissez le nom, le dossier et le système de référence. QGISRed génère automatiquement les 6 SHP de base (Jonctions, Tuyaux, Réservoirs, Réservoirs, Vannes, Pompes).
+- **Nouveau projet à partir de zéro** : _Créer un projet_ → choisissez le nom, le dossier et le système de référence. QGISRed génère automatiquement les 6 SHP de base (Jonctions, Tuyaux, Châteaux d'eau, Réservoirs, Vannes, Pompes).
 - **Projet existant** : _Chef de projet_ → double-cliquez sur le projet dans la liste récente.
 - **À partir d'un fichier EPANET** : _Importer un projet_ → sélectionner le `.inp`. QGISRed le convertit en SHP et l'ouvre.
 
@@ -26,7 +26,7 @@ L'indicateur sur la barre principale (`LPS | D-W`) reflète toujours les valeurs
 Activez la barre **Edition** et dessinez le réseau sur la carte :
 
 1. Commencez par les **tuyaux** — les nœuds extrêmes se créent d'eux-mêmes.
-2. Ajoutez des **réservoirs et réservoirs** en cliquant sur les nœuds existants.
+2. Ajoutez des **châteaux d'eau et réservoirs** en cliquant sur les nœuds existants.
 3. Insérez **vannes et pompes** en cliquant sur un tuyau.
 4. Editez les **propriétés** de chaque élément (diamètre, rugosité, dimension, demande...).
 

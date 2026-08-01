@@ -12,7 +12,7 @@ La boîte de dialogue des propriétés est l'outil central pour afficher et modi
 ## Comment ouvrir la boîte de dialogue
 
 1. Activez l'outil en appuyant sur le bouton **Modifier les propriétés de l'élément…** (icône crayon/modifier).
-2. Cliquez sur n'importe quel élément du réseau sur la carte : canalisation, nœud, vanne, pompe, réservoir ou réservoir.
+2. Cliquez sur n'importe quel élément du réseau sur la carte : canalisation, nœud, vanne, pompe, château d'eau ou réservoir.
 3. La boîte de dialogue s'ouvre affichant tous les attributs de l'élément sélectionné.
 
 > L'outil reste actif tant que le bouton est enfoncé. Vous pouvez cliquer sur différents éléments sans l'activer à nouveau.
@@ -59,16 +59,16 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 
 ---
 
-## Champs de réservoirs
+## Champs des châteaux d'eau (Tanks)
 
 | Champ | Descriptif |
 |-------|-------------|
 | **ID** | Identifiant unique |
-| **Élévation** | Niveau inférieur du réservoir |
+| **Élévation** | Niveau inférieur du château d'eau |
 | **NiveauInit** | Niveau d'eau initial en arrière-plan |
 | **Niveau Min** | Niveau de fonctionnement minimum |
 | **Niveau Max** | Niveau de fonctionnement maximum |
-| **Diamètre** | Diamètre du réservoir (0 si utilisation de la courbe de volume) |
+| **Diamètre** | Diamètre du château d'eau (0 si utilisation de la courbe de volume) |
 | **VolMin** | Volume minimal (m³) |
 | **VolCourbe** | ID de courbe de volume (pour géométrie non cylindrique) |
 | **MixModèle** | Modèle de mélange : MIXTE, 2COMP, FIFO, LIFO |
@@ -76,7 +76,7 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 
 ---
 
-## Champs de réservoir
+## Champs des réservoirs (Reservoirs)
 
 | Champ | Descriptif |
 |-------|-------------|

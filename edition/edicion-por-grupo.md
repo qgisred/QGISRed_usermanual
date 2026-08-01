@@ -18,7 +18,7 @@ La boîte de dialogue est **non modale** : vous pouvez toujours interagir avec 
 | **Jonctions** | Nœuds de réseau |
 | **Demandes multiples** | Réclamations multiples par catégorie |
 | **Tuyaux** | Tuyaux |
-| **Réservoirs** | Dépôts |
+| **Châteaux d'eau** | Dépôts |
 | **Réservoirs** | Réservoirs |
 | **Pompes** | Bombes |
 | **Valves** | Vannes |
@@ -27,7 +27,7 @@ La boîte de dialogue est **non modale** : vous pouvez toujours interagir avec 
 | **Vannes d'isolement** | Vannes d'isolement |
 | **Mètres** | Débitmètres |
 
-> 🧪 **Champs de qualité chimique :** Les champs BulkCoeff et WallCoeff (tuyaux) et ReactCoef et InitQuality (réservoirs, réservoirs et nœuds) n'apparaissent dans les sélecteurs de champs que lorsque le modèle de qualité du projet est défini sur **Chimique**.
+> 🧪 **Champs de qualité chimique :** Les champs BulkCoeff et WallCoeff (tuyaux) et ReactCoef et InitQuality (châteaux d'eau, réservoirs et nœuds) n'apparaissent dans les sélecteurs de champs que lorsque le modèle de qualité du projet est défini sur **Chimique**.
 
 ---
 
