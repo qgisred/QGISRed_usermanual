@@ -27,10 +27,10 @@ La boîte de dialogue des propriétés est l'outil central pour afficher et modi
 | **Longueur** | Longueur automatiquement calculée à partir de la géométrie (m ou ft) |
 | **Diamètre** | Diamètre intérieur (mm ou pouces) |
 | **Coeff de rugosité** | Rugosité pour la formule de perte de charge configurée |
-| **Perte mineure** | Coefficient de perte mineure (0 si non applicable) |
-| **StatutInit** | État initial : Ouvert, Fermé ou CV (clapet anti-retour) |
+| **MinorLoss** | Coefficient de perte mineure (0 si non applicable) |
+| **InitStatus** | État initial : Ouvert, Fermé ou CV (clapet anti-retour) |
 | **Matériel** | Code matériau (référencé dans le tableau des matériaux) |
-| **Année d'installation** | Année d'installation (format `YYYY`), utilisée pour le calcul de la rugosité au vieillissement |
+| **InstallYear** | Année d'installation (format `YYYY`), utilisée pour le calcul de la rugosité au vieillissement |
 | **BulkCoeff** | Coefficient de réaction massique (pour les modèles de qualité de type chimique) |
 | **WallCoeff** | Coefficient de réaction des parois (pour les modèles de qualité de type chimique) |
 
@@ -44,8 +44,8 @@ La boîte de dialogue des propriétés est l'outil central pour afficher et modi
 | **Élévation** | Hauteur du nœud (m ou pi) |
 | **Demande** | Demande de base (en unités de flux du projet) |
 | **Modèle** | ID du modèle de demande appliqué |
-| **ÉmetteurCoeff** | Coefficient d'émetteur (pour modéliser les fuites dépendant de la pression) |
-| **InitQualité** | Concentration ou âge initial de l'eau (uniquement si le modèle de qualité est actif) |
+| **EmitterCoeff** | Coefficient d'émetteur (pour modéliser les fuites dépendant de la pression) |
+| **InitQuality** | Concentration ou âge initial de l'eau (uniquement si le modèle de qualité est actif) |
 
 ### Demandes multiples
 
@@ -65,13 +65,13 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 |-------|-------------|
 | **ID** | Identifiant unique |
 | **Élévation** | Niveau inférieur du château d'eau |
-| **NiveauInit** | Niveau d'eau initial en arrière-plan |
-| **Niveau Min** | Niveau de fonctionnement minimum |
-| **Niveau Max** | Niveau de fonctionnement maximum |
+| **InitLevel** | Niveau d'eau initial en arrière-plan |
+| **MinLevel** | Niveau de fonctionnement minimum |
+| **MaxLevel** | Niveau de fonctionnement maximum |
 | **Diamètre** | Diamètre du château d'eau (0 si utilisation de la courbe de volume) |
-| **VolMin** | Volume minimal (m³) |
-| **VolCourbe** | ID de courbe de volume (pour géométrie non cylindrique) |
-| **MixModèle** | Modèle de mélange : MIXTE, 2COMP, FIFO, LIFO |
+| **MinVol** | Volume minimal (m³) |
+| **VolCurve** | ID de courbe de volume (pour géométrie non cylindrique) |
+| **MixModel** | Modèle de mélange : MIXTE, 2COMP, FIFO, LIFO |
 | **MixFraction** | Fraction du premier compartiment (modèle 2COMP) |
 
 ---
@@ -94,8 +94,8 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | **Diamètre** | Diamètre (mm ou pouces) |
 | **Type de vanne** | Type de vanne : PRV, PSV, PBV, FCV, TCV, GPV |
 | **Paramètre** | Consigne de régulation (pression, débit ou perte de charge selon le type) |
-| **Perte mineure** | Coefficient de perte mineure |
-| **StatutInit** | État initial : Ouvert, Fermé, Actif |
+| **MinorLoss** | Coefficient de perte mineure |
+| **InitStatus** | État initial : Ouvert, Fermé, Actif |
 
 ---
 
@@ -108,10 +108,10 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | **Vitesse** | Facteur de vitesse de rotation (1,0 = nominal) |
 | **Modèle** | Modèle de variation de vitesse |
 | **Puissance** | Puissance constante (alternative à la courbe H-Q) |
-| **Courbe d'efficacité** | ID de courbe d'efficacité (pour analyse énergétique) |
-| **Prix de l'énergie** | Prix ​​énergétique spécifique pour cette pompe |
-| **Modèle de prix** | Modèle de variation des prix de l'énergie |
-| **StatutInit** | Etat initial : Ouvert ou Fermé |
+| **EfficiencyCurve** | ID de courbe d'efficacité (pour analyse énergétique) |
+| **EnergyPrice** | Prix ​​énergétique spécifique pour cette pompe |
+| **PricePattern** | Modèle de variation des prix de l'énergie |
+| **InitStatus** | Etat initial : Ouvert ou Fermé |
 
 ---
 
@@ -134,6 +134,6 @@ Ces champs ne font pas partie du standard EPANET mais sont utilisés par le plug
 | Champ | Couche | Descriptif |
 |-------|------|-------------|
 | **Matériel** | Tuyaux | Code matériau référencé dans le tableau des matériaux |
-| **Année d'installation** | Tuyaux | Année d'installation pour le calcul de la rugosité due au vieillissement |
-| **EstActif** | Divers | Activer/désactiver l'élément dans le Digital Twin |
+| **InstallYear** | Tuyaux | Année d'installation pour le calcul de la rugosité due au vieillissement |
+| **IsActive** | Divers | Activer/désactiver l'élément dans le Digital Twin |
 | **Étiquette** | Tout | Tag gratuit (équivalent au champ EPANET TAG) |

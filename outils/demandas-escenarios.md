@@ -110,9 +110,9 @@ Exportez et importez en masse les paramètres du modèle, créant des « instant
 | Paramètre | Descriptif |
 |-----------|-------------|
 | **Rugosité** | Coefficients de rugosité de tous les tuyaux |
-| **StatutInit** | États d'ouverture/fermeture des canalisations et vannes |
+| **InitStatus** | États d'ouverture/fermeture des canalisations et vannes |
 | **Demandes** | Exigences de base de tous les nœuds |
-| **InitQualité** | Qualités initiales des nœuds et des canalisations |
+| **InitQuality** | Qualités initiales des nœuds et des canalisations |
 | **Élévations** | Niveaux de nœuds, châteaux d'eau et réservoirs |
 
 ### Flux de travail typique

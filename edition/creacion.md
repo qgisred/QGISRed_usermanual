@@ -46,19 +46,19 @@ Placez un château d'eau de stockage (Tank) sur la carte. Les châteaux d'eau on
 2. Cliquez sur un **nœud existant** ou sur un point vide de la carte.
 - Si vous cliquez sur un nœud existant, ce nœud **devient** un Tank.
 - Si vous cliquez sur un point vide, QGISRed crée un nouveau Tank (pas de connexion initiale ; vous devrez le connecter avec un tuyau).
-3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau gisement afin que vous puissiez saisir les données (élévation du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
+3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau château d'eau afin que vous puissiez saisir les données (élévation du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
 
 ### Principaux paramètres du château d'eau
 
 | Paramètre | Descriptif |
 |-----------|-------------|
 | **Élévation** | Élévation du fond du château d'eau (m ou pi) |
-| **NiveauInit** | Niveau d'eau initial au-dessus du fond |
-| **Niveau Min** | Niveau de fonctionnement minimum |
-| **Niveau Max** | Niveau de fonctionnement maximum |
+| **InitLevel** | Niveau d'eau initial au-dessus du fond |
+| **MinLevel** | Niveau de fonctionnement minimum |
+| **MaxLevel** | Niveau de fonctionnement maximum |
 | **Diamètre** | Diamètre du château d'eau (pour section circulaire) ; si vous utilisez la courbe de volume, mettez 0 |
-| **VolMin** | Volume minimum (facultatif) |
-| **VolCourbe** | ID de courbe de volume (pour géométrie non cylindrique) |
+| **MinVol** | Volume minimum (facultatif) |
+| **VolCurve** | ID de courbe de volume (pour géométrie non cylindrique) |
 
 ---
 

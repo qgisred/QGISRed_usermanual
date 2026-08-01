@@ -65,12 +65,12 @@ Pour chaque sectorisation, le Builder peut générer jusqu'à **6 types de sujet
 
 | Thème | Géométrie | Descriptif |
 |------|-----------|-------------|
-| **Frontières** | Lignes | Éléments frontaliers entre secteurs adjacents |
-| **Liens** | Lignes | Pipes et liens internes de chaque secteur |
-| **Nœuds** | Points | Nœuds de réseau avec le champ `SectorId` attribué |
-| **Polygones** | Polygones | Enveloppe géométrique convexe de chaque secteur |
-| **MultiLiens** | Multiligne | Tous les liens d'un secteur fusionnés en une seule géométrie par secteur |
-| **Multinœuds** | Multipoints | Tous les nœuds d'un secteur fusionnés en une seule géométrie par secteur |
+| **Frontiers** | Lignes | Éléments frontaliers entre secteurs adjacents |
+| **Links** | Lignes | Pipes et liens internes de chaque secteur |
+| **Nodes** | Points | Nœuds de réseau avec le champ `SectorId` attribué |
+| **Polygons** | Polygones | Enveloppe géométrique convexe de chaque secteur |
+| **MultiLinks** | Multiligne | Tous les liens d'un secteur fusionnés en une seule géométrie par secteur |
+| **MultiNodes** | Multipoints | Tous les nœuds d'un secteur fusionnés en une seule géométrie par secteur |
 
 Les thèmes à générer sont sélectionnés individuellement avec des cases à cocher avant de cliquer sur **Build**. Au moins un sujet doit être actif.
 
