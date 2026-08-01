@@ -42,7 +42,7 @@ The **Edition** bar contains all the tools to build and edit the network directl
 | # | Tool | Function |
 |---|-------------|---------|
 | 17 | **Edit element properties…** | Opens the properties dialog of the clicked element |
-| 18 | **Edit patterns and curves…** | Pump/Reservoir Demand Pattern and Curve Editor |
+| 18 | **Edit patterns and curves…** | Demand Pattern and Pump/Tank Curve Editor |
 | 19 | **Edit controls…** | Simple controls and operating rules editor |
 
 ---

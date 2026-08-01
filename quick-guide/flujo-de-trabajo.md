@@ -26,7 +26,7 @@ The indicator on the main bar (`LPS | D-W`) always reflects the active values.
 Activate the **Edition** bar and draw the network on the map:
 
 1. Start with the **pipes** — the extreme knots create themselves.
-2. Add **reservoirs and reservoirs** by clicking on existing nodes.
+2. Add **tanks and reservoirs** by clicking on existing nodes.
 3. Insert **valves and pumps** by clicking on a pipe.
 4. Edit the **properties** of each element (diameter, roughness, dimension, demand...).
 

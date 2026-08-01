@@ -68,7 +68,7 @@ The nodes can have more than one demand (user categories: residential, industria
 | **InitLevel** | Initial water level on the background |
 | **MinLevel** | Minimum operating level |
 | **MaxLevel** | Maximum operating level |
-| **Diameter** | Reservoir diameter (0 if using volume curve) |
+| **Diameter** | Tank diameter (0 if using volume curve) |
 | **MinVol** | Minimum volume (m³) |
 | **VolCurve** | Volume curve ID (for non-cylindrical geometry) |
 | **MixModel** | Mixing model: MIXED, 2COMP, FIFO, LIFO |

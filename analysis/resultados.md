@@ -204,7 +204,7 @@ For the **Tank** element type, two additional quantities are available:
 | Magnitude | Description |
 |----------|-------------|
 | **Volume** | Stored volume in m³ (or ft³ depending on project units), calculated from EPANET output binaries. |
-| **TankSpill** | Overflow flow. It is only non-zero if the repository has the EPANET overflow option enabled. |
+| **TankSpill** | Overflow flow. It is only non-zero if the tank has the EPANET overflow option enabled. |
 
 ### Network global variables
 
@@ -215,7 +215,7 @@ In addition to individual elements, the Time series panel allows you to add **gl
 | **TotalWaterSupply** | Total flow supplied by all reservoirs and sources in the network. |
 | **TotalWaterDemand** | Total demand consumed by all nodes in the network. |
 | **AverageNodePressure** | Average pressure of all nodes (excludes tanks and reservoirs). |
-| **TotalStoredVolume** | Total stored volume adding all network deposits. |
+| **TotalStoredVolume** | Total stored volume adding all tanks in the network. |
 | **TotalTankSpill** | Total overflow flow adding all the tanks in the network. |
 
 ### Curve configuration
