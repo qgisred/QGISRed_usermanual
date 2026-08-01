@@ -2908,5 +2908,8 @@
   "* [📜 Registro de Cambios](changelog.md)": "* [📜 Registro de alterações](registro-de-mudancas.md)",
   "    * [🕒 Versiones Anteriores](registro-de-cambios/versiones-anteriores.md)": "    * [🕒 Versões anteriores](registro-mudancas/versoes-anteriores.md)",
   "# Table of contents": "# Table of contents",
-  "* [Element Explorer](explorador-elementos.md) — panel flotante con búsqueda de elementos por ID y propiedades del elemento seleccionado, en dos pestañas": "* [Element Explorer](explorador-elementos.md) — painel flutuante com busca de elementos por ID e propriedades do elemento selecionado, em duas abas"
+  "* [Element Explorer](explorador-elementos.md) — panel flotante con búsqueda de elementos por ID y propiedades del elemento seleccionado, en dos pestañas": "* [Element Explorer](explorador-elementos.md) — painel flutuante com busca de elementos por ID e propriedades do elemento selecionado, em duas abas",
+  "Pestaña QGISRed project del diálogo de importación": "Aba QGISRed project da caixa de diálogo de importação",
+  "Pestaña Auxiliary layers del Gestor de capas de QGISRed": "Aba Auxiliary layers do Gerenciador de Camadas do QGISRed",
+  "Diálogo de exportación de proyecto de QGISRed": "Caixa de diálogo de exportação de projeto do QGISRed"
 }
