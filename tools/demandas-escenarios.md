@@ -113,7 +113,7 @@ Bulk export and import model parameters, creating “snapshots” of the network
 | **InitStatus** | Open/close states of pipes and valves |
 | **Demands** | Base demands of all nodes |
 | **InitQuality** | Initial qualities of nodes and pipes |
-| **Elevations** | Levels of nodes, deposits and reservoirs |
+| **Elevations** | Levels of nodes, tanks and reservoirs |
 
 ### Typical workflow
 
