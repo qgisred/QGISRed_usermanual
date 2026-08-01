@@ -15,15 +15,15 @@ A caixa de diálogo é **sem janela restrita**: você ainda pode interagir com o
 
 | Elemento | Descrição |
 |----------|-------------|
-| **Junções** | Nós de rede |
-| **Múltiplas Demandas** | Múltiplas reivindicações por categoria |
-| **Tubos** | Tubos |
-| **Tanques** | Depósitos |
-| **Reservatórios** | Reservatórios |
-| **Bombas** | Bombas |
-| **Válvulas** | Válvulas |
-| **Fontes** | Fontes de qualidade |
-| **Conexões de serviço** | Juncos |
+| **Junctions** | Nós de rede |
+| **Multiple Demands** | Demandas múltiplas por categoria |
+| **Pipes** | Tubos |
+| **Tanks** | Tanques |
+| **Reservoirs** | Reservatórios |
+| **Pumps** | Bombas |
+| **Valves** | Válvulas |
+| **Sources** | Fontes de qualidade |
+| **Service Connections** | Ramais |
 | **Válvulas de isolamento** | Válvulas de isolamento |
 | **Metros** | Medidores de vazão |
 
