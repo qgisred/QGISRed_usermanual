@@ -35,5 +35,5 @@ QGIS affichera un avis indiquant que le plugin ne provient pas du référentiel 
 ## Remarques
 
 - Si vous avez déjà installé une version précédente de QGISRed, l'installation à partir de ZIP la remplace. Les projets existants ne sont pas concernés.
-- Les **dépendances** ne sont pas incluses dans le plugin ZIP. Ils sont téléchargés séparément la première fois que vous utilisez le plugin, tout comme lors d'une installation à partir du référentiel. Si votre ordinateur ne dispose pas d'une connexion Internet, consultez la section [Gestion des dépendances](dependencias.md) pour voir comment les installer manuellement.
+- Les **dépendances** ne sont pas incluses dans le plugin ZIP. Ils sont téléchargés séparément la première fois que vous utilisez le plugin, tout comme lors d'une installation à partir du référentiel. Si votre ordinateur ne dispose pas d'une connexion Internet, consultez la section [Gestion des dépendances](dependances.md) pour voir comment les installer manuellement.
 - Cette installation **ne reçoit pas de mises à jour automatiques**. Pour mettre à jour, vous devrez répéter le processus avec le ZIP de la nouvelle version.

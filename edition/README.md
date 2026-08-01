@@ -49,8 +49,8 @@ La barre **Edition** contient tous les outils pour construire et modifier le ré
 
 ## Dans cette rubrique
 
-* [Création d'éléments](creacion.md) — tuyaux, réservoirs, bâches, vannes, pompes
-* [Manipulation géométrique et topologique](manipulacion.md) — déplacer, diviser, inverser, croiser, supprimer
-* [Propriétés des éléments](propiedades.md) — boîte de dialogue d'édition avec navigateur intégré
-* [Motifs et courbes](curvas.md) — modèles de demande, courbes H-Q, efficacité et volume
+* [Création d'éléments](creation.md) — tuyaux, réservoirs, bâches, vannes, pompes
+* [Manipulation géométrique et topologique](manipulation.md) — déplacer, diviser, inverser, croiser, supprimer
+* [Propriétés des éléments](proprietes.md) — boîte de dialogue d'édition avec navigateur intégré
+* [Motifs et courbes](courbes.md) — modèles de demande, courbes H-Q, efficacité et volume
 * [Contrôles et règles](controles.md) — commandes simples et règles de fonctionnement automatiques

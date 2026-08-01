@@ -25,6 +25,6 @@ Tous les boutons appartiennent à un seul groupe sans séparateurs.
 
 * [Rechercher un article par ID](buscar-por-id.md) — localisation rapide des nœuds, tuyaux et autres éléments par ID
 * [Propriétés des éléments](propiedades-elemento.md) — panneau flottant avec tous les attributs de l'élément sélectionné
-* [Cartes thématiques](mapas-tematicos.md) — affichage d'intervalle de n'importe quel attribut de tuyau
-* [Demandes immobilières](consultas-propiedades.md) — filtrage et mise en évidence des éléments en fonction des conditions des attributs
-* [Statistiques](estadisticas.md) — distributions, histogrammes et classification statistique du réseau
+* [Cartes thématiques](cartes-thematiques.md) — affichage d'intervalle de n'importe quel attribut de tuyau
+* [Demandes immobilières](requetes-proprietes.md) — filtrage et mise en évidence des éléments en fonction des conditions des attributs
+* [Statistiques](statistiques.md) — distributions, histogrammes et classification statistique du réseau

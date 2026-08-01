@@ -27,6 +27,6 @@ La barre **Analyse** regroupe les outils de simulation hydraulique, de visualisa
 
 ## Dans cette rubrique
 
-* [Exécution et options](ejecucion.md) — simulation, options du moteur et accès au rapport d'état
-* [Visionneuse de résultats](resultados.md) — panneau de résultats, navigation temporelle et séries chronologiques
-* [Exportation de modèle](exportacion.md) — exportation vers INP et CSV des résultats
+* [Exécution et options](execution.md) — simulation, options du moteur et accès au rapport d'état
+* [Visionneuse de résultats](resultats.md) — panneau de résultats, navigation temporelle et séries chronologiques
+* [Exportation de modèle](exportation.md) — exportation vers INP et CSV des résultats

@@ -30,6 +30,6 @@ RedUrbana/
 
 ## Dans cette rubrique
 
-* [Chef de projet](gestor-proyectos.md) — historique, cloner, renommer, supprimer
-* [Créer un projet](crear-proyecto.md) — nouveau projet à partir de zéro
-* [Ouvrir et importer](abrir-importar.md) — ouvrir un existant ou importer depuis `.inp`
+* [Chef de projet](gestionnaire-projets.md) — historique, cloner, renommer, supprimer
+* [Créer un projet](creer-projet.md) — nouveau projet à partir de zéro
+* [Ouvrir et importer](ouvrir-importer.md) — ouvrir un existant ou importer depuis `.inp`

@@ -95,6 +95,6 @@ Si le projet a des résultats de simulation chargés, les champs de résultats (
 
 ## Résolution du champ ID
 
-Le panneau utilise la même logique de résolution de champ d'identifiant automatique que l'explorateur d'éléments (`getIdFieldName(layer)`). Les champs de requête par ID (`PipeID`, `TankID`, etc.) sont automatiquement détectés en fonction du type de couche, de sorte que les requêtes sur le champ `Id` fonctionnent correctement quel que soit le nom réel du champ dans le fichier de formes du projet. Voir [Explorateur d'éléments](explorador-elementos.md) pour plus de détails.
+Le panneau utilise la même logique de résolution de champ d'identifiant automatique que l'explorateur d'éléments (`getIdFieldName(layer)`). Les champs de requête par ID (`PipeID`, `TankID`, etc.) sont automatiquement détectés en fonction du type de couche, de sorte que les requêtes sur le champ `Id` fonctionnent correctement quel que soit le nom réel du champ dans le fichier de formes du projet. Voir [Explorateur d'éléments](explorateur-elements.md) pour plus de détails.
 
 Les alias `PumpCurvID`, `BaseDem` et `SourceQual` sont automatiquement reconnus comme des champs de type numérique pour les pompes, les demandes et les sources respectivement. Le type de données de chaque champ (numérique, liste ou texte libre) est déterminé automatiquement à partir du schéma de l'élément, sans nécessiter de configuration manuelle.

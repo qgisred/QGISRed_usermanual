@@ -35,5 +35,5 @@ Le bus **Digital Twin** ajoute au modèle hydraulique les éléments d'infrastru
 
 ## Dans cette rubrique
 
-* [Raccordements et vannes d'arrêt](acometidas.md) — dessin des connexions, des vannes d'arrêt et conversion au modèle hydraulique
-* [Capteurs et compteurs](sensores.md) — types de compteurs, relevés de chargement et données de terrain
+* [Raccordements et vannes d'arrêt](branchements.md) — dessin des connexions, des vannes d'arrêt et conversion au modèle hydraulique
+* [Capteurs et compteurs](capteurs.md) — types de compteurs, relevés de chargement et données de terrain

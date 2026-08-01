@@ -70,7 +70,7 @@ Pour supprimer un thème, sélectionnez sa ligne et appuyez sur **Supprimer le t
 
 > 💡 Les calques que vous laissez marqués dans ce tableau sont mémorisés lors de la fermeture et de la réouverture du projet — y compris les projets qui n'enregistrent pas de `.qgz` — tout comme le reste des calques du projet.
 
-> Pour savoir comment ces couches sont utilisées au sein du Nodal Demand Builder (importer des points de consommation, générer des liens de demande, agréger par secteurs...), voir [Exigences et scénarios](../outils/demandas-escenarios.md).
+> Pour savoir comment ces couches sont utilisées au sein du Nodal Demand Builder (importer des points de consommation, générer des liens de demande, agréger par secteurs...), voir [Exigences et scénarios](../outils/demandes-et-scenarios.md).
 
 ### Résumé du modèle (Résumé)
 

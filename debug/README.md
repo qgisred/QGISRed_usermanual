@@ -40,6 +40,6 @@ La barre **Debug** regroupe les outils de vérification et de débogage du modè
 
 ## Dans cette rubrique
 
-* [Topologie et connectivité](topologia.md) — validation, chevauchement, simplification, jointure, connexions en T, connectivité
-* [Vérification des attributs](atributos.md) — longueurs, diamètres, matériaux, dates d'installation
-* [Secteurs hydrauliques](sectores.md) — classification des secteurs de type A, B, C et D
+* [Topologie et connectivité](topologie.md) — validation, chevauchement, simplification, jointure, connexions en T, connectivité
+* [Vérification des attributs](attributs.md) — longueurs, diamètres, matériaux, dates d'installation
+* [Secteurs hydrauliques](secteurs-hydrauliques.md) — classification des secteurs de type A, B, C et D

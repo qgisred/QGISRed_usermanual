@@ -37,6 +37,6 @@ La barre **Outils** regroupe les outils de traitement massifs : calcul automatiq
 
 ## Dans cette rubrique
 
-* [Propriétés hydrauliques](propiedades-hidraulicas.md) — longueurs, élévations, rugosité de vieillissement et conversion entre formules
-* [Exigences et scénarios](demandas-escenarios.md) — affectation massive de demandes, gestion de scénarios et de segments isolés
-* [Secteurs et arbre de demande](sectores-arbol.md) — sectorisation par débitmètres et arbre de coût minimum
+* [Propriétés hydrauliques](proprietes-hydrauliques.md) — longueurs, élévations, rugosité de vieillissement et conversion entre formules
+* [Exigences et scénarios](demandes-et-scenarios.md) — affectation massive de demandes, gestion de scénarios et de segments isolés
+* [Secteurs et arbre de demande](secteurs-arborescence.md) — sectorisation par débitmètres et arbre de coût minimum

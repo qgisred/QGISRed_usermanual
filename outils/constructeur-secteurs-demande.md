@@ -98,7 +98,7 @@ Les couches pour chaque sectorisation sont créées dans le groupe **Couches aux
 
 ### Utilisation dans Nodal Demand Builder
 
-Une sectorisation générée avec le Demand Sector Builder peut être sélectionnée dans le Nodal Demand Builder à l'aide de l'option **"Utiliser le thème des secteurs du projet"**, évitant ainsi d'avoir besoin d'importer un SHP externe. Voir [Exigences et scénarios](demandas-escenarios.md) pour plus de détails.
+Une sectorisation générée avec le Demand Sector Builder peut être sélectionnée dans le Nodal Demand Builder à l'aide de l'option **"Utiliser le thème des secteurs du projet"**, évitant ainsi d'avoir besoin d'importer un SHP externe. Voir [Exigences et scénarios](demandes-et-scenarios.md) pour plus de détails.
 
 ---
 

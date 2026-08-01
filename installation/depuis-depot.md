@@ -18,7 +18,7 @@ Une fois terminé, la barre principale de QGISRed et le menu **QGISRed** appara�
 
 ## Première exécution
 
-La première fois que vous utilisez un outil de plug-in, QGISRed détecte que les **dépendances** ne sont pas installées et affiche une boîte de dialogue d'installation. Voir [Gestion des dépendances](dependencias.md) pour plus de détails.
+La première fois que vous utilisez un outil de plug-in, QGISRed détecte que les **dépendances** ne sont pas installées et affiche une boîte de dialogue d'installation. Voir [Gestion des dépendances](dependances.md) pour plus de détails.
 
 ---
 

@@ -13,4 +13,4 @@ La meilleure chose à propos de QGISRed est qu'il combine la puissance d'un **en
 ---
 <figure><img src="assets/images/logo-qgisred.png" alt="QGISLogo rouge"><figcaption><p>QGISLogo rouge</p></figcaption></figure>
 
-Prêt à commencer ? Cochez [Crédits](introduction/creditos.md), [Guide d'installation](installation/README.md) ou passez directement à [Guide rapide](guide-rapide/README.md).
+Prêt à commencer ? Cochez [Crédits](introduction/credits.md), [Guide d'installation](installation/README.md) ou passez directement à [Guide rapide](guide-rapide/README.md).

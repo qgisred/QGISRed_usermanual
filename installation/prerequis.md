@@ -46,4 +46,4 @@ Nécessaire **à la première utilisation** du plugin, pour télécharger les d�
 
 Une fois les dépendances installées, QGISRed peut fonctionner **sans connexion internet**.
 
-> Si vous n'avez pas de connexion internet, vous pouvez installer les dépendances manuellement : demandez à quelqu'un de vous fournir le ZIP des dépendances et l'installateur MSI du .NET Framework 4.8.1. Avec les deux fichiers, vous pourrez terminer l'installation sans avoir besoin de connexion. Voir la section [Gestion des dépendances](dependencias.md) pour plus de détails.
+> Si vous n'avez pas de connexion internet, vous pouvez installer les dépendances manuellement : demandez à quelqu'un de vous fournir le ZIP des dépendances et l'installateur MSI du .NET Framework 4.8.1. Avec les deux fichiers, vous pourrez terminer l'installation sans avoir besoin de connexion. Voir la section [Gestion des dépendances](dependances.md) pour plus de détails.

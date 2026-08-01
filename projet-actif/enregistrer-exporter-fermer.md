@@ -30,7 +30,7 @@ Si un `.qgz` existe déjà, il l'écrase directement (équivalent à `Ctrl+S` da
 
 **Chef de projet → Exporter**
 
-> ⚠️ Ce bouton n'est **plus** sur la barre **Projet** : l'ancien bouton _Sauvegarde du projet_ a été supprimé et n'a pas de remplacement sur cette barre. L'export se fait maintenant depuis [Chef de projet](../gestion-projets/gestor-proyectos.md) — sélectionnez le projet dans la liste (il n'est pas nécessaire de l'ouvrir) et appuyez sur **Exporter**.
+> ⚠️ Ce bouton n'est **plus** sur la barre **Projet** : l'ancien bouton _Sauvegarde du projet_ a été supprimé et n'a pas de remplacement sur cette barre. L'export se fait maintenant depuis [Chef de projet](../gestion-projets/gestionnaire-projets.md) — sélectionnez le projet dans la liste (il n'est pas nécessaire de l'ouvrir) et appuyez sur **Exporter**.
 
 Génère un fichier ZIP portable avec le projet : le SHP/DBF du réseau, la carte QGIS (`.qgz`) si elle existe, et éventuellement les groupes de contenus et données complémentaires (cartographie de fond, MDT, orthophotos...) que référence cette `.qgz`.
 
@@ -92,7 +92,7 @@ Par défaut, `{CarpetaDestino}` est le dossier Téléchargements de l'utilisateu
 
 Une fois terminé, QGISRed affiche le chemin complet du ZIP créé dans la barre de messages.
 
-> 💡 **Bonnes pratiques** : Exportez le projet avant les opérations qui modifient plusieurs éléments à la fois (importations groupées, modifications CRS, conversions de rugosité) et avant de mettre à jour la version du plugin. Pour récupérer un projet exporté, utilisez **Importer le projet → onglet "Projet QGISRed"** — voir [Ouvrir et importer des projets](../gestion-projets/abrir-importar.md).
+> 💡 **Bonnes pratiques** : Exportez le projet avant les opérations qui modifient plusieurs éléments à la fois (importations groupées, modifications CRS, conversions de rugosité) et avant de mettre à jour la version du plugin. Pour récupérer un projet exporté, utilisez **Importer le projet → onglet "Projet QGISRed"** — voir [Ouvrir et importer des projets](../gestion-projets/ouvrir-importer.md).
 
 ---
 

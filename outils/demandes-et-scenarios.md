@@ -56,7 +56,7 @@ Le Builder applique automatiquement le facteur à toutes les valeurs de consomma
 
 Le calque résultant est affiché avec des couleurs par catégorie et des étiquettes avec la valeur demandée. Les nœuds sans catégorie attribuée apparaissent en orange sous le groupe **Non classé**.
 
-> 💡 Les couches auxiliaires du Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) peuvent également être créées vides depuis le Layer Manager, sans qu'il soit nécessaire de lancer au préalable une analyse (voir [Présentation et gestion des couches](../projet-actif/capas-y-leyenda.md)).
+> 💡 Les couches auxiliaires du Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) peuvent également être créées vides depuis le Layer Manager, sans qu'il soit nécessaire de lancer au préalable une analyse (voir [Présentation et gestion des couches](../projet-actif/couches-et-legende.md)).
 
 ### Nettoyage du procès
 
