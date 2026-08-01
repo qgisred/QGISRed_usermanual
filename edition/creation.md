@@ -46,13 +46,13 @@ Placez un réservoir de stockage (Tank) sur la carte. Les réservoirs ont un niv
 2. Cliquez sur un **nœud existant** ou sur un point vide de la carte.
 - Si vous cliquez sur un nœud existant, ce nœud **devient** un Tank.
 - Si vous cliquez sur un point vide, QGISRed crée un nouveau Tank (pas de connexion initiale ; vous devrez le connecter avec un tuyau).
-3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau réservoir afin que vous puissiez saisir les données (élévation du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
+3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau réservoir afin que vous puissiez saisir les données (altitude du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
 
 ### Principaux paramètres du réservoir
 
 | Paramètre | Descriptif |
 |-----------|-------------|
-| **Élévation** | Élévation du fond du réservoir (m ou pi) |
+| **Altitude** | Altitude du fond du réservoir (m ou pi) |
 | **InitLevel** | Niveau d'eau initial au-dessus du fond |
 | **MinLevel** | Niveau de fonctionnement minimum |
 | **MaxLevel** | Niveau de fonctionnement maximum |
@@ -72,8 +72,8 @@ Le processus est identique à celui du réservoir. Les paramètres sont plus sim
 
 | Paramètre | Descriptif |
 |-----------|-------------|
-| **Tête** | Charge piézométrique fixe (élévation du niveau d'eau libre, m ou ft) |
-| **Modèle** | Modèle de variation de charge dans le temps (facultatif) |
+| **Charge** | Charge piézométrique fixe (altitude du niveau d'eau libre, m ou ft) |
+| **Modulation** | Courbe de modulation de charge dans le temps (facultatif) |
 
 > Utiliser des bâches pour représenter des points de distribution d'eau en crue (raccordements avec des systèmes externes) ou des points d'approvisionnement à débit constant.
 
@@ -129,7 +129,7 @@ Insérez une pompe dans un tuyau existant, en la divisant exactement de la même
 |-----------|-------------|
 | **Courbe** | ID de courbe H-Q (obligatoire pour simuler) |
 | **Vitesse** | Facteur de vitesse initial (1,0 = vitesse nominale) |
-| **Modèle** | Modèle de variation de vitesse |
+| **Modulation** | Courbe de modulation de vitesse |
 | **Puissance** | Puissance constante (alternative à la courbe H-Q) |
 
-> Si la pompe nécessite une courbe d'efficacité pour le calcul de l'énergie, définissez-la dans **l'éditeur de modèles et de courbes** et référencez-la à partir des propriétés de la pompe.
+> Si la pompe nécessite une courbe de rendement pour le calcul de l'énergie, définissez-la dans **l'éditeur de modulations et de courbes** et référencez-la à partir des propriétés de la pompe.

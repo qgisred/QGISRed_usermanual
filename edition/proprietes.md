@@ -27,7 +27,7 @@ La boîte de dialogue des propriétés est l'outil central pour afficher et modi
 | **Longueur** | Longueur automatiquement calculée à partir de la géométrie (m ou ft) |
 | **Diamètre** | Diamètre intérieur (mm ou pouces) |
 | **Coeff de rugosité** | Rugosité pour la formule de perte de charge configurée |
-| **MinorLoss** | Coefficient de perte mineure (0 si non applicable) |
+| **MinorLoss** | Coefficient de perte de charge singulière (0 si non applicable) |
 | **InitStatus** | État initial : Ouvert, Fermé ou CV (clapet anti-retour) |
 | **Matériel** | Code matériau (référencé dans le tableau des matériaux) |
 | **InstallYear** | Année d'installation (format `YYYY`), utilisée pour le calcul de la rugosité au vieillissement |
@@ -41,9 +41,9 @@ La boîte de dialogue des propriétés est l'outil central pour afficher et modi
 | Champ | Descriptif |
 |-------|-------------|
 | **ID** | Identificateur de nœud unique |
-| **Élévation** | Hauteur du nœud (m ou pi) |
+| **Altitude** | Hauteur du nœud (m ou pi) |
 | **Demande** | Demande de base (en unités de flux du projet) |
-| **Modèle** | ID du modèle de demande appliqué |
+| **Modulation** | ID de la courbe de modulation de demande appliquée |
 | **EmitterCoeff** | Coefficient d'émetteur (pour modéliser les fuites dépendant de la pression) |
 | **InitQuality** | Concentration ou âge initial de l'eau (uniquement si le modèle de qualité est actif) |
 
@@ -54,7 +54,7 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | Champ | Descriptif |
 |-------|-------------|
 | **Demande** | Valeur de la demande pour cette catégorie |
-| **Modèle** | Modèle de demande spécifique à une catégorie |
+| **Modulation** | Courbe de modulation de demande spécifique à une catégorie |
 | **Nom** | Étiquette de catégorie (informative) |
 
 ---
@@ -64,7 +64,7 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | Champ | Descriptif |
 |-------|-------------|
 | **ID** | Identifiant unique |
-| **Élévation** | Niveau inférieur du réservoir |
+| **Altitude** | Niveau inférieur du réservoir |
 | **InitLevel** | Niveau d'eau initial en arrière-plan |
 | **MinLevel** | Niveau de fonctionnement minimum |
 | **MaxLevel** | Niveau de fonctionnement maximum |
@@ -81,8 +81,8 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | Champ | Descriptif |
 |-------|-------------|
 | **ID** | Identifiant unique |
-| **Tête** | Hauteur piézométrique fixe (m ou ft) |
-| **Modèle** | Modèle de variation de charge dans le temps |
+| **Charge** | Hauteur piézométrique fixe (m ou ft) |
+| **Modulation** | Courbe de modulation de charge dans le temps |
 
 ---
 
@@ -94,7 +94,7 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | **Diamètre** | Diamètre (mm ou pouces) |
 | **Type de vanne** | Type de vanne : PRV, PSV, PBV, FCV, TCV, GPV |
 | **Paramètre** | Consigne de régulation (pression, débit ou perte de charge selon le type) |
-| **MinorLoss** | Coefficient de perte mineure |
+| **MinorLoss** | Coefficient de perte de charge singulière |
 | **InitStatus** | État initial : Ouvert, Fermé, Actif |
 
 ---
@@ -106,11 +106,11 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | **ID** | Identifiant unique |
 | **Courbe** | ID de courbe H-Q de la pompe |
 | **Vitesse** | Facteur de vitesse de rotation (1,0 = nominal) |
-| **Modèle** | Modèle de variation de vitesse |
+| **Modulation** | Courbe de modulation de vitesse |
 | **Puissance** | Puissance constante (alternative à la courbe H-Q) |
-| **EfficiencyCurve** | ID de courbe d'efficacité (pour analyse énergétique) |
+| **EfficiencyCurve** | ID de courbe de rendement (pour analyse énergétique) |
 | **EnergyPrice** | Prix ​​énergétique spécifique pour cette pompe |
-| **PricePattern** | Modèle de variation des prix de l'énergie |
+| **PricePattern** | Courbe de modulation des prix de l'énergie |
 | **InitStatus** | Etat initial : Ouvert ou Fermé |
 
 ---

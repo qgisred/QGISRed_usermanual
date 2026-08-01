@@ -35,7 +35,7 @@ Dans la même boîte de dialogue, vous pouvez configurer les paramètres de base
 | Paramètre | Descriptif |
 |-----------|-------------|
 | **Unités de débit** | LPS (litres/seconde), GPM, CMH, etc. Détermine si le projet fonctionne dans le système SI ou US |
-| **Formule de perte de tête** | Darcy-Weisbach (D-W), Hazen-Williams (H-W) ou Chezy-Manning (C-M) |
+| **Formule de perte de charge** | Darcy-Weisbach (D-W), Hazen-Williams (H-W) ou Chezy-Manning (C-M) |
 
 Ces paramètres peuvent être modifiés ultérieurement à partir des _Options du projet_, mais il est recommandé de les définir dès le début car ils affectent les unités affichées dans toutes les propriétés du réseau.
 

@@ -24,9 +24,9 @@ Si la valeur ne suit pas ce format exact, l'outil **Vérifier les dates d'instal
 
 ---
 
-## Modèles et courbes (DBF)
+## Modulations et courbes (DBF)
 
-Les modèles et courbes de demande (H-Q, efficacité, volume) sont stockés dans des tableaux DBF séparés. Si vous les modifiez directement en dehors de QGIS :
+Les modulations et courbes de demande (H-Q, rendement, volume) sont stockés dans des tableaux DBF séparés. Si vous les modifiez directement en dehors de QGIS :
 
 - **Séparateur décimal** : utilisez toujours le **point** (`.`), quels que soient les paramètres régionaux du système. Les virgules comme séparateur décimal provoquent des erreurs de lecture.
 - **Champ d'ordre** : chaque tableau possède un champ d'ordre numérique (`Order` ou similaire) qui détermine la séquence des points ou des facteurs au sein de la série. Ne modifiez pas ce champ et ne laissez pas de vide dans la numérotation.

@@ -102,7 +102,7 @@ Il suffit de **Remplacer par**, en sélectionnant la nouvelle valeur dans une li
 | `InitStatus` | Liste EPANET fixe (Ouverte, Fermée, CV, Actif…) |
 | `Material` | Tableau des matériaux du projet |
 | `Curve` | Courbes du projet filtrées par type (pompe, volume, rendement, perte de charge) |
-| `Pattern` | Modèles de projets filtrés par type (demande, qualité, tête, rapidité, prix) |
+| `Pattern` | Modulations du projet filtrées par type (demande, qualité, charge, rapidité, prix) |
 
 ### Champs de date
 
@@ -147,7 +147,7 @@ Filtrer : `Material = FD` — Faire : `Roughness → Multiply by → 1.1`
 **Fermez toutes les vannes d'isolement**
 Élément : Vannes d'isolement — Filtre : Pas de filtre — Faire : `InitStatus → Replace with → CLOSED`
 
-**Attribuer un motif à un ensemble de nœuds sélectionné**
+**Attribuer une modulation à un ensemble de nœuds sélectionné**
 Cochez "Uniquement les entités sélectionnées" — Élément : Jonctions — Faire : `Pattern → Replace with → PAT_RESIDENCIAL`
 
 **Remplacer le texte dans les étiquettes**

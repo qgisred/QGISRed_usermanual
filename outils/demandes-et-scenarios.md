@@ -28,7 +28,7 @@ Attribuez la consommation aux nœuds du réseau en masse à partir de couches SH
 3. Définissez pour chaque calque :
 - **Champ Demande** : colonne avec la valeur de consommation.
 - **Champ Catégorie** : pour créer plusieurs requêtes par type d'utilisateur (résidentiel, industriel, etc.).
-- **Champ Modèle** : ID du modèle de demande à appliquer (facultatif).
+- **Champ Modulation** : ID de la courbe de modulation de demande à appliquer (facultatif).
 4. Sélectionnez éventuellement des nœuds sur la carte pour limiter l'affectation à cette zone.
 5. Confirmez. QGISRed écrit les valeurs dans `Junctions` ou `{Red}_MultipleDemands.shp` s'il existe des catégories.
 
@@ -62,20 +62,20 @@ Le calque résultant est affiché avec des couleurs par catégorie et des étiqu
 
 Le gestionnaire permet de supprimer des demandes existantes avant d'en attribuer de nouvelles :
 - **Supprimer les demandes des nœuds sélectionnés** : élimine les valeurs de `Demand` et les entrées de `MultipleDemands`.
-- **Supprimer les modèles orphelins** : supprimez les modèles qui ne sont plus référencés par aucun nœud.
+- **Supprimer les modulations orphelines** : supprimez les modulations qui ne sont plus référencées par aucun nœud.
 
 ### Affectation de la demande à partir de la couche de segments
 
 Lorsqu'une couche de segments (géométrie de ligne) est utilisée pour répartir les demandes à l'aide du champ `%Dem`, les enregistrements sans ce champ renseigné reçoivent automatiquement le pourcentage restant jusqu'à 100 %, réparti proportionnellement entre eux.
 
-### Modèles par secteurs
+### Modulations par secteurs
 
-La section Modèles de secteur vous permet d'attribuer un modèle de demande à chaque secteur du réseau. Il dispose de **deux modes exclusifs** :
+La section Modulations de secteur vous permet d'attribuer une courbe de modulation de demande à chaque secteur du réseau. Il dispose de **deux modes exclusifs** :
 
 | Mode | Descriptif |
 |------|-------------|
-| **Importer des modèles à partir d'un thème sectoriel** | Sélectionnez la couche de polygones avec les secteurs dans une liste déroulante qui répertorie les couches de polygones déjà chargées dans QGIS (ou importez-la avec le bouton `...` si elle n'est pas déjà chargée). Choisissez ensuite les champs **Sector Id (facultatif)**, **Id request pattern** et **Priority (facultatif)** parmi les combinaisons correspondantes. Le champ Sector Id est facultatif : s’il n’est pas identifié, QGISRed génère automatiquement des identifiants internes. Eventuellement, enregistrez le résultat en tant que couche interne du projet avec le bouton **Importer et enregistrer**. Une fois enregistrée, cette option est verrouillée. |
-| **Utiliser des modèles d'un thème de secteur de projet** | Sélectionnez un calque de tranche déjà chargé dans le projet. Une liste s'affiche avec les secteurs et, à côté de chacun, un combo **éditable** pour choisir le motif : vous pouvez sélectionner un motif existant dans la liste ou écrire directement l'Id d'un nouveau motif. Les nœuds sans secteur sont regroupés dans un secteur supplémentaire. |
+| **Importer des modulations à partir d'un thème sectoriel** | Sélectionnez la couche de polygones avec les secteurs dans une liste déroulante qui répertorie les couches de polygones déjà chargées dans QGIS (ou importez-la avec le bouton `...` si elle n'est pas déjà chargée). Choisissez ensuite les champs **Sector Id (facultatif)**, **Id request pattern** et **Priority (facultatif)** parmi les combinaisons correspondantes. Le champ Sector Id est facultatif : s’il n’est pas identifié, QGISRed génère automatiquement des identifiants internes. Eventuellement, enregistrez le résultat en tant que couche interne du projet avec le bouton **Importer et enregistrer**. Une fois enregistrée, cette option est verrouillée. |
+| **Utiliser des modulations d'un thème de secteur de projet** | Sélectionnez un calque de tranche déjà chargé dans le projet. Une liste s'affiche avec les secteurs et, à côté de chacun, un combo **éditable** pour choisir la modulation : vous pouvez sélectionner une modulation existante dans la liste ou écrire directement l'Id d'une nouvelle modulation. Les nœuds sans secteur sont regroupés dans un secteur supplémentaire. |
 
 ### Efficacité par secteurs
 
@@ -86,12 +86,12 @@ La section efficacité hydraulique par secteurs présente également **deux mode
 | **Importer des gains d'efficacité à partir d'un thème sectoriel** | Sélectionnez la couche de polygones avec les secteurs dans une liste déroulante qui répertorie les couches de polygones déjà chargées dans QGIS (ou importez-la avec le bouton `...`), et choisissez les champs **Id de secteur (facultatif)**, **Efficacité** et **Priorité (facultatif)**. Le champ ID de secteur est facultatif. Eventuellement, enregistrez le résultat en tant que couche interne du projet avec le bouton **Importer et enregistrer**. Une fois enregistrée, l'option d'importation est bloquée. |
 | **Utiliser les gains d'efficacité d'un thème sectoriel de projet** | Sélectionnez un calque de tranche existant ; Le plugin identifie automatiquement les champs d'efficacité. |
 
-#### Corrections d'efficacité et de modèles
+#### Corrections d'efficacité et de modulations
 
 Après avoir défini les efficacités par secteurs, le gestionnaire propose des options de correction supplémentaires :
 
 - **Corriger les efficacités des catégories pour répondre à l'efficacité du secteur** : ajuste proportionnellement les efficacités de chaque catégorie de demande afin que l'efficacité résultante dans chaque secteur corresponde à l'objectif déclaré. Exclusif avec la correction vers l'efficacité globale.
-- **Corriger les modèles sectoriels pour se conformer au modèle global** : après avoir attribué les modèles sectoriels, corrigez ces modèles afin que leur combinaison soit conforme au modèle global précédemment déclaré. Les options de correction sont réparties par portée de modèle (globale ou catégorie).
+- **Corriger les modulations sectorielles pour se conformer à la modulation globale** : après avoir attribué les modulations sectorielles, corrigez ces modulations afin que leur combinaison soit conforme à la modulation globale précédemment déclarée. Les options de correction sont réparties par portée de modulation (globale ou catégorie).
 
 ### Couche de connexions isolées avec demande
 
@@ -113,7 +113,7 @@ Exportez et importez en masse les paramètres du modèle, créant des « instant
 | **InitStatus** | États d'ouverture/fermeture des canalisations et vannes |
 | **Demandes** | Exigences de base de tous les nœuds |
 | **InitQuality** | Qualités initiales des nœuds et des canalisations |
-| **Élévations** | Niveaux de nœuds, réservoirs et bâches |
+| **Altitudes** | Niveaux de nœuds, réservoirs et bâches |
 
 ### Flux de travail typique
 

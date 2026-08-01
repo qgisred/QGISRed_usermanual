@@ -33,7 +33,7 @@
     * [Manipulation géométrique et topologique](edition/manipulation.md)
     * [Propriétés des éléments](edition/proprietes.md)
     * [Édition de groupe](edition/edition-par-groupe.md)
-    * [Motifs et courbes](edition/courbes.md)
+    * [Modulations et courbes](edition/courbes.md)
     * [Contrôles et règles](edition/controles.md)
 
 ## ✅ Débogage

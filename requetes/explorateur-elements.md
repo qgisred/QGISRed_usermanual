@@ -97,9 +97,9 @@ Le panneau reconnaît automatiquement les alias de champ suivants et les présen
 
 | Alias ​​​​| Descriptif |
 |-------|-------------|
-| `DemPattID` | Modèle de demande en nœuds ; est supprimé lorsque plusieurs demandes sont actives et sont regroupées correctement |
-| `HedPattID` | Modèle de courbe de hauteur de pompe |
-| `QualPattID` | Modèle de qualité dans les polices |
+| `DemPattID` | Modulation de demande en nœuds ; est supprimé lorsque plusieurs demandes sont actives et sont regroupées correctement |
+| `HedPattID` | Modulation de la courbe de hauteur de pompe |
+| `QualPattID` | Modulation de qualité dans les polices |
 | `NodeID` | Identificateur de nœud dans les couches dérivées |
 | `NodeType` | Type de nœud |
 | `LinkID` | Identificateur de lien dans les couches dérivées |

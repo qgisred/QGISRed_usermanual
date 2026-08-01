@@ -14,7 +14,7 @@ La barre **Outils** regroupe les outils de traitement massifs : calcul automatiq
 | # | Outil | Fonction |
 |---|-------------|---------|
 | 1 | **Calculer automatiquement les longueurs de tuyaux** | Recalculer la longueur de chaque tuyau à partir de sa géométrie |
-| 2 | **Interpoler l'élévation à partir des fichiers .asc…** | Attribuer des hauteurs aux nœuds par interpolation à partir d'un MDT au format ASC |
+| 2 | **Interpoler l'altitude à partir des fichiers .asc…** | Attribuer des hauteurs aux nœuds par interpolation à partir d'un MDT au format ASC |
 | 3 | **Définir les coefficients de rugosité (à partir du matériau et de la date)** | Calculer la rugosité actuelle de chaque tuyau due au vieillissement |
 | 4 | **Convertir les coefficients de rugosité…** | Convertir la rugosité entre les formules H-W, D-W et C-M |
 
@@ -37,6 +37,6 @@ La barre **Outils** regroupe les outils de traitement massifs : calcul automatiq
 
 ## Dans cette rubrique
 
-* [Propriétés hydrauliques](proprietes-hydrauliques.md) — longueurs, élévations, rugosité de vieillissement et conversion entre formules
+* [Propriétés hydrauliques](proprietes-hydrauliques.md) — longueurs, altitudes, rugosité de vieillissement et conversion entre formules
 * [Exigences et scénarios](demandes-et-scenarios.md) — affectation massive de demandes, gestion de scénarios et de segments isolés
 * [Secteurs et arbre de demande](secteurs-arborescence.md) — sectorisation par débitmètres et arbre de coût minimum

@@ -42,7 +42,7 @@ La barre **Edition** contient tous les outils pour construire et modifier le ré
 | # | Outil | Fonction |
 |---|-------------|---------|
 | 17 | **Modifier les propriétés de l'élément…** | Ouvre la boîte de dialogue des propriétés de l'élément cliqué |
-| 18 | **Modifier les motifs et les courbes…** | Éditeur de modèles et de courbes de demande de pompe/réservoir |
+| 18 | **Modifier les modulations et les courbes…** | Éditeur de modulations et de courbes de demande de pompe/réservoir |
 | 19 | **Modifier les contrôles…** | Editeur de commandes simples et de règles de fonctionnement |
 
 ---
@@ -52,5 +52,5 @@ La barre **Edition** contient tous les outils pour construire et modifier le ré
 * [Création d'éléments](creation.md) — tuyaux, réservoirs, bâches, vannes, pompes
 * [Manipulation géométrique et topologique](manipulation.md) — déplacer, diviser, inverser, croiser, supprimer
 * [Propriétés des éléments](proprietes.md) — boîte de dialogue d'édition avec navigateur intégré
-* [Motifs et courbes](courbes.md) — modèles de demande, courbes H-Q, efficacité et volume
+* [Modulations et courbes](courbes.md) — modulations de demande, courbes H-Q, rendement et volume
 * [Contrôles et règles](controles.md) — commandes simples et règles de fonctionnement automatiques

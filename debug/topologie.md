@@ -8,13 +8,13 @@ Les outils du premier groupe de la barre de débogage détectent et corrigent le
 
 **Barre de débogage → Vérifier et valider les données**
 
-C'est le principal outil de validation. Il parcourt tous les éléments du projet, vérifie la cohérence des données (dimensions, diamètres, identifiants en double, références à des courbes et motifs inexistants, etc.) et **consolide les modifications en attente**.
+C'est le principal outil de validation. Il parcourt tous les éléments du projet, vérifie la cohérence des données (dimensions, diamètres, identifiants en double, références à des courbes et modulations inexistantes, etc.) et **consolide les modifications en attente**.
 
 ### Qu'est-ce qui est valide
 
 - ID en double sur n'importe quelle couche.
 - Tuyaux sans nœuds d'extrémité valides (connectivité rompue).
-- Références à des courbes ou des motifs qui n'existent pas dans le projet.
+- Références à des courbes ou des modulations qui n'existent pas dans le projet.
 - Valeurs obligatoires vides (diamètre nul, dimension vide...).
 - Cohérence interne du fichier `_Options.dbf`.
 

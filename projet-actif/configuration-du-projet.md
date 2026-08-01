@@ -18,7 +18,7 @@ Ouvre la boîte de dialogue principale des options d'EPANET. Il équivaut à la 
 | Champ | Descriptif |
 |-------|-------------|
 | **Unités de débit** | Définit le système d'unités du projet. Les unités métriques (LPS, LPM, MLD, CMH, CMD) correspondent au SI ; gallons et pieds cubes (CFS, GPM, MGD, IMGD, AFD) aux États-Unis |
-| **Formule de perte de tête** | Darcy-Weisbach (D-W), Hazen-Williams (H-W) ou Chezy-Manning (C-M) |
+| **Formule de perte de charge** | Darcy-Weisbach (D-W), Hazen-Williams (H-W) ou Chezy-Manning (C-M) |
 | **Gravité spécifique** | Poids spécifique du fluide par rapport à l'eau pure (1,0 pour l'eau standard) |
 | **Viscosité relative** | Facteur de viscosité cinématique de l'eau à 20 °C |
 | **Précision** | Critère de convergence du solveur hydraulique |
@@ -59,8 +59,8 @@ Permet de définir le coût énergétique des pompes pour l'analyse de la consom
 | Champ | Descriptif |
 |-------|-------------|
 | **Prix global** | Coût par kWh (dans la devise définie) |
-| **Modèle de prix** | Modèle temporel de variation des prix de l'électricité |
-| **Efficacité globale** | Rendement moyen des pompes (si elles ne disposent pas de courbe de rendement individuelle) |
+| **Modulation de prix** | Courbe de modulation temporelle des prix de l'électricité |
+| **Rendement global** | Rendement moyen des pompes (si elles ne disposent pas de courbe de rendement individuelle) |
 
 ---
 

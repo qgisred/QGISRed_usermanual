@@ -20,7 +20,7 @@ Ouvre la boîte de dialogue Options du moteur EPANET. Il permet de configurer to
 | **Hydraulique** | Unités de débit (LPS, GPM, CMH…), formule de perte de charge (H-W / D-W / C-M), viscosité, densité |
 | **Qualité** | Type d'analyse de qualité (aucun, chlore, âge de l'eau, trace de source), coefficients de réaction |
 | **Horaires** | Durée totale de la simulation, pas de temps hydraulique, pas de temps qualité, étape du rapport, heure de début |
-| **Énergie** | Prix ​​de l'électricité, efficacité globale des pompes |
+| **Énergie** | Prix ​​de l'électricité, rendement global des pompes |
 | **Général** | Mode PDA (Pressure Dependent Analysis) : active la demande locale dépendante de la pression |
 
 > Le tableau des matériaux du projet stocke la rugosité en unités D-W (mm). Si vous modifiez la formule hydraulique ici, QGISRed vous proposera de convertir automatiquement les coefficients de rugosité existants.

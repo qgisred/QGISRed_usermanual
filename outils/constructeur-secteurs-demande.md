@@ -94,7 +94,7 @@ Si une validation échoue, la boîte de dialogue affiche un message d'erreur des
 
 ## Résultat dans le projet
 
-Les couches pour chaque sectorisation sont créées dans le groupe **Couches auxiliaires > DemandSectors > [nom de la sectorisation]** dans le panneau des couches QGIS. Chaque couche de type de nœuds comprend le champ `SectorId` qui peut être utilisé directement dans **Nodal Demand Builder** pour attribuer des modèles ou des efficacités par secteur.
+Les couches pour chaque sectorisation sont créées dans le groupe **Couches auxiliaires > DemandSectors > [nom de la sectorisation]** dans le panneau des couches QGIS. Chaque couche de type de nœuds comprend le champ `SectorId` qui peut être utilisé directement dans **Nodal Demand Builder** pour attribuer des modulations ou des efficacités par secteur.
 
 ### Utilisation dans Nodal Demand Builder
 
@@ -108,4 +108,4 @@ Une sectorisation générée avec le Demand Sector Builder peut être sélection
 2. **Ouvrez le Builder** : Outils → Demand Sector Builder.
 3. **Créer une sectorisation** : appuyez sur ＋, nommez-la et sélectionnez les sujets à générer.
 4. **Exécuter** : appuyez sur **Build**. Les couches apparaissent dans Couches auxiliaires > DemandSectors.
-5. **Utilisation dans Nodal Demand Builder** : Dans la section Modèles sectoriels ou efficacités, choisissez la nouvelle sectorisation comme thème du projet.
+5. **Utilisation dans Nodal Demand Builder** : Dans la section Modulations sectorielles ou efficacités, choisissez la nouvelle sectorisation comme thème du projet.

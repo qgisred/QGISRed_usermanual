@@ -60,7 +60,7 @@ Outils pour dessiner et modifier la topologie du réseau directement sur la cart
 | **Changer de statut** | Modifie l'état initial (Ouvert/Fermé/CV) des canalisations, vannes et pompes |
 | **Supprimer des éléments** | Supprimer les éléments sélectionnés et reconstruire la connectivité |
 | **Modifier les propriétés** | Ouvrir le formulaire des attributs d'un élément |
-| **Motifs et courbes** | Gérer les courbes de demande, d'efficacité et de débit |
+| **Modulations et courbes** | Gérer les courbes de demande, de rendement et de débit |
 | **Contrôles et règles** | Définir des contrôles simples et des règles basées sur des conditions |
 
 ---
@@ -99,7 +99,7 @@ Utilitaires pour automatiser les tâches de préparation et de gestion des modè
 | **Gestionnaire des réclamations** | Répartir les consommations entre nœuds à partir de polygones surfaciques ou de points géoréférencés |
 | **Constructeur de scénarios** | Exportez et importez les paramètres du modèle (rugosités, exigences, dimensions, états, qualités) en masse pour gérer les variantes sans dupliquer les projets |
 | **Segments isolés** | Calculer les segments qui seraient isolés lorsque chaque vanne d'arrêt est fermée |
-| **Secteurs de demande** | Génère des secteurs en fonction de la demande et des modèles de consommation |
+| **Secteurs de demande** | Génère des secteurs en fonction de la demande et des courbes de modulation de consommation |
 | **Arbre à coût minimum** | Calcule l'arbre couvrant de la résistance hydraulique minimale à partir d'un nœud source sélectionné |
 
 ---

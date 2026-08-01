@@ -1,6 +1,6 @@
 # Propriétés hydrauliques
 
-Les quatre premiers outils de la barre d'outils calculent ou mettent à jour les propriétés hydrauliques des canalisations et des nœuds en bloc : longueur, élévation et rugosité. Ils travaillent sur la sélection en cours ou sur l'ensemble du réseau s'il n'y a pas de sélection.
+Les quatre premiers outils de la barre d'outils calculent ou mettent à jour les propriétés hydrauliques des canalisations et des nœuds en bloc : longueur, altitude et rugosité. Ils travaillent sur la sélection en cours ou sur l'ensemble du réseau s'il n'y a pas de sélection.
 
 ---
 
@@ -22,13 +22,13 @@ L'outil écrase la valeur de `Length` sans condition sur tous les tuyaux dans la
 
 ---
 
-## Interpoler l'élévation à partir de fichiers .asc…
+## Interpoler l'altitude à partir de fichiers .asc…
 
-**Barre d'outils → Interpoler l'élévation à partir de fichiers .asc…**
+**Barre d'outils → Interpoler l'altitude à partir de fichiers .asc…**
 
-Attribue l'élévation (champ `Elevation`) aux nœuds, réservoirs et bâches du projet en interpolant leur valeur à partir d'un ou plusieurs Modèles Numériques de Terrain (MNT) au format ASC.
+Attribue l'altitude (champ `Elevation`) aux nœuds, réservoirs et bâches du projet en interpolant leur valeur à partir d'un ou plusieurs Modèles Numériques de Terrain (MNT) au format ASC.
 
-<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="Sélecteur de fichiers ASC pour l'interpolation des dimensions"><figcaption><p>Sélecteur de fichiers ASC pour l'interpolation des dimensions</p></figcaption></figure>
+<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="Sélecteur de fichiers ASC pour l'interpolation des altitudes"><figcaption><p>Sélecteur de fichiers ASC pour l'interpolation des altitudes</p></figcaption></figure>
 *Sélecteur de fichiers MDT : vous pouvez télécharger plusieurs fichiers ASC pour couvrir toute la zone du réseau.*
 
 ### Format ASC pris en charge
@@ -53,7 +53,7 @@ nodata_value  -9999
 ### Processus d'affectation
 
 1. Ouvrez le sélecteur et choisissez un ou plusieurs fichiers `.asc`. Vous pouvez combiner plusieurs MDT pour couvrir toute la zone du réseau.
-2. QGISRed projette les coordonnées de chaque nœud sur le maillage et obtient l'élévation par interpolation bilinéaire entre les quatre cellules voisines.
+2. QGISRed projette les coordonnées de chaque nœud sur le maillage et obtient l'altitude par interpolation bilinéaire entre les quatre cellules voisines.
 3. Seuls les nœuds dont le `Elevation` actuel est égal à la valeur par défaut (généralement 0) sont mis à jour. Les nœuds dont la hauteur est déjà attribuée manuellement ne sont pas modifiés.
 4. Les nœuds qui se situent en dehors de la portée de tous les MDT chargés sont marqués comme un incident sur le tableau de messages.
 

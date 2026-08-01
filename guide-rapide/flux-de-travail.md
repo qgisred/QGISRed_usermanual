@@ -46,7 +46,7 @@ Corrigez tout problème noté dans le rapport d'incident avant de continuer.
 
 Depuis la barre **Outils** :
 
-- **Interpoler les élévations** si les nœuds n'ont pas d'élévations attribuées.
+- **Interpoler les altitudes** si les nœuds n'ont pas d'altitudes attribuées.
 - **Attribuer la rugosité** en fonction du matériau et de la date d'installation.
 - **Demand manager** pour répartir la consommation.
 

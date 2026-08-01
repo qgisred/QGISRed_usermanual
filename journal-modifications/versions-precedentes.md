@@ -9,7 +9,7 @@ Ici, vous pouvez consulter l'historique détaillé des modifications des version
 * Nouvelles options dans le gestionnaire de demandes nodales pour déclarer les consommations pour l'ensemble du réseau ou par zones.
 * Possibilité d'exporter, d'éditer et de réimporter les liens entre consommations spécifiques et nœuds.
 * Nouvelles options pour importer/exporter/supprimer des scénarios de demande par catégories.
-* Nouveaux outils dans le gestionnaire de demandes nodales pour prendre en compte l'efficacité de l'eau ou attribuer des modèles de consommation par secteurs.
+* Nouveaux outils dans le gestionnaire de demandes nodales pour prendre en compte l'efficacité de l'eau ou attribuer des courbes de modulation de consommation par secteurs.
 * Nouveau gestionnaire de scénarios pour stocker et récupérer divers paramètres de modèle en masse.
 * Calcul automatique de la longueur du tuyau à partir des coordonnées du sommet.
 * Complétion automatique du tracé de raccordement à l'aide d'une section perpendiculaire au tuyau le plus proche ou d'un lien vers le nœud le plus proche.
@@ -31,7 +31,7 @@ Ici, vous pouvez consulter l'historique détaillé des modifications des version
 * Nouveau type de résultat pour afficher l'état des lignes.
 * Améliorations des recherches depuis l'éditeur de propriétés.
 * Liste déroulante avec les chemins exécutables EPANET lors de l'exportation d'INP pour une ouverture automatique.
-* Tri des modèles par type lors de l'importation d'INP.
+* Tri des modulations par type lors de l'importation d'INP.
 * Nouvel avertissement lorsque l'identifiant d'un élément est complété automatiquement.
 * Modifications de l'ordre de la barre d'outils, des noms, des icônes et des styles visuels.
 * Nouveau lien vers le site QGISRed dans la fenêtre d'information.
@@ -111,7 +111,7 @@ Ici, vous pouvez consulter l'historique détaillé des modifications des version
 
 **Caractéristiques** :
 * Edition du tableau matériaux-rugosité pour calcul en fonction du matériau et de l'âge.
-* Nouvel import et export de motifs/courbes au format CSV.
+* Nouvel import et export de modulations/courbes au format CSV.
 * Importation des demandes de base et des identifiants de courbe à partir de CSV.
 * Importation de connexions depuis SHP.
 * Nouvel outil pour obtenir l'arbre de résistance minimale.
@@ -188,7 +188,7 @@ Ici, vous pouvez consulter l'historique détaillé des modifications des version
 
 **Caractéristiques** :
 * Tableau récapitulatif du modèle.
-* Gestionnaire de courbes de modulation (modèles) : éditer, créer, cloner, exporter/importer.
+* Gestionnaire de courbes de modulation (modulations) : éditer, créer, cloner, exporter/importer.
 * Behaviour Curve Manager : prise en charge de 1 ou 3 points avec équation approximative.
 * Gestionnaire de contrôles simple et interactif.
 * Gestionnaire de règles : combinaison interactive de conditions OU/ET.

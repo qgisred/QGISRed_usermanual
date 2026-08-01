@@ -9,7 +9,7 @@ Le profil longitudinal montre l'évolution d'une variable hydraulique le long d'
 > 📝 Le plugin détecte automatiquement si les résultats proviennent du format standard EPANET ou du format étendu `.hyd` de QGISRed ; aucun réglage manuel n'est nécessaire.
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Quai à profil longitudinal avec itinéraire tracé sur la carte et graphique de pression"><figcaption><p>Quai à profil longitudinal avec itinéraire tracé sur la carte et graphique de pression</p></figcaption></figure>
-*Profil longitudinal : itinéraire surligné en rouge sur la carte (à gauche) et graphique hauteur piézométrique + élévation du terrain (à droite).*
+*Profil longitudinal : itinéraire surligné en rouge sur la carte (à gauche) et graphique hauteur piézométrique + altitude du terrain (à droite).*
 <!-- TODO : capture d'écran obsolète — les boutons Choisir/Ajouter un nœud/Supprimer un nœud/Déplacer un nœud/Branche de la barre d'outils ont été remplacés par un seul bouton Modifier les trajectoires + bouton Aide -->
 
 ---
@@ -43,19 +43,19 @@ Sur la carte, une **ligne rouge** est tracée sur les liens du chemin et des **m
 
 | Variables | Descriptif |
 |----------|-------------|
-| **Élévation** | Altitude du terrain — statique, ne dépend pas de l'instant |
-| **Tête + Dimension** | Hauteur piézométrique et niveau du sol réunis dans le même graphique |
+| **Altitude** | Altitude du terrain — statique, ne dépend pas de l'instant |
+| **Charge + Altitude** | Hauteur piézométrique et niveau du sol réunis dans le même graphique |
 | **Pression** | Pression dans chaque nœud |
 | **Qualité** | Qualité de l'eau à chaque nœud ; le sélecteur affiche le nom de qualité spécifique au projet (par exemple, _Chlorine_) au lieu du terme générique _Quality_ |
 | **Perte de charge accumulée** | Perte de charge accumulée le long du parcours |
 
-La variable par défaut est **Tête + Dimension**. Lorsqu'il est sélectionné, le graphique affiche **simultanément** la ligne piézométrique (bleue) et l'élévation du terrain (marron), vous permettant de voir en un coup d'œil si une pression positive existe à chaque point du parcours.
+La variable par défaut est **Charge + Altitude**. Lorsqu'il est sélectionné, le graphique affiche **simultanément** la ligne piézométrique (bleue) et l'altitude du terrain (marron), vous permettant de voir en un coup d'œil si une pression positive existe à chaque point du parcours.
 
 Le graphique se met à jour automatiquement lorsque l'heure instantanée change dans le dock Résultats.
 
 > 📝 Lorsque des instants temporels sont disponibles, le titre du graphique affiche **"Profils longitudinaux à HH:MM:SS"**. Pour les résultats statiques, **"Profils longitudinaux"** apparaît simplement.
 
-> 📝 Les étiquettes des axes incluent l'unité du projet entre crochets (par exemple _Tête [m]_, _Pression [bar]_, _Distance [m]_). Les en-têtes du tableau de valeurs indiquent également les unités.
+> 📝 Les étiquettes des axes incluent l'unité du projet entre crochets (par exemple _Charge [m]_, _Pression [bar]_, _Distance [m]_). Les en-têtes du tableau de valeurs indiquent également les unités.
 
 ### Axe secondaire
 
@@ -116,7 +116,7 @@ La molette de la souris effectue également un zoom en se centrant sur la positi
 
 ## Enveloppe Min/Max
 
-Disponible pour **Tête + Dimension**, **Pression** et **Qualité**. Affiche la plage de variation historique de l'ensemble de la simulation superposée au profil du moment actuel.
+Disponible pour **Charge + Altitude**, **Pression** et **Qualité**. Affiche la plage de variation historique de l'ensemble de la simulation superposée au profil du moment actuel.
 
 | Mode | Descriptif |
 |------|-------------|
@@ -137,7 +137,7 @@ L'action **Créer une branche** vous permet d'ajouter des branches latérales pa
 2. Effectuez des clics successifs pour étendre la branche vers d'autres nœuds.
 3. Faites un clic droit pour terminer la branche.
 
-Chaque branche est dessinée avec une couleur différente de la palette. Les distances des branches sont calculées à partir du point de branchement, de sorte que les deux courbes partagent la même origine X en ce point. Lorsque la variable sélectionnée est **Tête + Elévation**, les branches affichent également leur propre courbe d'élévation du terrain à côté de la ligne piézométrique.
+Chaque branche est dessinée avec une couleur différente de la palette. Les distances des branches sont calculées à partir du point de branchement, de sorte que les deux courbes partagent la même origine X en ce point. Lorsque la variable sélectionnée est **Charge + Altitude**, les branches affichent également leur propre courbe d'altitude du terrain à côté de la ligne piézométrique.
 
 > ⚠️ **Restrictions d'intégrité du cours**
 >

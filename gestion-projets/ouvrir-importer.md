@@ -52,14 +52,14 @@ Le cas le plus courant : vous disposez d’un modèle EPANET existant et vous so
 1. Sélectionnez le fichier `.inp`.
 2. Indique le **nom du réseau** que portera le projet QGISRed (il peut être différent du nom interne de l'INP).
 3. Choisissez le **dossier de destination** où les SHP seront créés.
-4. QGISRed convertit tous les éléments (nœuds, tuyaux, vannes, pompes, courbes, modèles, contrôles...) en structure SHP+DBF.
+4. QGISRed convertit tous les éléments (nœuds, tuyaux, vannes, pompes, courbes, modulations, contrôles...) en structure SHP+DBF.
 
 > ⚠️ Les coordonnées de `.inp` doivent être dans le même CRS que vous utiliserez dans QGISRed. Le plugin ne reprojete pas lors de l'importation.
 
 **Ce qui est importé :**
 - Tous les éléments du réseau (jonctions, canalisations, réservoirs, bâches, vannes, pompes)
 - Courbes (H-Q, rendement, volume, perte de charge)
-- Modèles de demande
+- Modulations de demande
 - Contrôles et règles simples
 - Options de simulation (unités, formule, temps, énergie, qualité)
 - Demandes multiples par nœud
@@ -73,7 +73,7 @@ Pour chaque type d'élément, vous pouvez sélectionner la couche SHP correspond
 
 **Tuyaux** — champs mappables : ID, Longueur, Diamètre, Rugosité, Coeff. pertes, **Matériau**, Date d'installation, Etat initial, Coeff. réaction de masse, Coef. réaction du mur, Tag, Description.
 
-**Services** — champs mappables : ID, Longueur, Diamètre, Rugosité, **Matériau**, Demande de base, Modèle, Actif, Date d'installation, Étiquette, Description.
+**Services** — champs mappables : ID, Longueur, Diamètre, Rugosité, **Matériau**, Demande de base, Modulation, Actif, Date d'installation, Étiquette, Description.
 
 Les autres éléments (vannes, pompes, réservoirs, bâches, nœuds, vannes d'isolement, compteurs) possèdent leurs propres ensembles de champs mappables.
 

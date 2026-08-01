@@ -16,7 +16,7 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Gestion améliorée des erreurs de simulation : le rapport EPANET est automatiquement affiché dans le journal lorsqu'une erreur se produit, et les erreurs non gérées sont enregistrées au lieu d'échouer silencieusement.
 * Avis spécifique lorsque les fichiers de résultats sont verrouillés par une autre application.
 * Demand Builder : restructuration de la section des patterns par secteurs avec deux modes exclusifs (import SHP externe / utilisation couche projet).
-* Demand Builder : section sur l'efficacité sectorielle avec deux modes de travail et de nouvelles options pour corriger l'efficacité des catégories et les modèles sectoriels afin d'atteindre les objectifs globaux.
+* Demand Builder : section sur l'efficacité sectorielle avec deux modes de travail et de nouvelles options pour corriger l'efficacité des catégories et les modulations sectorielles afin d'atteindre les objectifs globaux.
 * Demand Builder : répartition automatique des pourcentages de demande manquants dans les couches de sections.
 * Nouvelle couche de connexions isolées avec demande non nulle générée par l'analyse des segments hydrauliques.
 * Arbre de distribution : le nœud racine est identifié par `NodeType = "ROOT"` dans la couche de nœuds résultante.
@@ -76,7 +76,7 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Nouvel outil d'analyse fermé, avec plusieurs options.
 * Afficher les résultats jusqu'à 13 états pour les tuyaux, les vannes et les pompes.
 * Transfert d'états et de qualités pour enchaîner les simulations dans des périodes successives.
-* Nouvelles options pour réinitialiser la rugosité, les élévations et les diamètres dans le générateur de scénarios.
+* Nouvelles options pour réinitialiser la rugosité, les altitudes et les diamètres dans le générateur de scénarios.
 * Nouvelle option pour exporter et importer des scénarios au format Epanet.
 * Nouvelles fonctionnalités dans le gestionnaire de projet (trier, exporter, supprimer et renommer).
 * Nouveaux boutons pour ouvrir ou enregistrer des projets.
@@ -89,7 +89,7 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Correction d'une erreur lors de l'interpolation des dimensions lorsque le point tombe sur une des extrémités du maillage.
 * Erreur corrigée lors de la répartition des demandes proportionnellement à la longueur des tuyaux.
 * Correction d'une erreur lors du chargement des demandes d'une couche de secteurs.
-* Correction d'une erreur lors de l'importation d'INP avec des sources sans modèle défini.
+* Correction d'une erreur lors de l'importation d'INP avec des sources sans modulation définie.
 * Correction d'erreurs lors de l'importation d'INP liées aux horaires et aux règles temporaires.
 * Correction d'une erreur lors de l'exportation d'INP avec des descriptions très longues.
 * Erreur corrigée avec le symbole décimal dans les options du modèle PDA.
