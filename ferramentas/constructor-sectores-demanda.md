@@ -65,12 +65,12 @@ Para cada setorização, o Builder pode gerar até **6 tipos de tópicos**:
 
 | Tema | Geometria | Descrição |
 |------|-----------|-------------|
-| **Fronteiras** | Linhas | Elementos de fronteira entre setores adjacentes |
+| **Frontiers** | Linhas | Elementos de fronteira entre setores adjacentes |
 | **Links** | Linhas | Tubulações e ligações internas de cada setor |
-| **Nós** | Pontos | Nós da rede com o campo `SectorId` atribuído |
-| **Polígonos** | Polígonos | Envelope geométrico convexo de cada setor |
+| **Nodes** | Pontos | Nós da rede com o campo `SectorId` atribuído |
+| **Polygons** | Polígonos | Envelope geométrico convexo de cada setor |
 | **MultiLinks** | Multilinha | Todos os links de um setor mesclados em uma única geometria por setor |
-| **Multinós** | Multiponto | Todos os nós de um setor mesclados em uma única geometria por setor |
+| **MultiNodes** | Multiponto | Todos os nós de um setor mesclados em uma única geometria por setor |
 
 Os temas a serem gerados são selecionados individualmente com caixas de seleção antes de clicar em **Construir**. Pelo menos um tópico deve estar ativo.
 

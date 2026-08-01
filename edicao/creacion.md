@@ -48,17 +48,17 @@ Coloque um tanque de armazenamento (tanque) no mapa. Os tanques possuem nível v
 - Se você clicar em um ponto vazio, o QGISRed cria um novo Tanque (sem conexão inicial; você precisará conectá-lo com um tubo).
 3. QGISRed abre a caixa de diálogo de propriedades do novo depósito para que você possa inserir os dados (elevação inferior, nível inicial, nível mínimo, nível máximo, diâmetro).
 
-### Principais parâmetros do repositório
+### Principais parâmetros do tanque
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| **Elevação** | Elevação do fundo do tanque (m ou pés) |
-| **Nível de inicialização** | Nível inicial da água acima do fundo |
-| **Nível mínimo** | Nível operacional mínimo |
-| **Nível Máximo** | Nível operacional máximo |
-| **Diâmetro** | Diâmetro do tanque (para seção circular); se você usar curva de volume, coloque 0 |
-| **VolMín** | Volume mínimo (opcional) |
-| **VolCurva** | ID da curva de volume (para geometria não cilíndrica) |
+| **Elevation** | Elevação do fundo do tanque (m ou pés) |
+| **InitLevel** | Nível inicial da água acima do fundo |
+| **MinLevel** | Nível operacional mínimo |
+| **MaxLevel** | Nível operacional máximo |
+| **Diameter** | Diâmetro do tanque (para seção circular); se você usar curva de volume, coloque 0 |
+| **MinVol** | Volume mínimo (opcional) |
+| **VolCurve** | ID da curva de volume (para geometria não cilíndrica) |
 
 ---
 

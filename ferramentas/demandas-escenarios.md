@@ -109,11 +109,11 @@ Exporte e importe parâmetros do modelo em massa, criando “instantâneos” do
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| **Rugosidade** | Coeficientes de rugosidade de todos os tubos |
-| **Status de inicialização** | Estados abertos/fechados de tubos e válvulas |
-| **Exigências** | Demandas básicas de todos os nós |
-| **Qualidade inicial** | Qualidades iniciais de nós e tubulações |
-| **Elevações** | Níveis de nós, depósitos e reservatórios |
+| **Roughness** | Coeficientes de rugosidade de todos os tubos |
+| **InitStatus** | Estados abertos/fechados de tubos e válvulas |
+| **Demands** | Demandas básicas de todos os nós |
+| **InitQuality** | Qualidades iniciais de nós e tubulações |
+| **Elevations** | Níveis de nós, tanques e reservatórios |
 
 ### Fluxo de trabalho típico
 
