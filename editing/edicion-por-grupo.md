@@ -16,14 +16,14 @@ The dialog is **modeless**: you can still interact with the map while it is open
 | Element | Description |
 |----------|-------------|
 | **Junctions** | Network nodes |
-| **Multiple Demands** | Multiple claims by category |
+| **Multiple Demands** | Multiple demands by category |
 | **Pipes** | Pipes |
-| **Tanks** | Deposits |
+| **Tanks** | Tanks |
 | **Reservoirs** | Reservoirs |
-| **Pumps** | Bombs |
+| **Pumps** | Pumps |
 | **Valves** | Valves |
 | **Sources** | Quality sources |
-| **Service Connections** | Rushes |
+| **Service Connections** | Service connections |
 | **Isolation Valves** | Isolation valves |
 | **Meters** | Flowmeters |
 

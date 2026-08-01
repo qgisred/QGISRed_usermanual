@@ -44,10 +44,10 @@ Tools to draw and modify the network topology directly on the map.
 | Tool | What does it do |
 |-------------|----------|
 | **Add Pipe** | Draw a pipe; automatically creates extreme knots |
-| **Add deposit** | Convert an existing node into a Tank |
+| **Add tank** | Convert an existing node into a Tank |
 | **Add reservoir** | Converts an existing node into a reservoir (Reservoir) |
 | **Insert valve** | Split a pipe and insert a valve |
-| **Insert bomb** | Split a pipe and insert a pump |
+| **Insert pump** | Split a pipe and insert a pump |
 | **Select elements** | Multiple selection of knots and lines |
 | **Move knots** | Move a knot by dragging it; maintains connectivity |
 | **Edit vertices** | Add, move or delete intermediate vertices of a pipe |
