@@ -1,4 +1,4 @@
-#Gerenciamento de Dependências
+# Gerenciamento de Dependências
 
 QGISRed precisa de um conjunto de bibliotecas de cálculo externas **(dependências do plugin QGISRed)** para poder executar a maioria de suas ferramentas. Estas bibliotecas são DLLs compiladas em .NET que contêm o motor hidráulico (baseado no kit de ferramentas EPANET 2.3) e os algoritmos de processamento geoespacial.
 

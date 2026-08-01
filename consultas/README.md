@@ -23,8 +23,7 @@ Todos os botões pertencem a um único grupo sem separadores.
 
 ## Nesta seção
 
-* [Encontrar item por ID](buscar-por-id.md) — localização rápida de nós, tubulações e outros elementos por ID
-* [Propriedades do elemento](propiedades-elemento.md) — painel flutuante com todos os atributos do elemento selecionado
+* [Element Explorer](explorador-elementos.md) — painel flutuante com busca de elementos por ID e propriedades do elemento selecionado, em duas abas
 * [Mapas temáticos](mapas-tematicos.md) — exibição de intervalo de qualquer atributo de pipe
 * [Consultas de imóveis](consultas-propriedades.md) — filtrando e destacando elementos com base nas condições dos atributos
 * [Estatísticas](estatisticas.md) — distribuições, histogramas e classificação estatística da rede
