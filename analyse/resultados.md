@@ -144,7 +144,7 @@ Le dock prend en charge plusieurs scénarios de résultats. Chaque scénario est
 
 ### Propriétés disponibles
 
-**Noeuds** (Jonctions, Châteaux d'eau, Réservoirs) :
+**Noeuds** (Jonctions, Réservoirs, Bâches) :
 
 | Propriété | Descriptif |
 |-----------|-------------|
@@ -182,7 +182,7 @@ Active un outil de sélection interactif qui trace l'évolution temporelle de to
 ### Processus
 
 1. Activez **Séries temporelles** (bouton cochable). Le panneau Séries temporelles s'ouvre en bas de l'écran.
-2. Cliquez sur n'importe quel élément de la carte (nœud, canalisation, vanne, pompe, château d'eau, réservoir).
+2. Cliquez sur n'importe quel élément de la carte (nœud, canalisation, vanne, pompe, réservoir, bâche).
 3. Le panneau dessine la courbe temporelle de la propriété active dans le dock Résultats pour cet élément.
 4. L'élément est surligné en bleu sur la carte.
 
@@ -204,7 +204,7 @@ Pour le type d'élément **Tank**, deux quantités supplémentaires sont disponi
 | Magnitude | Descriptif |
 |----------|-------------|
 | **Volume** | Volume stocké en m³ (ou ft³ selon les unités du projet), calculé à partir des binaires de sortie EPANET. |
-| **TankSpill** | Débordement. Il n'est différent de zéro que si l'option de débordement EPANET est activée sur le château d'eau. |
+| **TankSpill** | Débordement. Il n'est différent de zéro que si l'option de débordement EPANET est activée sur le réservoir. |
 
 ### Variables globales du réseau
 
@@ -212,11 +212,11 @@ En plus des éléments individuels, le panneau Séries temporelles vous permet d
 
 | Variable globale | Descriptif |
 |-----------------|-------------|
-| **TotalWaterSupply** | Débit total fourni par tous les réservoirs et sources du réseau. |
+| **TotalWaterSupply** | Débit total fourni par toutes les bâches et sources du réseau. |
 | **TotalWaterDemand** | Demande totale consommée par tous les nœuds du réseau. |
-| **AverageNodePressure** | Pression moyenne de tous les nœuds (exclut les châteaux d'eau et les réservoirs). |
-| **TotalStoredVolume** | Volume total stocké en ajoutant tous les châteaux d'eau du réseau. |
-| **TotalTankSpill** | Débordement total additionnant tous les châteaux d'eau du réseau. |
+| **AverageNodePressure** | Pression moyenne de tous les nœuds (exclut les réservoirs et les bâches). |
+| **TotalStoredVolume** | Volume total stocké en ajoutant tous les réservoirs du réseau. |
+| **TotalTankSpill** | Débordement total additionnant tous les réservoirs du réseau. |
 
 ### Configuration des courbes
 

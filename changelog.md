@@ -11,7 +11,7 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Étiquettes de carte améliorées : affichez le type et l'identifiant de l'élément sur la première ligne et la valeur avec les unités sur la seconde.
 * Infobulles cartographiques visibles sur toutes les couches actives gérées par QGISRed, quelle que soit la couche sélectionnée dans la légende.
 * Evolution temporelle rapide directement depuis le dock Résultats, sans avoir à ouvrir le panneau Time Series.
-* Améliorations du panneau Time Series : nouvelles grandeurs de château d'eau (Volume et TankSpill), curseur synchronisé avec le tableau de valeurs, copie du tableau avec double en-tête (nom et unité), export et import de la configuration graphique et prise en charge de plusieurs fenêtres simultanées.
+* Améliorations du panneau Time Series : nouvelles grandeurs de réservoir (Volume et TankSpill), curseur synchronisé avec le tableau de valeurs, copie du tableau avec double en-tête (nom et unité), export et import de la configuration graphique et prise en charge de plusieurs fenêtres simultanées.
 * Boîte de dialogue de progression de la simulation avec option pour ne plus s'afficher (configurable à partir des propriétés du projet).
 * Gestion améliorée des erreurs de simulation : le rapport EPANET est automatiquement affiché dans le journal lorsqu'une erreur se produit, et les erreurs non gérées sont enregistrées au lieu d'échouer silencieusement.
 * Avis spécifique lorsque les fichiers de résultats sont verrouillés par une autre application.

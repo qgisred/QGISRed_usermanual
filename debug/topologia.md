@@ -101,7 +101,7 @@ Utilise la tolérance de nœud configurée dans **Barre de projet → Valeurs pa
 
 **Barre de débogage → Vérifier la connectivité** *(avec la sous-option Supprimer les sous-zones isolées)*
 
-Analyse la connectivité de l'ensemble du réseau à partir des sources d'approvisionnement (Réservoirs et Châteaux d'eau). Identifiez quels tuyaux et nœuds ne sont **connectés** à aucune source.
+Analyse la connectivité de l'ensemble du réseau à partir des sources d'approvisionnement (Bâches et Réservoirs). Identifiez quels tuyaux et nœuds ne sont **connectés** à aucune source.
 
 <figure><img src="../assets/images/debug/check-connectivity.png" alt="Résultat de la vérification de la connectivité : zones isolées colorées en rouge sur la carte"><figcaption><p>Résultat de la vérification de la connectivité : zones isolées colorées en rouge sur la carte</p></figcaption></figure>
 *Zones isolées identifiées : en rouge les éléments sans connexion à aucune source.*

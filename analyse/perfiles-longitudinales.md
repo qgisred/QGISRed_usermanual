@@ -28,7 +28,7 @@ Le plugin vous permet de garder plusieurs docks de profils ouverts en même temp
 
 1. Activez **Profil longitudinal** depuis la barre d'analyse. Le dock de profil s'ouvre dans la zone inférieure de QGIS.
 2. Le bouton **Modifier les trajectoires** s'active automatiquement ; le curseur se transforme en icône en forme de crayon.
-3. Cliquez sur un nœud du réseau (Jonctions, Châteaux d'eau, Réservoirs) pour définir le premier nœud de référence.
+3. Cliquez sur un nœud du réseau (Jonctions, Réservoirs, Bâches) pour définir le premier nœud de référence.
 4. Cliquez sur un autre nœud : le plugin calcule le **chemin topologique minimum** entre les deux nœuds et dessine le profil.
 5. Chaque clic supplémentaire étend le chemin en concaténant le chemin du dernier nœud au nouveau.
 6. Un clic droit (sans nœud en cours) termine l'édition du parcours.
@@ -96,7 +96,7 @@ La molette de la souris effectue également un zoom en se centrant sur la positi
 | Bouton | Fonction |
 |-------|---------|
 | **Étiquettes** | Affiche la valeur numérique de la variable sur chaque nœud de référence |
-| **Symboles** | Affiche la symbologie des éléments (nœud, château d'eau, réservoir, pompe, vanne) et les flèches de direction d'écoulement sur la courbe |
+| **Symboles** | Affiche la symbologie des éléments (nœud, réservoir, bâche, pompe, vanne) et les flèches de direction d'écoulement sur la courbe |
 | **Enveloppe** | Ouvre un sous-menu pour activer l'enveloppe Min/Max de la simulation (voir section [Enveloppe](#envolvente-minmax)) |
 | **Options du graphique** | Ouvrez la boîte de dialogue de personnalisation du graphique |
 

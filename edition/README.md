@@ -16,8 +16,8 @@ La barre **Edition** contient tous les outils pour construire et modifier le ré
 | # | Outil | Fonction |
 |---|-------------|---------|
 | 1 | **Ajouter un tuyau** | Dessinez des tuyaux en cliquant sur la carte ; crée automatiquement des nœuds aux extrémités |
-| 2 | **Ajouter un château d'eau** | Placer un château d'eau sur un nœud existant |
-| 3 | **Ajouter un réservoir** | Placer un réservoir ou un point d'alimentation (Réservoir) sur un nœud existant |
+| 2 | **Ajouter un réservoir** | Placer un réservoir sur un nœud existant |
+| 3 | **Ajouter une bâche** | Placer une bâche ou un point d'alimentation (Reservoir) sur un nœud existant |
 | 4 | **Insérer la vanne dans le tuyau** | Insérez une vanne dans un tuyau existant, en le divisant |
 | 5 | **Insérer la pompe dans le tuyau** | Insérez une pompe dans un tuyau existant, en le divisant |
 
@@ -42,14 +42,14 @@ La barre **Edition** contient tous les outils pour construire et modifier le ré
 | # | Outil | Fonction |
 |---|-------------|---------|
 | 17 | **Modifier les propriétés de l'élément…** | Ouvre la boîte de dialogue des propriétés de l'élément cliqué |
-| 18 | **Modifier les motifs et les courbes…** | Éditeur de modèles et de courbes de demande de pompe/château d'eau |
+| 18 | **Modifier les motifs et les courbes…** | Éditeur de modèles et de courbes de demande de pompe/réservoir |
 | 19 | **Modifier les contrôles…** | Editeur de commandes simples et de règles de fonctionnement |
 
 ---
 
 ## Dans cette rubrique
 
-* [Création d'éléments](creacion.md) — tuyaux, châteaux d'eau, réservoirs, vannes, pompes
+* [Création d'éléments](creacion.md) — tuyaux, réservoirs, bâches, vannes, pompes
 * [Manipulation géométrique et topologique](manipulacion.md) — déplacer, diviser, inverser, croiser, supprimer
 * [Propriétés des éléments](propiedades.md) — boîte de dialogue d'édition avec navigateur intégré
 * [Motifs et courbes](curvas.md) — modèles de demande, courbes H-Q, efficacité et volume

@@ -17,7 +17,7 @@ Localise n'importe quel élément du réseau en écrivant son identifiant et le 
 
 ### Éléments consultables
 
-- Tuyaux, jonctions, demandes, réservoirs, châteaux d'eau, pompes, vannes, sources
+- Tuyaux, jonctions, demandes, bâches, réservoirs, pompes, vannes, sources
 
 ### Processus
 
@@ -84,8 +84,8 @@ QGISRed résout automatiquement le **nom du champ identifiant** de chaque couche
 |--------------|-----------------|
 | Tuyaux | `PipeID` |
 | Jonctions | `JunctionID` |
-| Châteaux d'eau | `TankID` |
-| Réservoirs | `ReservoirID` |
+| Réservoirs | `TankID` |
+| Bâches | `ReservoirID` |
 | Pompes | `PumpID` |
 | Vannes | `ValveID` |
 

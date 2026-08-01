@@ -14,7 +14,7 @@ Il génère une sectorisation du réseau basée sur la présence de **débitmèt
 
 | | Secteurs hydrauliques (Barre de débogage) | Secteurs de demande (Barra Tools) |
 |-|-------------------------------------|-----------------------------------|
-| **Base** | Présence de château d'eau ou de réservoir | Présence de débitmètres |
+| **Base** | Présence de réservoir ou de bâche | Présence de débitmètres |
 | **Question** | D'où vient l'eau ? | Que mesure chaque débitmètre ? |
 | **Classement** | H-Q / H-nQ / nH-Q / nH-nQ | Aucun type, uniquement coloré par secteur |
 | **Utiliser** | Diagnostic avant simulation | Bilan hydrique par secteur |

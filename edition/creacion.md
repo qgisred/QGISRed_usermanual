@@ -28,54 +28,54 @@ Mode dessin au trait : chaque clic ajoute un sommet au tuyau. L'outil reste act
 
 ### Se connecter aux éléments existants
 
-Si le point de départ ou d'arrivée se situe dans la tolérance d'un nœud, d'une vanne, d'une pompe, d'un château d'eau ou d'un réservoir existant, le nouveau tuyau **se connecte à cet élément** au lieu de créer un nouveau nœud.
+Si le point de départ ou d'arrivée se situe dans la tolérance d'un nœud, d'une vanne, d'une pompe, d'un réservoir ou d'une bâche existante, le nouveau tuyau **se connecte à cet élément** au lieu de créer un nouveau nœud.
 
 > Le réglage au nœud le plus proche utilise la tolérance configurée dans **Barre de projet → Valeurs par défaut → Tolérance de nœud**. Vous pouvez le consulter ou le modifier avant de dessiner des réseaux denses.
 
 ---
 
-## Ajouter un château d'eau (Add tank)
+## Ajouter un réservoir (Add tank)
 
-**Édition Barra → Ajouter un château d'eau**
+**Édition Barra → Ajouter un réservoir**
 
-Placez un château d'eau de stockage (Tank) sur la carte. Les châteaux d'eau ont un niveau variable et participent à la simulation hydraulique.
+Placez un réservoir de stockage (Tank) sur la carte. Les réservoirs ont un niveau variable et participent à la simulation hydraulique.
 
 ### Processus
 
-1. Activez l'outil. Le curseur affiche l'icône de château d'eau.
+1. Activez l'outil. Le curseur affiche l'icône de réservoir.
 2. Cliquez sur un **nœud existant** ou sur un point vide de la carte.
 - Si vous cliquez sur un nœud existant, ce nœud **devient** un Tank.
 - Si vous cliquez sur un point vide, QGISRed crée un nouveau Tank (pas de connexion initiale ; vous devrez le connecter avec un tuyau).
-3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau château d'eau afin que vous puissiez saisir les données (élévation du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
+3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau réservoir afin que vous puissiez saisir les données (élévation du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
 
-### Principaux paramètres du château d'eau
+### Principaux paramètres du réservoir
 
 | Paramètre | Descriptif |
 |-----------|-------------|
-| **Élévation** | Élévation du fond du château d'eau (m ou pi) |
+| **Élévation** | Élévation du fond du réservoir (m ou pi) |
 | **InitLevel** | Niveau d'eau initial au-dessus du fond |
 | **MinLevel** | Niveau de fonctionnement minimum |
 | **MaxLevel** | Niveau de fonctionnement maximum |
-| **Diamètre** | Diamètre du château d'eau (pour section circulaire) ; si vous utilisez la courbe de volume, mettez 0 |
+| **Diamètre** | Diamètre du réservoir (pour section circulaire) ; si vous utilisez la courbe de volume, mettez 0 |
 | **MinVol** | Volume minimum (facultatif) |
 | **VolCurve** | ID de courbe de volume (pour géométrie non cylindrique) |
 
 ---
 
-## Ajouter un réservoir (Add reservoir)
+## Ajouter une bâche (Add reservoir)
 
-**Barre d'édition → Ajouter un réservoir**
+**Barre d'édition → Ajouter une bâche**
 
-Placer un réservoir externe ou un point d'alimentation (Réservoir). Contrairement au Château d'eau, le Réservoir a **niveau fixe** (hauteur piézométrique constante) et représente une source d'eau de capacité illimitée.
+Placer une bâche externe ou un point d'alimentation (Reservoir). Contrairement au Réservoir, la Bâche a **niveau fixe** (hauteur piézométrique constante) et représente une source d'eau de capacité illimitée.
 
-Le processus est identique à celui du château d'eau. Les paramètres sont plus simples :
+Le processus est identique à celui du réservoir. Les paramètres sont plus simples :
 
 | Paramètre | Descriptif |
 |-----------|-------------|
 | **Tête** | Charge piézométrique fixe (élévation du niveau d'eau libre, m ou ft) |
 | **Modèle** | Modèle de variation de charge dans le temps (facultatif) |
 
-> Utiliser des réservoirs pour représenter des points de distribution d'eau en crue (raccordements avec des systèmes externes) ou des points d'approvisionnement à débit constant.
+> Utiliser des bâches pour représenter des points de distribution d'eau en crue (raccordements avec des systèmes externes) ou des points d'approvisionnement à débit constant.
 
 ---
 

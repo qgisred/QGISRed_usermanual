@@ -21,7 +21,7 @@ Placez un compteur ou un capteur sur une canalisation en cliquant sur le point d
 | **Manomètre** | Ajouter un manomètre | Pression (m.c.a.) |
 | **Débitmètre** | Ajouter un débitmètre | Débit (l/s ou unité configurée) |
 | **Contremètre** | Ajouter un compteur | Volume accumulé (compteur d'eau) |
-| **Niveau du capteur** | Ajouter un capteur de niveau | Niveau de lame libre dans le château d'eau |
+| **Niveau du capteur** | Ajouter un capteur de niveau | Niveau de lame libre dans le réservoir |
 | **Manomètre différentiel** | Ajouter un manomètre différentiel | Différence de pression entre deux points |
 | **Capteur de qualité** | Ajouter un capteur de qualité | Concentration de chlore ou autre paramètre de qualité |
 | **Capteur d'énergie** | Ajouter un capteur d'énergie | Puissance ou énergie consommée (groupes de pompage) |

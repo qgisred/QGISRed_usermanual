@@ -81,8 +81,8 @@ Chaque type d'élément possède un préfixe configurable qui est utilisé lors 
 |----------|---------------------|------------------------|
 | Jonction | J | J-1, J-2… |
 | Tuyau | P | P-1, P-2… |
-| Château d'eau | T | T-1, T-2… |
-| Réservoir | R | R-1, R-2… |
+| Réservoir | T | T-1, T-2… |
+| Bâche | R | R-1, R-2… |
 | Soupape | V | V-1, V-2… |
 | Pompe | BM | BM-1, BM-2… |
 

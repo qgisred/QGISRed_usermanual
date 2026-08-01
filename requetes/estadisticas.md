@@ -24,7 +24,7 @@ Le panneau Statistiques est organisé en deux onglets :
 
 ### Type d'élément et propriété
 
-Sélectionnez le type d'élément (Jonctions, Canalisations, Châteaux d'eau...) et la propriété à analyser. Le sélecteur de propriétés affiche dans une **liste unifiée** à la fois les champs de conception (Diamètre, Longueur, Rugosité...) et les champs de résultat de simulation (Pression, Débit, Vitesse...). Les champs de résultat apparaissent sur un **fond jaune/crème** pour les différencier visuellement des champs de conception.
+Sélectionnez le type d'élément (Jonctions, Canalisations, Réservoirs...) et la propriété à analyser. Le sélecteur de propriétés affiche dans une **liste unifiée** à la fois les champs de conception (Diamètre, Longueur, Rugosité...) et les champs de résultat de simulation (Pression, Débit, Vitesse...). Les champs de résultat apparaissent sur un **fond jaune/crème** pour les différencier visuellement des champs de conception.
 
 ### Classement principal
 

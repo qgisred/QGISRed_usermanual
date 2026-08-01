@@ -57,8 +57,8 @@ Après confirmation de la création, QGISRed génère les fichiers suivants dans
 |---------|-----------|
 | `{Red}_Junctions.shp` | Nœuds de demande |
 | `{Red}_Pipes.shp` | Tuyaux |
-| `{Red}_Tanks.shp` | Dépôts |
-| `{Red}_Reservoirs.shp` | Réservoirs ou points d'alimentation |
+| `{Red}_Tanks.shp` | Réservoirs |
+| `{Red}_Reservoirs.shp` | Bâches ou points d'alimentation |
 | `{Red}_Valves.shp` | Vannes de régulation |
 | `{Red}_Pumps.shp` | Bombes |
 | `{Red}_Options.dbf` | Options EPANET (unités, formule, qualité...) |

@@ -57,7 +57,7 @@ Le cas le plus courant : vous disposez d’un modèle EPANET existant et vous so
 > ⚠️ Les coordonnées de `.inp` doivent être dans le même CRS que vous utiliserez dans QGISRed. Le plugin ne reprojete pas lors de l'importation.
 
 **Ce qui est importé :**
-- Tous les éléments du réseau (jonctions, canalisations, châteaux d'eau, réservoirs, vannes, pompes)
+- Tous les éléments du réseau (jonctions, canalisations, réservoirs, bâches, vannes, pompes)
 - Courbes (H-Q, rendement, volume, perte de charge)
 - Modèles de demande
 - Contrôles et règles simples
@@ -75,7 +75,7 @@ Pour chaque type d'élément, vous pouvez sélectionner la couche SHP correspond
 
 **Services** — champs mappables : ID, Longueur, Diamètre, Rugosité, **Matériau**, Demande de base, Modèle, Actif, Date d'installation, Étiquette, Description.
 
-Les autres éléments (vannes, pompes, châteaux d'eau, réservoirs, nœuds, vannes d'isolement, compteurs) possèdent leurs propres ensembles de champs mappables.
+Les autres éléments (vannes, pompes, réservoirs, bâches, nœuds, vannes d'isolement, compteurs) possèdent leurs propres ensembles de champs mappables.
 
 Lorsque l'import crée un nouveau projet, le **catalogue des matériaux** (comme lors de la création d'un projet à partir de zéro) et les paramètres de base EPANET (unités et formule de perte de charge) sont également demandés. S'ils sont importés sur un projet existant, ces paramètres sont ignorés.
 

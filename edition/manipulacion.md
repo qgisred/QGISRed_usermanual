@@ -20,7 +20,7 @@ La sélection est utilisée comme **entrée** pour d'autres outils : Inverser le
 
 **Barre d'édition → Déplacer les nœuds**
 
-Déplace un ou plusieurs nœuds (Jonctions, Châteaux d'eau, Réservoirs) en entraînant avec lui **tous les éléments linéaires connectés** (tuyaux, vannes, pompes). Le réseau reste connecté après le mouvement.
+Déplace un ou plusieurs nœuds (Jonctions, Réservoirs, Bâches) en entraînant avec lui **tous les éléments linéaires connectés** (tuyaux, vannes, pompes). Le réseau reste connecté après le mouvement.
 
 <figure><img src="../assets/images/edicion/move-nodes.png" alt="Déplacer un nœud et ses tuyaux connectés sur la carte"><figcaption><p>Déplacer un nœud et ses tuyaux connectés sur la carte</p></figcaption></figure>
 *Lorsque vous faites glisser un nœud, tous les tuyaux connectés suivent le mouvement.*
@@ -174,6 +174,6 @@ Supprimez un ou plusieurs éléments du projet. Cela fonctionne de deux manière
 | Supprimer un tuyau | Le tuyau est retiré. Les nœuds d'extrémité restent s'ils ont d'autres connexions ; Ils sont éliminés s'ils s'isolent. |
 | Supprimer un nœud avec des tuyaux connectés | Tous les tuyaux connectés sont également supprimés. |
 | Retirer une vanne ou une pompe | Les deux sections de tuyau dans lesquelles il a été divisé sont automatiquement fusionnées en une seule. |
-| Supprimer un château d'eau ou un réservoir | L'élément est converti en jonction ou supprimé s'il n'a aucune connexion. |
+| Supprimer un réservoir ou une bâche | L'élément est converti en jonction ou supprimé s'il n'a aucune connexion. |
 
 > La suppression est irréversible avec `Ctrl+Z`. QGISRed enregistre automatiquement l'état précédent du projet dans le dossier temporaire avant d'exécuter l'opération, mais le seul moyen de récupérer les données supprimées est d'utiliser une **sauvegarde** précédente.

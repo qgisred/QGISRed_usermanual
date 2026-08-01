@@ -13,7 +13,7 @@ Ouvre le panneau **Requêtes par propriétés**, un outil de filtrage qui met en
 
 Le panneau a une couleur d'identification **violet** (`#7B1FA2`) dans son en-tête pour le distinguer du reste des panneaux QGISRed. Contient :
 
-- **Sélecteur de type d'élément** : Tuyaux, Jonctions, Châteaux d'eau, Réservoirs, Pompes, Vannes
+- **Sélecteur de type d'élément** : Tuyaux, Jonctions, Réservoirs, Bâches, Pompes, Vannes
 - **Zone Conditions** : une ou plusieurs lignes avec champ, opérateur et valeur
 - **Bouton Exécuter** : applique la requête et met en surbrillance le résultat
 - **Bouton Effacer** : supprime la surbrillance de la carte

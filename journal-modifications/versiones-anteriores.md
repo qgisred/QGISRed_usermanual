@@ -39,7 +39,7 @@ Ici, vous pouvez consulter l'historique détaillé des modifications des version
 **Corrections**:
 * Correction de la lecture et de l'édition de la courbe Id dans les vannes GPV.
 * Erreur corrigée lors de l'attribution de valeurs par défaut lors de l'importation des coefficients de réaction.
-* Erreur et message corrigés lors de la lecture des sources polluantes dans les châteaux d'eau et réservoirs.
+* Erreur et message corrigés lors de la lecture des sources polluantes dans les réservoirs et bâches.
 * Correction d'un problème avec des outils de sélection spécifiques.
 * Correction d'une erreur dans la création en masse de connexions T.
 * Correction d'erreurs dans la sélection multiple et polygonale avec différents CRS.
@@ -157,7 +157,7 @@ Ici, vous pouvez consulter l'historique détaillé des modifications des version
 
 **Caractéristiques** :
 * Nouveau logo QGISRed.
-* Création agile de canalisations, châteaux d'eau et réservoirs avec ancrage.
+* Création agile de canalisations, réservoirs et bâches avec ancrage.
 * Édition de chemin (déplacer, créer, supprimer des sommets).
 * Inversion d'orientation de ligne.
 * Outils pour diviser/joindre des tuyaux et des nœuds.

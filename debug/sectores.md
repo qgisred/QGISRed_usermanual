@@ -20,7 +20,7 @@ L'outil attribue à chaque secteur un de ces quatre types. Voici les **balises r
 | **nH-Q** | ❌ Non | ✅ Oui | **Secteur critique** : nœuds avec demande mais sans aucune source connectée. EPANET ne convergera pas. |
 | **nH-nQ** | ❌ Non | ❌ Non | Secteur passif : ni source ni demande. Cela ne provoque pas d'erreur dans la simulation mais il est déconnecté. |
 
-> **H** = présence d'au moins un Château d'eau ou Réservoir dans le secteur.
+> **H** = présence d'au moins un Réservoir ou une Bâche dans le secteur.
 > **Q** = présence d'au moins une jonction avec une demande de base > 0.
 > **n** = négation (absence de cette condition).
 
@@ -66,7 +66,7 @@ Dans le premier cas, les demandes doivent être assignées avant que la simulati
 
 ### nH-Q — Critique (le plus important à corriger)
 
-C'est le seul type qui empêche la simulation. Il existe des nœuds avec une demande qui n'ont aucun chemin vers un château d'eau ou un réservoir.
+C'est le seul type qui empêche la simulation. Il existe des nœuds avec une demande qui n'ont aucun chemin vers un réservoir ou une bâche.
 
 **Causes fréquentes :**
 - Il manque une conduite qui devrait relier ce secteur au réseau principal.

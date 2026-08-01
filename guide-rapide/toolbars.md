@@ -44,8 +44,8 @@ Outils pour dessiner et modifier la topologie du réseau directement sur la cart
 | Outil | Qu'est-ce que ça fait |
 |-------------|----------|
 | **Ajouter un tuyau** | Dessinez un tuyau; crée automatiquement des nœuds extrêmes |
-| **Ajouter un dépôt** | Convertir un nœud existant en Tank |
-| **Ajouter un réservoir** | Convertit un nœud existant en réservoir (Réservoir) |
+| **Ajouter un réservoir** | Convertir un nœud existant en Tank |
+| **Ajouter une bâche** | Convertit un nœud existant en bâche (Reservoir) |
 | **Insérer la valve** | Fendre un tuyau et insérer une vanne |
 | **Insérer une bombe** | Fendre un tuyau et insérer une pompe |
 | **Sélectionner des éléments** | Sélection multiple de nœuds et de lignes |

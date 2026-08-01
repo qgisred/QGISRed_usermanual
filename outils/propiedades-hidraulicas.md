@@ -26,7 +26,7 @@ L'outil écrase la valeur de `Length` sans condition sur tous les tuyaux dans la
 
 **Barre d'outils → Interpoler l'élévation à partir de fichiers .asc…**
 
-Attribue l'élévation (champ `Elevation`) aux nœuds, châteaux d'eau et réservoirs du projet en interpolant leur valeur à partir d'un ou plusieurs Modèles Numériques de Terrain (MNT) au format ASC.
+Attribue l'élévation (champ `Elevation`) aux nœuds, réservoirs et bâches du projet en interpolant leur valeur à partir d'un ou plusieurs Modèles Numériques de Terrain (MNT) au format ASC.
 
 <figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="Sélecteur de fichiers ASC pour l'interpolation des dimensions"><figcaption><p>Sélecteur de fichiers ASC pour l'interpolation des dimensions</p></figcaption></figure>
 *Sélecteur de fichiers MDT : vous pouvez télécharger plusieurs fichiers ASC pour couvrir toute la zone du réseau.*

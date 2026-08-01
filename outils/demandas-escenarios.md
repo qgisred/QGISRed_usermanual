@@ -113,7 +113,7 @@ Exportez et importez en masse les paramètres du modèle, créant des « instant
 | **InitStatus** | États d'ouverture/fermeture des canalisations et vannes |
 | **Demandes** | Exigences de base de tous les nœuds |
 | **InitQuality** | Qualités initiales des nœuds et des canalisations |
-| **Élévations** | Niveaux de nœuds, châteaux d'eau et réservoirs |
+| **Élévations** | Niveaux de nœuds, réservoirs et bâches |
 
 ### Flux de travail typique
 
