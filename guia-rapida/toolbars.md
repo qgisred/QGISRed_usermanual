@@ -31,8 +31,9 @@ Herramientas de administración del proyecto abierto.
 | **Valores por defecto** | Define prefijos de ID, tolerancias geométricas y valores hidráulicos iniciales |
 | **Tabla de materiales** | Gestiona la lista de materiales con sus rugosidades iniciales e incrementos por edad |
 | **Guardar mapa** | Guarda el proyecto QGIS (`.qgz`) |
-| **Copia de seguridad** | Crea una copia de todos los archivos del proyecto en una subcarpeta con fecha |
 | **Cerrar proyecto** | Cierra el proyecto actual |
+
+> 💡 La exportación del proyecto (ZIP portable) ya no está en esta barra: se hace desde el botón **Export** del Gestor de proyectos (ver [Guardar, Exportar y Cerrar Proyecto](../proyecto-activo/guardar-backup.md)).
 
 ---
 

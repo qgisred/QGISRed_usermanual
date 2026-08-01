@@ -63,7 +63,7 @@ Relaciona la **Eficiencia** (%) con el **Caudal** (Flow). Se usa para el anális
 
 ### Curva de volumen (Volume curve)
 
-Relaciona el **Volumen** almacenado (m³ o galones) con el **Nivel** del depósito (m o ft). Necesaria para depósitos con geometría no cilíndrica (piletas cónicas, depósitos de forma irregular).
+Relaciona el **Nivel** del depósito (m o ft, eje X) con el **Volumen** almacenado (m³ o galones, eje Y). Necesaria para depósitos con geometría no cilíndrica (piletas cónicas, depósitos de forma irregular).
 
 ### Curva de pérdida de carga GPV (Head loss curve)
 

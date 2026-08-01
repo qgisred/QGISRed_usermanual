@@ -14,6 +14,7 @@ El Results dock se ancla en la zona derecha de la pantalla. Contiene **tres pest
 
 <figure><img src="../assets/images/analisis/results-dock.png" alt="Panel de resultados con selector de variable y barra de tiempo"><figcaption><p>Panel de resultados con selector de variable y barra de tiempo</p></figcaption></figure>
 *Results dock: selección de variable, modo de estadística y navegación por instantes de tiempo.*
+<!-- TODO: captura desactualizada tras añadir el botón Constant playback rate junto al slider de velocidad -->
 
 ---
 
@@ -33,8 +34,11 @@ Cuando está activo un modo de estadística (Maximum, Minimum…), el área de t
 | **Combo de instantes** (`cbTimes`) | Lista desplegable con todos los instantes disponibles. |
 | **Botones de avance/retroceso** | Siguiente, anterior, inicio, fin. |
 | **Play / Play backward** | Animación automática hacia adelante o atrás. |
-| **Slider de velocidad** | Controla la velocidad de la animación (1–10). |
+| **Slider de velocidad** | Controla la velocidad relativa de la animación (1–10). Se oculta cuando **Constant playback rate** está activo. |
+| **Constant playback rate** | Botón conmutable junto al slider de velocidad. Al activarlo, el slider se sustituye por el campo **"1h in: N sec"**: N son los segundos reales que tarda en reproducirse una hora de tiempo simulado (1–3600), de modo que la velocidad de reproducción es constante respecto al tiempo simulado incluso si el paso entre instantes no es uniforme. Al desactivarlo, vuelve a usarse el slider de velocidad relativa. El estado y el valor se guardan en el proyecto. |
 | **Loop** | Repite la animación en bucle. |
+
+> 💡 Al cambiar de instante de tiempo, activar o desactivar un modo de estadística, modificar los decimales en la pestaña Appearance, o cargar todos los resultados de golpe, QGISRed relee y reformatea los valores. Si la operación tarda (redes grandes con muchos elementos), aparece un aviso superpuesto y centrado sobre el mapa: **"Reading results… NN%"**. En operaciones rápidas no llega a mostrarse, para evitar parpadeos.
 
 #### Reported Times y Statistics
 
@@ -46,6 +50,8 @@ Dos combos situados bajo los controles de tiempo:
 | **Statistics** (`cbStatistics`) | Aplica una estadística sobre todos los períodos: Maximum, Minimum, Range, Average, StdDev, Warning. Cuando está activo, el reloj se sustituye por el nombre de la estadística. |
 
 > 💡 En los modos **Maximum** y **Minimum**, las etiquetas del mapa muestran el valor junto con el instante de ocurrencia en el formato `valor (@ HH:MM:SS)`. Al situar el cursor sobre un elemento del mapa, el tooltip incluye una línea adicional `@ HH:MM:SS` con el instante exacto en que se produjo ese máximo o mínimo.
+
+> 💡 Con cualquier modo de estadística activo, el tooltip antepone al valor la abreviatura de la estadística mostrada: **Max**, **Min**, **Avg** (Average), **Rng** (Range) o **Std** (StdDev). Por ejemplo, `Max 45.2` en lugar de simplemente `45.2`.
 
 #### Grupo Mapping — Nodes
 
@@ -69,6 +75,8 @@ Dos combos situados bajo los controles de tiempo:
 | **Show Link Evolution** | Mini-gráfico integrado con la evolución temporal de la tubería seleccionada en el mapa. |
 
 > 💡 Del mismo modo, cuando se selecciona una variable en el combo **Links**, aparece junto al encabezado del grupo una etiqueta con el nombre de la variable en negrita y su unidad entre paréntesis (por ejemplo, **Velocidad** (m/s)).
+
+> ⚠️ Cuando la variable de **Links** es **Status**, las etiquetas de texto se simplifican: los ~13 estados internos que puede devolver EPANET se agrupan en solo dos textos, **"Closed"** (incluye "Temp Closed") y **"Active"** (incluye "Active (Rev Pump)"). Los enlaces con cualquier estado **"Open*"** no muestran ninguna etiqueta, para no saturar el mapa con la mayoría de las tuberías (que suelen estar abiertas). No es un error si, con Status activo, la mayor parte de las tuberías aparecen sin etiqueta.
 
 > El botón **Appearance** (icono en la cabecera del grupo Nodes) lleva directamente a la pestaña Appearance sin necesidad de navegar por las pestañas.
 
@@ -103,9 +111,10 @@ Concentra todas las opciones de presentación visual de los resultados en el map
 |--------|-------------|
 | **Font size (pt)** | Tamaño de la fuente de las etiquetas en el mapa (6–24 pt, por defecto 8). |
 | **Nodes / Links decimals** | Número de decimales mostrados en las etiquetas de nudos y tuberías respectivamente (0–6). El control se etiqueta con el nombre de la variable activa en ese momento. |
-| **Text color** | Color por defecto: nudos **#333333** (gris oscuro), tuberías **#0A143C** (azul marino). **Black**: texto negro siempre. **By range**: el color del texto sigue la paleta del rango de valores activo. Cuando «Show ID alongside value» está activo, la línea del Id usa el color del propio elemento y la línea del valor usa el color del símbolo o rango. |
-| **Background** | Color de fondo detrás de las etiquetas del mapa. Incluye un selector de color y un botón de borrado para eliminar el fondo. |
-| **Show ID alongside value** | Añade el Id del elemento en la primera línea de la etiqueta. |
+| **Text color** | Color por defecto: nudos **#333333** (gris oscuro), tuberías **#0A143C** (azul marino). **Black**: texto negro siempre. **By range**: el color del texto sigue la paleta del rango de valores activo. Cuando **Show Node ID** o **Show Link ID** está activo, la línea del Id usa el color del propio elemento y la línea del valor usa el color del símbolo o rango. |
+| **Background** | Color de fondo detrás de las etiquetas del mapa. Incluye un selector de color y un botón de borrado para eliminar el fondo. Junto al selector hay un icono de **candado**: abierto (por defecto), el fondo de las etiquetas es independiente del fondo del mapa; al cerrarlo, el selector y el botón de borrado se deshabilitan y el fondo de las etiquetas queda vinculado al color de **Map Background** (ver más abajo), de modo que cambiar ese color también cambia automáticamente el fondo de las etiquetas. |
+| **Buffer** | Color de contorno (halo) alrededor del texto de las etiquetas, con su propio selector de color y botón de borrado. Es independiente del Background y nunca se vincula al Map Background. Sin color asignado (por defecto) no se dibuja ningún halo. |
+| **Show Node ID** / **Show Link ID** | Dos casillas independientes: añaden el Id del nudo o de la tubería, respectivamente, en la primera línea de su etiqueta. |
 
 #### Symbology
 

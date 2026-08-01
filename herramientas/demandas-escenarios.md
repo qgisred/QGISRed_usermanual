@@ -56,6 +56,8 @@ El Builder aplica el factor automáticamente a todos los valores de consumo ante
 
 La capa resultante se muestra con colores por categoría y etiquetas con el valor de demanda. Los nudos sin categoría asignada aparecen en naranja bajo el grupo **Uncategorized**.
 
+> 💡 Las capas auxiliares del Demand Builder (ConsumptionPoints, DemandLinks, Sectors…) también se pueden crear vacías desde el Gestor de Capas, sin necesidad de ejecutar antes un análisis (ver [Resumen y gestión de capas](../proyecto-activo/capas-y-leyenda.md)).
+
 ### Limpieza de demandas
 
 El gestor permite borrar demandas existentes antes de asignar las nuevas:
@@ -72,8 +74,8 @@ La sección de patrones por sectores permite asignar un patrón de demanda a cad
 
 | Modo | Descripción |
 |------|-------------|
-| **Importar tema de sectores externo** | Selecciona un SHP externo con botón `...` y elige los campos de Id de sector, Id de patrón y Prioridad desde los combos correspondientes. |
-| **Usar tema de sectores del proyecto** | Selecciona una capa de sectores ya cargada en QGIS. Se muestran los sectores con un combo por fila para elegir el patrón. Los nudos sin sector se agrupan en un sector extra. |
+| **Import patterns from a sector theme** | Selecciona la capa de polígonos con los sectores desde un combo desplegable que lista las capas de polígono ya cargadas en QGIS (o impórtala con el botón `...` si aún no está cargada). Después elige los campos **Sector Id (optional)**, **Id demand pattern** y **Priority (optional)** desde los combos correspondientes. El campo de Id de sector es opcional: si no se identifica, QGISRed genera identificadores internos automáticamente. Opcionalmente, guarda el resultado como capa interna del proyecto con el botón **Import and save**. Una vez guardado, esta opción queda bloqueada. |
+| **Use patterns from a project sector theme** | Selecciona una capa de sectores ya cargada en el proyecto. Se muestra un listado con los sectores y, junto a cada uno, un combo **editable** para elegir el patrón: puedes seleccionar un patrón existente de la lista o escribir directamente el Id de un patrón nuevo. Los nudos sin sector se agrupan en un sector extra. |
 
 ### Eficiencia por sectores
 
@@ -81,8 +83,8 @@ La sección de eficiencia hidráulica por sectores también presenta **dos modos
 
 | Modo | Descripción |
 |------|-------------|
-| **Importar tema de eficiencia (SHP externo)** | Carga un SHP externo con los campos de Id de sector, eficiencia y prioridad. Opcionalmente, guarda el resultado como capa interna del proyecto con el botón **Import/Save**. Una vez guardado, la opción de importar queda bloqueada. |
-| **Usar tema de sectores propio del proyecto** | Selecciona una capa de sectores existente; el plugin identifica automáticamente los campos de eficiencia. |
+| **Import efficiencies from a sector theme** | Selecciona la capa de polígonos con los sectores desde un combo desplegable que lista las capas de polígono ya cargadas en QGIS (o impórtala con el botón `...`), y elige los campos **Sector Id (optional)**, **Efficiency** y **Priority (optional)**. El campo de Id de sector es opcional. Opcionalmente, guarda el resultado como capa interna del proyecto con el botón **Import and save**. Una vez guardado, la opción de importar queda bloqueada. |
+| **Use efficiencies from a project sector theme** | Selecciona una capa de sectores existente; el plugin identifica automáticamente los campos de eficiencia. |
 
 #### Correcciones de eficiencia y patrones
 

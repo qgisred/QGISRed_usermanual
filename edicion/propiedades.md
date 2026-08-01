@@ -26,7 +26,7 @@ El diálogo de propiedades es la herramienta central para ver y editar todos los
 | **ID** | Identificador único de la tubería |
 | **Length** | Longitud calculada automáticamente a partir de la geometría (m o ft) |
 | **Diameter** | Diámetro interior (mm o pulgadas) |
-| **Roughness** | Rugosidad para la fórmula de pérdida de carga configurada |
+| **Roughness Coeff** | Rugosidad para la fórmula de pérdida de carga configurada |
 | **MinorLoss** | Coeficiente de pérdidas menores (0 si no aplica) |
 | **InitStatus** | Estado inicial: Open, Closed o CV (Check Valve) |
 | **Material** | Código del material (referenciado en la Tabla de materiales) |
@@ -92,7 +92,7 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 |-------|-------------|
 | **ID** | Identificador único |
 | **Diameter** | Diámetro (mm o pulgadas) |
-| **Type** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
+| **Valve Type** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
 | **Setting** | Consigna de regulación (presión, caudal o pérdida de carga según el tipo) |
 | **MinorLoss** | Coeficiente de pérdidas menores |
 | **InitStatus** | Estado inicial: Open, Closed, Active |

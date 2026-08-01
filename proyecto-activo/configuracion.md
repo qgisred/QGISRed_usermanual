@@ -139,3 +139,15 @@ Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_
 ### Materiales incluidos por defecto
 
 QGISRed incluye una tabla de materiales predefinida con los más comunes (CI, DI, AC, PVC, PE, HDPE…). Puedes editarlos o ampliarlos según las características de tu sistema.
+
+### Guardar y reutilizar tablas entre proyectos
+
+La tabla de materiales es propia de cada proyecto, pero puede compartirse con otros proyectos guardándola como tabla **global** (almacenada en el perfil de usuario, fuera de cualquier proyecto). El diálogo, abierto con un proyecto activo, ofrece estos botones:
+
+| Botón | Acción |
+|-------|--------|
+| **Copy as global** | Guarda una copia de la tabla actual como una **nueva** tabla global, pidiendo un nombre. Si ya existe una tabla global con ese nombre, pide confirmación antes de sobrescribirla. |
+| **Load materials** | Sustituye la tabla de materiales del proyecto por una tabla global guardada previamente. |
+| **Reset default materials** | Restaura la tabla predefinida de QGISRed (según el idioma de la interfaz), descartando los materiales del proyecto. |
+
+> 💡 Si abres **Tabla de materiales** sin ningún proyecto QGISRed activo, el diálogo funciona como un gestor de tablas globales independiente: puedes elegir entre las tablas ya guardadas, eliminarlas y usar el botón **Save as global**, que guarda los cambios **sobre la tabla global seleccionada** (a diferencia de **Copy as global**, que siempre crea una tabla nueva con otro nombre).

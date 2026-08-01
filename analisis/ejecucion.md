@@ -48,7 +48,9 @@ El diálogo de progreso incluye un botón de **Pausa** (icono ‖). Al pulsarlo,
 
 El diálogo también incluye la casilla **"Do not show this progress window again"**. Si la marcas y la simulación finaliza correctamente, las ejecuciones siguientes lanzarán el cálculo directamente sin mostrar el diálogo.
 
-> Para volver a activar el diálogo de progreso, accede a las **Propiedades del Proyecto** y desmarca la opción *"Do not show progress window when running simulation"*.
+> ⚠️ **Excepción para redes grandes**: si el producto (número de nudos: uniones + depósitos + embalses) × (número de instantes de cálculo = Duración / paso de tiempo hidráulico) supera **500.000**, el diálogo de progreso se muestra siempre en esa ejecución, aunque la casilla "Do not show this progress window again" esté marcada de una ejecución anterior. Además, en ese caso la propia casilla se oculta del diálogo, ya que la preferencia guardada queda sin efecto mientras dure esa red grande.
+
+> Para volver a activar el diálogo de progreso en redes que no superan ese umbral, accede a las **Propiedades del Proyecto** y desmarca la opción *"Do not show progress window when running simulation"*.
 
 > ⚠️ Cuando la ventana de progreso está oculta, el cursor del sistema cambia a cursor de espera en todas las aplicaciones mientras la simulación está en curso. El cursor se restaura automáticamente al finalizar el cálculo.
 

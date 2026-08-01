@@ -10,6 +10,7 @@ El perfil longitudinal muestra la evolución de una variable hidráulica a lo la
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Dock de perfil longitudinal con recorrido dibujado en el mapa y gráfico de presión"><figcaption><p>Dock de perfil longitudinal con recorrido dibujado en el mapa y gráfico de presión</p></figcaption></figure>
 *Perfil longitudinal: recorrido resaltado en rojo en el mapa (izquierda) y gráfico de altura piezométrica + cota del terreno (derecha).*
+<!-- TODO: captura desactualizada — los botones Pick/Add node/Remove node/Move node/Branch de la barra de herramientas se sustituyeron por un único botón Edit trajectories + botón Help -->
 
 ---
 
@@ -26,10 +27,11 @@ El plugin permite mantener varios docks de perfil abiertos al mismo tiempo. Cada
 ## Abrir y construir el perfil
 
 1. Activa **Longitudinal profile** desde la barra Analysis. El dock de perfil se abre en la zona inferior de QGIS.
-2. El modo **Pick** se activa automáticamente; el cursor cambia al icono de perfil.
+2. El botón **Edit trajectories** se activa automáticamente; el cursor cambia al icono de lápiz.
 3. Haz clic sobre un nudo de la red (Junctions, Tanks, Reservoirs) para fijar el primer nodo de referencia.
 4. Haz clic sobre otro nudo: el plugin calcula el **camino mínimo topológico** entre ambos nudos y dibuja el perfil.
 5. Cada clic adicional extiende el recorrido concatenando el camino desde el último nodo hasta el nuevo.
+6. Clic derecho (sin nudo en curso) termina el recorrido en edición.
 
 Si dos nudos no están conectados en la red, aparece el aviso _"Selected node is not connected to the previous one along the network."_
 
@@ -69,13 +71,14 @@ A la derecha del selector de variable principal se encuentra el combo **2nd axis
 
 ### Modos de edición del recorrido
 
-| Botón | Modo | Función |
-|-------|------|---------|
-| Pick | **Pick** | Activa el mapa para añadir nodos de referencia al final del recorrido con cada clic |
-| Add node | **Add node** | Convierte en nodo de referencia un nodo intermedio ya existente en el camino; también aplica a recorridos de ramas |
-| Remove node | **Remove node** | Elimina un nodo de referencia del recorrido (los nodos extremos no se pueden eliminar); también aplica a ramas |
-| Move node | **Move node** | Reubica un nodo de referencia: primer clic en la posición actual, segundo clic en la nueva posición; también aplica a ramas y verifica conflictos con recorridos existentes |
-| Branch | **Branch** | Añade una rama lateral (ver sección [Ramas](#ramas)) |
+Todas las acciones de edición se controlan desde un único botón conmutable, en lugar de un botón independiente por acción:
+
+| Botón | Función |
+|-------|---------|
+| **Edit trajectories** (icono de lápiz, conmutable) | Activa el modo de edición: clic izquierdo para trazar el recorrido nudo a nudo, clic derecho sobre un nudo para ver sus opciones (ver [Atajos de ratón](#atajos-de-ratón)). Al desactivarlo, mover el ratón sobre el recorrido solo lo resalta y muestra información, sin modificarlo. |
+| **Help** (icono ⓘ) | Abre el diálogo **"How to edit trajectories"**, con un resumen de todas las acciones de edición y los atajos de ratón disponibles. |
+
+> 📝 Añadir un nodo de paso intermedio, eliminarlo, moverlo o crear una rama ya no tienen un botón propio en la barra de herramientas: se realizan con **Edit trajectories** activo, mediante el menú contextual (clic derecho) o los atajos de ratón descritos en [Atajos de ratón](#atajos-de-ratón). Estas acciones funcionan igual sobre el recorrido principal y sobre las ramas.
 
 ### Navegación del gráfico
 
@@ -128,11 +131,11 @@ Cuando la envolvente está activa, la tabla de valores añade columnas con el va
 
 ## Ramas
 
-El modo **Branch** permite añadir derivaciones laterales que comparten el mismo gráfico con el recorrido principal.
+La acción **Create branch** permite añadir derivaciones laterales que comparten el mismo gráfico con el recorrido principal.
 
-1. Activa el modo Branch.
-2. Haz clic sobre un nudo ya perteneciente al recorrido principal o a una rama existente: ese nudo define el punto de bifurcación y su posición en el eje X.
-3. Haz clics sucesivos para extender la rama hacia otros nudos.
+1. Con **Edit trajectories** activo, haz clic derecho sobre un nudo ya perteneciente al recorrido principal o a una rama existente y elige **Create branch** en el menú contextual (o haz doble clic derecho directamente sobre él si es un nudo interior con grado de conexión mayor que 2; ver [Atajos de ratón](#atajos-de-ratón)). Ese nudo define el punto de bifurcación y su posición en el eje X.
+2. Haz clics sucesivos para extender la rama hacia otros nudos.
+3. Clic derecho para terminar la rama.
 
 Cada rama se dibuja con un color diferente de la paleta. Las distancias de la rama se calculan a partir del punto de bifurcación, de modo que ambas curvas comparten el mismo origen X en ese punto. Cuando la variable seleccionada es **Cabeza + Cota**, las ramas también muestran su propia curva de cota del terreno junto a la línea piezométrica.
 
@@ -140,14 +143,40 @@ Cada rama se dibuja con un color diferente de la paleta. Las distancias de la ra
 >
 > - Una rama no puede reutilizar enlaces ni nodos que ya pertenezcan al recorrido principal o a otra rama, salvo el nodo de bifurcación de origen. Si se intenta, la operación es rechazada con un mensaje de error.
 > - El nodo de origen de una rama no puede eliminarse del recorrido principal mientras la rama esté activa. Para eliminarlo es necesario recortar primero la rama desde su extremo más alejado.
-> - El modo **Move node** comprueba también conflictos con los recorridos existentes antes de aplicar el cambio.
-> - Cualquier operación de edición (Add, Remove, Move) se deshace silenciosamente si el recorrido recalculado resultante no es válido.
+> - **Move pass node** comprueba también conflictos con los recorridos existentes antes de aplicar el cambio.
+> - Cualquier operación de edición (declarar, eliminar o mover un nodo de paso) se deshace silenciosamente si el recorrido recalculado resultante no es válido.
 
-Los modos **Add node**, **Remove node** y **Move node** funcionan tanto sobre el recorrido principal como sobre los recorridos de las ramas.
+Declarar, eliminar o mover un nodo de paso (antes **Add node**, **Remove node** y **Move node**) funciona igual sobre el recorrido principal que sobre los recorridos de las ramas.
 
 Las ramas pueden eliminarse directamente desde la **leyenda del gráfico**, sin necesidad de usar el botón Clear.
 
 El botón **Clear** elimina el recorrido principal y todas las ramas.
+
+---
+
+## Atajos de ratón
+
+Con **Edit trajectories** activo, además de trazar el recorrido clic a clic, el ratón admite varios atajos directos que evitan pasar por el menú contextual. Estos atajos funcionan igual sobre el recorrido principal y sobre las ramas.
+
+- **Doble clic izquierdo sobre un nodo intermedio** del recorrido (uno que aún no es nodo de paso): lo declara como nodo de paso (equivale a **Declare pass node**).
+- **Doble clic izquierdo sobre un nodo de paso** ya declarado: lo elimina y el recorrido se recalcula (equivale a **Delete pass node**).
+- **Doble clic derecho sobre un nodo de paso extremo** (el origen o el final de un recorrido, con conexión libre disponible): extiende el recorrido desde ese punto (equivale a **Extend path**).
+- **Doble clic derecho sobre un nodo de paso interior** con grado de conexión mayor que 2 (y conexión libre disponible): inicia una rama desde ese nudo (equivale a **Create branch**).
+- **Clic izquierdo simple sobre un nodo de paso**, sin ningún recorrido en curso: inicia el movimiento de ese nodo; el siguiente clic marca el nudo de destino (equivale a **Move pass node**).
+- **Clic derecho simple**: si hay un recorrido en curso, lo termina; si no, abre el menú contextual con las acciones disponibles para el nudo bajo el cursor.
+
+El menú contextual (clic derecho simple) ofrece distintas opciones según el nudo señalado:
+
+| Situación del nudo | Opciones del menú |
+|---------------------|--------------------|
+| Todavía no existe ningún recorrido | **Start new path here** |
+| Nudo intermedio del recorrido (aún no es nodo de paso) | **Declare pass node** |
+| Nodo de paso origen del recorrido principal | **Extend path**, **Create branch** |
+| Nodo de paso extremo (final de un recorrido) | **Extend path**, **Create branch**, **Move pass node**, **Delete pass node** |
+| Nodo de paso interior del recorrido | **Create branch**, **Move pass node**, **Delete pass node** |
+| Nodo de bifurcación (origen de una rama) | **Create branch** |
+
+> 💡 El botón **Help** de la barra de herramientas del dock (icono ⓘ) abre en cualquier momento el diálogo **"How to edit trajectories"**, con esta misma información resumida.
 
 ---
 
@@ -166,7 +195,7 @@ En el gráfico se dibujan **líneas verticales de referencia** en la posición X
 La interacción entre el gráfico y el mapa es bidireccional y se actualiza en tiempo real:
 
 - Al desplazar el ratón sobre el **gráfico**, el nodo más cercano queda resaltado en el **lienzo del mapa** con un círculo naranja.
-- Al desplazar el ratón sobre el **mapa** mientras el modo Pick del perfil está activo, el cursor del gráfico se desplaza al nodo correspondiente.
+- Al desplazar el ratón sobre el **mapa** mientras **Edit trajectories** está activo, el cursor del gráfico se desplaza al nodo correspondiente.
 
 ---
 

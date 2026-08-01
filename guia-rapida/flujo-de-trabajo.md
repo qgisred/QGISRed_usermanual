@@ -70,7 +70,7 @@ En el panel lateral del Visor de Resultados:
 ## Paso 8 — Guardar
 
 - _Guardar mapa_ guarda el proyecto QGIS (`.qgz`) con las capas visibles y los estilos.
-- _Copia de seguridad_ crea una instantánea de todos los archivos SHP en una subcarpeta fechada.
+- _Exportar proyecto_ (desde el Gestor de proyectos) genera un ZIP portable del proyecto.
 
 ---
 
