@@ -56,7 +56,7 @@ The Builder automatically applies the factor to all consumption values ​​bef
 
 The resulting layer is displayed with colors per category and labels with the demand value. Nodes with no assigned category appear in orange under the **Uncategorized** group.
 
-> 💡 The auxiliary layers of the Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) can also be created empty from the Layer Manager, without the need to first run an analysis (see [Overview and layer management](../active-project/capas-y-leyenda.md)).
+> 💡 The auxiliary layers of the Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) can also be created empty from the Layer Manager, without the need to first run an analysis (see [Overview and layer management](../active-project/layers-and-legend.md)).
 
 ### Lawsuit Cleanup
 

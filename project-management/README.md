@@ -30,6 +30,6 @@ RedUrbana/
 
 ## In this section
 
-* [Project manager](gestor-proyectos.md) — history, clone, rename, delete
-* [Create project](crear-proyecto.md) — new project from scratch
-* [Open and import](abrir-importar.md) — open existing or import from `.inp`
+* [Project manager](project-manager.md) — history, clone, rename, delete
+* [Create project](create-project.md) — new project from scratch
+* [Open and import](open-import.md) — open existing or import from `.inp`

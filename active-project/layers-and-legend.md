@@ -70,7 +70,7 @@ To delete a theme, select its row and press **Delete Auxiliary Theme**; You will
 
 > 💡 The layers that you leave marked in this table are remembered when closing and reopening the project — including projects that do not save a `.qgz` — just like the rest of the layers in the project.
 
-> To know how these layers are used within the Nodal Demand Builder (import consumption points, generate demand links, aggregate by sectors...), see [Demands and scenarios](../tools/demandas-escenarios.md).
+> To know how these layers are used within the Nodal Demand Builder (import consumption points, generate demand links, aggregate by sectors...), see [Demands and scenarios](../tools/demands-and-scenarios.md).
 
 ### Model Summary (Summary)
 

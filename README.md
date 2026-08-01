@@ -13,4 +13,4 @@ The best thing about QGISRed is that it combines the power of a **GIS Environmen
 ---
 <figure><img src="assets/images/logo-qgisred.png" alt="QGISRed logo"><figcaption><p>QGISRed logo</p></figcaption></figure>
 
-Ready to get started? Check [Credits](introduction/creditos.md), [Installation Guide](installation/README.md) or jump directly to [Quick Guide](quick-guide/README.md).
+Ready to get started? Check [Credits](introduction/credits.md), [Installation Guide](installation/README.md) or jump directly to [Quick Guide](quick-guide/README.md).

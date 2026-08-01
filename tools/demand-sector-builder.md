@@ -98,7 +98,7 @@ The layers for each sectorization are created within the **Auxiliary Layers > De
 
 ### Use in Nodal Demand Builder
 
-A sectorization generated with the Demand Sector Builder can be selected in the Nodal Demand Builder using the **"Use project sectors theme"** option, avoiding the need to import an external SHP. See [Demands and scenarios](demandas-escenarios.md) for more details.
+A sectorization generated with the Demand Sector Builder can be selected in the Nodal Demand Builder using the **"Use project sectors theme"** option, avoiding the need to import an external SHP. See [Demands and scenarios](demands-and-scenarios.md) for more details.
 
 ---
 

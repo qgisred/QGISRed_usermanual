@@ -1,76 +1,76 @@
 # # Table of contents
 
 * [🚀 Welcome to QGISRed](README.md)
-    * [👥 Credits and Authorship](introduction/creditos.md)
+    * [👥 Credits and Authorship](introduction/credits.md)
 
 ## 🛠️ Getting started
 * [💻 Installation](installation/README.md)
-    * [System requirements](installation/requisitos.md)
-    * [Installation from repository](installation/desde-repositorio.md)
-    * [Installation from local ZIP](installation/desde-archivo-local.md)
-    * [Dependency management](installation/dependencias.md)
+    * [System requirements](installation/requirements.md)
+    * [Installation from repository](installation/from-repository.md)
+    * [Installation from local ZIP](installation/from-local-file.md)
+    * [Dependency management](installation/dependencies.md)
 
 ## ⚡ Quick Guide
 * [🧭 The QGISRed interface](quick-guide/README.md)
     * [Toolbar Summary](quick-guide/toolbars.md)
-    * [Typical workflow](quick-guide/flujo-de-trabajo.md)
+    * [Typical workflow](quick-guide/workflow.md)
 
 ## 🗂️ General
 * [📁 General](project-management/README.md)
-    * [Project manager](project-management/gestor-proyectos.md)
-    * [Create project](project-management/crear-proyecto.md)
-    * [Open and import](project-management/abrir-importar.md)
+    * [Project manager](project-management/project-manager.md)
+    * [Create project](project-management/create-project.md)
+    * [Open and import](project-management/open-import.md)
 
 ## 📋 Project
 * [🗃️ Project](active-project/README.md)
-    * [Overview and layer management](active-project/capas-y-leyenda.md)
-    * [Project Settings](active-project/configuracion.md)
-    * [Save, export and close project](active-project/guardar-backup.md)
+    * [Overview and layer management](active-project/layers-and-legend.md)
+    * [Project Settings](active-project/project-configuration.md)
+    * [Save, export and close project](active-project/save-export-close.md)
 
 ## ✏️ Editing and Modeling
 * [✏️ Edition](editing/README.md)
-    * [Creation of elements](editing/creacion.md)
-    * [Geometric and topological manipulation](editing/manipulacion.md)
-    * [Element properties](editing/propiedades.md)
-    * [Group editing](editing/edicion-por-grupo.md)
-    * [Patterns and curves](editing/curvas.md)
-    * [Controls and rules](editing/controles.md)
+    * [Creation of elements](editing/creation.md)
+    * [Geometric and topological manipulation](editing/manipulation.md)
+    * [Element properties](editing/properties.md)
+    * [Group editing](editing/group-editing.md)
+    * [Patterns and curves](editing/curves.md)
+    * [Controls and rules](editing/controls.md)
 
 ## ✅ Debug
 * [✅ Debug](debug/README.md)
-    * [Topology and connectivity](debug/topologia.md)
-    * [Attribute verification](debug/atributos.md)
-    * [Hydraulic sectors](debug/sectores.md)
+    * [Topology and connectivity](debug/topology.md)
+    * [Attribute verification](debug/attributes.md)
+    * [Hydraulic sectors](debug/hydraulic-sectors.md)
 
 ## 🔧Tools
 * [🔧Tools](tools/README.md)
-    * [Hydraulic properties](tools/propiedades-hidraulicas.md)
-    * [Demands and scenarios](tools/demandas-escenarios.md)
-    * [Demand Sector Builder](tools/constructor-sectores-demanda.md)
-    * [Demand sectors and tree](tools/sectores-arbol.md)
+    * [Hydraulic properties](tools/hydraulic-properties.md)
+    * [Demands and scenarios](tools/demands-and-scenarios.md)
+    * [Demand Sector Builder](tools/demand-sector-builder.md)
+    * [Demand sectors and tree](tools/sectors-tree.md)
 
 ## 🔍Queries
 * [🗺️Queries](queries/README.md)
-    * [Element Explorer](queries/explorador-elementos.md)
-    * [Thematic maps](queries/mapas-tematicos.md)
-    * [Property inquiries](queries/consultas-propiedades.md)
-    * [Statistics](queries/estadisticas.md)
+    * [Element Explorer](queries/element-explorer.md)
+    * [Thematic maps](queries/thematic-maps.md)
+    * [Property inquiries](queries/property-queries.md)
+    * [Statistics](queries/statistics.md)
 
 ## 📊 Analysis
 * [🧪 Analysis](analysis/README.md)
-    * [Execution and Options](analysis/ejecucion.md)
-    * [Results Viewer](analysis/resultados.md)
-    * [Longitudinal Profiles](analysis/perfiles-longitudinales.md)
-    * [Model Export](analysis/exportacion.md)
+    * [Execution and Options](analysis/execution.md)
+    * [Results Viewer](analysis/results.md)
+    * [Longitudinal Profiles](analysis/longitudinal-profiles.md)
+    * [Model Export](analysis/export.md)
 
 ## 🧬Digital Twin
 * [🧬Digital Twin](digital-twin/README.md)
-    * [Connections and Shut-Off Valves](digital-twin/acometidas.md)
-    * [Sensors and Meters](digital-twin/sensores.md)
+    * [Connections and Shut-Off Valves](digital-twin/service-connections.md)
+    * [Sensors and Meters](digital-twin/sensors.md)
 
 ## 📂 Technical Appendix
-* [🔢 DBF Formats and Management](appendix/formatos.md)
+* [🔢 DBF Formats and Management](appendix/formats.md)
 
 ---
 * [📜 Change Log](changelog.md)
-    * [🕒 Previous Versions](changelog/versiones-anteriores.md)
+    * [🕒 Previous Versions](changelog/previous-versions.md)

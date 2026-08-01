@@ -25,6 +25,6 @@ All buttons belong to a single group without separators.
 
 * [Find item by ID](buscar-por-id.md) — quick location of nodes, pipes and other elements by ID
 * [Element properties](propiedades-elemento.md) — floating panel with all the attributes of the selected element
-* [Thematic maps](mapas-tematicos.md) — interval display of any pipe attribute
-* [Property inquiries](consultas-propiedades.md) — filtering and highlighting elements based on conditions on attributes
-* [Statistics](estadisticas.md) — distributions, histograms and statistical classification of the network
+* [Thematic maps](thematic-maps.md) — interval display of any pipe attribute
+* [Property inquiries](property-queries.md) — filtering and highlighting elements based on conditions on attributes
+* [Statistics](statistics.md) — distributions, histograms and statistical classification of the network

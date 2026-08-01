@@ -40,6 +40,6 @@ The **Debug** bar groups together the model verification and debugging tools. It
 
 ## In this section
 
-* [Topology and connectivity](topologia.md) — commit, overlapping, simplification, join, T-connections, connectivity
-* [Attribute verification](atributos.md) — lengths, diameters, materials, installation dates
-* [Hydraulic sectors](sectores.md) — classification of sectors type A, B, C and D
+* [Topology and connectivity](topology.md) — commit, overlapping, simplification, join, T-connections, connectivity
+* [Attribute verification](attributes.md) — lengths, diameters, materials, installation dates
+* [Hydraulic sectors](hydraulic-sectors.md) — classification of sectors type A, B, C and D

@@ -49,8 +49,8 @@ The **Edition** bar contains all the tools to build and edit the network directl
 
 ## In this section
 
-* [Creation of elements](creacion.md) — pipes, tanks, reservoirs, valves, pumps
-* [Geometric and topological manipulation](manipulacion.md) — move, split, reverse, cross, delete
-* [Element properties](propiedades.md) — editing dialog with integrated browser
-* [Patterns and curves](curvas.md) — demand patterns, H-Q curves, efficiency and volume
-* [Controls and rules](controles.md) — simple controls and automatic operating rules
+* [Creation of elements](creation.md) — pipes, tanks, reservoirs, valves, pumps
+* [Geometric and topological manipulation](manipulation.md) — move, split, reverse, cross, delete
+* [Element properties](properties.md) — editing dialog with integrated browser
+* [Patterns and curves](curves.md) — demand patterns, H-Q curves, efficiency and volume
+* [Controls and rules](controls.md) — simple controls and automatic operating rules

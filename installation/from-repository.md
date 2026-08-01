@@ -18,7 +18,7 @@ When finished, the main QGISRed bar and the **QGISRed** menu will appear in the 
 
 ## First run
 
-The first time you use any plugin tool, QGISRed detects that the **dependencies** are not installed and displays an installation dialog. See [Dependency management](dependencias.md) for details.
+The first time you use any plugin tool, QGISRed detects that the **dependencies** are not installed and displays an installation dialog. See [Dependency management](dependencies.md) for details.
 
 ---
 

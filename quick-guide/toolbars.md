@@ -33,7 +33,7 @@ Open project management tools.
 | **Save map** | Save the QGIS project (`.qgz`) |
 | **Close project** | Close the current project |
 
-> 💡 The export of the project (ZIP portable) is no longer in this bar: it is done from the **Export** button of the Project Manager (see [Save, Export and Close Project](../active-project/guardar-backup.md)).
+> 💡 The export of the project (ZIP portable) is no longer in this bar: it is done from the **Export** button of the Project Manager (see [Save, Export and Close Project](../active-project/save-export-close.md)).
 
 ---
 

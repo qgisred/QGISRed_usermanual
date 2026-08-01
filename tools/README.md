@@ -37,6 +37,6 @@ The **Tools** bar groups the massive processing tools: automatic calculation of 
 
 ## In this section
 
-* [Hydraulic properties](propiedades-hidraulicas.md) — lengths, elevations, aging roughness and conversion between formulas
-* [Demands and scenarios](demandas-escenarios.md) — mass assignment of demands, management of scenarios and isolated segments
-* [Demand sectors and tree](sectores-arbol.md) — sectorization by flowmeters and minimum cost tree
+* [Hydraulic properties](hydraulic-properties.md) — lengths, elevations, aging roughness and conversion between formulas
+* [Demands and scenarios](demands-and-scenarios.md) — mass assignment of demands, management of scenarios and isolated segments
+* [Demand sectors and tree](sectors-tree.md) — sectorization by flowmeters and minimum cost tree

@@ -46,4 +46,4 @@ Necessary **the first time** the plugin is used, to download the dependencies (t
 
 Once the dependencies are installed, QGISRed can work **without an internet connection**.
 
-> If you do not have an internet connection, you can install the dependencies manually: ask someone to provide you with the ZIP of the dependencies and the .NET Framework 4.8.1 MSI installer. With both files you will be able to complete the installation without needing a connection. See section [Dependency management](dependencias.md) for more details.
+> If you do not have an internet connection, you can install the dependencies manually: ask someone to provide you with the ZIP of the dependencies and the .NET Framework 4.8.1 MSI installer. With both files you will be able to complete the installation without needing a connection. See section [Dependency management](dependencies.md) for more details.

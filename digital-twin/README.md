@@ -35,5 +35,5 @@ The **Digital Twin** bus adds to the hydraulic model the infrastructure elements
 
 ## In this section
 
-* [Connections and Shut-Off Valves](acometidas.md) — drawing of connections, shut-off valves and conversion to the hydraulic model
-* [Sensors and Meters](sensores.md) — meter types, loading readings and field data
+* [Connections and Shut-Off Valves](service-connections.md) — drawing of connections, shut-off valves and conversion to the hydraulic model
+* [Sensors and Meters](sensors.md) — meter types, loading readings and field data

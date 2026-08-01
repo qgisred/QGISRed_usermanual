@@ -25,10 +25,10 @@ The **Project** bar groups the administration tools of the project that is alrea
 | 8 | **Save map** | Save the QGIS file `.qgz` |
 | 9 | **Close project** | Close the project and clear the QGIS session |
 
-> 💡 The old **Backup** button (_Project backup_) has been removed from this bar with no direct replacement. To export the project to a portable ZIP, use the **Export** button on [Project manager](../project-management/gestor-proyectos.md) — see [Save, export and close project](guardar-backup.md).
+> 💡 The old **Backup** button (_Project backup_) has been removed from this bar with no direct replacement. To export the project to a portable ZIP, use the **Export** button on [Project manager](../project-management/project-manager.md) — see [Save, export and close project](save-export-close.md).
 
 ## In this section
 
-* [Overview and layer management](capas-y-leyenda.md) — layer visibility, recovery and legend
-* [Project Settings](configuracion.md) — EPANET options, default values, materials
-* [Save, export and close project](guardar-backup.md) — save map, export to ZIP and close
+* [Overview and layer management](layers-and-legend.md) — layer visibility, recovery and legend
+* [Project Settings](project-configuration.md) — EPANET options, default values, materials
+* [Save, export and close project](save-export-close.md) — save map, export to ZIP and close

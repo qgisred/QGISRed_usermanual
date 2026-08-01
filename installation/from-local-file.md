@@ -35,5 +35,5 @@ QGIS will display a notice indicating that the plugin does not come from the off
 ## Notes
 
 - If you already have a previous version of QGISRed installed, installing from ZIP replaces it. Existing projects are not affected.
-- **dependencies** are not included in the plugin ZIP. They are downloaded separately the first time you use the plugin, just like installing from the repository. If your computer does not have an internet connection, see section [Dependency management](dependencias.md) to see how to install them manually.
+- **dependencies** are not included in the plugin ZIP. They are downloaded separately the first time you use the plugin, just like installing from the repository. If your computer does not have an internet connection, see section [Dependency management](dependencies.md) to see how to install them manually.
 - This installation **does not receive automatic updates**. To update, you will have to repeat the process with the ZIP of the new version.

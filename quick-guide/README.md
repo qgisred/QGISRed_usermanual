@@ -38,4 +38,4 @@ QGISRed does not work with the QGIS `.qgz` file as a source of truth: the source
 
 ---
 
-Check out [Toolbar Summary](toolbars.md) to see what each tool does, or jump straight to [Typical workflow](flujo-de-trabajo.md) if you want to get started as soon as possible.
+Check out [Toolbar Summary](toolbars.md) to see what each tool does, or jump straight to [Typical workflow](workflow.md) if you want to get started as soon as possible.

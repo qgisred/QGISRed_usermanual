@@ -27,6 +27,6 @@ The **Analysis** bar groups the hydraulic simulation tools, visualization of res
 
 ## In this section
 
-* [Execution and Options](ejecucion.md) — simulation, engine options and status report access
-* [Results Viewer](resultados.md) — results panel, temporal navigation and time series
-* [Model Export](exportacion.md) — export to INP and CSV of results
+* [Execution and Options](execution.md) — simulation, engine options and status report access
+* [Results Viewer](results.md) — results panel, temporal navigation and time series
+* [Model Export](export.md) — export to INP and CSV of results

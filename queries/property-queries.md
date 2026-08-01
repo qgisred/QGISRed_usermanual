@@ -95,6 +95,6 @@ If the project has simulation results loaded, the result fields (pressure, flow,
 
 ## ID field resolution
 
-The panel uses the same automatic identifier field resolution logic as the Element Explorer (`getIdFieldName(layer)`). Query fields by ID (`PipeID`, `TankID`, etc.) are automatically detected based on the layer type, so queries on the `Id` field work correctly regardless of the actual name of the field in the project shapefile. See [Element Explorer](explorador-elementos.md) for more details.
+The panel uses the same automatic identifier field resolution logic as the Element Explorer (`getIdFieldName(layer)`). Query fields by ID (`PipeID`, `TankID`, etc.) are automatically detected based on the layer type, so queries on the `Id` field work correctly regardless of the actual name of the field in the project shapefile. See [Element Explorer](element-explorer.md) for more details.
 
 The aliases `PumpCurvID`, `BaseDem` and `SourceQual` are automatically recognized as numeric type fields for pumps, demands and sources respectively. The data type of each field (numeric, list or free text) is determined automatically from the element's schema, without the need for manual configuration.
