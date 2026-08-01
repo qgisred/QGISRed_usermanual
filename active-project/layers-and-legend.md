@@ -52,7 +52,7 @@ QGISRed monitors in the background (checking every 5 seconds) the derived layers
 
 The **Auxiliary layers** tab contains the **Demand Builder** group, from where the empty work layers used by the tool for assigning demands to nodes (Nodal Demand Builder) are created and managed: **Consumption Points**, **Demand Links** and **Sectors**.
 
-<!-- TODO: pending capture — Auxiliary layers tab of the Layer Manager, with the theme table and Create/Delete buttons -->
+<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Auxiliary layers tab of the QGISRed Layer Manager"><figcaption><p>Auxiliary layers tab of the QGISRed Layer Manager</p></figcaption></figure>
 
 Each row in the table is a **theme** (theme) — you can have several themes of the same type, for example a different `Sectors` for each demand sectoring campaign. The table shows three columns:
 
