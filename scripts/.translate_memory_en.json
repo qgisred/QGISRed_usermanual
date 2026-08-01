@@ -1828,7 +1828,7 @@
   "| **InitStatus** | Estados de apertura/cierre de tuberías y válvulas |": "| **InitStatus** | Open/close states of pipes and valves |",
   "| **Demands** | Demandas base de todos los nudos |": "| **Demands** | Base demands of all nodes |",
   "| **InitQuality** | Calidades iniciales de nudos y tuberías |": "| **InitQuality** | Initial qualities of nodes and pipes |",
-  "| **Elevations** | Cotas de nudos, depósitos y embalses |": "| **Elevations** | Levels of nodes, deposits and reservoirs |",
+  "| **Elevations** | Cotas de nudos, depósitos y embalses |": "| **Elevations** | Levels of nodes, tanks and reservoirs |",
   "### Flujo de trabajo típico": "### Typical workflow",
   "1. Construye el modelo en el estado actual (año base).": "1. Build the model in the current state (base year).",
   "2. Exporta el escenario base con **Scenario builder → Exportar**.": "2. Export the base scenario with **Scenario builder → Export**.",
