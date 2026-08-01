@@ -1,4 +1,4 @@
-#Dependency Management
+# Dependency Management
 
 QGISRed needs a set of external calculation libraries **(QGISRed plugin dependencies)** to be able to run most of its tools. These libraries are DLLs compiled in .NET that contain the hydraulic motor (based on the EPANET 2.3 toolkit) and the geospatial processing algorithms.
 
