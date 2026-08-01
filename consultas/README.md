@@ -23,8 +23,7 @@ Todos los botones pertenecen a un único grupo sin separadores.
 
 ## En esta sección
 
-* [Buscar elemento por ID](buscar-por-id.md) — localización rápida de nudos, tuberías y otros elementos por ID
-* [Propiedades del elemento](propiedades-elemento.md) — panel flotante con todos los atributos del elemento seleccionado
+* [Element Explorer](explorador-elementos.md) — panel flotante con búsqueda de elementos por ID y propiedades del elemento seleccionado, en dos pestañas
 * [Mapas temáticos](mapas-tematicos.md) — representación visual por intervalos de cualquier atributo de tubería
 * [Consultas por propiedades](consultas-propiedades.md) — filtrado y resaltado de elementos según condiciones sobre atributos
 * [Estadísticas](estadisticas.md) — distribuciones, histogramas y clasificación estadística de la red
