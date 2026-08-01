@@ -85,7 +85,7 @@ Lorsque l'import crée un nouveau projet, le **catalogue des matériaux** (comme
 
 Récupère un projet packagé avec le bouton **Exporter** de [Chef de projet](gestionnaire-projets.md) — voir [Enregistrer, exporter et fermer le projet](../projet-actif/enregistrer-exporter-fermer.md). Il reconnaît également les ZIP générés par les versions précédentes du plugin, même s'ils ne disposent pas du manifeste interne des exports en cours.
 
-<!-- TODO : capture en attente — Onglet "Projet QGISRed" de la boîte de dialogue d'import -->
+<figure><img src="../assets/images/general/importar-proyecto-qgisred.png" alt="Onglet QGISRed project de la boîte de dialogue d'import"><figcaption><p>Onglet QGISRed project de la boîte de dialogue d'import</p></figcaption></figure>
 
 1. Dans l'onglet **Projet QGISRed**, appuyez sur le bouton **...** à côté de **Fichier ZIP :** et sélectionnez le fichier `.zip`.
 2. QGISRed inspecte le contenu ZIP sans l'extraire pour l'instant et affiche un résumé sous le champ :

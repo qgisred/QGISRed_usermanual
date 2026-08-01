@@ -52,7 +52,7 @@ QGISRed surveille en arrière-plan (vérifiant toutes les 5 secondes) les couche
 
 L'onglet **Couches auxiliaires** contient le groupe **Demand Builder**, à partir duquel sont créées et gérées les couches de travail vides utilisées par l'outil d'affectation des demandes aux nœuds (Nodal Demand Builder) : **Points de consommation**, **Liens de demande** et **Secteurs**.
 
-<!-- TODO : capture en attente — Onglet Calques auxiliaires du Layer Manager, avec la table des thèmes et les boutons Créer/Supprimer -->
+<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Onglet Auxiliary layers du gestionnaire de couches QGISRed"><figcaption><p>Onglet Auxiliary layers du gestionnaire de couches QGISRed</p></figcaption></figure>
 
 Chaque ligne du tableau est un **thème** (thème) — vous pouvez avoir plusieurs thèmes du même type, par exemple un `Sectors` différent pour chaque campagne de sectorisation de la demande. Le tableau comporte trois colonnes :
 
