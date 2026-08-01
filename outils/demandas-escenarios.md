@@ -56,6 +56,8 @@ Le Builder applique automatiquement le facteur à toutes les valeurs de consomma
 
 Le calque résultant est affiché avec des couleurs par catégorie et des étiquettes avec la valeur demandée. Les nœuds sans catégorie attribuée apparaissent en orange sous le groupe **Non classé**.
 
+> 💡 Les couches auxiliaires du Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) peuvent également être créées vides depuis le Layer Manager, sans qu'il soit nécessaire de lancer au préalable une analyse (voir [Présentation et gestion des couches](../projet-actif/capas-y-leyenda.md)).
+
 ### Nettoyage du procès
 
 Le gestionnaire permet de supprimer des demandes existantes avant d'en attribuer de nouvelles :
@@ -72,8 +74,8 @@ La section Modèles de secteur vous permet d'attribuer un modèle de demande à 
 
 | Mode | Descriptif |
 |------|-------------|
-| **Importer un sujet depuis des secteurs externes** | Sélectionnez un SHP externe avec le bouton `...` et choisissez les champs Sector Id, Pattern Id et Priority dans les combinaisons correspondantes. |
-| **Utiliser le thème des tranches de projet** | Sélectionnez une couche de tranches déjà chargée dans QGIS. Les secteurs sont affichés avec un combo par ligne pour choisir le motif. Les nœuds sans secteur sont regroupés dans un secteur supplémentaire. |
+| **Importer des modèles à partir d'un thème sectoriel** | Sélectionnez la couche de polygones avec les secteurs dans une liste déroulante qui répertorie les couches de polygones déjà chargées dans QGIS (ou importez-la avec le bouton `...` si elle n'est pas déjà chargée). Choisissez ensuite les champs **Sector Id (facultatif)**, **Id request pattern** et **Priority (facultatif)** parmi les combinaisons correspondantes. Le champ Sector Id est facultatif : s’il n’est pas identifié, QGISRed génère automatiquement des identifiants internes. Eventuellement, enregistrez le résultat en tant que couche interne du projet avec le bouton **Importer et enregistrer**. Une fois enregistrée, cette option est verrouillée. |
+| **Utiliser des modèles d'un thème de secteur de projet** | Sélectionnez un calque de tranche déjà chargé dans le projet. Une liste s'affiche avec les secteurs et, à côté de chacun, un combo **éditable** pour choisir le motif : vous pouvez sélectionner un motif existant dans la liste ou écrire directement l'Id d'un nouveau motif. Les nœuds sans secteur sont regroupés dans un secteur supplémentaire. |
 
 ### Efficacité par secteurs
 
@@ -81,8 +83,8 @@ La section efficacité hydraulique par secteurs présente également **deux mode
 
 | Mode | Descriptif |
 |------|-------------|
-| **Thème d'efficacité des importations (SHP externe)** | Charge un SHP externe avec les champs ID de secteur, Efficacité et Priorité. Eventuellement, enregistrez le résultat en tant que couche interne du projet avec le bouton **Importer/Enregistrer**. Une fois enregistrée, l'option d'importation est bloquée. |
-| **Utiliser le thème sectoriel propre au projet** | Sélectionnez un calque de tranche existant ; Le plugin identifie automatiquement les champs d'efficacité. |
+| **Importer des gains d'efficacité à partir d'un thème sectoriel** | Sélectionnez la couche de polygones avec les secteurs dans une liste déroulante qui répertorie les couches de polygones déjà chargées dans QGIS (ou importez-la avec le bouton `...`), et choisissez les champs **Id de secteur (facultatif)**, **Efficacité** et **Priorité (facultatif)**. Le champ ID de secteur est facultatif. Eventuellement, enregistrez le résultat en tant que couche interne du projet avec le bouton **Importer et enregistrer**. Une fois enregistrée, l'option d'importation est bloquée. |
+| **Utiliser les gains d'efficacité d'un thème sectoriel de projet** | Sélectionnez un calque de tranche existant ; Le plugin identifie automatiquement les champs d'efficacité. |
 
 #### Corrections d'efficacité et de modèles
 

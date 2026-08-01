@@ -26,7 +26,7 @@ La boîte de dialogue des propriétés est l'outil central pour afficher et modi
 | **ID** | Identifiant unique du tuyau |
 | **Longueur** | Longueur automatiquement calculée à partir de la géométrie (m ou ft) |
 | **Diamètre** | Diamètre intérieur (mm ou pouces) |
-| **Rugosité** | Rugosité pour la formule de perte de charge configurée |
+| **Coeff de rugosité** | Rugosité pour la formule de perte de charge configurée |
 | **Perte mineure** | Coefficient de perte mineure (0 si non applicable) |
 | **StatutInit** | État initial : Ouvert, Fermé ou CV (clapet anti-retour) |
 | **Matériel** | Code matériau (référencé dans le tableau des matériaux) |
@@ -92,7 +92,7 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 |-------|-------------|
 | **ID** | Identifiant unique |
 | **Diamètre** | Diamètre (mm ou pouces) |
-| **Tapez** | Type de vanne : PRV, PSV, PBV, FCV, TCV, GPV |
+| **Type de vanne** | Type de vanne : PRV, PSV, PBV, FCV, TCV, GPV |
 | **Paramètre** | Consigne de régulation (pression, débit ou perte de charge selon le type) |
 | **Perte mineure** | Coefficient de perte mineure |
 | **StatutInit** | État initial : Ouvert, Fermé, Actif |

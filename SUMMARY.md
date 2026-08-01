@@ -25,7 +25,7 @@
 * [🗃️ Projet](projet-actif/README.md)
     * [Présentation et gestion des couches](projet-actif/capas-y-leyenda.md)
     * [Paramètres du projet](projet-actif/configuracion.md)
-    * [Enregistrer et sauvegarder](projet-actif/guardar-backup.md)
+    * [Enregistrer, exporter et fermer le projet](projet-actif/guardar-backup.md)
 
 ## ✏️ Édition et modélisation
 * [✏️Édition](edition/README.md)

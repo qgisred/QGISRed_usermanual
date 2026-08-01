@@ -63,7 +63,7 @@ Associe l'**Efficacité** (%) au **Débit** (Débit). Il est utilisé pour l’a
 
 ### Courbe de volume (Courbe de volume)
 
-Relie le **Volume** stocké (m³ ou gallons) au **Niveau** du réservoir (m ou ft). Nécessaire pour les réservoirs à géométrie non cylindrique (bassins coniques, réservoirs de forme irrégulière).
+Relie le **Niveau** du réservoir (m ou ft, axe X) au **Volume** stocké (m³ ou gallons, axe Y). Nécessaire pour les réservoirs à géométrie non cylindrique (bassins coniques, réservoirs de forme irrégulière).
 
 ### Courbe de perte de charge GPV (Courbe de perte de charge)
 

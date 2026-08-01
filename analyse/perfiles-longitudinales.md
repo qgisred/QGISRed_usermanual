@@ -10,6 +10,7 @@ Le profil longitudinal montre l'évolution d'une variable hydraulique le long d'
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Quai à profil longitudinal avec itinéraire tracé sur la carte et graphique de pression"><figcaption><p>Quai à profil longitudinal avec itinéraire tracé sur la carte et graphique de pression</p></figcaption></figure>
 *Profil longitudinal : itinéraire surligné en rouge sur la carte (à gauche) et graphique hauteur piézométrique + élévation du terrain (à droite).*
+<!-- TODO : capture d'écran obsolète — les boutons Choisir/Ajouter un nœud/Supprimer un nœud/Déplacer un nœud/Branche de la barre d'outils ont été remplacés par un seul bouton Modifier les trajectoires + bouton Aide -->
 
 ---
 
@@ -26,10 +27,11 @@ Le plugin vous permet de garder plusieurs docks de profils ouverts en même temp
 ## Ouvrir et créer un profil
 
 1. Activez **Profil longitudinal** depuis la barre d'analyse. Le dock de profil s'ouvre dans la zone inférieure de QGIS.
-2. Le mode **Pick** est activé automatiquement ; Le curseur se transforme en icône de profil.
+2. Le bouton **Modifier les trajectoires** s'active automatiquement ; le curseur se transforme en icône en forme de crayon.
 3. Cliquez sur un nœud du réseau (Jonctions, Réservoirs, Réservoirs) pour définir le premier nœud de référence.
 4. Cliquez sur un autre nœud : le plugin calcule le **chemin topologique minimum** entre les deux nœuds et dessine le profil.
 5. Chaque clic supplémentaire étend le chemin en concaténant le chemin du dernier nœud au nouveau.
+6. Un clic droit (sans nœud en cours) termine l'édition du parcours.
 
 Si deux nœuds ne sont pas connectés dans le réseau, le message _"Le nœud sélectionné n'est pas connecté au précédent le long du réseau."_
 
@@ -69,13 +71,14 @@ Le graphique se met à jour automatiquement lorsque l'heure instantanée change 
 
 ### Modes d'édition de visite
 
-| Bouton | Mode | Fonction |
-|-------|------|---------|
-| Choisir | **Choisir** | Active la carte pour ajouter des nœuds de référence à la fin du chemin à chaque clic |
-| Ajouter un nœud | **Ajouter un nœud** | Convertit un nœud intermédiaire existant sur le chemin en un nœud de référence ; s'applique également aux itinéraires secondaires |
-| Supprimer le nœud | **Supprimer le nœud** | Supprime un nœud de référence du parcours (les nœuds de fin ne peuvent pas être supprimés) ; s'applique également aux succursales |
-| Déplacer le nœud | **Déplacer le nœud** | Déplace un nœud de référence : cliquez d'abord sur la position actuelle, puis cliquez sur la nouvelle position ; s'applique également aux branches et vérifie les conflits avec les chemins existants |
-| Branche | **Branche** | Ajouter une branche latérale (voir section [Succursales](#ramas)) |
+Toutes les actions d'édition sont contrôlées à partir d'un seul bouton bascule, plutôt que d'un bouton séparé par action :
+
+| Bouton | Fonction |
+|-------|---------|
+| **Modifier les trajectoires** (icône en forme de crayon, modifiable) | Activer le mode édition : clic gauche pour tracer l'itinéraire nœud par nœud, clic droit sur un nœud pour voir ses options (voir [Raccourcis souris](#atajos-de-ratón)). Lorsqu'il est désactivé, le passage de la souris sur le chemin ne fait que le mettre en évidence et afficher les informations, sans les modifier. |
+| **Aide** (icône ⓘ) | Ouvre la boîte de dialogue **"Comment modifier les trajectoires"**, avec un résumé de toutes les actions d'édition et raccourcis de souris disponibles. |
+
+> 📝 Ajouter un nœud d'étape intermédiaire, le supprimer, le déplacer ou créer une branche n'a plus son propre bouton dans la barre d'outils : ils se font avec **Editer les trajectoires** actif, à l'aide du menu contextuel (clic droit) ou des raccourcis souris décrits dans [Raccourcis souris](#atajos-de-ratón). Ces actions fonctionnent de la même manière sur la route principale et sur les embranchements.
 
 ### Navigation graphique
 
@@ -128,11 +131,11 @@ Lorsque l'enveloppe est active, la table de valeurs ajoute des colonnes avec la 
 
 ## Succursales
 
-Le mode **Branche** permet d'ajouter des branches latérales partageant le même graphique avec l'itinéraire principal.
+L'action **Créer une branche** vous permet d'ajouter des branches latérales partageant le même graphique avec le chemin principal.
 
-1. Activez le mode Branche.
-2. Cliquez sur un nœud appartenant déjà au chemin principal ou à une branche existante : ce nœud définit le point de branchement et sa position sur l'axe X.
-3. Effectuez des clics successifs pour étendre la branche vers d'autres nœuds.
+1. Avec **Modifier les trajectoires** actif, faites un clic droit sur un nœud appartenant déjà au chemin principal ou à une branche existante et choisissez **Créer une branche** dans le menu contextuel (ou double-cliquez avec le bouton droit directement dessus s'il s'agit d'un nœud intérieur avec un degré de connexion supérieur à 2 ; voir [Raccourcis souris](#atajos-de-ratón)). Ce nœud définit le point de bifurcation et sa position sur l'axe X.
+2. Effectuez des clics successifs pour étendre la branche vers d'autres nœuds.
+3. Faites un clic droit pour terminer la branche.
 
 Chaque branche est dessinée avec une couleur différente de la palette. Les distances des branches sont calculées à partir du point de branchement, de sorte que les deux courbes partagent la même origine X en ce point. Lorsque la variable sélectionnée est **Tête + Elévation**, les branches affichent également leur propre courbe d'élévation du terrain à côté de la ligne piézométrique.
 
@@ -140,14 +143,40 @@ Chaque branche est dessinée avec une couleur différente de la palette. Les dis
 >
 > - Une branche ne peut pas réutiliser des liens ou des nœuds appartenant déjà au chemin principal ou à une autre branche, à l'exception du nœud de branche d'origine. En cas de tentative, l'opération est rejetée avec un message d'erreur.
 > - Le nœud source d'une branche ne peut pas être supprimé du parcours principal pendant que la branche est active. Pour l’éliminer, il faut d’abord couper la branche depuis son extrémité la plus éloignée.
-> - Le mode **Déplacer le nœud** vérifie également les conflits avec les chemins existants avant d'appliquer la modification.
-> - Toute opération d'édition (Ajouter, Supprimer, Déplacer) est annulée silencieusement si le chemin recalculé résultant n'est pas valide.
+> - **Move pass node** vérifie également les conflits avec les chemins existants avant d'appliquer la modification.
+> - Toute opération d'édition (déclarer, supprimer ou déplacer un nœud d'étape) est annulée silencieusement si le chemin recalculé résultant n'est pas valide.
 
-Les modes **Ajouter un nœud**, **Supprimer un nœud** et **Déplacer un nœud** fonctionnent à la fois sur le chemin principal et sur les chemins de branche.
+Déclarer, supprimer ou déplacer un nœud d'étape (auparavant **Ajouter un nœud**, **Supprimer un nœud** et **Déplacer un nœud**) fonctionne de la même manière sur le chemin principal que sur les chemins de branche.
 
 Les branches peuvent être supprimées directement de la **légende du graphique**, sans avoir besoin d'utiliser le bouton Effacer.
 
 Le bouton **Effacer** supprime le chemin principal et toutes les branches.
+
+---
+
+## Raccourcis souris
+
+Avec **Modifier les trajectoires** actif, en plus de tracer le chemin clic par clic, la souris prend en charge plusieurs raccourcis directs qui évitent de passer par le menu contextuel. Ces raccourcis fonctionnent de la même manière sur le chemin principal et sur les branches.
+
+- **Double clic gauche sur un nœud intermédiaire** de la route (celui qui n'est pas encore un nœud pass) : le déclare comme nœud pass (équivalent à **Déclarer un nœud pass**).
+- **Double clic gauche sur un nœud pass déjà déclaré** : le supprime et le chemin est recalculé (équivalent à **Supprimer le nœud pass**).
+- **Double clic droit sur un nœud de chemin extrême** (l'origine ou la fin d'un chemin, avec connexion gratuite disponible) : étend le chemin à partir de ce point (équivalent à **Extend path**).
+- **Double clic droit sur un nœud de passage intérieur** avec un degré de connexion supérieur à 2 (et connexion gratuite disponible) : démarrez une branche à partir de ce nœud (équivalent à **Créer une branche**).
+- **Simple clic gauche sur un nœud de passage**, sans aucun parcours en cours : démarre le mouvement de ce nœud ; le clic suivant marque le nœud de destination (équivalent à **Move pass node**).
+- **Un simple clic droit** : s'il y a une visite en cours, la termine ; sinon, il ouvre le menu contextuel avec les actions disponibles pour le nœud sous le curseur.
+
+Le menu contextuel (simple clic droit) propose différentes options selon le nœud indiqué :
+
+| Situation des nœuds | Options des menus |
+|---------------------|--------------------|
+| Il n'y a pas encore d'itinéraire | **Commencez un nouveau chemin ici** |
+| Nœud intermédiaire de l'itinéraire (pas encore nœud de passage) | **Déclarer le nœud de passage** |
+| Nœud d'étape d'origine de l'itinéraire principal | **Étendre le chemin**, **Créer une branche** |
+| Nœud de passage extrême (fin d'un parcours) | **Étendre le chemin**, **Créer une branche**, **Déplacer le nœud de passe**, **Supprimer le nœud de passe** |
+| Nœud de passage intérieur de l'itinéraire | **Créer une branche**, **Déplacer le nœud de passe**, **Supprimer le nœud de passe** |
+| Nœud de branche (origine d'une branche) | **Créer une branche** |
+
+> 💡 Le bouton **Aide** de la barre d'outils du dock (icône ⓘ) ouvre à tout moment la boîte de dialogue **"Comment éditer les trajectoires"**, avec ces mêmes informations récapitulatives.
 
 ---
 
@@ -166,7 +195,7 @@ Des **lignes de référence verticales** sont tracées sur le graphique à la po
 L'interaction entre le graphique et la carte est bidirectionnelle et se met à jour en temps réel :
 
 - Lorsque vous déplacez votre souris sur le **graphique**, le nœud le plus proche est mis en évidence sur le **canevas de la carte** avec un cercle orange.
-- Déplacer la souris sur la **carte** pendant que le mode Sélection de profil est actif déplace le curseur du graphique vers le nœud correspondant.
+- Passer la souris sur la **carte** pendant que **Modifier les trajectoires** est actif déplace le curseur du graphique vers le nœud correspondant.
 
 ---
 

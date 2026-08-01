@@ -5,7 +5,7 @@ QGISRed propose trois façons de commencer à travailler avec un réseau existan
 | Options | Quand l'utiliser |
 |--------|---------------|
 | **Ouvrir le projet** | Le projet a déjà été créé avec QGISRed et ses fichiers SHP sont sur le disque |
-| **Importer un projet** | Vous disposez d'un fichier EPANET `.inp` ou de SHP externes sans structure QGISRed |
+| **Importer un projet** | Vous disposez d'un fichier EPANET `.inp`, de SHP externes sans structure QGISRed, ou d'un ZIP préalablement exporté avec QGISRed |
 | **Ajouter des données par importation** | Vous avez déjà un projet ouvert et souhaitez intégrer des données supplémentaires |
 
 ---
@@ -40,7 +40,7 @@ Ouvre un projet QGISRed existant (précédemment créé avec le plugin) qui n'ap
 
 **Barre générale → Importer un projet**
 
-Convertit les données externes en un projet QGISRed. Prend en charge deux formats d'entrée :
+Convertissez des données externes en un projet QGISRed ou récupérez une donnée précédemment exportée. Prend en charge trois formats d'entrée :
 
 ### Importer depuis EPANET (`.inp`) {#import-from-epanet}
 
@@ -80,6 +80,35 @@ Les autres éléments (vannes, pompes, réservoirs, réservoirs, nœuds, vannes 
 Lorsque l'import crée un nouveau projet, le **catalogue des matériaux** (comme lors de la création d'un projet à partir de zéro) et les paramètres de base EPANET (unités et formule de perte de charge) sont également demandés. S'ils sont importés sur un projet existant, ces paramètres sont ignorés.
 
 > 💡 Le champ **Matériau** des canalisations et raccords est croisé avec le catalogue matériaux du projet pour estimer automatiquement la rugosité en fonction de l'âge de la canalisation.
+
+### Importer un projet QGISRed exporté (ZIP) {#import-zip}
+
+Récupère un projet packagé avec le bouton **Exporter** de [Chef de projet](gestor-proyectos.md) — voir [Enregistrer, exporter et fermer le projet](../projet-actif/guardar-backup.md). Il reconnaît également les ZIP générés par les versions précédentes du plugin, même s'ils ne disposent pas du manifeste interne des exports en cours.
+
+<!-- TODO : capture en attente — Onglet "Projet QGISRed" de la boîte de dialogue d'import -->
+
+1. Dans l'onglet **Projet QGISRed**, appuyez sur le bouton **...** à côté de **Fichier ZIP :** et sélectionnez le fichier `.zip`.
+2. QGISRed inspecte le contenu ZIP sans l'extraire pour l'instant et affiche un résumé sous le champ :
+- **Projet :** nom du réseau contenant le ZIP (remplace tout nom que vous avez saisi auparavant ; le champ du nom du projet est masqué dans cet onglet).
+- Si le ZIP inclut la carte QGIS, indiquer le fichier `.qgz`/`.qgs` ; S'il n'est pas inclus, il avertit que seules les données seront importées.
+- Si le ZIP comprend des données complémentaires (cartographie de fond, MDT, etc.), indiquer le nombre d'éléments et leur taille totale.
+3. Si le ZIP comprend des données complémentaires, la case **Importer les données complémentaires incluses dans le fichier ZIP** apparaît, cochée par défaut. Décochez-la si vous ne souhaitez pas les amener.
+4. La case à cocher **Créer automatiquement un sous-dossier pour ce projet** détermine si le projet est placé dans un sous-dossier portant le nom du réseau dans le dossier de destination :
+- Si le ZIP contient déjà son propre dossier de projet (il a été exporté avec les données de support dans des dossiers frères), QGISRed décoche et désactive automatiquement cette case — l'imbriquer dans un autre dossier briserait les chemins relatifs vers ces données.
+- Sinon, vous pouvez librement la cocher ou la décocher.
+5. Appuyez sur **Importer depuis le projet**.
+
+Si le ZIP n'est pas un projet QGISRed valide, QGISRed l'indique sans rien importer :
+
+| Situation | Messages |
+|-----------|---------|
+| Le ZIP ne contient pas de projet QGISRed reconnaissable | _"Le fichier ZIP ne contient pas de projet QGISRed valide"_ |
+| Le ZIP a été généré avec une version de QGISRed plus récente que celle installée | _"Ce fichier ZIP a été créé avec une version plus récente de QGISRed. Veuillez mettre à jour le plugin."_ |
+| Le ZIP contient des chemins de fichiers dangereux | _"Le fichier ZIP contient des chemins de fichiers dangereux et ne sera pas importé."_ |
+
+> ⚠️ Si un projet du même nom (ou des fichiers du même nom) existe déjà dans le dossier de destination, QGISRed demande confirmation avant de les écraser.
+
+> 💡 Si le ZIP inclut la carte QGIS mais que vous décidez de ne pas importer les données complémentaires, QGISRed vous prévient que certaines couches d'arrière-plan ne seront pas disponibles et laisse QGIS vous demander de les localiser.
 
 ---
 

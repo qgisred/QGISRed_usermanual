@@ -14,6 +14,7 @@ Le dock Résultats est ancré dans la zone droite de l’écran. Contient **troi
 
 <figure><img src="../assets/images/analisis/results-dock.png" alt="Panneau de résultats avec sélecteur de variable et barre de temps"><figcaption><p>Panneau de résultats avec sélecteur de variable et barre de temps</p></figcaption></figure>
 *Dock de résultats : sélection de variables, mode statistiques et navigation par instants de temps.*
+<!-- TODO : capture d'écran obsolète après l'ajout du bouton Taux de lecture constant à côté du curseur de vitesse -->
 
 ---
 
@@ -33,8 +34,11 @@ Lorsqu'un mode statistique est actif (Maximum, Minimum...), la zone horaire affi
 | **Combo de moments** (`cbTimes`) | Liste déroulante avec tous les moments disponibles. |
 | **Boutons avant/arrière** | Suivant, précédent, début, fin. |
 | **Jouer / Jouer en arrière** | Animation automatique vers l'avant ou vers l'arrière. |
-| **Curseur de vitesse** | Contrôle la vitesse de l'animation (1–10). |
+| **Curseur de vitesse** | Contrôle la vitesse relative de l'animation (1–10). Il est masqué lorsque **Taux de lecture constant** est actif. |
+| **Taux de lecture constant** | Bouton commutable à côté du curseur de vitesse. Lorsqu'il est activé, le curseur est remplacé par le champ **"1h in: N sec"** : N sont les secondes réelles nécessaires pour lire une heure de temps simulé (1–3600), donc la vitesse de lecture est constante par rapport au temps simulé même si le pas entre les instants n'est pas uniforme. Lorsque vous le désactivez, le curseur de vitesse relative est à nouveau utilisé. L'état et la valeur sont enregistrés dans le projet. |
 | **Boucle** | Répétez l'animation en boucle. |
+
+> 💡 Lorsque vous changez l'instant temporel, activez ou désactivez un mode statistiques, modifiez les décimales dans l'onglet Apparence, ou chargez tous les résultats d'un coup, QGISRed relit et reformate les valeurs. Si l'opération prend du temps (grands réseaux avec de nombreux éléments), une mention apparaît superposée et centrée sur la carte : **"Lecture des résultats… NN%"**. Lors d'opérations rapides, il ne s'affiche pas pour éviter le scintillement.
 
 #### Temps rapportés et statistiques
 
@@ -46,6 +50,8 @@ Deux combos situés sous les contrôles horaires :
 | **Statistiques** (`cbStatistics`) | Applique une statistique sur toutes les périodes : Maximum, Minimum, Plage, Moyenne, StdDev, Avertissement. Lorsqu'elle est active, l'horloge est remplacée par le nom de la statistique. |
 
 > 💡 En modes **Maximum** et **Minimum**, les étiquettes de la carte affichent la valeur ainsi que l'heure d'occurrence au format `valor (@ HH:MM:SS)`. Lorsque vous placez le curseur sur un élément de la carte, l'info-bulle inclut une ligne supplémentaire `@ HH:MM:SS` avec le moment exact auquel ce maximum ou ce minimum s'est produit.
+
+> 💡 Avec n'importe quel mode statistique actif, l'info-bulle ajoute à la valeur l'abréviation de la statistique affichée : **Max**, **Min**, **Avg** (Moyenne), **Rng** (Plage) ou **Std** (StdDev). Par exemple, `Max 45.2` au lieu de simplement `45.2`.
 
 #### Groupe de mappage — Nœuds
 
@@ -69,6 +75,8 @@ Deux combos situés sous les contrôles horaires :
 | **Afficher l'évolution du lien** | Mini-graphique intégré avec l'évolution temporelle du pipeline sélectionné sur la carte. |
 
 > 💡 De même, lorsqu'une variable est sélectionnée dans le combo **Liens**, un label apparaît à côté de l'en-tête du groupe avec le nom de la variable en gras et son unité entre parenthèses (par exemple, **Velocity** (m/s)).
+
+> ⚠️ Lorsque la variable **Links** est **Status**, les étiquettes de texte sont simplifiées : les ~13 états internes que EPANET peut retourner sont regroupés en seulement deux textes, **"Fermé"** (inclut "Temp Closed") et **"Active"** (inclut "Active (Rev Pump)"). Les liens avec n'importe quel état **"Ouvert*"** n'affichent aucune étiquette, afin de ne pas encombrer la carte avec la plupart des tuyaux (qui sont généralement ouverts). Ce n'est pas une erreur si, avec le statut actif, la plupart des tuyaux apparaissent sans étiquette.
 
 > Le bouton **Apparence** (icône en entête du groupe Nœuds) vous amène directement à l'onglet Apparence sans avoir à naviguer dans les onglets.
 
@@ -103,9 +111,10 @@ Concentre toutes les options de présentation visuelle des résultats sur la car
 |--------|-------------|
 | **Taille de police (pt)** | Taille de police des étiquettes sur la carte (6 à 24 pts, 8 par défaut). |
 | **Nœuds / Liens décimaux** | Nombre de décimales affichées respectivement sur les étiquettes des nœuds et des tuyaux (0 à 6). Le contrôle est étiqueté avec le nom de la variable actuellement active. |
-| **Couleur du texte** | Couleur par défaut : nœuds **#333333** (gris foncé), passepoil **#0A143C** (bleu marine). **Noir** : texte toujours noir. **Par plage** : La couleur du texte suit la palette de la plage de valeurs active. Lorsque « Afficher l'ID à côté de la valeur » est actif, la ligne Id utilise la couleur de l'élément lui-même et la ligne de valeur utilise la couleur du symbole ou de la plage. |
-| **Contexte** | Couleur d’arrière-plan derrière les étiquettes de carte. Comprend un sélecteur de couleurs et un bouton de suppression pour supprimer l'arrière-plan. |
-| **Afficher l'ID à côté de la valeur** | Ajoutez l'ID de l'élément à la première ligne de l'étiquette. |
+| **Couleur du texte** | Couleur par défaut : nœuds **#333333** (gris foncé), passepoil **#0A143C** (bleu marine). **Noir** : texte toujours noir. **Par plage** : La couleur du texte suit la palette de la plage de valeurs active. Lorsque **Show Node ID** ou **Show Link ID** est actif, la ligne Id utilise la couleur de l'élément lui-même et la ligne de valeur utilise la couleur du symbole ou de la plage. |
+| **Contexte** | Couleur d’arrière-plan derrière les étiquettes de carte. Comprend un sélecteur de couleurs et un bouton de suppression pour supprimer l'arrière-plan. A côté du sélecteur se trouve une icône **cadenas** : ouvert (par défaut), le fond des étiquettes est indépendant du fond de la carte ; Lorsque vous le fermez, le sélecteur et le bouton d'effacement sont désactivés et l'arrière-plan des étiquettes est lié à la couleur **Map Background** (voir ci-dessous), donc changer cette couleur modifie également automatiquement l'arrière-plan des étiquettes. |
+| **Tampon** | Couleur du contour (halo) autour du texte de l'étiquette, avec son propre sélecteur de couleur et son propre bouton de suppression. Il est indépendant du Fond et n’est jamais lié au Fond de la Carte. Sans couleur attribuée (par défaut), aucun halo n'est dessiné. |
+| **Afficher l'ID du nœud** / **Afficher l'ID du lien** | Deux cases indépendantes : ajoutez respectivement l'ID du nœud ou du canal dans la première ligne de son label. |
 
 #### Symbologie
 

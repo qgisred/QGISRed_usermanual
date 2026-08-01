@@ -31,8 +31,9 @@ Outils de gestion de projet ouverts.
 | **Valeurs par défaut** | Définit les préfixes ID, les tolérances géométriques et les valeurs hydrauliques initiales |
 | **Tableau des matériaux** | Gérer la liste des matériaux avec leurs rugosités initiales et leurs incréments d'âge |
 | **Enregistrer la carte** | Enregistrez le projet QGIS (`.qgz`) |
-| **Sauvegarde** | Créer une copie de tous les fichiers du projet dans un sous-dossier daté |
 | **Fermer le projet** | Fermer le projet en cours |
+
+> 💡 L'export du projet (ZIP portable) ne se fait plus dans cette barre : il se fait depuis le bouton **Export** du Chef de Projet (voir [Enregistrer, exporter et fermer le projet](../projet-actif/guardar-backup.md)).
 
 ---
 

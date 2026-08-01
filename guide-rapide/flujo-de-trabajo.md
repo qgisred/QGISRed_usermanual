@@ -70,7 +70,7 @@ Dans le panneau latéral de la visionneuse de résultats :
 ## Étape 8 — Enregistrer
 
 - _Save Map_ enregistre le projet QGIS (`.qgz`) avec les couches et styles visibles.
-- _Backup_ crée un instantané de tous les fichiers SHP dans un sous-dossier daté.
+- _Exporter le projet_ (depuis le Gestionnaire de Projet) génère un ZIP portable du projet.
 
 ---
 

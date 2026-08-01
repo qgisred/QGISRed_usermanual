@@ -4,7 +4,7 @@
 
 Ouvre le panneau **Statistiques**, qui calcule et affiche la distribution statistique de tout attribut numérique ou catégoriel du réseau, avec prise en charge de la classification automatique, de la seconde classification croisée et de la représentation graphique.
 
-> **ℹ️ Remarque :** Le panneau Statistiques s'ouvre **ancré** dans la fenêtre principale de QGIS et respecte les panneaux déjà regroupés en onglets.
+> **ℹ️ Remarque :** Le panneau Statistiques s'ouvre **ancré** dans la fenêtre principale de QGIS et respecte les panneaux déjà regroupés en onglets. Ses commandes s'adaptent également aux largeurs de panneaux étroites, sans être coupées sur le bord droit.
 
 <figure><img src="../assets/images/consultas/statistics-panel.png" alt="Panneau de statistiques avec histogramme des diamètres de tuyaux"><figcaption><p>Panneau de statistiques avec histogramme des diamètres de tuyaux</p></figcaption></figure>
 *Panneau de statistiques : histogramme des diamètres de tuyaux avec classification par intervalles.*
@@ -48,6 +48,8 @@ Les méthodes suivantes sont disponibles pour le tri principal et le deuxième t
 
 > **ℹ️ Remarque :** Lorsque toutes les valeurs sont identiques ou très similaires, les points de terminaison de classe en double sont réduits en affichant une seule valeur au lieu de "100,0 - 100,0".
 
+> **ℹ️ Note — Champs sans données utiles :** Si le champ choisi à classer n'a aucune valeur calculée, le panneau n'affiche pas de message d'erreur : il génère directement une seule classe **NULL** qui regroupe tous les éléments sans valeur. Si le champ a des valeurs mais qu'elles sont toutes égales (y compris le cas où elles sont toutes nulles), une seule classe est générée avec cette valeur, tout comme dans le cas précédent de points de terminaison réduits. Dans les deux cas, l'histogramme et le tableau sont générés normalement, sans interrompre l'analyse.
+
 > **ℹ️ Remarque :** Lors de l'analyse d'un champ de résultat de simulation dynamique, les **limites de classe sont calculées une fois** en tenant compte de tous les instants simultanément. Au fur et à mesure de l'étape de simulation, le nombre d'éléments par barre varie, mais les limites restent constantes, permettant **de comparer les distributions entre instants de temps** en toute cohérence.
 
 ### Pré-filtrage
@@ -64,6 +66,14 @@ Le champ **Valeur** comprend un bouton d'effacement **(×)** : lorsqu'il est en
 Lorsque l'attribut de filtre est un champ de résultat de simulation, la combinaison affiche le même **fond jaune/crème** que celui utilisé pour ces champs dans le sélecteur de propriétés.
 
 > **ℹ️ Note — Débit :** Lors d'un filtrage sur le champ `Flow` avec une valeur numérique écrite, la valeur est toujours interprétée comme **valeur absolue**, il n'est donc pas nécessaire de connaître le signe qu'EPANET attribue en interne au flux.
+
+### Restreindre à la sélection active
+
+La case **Uniquement les éléments sélectionnés** limite l'analyse aux éléments actuellement sélectionnés sur la carte. La sélection est évaluée conjointement entre la couche **Inputs** et sa couche **Results** correspondante : si l'élément est sélectionné dans l'une ou l'autre couche du même type (par exemple, `Pipes` dans Inputs et son thème de résultats de pipeline), il est inclus dans le calcul.
+
+> ⚠️ Si vous activez la case et qu'aucun élément n'est sélectionné dans aucun des calques, le panneau affiche un avertissement et n'exécute pas l'analyse.
+
+Lorsque la case est active, l'histogramme et le tableau affichent une note indiquant qu'il existe un filtre de sélection (et, s'il existe également un filtre d'attribut actif, les deux sont combinés dans le même texte).
 
 #### Aperçu sur la carte
 
