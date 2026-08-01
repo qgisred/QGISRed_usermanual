@@ -52,7 +52,7 @@ QGISRed vigila en segundo plano (comprobación cada 5 segundos) las capas deriva
 
 La pestaña **Auxiliary layers** contiene el grupo **Demand Builder**, desde donde se crean y gestionan las capas vacías de trabajo que usa la herramienta de asignación de demandas a nudos (Nodal Demand Builder): **Consumption Points**, **Demand Links** y **Sectors**.
 
-<!-- TODO: captura pendiente — pestaña Auxiliary layers del Gestor de capas, con la tabla de temas y los botones Create/Delete -->
+<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Pestaña Auxiliary layers del Gestor de capas de QGISRed"><figcaption><p>Pestaña Auxiliary layers del Gestor de capas de QGISRed</p></figcaption></figure>
 
 Cada fila de la tabla es un **tema** (theme) — puedes tener varios temas del mismo tipo, por ejemplo un `Sectors` distinto por cada campaña de sectorización de demanda. La tabla muestra tres columnas:
 
