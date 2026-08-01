@@ -58,7 +58,7 @@ Se o projeto que você exporta é aquele que você abriu no QGIS e seu `.qgz` po
 
 ### O que está sempre incluído
 
-- A PCH+DBF+PRJ da rede na raiz da pasta do projeto (Tubulações, Junções, Válvulas, Bombas, Tanques, Reservatórios, Demandas, Fontes...) e os arquivos de opções e metadados (`_Options.dbf`, `_Title.dbf`).
+- A PCH+DBF+PRJ da rede na raiz da pasta do projeto (Tubulações, Junções, Válvulas, Bombas, RNVs, RNFs, Demandas, Fontes...) e os arquivos de opções e metadados (`_Options.dbf`, `_Title.dbf`).
 - O arquivo de mapa `.qgz`, se o QGISRed o encontrar na pasta do projeto ou em sua pasta pai. Se não houver nenhum `.qgz` salvo, a caixa de diálogo avisa que a exibição do mapa não será exportada.
 
 ### O que está incluído opcionalmente

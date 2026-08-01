@@ -2,7 +2,7 @@
 
 **Edição Barra → Editar padrões e curvas…**
 
-O editor de padrões e curvas centraliza a gestão de dados temporais e funcionais que controlam o comportamento dinâmico do modelo: como a demanda varia ao longo do dia, como uma bomba se comporta de acordo com sua vazão ou qual o volume de um tanque irregular.
+O editor de padrões e curvas centraliza a gestão de dados temporais e funcionais que controlam o comportamento dinâmico do modelo: como a demanda varia ao longo do dia, como uma bomba se comporta de acordo com sua vazão ou qual o volume de um RNV irregular.
 
 <figure><img src="../assets/images/edicion/editor-curvas.png" alt="Editor de padrões e curvas QGISRed"><figcaption><p>Editor de padrões e curvas QGISRed</p></figcaption></figure>
 *Editor de padrões e curvas: lista de elementos à esquerda, gráfico e tabela de dados à direita.*
@@ -63,7 +63,7 @@ Relaciona **Eficiência** (%) a **Fluxo** (Fluxo). É usado para análise de con
 
 ### Curva de volume (curva de volume)
 
-Relaciona o **Nível** do tanque (m ou pés, eixo X) ao **Volume** armazenado (m³ ou galões, eixo Y). Necessário para tanques com geometria não cilíndrica (bacias cônicas, tanques de formato irregular).
+Relaciona o **Nível** do RNV (m ou pés, eixo X) ao **Volume** armazenado (m³ ou galões, eixo Y). Necessário para RNVs com geometria não cilíndrica (bacias cônicas, RNVs de formato irregular).
 
 ### Curva de perda de carga GPV (curva de perda de carga)
 
@@ -79,4 +79,4 @@ Para válvulas do tipo **GPV** (Válvula de Uso Geral), relacione a **Perda de c
 4. O gráfico mostra a curva resultante com a interpolação ou ajuste correspondente.
 5. Pressione **OK** para salvar. As curvas são armazenadas em `{Red}_Options.dbf`.
 
-> Para fazer referência a uma curva de uma bomba ou tanque, copie seu **ID** exato no campo correspondente da caixa de diálogo de propriedades do elemento.
+> Para fazer referência a uma curva de uma bomba ou RNV, copie seu **ID** exato no campo correspondente da caixa de diálogo de propriedades do elemento.

@@ -8,7 +8,7 @@ Este é o caminho usual para construir, verificar e simular uma rede de distribu
 
 Use a barra **Geral** para começar:
 
-- **Novo projeto do zero**: _Criar projeto_ → escolha nome, pasta e sistema de referência. QGISRed gera automaticamente as 6 PCHs básicas (Junções, Tubulações, Tanques, Reservatórios, Válvulas, Bombas).
+- **Novo projeto do zero**: _Criar projeto_ → escolha nome, pasta e sistema de referência. QGISRed gera automaticamente as 6 PCHs básicas (Junções, Tubulações, RNVs, RNFs, Válvulas, Bombas).
 - **Projeto existente**: _Gerente de projeto_ → clique duas vezes no projeto na lista recente.
 - **De um arquivo EPANET**: _Importar projeto_ → selecione `.inp`. QGISRed converte para SHP e abre.
 
@@ -26,7 +26,7 @@ O indicador na barra principal (`LPS | D-W`) sempre reflete os valores ativos.
 Ative a barra **Edição** e desenhe a rede no mapa:
 
 1. Comece com os **tubos** — os nós extremos se criam sozinhos.
-2. Adicione **reservatórios e reservatórios** clicando nos nós existentes.
+2. Adicione **RNVs e RNFs** clicando nos nós existentes.
 3. Insira **válvulas e bombas** clicando em um tubo.
 4. Edite as **propriedades** de cada elemento (diâmetro, rugosidade, dimensão, demanda...).
 

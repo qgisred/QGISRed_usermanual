@@ -17,7 +17,7 @@ Localiza qualquer elemento da rede escrevendo seu ID e destaca-o no mapa.
 
 ### Itens pesquisáveis ​​
 
-- Tubulações, Junções, Demandas, Reservatórios, Tanques, Bombas, Válvulas, Fontes
+- Tubulações, Junções, Demandas, RNFs, RNVs, Bombas, Válvulas, Fontes
 
 ### Processo
 
@@ -84,8 +84,8 @@ QGISRed resolve automaticamente o **nome do campo identificador** de cada camada
 |--------------|-----------------|
 | Tubos | `PipeID` |
 | Junções | `JunctionID` |
-| Tanques | `TankID` |
-| Reservatórios | `ReservoirID` |
+| RNVs | `TankID` |
+| RNFs | `ReservoirID` |
 | Bombas | `PumpID` |
 | Válvulas | `ValveID` |
 

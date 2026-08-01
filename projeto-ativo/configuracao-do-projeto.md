@@ -81,8 +81,8 @@ Cada tipo de item possui um prefixo configurável que é utilizado na geração 
 |----------|---------------------|------------------------|
 | Junção | J | J-1, J-2… |
 | Tubo | P | P-1, P-2… |
-| Tanque | T | T-1, T-2… |
-| Reservatório | R | R-1, R-2… |
+| RNV | T | T-1, T-2… |
+| RNF | R | R-1, R-2… |
 | Válvula | V | V-1, V-2… |
 | Bomba | BM | BM-1, BM-2… |
 
@@ -131,7 +131,7 @@ Gerencie a lista de materiais disponíveis para tubos e suas propriedades de env
 Quando você usa a ferramenta **Assign Roughnesses** da barra de ferramentas, o QGISRed pesquisa nesta tabela o material de cada tubo e calcula:
 
 ```
-Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_anual
+Rugosidade = Rugosidade_inicial + (Ano_atual - Ano_instalação) × Aumento_anual
 ```
 
 > 💡 Você pode adicionar materiais personalizados. Os materiais definidos aqui também estão disponíveis ao criar novos tubos na barra de edição.

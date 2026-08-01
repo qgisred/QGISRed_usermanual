@@ -26,7 +26,7 @@ A ferramenta substitui o valor de `Length` incondicionalmente em todos os tubos 
 
 **Barra de ferramentas → Interpolar elevação de arquivos .asc…**
 
-Atribui a cota (campo `Elevation`) aos nós, reservatórios e reservatórios do projeto interpolando seu valor a partir de um ou mais Modelos Digitais de Terreno (MDT) em formato ASC.
+Atribui a cota (campo `Elevation`) aos nós, RNVs e RNFs do projeto interpolando seu valor a partir de um ou mais Modelos Digitais de Terreno (MDT) em formato ASC.
 
 <figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="Seletor de arquivo ASC para interpolação de dimensão"><figcaption><p>Seletor de arquivo ASC para interpolação de dimensão</p></figcaption></figure>
 *Seletor de arquivo MDT: você pode fazer upload de vários arquivos ASC para cobrir toda a área da rede.*
@@ -70,10 +70,10 @@ Calcula e atribui o coeficiente de rugosidade atual de cada tubo com base no seu
 ### Fórmula de cálculo
 
 ```
-Rugosidad_actual = Rugosidad_inicial + (Año_actual − InstallYear) × Incremento_anual
+Rugosidade_atual = Rugosidade_inicial + (Ano_atual − InstallYear) × Aumento_anual
 ```
 
-Onde `Rugosidad_inicial` e `Incremento_anual` são obtidos da linha da Tabela de Materiais que corresponde ao campo `Material` do tubo.
+Onde `Rugosidade_inicial` e `Aumento_anual` são obtidos da linha da Tabela de Materiais que corresponde ao campo `Material` do tubo.
 
 ### Pré-requisitos
 

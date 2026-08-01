@@ -18,8 +18,8 @@ A caixa de diálogo é **sem janela restrita**: você ainda pode interagir com o
 | **Junctions** | Nós de rede |
 | **Multiple Demands** | Demandas múltiplas por categoria |
 | **Pipes** | Tubos |
-| **Tanks** | Tanques |
-| **Reservoirs** | Reservatórios |
+| **Tanks** | RNVs |
+| **Reservoirs** | RNFs |
 | **Pumps** | Bombas |
 | **Valves** | Válvulas |
 | **Sources** | Fontes de qualidade |
@@ -27,7 +27,7 @@ A caixa de diálogo é **sem janela restrita**: você ainda pode interagir com o
 | **Válvulas de isolamento** | Válvulas de isolamento |
 | **Metros** | Medidores de vazão |
 
-> 🧪 **Campos de Qualidade Química:** Os campos BulkCoeff e WallCoeff (tubulações) e ReactCoef e InitQuality (reservatórios, reservatórios e nós) só aparecem nos seletores de campo quando o modelo de qualidade do projeto está definido como **Química**.
+> 🧪 **Campos de Qualidade Química:** Os campos BulkCoeff e WallCoeff (tubulações) e ReactCoef e InitQuality (RNVs, RNFs e nós) só aparecem nos seletores de campo quando o modelo de qualidade do projeto está definido como **Química**.
 
 ---
 

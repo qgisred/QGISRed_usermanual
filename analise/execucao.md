@@ -48,7 +48,7 @@ A caixa de diálogo de progresso inclui um botão **Pausar** (ícone ‖). Quand
 
 A caixa de diálogo também inclui a caixa de seleção **"Não mostrar esta janela de progresso novamente"**. Se você marcá-la e a simulação terminar com êxito, as execuções subsequentes iniciarão o cálculo diretamente, sem exibir a caixa de diálogo.
 
-> ⚠️ **Exceção para grandes redes**: se o produto (número de nós: junções + tanques + reservatórios) × (número de instantes de cálculo = Duração / intervalo de tempo hidráulico) exceder **500.000**, a caixa de diálogo de progresso é sempre mostrada nessa execução, mesmo que a caixa "Não mostrar esta janela de progresso novamente" esteja marcada em uma execução anterior. Além disso, nesse caso, a própria caixa fica oculta da caixa de diálogo, uma vez que a preferência salva permanece ineficaz durante aquela grande rede.
+> ⚠️ **Exceção para grandes redes**: se o produto (número de nós: junções + RNVs + RNFs) × (número de instantes de cálculo = Duração / intervalo de tempo hidráulico) exceder **500.000**, a caixa de diálogo de progresso é sempre mostrada nessa execução, mesmo que a caixa "Não mostrar esta janela de progresso novamente" esteja marcada em uma execução anterior. Além disso, nesse caso, a própria caixa fica oculta da caixa de diálogo, uma vez que a preferência salva permanece ineficaz durante aquela grande rede.
 
 > Para reativar a caixa de diálogo de progresso em redes que não excedem esse limite, vá para **Propriedades do Projeto** e desmarque a opção *"Não mostrar janela de progresso ao executar a simulação"*.
 

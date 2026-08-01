@@ -28,54 +28,54 @@ Modo de desenho de linha: Cada clique adiciona um vértice à tubulação. A fer
 
 ### Conecte-se a elementos existentes
 
-Se o ponto inicial ou final estiver dentro da tolerância de um nó, válvula, bomba, reservatório ou reservatório existente, o novo tubo **conecta-se a esse elemento** em vez de criar um novo nó.
+Se o ponto inicial ou final estiver dentro da tolerância de um nó, válvula, bomba, RNV ou RNF existente, o novo tubo **conecta-se a esse elemento** em vez de criar um novo nó.
 
 > Definir para o nó mais próximo usa a tolerância configurada em **Barra de Projeto → Padrões → Tolerância de Nó**. Você pode revisá-lo ou alterá-lo antes de desenhar redes densas.
 
 ---
 
-## Adicionar tanque (Adicionar tanque)
+## Adicionar RNV (Add tank)
 
-**Edição Barra → Adicionar tanque**
+**Edição Barra → Adicionar RNV**
 
-Coloque um tanque de armazenamento (tanque) no mapa. Os tanques possuem nível variável e participam da simulação hidráulica.
+Coloque um Reservatório de Nível Variável (RNV) no mapa. Os RNVs possuem nível variável e participam da simulação hidráulica.
 
 ### Processo
 
-1. Ative a ferramenta. O cursor mostra o ícone de depósito.
+1. Ative a ferramenta. O cursor mostra o ícone de RNV.
 2. Clique em um **nó existente** ou em um ponto vazio no mapa.
-- Se você clicar em um nó existente, esse nó **se tornará** um Tanque.
-- Se você clicar em um ponto vazio, o QGISRed cria um novo Tanque (sem conexão inicial; você precisará conectá-lo com um tubo).
-3. QGISRed abre a caixa de diálogo de propriedades do novo depósito para que você possa inserir os dados (elevação inferior, nível inicial, nível mínimo, nível máximo, diâmetro).
+- Se você clicar em um nó existente, esse nó **se tornará** um RNV.
+- Se você clicar em um ponto vazio, o QGISRed cria um novo RNV (sem conexão inicial; você precisará conectá-lo com um tubo).
+3. QGISRed abre a caixa de diálogo de propriedades do novo RNV para que você possa inserir os dados (elevação inferior, nível inicial, nível mínimo, nível máximo, diâmetro).
 
-### Principais parâmetros do tanque
+### Principais parâmetros do RNV
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| **Elevation** | Elevação do fundo do tanque (m ou pés) |
+| **Elevation** | Elevação do fundo do RNV (m ou pés) |
 | **InitLevel** | Nível inicial da água acima do fundo |
 | **MinLevel** | Nível operacional mínimo |
 | **MaxLevel** | Nível operacional máximo |
-| **Diameter** | Diâmetro do tanque (para seção circular); se você usar curva de volume, coloque 0 |
+| **Diameter** | Diâmetro do RNV (para seção circular); se você usar curva de volume, coloque 0 |
 | **MinVol** | Volume mínimo (opcional) |
 | **VolCurve** | ID da curva de volume (para geometria não cilíndrica) |
 
 ---
 
-## Adicionar reservatório (Adicionar reservatório)
+## Adicionar RNF (Add reservoir)
 
-**Barra de edição → Adicionar reservatório**
+**Barra de edição → Adicionar RNF**
 
-Coloque um reservatório externo ou ponto de alimentação (Reservatório). Ao contrário do Tanque, o Reservatório possui **nível fixo** (altura piezométrica constante) e representa uma fonte de água de capacidade ilimitada.
+Coloque um Reservatório de Nível Fixo (RNF), um ponto de alimentação externo. Ao contrário do RNV, o RNF possui **nível fixo** (altura piezométrica constante) e representa uma fonte de água de capacidade ilimitada.
 
-O processo é idêntico ao do depósito. Os parâmetros são mais simples:
+O processo é idêntico ao do RNV. Os parâmetros são mais simples:
 
 | Parâmetro | Descrição |
 |-----------|-------------|
 | **Cabeça** | Carga piezométrica fixa (elevação do nível da água livre, m ou pés) |
 | **Padrão** | Padrão de variação de carga ao longo do tempo (opcional) |
 
-> Utilizar reservatórios para representar pontos de abastecimento de água elevados (ligações com sistemas externos) ou pontos de abastecimento de fluxo constante.
+> Utilizar RNFs para representar pontos de abastecimento de água elevados (ligações com sistemas externos) ou pontos de abastecimento de fluxo constante.
 
 ---
 

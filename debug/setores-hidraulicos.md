@@ -20,7 +20,7 @@ A ferramenta atribui a cada setor um destes quatro tipos. Estas são as **tags r
 | **nH-Q** | ❌Não | ✅ Sim | **Setor crítico**: nós com demanda mas sem fonte conectada. O EPANET não convergirá. |
 | **nH-nQ** | ❌Não | ❌ Não | Setor passivo: nem fonte nem demanda. Não causa erro na simulação mas está desconectado. |
 
-> **H** = presença de pelo menos um Tanque ou Reservatório no setor.
+> **H** = presença de pelo menos um RNV ou RNF no setor.
 > **Q** = presença de pelo menos um entroncamento com demanda base > 0.
 > **n** = negação (ausência dessa condição).
 
@@ -66,7 +66,7 @@ No primeiro caso, as demandas devem ser atribuídas antes que a simulação seja
 
 ### nH-Q — Crítico (o mais importante para corrigir)
 
-É o único tipo que impede a simulação. Existem nós com demanda que não possuem nenhum caminho para um Tanque ou Reservatório.
+É o único tipo que impede a simulação. Existem nós com demanda que não possuem nenhum caminho para um RNV ou RNF.
 
 **Causas frequentes:**
 - Falta uma conduta que deveria ligar este sector à rede principal.

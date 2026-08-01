@@ -16,7 +16,7 @@ Acima das abas o campo **CRS** está sempre visível, com o sistema de coordenad
 
 ### Elementos básicos e guias Digital Twin
 
-- **Elementos básicos** reúne os 6 elementos base do EPANET (Tubos, Junções, Tanques, Reservatórios, Válvulas, Bombas) mais as camadas complementares Demandas Múltiplas e Fontes.
+- **Elementos básicos** reúne os 6 elementos base do EPANET (Tubos, Junções, RNVs, RNFs, Válvulas, Bombas) mais as camadas complementares Demandas Múltiplas e Fontes.
 - **Digital Twin** reúne as camadas do gêmeo digital: conexões de serviço, válvulas de isolamento e medidores.
 
 Para cada elemento, a linha mostra uma de duas coisas, dependendo se o arquivo existe ou não no disco:

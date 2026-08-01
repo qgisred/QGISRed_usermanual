@@ -19,9 +19,9 @@ Coloque um medidor ou sensor em um tubo clicando no ponto de instalação. O men
 |------|--------------------|---------------------|
 | **Medidor automático** | Adicionar medidor automático | Tipo determinado automaticamente pelo contexto |
 | **Manômetro** | Adicionar manômetro | Pressão (m.c.a.) |
-| **Medidor de vazão** | Adicionar medidor de vazão | Caudal (l/s ou unidade configurada) |
+| **Medidor de vazão** | Adicionar medidor de vazão | Vazão (l/s ou unidade configurada) |
 | **Contador** | Adicionar contador | Volume acumulado (medidor de água) |
-| **Nível do sensor** | Adicionar sensor de nível | Nível de folha livre no tanque |
+| **Nível do sensor** | Adicionar sensor de nível | Nível de folha livre no RNV |
 | **Manômetro diferencial** | Adicionar manômetro diferencial | Diferença de pressão entre dois pontos |
 | **Sensor de qualidade** | Adicionar sensor de qualidade | Concentração de cloro ou outro parâmetro de qualidade |
 | **Sensor de energia** | Adicionar sensor de energia | Potência ou energia consumida (grupos de bombagem) |

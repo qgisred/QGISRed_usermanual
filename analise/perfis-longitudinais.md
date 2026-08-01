@@ -28,7 +28,7 @@ O plugin permite que você mantenha vários docks de perfil abertos ao mesmo tem
 
 1. Ative **Perfil longitudinal** na barra Análise. O encaixe do perfil é aberto na área inferior do QGIS.
 2. O botão **Editar trajetórias** é ativado automaticamente; o cursor muda para o ícone de lápis.
-3. Clique em um nó da rede (Entroncamentos, Tanques, Reservatórios) para definir o primeiro nó de referência.
+3. Clique em um nó da rede (Entroncamentos, RNVs, RNFs) para definir o primeiro nó de referência.
 4. Clique em outro nó: o plugin calcula o **caminho topológico mínimo** entre os dois nós e desenha o perfil.
 5. Cada clique adicional estende o caminho concatenando o caminho do último nó para o novo.
 6. Clicar com o botão direito (sem nó em andamento) finaliza a rota de edição.
@@ -96,7 +96,7 @@ A roda do mouse também amplia centralizando a posição do cursor.
 | Botão | Função |
 |-------|---------|
 | **Etiquetas** | Exibe o valor numérico da variável em cada nó de referência |
-| **Símbolos** | Mostra simbologia dos elementos (nó, tanque, reservatório, bomba, válvula) e setas de direção do fluxo na curva |
+| **Símbolos** | Mostra simbologia dos elementos (nó, RNV, RNF, bomba, válvula) e setas de direção do fluxo na curva |
 | **Envelope** | Abre um submenu para ativar o envelope Mín/Máx da simulação (ver seção [Envelope](#envolvente-minmax)) |
 | **Opções de gráfico** | Abra a caixa de diálogo de personalização do gráfico |
 

@@ -16,14 +16,14 @@ Um controle simples define uma **ação única** que é executada quando uma **c
 ### Estrutura
 
 ```
-IF [elemento] [condición]  THEN [acción]
+IF [elemento] [condição]  THEN [ação]
 ```
 
 ### Tipos de condição
 
 | Tipo | Exemplo de uso |
 |------|---------------|
-| **Nível de depósito** | Se o nível do Tanque T-1 ultrapassar 4,5 m → fechar a bomba BM-1 |
+| **Nível do RNV** | Se o nível do RNV T-1 ultrapassar 4,5 m → fechar a bomba BM-1 |
 | **Pressão do nó** | Se a pressão no J-120 cair abaixo de 10 m → abrir a válvula V-3 |
 | **Tempo de simulação** | Às 6 horas de simulação → ligar a bomba BM-2 |
 | **Relógio** | Às 23h (horário) → fechamento do gasoduto P-55 |
@@ -40,15 +40,15 @@ IF [elemento] [condición]  THEN [acción]
 ### Exemplo completo
 
 ```
-; Arrancar bomba cuando el depósito esté bajo
+; Ligar bomba quando o RNV estiver baixo
 IF TANK T-DEPOSITO1 LEVEL BELOW 1.5
 THEN PUMP BM-ELEVADORA OPEN
 
-; Parar bomba cuando el depósito esté lleno
+; Parar bomba quando o RNV estiver cheio
 IF TANK T-DEPOSITO1 LEVEL ABOVE 4.0
 THEN PUMP BM-ELEVADORA CLOSED
 
-; Encender bomba de refuerzo a hora punta
+; Ligar bomba de reforço no horário de pico
 IF CLOCKTIME 7:00 AM
 THEN PUMP BM-REFUERZO OPEN
 
@@ -66,11 +66,11 @@ As regras permitem combinar **múltiplas condições** com operadores lógicos, 
 
 ```
 RULE [ID]
-IF   [condición 1]
-AND  [condición 2]          (opcional)
-OR   [condición alternativa] (opcional)
-THEN [acción principal]
-ELSE [acción alternativa]   (opcional)
+IF   [condição 1]
+AND  [condição 2]          (opcional)
+OR   [condição alternativa] (opcional)
+THEN [ação principal]
+ELSE [ação alternativa]   (opcional)
 PRIORITY [número]           (opcional)
 ```
 
@@ -118,7 +118,7 @@ A caixa de diálogo QGISRed apresenta as regras em formato de texto editável di
 
 ## Dicas de modelagem
 
-- Para sistema com bomba e tanque, defina sempre **dois controles por bomba**: um para partida (nível baixo) e outro para parada (nível alto). Sem o controlo de paragem, a bomba funciona indefinidamente.
+- Para sistema com bomba e RNV, defina sempre **dois controles por bomba**: um para partida (nível baixo) e outro para parada (nível alto). Sem o controlo de paragem, a bomba funciona indefinidamente.
 - Controles simples são processados ​​**antes** das regras em cada intervalo de tempo. Se você tiver um controle simples e uma regra que atue no mesmo elemento, o resultado pode ser contraditório.
 - A ordem dos controles simples **não importa**; nem o das regras, porque a prioridade as ordena. Mas se duas regras têm a mesma prioridade e condições contraditórias, o resultado é indeterminado.
 - Evite criar loops de controlo (a regra A activa B, a regra B desactiva A no mesmo intervalo de tempo): o EPANET pode não convergir.

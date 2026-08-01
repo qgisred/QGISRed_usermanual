@@ -24,7 +24,7 @@ O painel Estatísticas está organizado em duas guias:
 
 ### Tipo e propriedade do elemento
 
-Selecione o tipo de elemento (Junções, Tubulações, Tanques...) e a propriedade a analisar. O seletor de propriedades exibe em uma **lista unificada** os campos de projeto (Diâmetro, Comprimento, Rugosidade...) e os campos de resultado da simulação (Pressão, Vazão, Velocidade...). Os campos de resultados aparecem com **fundo amarelo/creme** para diferenciá-los visualmente dos campos de design.
+Selecione o tipo de elemento (Junções, Tubulações, RNVs...) e a propriedade a analisar. O seletor de propriedades exibe em uma **lista unificada** os campos de projeto (Diâmetro, Comprimento, Rugosidade...) e os campos de resultado da simulação (Pressão, Vazão, Velocidade...). Os campos de resultados aparecem com **fundo amarelo/creme** para diferenciá-los visualmente dos campos de design.
 
 ### Classificação principal
 
@@ -166,7 +166,7 @@ Disponível apenas se os resultados forem carregados:
 | Campo | Descrição |
 |-------|-------------|
 | `Status` | Estado em simulação |
-| `Flow` | Caudal (l/s) |
+| `Flow` | Vazão (l/s) |
 | `Velocity` | Velocidade (m/s) |
 | `HeadLoss` | Perda de carga (m) |
 | `UnitHdLoss` | Perda unitária (m/km) |

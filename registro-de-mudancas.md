@@ -11,7 +11,7 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 * Rótulos de mapa aprimorados: mostram o tipo e ID do item na primeira linha e o valor com unidades na segunda.
 * Dicas de ferramentas do mapa visíveis em todas as camadas ativas gerenciadas pelo QGISRed, independentemente da camada selecionada na legenda.
 * Evolução rápida do tempo diretamente do dock Resultados, sem a necessidade de abrir o painel Séries Temporais.
-* Melhorias no painel Séries Temporais: novas magnitudes de tanques (Volume e TankSpill), cursor sincronizado com a tabela de valores, cópia da tabela com cabeçalho duplo (nome e unidade), exportação e importação da configuração do gráfico e suporte para múltiplas janelas simultâneas.
+* Melhorias no painel Séries Temporais: novas magnitudes de RNVs (Volume e TankSpill), cursor sincronizado com a tabela de valores, cópia da tabela com cabeçalho duplo (nome e unidade), exportação e importação da configuração do gráfico e suporte para múltiplas janelas simultâneas.
 * Caixa de diálogo de progresso da simulação com opção de não ser mostrada novamente (configurável nas Propriedades do Projeto).
 * Melhor tratamento de erros de simulação: o relatório EPANET é exibido automaticamente no log quando ocorre um erro e os erros não tratados são registrados em vez de falharem silenciosamente.
 * Aviso específico quando os arquivos de resultados são bloqueados por outro aplicativo.

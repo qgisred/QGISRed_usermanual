@@ -39,7 +39,7 @@ Aqui você pode verificar o histórico detalhado de alterações das versões an
 **Correções**:
 * Corrigida a leitura e edição da curva Id nas válvulas GPV.
 * Corrigido erro ao atribuir valores padrão na importação de coeficientes de reação.
-* Corrigido erro e mensagem na leitura de fontes poluidoras em tanques e reservatórios.
+* Corrigido erro e mensagem na leitura de fontes poluidoras em RNVs e RNFs.
 * Corrigido problema com ferramentas de seleção específicas.
 * Corrigido erro na criação em massa de conexões T.
 * Corrigidos erros na seleção múltipla e de polígonos com diferentes CRS.
@@ -58,7 +58,7 @@ Aqui você pode verificar o histórico detalhado de alterações das versões an
 * Atribuição de demandas aos nós com base em setores de demanda e demandas específicas, com diversas opções.
 * Melhorias na janela de edição de propriedades (seleção múltipla, elementos conectados, elementos visitados, elemento centralizado selecionado).
 * Revisão e ampliação de opções de análises (hidráulica, qualidade, tempos e energia).
-* Incorporação dos novos parâmetros Epanet 2.2 às formas (transbordamento de tanque, demandas dependentes de pressão).
+* Incorporação dos novos parâmetros Epanet 2.2 às formas (transbordamento de RNV, demandas dependentes de pressão).
 * Botões/menus da barra de ferramentas principal em destaque.
 * O idioma padrão e único é o inglês (por enquanto).
 * Melhor edição de regras (com horários e horários).
@@ -157,7 +157,7 @@ Aqui você pode verificar o histórico detalhado de alterações das versões an
 
 **Recursos**:
 * Novo logotipo QGISRed.
-* Criação ágil de tubulações, tanques e reservatórios com ancoragem.
+* Criação ágil de tubulações, RNVs e RNFs com ancoragem.
 * Edição de caminho (mover, criar, excluir vértices).
 * Inversão de orientação de linha.
 * Ferramentas para dividir/unir tubos e nós.

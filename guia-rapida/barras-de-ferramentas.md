@@ -44,8 +44,8 @@ Ferramentas para desenhar e modificar a topologia da rede diretamente no mapa.
 | Ferramenta | O que isso faz |
 |-------------|----------|
 | **Adicionar tubo** | Desenhe um cano; cria automaticamente nós extremos |
-| **Adicionar depósito** | Converter um nó existente em um Tank |
-| **Adicionar reservatório** | Converte um nó existente em um reservatório (Reservatório) |
+| **Adicionar RNV** | Converte um nó existente em RNV (Tank) |
+| **Adicionar RNF** | Converte um nó existente em RNF (Reservoir) |
 | **Inserir válvula** | Divida um tubo e insira uma válvula |
 | **Inserir bomba** | Divida um tubo e insira uma bomba |
 | **Selecionar elementos** | Seleção múltipla de nós e linhas |

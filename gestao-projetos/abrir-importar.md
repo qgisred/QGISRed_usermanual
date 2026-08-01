@@ -57,7 +57,7 @@ O caso mais comum: você possui um modelo EPANET existente e deseja trabalhar co
 > ⚠️ As coordenadas de `.inp` devem estar no mesmo CRS que você usará no QGISRed. O plugin não reprojeta durante a importação.
 
 **O que é importado:**
-- Todos os elementos da rede (junções, tubagens, tanques, reservatórios, válvulas, bombas)
+- Todos os elementos da rede (junções, tubagens, RNVs, RNFs, válvulas, bombas)
 - Curvas (H-Q, eficiência, volume, perda de pressão)
 - Padrões de procura
 - Controles e regras simples
@@ -75,7 +75,7 @@ Para cada tipo de elemento você pode selecionar a camada SHP correspondente e a
 
 **Serviços** — campos mapeáveis: ID, Comprimento, Diâmetro, Rugosidade, **Material**, Demanda base, Padrão, Ativo, Data de instalação, Tag, Descrição.
 
-Os demais elementos (válvulas, bombas, tanques, reservatórios, nós, válvulas de isolamento, medidores) possuem seus próprios conjuntos de campos mapeáveis.
+Os demais elementos (válvulas, bombas, RNVs, RNFs, nós, válvulas de isolamento, medidores) possuem seus próprios conjuntos de campos mapeáveis.
 
 Quando a importação cria um novo projeto, também são solicitados o **catálogo de materiais** (igual ao criar um projeto do zero) e os parâmetros básicos do EPANET (unidades e fórmula de queda de pressão). Se importados sobre um projeto existente, esses parâmetros serão ignorados.
 

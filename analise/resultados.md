@@ -144,7 +144,7 @@ O dock oferece suporte a vários cenários de resultados. Cada cenário é ident
 
 ### Propriedades disponíveis
 
-**Nós** (Junções, Tanques, Reservatórios):
+**Nós** (Junções, RNVs, RNFs):
 
 | Propriedade | Descrição |
 |-----------|-------------|
@@ -157,7 +157,7 @@ O dock oferece suporte a vários cenários de resultados. Cada cenário é ident
 
 | Propriedade | Descrição |
 |-----------|-------------|
-| `Flow` | Caudal (com sinal ou sem sinal) |
+| `Flow` | Vazão (com sinal ou sem sinal) |
 | `Velocity` | Velocidade em m/s |
 | `HeadLoss` | Perda de carga em m |
 | `UnitHdLoss` | Perda unitária em m/km |
@@ -182,7 +182,7 @@ Ativa uma ferramenta de seleção interativa que traça a evolução temporal de
 ### Processo
 
 1. Ative **Série temporal** (botão verificável). O painel Série temporal é aberto na parte inferior da tela.
-2. Clique em qualquer elemento do mapa (nó, tubulação, válvula, bomba, tanque, reservatório).
+2. Clique em qualquer elemento do mapa (nó, tubulação, válvula, bomba, RNV, RNF).
 3. O painel desenha a curva de tempo da propriedade ativa no encaixe Resultados para esse elemento.
 4. O item fica destacado em azul no mapa.
 
@@ -197,14 +197,14 @@ Ativa uma ferramenta de seleção interativa que traça a evolução temporal de
 - Por padrão, a propriedade ativa é representada na doca Resultados para o tipo de elemento clicado.
 - **Clique com o botão direito** em um elemento: abre um menu de contexto para escolher quaisquer outras propriedades disponíveis para esse elemento sem alterar a visualização de encaixe Resultados.
 
-### Propriedades adicionais para buckets
+### Propriedades adicionais para RNVs
 
-Para o tipo de elemento **Tank**, duas quantidades adicionais estão disponíveis:
+Para o tipo de elemento **Tank** (RNV — Reservatório de Nível Variável), duas quantidades adicionais estão disponíveis:
 
 | Magnitude | Descrição |
 |----------|-------------|
 | **Volume** | Volume armazenado em m³ (ou ft³ dependendo das unidades do projeto), calculado a partir dos binários de saída do EPANET. |
-| **TankSpill** | Fluxo de transbordamento. Só é diferente de zero se o tanque tiver a opção de overflow do EPANET habilitada. |
+| **TankSpill** | Fluxo de transbordamento. Só é diferente de zero se o RNV tiver a opção de overflow do EPANET habilitada. |
 
 ### Variáveis ​​globais de rede
 
@@ -212,11 +212,11 @@ Além de elementos individuais, o painel Série temporal permite adicionar **sé
 
 | Variável global | Descrição |
 |-----------------|-------------|
-| **TotalWaterSupply** | Vazão total fornecida por todos os reservatórios e fontes da rede. |
+| **TotalWaterSupply** | Vazão total fornecida por todos os RNFs e fontes da rede. |
 | **TotalWaterDemand** | Demanda total consumida por todos os nós da rede. |
-| **AverageNodePressure** | Pressão média de todos os nós (excluindo tanques e reservatórios). |
-| **TotalStoredVolume** | Volume total armazenado somando todos os tanques da rede. |
-| **TotalTankSpill** | Vazão total somando todos os tanques da rede. |
+| **AverageNodePressure** | Pressão média de todos os nós (excluindo RNVs e RNFs). |
+| **TotalStoredVolume** | Volume total armazenado somando todos os RNVs da rede. |
+| **TotalTankSpill** | Vazão total somando todos os RNVs da rede. |
 
 ### Configuração da curva
 

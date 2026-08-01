@@ -14,7 +14,7 @@ Gera uma setorização da rede com base na presença de **medidores de vazão** 
 
 | | Setores hidráulicos (barra de depuração) | Setores de demanda (Barra Tools) |
 |-|-------------------------------------|-----------------------------------|
-| **Base** | Presença de Tanque ou Reservatório | Presença de medidores de vazão |
+| **Base** | Presença de RNV ou RNF | Presença de medidores de vazão |
 | **Pergunta** | De onde vem a água? | O que cada medidor de vazão mede? |
 | **Classificação** | H-Q / H-nQ / nH-Q / nH-nQ | Nenhum tipo, apenas colorido por setor |
 | **Usar** | Diagnóstico antes da simulação | Balanço hídrico por setor |
@@ -50,4 +50,4 @@ A árvore resultante mostra qual caminho a água seguiria a partir do nó fonte 
 
 ### ID do nó raiz
 
-Na camada de nós gerada pela árvore, o nó de origem (raiz) é identificado com o valor **"ROOT"** no campo `NodeType`. Os restantes nós têm o seu tipo EPANET habitual (Junção, Tanque, Reservatório...). Isto permite criar regras de simbologia específicas para o nó raiz diretamente no QGIS.
+Na camada de nós gerada pela árvore, o nó de origem (raiz) é identificado com o valor **"ROOT"** no campo `NodeType`. Os restantes nós têm o seu tipo EPANET habitual (Junção, RNV, RNF...). Isto permite criar regras de simbologia específicas para o nó raiz diretamente no QGIS.

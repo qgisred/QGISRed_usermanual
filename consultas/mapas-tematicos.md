@@ -11,7 +11,7 @@ Abre a caixa de diálogo **Mapas Temáticos**, que gera uma representação visu
 
 ## Elemento ativo: pipes
 
-Na versão atual, **Mapas Temáticos funciona exclusivamente na camada Tubulações**. Opções para outros tipos de elementos (nós, válvulas, bombas, tanques, reservatórios) estão presentes na interface, mas ficam automaticamente ocultados porque ainda não estão implementados. Quando disponível, a caixa de diálogo exibirá um seletor de tipo de elemento.
+Na versão atual, **Mapas Temáticos funciona exclusivamente na camada Tubulações**. Opções para outros tipos de elementos (nós, válvulas, bombas, RNVs, RNFs) estão presentes na interface, mas ficam automaticamente ocultados porque ainda não estão implementados. Quando disponível, a caixa de diálogo exibirá um seletor de tipo de elemento.
 
 ---
 
@@ -43,7 +43,7 @@ Disponível somente se houver resultados carregados no projeto:
 
 | Campo | Descrição |
 |-------|-------------|
-| `Flow` | Caudal (l/s ou unidade configurada) |
+| `Flow` | Vazão (l/s ou unidade configurada) |
 | `Velocity` | Velocidade (m/s) |
 | `HeadLoss` | Perda de carga (m) |
 | `UnitHdLoss` | Perda unitária (m/km) |

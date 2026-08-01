@@ -16,8 +16,8 @@ A barra **Edição** contém todas as ferramentas para construir e editar a rede
 | # | Ferramenta | Função |
 |---|-------------|---------|
 | 1 | **Adicionar tubo** | Desenhe tubos clicando no mapa; cria nós automaticamente nas pontas |
-| 2 | **Adicionar tanque** | Coloque um tanque em um nó existente |
-| 3 | **Adicionar reservatório** | Colocar um reservatório ou ponto de alimentação (reservatório) num nó existente |
+| 2 | **Adicionar RNV** | Coloque um RNV (Tank) em um nó existente |
+| 3 | **Adicionar RNF** | Coloque um RNF ou ponto de alimentação (Reservoir) em um nó existente |
 | 4 | **Insira a válvula no tubo** | Insira uma válvula em um tubo existente, dividindo-o |
 | 5 | **Insira a bomba no tubo** | Insira uma bomba em um tubo existente, dividindo-o |
 
@@ -42,14 +42,14 @@ A barra **Edição** contém todas as ferramentas para construir e editar a rede
 | # | Ferramenta | Função |
 |---|-------------|---------|
 | 17 | **Editar propriedades do elemento…** | Abre a caixa de diálogo de propriedades do elemento clicado |
-| 18 | **Editar padrões e curvas…** | Editor de padrão e curva de demanda de bomba/reservatório |
+| 18 | **Editar padrões e curvas…** | Editor de padrões de demanda e curvas de bombas/RNVs |
 | 19 | **Editar controles…** | Editor de controles simples e regras de operação |
 
 ---
 
 ## Nesta seção
 
-* [Criação de elementos](criacao.md) — tubulações, tanques, reservatórios, válvulas, bombas
+* [Criação de elementos](criacao.md) — tubulações, RNVs, RNFs, válvulas, bombas
 * [Manipulação geométrica e topológica](manipulacao.md) — mover, dividir, reverter, cruzar, excluir
 * [Propriedades do elemento](propriedades.md) — caixa de diálogo de edição com navegador integrado
 * [Padrões e curvas](curvas.md) — padrões de demanda, curvas H-Q, eficiência e volume

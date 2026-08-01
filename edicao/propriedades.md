@@ -12,7 +12,7 @@ A caixa de diálogo de propriedades é a ferramenta central para visualizar e ed
 ## Como abrir a caixa de diálogo
 
 1. Ative a ferramenta pressionando o botão **Editar propriedades do elemento…** (ícone de lápis/editar).
-2. Clique em qualquer elemento da rede no mapa: tubulação, nó, válvula, bomba, tanque ou reservatório.
+2. Clique em qualquer elemento da rede no mapa: tubulação, nó, válvula, bomba, RNV ou RNF.
 3. A caixa de diálogo é aberta mostrando todos os atributos do elemento selecionado.
 
 > A ferramenta permanece ativa enquanto o botão for pressionado. Você pode clicar em diferentes elementos sem ativá-los novamente.
@@ -59,16 +59,16 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 
 ---
 
-## Campos de tanques
+## Campos do RNV (Reservatório de Nível Variável)
 
 | Campo | Descrição |
 |-------|-------------|
 | **ID** | Identificador único |
-| **Elevation** | Nível inferior do tanque |
+| **Elevation** | Nível inferior do RNV |
 | **InitLevel** | Nível inicial de água no fundo |
 | **MinLevel** | Nível operacional mínimo |
 | **MaxLevel** | Nível operacional máximo |
-| **Diameter** | Diâmetro do tanque (0 se utilizar curva de volume) |
+| **Diameter** | Diâmetro do RNV (0 se utilizar curva de volume) |
 | **MinVol** | Volume mínimo (m³) |
 | **VolCurve** | ID da curva de volume (para geometria não cilíndrica) |
 | **MixModel** | Modelo de mixagem: MIXED, 2COMP, FIFO, LIFO |
@@ -76,7 +76,7 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 
 ---
 
-## Campos de reservatório
+## Campos do RNF (Reservatório de Nível Fixo)
 
 | Campo | Descrição |
 |-------|-------------|
@@ -93,7 +93,7 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 | **ID** | Identificador único |
 | **Diameter** | Diâmetro (mm ou polegadas) |
 | **Valve Type** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
-| **Setting** | Ponto de regulação de regulação (pressão, caudal ou perda de pressão dependendo do tipo) |
+| **Setting** | Ponto de ajuste de regulação (pressão, vazão ou perda de carga dependendo do tipo) |
 | **MinorLoss** | Coeficiente de perda menor |
 | **InitStatus** | Estado inicial: Aberto, Fechado, Ativo |
 

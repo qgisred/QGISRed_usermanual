@@ -13,7 +13,7 @@ Abre o painel **Consultas por Propriedades**, ferramenta de filtragem que destac
 
 O painel tem uma cor de identificação **roxo** (`#7B1FA2`) em seu cabeçalho para distingui-lo do resto dos painéis QGISRed. Contém:
 
-- **Seletor de tipo de elemento**: Tubulações, Junções, Tanques, Reservatórios, Bombas, Válvulas
+- **Seletor de tipo de elemento**: Tubulações, Junções, RNVs, RNFs, Bombas, Válvulas
 - **Área de condições**: uma ou mais linhas com campo, operador e valor
 - **Botão Executar**: aplica a consulta e destaca o resultado
 - **Botão Limpar**: remove o destaque do mapa

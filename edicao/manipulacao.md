@@ -20,7 +20,7 @@ A seleção é usada como **entrada** para outras ferramentas: Reverter elemento
 
 **Barra de edição → Mover nós**
 
-Move um ou mais nós (Junções, Tanques, Reservatórios) arrastando consigo **todos os elementos lineares conectados** (tubos, válvulas, bombas). A rede permanece conectada após o movimento.
+Move um ou mais nós (Junções, RNVs, RNFs) arrastando consigo **todos os elementos lineares conectados** (tubos, válvulas, bombas). A rede permanece conectada após o movimento.
 
 <figure><img src="../assets/images/edicion/move-nodes.png" alt="Mova um nó e seus tubos conectados no mapa"><figcaption><p>Mova um nó e seus tubos conectados no mapa</p></figcaption></figure>
 *Quando você arrasta um nó, todos os tubos conectados seguem o movimento.*
@@ -174,6 +174,6 @@ Exclua um ou mais elementos do projeto. Funciona de duas maneiras:
 | Excluir um canal | O tubo é removido. Os nós finais permanecem se tiverem outras conexões; Eles são eliminados se ficarem isolados. |
 | Remover um nó com tubos conectados | Todos os tubos conectados também são removidos. |
 | Remova uma válvula ou bomba | As duas seções do tubo em que foi dividido são automaticamente mescladas em uma só. |
-| Excluir um tanque ou reservatório | O elemento é convertido em Junção ou removido se não tiver conexões. |
+| Excluir um RNV ou RNF | O elemento é convertido em Junção ou removido se não tiver conexões. |
 
 > A exclusão não pode ser desfeita com `Ctrl+Z`. QGISRed salva automaticamente o estado anterior do projeto na pasta temporária antes de executar a operação, mas a única maneira de recuperar os dados excluídos é usar um **backup** anterior.

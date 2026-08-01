@@ -113,7 +113,7 @@ Exporte e importe parâmetros do modelo em massa, criando “instantâneos” do
 | **InitStatus** | Estados abertos/fechados de tubos e válvulas |
 | **Demands** | Demandas básicas de todos os nós |
 | **InitQuality** | Qualidades iniciais de nós e tubulações |
-| **Elevations** | Níveis de nós, tanques e reservatórios |
+| **Elevations** | Níveis de nós, RNVs e RNFs |
 
 ### Fluxo de trabalho típico
 

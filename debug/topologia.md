@@ -101,7 +101,7 @@ Usa a tolerância de nó configurada em **Barra de Projeto → Valores Padrão**
 
 **Barra de depuração → Verifique a conectividade** *(com a subopção Excluir subzonas isoladas)*
 
-Analisa a conectividade de toda a rede desde as fontes de abastecimento (reservatórios e tanques). Identifique quais tubos e nós **não estão conectados** a nenhuma fonte.
+Analisa a conectividade de toda a rede desde as fontes de abastecimento (RNFs e RNVs). Identifique quais tubos e nós **não estão conectados** a nenhuma fonte.
 
 <figure><img src="../assets/images/debug/check-connectivity.png" alt="Verifique o resultado da conectividade: áreas isoladas coloridas em vermelho no mapa"><figcaption><p>Verifique o resultado da conectividade: áreas isoladas coloridas em vermelho no mapa</p></figcaption></figure>
 *Áreas isoladas identificadas: em vermelho os elementos sem ligação com nenhuma fonte.*

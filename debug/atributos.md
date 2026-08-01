@@ -86,7 +86,7 @@ Verifica o campo das tubulações `InstallYear`, que armazena o ano de instalaç
 A data de instalação, combinada com o material, permite calcular a **rugosidade atual** de cada tubo usando a fórmula de envelhecimento:
 
 ```
-Rugosidad = Rugosidad_inicial + (Año_actual − InstallYear) × Incremento_anual
+Rugosidade = Rugosidade_inicial + (Ano_atual − InstallYear) × Aumento_anual
 ```
 
 Se a data estiver incorreta, a rugosidade calculada estará errada e a simulação hidráulica produzirá resultados distantes da realidade.
