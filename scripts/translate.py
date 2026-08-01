@@ -464,12 +464,19 @@ def get_all_md_files(source_dir: Path) -> list:
     )
 
 
+_DIFF_SKIP = {".git", "book", "scripts"}
+
+
 def get_diff_files(old_ref: str, new_ref: str, repo_dir: Path) -> list:
     r = subprocess.run(
         ["git", "diff", "--name-only", f"{old_ref}..{new_ref}", "--", "*.md"],
         capture_output=True, text=True, cwd=repo_dir,
     )
-    return [repo_dir / p for p in r.stdout.splitlines() if p.endswith(".md")]
+    return [
+        repo_dir / p
+        for p in r.stdout.splitlines()
+        if p.endswith(".md") and not any(part in _DIFF_SKIP for part in Path(p).parts)
+    ]
 
 
 def get_files_since(since_hash: str, repo_dir: Path) -> list:
@@ -477,7 +484,11 @@ def get_files_since(since_hash: str, repo_dir: Path) -> list:
         ["git", "diff", "--name-only", f"{since_hash}..HEAD", "--", "*.md"],
         capture_output=True, text=True, cwd=repo_dir,
     )
-    return [repo_dir / p for p in r.stdout.splitlines() if p.endswith(".md")]
+    return [
+        repo_dir / p
+        for p in r.stdout.splitlines()
+        if p.endswith(".md") and not any(part in _DIFF_SKIP for part in Path(p).parts)
+    ]
 
 
 def get_head_hash(repo_dir: Path) -> str:
