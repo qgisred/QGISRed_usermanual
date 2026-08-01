@@ -25,10 +25,10 @@ A barra **Projeto** agrupa as ferramentas de administração do projeto que já 
 | 8 | **Salvar mapa** | Salve o arquivo QGIS `.qgz` |
 | 9 | **Fechar projeto** | Feche o projeto e limpe a sessão QGIS |
 
-> 💡 O antigo botão **Backup** (_Backup do projeto_) foi removido desta barra sem substituição direta. Para exportar o projeto para um ZIP portátil, use o botão **Exportar** em [Gestor de projeto](../gestao-projetos/gestor-proyectos.md) — veja [Salvar, exportar e fechar projeto](guardar-backup.md).
+> 💡 O antigo botão **Backup** (_Backup do projeto_) foi removido desta barra sem substituição direta. Para exportar o projeto para um ZIP portátil, use o botão **Exportar** em [Gestor de projeto](../gestao-projetos/gestor-projetos.md) — veja [Salvar, exportar e fechar projeto](salvar-exportar-fechar.md).
 
 ## Nesta seção
 
-* [Visão geral e gerenciamento de camadas](capas-y-leyenda.md) — visibilidade, recuperação e legenda da camada
-* [Configurações do Projeto](configuracion.md) — Opções do EPANET, valores padrão, materiais
-* [Salvar, exportar e fechar projeto](guardar-backup.md) — salve o mapa, exporte para ZIP e feche
+* [Visão geral e gerenciamento de camadas](camadas-e-legenda.md) — visibilidade, recuperação e legenda da camada
+* [Configurações do Projeto](configuracao-do-projeto.md) — Opções do EPANET, valores padrão, materiais
+* [Salvar, exportar e fechar projeto](salvar-exportar-fechar.md) — salve o mapa, exporte para ZIP e feche

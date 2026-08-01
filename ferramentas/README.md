@@ -37,6 +37,6 @@ A barra **Ferramentas** agrupa as massivas ferramentas de processamento: cálcul
 
 ## Nesta seção
 
-* [Propriedades hidráulicas](propiedades-hidraulicas.md) — comprimentos, elevações, rugosidade de envelhecimento e conversão entre fórmulas
-* [Demandas e cenários](demandas-escenarios.md) — atribuição massiva de demandas, gestão de cenários e segmentos isolados
-* [Setores de demanda e árvore](sectores-arbol.md) — setorização por medidores de vazão e árvore de custo mínimo
+* [Propriedades hidráulicas](propriedades-hidraulicas.md) — comprimentos, elevações, rugosidade de envelhecimento e conversão entre fórmulas
+* [Demandas e cenários](demandas-e-cenarios.md) — atribuição massiva de demandas, gestão de cenários e segmentos isolados
+* [Setores de demanda e árvore](setores-arvore.md) — setorização por medidores de vazão e árvore de custo mínimo

@@ -49,8 +49,8 @@ A barra **Edição** contém todas as ferramentas para construir e editar a rede
 
 ## Nesta seção
 
-* [Criação de elementos](creacion.md) — tubulações, tanques, reservatórios, válvulas, bombas
-* [Manipulação geométrica e topológica](manipulacion.md) — mover, dividir, reverter, cruzar, excluir
-* [Propriedades do elemento](propiedades.md) — caixa de diálogo de edição com navegador integrado
+* [Criação de elementos](criacao.md) — tubulações, tanques, reservatórios, válvulas, bombas
+* [Manipulação geométrica e topológica](manipulacao.md) — mover, dividir, reverter, cruzar, excluir
+* [Propriedades do elemento](propriedades.md) — caixa de diálogo de edição com navegador integrado
 * [Padrões e curvas](curvas.md) — padrões de demanda, curvas H-Q, eficiência e volume
 * [Controles e regras](controles.md) — controles simples e regras operacionais automáticas

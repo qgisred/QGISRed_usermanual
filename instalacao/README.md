@@ -19,6 +19,6 @@ QGISRed é um plugin gratuito para QGIS que pode ser instalado em apenas alguns 
 ## Nesta seção
 
 * [Requisitos do sistema](requisitos.md) — compatibilidade e detalhes de pré-verificação
-* [Instalação do repositório](desde-repositorio.md) — método recomendado, com atualizações automáticas
-* [Instalação a partir de ZIP local](desde-archivo-local.md) — para versões específicas ou sem acesso ao repositório
+* [Instalação do repositório](a-partir-de-repositorio.md) — método recomendado, com atualizações automáticas
+* [Instalação a partir de ZIP local](a-partir-de-arquivo-local.md) — para versões específicas ou sem acesso ao repositório
 * [Gerenciamento de dependências](dependencias.md) — o que são dependências e como são instaladas

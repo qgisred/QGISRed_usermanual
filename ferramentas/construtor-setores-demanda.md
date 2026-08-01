@@ -98,7 +98,7 @@ As camadas para cada setorização são criadas dentro do grupo **Camadas Auxili
 
 ### Uso no Construtor de Demanda Nodal
 
-Uma setorização gerada com o Demand Sector Builder pode ser selecionada no Nodal Demand Builder através da opção **"Usar tema de setores do projeto"**, evitando a necessidade de importação de uma PCH externa. Veja [Demandas e cenários](demandas-escenarios.md) para mais detalhes.
+Uma setorização gerada com o Demand Sector Builder pode ser selecionada no Nodal Demand Builder através da opção **"Usar tema de setores do projeto"**, evitando a necessidade de importação de uma PCH externa. Veja [Demandas e cenários](demandas-e-cenarios.md) para mais detalhes.
 
 ---
 

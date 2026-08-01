@@ -38,4 +38,4 @@ QGISRed não funciona com o arquivo QGIS `.qgz` como fonte da verdade: a fonte d
 
 ---
 
-Confira [Resumo da barra de ferramentas](toolbars.md) para ver o que cada ferramenta faz ou vá direto para [Fluxo de trabalho típico](flujo-de-trabajo.md) se quiser começar o mais rápido possível.
+Confira [Resumo da barra de ferramentas](barras-de-ferramentas.md) para ver o que cada ferramenta faz ou vá direto para [Fluxo de trabalho típico](fluxo-de-trabalho.md) se quiser começar o mais rápido possível.

@@ -30,6 +30,6 @@ RedUrbana/
 
 ## Nesta seção
 
-* [Gestor de projeto](gestor-proyectos.md) — histórico, clonar, renomear, excluir
-* [Criar projeto](crear-proyecto.md) — novo projeto do zero
+* [Gestor de projeto](gestor-projetos.md) — histórico, clonar, renomear, excluir
+* [Criar projeto](criar-projeto.md) — novo projeto do zero
 * [Abrir e importar](abrir-importar.md) — abra existente ou importe de `.inp`

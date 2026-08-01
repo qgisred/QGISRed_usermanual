@@ -30,7 +30,7 @@ Se já existir um `.qgz`, ele o substitui diretamente (equivalente a `Ctrl+S` no
 
 **Gerente de Projeto → Exportar**
 
-> ⚠️ Este botão **não está mais** na barra **Projeto**: o antigo botão _Backup do projeto_ foi removido e não tem substituto nessa barra. A exportação agora é feita a partir de [Gestor de projeto](../gestao-projetos/gestor-proyectos.md) — selecione o projeto na lista (não é necessário mantê-lo aberto) e pressione **Exportar**.
+> ⚠️ Este botão **não está mais** na barra **Projeto**: o antigo botão _Backup do projeto_ foi removido e não tem substituto nessa barra. A exportação agora é feita a partir de [Gestor de projeto](../gestao-projetos/gestor-projetos.md) — selecione o projeto na lista (não é necessário mantê-lo aberto) e pressione **Exportar**.
 
 Gera um arquivo ZIP portátil com o projeto: o SHP/DBF da rede, o mapa QGIS (`.qgz`) se existir, e opcionalmente os grupos de conteúdo e dados complementares (cartografia de fundo, MDT, ortofotos...) que esse `.qgz` referencia.
 

@@ -35,5 +35,5 @@ O barramento **Digital Twin** agrega ao modelo hidráulico os elementos de infra
 
 ## Nesta seção
 
-* [Conexões e Válvulas de Corte](acometidas.md) — desenho de ligações, válvulas de corte e conversão para modelo hidráulico
+* [Conexões e Válvulas de Corte](ramais.md) — desenho de ligações, válvulas de corte e conversão para modelo hidráulico
 * [Sensores e Medidores](sensores.md) — tipos de medidores, leituras de carregamento e dados de campo

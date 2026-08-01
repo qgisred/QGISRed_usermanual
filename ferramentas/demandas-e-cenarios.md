@@ -56,7 +56,7 @@ O Builder aplica automaticamente o fator a todos os valores de consumo antes de 
 
 A camada resultante é exibida com cores por categoria e rótulos com o valor da demanda. Os nós sem categoria atribuída aparecem em laranja no grupo **Sem categoria**.
 
-> 💡 As camadas auxiliares do Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) também podem ser criadas vazias a partir do Layer Manager, sem a necessidade de primeiro executar uma análise (ver [Visão geral e gerenciamento de camadas](../projeto-ativo/capas-y-leyenda.md)).
+> 💡 As camadas auxiliares do Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) também podem ser criadas vazias a partir do Layer Manager, sem a necessidade de primeiro executar uma análise (ver [Visão geral e gerenciamento de camadas](../projeto-ativo/camadas-e-legenda.md)).
 
 ### Limpeza de ações judiciais
 

@@ -42,4 +42,4 @@ A barra **Debug** agrupa as ferramentas de verificação e depuração do modelo
 
 * [Topologia e conectividade](topologia.md) — commit, sobreposição, simplificação, junção, conexões T, conectividade
 * [Verificação de atributos](atributos.md) — comprimentos, diâmetros, materiais, datas de instalação
-* [Setores hidráulicos](sectores.md) — classificação dos setores tipo A, B, C e D
+* [Setores hidráulicos](setores-hidraulicos.md) — classificação dos setores tipo A, B, C e D

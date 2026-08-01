@@ -70,7 +70,7 @@ Para excluir um tema, selecione sua linha e pressione **Excluir Tema Auxiliar**;
 
 > 💡 As camadas que você deixa marcadas nesta tabela são lembradas ao fechar e reabrir o projeto — inclusive projetos que não salvam um `.qgz` — assim como o restante das camadas do projeto.
 
-> Para saber como essas camadas são utilizadas dentro do Nodal Demand Builder (importar pontos de consumo, gerar links de demanda, agregar por setores...), veja [Demandas e cenários](../ferramentas/demandas-escenarios.md).
+> Para saber como essas camadas são utilizadas dentro do Nodal Demand Builder (importar pontos de consumo, gerar links de demanda, agregar por setores...), veja [Demandas e cenários](../ferramentas/demandas-e-cenarios.md).
 
 ### Resumo do modelo (Resumo)
 

@@ -27,6 +27,6 @@ A barra **Análise** agrupa as ferramentas de simulação hidráulica, visualiza
 
 ## Nesta seção
 
-* [Execução e Opções](ejecucion.md) — simulação, opções de motor e acesso ao relatório de status
+* [Execução e Opções](execucao.md) — simulação, opções de motor e acesso ao relatório de status
 * [Visualizador de resultados](resultados.md) — painel de resultados, navegação temporal e séries temporais
-* [Exportação de modelo](exportacion.md) — exportação para INP e CSV dos resultados
+* [Exportação de modelo](exportacao.md) — exportação para INP e CSV dos resultados

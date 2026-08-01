@@ -32,7 +32,7 @@ Abre um projeto QGISRed existente (criado anteriormente com o plugin) que não a
 - As opções do projeto (`_Options.dbf`) são lidas e o indicador de unidades na barra principal é atualizado.
 - Se os estilos visuais (QML) foram alterados em relação à versão do plugin com o qual foi salvo, eles são atualizados automaticamente.
 
-> 💡 A maneira mais rápida de abrir um projeto conhecido é **clicar duas vezes** em [Gestor de projeto](gestor-proyectos.md). A opção “Abrir Projeto” é para projetos que não aparecem nessa lista.
+> 💡 A maneira mais rápida de abrir um projeto conhecido é **clicar duas vezes** em [Gestor de projeto](gestor-projetos.md). A opção “Abrir Projeto” é para projetos que não aparecem nessa lista.
 
 ---
 
@@ -83,7 +83,7 @@ Quando a importação cria um novo projeto, também são solicitados o **catálo
 
 ### Importe um projeto QGISRed exportado (ZIP) {#import-zip}
 
-Recupera um projeto empacotado com o botão **Exportar** de [Gestor de projeto](gestor-proyectos.md) — veja [Salvar, exportar e fechar projeto](../projeto-ativo/guardar-backup.md). Também reconhece ZIPs gerados por versões anteriores do plugin, mesmo que não possuam o manifesto interno das exportações atuais.
+Recupera um projeto empacotado com o botão **Exportar** de [Gestor de projeto](gestor-projetos.md) — veja [Salvar, exportar e fechar projeto](../projeto-ativo/salvar-exportar-fechar.md). Também reconhece ZIPs gerados por versões anteriores do plugin, mesmo que não possuam o manifesto interno das exportações atuais.
 
 <!-- TODO: captura pendente — guia "Projeto QGISRed" da caixa de diálogo de importação -->
 

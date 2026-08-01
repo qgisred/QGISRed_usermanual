@@ -129,7 +129,7 @@ Insira uma bomba em um tubo existente, dividindo-o exatamente da mesma forma que
 |-----------|-------------|
 | **Curva** | ID da curva H-Q (obrigatório para simular) |
 | **Velocidade** | Fator de velocidade inicial (1,0 = velocidade nominal) |
-| **Padrão** | Padrão de variação de velocidade |
-| **Poder** | Potência constante (alternativa à curva H-Q) |
+| **Pattern** | Padrão de variação de velocidade |
+| **Power** | Potência constante (alternativa à curva H-Q) |
 
 > Se a bomba exigir uma curva de eficiência para cálculo de energia, defina-a no **Editor de padrões e curvas** e faça referência a ela nas propriedades da bomba.
