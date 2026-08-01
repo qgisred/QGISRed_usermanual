@@ -52,7 +52,7 @@ O QGISRed monitora em segundo plano (verificando a cada 5 segundos) as camadas d
 
 A aba **Camadas auxiliares** contém o grupo **Demand Builder**, de onde são criadas e gerenciadas as camadas de trabalho vazias utilizadas pela ferramenta de atribuição de demandas aos nós (Nodal Demand Builder): **Pontos de Consumo**, **Links de Demanda** e **Setores**.
 
-<!-- TODO: captura pendente — Aba de camadas auxiliares do Gerenciador de Camadas, com a tabela de temas e botões Criar/Excluir -->
+<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Aba Auxiliary layers do Gerenciador de Camadas do QGISRed"><figcaption><p>Aba Auxiliary layers do Gerenciador de Camadas do QGISRed</p></figcaption></figure>
 
 Cada linha da tabela é um **theme** (tema) — você pode ter vários temas do mesmo tipo, por exemplo um `Sectors` diferente para cada campanha de setorização de demanda. A tabela mostra três colunas:
 

@@ -85,7 +85,7 @@ Quando a importação cria um novo projeto, também são solicitados o **catálo
 
 Recupera um projeto empacotado com o botão **Exportar** de [Gestor de projeto](gestor-projetos.md) — veja [Salvar, exportar e fechar projeto](../projeto-ativo/salvar-exportar-fechar.md). Também reconhece ZIPs gerados por versões anteriores do plugin, mesmo que não possuam o manifesto interno das exportações atuais.
 
-<!-- TODO: captura pendente — guia "Projeto QGISRed" da caixa de diálogo de importação -->
+<figure><img src="../assets/images/general/importar-proyecto-qgisred.png" alt="Aba QGISRed project da caixa de diálogo de importação"><figcaption><p>Aba QGISRed project da caixa de diálogo de importação</p></figcaption></figure>
 
 1. Na aba **Projeto QGISRed**, pressione o botão **...** próximo a **Arquivo ZIP:** e selecione o arquivo `.zip`.
 2. QGISRed inspeciona o conteúdo ZIP sem extraí-lo ainda e exibe um resumo no campo:

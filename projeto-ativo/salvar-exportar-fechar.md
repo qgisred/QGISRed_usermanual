@@ -46,7 +46,7 @@ Se o projeto que você exporta é aquele que você abriu no QGIS e seu `.qgz` po
 
 ### A caixa de diálogo de exportação
 
-<!-- TODO: captura pendente — caixa de diálogo "QGISRed: Exportar projeto" -->
+<figure><img src="../assets/images/proyecto/exportar-proyecto.png" alt="Caixa de diálogo de exportação de projeto do QGISRed"><figcaption><p>Caixa de diálogo de exportação de projeto do QGISRed</p></figcaption></figure>
 
 | Campo | Função |
 |-------|---------|
