@@ -26,7 +26,7 @@ The properties dialog is the central tool for viewing and editing all attributes
 | **ID** | Unique pipe identifier |
 | **Length** | Length automatically calculated from geometry (m or ft) |
 | **Diameter** | Inner diameter (mm or inches) |
-| **Roughness** | Roughness for the configured head loss formula |
+| **Roughness Coeff** | Roughness for the configured head loss formula |
 | **MinorLoss** | Minor loss coefficient (0 if not applicable) |
 | **InitStatus** | Initial state: Open, Closed or CV (Check Valve) |
 | **Material** | Material code (referenced in the Materials Table) |
@@ -92,7 +92,7 @@ The nodes can have more than one demand (user categories: residential, industria
 |-------|-------------|
 | **ID** | Unique identifier |
 | **Diameter** | Diameter (mm or inches) |
-| **Type** | Valve type: PRV, PSV, PBV, FCV, TCV, GPV |
+| **Valve Type** | Valve type: PRV, PSV, PBV, FCV, TCV, GPV |
 | **Setting** | Regulation setpoint (pressure, flow or pressure loss depending on the type) |
 | **MinorLoss** | Minor loss coefficient |
 | **InitStatus** | Initial state: Open, Closed, Active |

@@ -48,7 +48,9 @@ The progress dialog includes a **Pause** button (‖ icon). When pressed, the si
 
 The dialog also includes the **"Do not show this progress window again"** checkbox. If you check it and the simulation finishes successfully, subsequent runs will launch the calculation directly without displaying the dialog.
 
-> To reactivate the progress dialog, go to **Project Properties** and uncheck the *"Do not show progress window when running simulation"* option.
+> ⚠️ **Exception for large networks**: if the product (number of nodes: junctions + tanks + reservoirs) × (number of calculation instants = Duration / hydraulic time step) exceeds **500,000**, the progress dialog is always shown in that run, even if the "Do not show this progress window again" box is checked from a previous run. Furthermore, in that case the box itself is hidden from the dialog, since the saved preference remains ineffective for the duration of that large network.
+
+> To re-enable the progress dialog on networks that do not exceed that threshold, go to **Project Properties** and uncheck the *"Do not show progress window when running simulation"* option.
 
 > ⚠️ When the progress window is hidden, the system cursor changes to a standby cursor in all applications while the simulation is in progress. The cursor is automatically restored upon completion of the calculation.
 

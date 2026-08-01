@@ -31,8 +31,9 @@ Open project management tools.
 | **Default values** | Defines ID prefixes, geometric tolerances and initial hydraulic values ​​|
 | **Table of materials** | Manage the list of materials with their initial roughness and age increments |
 | **Save map** | Save the QGIS project (`.qgz`) |
-| **Backup** | Create a copy of all project files in a dated subfolder |
 | **Close project** | Close the current project |
+
+> 💡 The export of the project (ZIP portable) is no longer in this bar: it is done from the **Export** button of the Project Manager (see [Save, Export and Close Project](../active-project/guardar-backup.md)).
 
 ---
 

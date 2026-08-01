@@ -14,6 +14,7 @@ The Results dock is anchored to the right area of ​​the screen. Contains **t
 
 <figure><img src="../assets/images/analisis/results-dock.png" alt="Results panel with variable selector and time bar"><figcaption><p>Results panel with variable selector and time bar</p></figcaption></figure>
 *Results dock: variable selection, statistics mode and navigation by time instants.*
+<!-- TODO: screenshot outdated after adding the Constant playback rate button next to the speed slider -->
 
 ---
 
@@ -33,8 +34,11 @@ When a stat mode is active (Maximum, Minimum...), the time area shows the name a
 | **Combo of moments** (`cbTimes`) | Drop-down list with all available moments. |
 | **Forward/backward buttons** | Next, previous, start, end. |
 | **Play / Play backward** | Automatic forward or backward animation. |
-| **Speed ​​slider** | Controls the speed of the animation (1–10). |
+| **Speed ​​slider** | Controls the relative speed of the animation (1–10). It is hidden when **Constant playback rate** is active. |
+| **Constant playback rate** | Switchable button next to the speed slider. When activated, the slider is replaced by the field **"1h in: N sec"**: N are the actual seconds it takes to play an hour of simulated time (1–3600), so the playback speed is constant with respect to the simulated time even if the step between instants is not uniform. When you deactivate it, the relative speed slider is used again. The state and value are saved in the project. |
 | **Loop** | Repeat the animation in a loop. |
+
+> 💡 When you change the time instant, activate or deactivate a statistics mode, modify the decimals in the Appearance tab, or load all the results at once, QGISRed rereads and reformats the values. If the operation takes a while (large networks with many elements), a notice appears superimposed and centered on the map: **"Reading results… NN%"**. In quick operations it is not displayed, to avoid flickering.
 
 #### Reported Times and Statistics
 
@@ -46,6 +50,8 @@ Two combos located under the time controls:
 | **Statistics** (`cbStatistics`) | Applies a statistic on all periods: Maximum, Minimum, Range, Average, StdDev, Warning. When active, the clock is replaced by the stat name. |
 
 > 💡 In **Maximum** and **Minimum** modes, the map labels show the value along with the time of occurrence in the format `valor (@ HH:MM:SS)`. When you place the cursor over a map element, the tooltip includes an additional line `@ HH:MM:SS` with the exact moment in which that maximum or minimum occurred.
+
+> 💡 With any stat mode active, the tooltip prepends the value with the abbreviation of the displayed statistic: **Max**, **Min**, **Avg** (Average), **Rng** (Range) or **Std** (StdDev). For example, `Max 45.2` instead of simply `45.2`.
 
 #### Mapping Group — Nodes
 
@@ -69,6 +75,8 @@ Two combos located under the time controls:
 | **Show Link Evolution** | Integrated mini-graph with the temporal evolution of the selected pipeline on the map. |
 
 > 💡 Similarly, when a variable is selected in the **Links** combo, a label appears next to the group header with the variable name in bold and its unit in parentheses (for example, **Velocity** (m/s)).
+
+> ⚠️ When the **Links** variable is **Status**, the text labels are simplified: the ~13 internal states that EPANET can return are grouped into just two texts, **"Closed"** (includes "Temp Closed") and **"Active"** (includes "Active (Rev Pump)"). Links with any state **"Open*"** do not show any labels, so as not to clutter the map with most of the pipes (which are usually open). It is not an error if, with Status active, most of the pipes appear without label.
 
 > The **Appearance** button (icon in the header of the Nodes group) takes you directly to the Appearance tab without having to navigate through the tabs.
 
@@ -103,9 +111,10 @@ Concentrates all the options for visual presentation of the results on the map. 
 |--------|-------------|
 | **Font size (pt)** | Font size of labels on the map (6–24 pt, default 8). |
 | **Nodes / Links decimals** | Number of decimals displayed on node and pipe labels respectively (0–6). The control is labeled with the name of the currently active variable. |
-| **Text color** | Default Color: Knots **#333333** (Dark Grey), Piping **#0A143C** (Navy Blue). **Black**: always black text. **By range**: The text color follows the palette of the active value range. When “Show ID alongside value” is active, the Id line uses the color of the element itself and the value line uses the color of the symbol or range. |
-| **Background** | Background color behind map labels. Includes a color picker and a delete button to remove the background. |
-| **Show ID alongside value** | Add the element ID to the first line of the label. |
+| **Text color** | Default Color: Knots **#333333** (Dark Grey), Piping **#0A143C** (Navy Blue). **Black**: always black text. **By range**: The text color follows the palette of the active value range. When **Show Node ID** or **Show Link ID** is active, the Id line uses the color of the element itself and the value line uses the color of the symbol or range. |
+| **Background** | Background color behind map labels. Includes a color picker and a delete button to remove the background. Next to the selector is a **lock** icon: open (by default), the labels background is independent of the map background; When you close it, the selector and clear button are disabled and the labels background is linked to the **Map Background** color (see below), so changing that color also automatically changes the labels background. |
+| **Buffer** | Outline color (halo) around label text, with its own color picker and delete button. It is independent of the Background and is never linked to the Map Background. Without an assigned color (default) no halo is drawn. |
+| **Show Node ID** / **Show Link ID** | Two independent boxes: add the ID of the node or the pipe, respectively, in the first line of its label. |
 
 #### Symbology
 

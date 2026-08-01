@@ -10,6 +10,7 @@ The longitudinal profile shows the evolution of a hydraulic variable along an in
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Longitudinal profile dock with route drawn on the map and pressure graph"><figcaption><p>Longitudinal profile dock with route drawn on the map and pressure graph</p></figcaption></figure>
 *Longitudinal profile: route highlighted in red on the map (left) and graph of piezometric height + terrain elevation (right).*
+<!-- TODO: Deprecated screenshot — the Pick/Add node/Remove node/Move node/Branch buttons on the toolbar have been replaced by a single Edit trajectories button + Help button -->
 
 ---
 
@@ -26,10 +27,11 @@ The plugin allows you to keep multiple profile docks open at the same time. Each
 ## Open and build profile
 
 1. Activate **Longitudinal profile** from the Analysis bar. The profile dock opens in the lower area of ​​QGIS.
-2. **Pick** mode is activated automatically; The cursor changes to the profile icon.
+2. The **Edit trajectories** button is activated automatically; the cursor changes to the pencil icon.
 3. Click on a network node (Junctions, Tanks, Reservoirs) to set the first reference node.
 4. Click on another node: the plugin calculates the **minimum topological path** between both nodes and draws the profile.
 5. Each additional click extends the path by concatenating the path from the last node to the new one.
+6. Right click (without knot in progress) ends the editing route.
 
 If two nodes are not connected in the network, the message _"Selected node is not connected to the previous one along the network."_
 
@@ -69,13 +71,14 @@ To the right of the main variable selector is the **2nd axis** combo. Allows you
 
 ### Tour Edit Modes
 
-| Button | Mode | Function |
-|-------|------|---------|
-| Pick | **Pick** | Activates the map to add reference nodes to the end of the path with each click |
-| Add node | **Add node** | Converts an existing intermediate node on the path into a reference node; also applies to branch routes |
-| Remove node | **Remove node** | Removes a reference node from the traversal (end nodes cannot be removed); also applies to branches |
-| Move node | **Move node** | Relocates a reference node: first click on current position, second click on new position; also applies to branches and checks for conflicts with existing paths |
-| Branch | **Branch** | Add a side branch (see section [Branches](#ramas)) |
+All editing actions are controlled from a single toggle button, rather than a separate button per action:
+
+| Button | Function |
+|-------|---------|
+| **Edit trajectories** (pencil icon, toggleable) | Activate editing mode: left click to trace the route knot by knot, right click on a knot to see its options (see [Mouse shortcuts](#atajos-de-ratón)). When disabled, moving the mouse over the path only highlights it and displays information, without modifying it. |
+| **Help** (ⓘ icon) | Opens the **"How to edit trajectories"** dialog, with a summary of all available editing actions and mouse shortcuts. |
+
+> 📝 Adding an intermediate step node, deleting it, moving it or creating a branch no longer has its own button in the toolbar: they are done with **Edit trajectories** active, using the context menu (right click) or the mouse shortcuts described in [Mouse shortcuts](#atajos-de-ratón). These actions work the same on the main route and on the branches.
 
 ### Chart navigation
 
@@ -128,11 +131,11 @@ When the envelope is active, the value table adds columns with the maximum value
 
 ## Branches
 
-**Branch** mode allows adding lateral branches that share the same graphic with the main route.
+The **Create branch** action allows you to add lateral branches that share the same graph with the main path.
 
-1. Activate Branch mode.
-2. Click on a node already belonging to the main path or an existing branch: that node defines the branch point and its position on the X axis.
-3. Make successive clicks to extend the branch to other nodes.
+1. With **Edit trajectories** active, right-click on a node already belonging to the main path or an existing branch and choose **Create branch** from the context menu (or double right-click directly on it if it is an interior node with connection degree greater than 2; see [Mouse shortcuts](#atajos-de-ratón)). That node defines the bifurcation point and its position on the X axis.
+2. Make successive clicks to extend the branch to other nodes.
+3. Right click to finish the branch.
 
 Each branch is drawn with a different color from the palette. The branch distances are calculated from the branch point, so that both curves share the same origin X at that point. When the selected variable is **Head + Elevation**, the branches also show their own elevation curve of the terrain next to the piezometric line.
 
@@ -140,14 +143,40 @@ Each branch is drawn with a different color from the palette. The branch distanc
 >
 > - A branch cannot reuse links or nodes that already belong to the main path or another branch, except the origin branch node. If attempted, the operation is rejected with an error message.
 > - The source node of a branch cannot be removed from the main traversal while the branch is active. To eliminate it, it is necessary to first trim the branch from its farthest end.
-> - **Move node** mode also checks for conflicts with existing paths before applying the change.
-> - Any editing operation (Add, Remove, Move) is silently undone if the resulting recalculated path is invalid.
+> - **Move pass node** also checks for conflicts with existing paths before applying the change.
+> - Any edit operation (declare, delete, or move a step node) is silently undone if the resulting recalculated path is invalid.
 
-The **Add node**, **Remove node** and **Move node** modes work on both the main path and the branch paths.
+Declaring, removing or moving a step node (previously **Add node**, **Remove node** and **Move node**) works the same on the main path as on the branch paths.
 
 Branches can be deleted directly from the **chart legend**, without needing to use the Clear button.
 
 The **Clear** button deletes the main path and all branches.
+
+---
+
+## Mouse shortcuts
+
+With **Edit trajectories** active, in addition to tracing the path click by click, the mouse supports several direct shortcuts that avoid going through the context menu. These shortcuts work the same on the main path and on the branches.
+
+- **Double left click on an intermediate node** of the route (one that is not yet a pass node): declares it as a pass node (equivalent to **Declare pass node**).
+- **Double left click on an already declared pass node**: deletes it and the path is recalculated (equivalent to **Delete pass node**).
+- **Double right click on an extreme path node** (the origin or end of a path, with free connection available): extends the path from that point (equivalent to **Extend path**).
+- **Double right click on an interior passage node** with connection degree greater than 2 (and free connection available): start a branch from that node (equivalent to **Create branch**).
+- **Simple left click on a passage node**, without any traversal in progress: starts the movement of that node; the next click marks the destination node (equivalent to **Move pass node**).
+- **Single right click**: if there is a tour in progress, ends it; if not, it opens the context menu with the actions available for the node under the cursor.
+
+The context menu (simple right click) offers different options depending on the indicated node:
+
+| Knot situation | Menu options |
+|---------------------|--------------------|
+| There is no route yet | **Start new path here** |
+| Intermediate node of the route (not yet a passing node) | **Declare pass node** |
+| Origin step node of the main route | **Extend path**, **Create branch** |
+| Extreme passage node (end of a route) | **Extend path**, **Create branch**, **Move pass node**, **Delete pass node** |
+| Interior passage node of the route | **Create branch**, **Move pass node**, **Delete pass node** |
+| Branch node (origin of a branch) | **Create branch** |
+
+> 💡 The **Help** button on the dock toolbar (ⓘ icon) opens the **"How to edit trajectories"** dialog at any time, with this same summary information.
 
 ---
 
@@ -166,7 +195,7 @@ When you move the mouse over the graph, a dashed vertical line indicates the pos
 The interaction between the graph and the map is bidirectional and updates in real time:
 
 - When you move your mouse over the **graph**, the closest node is highlighted on the **map canvas** with an orange circle.
-- Moving the mouse over the **map** while profile Pick mode is active moves the graph cursor to the corresponding node.
+- Hovering the mouse over the **map** while **Edit trajectories** is active moves the graph cursor to the corresponding node.
 
 ---
 

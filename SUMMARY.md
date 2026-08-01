@@ -25,7 +25,7 @@
 * [🗃️ Project](active-project/README.md)
     * [Overview and layer management](active-project/capas-y-leyenda.md)
     * [Project Settings](active-project/configuracion.md)
-    * [Save and backup](active-project/guardar-backup.md)
+    * [Save, export and close project](active-project/guardar-backup.md)
 
 ## ✏️ Editing and Modeling
 * [✏️ Edition](editing/README.md)

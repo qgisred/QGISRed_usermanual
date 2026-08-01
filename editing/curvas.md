@@ -63,7 +63,7 @@ Relates **Efficiency** (%) to **Flow** (Flow). It is used for energy consumption
 
 ### Volume curve (Volume curve)
 
-Relates the **Volume** stored (m³ or gallons) to the **Level** of the tank (m or ft). Necessary for tanks with non-cylindrical geometry (conical basins, irregularly shaped tanks).
+Relates the **Level** of the tank (m or ft, X axis) to the **Volume** stored (m³ or gallons, Y axis). Necessary for tanks with non-cylindrical geometry (conical basins, irregularly shaped tanks).
 
 ### GPV head loss curve (Head loss curve)
 

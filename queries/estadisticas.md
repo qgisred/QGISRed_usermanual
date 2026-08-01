@@ -4,7 +4,7 @@
 
 Opens the **Statistics** panel, which calculates and displays the statistical distribution of any numerical or categorical attribute in the network, with support for automatic classification, second cross-classification, and graphical representation.
 
-> **ℹ️ Note:** The Statistics panel opens **docked** in the main QGIS window and respects the panels already grouped into tabs.
+> **ℹ️ Note:** The Statistics panel opens **docked** in the main QGIS window and respects the panels already grouped into tabs. Its controls also adapt to narrow panel widths, without being cut off on the right edge.
 
 <figure><img src="../assets/images/consultas/statistics-panel.png" alt="Statistics panel with histogram of pipe diameters"><figcaption><p>Statistics panel with histogram of pipe diameters</p></figcaption></figure>
 *Statistics Panel: histogram of pipe diameters with classification by intervals.*
@@ -48,6 +48,8 @@ The following methods are available for both the main sort and the second sort. 
 
 > **ℹ️ Note:** When all values ​​are identical or very similar, duplicate class endpoints are collapsed showing a single value instead of "100.0 - 100.0".
 
+> **ℹ️ Note — Fields without useful data:** If the field chosen to classify does not have any calculated value, the panel does not show an error message: it directly generates a single class **NULL** that groups all elements without value. If the field has values ​​but they are all equal (including the case where they are all zero), a single class is generated with that value, just as in the previous case of collapsed endpoints. In both cases the histogram and table are generated normally, without interrupting the analysis.
+
 > **ℹ️ Note:** When analyzing a dynamic simulation result field, the **class limits are calculated once** considering all time instants simultaneously. As the simulation step progresses, the count of elements per bar varies, but the limits remain constant, allowing **to compare distributions between time instants** with complete consistency.
 
 ### Pre-filtering
@@ -64,6 +66,14 @@ The **Value** field includes a **(×)** clear button: when pressed, it clears th
 When the filter attribute is a simulation result field, the combo displays the same **yellow/cream background** that is used for these fields in the property selector.
 
 > **ℹ️ Note — Flow:** When filtering on the `Flow` field with a written numerical value, the value is always interpreted as **absolute value**, so it is not necessary to know the sign that EPANET internally assigns to the flow.
+
+### Restrict to active selection
+
+The **Only selected elements** checkbox limits the analysis to the elements currently selected on the map. The selection is evaluated jointly between the **Inputs** layer and its corresponding **Results** layer: if the element is selected in either layer of the same type (for example, `Pipes` in Inputs and its pipeline results theme), it is included in the calculation.
+
+> ⚠️ If you activate the box and no element is selected in either layer, the panel displays a warning and does not run the analysis.
+
+While the checkbox is active, both the histogram and the table display a note indicating that there is a selection filter (and, if there is also an active attribute filter, both are combined in the same text).
 
 #### Preview on map
 

@@ -70,7 +70,7 @@ In the side panel of the Results Viewer:
 ## Step 8 — Save
 
 - _Save Map_ saves the QGIS project (`.qgz`) with the visible layers and styles.
-- _Backup_ creates a snapshot of all SHP files in a dated subfolder.
+- _Export project_ (from the Project Manager) generates a portable ZIP of the project.
 
 ---
 

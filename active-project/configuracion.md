@@ -139,3 +139,15 @@ Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_
 ### Materials included by default
 
 QGISRed includes a predefined material table with the most common ones (CI, DI, AC, PVC, PE, HDPE...). You can edit or extend them according to the characteristics of your system.
+
+### Save and reuse tables between projects
+
+The materials table is specific to each project, but can be shared with other projects by saving it as a **global** table (stored in the user profile, outside of any project). The dialog, opened with an active project, offers these buttons:
+
+| Button | Action |
+|-------|--------|
+| **Copy as global** | Saves a copy of the current table as a **new** global table, asking for a name. If a global table with that name already exists, ask for confirmation before overwriting it. |
+| **Load materials** | Replaces the project materials table with a previously saved global table. |
+| **Reset default materials** | Restores the predefined QGISRed table (depending on the interface language), discarding the project materials. |
+
+> 💡 If you open **Table of Materials** without any active QGISRed project, the dialog works as an independent global table manager: you can choose between the already saved tables, delete them and use the **Save as global** button, which saves the changes **over the selected global table** (unlike **Copy as global**, which always creates a new table with another name).

@@ -56,6 +56,8 @@ The Builder automatically applies the factor to all consumption values ​​bef
 
 The resulting layer is displayed with colors per category and labels with the demand value. Nodes with no assigned category appear in orange under the **Uncategorized** group.
 
+> 💡 The auxiliary layers of the Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) can also be created empty from the Layer Manager, without the need to first run an analysis (see [Overview and layer management](../active-project/capas-y-leyenda.md)).
+
 ### Lawsuit Cleanup
 
 The manager allows you to delete existing demands before assigning new ones:
@@ -72,8 +74,8 @@ The sector patterns section allows you to assign a demand pattern to each sector
 
 | Mode | Description |
 |------|-------------|
-| **Import topic from external sectors** | Select an external SHP with `...` button and choose the Sector Id, Pattern Id and Priority fields from the corresponding combos. |
-| **Use project slices theme** | Select a slice layer already loaded in QGIS. The sectors are shown with a combo per row to choose the pattern. Nodes without a sector are grouped into an extra sector. |
+| **Import patterns from a sector theme** | Select the polygon layer with the sectors from a drop-down combo that lists the polygon layers already loaded in QGIS (or import it with the `...` button if it is not already loaded). Then choose the **Sector Id (optional)**, **Id demand pattern** and **Priority (optional)** fields from the corresponding combos. The Sector Id field is optional: if not identified, QGISRed generates internal identifiers automatically. Optionally, save the result as an internal layer of the project with the **Import and save** button. Once saved, this option is locked. |
+| **Use patterns from a project sector theme** | Select a slice layer already loaded in the project. A list is displayed with the sectors and, next to each one, an **editable** combo to choose the pattern: you can select an existing pattern from the list or directly write the Id of a new pattern. Nodes without a sector are grouped into an extra sector. |
 
 ### Efficiency by sectors
 
@@ -81,8 +83,8 @@ The hydraulic efficiency section by sectors also presents **two exclusive modes*
 
 | Mode | Description |
 |------|-------------|
-| **Import efficiency theme (external SHP)** | Loads an external SHP with the Sector ID, Efficiency, and Priority fields. Optionally, save the result as an internal layer of the project with the **Import/Save** button. Once saved, the import option is blocked. |
-| **Use the project's own sector theme** | Select an existing slice layer; The plugin automatically identifies efficiency fields. |
+| **Import efficiencies from a sector theme** | Select the polygon layer with the sectors from a drop-down combo that lists the polygon layers already loaded in QGIS (or import it with the `...` button), and choose the **Sector Id (optional)**, **Efficiency** and **Priority (optional)** fields. The Sector ID field is optional. Optionally, save the result as an internal layer of the project with the **Import and save** button. Once saved, the import option is blocked. |
+| **Use efficiencies from a project sector theme** | Select an existing slice layer; The plugin automatically identifies efficiency fields. |
 
 #### Efficiency and pattern fixes
 

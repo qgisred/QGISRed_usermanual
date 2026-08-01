@@ -2,8 +2,10 @@
 
 The **Project** bar groups the administration tools of the project that is already open in QGISRed. All of your buttons require a valid project loaded; If there are none, the plugin will warn with the message _"No valid project is opened"_.
 
-<figure><img src="../assets/images/proyecto/barra-project.png" alt="QGISRed Project toolbar with its ten buttons"><figcaption><p>QGISRed Project toolbar with its ten buttons</p></figcaption></figure>
+<figure><img src="../assets/images/proyecto/barra-project.png" alt="QGISRed Project toolbar with its nine buttons"><figcaption><p>QGISRed Project toolbar with its nine buttons</p></figcaption></figure>
 *Project Bar: active project management tools.*
+
+<!-- TODO: screenshot outdated after removal of "Project backup" button (commit 7b2415f) -->
 
 ---
 
@@ -21,11 +23,12 @@ The **Project** bar groups the administration tools of the project that is alrea
 | 7 | **Table of materials** | Roughness and aging rates by material |
 | — | *(separator)* | |
 | 8 | **Save map** | Save the QGIS file `.qgz` |
-| 9 | **Backup** | Create a copy of all SHPs in a dated subfolder |
-| 10 | **Close project** | Close the project and clear the QGIS session |
+| 9 | **Close project** | Close the project and clear the QGIS session |
+
+> 💡 The old **Backup** button (_Project backup_) has been removed from this bar with no direct replacement. To export the project to a portable ZIP, use the **Export** button on [Project manager](../project-management/gestor-proyectos.md) — see [Save, export and close project](guardar-backup.md).
 
 ## In this section
 
 * [Overview and layer management](capas-y-leyenda.md) — layer visibility, recovery and legend
 * [Project Settings](configuracion.md) — EPANET options, default values, materials
-* [Save and backup](guardar-backup.md) — save the map, backup and close
+* [Save, export and close project](guardar-backup.md) — save map, export to ZIP and close
