@@ -1,17 +1,22 @@
 # Créditos y Autoría
 
-**QGISRed** es un proyecto desarrollado por el Grupo de Redes Hidráulicas **REDHISP** del Instituto de Ingeniería del Agua y el Medio Ambiente (IIAMA).
+**QGISRed** es un proyecto desarrollado por el Grupo de Redes Hidráulicas **REDHISP** del **Instituto de Ingeniería del Agua y el Medio Ambiente (IIAMA)** de la **Universidad Politécnica de Valencia,España (UPV)**.
 
 ### Dirección del Proyecto
 *   **Fernando Martínez Alzamora**
-    *   *Catedrático de Universidad*
+    *   *Catedrático de Ing. Hidráulica de la UPV*
     *   📧 [fmartine@upv.es](mailto:fmartine@upv.es)
 
 ### Desarrollo y Mantenimiento
-*   **Néstor Lerma**
+*   **Néstor Lerma Elvira**
     *   🏢 WaterPi (hasta v 0.17)
     *   📧 [info@waterpi.com](mailto:info@waterpi.com)
-
+*   **Vitor Moura Vieira**
+    *   🏢 Ingeniousware (desde v 0.18)
+    *   📧 [contact@watering.online](mailto:contact@watering.online)
+*   **Carlos Peñas Bernabeu**
+    *   🏢 Master en Estadística de Ciencia de Datos, por Univ. Carlos III. Madrid (desde v 0.18)
+    *   📧 [carlospb8@gmail.com](mailto:carlospb8@gmail.com)
 ---
 
 ### Instituciones
@@ -29,12 +34,15 @@ El desarrollo se enmarca dentro de las actividades de investigación y transfere
 | Entidad | Logo |
 | :--- | :--- |
 | **WaterPi** | ![Logo WaterPi](../assets/images/creditos/logo-waterpi.png) |
+| **Ingeniousware** | ![Logo Ingeniousware](../assets/images/creditos/logo-ingeniousware.png) |
 
 ---
 
 ### Financiación
 
-Las versiones de QGISRed a partir de la **0.18** están financiadas por el **Banco Interamericano de Desarrollo (BID)** a través del contrato C-RG-T4041-P001.
+QGISRed arranca en Nov 2018 con una **Ayuda de la Generalitat Valenciana (GV)** para la contratación de Personal de Apoyo a la Transferencia Tecnológica (APOTI/2018/006). Desde Julio 2019 la financión se cubre con **fondos propios del grupo REDHISP hasta la versión 0.17**.
+
+Las versiones de QGISRed a partir de la **0.18** están siendo financiadas por el **Banco Interamericano de Desarrollo (BID)** a través del contrato C-RG-T4041-P001.
 
 | Entidad | Logo |
 | :--- | :--- |
@@ -42,4 +50,4 @@ Las versiones de QGISRed a partir de la **0.18** están financiadas por el **Ban
 
 ---
 
-> 💡 **NOTA**: QGISRed es software gratuito desarrollado con el objetivo de facilitar la gestión del ciclo integral del agua mediante herramientas de Gemelo Digital de libre acceso.
+> 💡 **NOTA**: QGISRed es un software de acceso libre desarrollado para facilitar la construcción de modelos de redes urbanas de distribución de agua, el análisis de resultados, la planificación de mejoras y la gestión eficente del uso del agua a través del Gemelo Digital.
