@@ -13,4 +13,4 @@ Lo mejor de QGISRed es que combina la potencia de un **Entorno GIS** con la prec
 
 ***
 
-¿Listo para empezar? Consulta los [Créditos](introduccion/creditos.md), la [Guía de Instalación](instalacion/) o salta directamente a la [Guía Rápida](guia-rapida/).
+¿Listo para empezar? Consulta los [Créditos](readme/creditos.md), la [Guía de Instalación](empezando/instalacion/) o salta directamente a la [Guía Rápida](guia-rapida/guia-rapida/).
