@@ -58,7 +58,7 @@ Las versiones de QGISRed a partir de la **0.18** están siendo financiadas por e
 
 ***
 
-> 💡 **NOTA**: QGISRed es un software de acceso libre desarrollado para facilitar la construcción de modelos de redes urbanas de distribución de agua, el análisis de resultados, la planificación de mejoras y la gestión eficente del uso del agua a través del Gemelo Digital.
+>
 >
 >
 
