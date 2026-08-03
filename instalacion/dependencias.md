@@ -1,21 +1,21 @@
-# Gestión de Dependencias
+# Gestión de dependencias
 
 QGISRed necesita un conjunto de librerías de cálculo externas **(las dependencias del plugin de QGISRed)** para poder ejecutar la mayor parte de sus herramientas. Estas librerías son DLLs compiladas en .NET que contienen el motor hidráulico (basado en el toolkit de EPANET 2.3) y los algoritmos de procesamiento geoespacial.
 
----
+***
 
 ## Primera instalación
 
 La primera vez que intentas usar cualquier herramienta de QGISRed, el plugin detecta que las dependencias no están instaladas y muestra un diálogo de confirmación:
 
-<figure><img src="../assets/images/instalacion/dialogo-dependencias.png" alt="Diálogo de instalación de dependencias"><figcaption><p>QGISRed solicita permiso para descargar las dependencias.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/dialogo-dependencias.png" alt="Diálogo de instalación de dependencias"><figcaption><p>QGISRed solicita permiso para descargar las dependencias.</p></figcaption></figure>
 
-- **Sí**: QGISRed descarga e instala las libraries automáticamente. La descarga requiere conexión a internet y puede tardar unos segundos según la velocidad de la conexión.
-- **No**: La herramienta no se ejecuta. El diálogo volverá a aparecer la próxima vez que intentes usar el plugin.
+* **Sí**: QGISRed descarga e instala las libraries automáticamente. La descarga requiere conexión a internet y puede tardar unos segundos según la velocidad de la conexión.
+* **No**: La herramienta no se ejecuta. El diálogo volverá a aparecer la próxima vez que intentes usar el plugin.
 
 > La instalación **no requiere permisos de administrador**. Las DLLs se instalan en la carpeta de usuario `%APPDATA%\QGISRed\`, no en carpetas del sistema.
 
----
+***
 
 ## Dónde se instalan
 
@@ -27,13 +27,13 @@ C:\Users\{tu_usuario}\AppData\Roaming\QGISRed\
 
 Puedes acceder a esta carpeta escribiendo `%APPDATA%\QGISRed` directamente en la barra de direcciones del explorador de Windows.
 
----
+***
 
 ## Actualización de dependencias
 
 Cuando se publica una nueva versión de QGISRed que incluye una versión actualizada de las dependencias, el plugin lo detecta automáticamente al arrancar y propone la actualización con el mismo diálogo de confirmación.
 
----
+***
 
 ## Solución de problemas
 
