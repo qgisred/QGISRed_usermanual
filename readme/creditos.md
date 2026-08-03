@@ -13,21 +13,21 @@
 * **Néstor Lerma Elvira**
   * 🏢 WaterPi (hasta v 0.17)
   * 📧 [info@waterpi.com](mailto:info@waterpi.com)
+* **Néstor Lerma Elvira y Elena Melchor Gil**
+  * 🏢 Fluit (desde v 0.18)
+  * 📧 [info@fluit.es](mailto:info@waterpi.com)
 * **Vitor Moura Vieira**
   * 🏢 Ingeniousware (desde v 0.18)
   * 📧 [contact@watering.online](mailto:contact@watering.online)
 * **Carlos Peñas Bernabeu**
   * 🏢 Master en Estadística de Ciencia de Datos, por Univ. Carlos III. Madrid (desde v 0.18)
   * 📧 [carlospb8@gmail.com](mailto:carlospb8@gmail.com)
-* **Néstor Lerma Elvira y Elena Melchor Gil**
-  * 🏢 Fluit (desde v 0.18)
-  * 📧 [info@fluit.es](mailto:info@waterpi.com)
 
 ***
 
 ### Instituciones
 
-El desarrollo se enmarca dentro de las actividades de investigación y transferencia tecnológica de la **Universitat Politècnica de València (UPV)**.
+El desarrollo de QGISRed se enmarca dentro de las actividades de investigación y transferencia tecnológica de la **Universitat Politècnica de València (UPV)**.
 
 | Entidad            | Logo                                                                          |
 | ------------------ | ----------------------------------------------------------------------------- |
@@ -42,6 +42,7 @@ El desarrollo se enmarca dentro de las actividades de investigación y transfere
 | ----------------- | ---------------------------------------------------------------- |
 | **WaterPi**       | ![Logo WaterPi](../.gitbook/assets/logo-waterpi.png)             |
 | **Ingeniousware** | ![Logo Ingeniousware](../.gitbook/assets/logo-ingeniousware.png) |
+| **Fluit**         | ![](../.gitbook/assets/logo-fluit.png)                           |
 
 ***
 
@@ -58,3 +59,6 @@ Las versiones de QGISRed a partir de la **0.18** están siendo financiadas por e
 ***
 
 > 💡 **NOTA**: QGISRed es un software de acceso libre desarrollado para facilitar la construcción de modelos de redes urbanas de distribución de agua, el análisis de resultados, la planificación de mejoras y la gestión eficente del uso del agua a través del Gemelo Digital.
+>
+>
+
