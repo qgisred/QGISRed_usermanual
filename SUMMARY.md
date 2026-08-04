@@ -58,8 +58,7 @@
     * [Connections and Shut-Off Valves](digital-twin/service-connections.md)
     * [Sensors and Meters](digital-twin/sensors.md)
 
-## 📂 Technical Appendix
-* [🔢 DBF Formats and Management](appendix/formats.md)
+* [📂 Technical Appendix](appendix/formats.md)
 
 ---
 * [📜 Change Log](changelog.md)
