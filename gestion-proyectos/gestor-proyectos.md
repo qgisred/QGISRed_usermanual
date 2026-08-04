@@ -1,19 +1,20 @@
-# Gestor de proyectos
+# Gestor de Proyectos
 
 **Barra General → Gestor de proyectos** (o desde el menú QGISRed → General → Project manager)
 
 El Gestor de proyectos es la ventana central de administración de QGISRed. Permite acceder a todos los proyectos conocidos sin necesidad de recordar dónde están almacenados.
 
-\*Ventana del Gestor de proyectos: lista de proyectos recientes y operaciones disponibles.\*
+<figure><img src="../assets/images/general/gestor-proyectos.png" alt="Ventana del Gestor de proyectos de QGISRed"><figcaption><p>Ventana del Gestor de proyectos de QGISRed</p></figcaption></figure>
+*Ventana del Gestor de proyectos: lista de proyectos recientes y operaciones disponibles.*
 
-***
+---
 
 ## Lista de proyectos recientes
 
 La ventana muestra todos los proyectos que han sido abiertos alguna vez en este equipo. Para cada proyecto se muestra el **nombre de la red** y la **ruta de la carpeta**.
 
-* **Doble clic** sobre cualquier proyecto → lo abre directamente.
-* Si hay un proyecto abierto con cambios sin guardar, QGISRed pedirá confirmación antes de cerrarlo.
+- **Doble clic** sobre cualquier proyecto → lo abre directamente.
+- Si hay un proyecto abierto con cambios sin guardar, QGISRed pedirá confirmación antes de cerrarlo.
 
 ## Operaciones disponibles
 
@@ -71,7 +72,7 @@ Elimina el proyecto del historial **y borra todos los archivos** del proyecto de
 
 Abre el explorador de Windows directamente en la carpeta del proyecto seleccionado.
 
-***
+---
 
 ## Cómo QGISRed identifica el proyecto activo
 

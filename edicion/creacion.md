@@ -1,8 +1,8 @@
-# Creación de elementos
+# Creación de Elementos
 
 Las cinco primeras herramientas de la barra Edition permiten añadir elementos a la red. Todas activan un **modo de edición interactivo**: el cursor cambia y el plugin espera una acción sobre el mapa. Para cancelar sin crear nada, pulsa de nuevo el mismo botón o presiona `Esc`.
 
-***
+---
 
 ## Añadir tubería (Add pipe)
 
@@ -10,7 +10,8 @@ Las cinco primeras herramientas de la barra Edition permiten añadir elementos a
 
 Modo de dibujo lineal: cada clic añade un vértice a la tubería. La herramienta permanece activa hasta que termines el trazado.
 
-\*Dibujando una tubería: la línea roja provisional sigue el cursor hasta el siguiente clic.\*
+<figure><img src="../assets/images/edicion/add-pipe.png" alt="Herramienta Add pipe en acción sobre el mapa de QGIS"><figcaption><p>Herramienta Add pipe en acción sobre el mapa de QGIS</p></figcaption></figure>
+*Dibujando una tubería: la línea roja provisional sigue el cursor hasta el siguiente clic.*
 
 ### Proceso
 
@@ -21,9 +22,9 @@ Modo de dibujo lineal: cada clic añade un vértice a la tubería. La herramient
 
 ### Qué crea QGISRed al confirmar
 
-* Un registro en `{Red}_Pipes.shp` con la geometría dibujada.
-* Hasta dos nudos nuevos en `{Red}_Junctions.shp` (uno por extremo), si no existía ya un nudo dentro de la tolerancia configurada.
-* Los valores de diámetro, rugosidad y demanda se toman de los **Valores por defecto** del proyecto.
+- Un registro en `{Red}_Pipes.shp` con la geometría dibujada.
+- Hasta dos nudos nuevos en `{Red}_Junctions.shp` (uno por extremo), si no existía ya un nudo dentro de la tolerancia configurada.
+- Los valores de diámetro, rugosidad y demanda se toman de los **Valores por defecto** del proyecto.
 
 ### Conectar a elementos existentes
 
@@ -31,7 +32,7 @@ Si el punto inicial o final cae dentro de la tolerancia de un nudo, válvula, bo
 
 > El ajuste al nudo más cercano usa la tolerancia configurada en **Barra Project → Valores por defecto → Tolerancia de nudo**. Puedes revisar o cambiarla antes de dibujar redes densas.
 
-***
+---
 
 ## Añadir depósito (Add tank)
 
@@ -43,23 +44,23 @@ Coloca un depósito de almacenamiento (Tank) en el mapa. Los depósitos tienen n
 
 1. Activa la herramienta. El cursor muestra el icono de depósito.
 2. Haz clic sobre un **nudo existente** o sobre un punto vacío del mapa.
-   * Si haces clic sobre un nudo existente, ese nudo se **convierte** en Tank.
-   * Si haces clic en un punto vacío, QGISRed crea un Tank nuevo (sin conexión inicial; necesitarás conectarlo con una tubería).
+   - Si haces clic sobre un nudo existente, ese nudo se **convierte** en Tank.
+   - Si haces clic en un punto vacío, QGISRed crea un Tank nuevo (sin conexión inicial; necesitarás conectarlo con una tubería).
 3. QGISRed abre el diálogo de propiedades del nuevo depósito para que introduzcas los datos (cota de fondo, nivel inicial, nivel mínimo, nivel máximo, diámetro).
 
 ### Parámetros principales del depósito
 
-| Parámetro     | Descripción                                                                     |
-| ------------- | ------------------------------------------------------------------------------- |
-| **Elevation** | Cota del fondo del depósito (m o ft)                                            |
-| **InitLevel** | Nivel inicial del agua por encima del fondo                                     |
-| **MinLevel**  | Nivel mínimo de operación                                                       |
-| **MaxLevel**  | Nivel máximo de operación                                                       |
-| **Diameter**  | Diámetro del depósito (para sección circular); si usa curva de volumen, poner 0 |
-| **MinVol**    | Volumen mínimo (opcional)                                                       |
-| **VolCurve**  | ID de la curva de volumen (para geometría no cilíndrica)                        |
+| Parámetro | Descripción |
+|-----------|-------------|
+| **Elevation** | Cota del fondo del depósito (m o ft) |
+| **InitLevel** | Nivel inicial del agua por encima del fondo |
+| **MinLevel** | Nivel mínimo de operación |
+| **MaxLevel** | Nivel máximo de operación |
+| **Diameter** | Diámetro del depósito (para sección circular); si usa curva de volumen, poner 0 |
+| **MinVol** | Volumen mínimo (opcional) |
+| **VolCurve** | ID de la curva de volumen (para geometría no cilíndrica) |
 
-***
+---
 
 ## Añadir embalse (Add reservoir)
 
@@ -69,14 +70,14 @@ Coloca un embalse o punto de alimentación externo (Reservoir). A diferencia del
 
 El proceso es idéntico al del depósito. Los parámetros son más simples:
 
-| Parámetro   | Descripción                                                     |
-| ----------- | --------------------------------------------------------------- |
-| **Head**    | Carga piezométrica fija (cota del nivel libre del agua, m o ft) |
-| **Pattern** | Patrón de variación de carga a lo largo del tiempo (opcional)   |
+| Parámetro | Descripción |
+|-----------|-------------|
+| **Head** | Carga piezométrica fija (cota del nivel libre del agua, m o ft) |
+| **Pattern** | Patrón de variación de carga a lo largo del tiempo (opcional) |
 
 > Usa embalses para representar puntos de entrega de agua en alta (conexiones con sistemas externos) o puntos de suministro de caudal constante.
 
-***
+---
 
 ## Insertar válvula en tubería (Insert valve in pipe)
 
@@ -84,30 +85,31 @@ El proceso es idéntico al del depósito. Los parámetros son más simples:
 
 Inserta una válvula dentro de una tubería existente. La tubería original se **divide en dos tramos** que quedan conectados a través de la válvula.
 
-\*La tubería P-12 original queda dividida en P-12 y P-13, con la válvula V-1 entre ellas.\*
+<figure><img src="../assets/images/edicion/insert-valve.png" alt="Resultado de insertar una válvula: la tubería original queda dividida en dos"><figcaption><p>Resultado de insertar una válvula: la tubería original queda dividida en dos</p></figcaption></figure>
+*La tubería P-12 original queda dividida en P-12 y P-13, con la válvula V-1 entre ellas.*
 
 ### Proceso
 
 1. Activa la herramienta. El cursor cambia al icono de válvula.
 2. Haz clic sobre la tubería donde quieres insertar la válvula.
 3. QGISRed determina el punto exacto de inserción (proyección del clic sobre el eje de la tubería) y:
-   * Crea un nudo en ese punto.
-   * Divide la tubería original en dos tramos con los mismos atributos de diámetro y material.
-   * Crea la válvula entre los dos nuevos extremos.
+   - Crea un nudo en ese punto.
+   - Divide la tubería original en dos tramos con los mismos atributos de diámetro y material.
+   - Crea la válvula entre los dos nuevos extremos.
 4. Se abre el diálogo de propiedades para configurar el tipo y ajuste de la válvula.
 
 ### Tipos de válvula disponibles
 
-| Tipo    | Nombre                    | Función                                                                     |
-| ------- | ------------------------- | --------------------------------------------------------------------------- |
-| **PRV** | Pressure Reducing Valve   | Reduce la presión aguas abajo al valor de consigna                          |
-| **PSV** | Pressure Sustaining Valve | Mantiene la presión aguas arriba al valor de consigna                       |
-| **PBV** | Pressure Breaker Valve    | Produce una pérdida de carga fija                                           |
-| **FCV** | Flow Control Valve        | Limita el caudal al valor de consigna                                       |
-| **TCV** | Throttle Control Valve    | Simula una válvula parcialmente cerrada mediante un coeficiente de pérdidas |
-| **GPV** | General Purpose Valve     | Pérdida de carga definida por una curva personalizada                       |
+| Tipo | Nombre | Función |
+|------|--------|---------|
+| **PRV** | Pressure Reducing Valve | Reduce la presión aguas abajo al valor de consigna |
+| **PSV** | Pressure Sustaining Valve | Mantiene la presión aguas arriba al valor de consigna |
+| **PBV** | Pressure Breaker Valve | Produce una pérdida de carga fija |
+| **FCV** | Flow Control Valve | Limita el caudal al valor de consigna |
+| **TCV** | Throttle Control Valve | Simula una válvula parcialmente cerrada mediante un coeficiente de pérdidas |
+| **GPV** | General Purpose Valve | Pérdida de carga definida por una curva personalizada |
 
-***
+---
 
 ## Insertar bomba en tubería (Insert pump in pipe)
 
@@ -123,11 +125,11 @@ Inserta una bomba en una tubería existente, dividiéndola exactamente igual que
 
 ### Parámetros de la bomba
 
-| Parámetro   | Descripción                                           |
-| ----------- | ----------------------------------------------------- |
-| **Curve**   | ID de la curva H-Q (obligatorio para simular)         |
-| **Speed**   | Factor de velocidad inicial (1.0 = velocidad nominal) |
-| **Pattern** | Patrón de variación de velocidad                      |
-| **Power**   | Potencia constante (alternativa a la curva H-Q)       |
+| Parámetro | Descripción |
+|-----------|-------------|
+| **Curve** | ID de la curva H-Q (obligatorio para simular) |
+| **Speed** | Factor de velocidad inicial (1.0 = velocidad nominal) |
+| **Pattern** | Patrón de variación de velocidad |
+| **Power** | Potencia constante (alternativa a la curva H-Q) |
 
 > Si la bomba necesita una curva de eficiencia para el cálculo de energía, defínela en el **Editor de patrones y curvas** y referencíala desde las propiedades de la bomba.
