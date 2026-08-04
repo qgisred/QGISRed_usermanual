@@ -58,8 +58,7 @@
     * [Conexões e Válvulas de Corte](gemeo-digital/ramais.md)
     * [Sensores e Medidores](gemeo-digital/sensores.md)
 
-## 📂 Apêndice Técnico
-* [🔢 Formatos e gerenciamento de DBF](apendice/formatos.md)
+* [📂 Apêndice Técnico](apendice/formatos.md)
 
 ---
 * [📜 Registro de alterações](registro-de-mudancas.md)
