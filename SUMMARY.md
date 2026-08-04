@@ -58,8 +58,7 @@
     * [Raccordements et vannes d'arrêt](jumeau-numerique/branchements.md)
     * [Capteurs et compteurs](jumeau-numerique/capteurs.md)
 
-## 📂 Annexe technique
-* [🔢 Formats et gestion DBF](annexe/formats.md)
+* [📂 Annexe technique](annexe/formats.md)
 
 ---
 * [📜 Journal des modifications](journal-des-modifications.md)
