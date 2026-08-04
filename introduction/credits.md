@@ -1,45 +1,54 @@
-# Credits and Authorship
+# 👥 Credits and Authorship
 
-**QGISRed** is a project developed by the Hydraulic Networks Group **REDHISP** of the Institute of Water and Environmental Engineering (IIAMA).
+**QGISRed** is a project developed by the Hydraulic Networks Group **REDHISP** of the **Institute of Water and Environmental Engineering (IIAMA)** of the **Polytechnic University of Valencia, Spain (UPV)**.
 
 ### Project Management
+
 * **Fernando Martínez Alzamora**
-* *University Professor*
+* _Professor of Hydraulic Engineering at the UPV_
 * 📧 [fmartine@upv.es](mailto:fmartine@upv.es)
 
 ### Development and Maintenance
-* **Néstor Lerma**
+
+* **Néstor Lerma Elvira**
 * 🏢 WaterPi (up to v 0.17)
 * 📧 [info@waterpi.com](mailto:info@waterpi.com)
+* **Vitor Moura Vieira**
+* 🏢 Ingeniousware (since v 0.18)
+* 📧 [contact@watering.online](mailto:contact@watering.online)
+* **Carlos Peñas Bernabeu**
+* 🏢 Master in Data Science Statistics, from Univ. Carlos III. Madrid (since v 0.18)
+* 📧 [carlospb8@gmail.com](mailto:carlospb8@gmail.com)
 
----
+***
 
 ### Institutions
 
-The development is part of the research and technology transfer activities of the **Universitat Politècnica de València (UPV)**.
+The development of QGISRed is part of the research and technology transfer activities of the **Universitat Politècnica de València (UPV)**.
 
 | Entity | Logo |
-| :--- | :--- |
+| ------------------ | ---------------------------------------------------------------- |
 | **QGISRed Portal** | [![QGISRed logo](../assets/images/creditos/logo-qgisred.png)](http://qgisred.upv.es) |
 | **REDHISP** | ![REDHISP Logo](../assets/images/creditos/logo-redhisp.png) |
 | **IIAMA** | [![IIAMA Logo](../assets/images/creditos/logo-iiama.png)](http://www.iiama.upv.es) |
 | **UPV** | [![UPV Logo](../assets/images/creditos/logo-upv.png)](http://www.upv.es) |
 
 ### Collaborators
-| Entity | Logo |
-| :--- | :--- |
-| **WaterPi** | ![WaterPi Logo](../assets/images/creditos/logo-waterpi.png) |
 
----
+| Entity | Logo |
+| ----------------- | ---------------------------------------------------------------- |
+| **WaterPi** | ![WaterPi Logo](../assets/images/creditos/logo-waterpi.png) |
+| **Ingeniousware** | ![Logo Ingeniousware](../assets/images/creditos/logo-ingeniousware.png) |
+
+***
 
 ### Financing
 
-QGISRed versions starting with **0.18** are funded by the **Inter-American Development Bank (IDB)** through contract C-RG-T4041-P001.
+QGISRed starts in Nov 2018 with **Aid from the Generalitat Valenciana (GV)** for the hiring of Support Personnel for Technology Transfer (APOTI/2018/006). Since July 2019, financing is covered with **the REDHISP group's own funds until version 0.17**.
+
+QGISRed versions starting at **0.18** are being financed by the **Inter-American Development Bank (IDB)** through contract C-RG-T4041-P001.
 
 | Entity | Logo |
-| :--- | :--- |
+| -------------------------------------------- | ----------------------------------------------------------------------- |
 | **Inter-American Development Bank (IDB)** | [![IDB logo](../assets/images/creditos/logo-bid.png)](https://www.iadb.org/es) |
 
----
-
-> 💡 **NOTE**: QGISRed is free software developed with the aim of facilitating the management of the integral water cycle through freely accessible Digital Twin tools.
