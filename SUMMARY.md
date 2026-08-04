@@ -58,8 +58,7 @@
     * [Acometidas y Válvulas de Corte](gemelo-digital/acometidas.md)
     * [Sensores y Medidores](gemelo-digital/sensores.md)
 
-## 📂 Apéndice Técnico
-* [🔢 Formatos y Gestión DBF](apendice/formatos.md)
+* [📂 Apéndice Técnico](apendice/formatos.md)
 
 ---
 * [📜 Registro de Cambios](changelog.md)
