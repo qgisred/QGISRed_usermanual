@@ -10,7 +10,7 @@ QGISRed é um plugin gratuito para QGIS que pode ser instalado em apenas alguns 
 |-----------|---------------|
 | **Sistema operacional** | Janelas x64 |
 | **QGIS** | 3.28 ou superior (compatível até 4.x) |
-| **.NET Framework** | 4.8 |
+| **.NET Framework** | 4.8.1 |
 
 > QGISRed está disponível apenas para **Windows**. O mecanismo de cálculo (dependências) é baseado em DLLs compiladas em .NET e não possui versão nativa para Linux ou macOS.
 
