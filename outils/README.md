@@ -22,7 +22,7 @@ La barre **Outils** regroupe les outils de traitement massifs : calcul automatiq
 
 | # | Outil | Fonction |
 |---|-------------|---------|
-| 5 | **Créateur de demande nodale…** | Attribuer des demandes aux nœuds à partir de couches SHP externes (points ou polygones) |
+| 5 | **Constructeur de demandes nodales…** | Attribuer des demandes aux nœuds à partir de couches SHP externes (points ou polygones) |
 | 6 | **Constructeur de scénarios…** | Exportez et importez les paramètres du modèle en masse pour gérer les scénarios |
 | 7 | **Segments isolés…** | Identifier les vannes à fermer pour isoler une section et les zones laissées sans service |
 
@@ -30,7 +30,7 @@ La barre **Outils** regroupe les outils de traitement massifs : calcul automatiq
 
 | # | Outil | Fonction |
 |---|-------------|---------|
-| 8 | **Obtenir les secteurs de demande** | Génère des secteurs de demande délimités par des débitmètres |
+| 8 | **Constructeur de secteurs de demande…** | Génère des secteurs de demande délimités par des débitmètres |
 | 9 | **Arbre à coût minimum…** | Calculer l'arbre de coût minimum à partir d'un nœud sélectionné |
 
 ---

@@ -39,7 +39,6 @@
 * [🔧 Outils](outils/README.md)
     * [Propriétés hydrauliques](outils/proprietes-hydrauliques.md)
     * [Exigences et scénarios](outils/demandes-et-scenarios.md)
-    * [Constructeur de secteur de demande](outils/constructeur-secteurs-demande.md)
     * [Secteurs et arbre de demande](outils/secteurs-arborescence.md)
 
 * [🔍 Requêtes](requetes/README.md)

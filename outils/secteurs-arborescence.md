@@ -4,9 +4,9 @@ Les deux derniers outils de la barre Outils effectuent des analyses topologiques
 
 ---
 
-## Obtenir les secteurs de demande
+## Constructeur de secteurs de demande…
 
-**Barre d'outils → Obtenir les secteurs de demande**
+**Barre d'outils → Constructeur de secteurs de demande…**
 
 Il génère une sectorisation du réseau basée sur la présence de **débitmètres** (débitmètres). Chaque secteur de demande est le sous-réseau alimenté par un seul débitmètre, sans croiser d'autres débitmètres.
 

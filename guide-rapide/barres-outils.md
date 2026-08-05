@@ -96,7 +96,7 @@ Utilitaires pour automatiser les tâches de préparation et de gestion des modè
 | **Interpoler les dimensions** | Attribue des dimensions aux nœuds à partir d'un MDT au format `.asc` |
 | **Attribuer la rugosité** | Calculer le coefficient de rugosité en fonction du matériau et de l'âge |
 | **Convertir la rugosité** | Transformez les coefficients de rugosité entre les formules (D-W ↔ H-W ↔ C-M) |
-| **Gestionnaire des réclamations** | Répartir les consommations entre nœuds à partir de polygones surfaciques ou de points géoréférencés |
+| **Constructeur de demandes nodales** | Répartir les consommations entre nœuds à partir de polygones surfaciques ou de points géoréférencés |
 | **Constructeur de scénarios** | Exportez et importez les paramètres du modèle (rugosités, exigences, dimensions, états, qualités) en masse pour gérer les variantes sans dupliquer les projets |
 | **Segments isolés** | Calculer les segments qui seraient isolés lorsque chaque vanne d'arrêt est fermée |
 | **Secteurs de demande** | Génère des secteurs en fonction de la demande et des courbes de modulation de consommation |

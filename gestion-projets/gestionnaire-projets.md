@@ -54,7 +54,8 @@ Renomme le réseau et met automatiquement à jour le nom de **tous les fichiers*
 
 1. Sélectionnez le projet.
 2. Appuyez sur **Renommer**.
-3. Saisissez le nouveau nom.
+3. La boîte de dialogue propose deux cases indépendantes, toutes deux cochées par défaut : **Renommer les données du projet** (renomme les fichiers de données réseau) et **Renommer le fichier de carte du projet** (renomme également le projet QGIS `.qgz`/`.qgs`, s'il existe). Au moins un doit être marqué.
+4. Saisissez le nouveau nom dans le champ correspondant à chaque case active.
 
 > ⚠️ Si le projet est ouvert dans QGIS, fermez-le avant de le renommer pour empêcher QGIS de maintenir des verrous sur les fichiers.
 

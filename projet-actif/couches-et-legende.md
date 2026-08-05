@@ -6,7 +6,7 @@
 
 **Barre de projet → Gestionnaire de calques** (Gestionnaire de calques)
 
-Contrôle quelles couches de projet sont actives dans QGIS, vous permet de recréer les éléments de base manquants et gère les couches auxiliaires dans Demands Builder. La boîte de dialogue organise son contenu en trois onglets : **Éléments de base**, **Digital Twin** et **Couches auxiliaires**.
+Contrôle quelles couches de projet sont actives dans QGIS, vous permet de recréer les éléments de base manquants et gère les couches auxiliaires du Constructeur de demandes nodales. La boîte de dialogue organise son contenu en trois onglets : **Éléments de base**, **Digital Twin** et **Couches auxiliaires**.
 
 <figure><img src="../assets/images/proyecto/gestor-capas.png" alt="Boîte de dialogue Gestionnaire de couches QGISRed"><figcaption><p>Boîte de dialogue Gestionnaire de couches QGISRed</p></figcaption></figure>
 <!-- TODO : Capture obsolète, boîte de dialogue déplacée des sections empilées vers les onglets (voir commits 12d9ee7 et 11c29ed) -->
@@ -44,33 +44,40 @@ QGISRed surveille en arrière-plan (vérifiant toutes les 5 secondes) les couche
 
 - L'icône est à titre informatif uniquement : aucune action n'est associée au clic dessus.
 - Pour résoudre l'avertissement il faut **régénérer la couche**, c'est-à-dire relancer l'analyse ou la requête qui l'a créée (Segments Isolés, Secteurs Hydrauliques, une requête de propriétés, etc.).
-- Les couches auxiliaires du Demands Builder (Points de consommation, Liens de demande, Secteurs) sont explicitement exclues de cette surveillance : ce sont vos propres données que vous importez ou créez, pas quelque chose que QGISRed recalcule à partir du réseau, donc la modification d'une entrée ne les invalide pas.
+- Les couches auxiliaires du Constructeur de demandes nodales (Points de consommation, Liens de demande, Secteurs de demande) sont explicitement exclues de cette surveillance : ce sont vos propres données que vous importez ou créez, pas quelque chose que QGISRed recalcule à partir du réseau, donc la modification d'une entrée ne les invalide pas.
 
 > 💡 Cet avis est différent de l'icône qui apparaît lorsqu'une couche a été supprimée (voir "Récupérer une couche supprimée" ci-dessus) : ici la couche existe toujours et est chargée, son contenu peut tout simplement ne plus refléter l'état actuel du réseau.
 
-### Onglet Couches auxiliaires : Couches du générateur de demandes
+### Onglet Couches auxiliaires : couches du Constructeur de demandes nodales
 
-L'onglet **Couches auxiliaires** contient le groupe **Demand Builder**, à partir duquel sont créées et gérées les couches de travail vides utilisées par l'outil d'affectation des demandes aux nœuds (Nodal Demand Builder) : **Points de consommation**, **Liens de demande** et **Secteurs**.
+L'onglet **Couches auxiliaires** contient le groupe **Demand Builder**, à partir duquel sont créées et gérées les couches de travail vides utilisées par l'outil d'attribution des demandes aux nœuds (Constructeur de demandes nodales) : **Points de consommation**, **Liens de demande** et **Secteurs de demande**.
 
 <figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Onglet Auxiliary layers du gestionnaire de couches QGISRed"><figcaption><p>Onglet Auxiliary layers du gestionnaire de couches QGISRed</p></figcaption></figure>
 
 Chaque ligne du tableau est un **thème** (thème) — vous pouvez avoir plusieurs thèmes du même type, par exemple un `Sectors` différent pour chaque campagne de sectorisation de la demande. Le tableau comporte trois colonnes :
 
 - Boîte de téléchargement (identique aux autres onglets : cochée = téléchargée sur QGIS).
-- **Thème** — nom du thème, ou "(par défaut)" pour lequel Demands Manager lui-même crée automatiquement.
-- **Type** — Points de consommation / Liens de demande / Secteurs.
+- **Thème** — nom du thème, ou "(par défaut)" pour lequel le Constructeur de demandes nodales lui-même crée automatiquement.
+- **Type** — Points de consommation / Liens de demande / Secteurs de demande.
 
 Pour créer un nouveau sujet :
 
 1. Appuyez sur **Créer un thème auxiliaire**.
-2. Dans la boîte de dialogue **Nouveau thème auxiliaire**, choisissez le **Type** (Points de consommation, Liens de demande ou Secteurs) et saisissez un **Nom**.
+2. Dans la boîte de dialogue **Nouveau thème auxiliaire**, choisissez le **Type** (Points de consommation, Liens de demande ou Secteurs de demande) et saisissez un **Nom**.
 3. Appuyez sur **Accepter**. QGISRed crée le fichier de formes vide avec les champs correspondants et l'ajoute déjà marqué et chargé à la table.
 
 Pour supprimer un thème, sélectionnez sa ligne et appuyez sur **Supprimer le thème auxiliaire** ; Une confirmation vous sera demandée car l'opération supprime également les fichiers présents sur le disque.
 
+Lorsque vous sélectionnez un thème de type **Points de consommation**, un bouton **…** apparaît également (info-bulle "Champs de demande de base") qui ouvre la boîte de dialogue **Champs de demande de base**, où sont gérées les colonnes de demande de base du thème (tous les champs après `DemID` et `Category`) :
+
+- La liste présente un champ par ligne, dont le nom est modifiable directement (double clic ou touche).
+- **+** ajoute une nouvelle ligne avec un nom libre suggéré (`BaseDem`, `BaseDem2`…) ; **-** supprime la ligne sélectionnée. Le thème nécessite toujours au moins un champ de demande de base.
+- Lorsque vous appuyez sur **Accepter**, QGISRed valide les noms : ils ne peuvent pas être vides, ils ne peuvent pas dépasser 10 caractères (limite du format DBF), ils doivent commencer par une lettre et ne contenir que des lettres, des chiffres et des traits de soulignement, et il ne peut pas y avoir deux champs portant le même nom (insensible à la casse). Si quelque chose n'est pas valide, la boîte de dialogue ne se ferme pas et indique pourquoi.
+- Si un champ existant a été supprimé de la liste, avant d'appliquer les modifications, une confirmation explicite est demandée car ses valeurs sont également supprimées ; Renommer un champ, en revanche, préserve les données.
+
 > 💡 Les calques que vous laissez marqués dans ce tableau sont mémorisés lors de la fermeture et de la réouverture du projet — y compris les projets qui n'enregistrent pas de `.qgz` — tout comme le reste des calques du projet.
 
-> Pour savoir comment ces couches sont utilisées au sein du Nodal Demand Builder (importer des points de consommation, générer des liens de demande, agréger par secteurs...), voir [Exigences et scénarios](../outils/demandes-et-scenarios.md).
+> Pour savoir comment ces couches sont utilisées au sein du Constructeur de demandes nodales (importer des points de consommation, générer des liens de demande, agréger par secteurs...), voir [Exigences et scénarios](../outils/demandes-et-scenarios.md).
 
 ### Résumé du modèle (Résumé)
 

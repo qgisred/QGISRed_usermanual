@@ -65,6 +65,8 @@ Les attributs sont organisés par type d'élément. Pour un **tuyau** typique :
 
 Pour les **nœuds** `Elevation`, `Demand`, `Pattern`, `InitQuality`, etc. sont affichés. Chaque type d'élément possède son propre ensemble de champs.
 
+Pour les **vannes**, le champ `Type`/`ValveType` est affiché tel quel avec le code EPANET (PRV, PSV, PBV, FCV, TCV, GPV, CV) — le français ne dispose pas d'abréviation localisée distincte.
+
 Si le projet a des résultats de simulation chargés, le panneau ajoute une section avec les valeurs calculées (pression, débit, vitesse...) pour la période active dans la visionneuse de résultats. L'heure simulée est indiquée par le préfixe **Time:** suivi de la valeur en gras au format `HH:MM:SS`.
 
 > ⚠️ **Champs de qualité conditionnels.** Le champ `Quality` n'apparaît que lorsque le modèle de qualité du projet n'est pas *Aucun*. Le champ `ReactRate` n'est visible que lorsque le modèle qualité est *Chimique* ; reste masqué pour les modèles *Aucun*, *Age* et *Trace*. Ces champs ne sont affichés que lorsque le modèle qualité du projet les prend en charge.

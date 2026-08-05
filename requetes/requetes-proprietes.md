@@ -47,6 +47,8 @@ Champs comme `Status` qui ont un ensemble fini de valeurs possibles :
 | `All` | Pas de filtre |
 | `=` | Égal à la valeur sélectionnée |
 
+> ℹ️ Pour `Type`/`ValveType` sur les vannes, le sélecteur de valeur affiche le nom long descriptif du type (par exemple « Stabilisatrice Aval » pour PRV) au lieu du code EPANET.
+
 ### Champs de texte libres
 
 Champs comme `Tag` ou `Id` :

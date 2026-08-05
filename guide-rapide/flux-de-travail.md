@@ -48,7 +48,7 @@ Depuis la barre **Outils** :
 
 - **Interpoler les altitudes** si les nœuds n'ont pas d'altitudes attribuées.
 - **Attribuer la rugosité** en fonction du matériau et de la date d'installation.
-- **Demand manager** pour répartir la consommation.
+- **Constructeur de demandes nodales** pour répartir la consommation.
 
 ## Étape 6 — Simuler
 

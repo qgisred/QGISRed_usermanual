@@ -103,6 +103,7 @@ Il suffit de **Remplacer par**, en sélectionnant la nouvelle valeur dans une li
 | `Material` | Tableau des matériaux du projet |
 | `Curve` | Courbes du projet filtrées par type (pompe, volume, rendement, perte de charge) |
 | `Pattern` | Modulations du projet filtrées par type (demande, qualité, charge, rapidité, prix) |
+| `ValveType` (Vannes uniquement) | Liste EPANET fixe (PRV, PSV, PBV, FCV, TCV, GPV), affichée dans le combo avec son nom long descriptif (par exemple "Stabilisatrice Aval" pour PRV) |
 
 ### Champs de date
 

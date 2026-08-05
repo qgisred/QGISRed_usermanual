@@ -4,14 +4,14 @@ Les trois outils du deuxième groupe de la barre d'outils gèrent l'affectation 
 
 ---
 
-## Générateur de demande nodale…
+## Constructeur de demandes nodales…
 
-**Barre d'outils → Générateur de demande nodale…**
+**Barre d'outils → Constructeur de demandes nodales…**
 
 Attribuez la consommation aux nœuds du réseau en masse à partir de couches SHP externes chargées dans QGIS. Il s'agit du principal outil d'intégration des données de facturation, des recensements d'utilisateurs ou des estimations de polygones dans le modèle EPANET.
 
-<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Boîte de dialogue du générateur de demande nodale avec options de source et de méthode d'affectation"><figcaption><p>Boîte de dialogue du générateur de demande nodale avec options de source et de méthode d'affectation</p></figcaption></figure>
-*Générateur de demande nodale : couches sources détectées automatiquement, configuration du champ et méthode de distribution.*
+<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Boîte de dialogue Constructeur de demandes nodales avec options de source et de méthode d'affectation"><figcaption><p>Boîte de dialogue Constructeur de demandes nodales avec options de source et de méthode d'affectation</p></figcaption></figure>
+*Constructeur de demandes nodales : couches sources détectées automatiquement, configuration du champ et méthode de distribution.*
 
 ### Sources de données prises en charge
 
@@ -23,8 +23,8 @@ Attribuez la consommation aux nœuds du réseau en masse à partir de couches SH
 
 ### Processus
 
-1. Chargez la couche SHP externe avec les données de consommation dans QGIS avant d'ouvrir le gestionnaire.
-2. Activez **Générateur de demande nodale**. La boîte de dialogue détecte et répertorie automatiquement les couches externes.
+1. Chargez la couche SHP externe avec les données de consommation dans QGIS avant d'ouvrir le Constructeur.
+2. Activez **Constructeur de demandes nodales**. La boîte de dialogue détecte et répertorie automatiquement les couches externes.
 3. Définissez pour chaque calque :
 - **Champ Demande** : colonne avec la valeur de consommation.
 - **Champ Catégorie** : pour créer plusieurs requêtes par type d'utilisateur (résidentiel, industriel, etc.).
@@ -45,22 +45,22 @@ Les deux options sont indépendantes et peuvent être activées simultanément.
 
 ### Unités de demande personnalisées
 
-Par défaut, le Builder interprète les valeurs de demande dans les unités de flux du projet. Si vos données sources utilisent des unités différentes, activez **Unités de demande personnalisées** et saisissez :
+Par défaut, le Constructeur interprète les valeurs de demande dans les unités de flux du projet. Si vos données sources utilisent des unités différentes, activez **Unités de demande personnalisées** et saisissez :
 
 - **Étiquette des unités** : étiquette descriptive des unités sources (par exemple, `m³/mes`).
 - **Facteur de conversion** : facteur multiplicateur à convertir en unités du projet (par exemple, si le projet utilise des L/s et que les données sont en m³/mois : `1000 / 86400 / 30 ≈ 0.000386`).
 
-Le Builder applique automatiquement le facteur à toutes les valeurs de consommation avant de les affecter aux nœuds.
+Le Constructeur applique automatiquement le facteur à toutes les valeurs de consommation avant de les attribuer aux nœuds.
 
 ### Résultat sur la carte
 
 Le calque résultant est affiché avec des couleurs par catégorie et des étiquettes avec la valeur demandée. Les nœuds sans catégorie attribuée apparaissent en orange sous le groupe **Non classé**.
 
-> 💡 Les couches auxiliaires du Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) peuvent également être créées vides depuis le Layer Manager, sans qu'il soit nécessaire de lancer au préalable une analyse (voir [Présentation et gestion des couches](../projet-actif/couches-et-legende.md)).
+> 💡 Les couches auxiliaires du Constructeur de demandes nodales (ConsumptionPoints, DemandLinks, Sectors...) peuvent également être créées vides depuis le Layer Manager, sans qu'il soit nécessaire de lancer au préalable une analyse (voir [Présentation et gestion des couches](../projet-actif/couches-et-legende.md)).
 
 ### Nettoyage du procès
 
-Le gestionnaire permet de supprimer des demandes existantes avant d'en attribuer de nouvelles :
+Le Constructeur vous permet de supprimer des demandes existantes avant d'en attribuer de nouvelles :
 - **Supprimer les demandes des nœuds sélectionnés** : élimine les valeurs de `Demand` et les entrées de `MultipleDemands`.
 - **Supprimer les modulations orphelines** : supprimez les modulations qui ne sont plus référencées par aucun nœud.
 
@@ -88,7 +88,7 @@ La section efficacité hydraulique par secteurs présente également **deux mode
 
 #### Corrections d'efficacité et de modulations
 
-Après avoir défini les efficacités par secteurs, le gestionnaire propose des options de correction supplémentaires :
+Après avoir défini les efficacités par secteurs, le Constructeur propose des options de correction supplémentaires :
 
 - **Corriger les efficacités des catégories pour répondre à l'efficacité du secteur** : ajuste proportionnellement les efficacités de chaque catégorie de demande afin que l'efficacité résultante dans chaque secteur corresponde à l'objectif déclaré. Exclusif avec la correction vers l'efficacité globale.
 - **Corriger les modulations sectorielles pour se conformer à la modulation globale** : après avoir attribué les modulations sectorielles, corrigez ces modulations afin que leur combinaison soit conforme à la modulation globale précédemment déclarée. Les options de correction sont réparties par portée de modulation (globale ou catégorie).

@@ -70,7 +70,7 @@ Quatre groupes de contenus, chacun avec sa propre case dans la section **Contenu
 | **Résultats** | Résultats de simulation enregistrés dans `Results/` |
 | **Problèmes** | Incidents détectés par vérifications, en `Issues/` |
 | **Requêtes** | Requêtes enregistrées, dans `Queries/` |
-| **Couches auxiliaires** | Couches auxiliaires (par exemple, du Demands Builder), dans `Auxiliary Layers/` |
+| **Couches auxiliaires** | Couches auxiliaires (par exemple, du Constructeur de demandes nodales), dans `Auxiliary Layers/` |
 
 Si le `.qgz` fait référence à des données complémentaires, la boîte de dialogue ajoute une table **Données complémentaires** avec une ligne par couche (nom, emplacement et état), chacune avec sa propre case à cocher — vous pouvez donc laisser de côté, par exemple, un MDT de plusieurs Go sans abandonner le reste.
 
