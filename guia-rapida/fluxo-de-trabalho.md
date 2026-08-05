@@ -48,7 +48,7 @@ Na barra **Ferramentas**:
 
 - **Interpolar elevações** se os nós não possuem elevações atribuídas.
 - **Atribuir rugosidade** com base no material e na data de instalação.
-- **Gerenciador de demanda** para distribuição de consumo.
+- **Construtor de consumos nodais** para distribuição de consumo.
 
 ## Passo 6 — Simular
 

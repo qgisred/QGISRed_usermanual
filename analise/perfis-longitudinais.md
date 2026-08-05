@@ -10,7 +10,7 @@ O perfil longitudinal mostra a evolução de uma variável hidráulica ao longo 
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Doca de perfil longitudinal com rota desenhada no mapa e gráfico de pressão"><figcaption><p>Doca de perfil longitudinal com rota desenhada no mapa e gráfico de pressão</p></figcaption></figure>
 *Perfil longitudinal: percurso destacado em vermelho no mapa (esquerda) e gráfico de altura piezométrica + elevação do terreno (direita).*
-<!-- TODO: Captura de tela obsoleta — os botões Selecionar/Adicionar nó/Remover nó/Mover nó/Ramificação na barra de ferramentas foram substituídos por um único botão Editar trajetórias + botão Ajuda -->
+<!-- TODO: Captura obsoleta — os botões Selecionar/Adicionar nó/Remover nó/Mover nó/Ramificação na barra de ferramentas foram substituídos por um único botão Editar trajetos + botão Ajuda -->
 
 ---
 
@@ -27,7 +27,7 @@ O plugin permite que você mantenha vários docks de perfil abertos ao mesmo tem
 ## Abrir e construir perfil
 
 1. Ative **Perfil longitudinal** na barra Análise. O encaixe do perfil é aberto na área inferior do QGIS.
-2. O botão **Editar trajetórias** é ativado automaticamente; o cursor muda para o ícone de lápis.
+2. O botão **Editar trajetos** é ativado automaticamente; o cursor muda para o ícone de lápis.
 3. Clique em um nó da rede (Entroncamentos, RNVs, RNFs) para definir o primeiro nó de referência.
 4. Clique em outro nó: o plugin calcula o **caminho topológico mínimo** entre os dois nós e desenha o perfil.
 5. Cada clique adicional estende o caminho concatenando o caminho do último nó para o novo.
@@ -75,10 +75,10 @@ Todas as ações de edição são controladas a partir de um único botão de al
 
 | Botão | Função |
 |-------|---------|
-| **Editar trajetórias** (ícone de lápis, alternável) | Ative o modo de edição: clique com o botão esquerdo para traçar a rota nó por nó, clique com o botão direito em um nó para ver suas opções (ver [Atalhos do mouse](#atajos-de-ratón)). Quando desativado, mover o mouse sobre o caminho apenas o destaca e exibe informações, sem modificá-las. |
-| **Ajuda** (ícone ⓘ) | Abre a caixa de diálogo **"Como editar trajetórias"**, com um resumo de todas as ações de edição e atalhos do mouse disponíveis. |
+| **Editar trajetos** (ícone de lápis, alternável) | Ative o modo de edição: clique com o botão esquerdo para traçar a rota nó por nó, clique com o botão direito em um nó para ver suas opções (ver [Atalhos do mouse](#atajos-de-ratón)). Quando desativado, mover o mouse sobre o caminho apenas o destaca e exibe informações, sem modificá-las. |
+| **Ajuda** (ícone ⓘ) | Abre a caixa de diálogo **"Como editar trajetos"**, com um resumo de todas as ações de edição e atalhos do mouse disponíveis. |
 
-> 📝 Adicionar um nó de etapa intermediária, excluí-lo, movê-lo ou criar uma ramificação não possui mais botão próprio na barra de ferramentas: eles são feitos com **Editar trajetórias** ativo, usando o menu de contexto (clique com o botão direito) ou os atalhos do mouse descritos em [Atalhos do mouse](#atajos-de-ratón). Essas ações funcionam da mesma forma na rota principal e nos ramais.
+> 📝 Adicionar um nó de etapa intermediária, excluí-lo, movê-lo ou criar uma ramificação não possui mais botão próprio na barra de ferramentas: eles são feitos com **Editar trajetos** ativo, usando o menu de contexto (clique com o botão direito) ou os atalhos do mouse descritos em [Atalhos do mouse](#atajos-de-ratón). Essas ações funcionam da mesma forma na rota principal e nos ramais.
 
 ### Navegação no gráfico
 
@@ -133,7 +133,7 @@ Quando o envelope está ativo, a tabela de valores adiciona colunas com valor m�
 
 A ação **Criar ramificação** permite adicionar ramificações laterais que compartilham o mesmo gráfico com o caminho principal.
 
-1. Com **Editar trajetórias** ativo, clique com o botão direito em um nó já pertencente ao caminho principal ou uma ramificação existente e escolha **Criar ramificação** no menu de contexto (ou clique duas vezes com o botão direito diretamente sobre ele se for um nó interior com grau de conexão maior que 2; veja [Atalhos do mouse](#atajos-de-ratón)). Esse nó define o ponto de bifurcação e sua posição no eixo X.
+1. Com **Editar trajetos** ativo, clique com o botão direito em um nó já pertencente ao caminho principal ou uma ramificação existente e escolha **Criar ramificação** no menu de contexto (ou clique duas vezes com o botão direito diretamente sobre ele se for um nó interior com grau de conexão maior que 2; veja [Atalhos do mouse](#atajos-de-ratón)). Esse nó define o ponto de bifurcação e sua posição no eixo X.
 2. Faça cliques sucessivos para estender a ramificação para outros nós.
 3. Clique com o botão direito para finalizar a ramificação.
 
@@ -156,7 +156,7 @@ O botão **Limpar** exclui o caminho principal e todas as ramificações.
 
 ## Atalhos do mouse
 
-Com **Editar trajetórias** ativo, além de traçar o caminho clique a clique, o mouse suporta diversos atalhos diretos que evitam passar pelo menu de contexto. Esses atalhos funcionam da mesma forma no caminho principal e nas ramificações.
+Com **Editar trajetos** ativo, além de traçar o trajeto clique a clique, o mouse suporta diversos atalhos diretos que evitam passar pelo menu de contexto. Esses atalhos funcionam da mesma forma na rota principal e nos ramais.
 
 - **Clique duas vezes com o botão esquerdo em um nó intermediário** da rota (que ainda não é um nó de passagem): declara-o como um nó de passagem (equivalente a **Declarar nó de passagem**).
 - **Clique duas vezes com o botão esquerdo em um nó de passagem já declarado**: exclui-o e o caminho é recalculado (equivalente a **Excluir nó de passagem**).
@@ -176,7 +176,7 @@ O menu de contexto (simples clique com o botão direito) oferece diferentes opç
 | Nó de passagem interior do percurso | **Criar ramificação**, **Mover nó de passagem**, **Excluir nó de passagem** |
 | Nó de ramificação (origem de uma ramificação) | **Criar filial** |
 
-> 💡 O botão **Ajuda** na barra de ferramentas dock (ícone ⓘ) abre a caixa de diálogo **"Como editar trajetórias"** a qualquer momento, com as mesmas informações resumidas.
+> 💡 O botão **Ajuda** na barra de ferramentas do dock (ícone ⓘ) abre a caixa de diálogo **"Como editar trajetos"** a qualquer momento, com as mesmas informações resumidas.
 
 ---
 
@@ -195,7 +195,7 @@ Ao passar o mouse sobre o gráfico, uma linha vertical tracejada indica a posiç
 A interação entre o gráfico e o mapa é bidirecional e atualiza em tempo real:
 
 - Quando você passa o mouse sobre o **gráfico**, o nó mais próximo é destacado na **tela do mapa** com um círculo laranja.
-- Passar o mouse sobre o **mapa** enquanto **Editar trajetórias** está ativo move o cursor do gráfico para o nó correspondente.
+- Mover o mouse sobre o **mapa** enquanto **Editar trajetos** está ativo move o cursor do gráfico para o nó correspondente.
 
 ---
 

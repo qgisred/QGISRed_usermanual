@@ -54,7 +54,8 @@ Renomeia a rede e atualiza automaticamente o nome de **todos os arquivos** do pr
 
 1. Selecione o projeto.
 2. Pressione **Renomear**.
-3. Insira o novo nome.
+3. A caixa de diálogo oferece duas caixas independentes, ambas marcadas por padrão: **Renomear dados do projeto** (renomeia os arquivos de dados da rede) e **Renomear arquivo de mapa do projeto** (também renomeia o projeto QGIS `.qgz`/`.qgs`, se existir). Pelo menos um deve ser marcado.
+4. Insira o novo nome no campo correspondente a cada caixa ativa.
 
 > ⚠️ Se você estiver com o projeto aberto no QGIS, feche-o antes de renomeá-lo para evitar que o QGIS mantenha bloqueios nos arquivos.
 

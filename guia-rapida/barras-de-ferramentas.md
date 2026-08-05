@@ -96,7 +96,7 @@ Utilitários para automatizar tarefas de preparação e gerenciamento de modelos
 | **Interpolar dimensões** | Atribui dimensões aos nós de um MDT no formato `.asc` |
 | **Atribuir rugosidade** | Calcular o coeficiente de rugosidade em função do material e da idade |
 | **Converter rugosidade** | Transforme os coeficientes de rugosidade entre as fórmulas (D-W ↔ H-W ↔ CM) |
-| **Gerenciador de reclamações** | Distribuir consumo entre nós de polígonos de área ou pontos georreferenciados |
+| **Construtor de consumos nodais** | Distribuir consumo entre nós de polígonos de área ou pontos georreferenciados |
 | **Construtor de cenário** | Exporte e importe parâmetros do modelo (rugosidades, demandas, dimensões, estados, qualidades) em massa para gerenciar variantes sem duplicar projetos |
 | **Segmentos isolados** | Calcular os segmentos que seriam isolados quando cada válvula de corte fosse fechada |
 | **Setores de demanda** | Gera setores com base em padrões de demanda e consumo |

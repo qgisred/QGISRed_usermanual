@@ -6,7 +6,7 @@
 
 **Barra de projeto → Gerenciador de camadas** (Gerenciador de camadas)
 
-Controla quais camadas do projeto estão ativas no QGIS, permite recriar elementos base ausentes e gerencia camadas auxiliares no Construtor de Demandas. A caixa de diálogo organiza seu conteúdo em três guias: **Elementos básicos**, **Gêmeo digital** e **Camadas auxiliares**.
+Controla quais camadas do projeto estão ativas no QGIS, permite recriar elementos base ausentes e gerencia as camadas auxiliares do Construtor de consumos nodais. A caixa de diálogo organiza seu conteúdo em três guias: **Elementos básicos**, **Gêmeo digital** e **Camadas auxiliares**.
 
 <figure><img src="../assets/images/proyecto/gestor-capas.png" alt="Caixa de diálogo Gerenciador de camadas QGISRed"><figcaption><p>Caixa de diálogo Gerenciador de camadas QGISRed</p></figcaption></figure>
 <!-- TODO: Captura desatualizada, caixa de diálogo movida de seções empilhadas para guias (veja commits 12d9ee7 e 11c29ed) -->
@@ -44,33 +44,40 @@ O QGISRed monitora em segundo plano (verificando a cada 5 segundos) as camadas d
 
 - O ícone tem caráter meramente informativo: não possui nenhuma ação associada ao clique nele.
 - Para resolver o aviso é necessário **regenerar a camada**, ou seja, reiniciar a análise ou a consulta que a criou (Segmentos Isolados, Setores Hidráulicos, uma consulta de propriedade, etc.).
-- As camadas auxiliares do Construtor de Demandas (Pontos de Consumo, Links de Demanda, Setores) estão explicitamente excluídas desta vigilância: são seus próprios dados que você importa ou cria, não algo que o QGISRed recalcula da rede, portanto, editar uma entrada não os invalida.
+- As camadas auxiliares do Construtor de consumos nodais (Pontos de Consumo, Links de Demanda, Setores de Consumo) são explicitamente excluídas desta vigilância: são seus próprios dados que você importa ou cria, não algo que o QGISRed recalcula da rede, portanto, a edição de uma entrada não os invalida.
 
 > 💡 Este aviso é diferente do ícone que aparece quando uma camada é excluída (veja "Recuperar uma camada excluída" acima): aqui a camada ainda existe e é carregada, seu conteúdo pode simplesmente não refletir mais o estado atual da rede.
 
-### Aba Camadas Auxiliares: Camadas do Demand Builder
+### Aba Camadas auxiliares: Camadas do Construtor de consumos nodais
 
-A aba **Camadas auxiliares** contém o grupo **Demand Builder**, de onde são criadas e gerenciadas as camadas de trabalho vazias utilizadas pela ferramenta de atribuição de demandas aos nós (Nodal Demand Builder): **Pontos de Consumo**, **Links de Demanda** e **Setores**.
+A aba **Camadas auxiliares** contém o grupo **Demand Builder**, de onde são criadas e gerenciadas as camadas de trabalho vazias utilizadas pela ferramenta de atribuição de demandas aos nós (Construtor de consumos nodais): **Pontos de Consumo**, **Links de Demanda** e **Setores de Consumo**.
 
 <figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Aba Auxiliary layers do Gerenciador de Camadas do QGISRed"><figcaption><p>Aba Auxiliary layers do Gerenciador de Camadas do QGISRed</p></figcaption></figure>
 
 Cada linha da tabela é um **theme** (tema) — você pode ter vários temas do mesmo tipo, por exemplo um `Sectors` diferente para cada campanha de setorização de demanda. A tabela mostra três colunas:
 
 - Caixa de upload (igual às outras abas: marcada = enviada para o QGIS).
-- **Tema** — nome do tema, ou "(padrão)" para o qual o próprio Gerenciador de Demandas cria automaticamente.
-- **Tipo** — Pontos de Consumo / Elos de Demanda / Setores.
+- **Tema** — nome do tema, ou "(padrão)" para o qual o próprio Construtor de consumos nodais cria automaticamente.
+- **Tipo** — Pontos de Consumo / Ligações de Demanda / Setores de Consumo.
 
 Para criar um novo tópico:
 
 1. Pressione **Criar Tema Auxiliar**.
-2. Na caixa de diálogo **Novo tema auxiliar**, escolha o **Tipo** (Pontos de Consumo, Elos de Demanda ou Setores) e digite um **Nome**.
+2. Na caixa de diálogo **Novo tema auxiliar**, escolha o **Tipo** (Pontos de Consumo, Elos de Demanda ou Setores de Consumo) e digite um **Nome**.
 3. Pressione **Aceitar**. QGISRed cria o shapefile vazio com os campos correspondentes e adiciona-o já marcado e carregado à tabela.
 
 Para excluir um tema, selecione sua linha e pressione **Excluir Tema Auxiliar**; Será solicitada a confirmação porque a operação também exclui os arquivos do disco.
 
+Ao selecionar um tópico do tipo **Pontos de Consumo**, também aparece um botão **…** (dica "Campos de demanda base") que abre a caixa de diálogo **Campos de demanda base**, onde são gerenciadas as colunas de demanda base do tópico (todos os campos após `DemID` e `Category`):
+
+- A lista mostra um campo por linha, com o nome editável diretamente (clique duplo ou tecla).
+- **+** adiciona uma nova linha com um nome livre sugerido (`BaseDem`, `BaseDem2`…); **-** exclui a linha selecionada. O tema precisa sempre de pelo menos um campo de demanda base.
+- Ao pressionar **Aceitar**, o QGISRed valida os nomes: eles não podem estar vazios, não podem exceder 10 caracteres (limite de formato DBF), devem começar com uma letra e conter apenas letras, números e sublinhados, e não pode haver dois campos com o mesmo nome (não diferencia maiúsculas de minúsculas). Se algo for inválido, a caixa de diálogo não fecha e mostra o porquê.
+- Caso algum campo existente tenha sido removido da lista, antes de aplicar as alterações, é solicitada a confirmação explícita, pois seus valores também são excluídos; renomear um campo, por outro lado, preserva os dados.
+
 > 💡 As camadas que você deixa marcadas nesta tabela são lembradas ao fechar e reabrir o projeto — inclusive projetos que não salvam um `.qgz` — assim como o restante das camadas do projeto.
 
-> Para saber como essas camadas são utilizadas dentro do Nodal Demand Builder (importar pontos de consumo, gerar links de demanda, agregar por setores...), veja [Demandas e cenários](../ferramentas/demandas-e-cenarios.md).
+> Para saber como essas camadas são utilizadas dentro do Construtor de consumos nodais (importar pontos de consumo, gerar links de demanda, agregar por setores...), veja [Demandas e cenários](../ferramentas/demandas-e-cenarios.md).
 
 ### Resumo do modelo (Resumo)
 

@@ -4,9 +4,9 @@ As duas últimas ferramentas da barra Ferramentas realizam análises topológica
 
 ---
 
-## Obter setores de demanda
+## Construtor de setores de demanda…
 
-**Barra de Ferramentas → Obter setores de demanda**
+**Barra de Ferramentas → Construtor de setores de demanda…**
 
 Gera uma setorização da rede com base na presença de **medidores de vazão** (medidores de vazão). Cada setor de demanda é a sub-rede atendida por um único medidor de vazão, sem cruzar outros medidores de vazão.
 

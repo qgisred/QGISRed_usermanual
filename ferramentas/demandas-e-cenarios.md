@@ -4,14 +4,14 @@ As três ferramentas do segundo grupo da barra de ferramentas gerenciam a atribu
 
 ---
 
-## Construtor de demanda nodal…
+## Construtor de consumos nodais…
 
-**Barra de ferramentas → Construtor de demanda nodal…**
+**Barra de ferramentas → Construtor de consumos nodais…**
 
 Atribua o consumo aos nós da rede em massa a partir de camadas externas do SHP carregadas no QGIS. É a principal ferramenta para integração de dados de faturação, censos de utilizadores ou estimativas de polígonos no modelo EPANET.
 
-<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Diálogo do construtor de demanda nodal com opções de método de origem e atribuição"><figcaption><p>Diálogo do construtor de demanda nodal com opções de método de origem e atribuição</p></figcaption></figure>
-*Construtor de demanda nodal: camadas de origem detectadas automaticamente, configuração de campo e método de distribuição.*
+<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Caixa de diálogo Construtor de consumos nodais com opções de método de origem e atribuição"><figcaption><p>Caixa de diálogo Construtor de consumos nodais com opções de método de origem e atribuição</p></figcaption></figure>
+*Construtor de consumos nodais: camadas de origem detectadas automaticamente, configuração de campo e método de distribuição.*
 
 ### Fontes de dados suportadas
 
@@ -24,7 +24,7 @@ Atribua o consumo aos nós da rede em massa a partir de camadas externas do SHP 
 ### Processo
 
 1. Carregue a camada externa do SHP com os dados de consumo no QGIS antes de abrir o gerenciador.
-2. Ative o **Criador de demanda nodal**. A caixa de diálogo detecta e lista automaticamente as camadas externas.
+2. Ative o **Construtor de consumos nodais**. A caixa de diálogo detecta e lista automaticamente as camadas externas.
 3. Defina para cada camada:
 - **Campo demanda**: coluna com o valor do consumo.
 - **Campo categoria**: para criar múltiplas solicitações por tipo de usuário (residencial, industrial, etc.).
@@ -45,22 +45,22 @@ Ambas as opções são independentes e podem ser ativadas simultaneamente.
 
 ### Unidades de demanda personalizadas
 
-Por padrão, o Builder interpreta os valores de demanda nas unidades de fluxo do projeto. Se seus dados de origem usarem unidades diferentes, ative **Unidades de demanda personalizadas** e insira:
+Por padrão, o Construtor interpreta os valores de demanda nas unidades de fluxo do projeto. Se seus dados de origem usarem unidades diferentes, ative **Unidades de demanda personalizadas** e insira:
 
 - **Etiqueta das unidades**: etiqueta descritiva das unidades de origem (por exemplo, `m³/mes`).
 - **Fator de conversão**: fator multiplicador para converter para unidades do projeto (ex.: se o projeto utilizar L/s e os dados vierem em m³/mês: `1000 / 86400 / 30 ≈ 0.000386`).
 
-O Builder aplica automaticamente o fator a todos os valores de consumo antes de atribuí-los aos nós.
+O Construtor aplica automaticamente o fator a todos os valores de consumo antes de atribuí-los aos nós.
 
 ### Resultado no mapa
 
 A camada resultante é exibida com cores por categoria e rótulos com o valor da demanda. Os nós sem categoria atribuída aparecem em laranja no grupo **Sem categoria**.
 
-> 💡 As camadas auxiliares do Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) também podem ser criadas vazias a partir do Layer Manager, sem a necessidade de primeiro executar uma análise (ver [Visão geral e gerenciamento de camadas](../projeto-ativo/camadas-e-legenda.md)).
+> 💡 As camadas auxiliares do Construtor de consumos nodais (ConsumptionPoints, DemandLinks, Sectors...) também podem ser criadas vazias a partir do Layer Manager, sem a necessidade de primeiro executar uma análise (ver [Visão geral e gerenciamento de camadas](../projeto-ativo/camadas-e-legenda.md)).
 
 ### Limpeza de ações judiciais
 
-O gerenciador permite excluir demandas existentes antes de atribuir novas:
+O Construtor permite excluir demandas existentes antes de atribuir novas:
 - **Excluir demandas de nós selecionados**: elimina valores de `Demand` e entradas de `MultipleDemands`.
 - **Excluir padrões órfãos**: exclui padrões que não são mais referenciados por nenhum nó.
 

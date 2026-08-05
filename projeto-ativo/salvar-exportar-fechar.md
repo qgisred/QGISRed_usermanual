@@ -70,7 +70,7 @@ Quatro grupos de conteúdo, cada um com sua própria caixa na seção **Conteúd
 | **Resultados** | Resultados da simulação salvos em `Results/` |
 | **Problemas** | Incidentes detectados por verificações, em `Issues/` |
 | **Consultas** | Consultas salvas, em `Queries/` |
-| **Camadas Auxiliares** | Camadas auxiliares (por exemplo, do Demands Builder), em `Auxiliary Layers/` |
+| **Camadas Auxiliares** | Camadas auxiliares (por exemplo, do Construtor de consumos nodais), em `Auxiliary Layers/` |
 
 Se `.qgz` fizer referência a dados complementares, a caixa de diálogo adicionará uma tabela **Dados complementares** com uma linha por camada (nome, localização e estado), cada uma com sua própria caixa de seleção — para que você possa deixar de fora, por exemplo, um MDT de vários GB sem abrir mão do resto.
 

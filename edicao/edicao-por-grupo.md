@@ -103,6 +103,7 @@ Basta **Substituir por**, selecionando o novo valor em uma lista. As opções di
 | `Material` | Tabela de Materiais do Projeto |
 | `Curve` | Curvas de projeto filtradas por tipo (bomba, volume, eficiência, perda de carga) |
 | `Pattern` | Padrões de projetos filtrados por tipo (demanda, qualidade, cabeça, velocidade, preço) |
+| `ValveType` (somente válvulas) | Lista EPANET fixa (PRV, PSV, PBV, FCV, TCV, GPV), apresentada no combo com o seu nome extenso descritivo (por exemplo, "Redutora de Pressão" para PRV) |
 
 ### Campos de data
 

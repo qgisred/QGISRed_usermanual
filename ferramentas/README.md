@@ -22,7 +22,7 @@ A barra **Ferramentas** agrupa as massivas ferramentas de processamento: cálcul
 
 | # | Ferramenta | Função |
 |---|-------------|---------|
-| 5 | **Construtor de demanda nodal…** | Atribuir demandas aos nós das camadas externas do SHP (pontos ou polígonos) |
+| 5 | **Construtor de consumos nodais…** | Atribuir demandas aos nós das camadas externas do SHP (pontos ou polígonos) |
 | 6 | **Construtor de cenário…** | Exporte e importe parâmetros de modelo em massa para gerenciar cenários |
 | 7 | **Segmentos isolados…** | Identificar quais válvulas fechar para isolar um trecho e quais áreas ficam sem serviço |
 
@@ -30,7 +30,7 @@ A barra **Ferramentas** agrupa as massivas ferramentas de processamento: cálcul
 
 | # | Ferramenta | Função |
 |---|-------------|---------|
-| 8 | **Obter setores de demanda** | Gera setores de demanda delimitados por medidores de vazão |
+| 8 | **Construtor de setores de demanda…** | Gera setores de demanda delimitados por medidores de vazão |
 | 9 | **Árvore de Custo Mínimo…** | Calcular a árvore de custo mínimo de um nó selecionado |
 
 ---

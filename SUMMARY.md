@@ -39,7 +39,6 @@
 * [🔧 Ferramentas](ferramentas/README.md)
     * [Propriedades hidráulicas](ferramentas/propriedades-hidraulicas.md)
     * [Demandas e cenários](ferramentas/demandas-e-cenarios.md)
-    * [Construtor de setor de demanda](ferramentas/construtor-setores-demanda.md)
     * [Setores de demanda e árvore](ferramentas/setores-arvore.md)
 
 * [🔍 Consultas](consultas/README.md)
