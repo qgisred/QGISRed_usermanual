@@ -121,10 +121,16 @@ Gestiona la lista de materiales disponibles para las tuberías y sus propiedades
 
 | Campo | Descripción |
 |-------|-------------|
-| **Código** | Abreviatura del material (p. ej., PVC, DI, AC) |
-| **Nombre** | Nombre completo (p. ej., "Ductile Iron", "Asbestos Cement") |
-| **Rugosidad inicial** | Coeficiente de rugosidad D-W (mm) en la fecha de instalación |
-| **Incremento anual** | Aumento de rugosidad por año de antigüedad (mm/año) |
+| **Abreviatura** | Código corto del material (p. ej., PVC, DI, AC) |
+| **Descripción** | Nombre completo (p. ej., "Ductile Iron", "Asbestos Cement") |
+| **Rugosidad inicial (mm)** | Coeficiente de rugosidad D-W en la fecha de instalación |
+| **Incremento anual (mm)** | Aumento de rugosidad por año de antigüedad |
+
+> ⚠️ No puede haber dos materiales con la misma abreviatura — si la hay, QGISRed lo avisa e impide guardar hasta que corrijas la repetida.
+
+### Eliminar un material
+
+Selecciona una fila y pulsa **Supr** para eliminarla. Si el material está asignado a alguna tubería o acometida, QGISRed avisa de cuántos elementos lo usan y pide confirmación antes de borrarlo — si aceptas, esos elementos quedan sin material asignado.
 
 ### Uso con la herramienta "Asignar rugosidades"
 
@@ -142,12 +148,33 @@ QGISRed incluye una tabla de materiales predefinida con los más comunes (CI, DI
 
 ### Guardar y reutilizar tablas entre proyectos
 
-La tabla de materiales es propia de cada proyecto, pero puede compartirse con otros proyectos guardándola como tabla **global** (almacenada en el perfil de usuario, fuera de cualquier proyecto). El diálogo, abierto con un proyecto activo, ofrece estos botones:
+La tabla de materiales es propia de cada proyecto, pero puede compartirse con otros proyectos guardándola como tabla **global** (guardada en el perfil de usuario, fuera de cualquier proyecto — un `.dbf` por tabla).
+
+**Con un proyecto activo**, el diálogo edita directamente la tabla del proyecto (sin desplegable) y ofrece estos botones:
 
 | Botón | Acción |
 |-------|--------|
-| **Copy as global** | Guarda una copia de la tabla actual como una **nueva** tabla global, pidiendo un nombre. Si ya existe una tabla global con ese nombre, pide confirmación antes de sobrescribirla. |
-| **Load materials** | Sustituye la tabla de materiales del proyecto por una tabla global guardada previamente. |
-| **Reset default materials** | Restaura la tabla predefinida de QGISRed (según el idioma de la interfaz), descartando los materiales del proyecto. |
+| **Copiar como global** | Guarda una copia de la tabla actual como una **nueva** tabla global, pidiendo un nombre. Si ya existe una tabla global con ese nombre, pide confirmación antes de sobrescribirla. |
+| **Restaurar materiales por defecto** | Sustituye la tabla del proyecto por la predefinida de QGISRed (según el idioma de la interfaz), descartando los materiales actuales del proyecto. |
+| **Cargar materiales** | Sustituye la tabla del proyecto por una tabla global guardada previamente, elegida en un diálogo aparte. |
 
-> 💡 Si abres **Tabla de materiales** sin ningún proyecto QGISRed activo, el diálogo funciona como un gestor de tablas globales independiente: puedes elegir entre las tablas ya guardadas, eliminarlas y usar el botón **Save as global**, que guarda los cambios **sobre la tabla global seleccionada** (a diferencia de **Copy as global**, que siempre crea una tabla nueva con otro nombre).
+Los cambios quedan guardados en el proyecto al aceptar el diálogo.
+
+### Sin proyecto activo: gestor de tablas globales
+
+Si abres **Tabla de materiales** sin ningún proyecto QGISRed activo (por ejemplo nada más abrir QGIS, antes de crear o abrir un proyecto), el diálogo se abre como una ventana independiente — sin botones de aceptar/cancelar — para gestionar las tablas globales guardadas, con un **desplegable nuevo en la parte superior** que lista todas las disponibles:
+
+- Las **tablas globales guardadas** por el usuario (creadas con "Copiar como global" o "Guardar como global"), editables.
+- Las **tablas predefinidas** de QGISRed por idioma, marcadas con el sufijo **"(por defecto)"** — de solo lectura: la cuadrícula no se puede editar mientras una de estas está seleccionada.
+
+Junto al desplegable hay un botón **Borrar** que elimina la tabla global seleccionada; solo está disponible para tablas propias, no para las predefinidas de solo lectura.
+
+Los botones inferiores cambian según la tabla seleccionada:
+
+| Botón | Cuándo aparece | Acción |
+|-------|-----------------|--------|
+| **Guardar como global** | Solo con una tabla propia seleccionada (no predefinida) | Guarda los cambios **sobre la tabla ya seleccionada**, sin pedir un nombre nuevo — a diferencia de **Copiar como global**. |
+| **Copiar como global** | Siempre | Igual que con un proyecto activo: guarda una copia con un nombre nuevo y, si tiene éxito, la añade al desplegable y la selecciona a continuación. |
+| **Restaurar materiales por defecto** | Solo con una tabla propia seleccionada (no predefinida) | Sustituye el contenido de la tabla actual por la predefinida del idioma de la interfaz. |
+
+> ⚠️ Si cambias de tabla en el desplegable con cambios sin guardar, QGISRed pregunta si quieres guardarlos antes de cambiar (Sí/No/Cancelar). Cerrar la ventana directamente, en cambio, no pregunta nada: al no haber un botón final que confirme todos los cambios de golpe (como si hay con un proyecto activo), aquí solo se conserva lo que ya hayas guardado explícitamente con "Guardar como global" o "Copiar como global".
