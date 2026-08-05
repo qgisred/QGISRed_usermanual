@@ -1,20 +1,19 @@
-# Project Manager
+# Project manager
 
 **General Bar → Project Manager** (or from the QGISRed menu → General → Project manager)
 
 The Project Manager is the central administration window of QGISRed. Allows access to all known projects without having to remember where they are stored.
 
-<figure><img src="../assets/images/general/gestor-proyectos.png" alt="QGISRed Project Manager Window"><figcaption><p>QGISRed Project Manager Window</p></figcaption></figure>
-*Project Manager window: list of recent projects and available operations.*
+\*Project Manager window: list of recent projects and available operations.\*
 
----
+***
 
 ## List of recent projects
 
 The window shows all projects that have ever been opened on this computer. For each project the **network name** and **folder path** are displayed.
 
-- **Double click** on any project → opens it directly.
-- If there is an open project with unsaved changes, QGISRed will ask for confirmation before closing it.
+* **Double click** on any project → opens it directly.
+* If there is an open project with unsaved changes, QGISRed will ask for confirmation before closing it.
 
 ## Available operations
 
@@ -73,7 +72,7 @@ Delete the project from history **and delete all project files** from disk. This
 
 Open Windows Explorer directly to the selected project folder.
 
----
+***
 
 ## How QGISRed identifies the active project
 

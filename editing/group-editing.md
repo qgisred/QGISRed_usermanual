@@ -1,4 +1,4 @@
-# Edit by Group
+# Group editing
 
 **Edition bar → Edit properties by group…**
 
@@ -6,30 +6,29 @@ The **Edit properties by group** tool allows you to modify an attribute of multi
 
 The dialog is **modeless**: you can still interact with the map while it is open.
 
-<figure><img src="../assets/images/edicion/edicion-por-grupo.png" alt="Edit properties by group dialog with configured filter and action"><figcaption><p>Edit properties by group dialog with configured filter and action</p></figcaption></figure>
-*Edit dialog by group: filter by numeric field and Multiply by action on pipes.*
+\*Edit dialog by group: filter by numeric field and Multiply by action on pipes.\*
 
----
+***
 
 ## Available item types
 
-| Element | Description |
-|----------|-------------|
-| **Junctions** | Network nodes |
-| **Multiple Demands** | Multiple demands by category |
-| **Pipes** | Pipes |
-| **Tanks** | Tanks |
-| **Reservoirs** | Reservoirs |
-| **Pumps** | Pumps |
-| **Valves** | Valves |
-| **Sources** | Quality sources |
-| **Service Connections** | Service connections |
-| **Isolation Valves** | Isolation valves |
-| **Meters** | Flowmeters |
+| Element                 | Description                  |
+| ----------------------- | ---------------------------- |
+| **Junctions**           | Network nodes                |
+| **Multiple Demands**    | Multiple demands by category |
+| **Pipes**               | Pipes                        |
+| **Tanks**               | Tanks                        |
+| **Reservoirs**          | Reservoirs                   |
+| **Pumps**               | Pumps                        |
+| **Valves**              | Valves                       |
+| **Sources**             | Quality sources              |
+| **Service Connections** | Service connections          |
+| **Isolation Valves**    | Isolation valves             |
+| **Meters**              | Flowmeters                   |
 
 > 🧪 **Chemical Quality Fields:** The BulkCoeff and WallCoeff (pipes) and ReactCoef and InitQuality (tanks, reservoirs, and nodes) fields only appear in the field selectors when the project's quality model is set to **Chemical**.
 
----
+***
 
 ## Select elements
 
@@ -41,20 +40,20 @@ The field dropdown starts with the **No Filter** option. While that selection is
 
 When you select a specific field, the operator and value controls appear:
 
-- The **operator** determines the type of comparison (see table below).
-- The **value** is automatically filled with the unique values ​​present in the layer. The list includes **NULL** as the first option:
-- Operator `=` with NULL generates an **IS NULL** filter.
-- Operator `≠` with NULL generates an **IS NOT NULL** filter.
-- The value field has a **×** button to quickly delete it. Additionally, the field is **editable**: the user can enter a custom value that is not listed in the drop-down list.
+* The **operator** determines the type of comparison (see table below).
+* The **value** is automatically filled with the unique values ​​present in the layer. The list includes **NULL** as the first option:
+* Operator `=` with NULL generates an **IS NULL** filter.
+* Operator `≠` with NULL generates an **IS NOT NULL** filter.
+* The value field has a **×** button to quickly delete it. Additionally, the field is **editable**: the user can enter a custom value that is not listed in the drop-down list.
 
 #### Operators available by field type
 
-| Field type | Operators |
-|---------------|------------|
-| Numeric | `>=`, `<=`, `=`, `>`, `<`, `≠` |
-| List of values ​​| `=` |
-| Free text | `=`, `≠`, `ILIKE`, `NOT ILIKE`, `LIKE`, `NOT LIKE` |
-| Date | `=` (calendar selector) |
+| Field type        | Operators                                          |
+| ----------------- | -------------------------------------------------- |
+| Numeric           | `>=`, `<=`, `=`, `>`, `<`, `≠`                     |
+| List of values ​​ | `=`                                                |
+| Free text         | `=`, `≠`, `ILIKE`, `NOT ILIKE`, `LIKE`, `NOT LIKE` |
+| Date              | `=` (calendar selector)                            |
 
 ### Preview on the map
 
@@ -66,7 +65,7 @@ By checking **Only selected features**, the action affects only the elements tha
 
 Unchecked (default), the action is applied to all elements of the chosen type that meet the filter.
 
----
+***
 
 ## Edit action (“Do…” section)
 
@@ -74,54 +73,54 @@ Defines which attribute to modify and with what value or transformation.
 
 ### Actions for numeric fields
 
-| Action | Formula |
-|--------|---------|
-| **Replace with** | `operando` |
-| **Multiply by** | `valor_actual × operando` |
-| **Add** | `valor_actual + operando` |
-| **Subtract** | `valor_actual − operando` |
-| **Divide by** | `valor_actual / operando` |
+| Action               | Formula                       |
+| -------------------- | ----------------------------- |
+| **Replace with**     | `operando`                    |
+| **Multiply by**      | `valor_actual × operando`     |
+| **Add**              | `valor_actual + operando`     |
+| **Subtract**         | `valor_actual − operando`     |
+| **Divide by**        | `valor_actual / operando`     |
 | **Clamp minimum to** | `max(valor_actual, operando)` |
 | **Clamp maximum to** | `min(valor_actual, operando)` |
 
 ### Actions for text fields
 
-| Action | Result |
-|--------|-----------|
-| **Set to** | Replaces the entire value |
-| **Prepend** | Prepends the text to the current value |
-| **Append** | Adds the text to the end of the current value |
-| **Find and replace** | Search and replace (case sensitive) |
+| Action               | Result                                        |
+| -------------------- | --------------------------------------------- |
+| **Set to**           | Replaces the entire value                     |
+| **Prepend**          | Prepends the text to the current value        |
+| **Append**           | Adds the text to the end of the current value |
+| **Find and replace** | Search and replace (case sensitive)           |
 
 ### Actions for enumerated fields
 
 Just **Replace with**, selecting the new value from a list. The available options depend on the type of field:
 
-| Field | Options Source |
-|-------|--------------------|
-| `InitStatus` | Fixed EPANET list (Open, Closed, CV, Active…) |
-| `Material` | Project Materials Table |
-| `Curve` | Project curves filtered by type (pump, volume, efficiency, headloss) |
-| `Pattern` | Project patterns filtered by type (demand, quality, head, speed, price) |
+| Field                     | Options Source                                                                                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------------------------- |
+| `InitStatus`              | Fixed EPANET list (Open, Closed, CV, Active…)                                                                                          |
+| `Material`                | Project Materials Table                                                                                                                |
+| `Curve`                   | Project curves filtered by type (pump, volume, efficiency, headloss)                                                                   |
+| `Pattern`                 | Project patterns filtered by type (demand, quality, head, speed, price)                                                                |
 | `ValveType` (Valves only) | Fixed EPANET list (PRV, PSV, PBV, FCV, TCV, GPV), shown in the combo with its long descriptive name (e.g. "Pressure Reducing" for PRV) |
 
 ### Date fields
 
 **Set to** action: The date is selected from the existing date combo on the layer or via the calendar button.
 
----
+***
 
 ## Dialog buttons
 
-| Button | Behavior |
-|-------|----------------|
-| **Apply** | Displays a pre-commit dialog detailing the changes to be temporarily applied (item type, field, and number of items affected) and requests confirmation before writing to the QGIS edit buffer. It can be called multiple times to accumulate changes on different attributes. The modified elements are selected on the map and their attribute table is opened or reactivated. |
-| **Accept** | It shows a simple confirmation and, after accepting, permanently saves all changes accumulated in the buffer to disk. Close the dialogue; the attribute tables remain open. |
-| **Cancel** | Discards **all** the changes accumulated in the buffer (full rollback) and closes the dialog. Clears the selection on the map, but the attribute tables remain open. |
+| Button     | Behavior                                                                                                                                                                                                                                                                                                                                                                         |
+| ---------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Apply**  | Displays a pre-commit dialog detailing the changes to be temporarily applied (item type, field, and number of items affected) and requests confirmation before writing to the QGIS edit buffer. It can be called multiple times to accumulate changes on different attributes. The modified elements are selected on the map and their attribute table is opened or reactivated. |
+| **Accept** | It shows a simple confirmation and, after accepting, permanently saves all changes accumulated in the buffer to disk. Close the dialogue; the attribute tables remain open.                                                                                                                                                                                                      |
+| **Cancel** | Discards **all** the changes accumulated in the buffer (full rollback) and closes the dialog. Clears the selection on the map, but the attribute tables remain open.                                                                                                                                                                                                             |
 
 > Changes are only written to disk when you press **Accept**. While working with **Apply**, the data is in the QGIS edit buffer and can be undone en masse with **Cancel** at any time.
 
----
+***
 
 ## Attribute table
 
@@ -129,27 +128,22 @@ After each **Apply**, the tool opens or reactivates the attribute table of the a
 
 When you press **Cancel** or **Accept**, the attribute tables remain open; only the selection on the map is cleared.
 
----
+***
 
 ## Automatic dialog update
 
 When layers are added or removed while the dialog is open, it automatically updates and restores the previous element type, field, and filter selections. If the project is closed or a different project is loaded, the dialog closes automatically.
 
----
+***
 
 ## Usage examples
 
-**Change material to pipes of a specific diameter**
-Element: Pipes — Filter: `Diameter = 200` — Do: `Material → Replace with → PVC`
+**Change material to pipes of a specific diameter** Element: Pipes — Filter: `Diameter = 200` — Do: `Material → Replace with → PVC`
 
-**Increase the roughness of cast iron pipes by 10%**
-Filter: `Material = FD` — Do: `Roughness → Multiply by → 1.1`
+**Increase the roughness of cast iron pipes by 10%** Filter: `Material = FD` — Do: `Roughness → Multiply by → 1.1`
 
-**Close all isolation valves**
-Element: Isolation Valves — Filter: No Filter — Do: `InitStatus → Replace with → CLOSED`
+**Close all isolation valves** Element: Isolation Valves — Filter: No Filter — Do: `InitStatus → Replace with → CLOSED`
 
-**Assign pattern to a selected node set**
-Check "Only selected features" — Element: Junctions — Do: `Pattern → Replace with → PAT_RESIDENCIAL`
+**Assign pattern to a selected node set** Check "Only selected features" — Element: Junctions — Do: `Pattern → Replace with → PAT_RESIDENCIAL`
 
-**Replace text in labels**
-Element: Junctions — Do: `Tag → Find and replace → Buscar: "SEC" / Reemplazar: "ZN"`
+**Replace text in labels** Element: Junctions — Do: `Tag → Find and replace → Buscar: "SEC" / Reemplazar: "ZN"`

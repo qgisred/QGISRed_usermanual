@@ -1,11 +1,10 @@
-# 🗂️ General
+# 📁 General
 
 The **General** bar is the entry point to any work session with QGISRed. It contains the four actions to manage the life cycle of projects: create them, open them, import them and manage the history.
 
-<figure><img src="../assets/images/general/barra-general.png" alt="QGISRed General Toolbar with its four buttons"><figcaption><p>QGISRed General Toolbar with its four buttons</p></figcaption></figure>
-*General Bar: Project Manager, Open, Create and Import.*
+\*General Bar: Project Manager, Open, Create and Import.\*
 
----
+***
 
 ## What is a QGISRed project
 

@@ -1,8 +1,8 @@
-# Hydraulic Properties
+# Hydraulic properties
 
 The first four tools in the Tools bar calculate or update hydraulic properties of pipes and nodes in bulk: length, elevation and roughness. They work on the current selection or on the entire network if there is no selection.
 
----
+***
 
 ## Automatically calculate pipe lengths
 
@@ -12,15 +12,15 @@ Recalculates the `Length` field of each pipe using the actual geometric length m
 
 ### When to use it
 
-- After moving vertices or nodes with the Edition tools without having updated the attribute.
-- After importing from a `.inp` whose lengths differ from the real geometry (coordinates on a different scale or different projection).
-- As a previous step to **Check pipe lengths** (Debug Bar) to leave all values ​​synchronized before the audit.
+* After moving vertices or nodes with the Edition tools without having updated the attribute.
+* After importing from a `.inp` whose lengths differ from the real geometry (coordinates on a different scale or different projection).
+* As a previous step to **Check pipe lengths** (Debug Bar) to leave all values ​​synchronized before the audit.
 
 The tool overwrites the value of `Length` unconditionally on all pipes in the selection scope. It does not ask for confirmation or filter for tolerance.
 
 > Always use a projected metric CRS (UTM, LCC, etc.). If the project uses geographic coordinates (decimal degrees), the calculated length will be in degrees, not meters, and will be useless for the simulation.
 
----
+***
 
 ## Interpolate elevation from .asc files…
 
@@ -28,8 +28,7 @@ The tool overwrites the value of `Length` unconditionally on all pipes in the se
 
 Assigns the elevation (field `Elevation`) to the nodes, tanks and reservoirs of the project by interpolating their value from one or more Digital Terrain Models (DTM) in ASC format.
 
-<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="ASC file selector for elevation interpolation"><figcaption><p>ASC file selector for elevation interpolation</p></figcaption></figure>
-*MDT File Selector: You can upload multiple ASC files to cover the entire network area.*
+\*MDT File Selector: You can upload multiple ASC files to cover the entire network area.\*
 
 ### ASC format supported
 
@@ -43,12 +42,12 @@ nodata_value  -9999
 230.4 231.1 231.8 ...
 ```
 
-| Header | Meaning |
-|----------|-------------|
-| `ncols` / `nrows` | Number of columns and rows in the mesh |
+| Header                    | Meaning                                                                                        |
+| ------------------------- | ---------------------------------------------------------------------------------------------- |
+| `ncols` / `nrows`         | Number of columns and rows in the mesh                                                         |
 | `xllcenter` / `yllcenter` | Coordinates of the center of the bottom-left cell (`xllcorner` / `yllcorner` is also accepted) |
-| `cellsize` | Cell size in CRS units |
-| `nodata_value` | Value that the plugin ignores (cell without data) |
+| `cellsize`                | Cell size in CRS units                                                                         |
+| `nodata_value`            | Value that the plugin ignores (cell without data)                                              |
 
 ### Assignment process
 
@@ -59,7 +58,7 @@ nodata_value  -9999
 
 > The CRS of the ASC file must match the CRS of the project. If they do not match, the coordinates are not projected and the nodes will be outside the mesh.
 
----
+***
 
 ## Set roughness coefficients (from Material and Date)
 
@@ -78,6 +77,7 @@ Where `Rugosidad_inicial` and `Incremento_anual` are obtained from the Material 
 ### Prerequisites
 
 Before using this tool, verify with the Debug Bar that:
+
 1. All pipes have a valid `Material` (**Check pipe materials**).
 2. All pipes have a correct `InstallYear` (**Check pipe installation dates**).
 
@@ -85,15 +85,15 @@ If any of these fields are empty or invalid for a pipe, its roughness is not upd
 
 Roughness is written in the units of the active project formula:
 
-| Formula | Roughness unit |
-|---------|---------------------|
-| Darcy-Weisbach (D-W) | mm (absolute wall roughness) |
+| Formula              | Roughness unit                                |
+| -------------------- | --------------------------------------------- |
+| Darcy-Weisbach (D-W) | mm (absolute wall roughness)                  |
 | Hazen-Williams (H-W) | Dimensionless C coefficient (typical 100–150) |
-| Chezy-Manning (C-M) | Coefficient n (typical 0.010–0.020) |
+| Chezy-Manning (C-M)  | Coefficient n (typical 0.010–0.020)           |
 
 > The Material Table stores the initial roughness in D-W units (mm). If the project uses H-W or C-M, the calculated value is automatically converted to the active system.
 
----
+***
 
 ## Convert roughness coefficients…
 
@@ -103,12 +103,12 @@ Converts the values ​​of the `Roughness` field of all pipes between the thre
 
 ### Available conversions
 
-| Origin | Destination |
-|--------|---------|
+| Origin               | Destination          |
+| -------------------- | -------------------- |
 | Hazen-Williams (H-W) | Darcy-Weisbach (D-W) |
 | Darcy-Weisbach (D-W) | Hazen-Williams (H-W) |
-| Chezy-Manning (C-M) | Darcy-Weisbach (D-W) |
-| Darcy-Weisbach (D-W) | Chezy-Manning (C-M) |
+| Chezy-Manning (C-M)  | Darcy-Weisbach (D-W) |
+| Darcy-Weisbach (D-W) | Chezy-Manning (C-M)  |
 
 When changing the hydraulic formula in **Project Options**, QGISRed detects the change and offers to run this tool automatically. If you reject at that time, you can launch it manually from here.
 

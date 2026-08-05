@@ -1,21 +1,21 @@
-# Dependency Management
+# Dependency management
 
 QGISRed needs a set of external calculation libraries **(QGISRed plugin dependencies)** to be able to run most of its tools. These libraries are DLLs compiled in .NET that contain the hydraulic motor (based on the EPANET 2.3 toolkit) and the geospatial processing algorithms.
 
----
+***
 
 ## First installation
 
 The first time you try to use any QGISRed tool, the plugin detects that the dependencies are not installed and displays a confirmation dialog:
 
-<figure><img src="../assets/images/instalacion/dialogo-dependencias.png" alt="Dependency Installation Dialog"><figcaption><p>QGISRed requests permission to download the dependencies.</p></figcaption></figure>
+<figure><img src="../.gitbook/assets/dialogo-dependencias.png" alt="Dependency Installation Dialog"><figcaption><p>QGISRed requests permission to download the dependencies.</p></figcaption></figure>
 
-- **Yes**: QGISRed downloads and installs the libraries automatically. The download requires an internet connection and may take a few seconds depending on the connection speed.
-- **No**: The tool does not run. The dialog will appear again the next time you try to use the plugin.
+* **Yes**: QGISRed downloads and installs the libraries automatically. The download requires an internet connection and may take a few seconds depending on the connection speed.
+* **No**: The tool does not run. The dialog will appear again the next time you try to use the plugin.
 
 > Installation **does not require administrator permissions**. The DLLs are installed in the user folder `%APPDATA%\QGISRed\`, not in system folders.
 
----
+***
 
 ## Where are they installed
 
@@ -27,13 +27,13 @@ C:\Users\{tu_usuario}\AppData\Roaming\QGISRed\
 
 You can access this folder by typing `%APPDATA%\QGISRed` directly into the address bar of Windows Explorer.
 
----
+***
 
 ## Update dependencies
 
 When a new version of QGISRed is released that includes an updated version of the dependencies, the plugin automatically detects this upon startup and proposes the update with the same confirmation dialog.
 
----
+***
 
 ## Troubleshooting
 
