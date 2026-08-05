@@ -1,6 +1,6 @@
-# Gestor de Capas y Leyenda
+# Resumen y gestión de capas
 
----
+***
 
 ## Gestor de capas
 
@@ -8,21 +8,19 @@
 
 Controla qué capas del proyecto están activas en QGIS, permite recrear elementos base que falten y gestiona las capas auxiliares del Constructor de demandas nodales. El diálogo organiza su contenido en tres pestañas: **Basic elements**, **Digital Twin** y **Auxiliary layers**.
 
-<figure><img src="../assets/images/proyecto/gestor-capas.png" alt="Diálogo del Gestor de capas de QGISRed"><figcaption><p>Diálogo del Gestor de capas de QGISRed</p></figcaption></figure>
-<!-- TODO: captura desactualizada, el diálogo pasó de secciones apiladas a pestañas (ver commits 12d9ee7 y 11c29ed) -->
-*Gestor de capas: lista de todas las capas del proyecto con su estado de carga.*
+\*Gestor de capas: lista de todas las capas del proyecto con su estado de carga.\*
 
 Encima de las pestañas siempre está visible el campo **CRS**, con el sistema de coordenadas del proyecto y un botón **...** para cambiarlo.
 
 ### Pestañas Basic elements y Digital Twin
 
-- **Basic elements** reúne los 6 elementos base de EPANET (Pipes, Junctions, Tanks, Reservoirs, Valves, Pumps) más las capas complementarias Multiple Demands y Sources.
-- **Digital Twin** reúne las capas propias del gemelo digital: Service Connections, Isolation Valves y Meters.
+* **Basic elements** reúne los 6 elementos base de EPANET (Pipes, Junctions, Tanks, Reservoirs, Valves, Pumps) más las capas complementarias Multiple Demands y Sources.
+* **Digital Twin** reúne las capas propias del gemelo digital: Service Connections, Isolation Valves y Meters.
 
 Para cada elemento, la fila muestra una de estas dos cosas según exista o no su fichero en disco:
 
-- **Casilla marcada/desmarcada** → el shapefile ya existe; la casilla decide si la capa está cargada y visible en QGIS. Puedes marcar o desmarcar cualquiera sin afectar a los datos.
-- **Botón "Create `<Elemento>` Layer"** → el shapefile todavía no existe; el botón lo crea vacío (con la estructura de campos correcta) y lo abre automáticamente. Una vez creado, la fila pasa a mostrar la casilla.
+* **Casilla marcada/desmarcada** → el shapefile ya existe; la casilla decide si la capa está cargada y visible en QGIS. Puedes marcar o desmarcar cualquiera sin afectar a los datos.
+* **Botón "Create `<Elemento>` Layer"** → el shapefile todavía no existe; el botón lo crea vacío (con la estructura de campos correcta) y lo abre automáticamente. Una vez creado, la fila pasa a mostrar la casilla.
 
 > ⚠️ Pipes es la excepción: en cuanto está cargada, su casilla queda bloqueada. Es la capa que sostiene el resto de la red, así que no se puede descargar desde aquí sin descargar antes el resto del proyecto.
 
@@ -42,9 +40,9 @@ QGISRed vigila en segundo plano (comprobación cada 5 segundos) las capas deriva
 
 > "Layer may be outdated — inputs have changed since last generation"
 
-- El icono es solo informativo: no tiene ninguna acción asociada al hacer clic sobre él.
-- Para resolver el aviso hay que **regenerar la capa**, es decir, volver a lanzar el análisis o la consulta que la creó (Isolated Segments, Hydraulic Sectors, una consulta por propiedades, etc.).
-- Las capas auxiliares del Constructor de demandas nodales (Consumption Points, Demand Links, Demand Sectors) quedan explícitamente excluidas de esta vigilancia: son datos propios que tú importas o creas, no algo que QGISRed recalcule a partir de la red, así que editar un input no las invalida.
+* El icono es solo informativo: no tiene ninguna acción asociada al hacer clic sobre él.
+* Para resolver el aviso hay que **regenerar la capa**, es decir, volver a lanzar el análisis o la consulta que la creó (Isolated Segments, Hydraulic Sectors, una consulta por propiedades, etc.).
+* Las capas auxiliares del Constructor de demandas nodales (Consumption Points, Demand Links, Demand Sectors) quedan explícitamente excluidas de esta vigilancia: son datos propios que tú importas o creas, no algo que QGISRed recalcule a partir de la red, así que editar un input no las invalida.
 
 > 💡 Este aviso es distinto del icono que aparece cuando una capa ha sido borrada (ver "Recuperar una capa borrada" arriba): aquí la capa sigue existiendo y cargada, simplemente puede que su contenido ya no refleje el estado actual de la red.
 
@@ -52,13 +50,11 @@ QGISRed vigila en segundo plano (comprobación cada 5 segundos) las capas deriva
 
 La pestaña **Auxiliary layers** contiene el grupo **Demand Builder**, desde donde se crean y gestionan las capas vacías de trabajo que usa la herramienta de asignación de demandas a nudos (Constructor de demandas nodales): **Consumption Points**, **Demand Links** y **Demand Sectors**.
 
-<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Pestaña Auxiliary layers del Gestor de capas de QGISRed"><figcaption><p>Pestaña Auxiliary layers del Gestor de capas de QGISRed</p></figcaption></figure>
-
 Cada fila de la tabla es un **tema** (theme) — puedes tener varios temas del mismo tipo, por ejemplo un `Sectors` distinto por cada campaña de sectorización de demanda. La tabla muestra tres columnas:
 
-- Casilla de carga (igual que en las otras pestañas: marcada = cargada en QGIS).
-- **Theme** — nombre del tema, o "(default)" para el que crea automáticamente el propio Constructor de demandas nodales.
-- **Type** — Consumption Points / Demand Links / Demand Sectors.
+* Casilla de carga (igual que en las otras pestañas: marcada = cargada en QGIS).
+* **Theme** — nombre del tema, o "(default)" para el que crea automáticamente el propio Constructor de demandas nodales.
+* **Type** — Consumption Points / Demand Links / Demand Sectors.
 
 Para crear un tema nuevo:
 
@@ -70,10 +66,10 @@ Para borrar un tema, selecciona su fila y pulsa **Delete Auxiliary Theme**; se t
 
 Cuando seleccionas un tema de tipo **Consumption Points**, aparece además un botón **…** (tooltip "Base demand fields") que abre el diálogo **Base demand fields**, donde se gestionan las columnas de demanda base del tema (todos los campos posteriores a `DemID` y `Category`):
 
-- La lista muestra un campo por fila, con el nombre editable directamente (doble clic o tecla).
-- **+** añade una fila nueva con un nombre libre sugerido (`BaseDem`, `BaseDem2`…); **-** borra la fila seleccionada. El tema siempre necesita al menos un campo de demanda base.
-- Al pulsar **Accept**, QGISRed valida los nombres: no pueden quedar vacíos, no pueden superar 10 caracteres (límite del formato DBF), deben empezar por una letra y solo contener letras, números y guion bajo, y no puede haber dos campos con el mismo nombre (sin distinguir mayúsculas/minúsculas). Si algo no es válido, el diálogo no se cierra y muestra el motivo.
-- Si algún campo existente se ha eliminado de la lista, antes de aplicar los cambios se pide confirmación explícita porque se borran también sus valores; renombrar un campo, en cambio, conserva los datos.
+* La lista muestra un campo por fila, con el nombre editable directamente (doble clic o tecla).
+* **+** añade una fila nueva con un nombre libre sugerido (`BaseDem`, `BaseDem2`…); **-** borra la fila seleccionada. El tema siempre necesita al menos un campo de demanda base.
+* Al pulsar **Accept**, QGISRed valida los nombres: no pueden quedar vacíos, no pueden superar 10 caracteres (límite del formato DBF), deben empezar por una letra y solo contener letras, números y guion bajo, y no puede haber dos campos con el mismo nombre (sin distinguir mayúsculas/minúsculas). Si algo no es válido, el diálogo no se cierra y muestra el motivo.
+* Si algún campo existente se ha eliminado de la lista, antes de aplicar los cambios se pide confirmación explícita porque se borran también sus valores; renombrar un campo, en cambio, conserva los datos.
 
 > 💡 Las capas que dejas marcadas en esta tabla se recuerdan al cerrar y reabrir el proyecto — incluidos los proyectos que no guardan un `.qgz` — igual que el resto de capas del proyecto.
 
@@ -96,7 +92,7 @@ Pumps: 8
 
 Útil para verificar que la importación fue completa o para documentar el tamaño del modelo.
 
----
+***
 
 ## Editor de leyenda
 
@@ -104,16 +100,14 @@ Pumps: 8
 
 Abre un panel flotante que permite construir y personalizar la **simbología** de las capas del proyecto sin navegar por el menú de propiedades de capa de QGIS: tipo de leyenda, clasificación automática, tamaños, colores, guardado/carga de estilos y reglas propias por tipo de elemento.
 
-<figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="Panel del Editor de leyenda de QGISRed"><figcaption><p>Panel del Editor de leyenda de QGISRed</p></figcaption></figure>
-<!-- TODO: captura desactualizada, el diálogo se rediseñó por completo (ver commit a3038c2 y siguientes, 20–31 jul 2026) -->
-*Panel del Editor de leyenda: estilos predefinidos y personalización de colores y tamaños.*
+\*Panel del Editor de leyenda: estilos predefinidos y personalización de colores y tamaños.\*
 
 ### Elegir la capa
 
 En la cabecera del diálogo:
 
-- **Group** — grupo del árbol de capas sobre el que quieres trabajar (Inputs, Results, Queries y sus subgrupos...).
-- **Map Layer** — capa concreta dentro de ese grupo. También puedes cambiar de capa seleccionándola directamente en el panel de capas de QGIS; el editor sigue la selección automáticamente.
+* **Group** — grupo del árbol de capas sobre el que quieres trabajar (Inputs, Results, Queries y sus subgrupos...).
+* **Map Layer** — capa concreta dentro de ese grupo. También puedes cambiar de capa seleccionándola directamente en el panel de capas de QGIS; el editor sigue la selección automáticamente.
 
 ### Tipo de leyenda y clasificación
 
@@ -123,30 +117,30 @@ El desplegable **Legend Type** ofrece, según el tipo de capa, entre **Single Sy
 
 La tabla central lista una fila por clase, con casilla de visibilidad, color, tamaño, valor/rango (o categoría) y etiqueta de leyenda:
 
-- **Classes** (spinbox) fija el número de clases; el botón junto a él, **Classify All**, añade una clase por cada valor único de la capa (categórica) o reclasifica automáticamente el rango numérico según el modo elegido en **Intervals**.
-- Los botones **+ / -** junto a Classes añaden o quitan clases: clic izquierdo añade una clase debajo de la selección, clic derecho la añade encima; en leyendas categóricas, doble clic añade una clase especial "Other values" que agrupa el resto de valores no clasificados.
-- **Intervals** (`cbMode`) fija el método de clasificación automática para leyendas graduadas: Manual, Equal Interval, Fixed Interval, Quantile (Equal Count), Natural Breaks (Jenks), Standard Deviation y Pretty Breaks. Con **Fixed Interval** aparece el campo **Interval Range** para indicar el ancho de cada clase.
-- Puedes editar el rango de una clase a mano haciendo **doble clic sobre su valor** (columna Value) para abrir un pequeño diálogo con los límites inferior y superior.
-- **Up / Down** (flechas junto a la tabla) reordenan la clase seleccionada.
+* **Classes** (spinbox) fija el número de clases; el botón junto a él, **Classify All**, añade una clase por cada valor único de la capa (categórica) o reclasifica automáticamente el rango numérico según el modo elegido en **Intervals**.
+* Los botones **+ / -** junto a Classes añaden o quitan clases: clic izquierdo añade una clase debajo de la selección, clic derecho la añade encima; en leyendas categóricas, doble clic añade una clase especial "Other values" que agrupa el resto de valores no clasificados.
+* **Intervals** (`cbMode`) fija el método de clasificación automática para leyendas graduadas: Manual, Equal Interval, Fixed Interval, Quantile (Equal Count), Natural Breaks (Jenks), Standard Deviation y Pretty Breaks. Con **Fixed Interval** aparece el campo **Interval Range** para indicar el ancho de cada clase.
+* Puedes editar el rango de una clase a mano haciendo **doble clic sobre su valor** (columna Value) para abrir un pequeño diálogo con los límites inferior y superior.
+* **Up / Down** (flechas junto a la tabla) reordenan la clase seleccionada.
 
 ### Tamaños
 
 El bloque **Sizes** controla el tamaño (grosor de línea o tamaño de símbolo puntual) de las clases:
 
-- **Sizes** (`cbSizes`): Manual, Equal, Linear, Quadratic, Exponential o Proportional to Value.
-- **Equal** usa un único campo **Value** para todas las clases.
-- Linear/Quadratic/Exponential/Proportional to Value reparten el tamaño entre **Min** y **Max** según la curva elegida, con la casilla **Invert** para intercambiar qué extremo (menor o mayor valor) recibe el tamaño mínimo.
+* **Sizes** (`cbSizes`): Manual, Equal, Linear, Quadratic, Exponential o Proportional to Value.
+* **Equal** usa un único campo **Value** para todas las clases.
+* Linear/Quadratic/Exponential/Proportional to Value reparten el tamaño entre **Min** y **Max** según la curva elegida, con la casilla **Invert** para intercambiar qué extremo (menor o mayor valor) recibe el tamaño mínimo.
 
 ### Colores
 
 El bloque **Colors** controla el color de cada clase:
 
-- **Colors** (`cbColors`): Manual, Equal, Random, Ramp o Palette.
-- **Equal** aplica un único color (botón de color junto al desplegable) a todas las clases.
-- **Random** genera colores aleatorios distintos por clase, con el mismo criterio de "colores aleatorios barajados" (shuffle) que usa QGIS de forma nativa. El botón de refrescar junto al desplegable (visible solo en este modo) vuelve a barajar los colores sin cambiar nada más.
-- **Ramp** muestra, a todo lo ancho del diálogo, el selector nativo de rampa de color de QGIS para elegir la rampa a aplicar sobre las clases; incluye tanto el catálogo estándar de QGIS como rampas propias de QGISRed.
-- **Palette** reparte los colores tomando una paleta categórica en vez de una rampa continua.
-- La casilla **Invert** intercambia el sentido de la rampa/paleta.
+* **Colors** (`cbColors`): Manual, Equal, Random, Ramp o Palette.
+* **Equal** aplica un único color (botón de color junto al desplegable) a todas las clases.
+* **Random** genera colores aleatorios distintos por clase, con el mismo criterio de "colores aleatorios barajados" (shuffle) que usa QGIS de forma nativa. El botón de refrescar junto al desplegable (visible solo en este modo) vuelve a barajar los colores sin cambiar nada más.
+* **Ramp** muestra, a todo lo ancho del diálogo, el selector nativo de rampa de color de QGIS para elegir la rampa a aplicar sobre las clases; incluye tanto el catálogo estándar de QGIS como rampas propias de QGISRed.
+* **Palette** reparte los colores tomando una paleta categórica en vez de una rampa continua.
+* La casilla **Invert** intercambia el sentido de la rampa/paleta.
 
 > 💡 Para la capa de nodos del árbol de conectividad (Tree), el color de la fila no tiñe el símbolo entero: edita solo el **color de trazo (stroke)** del círculo exterior del nodo, dejando la estrella y los iconos de elemento con su color propio.
 
@@ -154,25 +148,27 @@ El bloque **Colors** controla el color de cada clase:
 
 Los elementos de entrada (Inputs) y algunas capas de consulta llevan reglas de estilo con estados fijos que el color/tamaño que elijas respeta, en lugar de sobrescribir el símbolo entero. Por ejemplo, Pipes/Valves/Pumps mantienen en rojo el estado "cerrada" y las Valves activas en naranja pase lo que pase con el color que elijas para el resto. Entre las capas con reglas propias:
 
-- **Multiple Demands**: el color elegido solo tiñe la rama de "demanda positiva" del símbolo (el marcador interior), igual que en Junctions; la demanda negativa y el resto del símbolo mantienen sus colores fijos.
-- **Isolation Valves**: el color elegido solo sustituye al estado "abierta, sin pérdida de carga"; los colores de cerrada (rojo), con pérdida de carga (ámbar) y no disponible (gris) están fijados por la propia leyenda y no se pueden editar desde aquí.
-- **Meters**: el color y el tamaño se aplican según lo que tengas seleccionado en **Meter Type** — a todos los tipos de contador a la vez, o solo al tipo elegido, sin tocar el resto de iconos apilados.
-- **Service Connections**: el color elegido se aplica al trazo de la acometida activa y a una versión más clara del mismo color para su relleno; el resto de estados conserva su color propio.
-- **Connect_Links** (resultado de la herramienta de Conectividad, dentro de Queries): a diferencia de las anteriores, no tiene reglas por estado — el color y el tamaño se aplican directamente sobre el símbolo, como en cualquier capa Single Symbol.
+* **Multiple Demands**: el color elegido solo tiñe la rama de "demanda positiva" del símbolo (el marcador interior), igual que en Junctions; la demanda negativa y el resto del símbolo mantienen sus colores fijos.
+* **Isolation Valves**: el color elegido solo sustituye al estado "abierta, sin pérdida de carga"; los colores de cerrada (rojo), con pérdida de carga (ámbar) y no disponible (gris) están fijados por la propia leyenda y no se pueden editar desde aquí.
+* **Meters**: el color y el tamaño se aplican según lo que tengas seleccionado en **Meter Type** — a todos los tipos de contador a la vez, o solo al tipo elegido, sin tocar el resto de iconos apilados.
+* **Service Connections**: el color elegido se aplica al trazo de la acometida activa y a una versión más clara del mismo color para su relleno; el resto de estados conserva su color propio.
+* **Connect\_Links** (resultado de la herramienta de Conectividad, dentro de Queries): a diferencia de las anteriores, no tiene reglas por estado — el color y el tamaño se aplican directamente sobre el símbolo, como en cualquier capa Single Symbol.
 
 ### Cargar y guardar estilos
 
 Los botones **Load** y **Save**, en la parte inferior del diálogo, abren cada uno un menú:
 
 **Load**
-- **Default Style** — recupera el estilo por defecto de QGISRed para ese tipo de capa.
-- **Global Style** — carga un estilo que hayas guardado previamente a nivel global (válido para cualquier proyecto).
-- **Project Style** — carga un estilo guardado dentro de este proyecto.
-- **Revert to Original Legend** — recupera en el diálogo la leyenda que tenía la capa en el momento de abrir el editor (sin necesidad de cerrar y reabrir el diálogo).
+
+* **Default Style** — recupera el estilo por defecto de QGISRed para ese tipo de capa.
+* **Global Style** — carga un estilo que hayas guardado previamente a nivel global (válido para cualquier proyecto).
+* **Project Style** — carga un estilo guardado dentro de este proyecto.
+* **Revert to Original Legend** — recupera en el diálogo la leyenda que tenía la capa en el momento de abrir el editor (sin necesidad de cerrar y reabrir el diálogo).
 
 **Save**
-- **To Global...** — guarda la leyenda actual como estilo global, reutilizable en cualquier proyecto.
-- **To Project...** — guarda la leyenda actual dentro de la carpeta `layerStyles` de este proyecto.
+
+* **To Global...** — guarda la leyenda actual como estilo global, reutilizable en cualquier proyecto.
+* **To Project...** — guarda la leyenda actual dentro de la carpeta `layerStyles` de este proyecto.
 
 Al guardar, un pequeño diálogo te deja elegir si quieres guardar la leyenda **tal cual se ve** o una **estrategia** que se regenere automáticamente la próxima vez que la cargues (marcando qué partes conservar: la estructura de clases/intervalos, los tamaños y/o los colores).
 
@@ -182,8 +178,8 @@ Al guardar, un pequeño diálogo te deja elegir si quieres guardar la leyenda **
 
 Los tres botones inferiores tienen una semántica de vista previa muy concreta:
 
-- **Apply** — aplica los cambios mostrados en el diálogo a la capa, sin cerrar el editor. Útil para ir viendo el resultado en el lienzo mientras sigues ajustando.
-- **Accept** — aplica los cambios a la capa y cierra el diálogo (equivale a Apply + cerrar).
-- **Cancel** — cierra el diálogo y **restaura la capa a la leyenda que tenía cuando la seleccionaste** en este editor, deshaciendo también los cambios que ya hubieras aplicado con Apply. Si había cambios aplicados, QGISRed pide confirmación antes de descartarlos.
+* **Apply** — aplica los cambios mostrados en el diálogo a la capa, sin cerrar el editor. Útil para ir viendo el resultado en el lienzo mientras sigues ajustando.
+* **Accept** — aplica los cambios a la capa y cierra el diálogo (equivale a Apply + cerrar).
+* **Cancel** — cierra el diálogo y **restaura la capa a la leyenda que tenía cuando la seleccionaste** en este editor, deshaciendo también los cambios que ya hubieras aplicado con Apply. Si había cambios aplicados, QGISRed pide confirmación antes de descartarlos.
 
 > 💡 Como Cancel siempre vuelve al estado de partida (aunque hayas pulsado Apply varias veces mientras probabas cosas), es la forma segura de "empezar de nuevo" con una capa sin tener que reconstruir su leyenda a mano.

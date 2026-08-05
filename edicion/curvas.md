@@ -1,13 +1,12 @@
-# Patrones y Curvas
+# Patrones y curvas
 
 **Barra Edition → Edit patterns and curves…**
 
 El editor de patrones y curvas centraliza la gestión de los datos temporales y funcionales que controlan el comportamiento dinámico del modelo: cómo varía la demanda a lo largo del día, cómo se comporta una bomba según su caudal, o cuál es el volumen de un depósito irregular.
 
-<figure><img src="../assets/images/edicion/editor-curvas.png" alt="Editor de patrones y curvas de QGISRed"><figcaption><p>Editor de patrones y curvas de QGISRed</p></figcaption></figure>
-*Editor de patrones y curvas: lista de elementos a la izquierda, gráfico y tabla de datos a la derecha.*
+\*Editor de patrones y curvas: lista de elementos a la izquierda, gráfico y tabla de datos a la derecha.\*
 
----
+***
 
 ## Patrones de demanda (Patterns)
 
@@ -16,9 +15,10 @@ Un patrón define cómo multiplica la demanda base de un nudo (u otro parámetro
 ### Estructura de un patrón
 
 Cada patrón tiene:
-- Un **ID** único (referenciado desde los nudos o bombas).
-- Una lista de **factores multiplicadores**, uno por intervalo de tiempo.
-- El **paso de tiempo del patrón** se define en las opciones de simulación; si el patrón tiene menos factores que intervalos de simulación, los valores se repiten cíclicamente.
+
+* Un **ID** único (referenciado desde los nudos o bombas).
+* Una lista de **factores multiplicadores**, uno por intervalo de tiempo.
+* El **paso de tiempo del patrón** se define en las opciones de simulación; si el patrón tiene menos factores que intervalos de simulación, los valores se repiten cíclicamente.
 
 ### Ejemplo
 
@@ -39,7 +39,7 @@ El nudo con demanda base 2.0 L/s y patrón `DomResidential` consume 0.8 L/s a la
 3. El gráfico se actualiza en tiempo real.
 4. Puedes **importar factores desde CSV** (una columna de valores numéricos) usando el botón de importación.
 
----
+***
 
 ## Curvas de comportamiento (Curves)
 
@@ -49,11 +49,11 @@ Las curvas relacionan dos magnitudes físicas. EPANET usa cuatro tipos:
 
 Relaciona la **Altura manométrica** (Head, eje Y) con el **Caudal** (Flow, eje X). Define el punto de trabajo de la bomba a velocidad nominal.
 
-| Nº de puntos | Método de ajuste |
-|--------------|-----------------|
-| 1 punto | QGISRed ajusta la curva estándar de EPANET: H₀ = 133% del punto, Q₀ dado, Hmax = 0 a 2×Q₀ |
-| 3 puntos | Ajuste polinomial de segundo grado pasando por los tres puntos |
-| N puntos | Interpolación lineal entre puntos (curva libre) |
+| Nº de puntos | Método de ajuste                                                                          |
+| ------------ | ----------------------------------------------------------------------------------------- |
+| 1 punto      | QGISRed ajusta la curva estándar de EPANET: H₀ = 133% del punto, Q₀ dado, Hmax = 0 a 2×Q₀ |
+| 3 puntos     | Ajuste polinomial de segundo grado pasando por los tres puntos                            |
+| N puntos     | Interpolación lineal entre puntos (curva libre)                                           |
 
 > La curva H-Q debe tener **pendiente negativa** (mayor cabeza a menor caudal). EPANET avisará si la curva tiene pendiente positiva en algún tramo.
 
@@ -69,7 +69,7 @@ Relaciona el **Nivel** del depósito (m o ft, eje X) con el **Volumen** almacena
 
 Para válvulas de tipo **GPV** (General Purpose Valve), relaciona la **Pérdida de carga** (m o ft) con el **Caudal** (Flow). Permite modelar cualquier dispositivo de control hidráulico para el que se conozca la curva característica.
 
----
+***
 
 ## Crear y editar curvas
 

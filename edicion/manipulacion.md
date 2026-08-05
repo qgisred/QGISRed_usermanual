@@ -1,8 +1,8 @@
-# Manipulación Geométrica y Topológica
+# Manipulación geométrica y topológica
 
 Las herramientas del segundo grupo de la barra Edition permiten modificar la geometría y la topología de la red sin romper la conectividad. QGISRed mantiene la coherencia entre la geometría espacial y los datos del modelo en todo momento.
 
----
+***
 
 ## Selección múltiple (Select multiple elements)
 
@@ -14,7 +14,7 @@ La selección se usa como **entrada** para otras herramientas: Reverse elements 
 
 > Para deseleccionar, vuelve a pulsar el botón o usa `Ctrl+Shift+A` (deselección global de QGIS).
 
----
+***
 
 ## Mover nudos (Move nodes)
 
@@ -22,8 +22,7 @@ La selección se usa como **entrada** para otras herramientas: Reverse elements 
 
 Desplaza uno o varios nudos (Junctions, Tanks, Reservoirs) arrastrando consigo **todos los elementos lineales conectados** (tuberías, válvulas, bombas). La red permanece conectada tras el movimiento.
 
-<figure><img src="../assets/images/edicion/move-nodes.png" alt="Mover un nudo y sus tuberías conectadas en el mapa"><figcaption><p>Mover un nudo y sus tuberías conectadas en el mapa</p></figcaption></figure>
-*Al arrastrar un nudo, todas las tuberías conectadas siguen el desplazamiento.*
+\*Al arrastrar un nudo, todas las tuberías conectadas siguen el desplazamiento.\*
 
 ### Cómo usarla
 
@@ -34,7 +33,7 @@ Desplaza uno o varios nudos (Junctions, Tanks, Reservoirs) arrastrando consigo *
 
 > Esta herramienta **no** mueve vértices intermedios de tuberías. Para eso, usa **Edit link vertices**.
 
----
+***
 
 ## Editar vértices de enlace (Edit link vertices)
 
@@ -44,13 +43,13 @@ Permite ajustar el trazado visual de tuberías y otros elementos lineales manipu
 
 ### Operaciones disponibles
 
-| Acción | Gesto |
-|--------|-------|
-| **Mover vértice** | Haz clic sobre un vértice existente (círculo azul) y arrástralo |
-| **Añadir vértice** | Haz clic en el segmento entre dos vértices para insertar uno nuevo |
-| **Eliminar vértice** | Haz clic derecho sobre un vértice para eliminarlo |
+| Acción               | Gesto                                                              |
+| -------------------- | ------------------------------------------------------------------ |
+| **Mover vértice**    | Haz clic sobre un vértice existente (círculo azul) y arrástralo    |
+| **Añadir vértice**   | Haz clic en el segmento entre dos vértices para insertar uno nuevo |
+| **Eliminar vértice** | Haz clic derecho sobre un vértice para eliminarlo                  |
 
----
+***
 
 ## Invertir elementos (Reverse elements)
 
@@ -65,7 +64,7 @@ Invierte la **orientación** de tuberías y conexiones de servicio. La orientaci
 
 > La inversión solo afecta a la convención de signo del caudal en los resultados. No modifica el comportamiento hidráulico en la simulación (EPANET calcula siempre el sentido real del flujo, independientemente de la orientación almacenada).
 
----
+***
 
 ## Dividir/Unir tuberías (Split/Join pipes)
 
@@ -75,12 +74,11 @@ Haz clic sobre una tubería para **dividirla** en el punto indicado: QGISRed cre
 
 Para **unir** dos tuberías, haz clic sobre el nudo intermedio que comparten: si ese nudo tiene exactamente dos tuberías conectadas y las propiedades de diámetro, material e InstallYear son iguales, QGISRed los funde en un solo tramo y elimina el nudo.
 
-<figure><img src="../assets/images/edicion/split-pipe.png" alt="Dividir una tubería: se crea un nudo intermedio y dos tramos"><figcaption><p>Dividir una tubería: se crea un nudo intermedio y dos tramos</p></figcaption></figure>
-*Clic sobre P-5 crea el nudo J-42 y divide la tubería en P-5 y P-45.*
+\*Clic sobre P-5 crea el nudo J-42 y divide la tubería en P-5 y P-45.\*
 
 > Si las dos tuberías tienen diámetros o materiales distintos, la unión no se realiza y el plugin muestra un aviso.
 
----
+***
 
 ## Fusionar/Separar nudos (Merge/Dissolve junctions)
 
@@ -88,14 +86,15 @@ Para **unir** dos tuberías, haz clic sobre el nudo intermedio que comparten: si
 
 Esta herramienta opera con **dos clics**:
 
-- **Un solo clic** (clic y sin segundo punto): **Separa** el nudo indicado en tantos nudos independientes como tuberías tiene conectadas. Útil cuando un nudo agrupa varias tuberías que no deberían estar conectadas topológicamente.
-- **Dos clics** (origen → destino): **Fusiona** el nudo origen con el nudo destino. Todas las tuberías conectadas al nudo origen se reconectan al nudo destino. El nudo origen desaparece.
+* **Un solo clic** (clic y sin segundo punto): **Separa** el nudo indicado en tantos nudos independientes como tuberías tiene conectadas. Útil cuando un nudo agrupa varias tuberías que no deberían estar conectadas topológicamente.
+* **Dos clics** (origen → destino): **Fusiona** el nudo origen con el nudo destino. Todas las tuberías conectadas al nudo origen se reconectan al nudo destino. El nudo origen desaparece.
 
 Casos de uso habituales:
-- Fusionar dos nudos muy próximos que quedaron separados al importar desde `.inp`.
-- Separar un nudo en un cruce donde las tuberías realmente no están conectadas.
 
----
+* Fusionar dos nudos muy próximos que quedaron separados al importar desde `.inp`.
+* Separar un nudo en un cruce donde las tuberías realmente no están conectadas.
+
+***
 
 ## Crear/Eliminar conexiones en T (Create/Remove T connections)
 
@@ -113,7 +112,7 @@ Gestiona las uniones en T: puntos donde un nudo está muy próximo a una tuberí
 
 Haz clic sobre la conexión en T existente. QGISRed elimina el nudo intermedio y restaura la tubería original.
 
----
+***
 
 ## Crear/Eliminar cruces (Create/Remove crossings)
 
@@ -121,12 +120,12 @@ Haz clic sobre la conexión en T existente. QGISRed elimina el nudo intermedio y
 
 Gestiona los cruces entre tuberías que se intersectan en el mapa:
 
-- **Crear cruce**: Haz clic en el punto de intersección entre dos tuberías que no tienen nudo compartido. QGISRed divide ambas tuberías y crea un nudo común en la intersección.
-- **Eliminar cruce**: Haz clic sobre un nudo de cruce que tiene exactamente cuatro tuberías conectadas. QGISRed elimina el nudo y restituye las dos tuberías originales que pasan por encima.
+* **Crear cruce**: Haz clic en el punto de intersección entre dos tuberías que no tienen nudo compartido. QGISRed divide ambas tuberías y crea un nudo común en la intersección.
+* **Eliminar cruce**: Haz clic sobre un nudo de cruce que tiene exactamente cuatro tuberías conectadas. QGISRed elimina el nudo y restituye las dos tuberías originales que pasan por encima.
 
 > Esta herramienta no aplica snapping para evitar falsos positivos. La tolerancia de detección de cruce usa el valor configurado en **Valores por defecto**.
 
----
+***
 
 ## Mover válvulas y bombas (Move valves/pumps)
 
@@ -141,7 +140,7 @@ Mueve una válvula o bomba de una tubería a otra manteniendo todas sus propieda
 3. Haz clic sobre la **tubería destino** (donde se insertará el elemento).
 4. QGISRed elimina el elemento de la posición original, restaura la tubería original y lo inserta en la nueva posición.
 
----
+***
 
 ## Cambiar estado de elemento (Change element status)
 
@@ -149,14 +148,14 @@ Mueve una válvula o bomba de una tubería a otra manteniendo todas sus propieda
 
 Alterna el estado operativo (Open/Closed) de tuberías y válvulas manuales sin abrir el diálogo de propiedades.
 
-- **Clic simple**: Alterna entre Open y Closed.
-- **Ctrl + Clic**: Ciclo por todos los estados disponibles: Open → Closed → CV (Check Valve) → Open.
+* **Clic simple**: Alterna entre Open y Closed.
+* **Ctrl + Clic**: Ciclo por todos los estados disponibles: Open → Closed → CV (Check Valve) → Open.
 
 La capa de **Isolation Valves** (válvulas de corte del gemelo digital) también puede gestionarse con esta herramienta si está cargada.
 
 > El estado se almacena en el campo `InitStatus` de la capa correspondiente y se exporta al `.inp` de EPANET.
 
----
+***
 
 ## Eliminar elementos (Delete elements)
 
@@ -169,11 +168,11 @@ Elimina uno o varios elementos del proyecto. Funciona de dos modos:
 
 ### Comportamiento al eliminar
 
-| Situación | Qué ocurre |
-|-----------|------------|
-| Eliminar una tubería | Se elimina la tubería. Los nudos extremos permanecen si tienen otras conexiones; se eliminan si quedan aislados. |
-| Eliminar un nudo con tuberías conectadas | Se eliminan también todas las tuberías conectadas. |
-| Eliminar una válvula o bomba | Los dos tramos de tubería en que fue dividida se fusionan automáticamente en uno solo. |
-| Eliminar un Tank o Reservoir | Se convierte el elemento en Junction o se elimina si no tiene conexiones. |
+| Situación                                | Qué ocurre                                                                                                       |
+| ---------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| Eliminar una tubería                     | Se elimina la tubería. Los nudos extremos permanecen si tienen otras conexiones; se eliminan si quedan aislados. |
+| Eliminar un nudo con tuberías conectadas | Se eliminan también todas las tuberías conectadas.                                                               |
+| Eliminar una válvula o bomba             | Los dos tramos de tubería en que fue dividida se fusionan automáticamente en uno solo.                           |
+| Eliminar un Tank o Reservoir             | Se convierte el elemento en Junction o se elimina si no tiene conexiones.                                        |
 
 > La eliminación no se puede deshacer con `Ctrl+Z`. QGISRed guarda automáticamente el estado anterior del proyecto en la carpeta temporal antes de ejecutar la operación, pero la única forma de recuperar datos eliminados es usar una **copia de seguridad** previa.
