@@ -62,4 +62,3 @@
 
 ---
 * [📜 Registro de Cambios](changelog.md)
-    * [🕒 Versiones Anteriores](registro-de-cambios/versiones-anteriores.md)

@@ -49,7 +49,6 @@ LANGS = {
             "verificaciones":      "debug",
             "gemelo-digital":      "digital-twin",
             "apendice":            "appendix",
-            "registro-de-cambios": "changelog",
         },
         "files": {
             "edicion/configuracion.md": "advanced-configuration.md",
@@ -88,7 +87,6 @@ LANGS = {
             "creditos.md": "credits.md",
             "capas-y-leyenda.md": "layers-and-legend.md",
             "guardar-backup.md": "save-export-close.md",
-            "versiones-anteriores.md": "previous-versions.md",
             "atributos.md": "attributes.md",
             "sectores.md": "hydraulic-sectors.md",
             "topologia.md": "topology.md",
@@ -109,7 +107,6 @@ LANGS = {
             "verificaciones":      "debug",
             "gemelo-digital":      "gemeo-digital",
             "apendice":            "apendice",
-            "registro-de-cambios": "registro-mudancas",
         },
         "files": {
             "edicion/configuracion.md": "configuracao-avancada.md",
@@ -148,7 +145,6 @@ LANGS = {
             "creditos.md": "creditos.md",
             "capas-y-leyenda.md": "camadas-e-legenda.md",
             "guardar-backup.md": "salvar-exportar-fechar.md",
-            "versiones-anteriores.md": "versoes-anteriores.md",
             "atributos.md": "atributos.md",
             "sectores.md": "setores-hidraulicos.md",
             "topologia.md": "topologia.md",
@@ -169,7 +165,6 @@ LANGS = {
             "verificaciones":      "debug",
             "gemelo-digital":      "jumeau-numerique",
             "apendice":            "annexe",
-            "registro-de-cambios": "journal-modifications",
         },
         "files": {
             "edicion/configuracion.md": "configuration-avancee.md",
@@ -208,7 +203,6 @@ LANGS = {
             "creditos.md": "credits.md",
             "capas-y-leyenda.md": "couches-et-legende.md",
             "guardar-backup.md": "enregistrer-exporter-fermer.md",
-            "versiones-anteriores.md": "versions-precedentes.md",
             "atributos.md": "attributs.md",
             "sectores.md": "secteurs-hydrauliques.md",
             "topologia.md": "topologie.md",
