@@ -62,4 +62,3 @@
 
 ---
 * [📜 Change Log](changelog.md)
-    * [🕒 Previous Versions](changelog/previous-versions.md)
