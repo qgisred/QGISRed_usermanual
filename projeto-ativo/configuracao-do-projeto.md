@@ -121,10 +121,16 @@ Gerencie a lista de materiais disponíveis para tubos e suas propriedades de env
 
 | Campo | Descrição |
 |-------|-------------|
-| **Código** | Abreviatura do material (por exemplo, PVC, DI, AC) |
-| **Nome** | Nome completo (por exemplo, "Ferro Dúctil", "Cimento de Amianto") |
-| **Rugosidade inicial** | Coeficiente de rugosidade D-W (mm) na data de instalação |
-| **Aumento anual** | Aumento da rugosidade por ano de idade (mm/ano) |
+| **Abreviatura** | Código abreviado do material (por exemplo, PVC, DI, AC) |
+| **Descrição** | Nome completo (por exemplo, "Ferro Dúctil", "Cimento de Amianto") |
+| **Rugosidade inicial (mm)** | Coeficiente de rugosidade D-W na data de instalação |
+| **Aumento anual (mm)** | Aumento da rugosidade por ano de idade |
+
+> ⚠️ Não pode haver dois materiais com a mesma abreviatura — se houver, o QGISRed avisa e impede o salvamento até que você corrija o repetido.
+
+### Excluir um material
+
+Selecione uma linha e pressione **Del** para excluí-la. Se o material for atribuído a um tubo ou conexão, o QGISRed notifica quantos elementos o utilizam e pede confirmação antes de excluí-lo — se você aceitar, esses elementos ficam sem material atribuído.
 
 ### Use com a ferramenta "Atribuir Rugosidade"
 
@@ -142,12 +148,33 @@ QGISRed inclui uma tabela de materiais predefinida com os mais comuns (CI, DI, A
 
 ### Salvar e reutilizar tabelas entre projetos
 
-A tabela de materiais é específica de cada projeto, mas pode ser compartilhada com outros projetos salvando-a como uma tabela **global** (armazenada no perfil do usuário, fora de qualquer projeto). A caixa de diálogo, aberta com um projeto ativo, oferece estes botões:
+A tabela de materiais é exclusiva para cada projeto, mas pode ser compartilhada com outros projetos salvando-a como uma tabela **global** (salva no perfil do usuário, fora de qualquer projeto — um `.dbf` por tabela).
+
+**Com um projeto ativo**, a caixa de diálogo edita diretamente a tabela do projeto (sem menu suspenso) e oferece estes botões:
 
 | Botão | Ação |
 |-------|--------|
 | **Copiar como global** | Salva uma cópia da tabela atual como uma **nova** tabela global, solicitando um nome. Se já existir uma tabela global com esse nome, peça confirmação antes de substituí-la. |
-| **Carregar materiais** | Substitui a tabela de materiais do projeto por uma tabela global salva anteriormente. |
-| **Redefinir materiais padrão** | Restaura a tabela QGISRed predefinida (dependendo do idioma da interface), descartando os materiais do projeto. |
+| **Redefinir materiais predefinidos** | Substitui a tabela do projeto pela tabela QGISRed predefinida (dependendo do idioma da interface), descartando os materiais do projeto atual. |
+| **Carregar materiais** | Substitui a tabela do projeto por uma tabela global salva anteriormente, escolhida em uma caixa de diálogo separada. |
 
-> 💡 Se você abrir **Tabela de Materiais** sem nenhum projeto QGISRed ativo, a caixa de diálogo funciona como um gerenciador de tabela global independente: você pode escolher entre as tabelas já salvas, excluí-las e usar o botão **Salvar como global**, que salva as alterações **sobre a tabela global selecionada** (ao contrário de **Copiar como global**, que sempre cria uma nova tabela com outro nome).
+As alterações são salvas no projeto quando você aceita a caixa de diálogo.
+
+### Nenhum projeto ativo: gerenciador de tabelas global
+
+Se você abrir a **Tabela de materiais** sem nenhum projeto QGISRed ativo (por exemplo, assim que você abrir o QGIS, antes de criar ou abrir um projeto), a caixa de diálogo abrirá como uma janela separada — sem botões aceitar/cancelar — para gerenciar as tabelas globais salvas, com um **novo menu suspenso na parte superior** listando todas as tabelas disponíveis:
+
+- **Tabelas globais salvas** pelo usuário (criadas com "Copiar como global" ou "Salvar como global"), editáveis.
+- As **tabelas predefinidas** de QGISRed por idioma, marcadas com o sufixo **"(padrão)"** — somente leitura: a grade não pode ser editada enquanto uma delas estiver selecionada.
+
+Ao lado do menu suspenso há um botão **Excluir** que exclui a tabela global selecionada; ele está disponível apenas para suas próprias tabelas, não para tabelas predefinidas somente leitura.
+
+Os botões abaixo mudam dependendo da tabela selecionada:
+
+| Botão | Quando aparece | Ação |
+|-------|-----------------|--------|
+| **Salvar como global** | Somente com tabela própria selecionada (não predefinida) | Salva as alterações **na tabela já selecionada**, sem solicitar um novo nome — ao contrário de **Copiar como global**. |
+| **Copiar como global** | Sempre | O mesmo que com um projeto ativo: salve uma cópia com um novo nome e, se for bem-sucedido, adicione-a ao menu suspenso e selecione-a em seguida. |
+| **Redefinir materiais predefinidos** | Somente com tabela própria selecionada (não predefinida) | Substitui o conteúdo da tabela atual pelo predefinido do idioma da interface. |
+
+> ⚠️ Se você alterar tabelas no menu suspenso com alterações não salvas, o QGISRed perguntará se você deseja salvá-las antes de alterar (Sim/Não/Cancelar). Fechar a janela diretamente, por outro lado, não pede nada: como não existe um botão final que confirme todas as alterações de uma vez (como acontece com um projeto ativo), apenas o que você já salvou explicitamente com "Salvar como global" ou "Copiar como global" é preservado aqui.
