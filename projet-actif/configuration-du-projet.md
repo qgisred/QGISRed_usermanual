@@ -121,10 +121,16 @@ Gérez la liste des matériaux disponibles pour les tuyaux et leurs propriétés
 
 | Champ | Descriptif |
 |-------|-------------|
-| **Code** | Abréviation du matériau (par exemple PVC, DI, AC) |
-| **Nom** | Nom complet (par exemple « Fonte ductile », « Amiante-ciment ») |
-| **Rugosité initiale** | Coefficient de rugosité D-W (mm) à la date d'installation |
-| **Augmentation annuelle** | Augmentation de la rugosité par année d'âge (mm/an) |
+| **Abréviation** | Code court du matériau (par exemple PVC, DI, AC) |
+| **Description** | Nom complet (par exemple « Fonte ductile », « Amiante-ciment ») |
+| **Rugosité initiale (mm)** | Coefficient de rugosité D-W à la date d'installation |
+| **Augmentation annuelle (mm)** | Augmentation de la rugosité par année d'âge |
+
+> ⚠️ Il ne peut pas y avoir deux matériaux avec la même abréviation — s'il y en a, QGISRed vous avertit et empêche la sauvegarde jusqu'à ce que vous corrigiez celui qui est répété.
+
+### Supprimer un matériau
+
+Sélectionnez une ligne et appuyez sur **Suppr** pour la supprimer. Si le matériau est attribué à un tuyau ou à une connexion, QGISRed informe du nombre d'éléments qui l'utilisent et demande une confirmation avant de le supprimer. Si vous acceptez, ces éléments restent sans matériau attribué.
 
 ### Utiliser avec l'outil "Attribuer la rugosité"
 
@@ -142,12 +148,33 @@ QGISRed inclut une table de matériaux prédéfinis avec les plus courants (CI, 
 
 ### Enregistrez et réutilisez les tables entre les projets
 
-La table des matériaux est propre à chaque projet, mais peut être partagée avec d'autres projets en l'enregistrant sous forme de table **globale** (stockée dans le profil utilisateur, en dehors de tout projet). La boîte de dialogue, ouverte avec un projet actif, propose ces boutons :
+La table des matériaux est unique à chaque projet, mais peut être partagée avec d'autres projets en l'enregistrant en tant que table **globale** (enregistrée dans le profil utilisateur, en dehors de tout projet — un `.dbf` par table).
+
+**Avec un projet actif**, la boîte de dialogue édite directement la table du projet (pas de liste déroulante) et propose ces boutons :
 
 | Bouton | Actions |
 |-------|--------|
-| **Copier au niveau global** | Enregistre une copie de la table actuelle en tant que **nouvelle** table globale, demandant un nom. Si une table globale portant ce nom existe déjà, demandez confirmation avant de l'écraser. |
-| **Charger les matériaux** | Remplace la table des matériaux du projet par une table globale précédemment enregistrée. |
-| **Réinitialiser les matériaux par défaut** | Restaure la table QGISRed prédéfinie (en fonction de la langue de l'interface), en supprimant les matériaux du projet. |
+| **Copier au format global** | Enregistre une copie de la table actuelle en tant que **nouvelle** table globale, demandant un nom. Si une table globale portant ce nom existe déjà, demandez confirmation avant de l'écraser. |
+| **Restaurer les matériaux par défaut** | Remplace la table du projet par celle prédéfinie de QGISRed (en fonction de la langue de l'interface), en supprimant les matériaux du projet actuel. |
+| **Charger des matériaux** | Remplace la table du projet par une table globale précédemment enregistrée, choisie dans une boîte de dialogue séparée. |
 
-> 💡 Si vous ouvrez **Table of Materials** sans aucun projet QGISRed actif, la boîte de dialogue fonctionne comme un gestionnaire de tables global indépendant : vous pouvez choisir entre les tables déjà enregistrées, les supprimer et utiliser le bouton **Enregistrer comme global**, qui enregistre les modifications **sur la table globale sélectionnée** (contrairement à **Copier en tant que global**, qui crée toujours une nouvelle table avec un autre nom).
+Les modifications sont enregistrées dans le projet lorsque vous acceptez la boîte de dialogue.
+
+### Aucun projet actif : gestionnaire de tables global
+
+Si vous ouvrez **Tableau des matériaux** sans aucun projet QGISRed actif (par exemple, dès que vous ouvrez QGIS, avant de créer ou d'ouvrir un projet), la boîte de dialogue s'ouvre comme une fenêtre séparée — sans boutons accepter/annuler — pour gérer les tables globales enregistrées, avec une **nouvelle liste déroulante en haut** répertoriant toutes celles disponibles :
+
+- **Tableaux globaux enregistrés** par l'utilisateur (créés avec "Copier au format global" ou "Enregistrer au format global"), modifiables.
+- Les **tables prédéfinies** de QGISRed par langue, marquées du suffixe **"(par défaut)"** — en lecture seule : la grille ne peut pas être modifiée tant que l'une d'entre elles est sélectionnée.
+
+À côté de la liste déroulante se trouve un bouton **Supprimer** qui supprime la table globale sélectionnée ; il n'est disponible que pour vos propres tables, pas pour celles prédéfinies en lecture seule.
+
+Les boutons ci-dessous changent en fonction de la table sélectionnée :
+
+| Bouton | Quand apparaît-il | Actions |
+|-------|-----------------|--------|
+| **Enregistrer au format global** | Uniquement avec votre propre table sélectionnée (non prédéfinie) | Enregistre les modifications **sur la table déjà sélectionnée**, sans demander de nouveau nom — contrairement à **Copier au format global**. |
+| **Copier au format global** | Toujours | Comme avec un projet actif : enregistrez une copie sous un nouveau nom et, en cas de succès, ajoutez-la à la liste déroulante et sélectionnez-la ensuite. |
+| **Restaurer les matériaux par défaut** | Uniquement avec votre propre table sélectionnée (non prédéfinie) | Remplace le contenu de la table courante par celui prédéfini de la langue de l'interface. |
+
+> ⚠️ Si vous modifiez des tables dans la liste déroulante avec des modifications non enregistrées, QGISRed vous demande si vous souhaitez les enregistrer avant de les modifier (Oui/Non/Annuler). En revanche, fermer directement la fenêtre ne demande rien : comme il n'y a pas de bouton final qui confirme toutes les modifications d'un coup (comme c'est le cas avec un projet actif), seul ce que vous avez déjà enregistré explicitement avec "Enregistrer au format global" ou "Copier au format global" est conservé ici.
