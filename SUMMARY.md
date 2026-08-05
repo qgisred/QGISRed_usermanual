@@ -62,4 +62,3 @@
 
 ---
 * [📜 Journal des modifications](journal-des-modifications.md)
-    * [🕒 Versions précédentes](journal-modifications/versions-precedentes.md)
