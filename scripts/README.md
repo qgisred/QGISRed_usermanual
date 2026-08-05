@@ -11,15 +11,15 @@ The manual is split across four branches in the `QGISRed_usermanual` remote:
 
 | Branch | Language | Local directory |
 |---|---|---|
-| `v0.19_es` | Spanish (source) | `gitbook/` |
-| `v0.19_en` | English | `gitbook-en/` |
-| `v0.19_fr` | French | `gitbook-fr/` |
-| `v0.19_pt-BR` | Portuguese (BR) | `gitbook-pt_br/` |
+| `v0.19_es` | Spanish (source) | `usermanual/` |
+| `v0.19_en` | English | `usermanual-en/` |
+| `v0.19_fr` | French | `usermanual-fr/` |
+| `v0.19_pt-BR` | Portuguese (BR) | `usermanual-pt_br/` |
 
-The scripts live exclusively on the **Spanish branch** (`v0.19_es`), in `gitbook/scripts/`.
+The scripts live exclusively on the **Spanish branch** (`v0.19_es`), in `usermanual/scripts/`.
 The three language directories are separate checkouts of their respective branches placed
-as siblings of `gitbook/`.  The translation script reads from `gitbook/` and writes to
-those sibling directories.
+as siblings of `usermanual/` (directly under `QGISRed/`, not inside it). The translation
+script reads from `usermanual/` and writes to those sibling directories.
 
 ---
 
@@ -33,15 +33,15 @@ pip install deep-translator
 
 ### 2. Clone the language branches
 
-From inside `QGISRed/manual/` (the parent of `gitbook/`):
+From inside `QGISRed/` (the parent of `usermanual/`):
 
 ```bash
-git clone <repo-url> gitbook-en  --branch v0.19_en --single-branch
-git clone <repo-url> gitbook-fr  --branch v0.19_fr --single-branch
-git clone <repo-url> gitbook-pt_br --branch v0.19_pt-BR --single-branch
+git clone <repo-url> usermanual-en  --branch v0.19_en --single-branch
+git clone <repo-url> usermanual-fr  --branch v0.19_fr --single-branch
+git clone <repo-url> usermanual-pt_br --branch v0.19_pt-BR --single-branch
 ```
 
-The script defaults to `../gitbook-<lang>` (relative to `gitbook/`) as the output path,
+The script defaults to `../usermanual-<lang>` (relative to `usermanual/`) as the output path,
 so this naming is important.  Alternatively, pass `--output <path>` explicitly on every run.
 
 ---
@@ -67,10 +67,10 @@ accumulated work that other contributors should not have to redo.
 
 ## Commands
 
-All commands are run from inside `gitbook/scripts/`:
+All commands are run from inside `usermanual/scripts/`:
 
 ```bash
-cd gitbook/scripts
+cd usermanual/scripts
 ```
 
 ### `full` — first-time translation of a new version
@@ -86,7 +86,7 @@ python translate.py full --lang en,pt-BR,fr      # all three at once
 Output goes to the language sibling directories automatically.  To override:
 
 ```bash
-python translate.py full --lang en --output /path/to/gitbook-en
+python translate.py full --lang en --output /path/to/usermanual-en
 ```
 
 ### `learn` — sync manual corrections to memory
@@ -137,11 +137,11 @@ git checkout -b v0.20_es
 # ... add Spanish content ...
 
 # 2. Translate everything
-cd gitbook/scripts
+cd usermanual/scripts
 python translate.py full --lang en,pt-BR,fr
 
 # 3. Review the output and fix paragraphs
-#    Edit gitbook-en/..., gitbook-fr/..., gitbook-pt_br/... directly
+#    Edit usermanual-en/..., usermanual-fr/..., usermanual-pt_br/... directly
 
 # 4. Sync corrections to memory
 python translate.py learn --lang en,pt-BR,fr
@@ -151,9 +151,9 @@ git add .translate_state.json .translate_memory_*.json
 git commit -m "Update translation memory after v0.20 full pass"
 
 # 6. Commit each language branch
-cd ../../gitbook-en && git add -A && git commit -m "v0.20 en translation"
-cd ../gitbook-fr   && git add -A && git commit -m "v0.20 fr translation"
-cd ../gitbook-pt_br && git add -A && git commit -m "v0.20 pt-BR translation"
+cd ../../usermanual-en && git add -A && git commit -m "v0.20 en translation"
+cd ../usermanual-fr   && git add -A && git commit -m "v0.20 fr translation"
+cd ../usermanual-pt_br && git add -A && git commit -m "v0.20 pt-BR translation"
 ```
 
 ### Ongoing updates on the current version
@@ -162,7 +162,7 @@ cd ../gitbook-pt_br && git add -A && git commit -m "v0.20 pt-BR translation"
 # 1. Edit Spanish .md files and commit them on v0.19_es
 
 # 2. Retranslate only the changed files
-cd gitbook/scripts
+cd usermanual/scripts
 python translate.py update --lang en,pt-BR,fr
 
 # 3. Commit memory + state on the Spanish branch
@@ -170,20 +170,20 @@ git add .translate_state.json .translate_memory_*.json
 git commit -m "Update translations for <description>"
 
 # 4. Commit each language branch
-cd ../../gitbook-en  && git add -A && git commit -m "<description> — en"
-cd ../gitbook-fr     && git add -A && git commit -m "<description> — fr"
-cd ../gitbook-pt_br  && git add -A && git commit -m "<description> — pt-BR"
+cd ../../usermanual-en  && git add -A && git commit -m "<description> — en"
+cd ../usermanual-fr     && git add -A && git commit -m "<description> — fr"
+cd ../usermanual-pt_br  && git add -A && git commit -m "<description> — pt-BR"
 ```
 
 ### A translator corrects a language branch manually
 
 ```bash
-# 1. The translator edits files directly in gitbook-en/ (or fr/pt_br/)
+# 1. The translator edits files directly in usermanual-en/ (or fr/pt_br/)
 #    and commits them to the language branch.
 
 # 2. To preserve those corrections in the translation memory, switch to
 #    the Spanish branch and run learn BEFORE the Spanish content changes:
-cd ../gitbook/scripts
+cd ../usermanual/scripts
 python translate.py learn --lang en
 
 # 3. Commit the updated memory on the Spanish branch
@@ -195,7 +195,7 @@ git commit -m "Learn manual EN corrections"
 
 ```bash
 # 1. Learn any pending corrections on v0.19 first
-cd gitbook/scripts
+cd usermanual/scripts
 python translate.py learn --lang en,pt-BR,fr
 git add .translate_memory_*.json && git commit -m "Learn corrections before v0.20"
 
@@ -204,12 +204,12 @@ git add .translate_memory_*.json && git commit -m "Learn corrections before v0.2
 #    v0.20_en/fr/pt-BR from their v0.19 counterparts (starting point for new translations)
 
 # 3. Switch local language directories to the new branches
-cd ../../gitbook-en  && git fetch && git checkout -b v0.20_en origin/v0.20_en
-cd ../gitbook-fr     && git fetch && git checkout -b v0.20_fr origin/v0.20_fr
-cd ../gitbook-pt_br  && git fetch && git checkout -b v0.20_pt-BR origin/v0.20_pt-BR
+cd ../../usermanual-en  && git fetch && git checkout -b v0.20_en origin/v0.20_en
+cd ../usermanual-fr     && git fetch && git checkout -b v0.20_fr origin/v0.20_fr
+cd ../usermanual-pt_br  && git fetch && git checkout -b v0.20_pt-BR origin/v0.20_pt-BR
 
 # 4. Switch the Spanish repo to the new branch
-cd ../gitbook && git checkout v0.20_es
+cd ../usermanual && git checkout v0.20_es
 
 # 5. Translate only what changed between versions
 #    Memory from v0.19 is reused — only new/modified paragraphs hit the API
@@ -221,9 +221,9 @@ git add .translate_state.json .translate_memory_*.json
 git commit -m "Translate v0.19→v0.20 diff"
 
 # 7. Commit each language branch
-cd ../../gitbook-en  && git add -A && git commit -m "v0.20 en — diff from v0.19"
-cd ../gitbook-fr     && git add -A && git commit -m "v0.20 fr — diff from v0.19"
-cd ../gitbook-pt_br  && git add -A && git commit -m "v0.20 pt-BR — diff from v0.19"
+cd ../../usermanual-en  && git add -A && git commit -m "v0.20 en — diff from v0.19"
+cd ../usermanual-fr     && git add -A && git commit -m "v0.20 fr — diff from v0.19"
+cd ../usermanual-pt_br  && git add -A && git commit -m "v0.20 pt-BR — diff from v0.19"
 ```
 
 ---

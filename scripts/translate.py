@@ -8,7 +8,7 @@ Setup:
     pip install deep-translator
 
 Quick start:
-    cd gitbook/scripts
+    cd usermanual/scripts
     python translate.py full --lang en,pt-BR,fr   # first run
     python translate.py learn --lang en            # after manual corrections
     python translate.py update --lang en           # after new commits
@@ -214,7 +214,7 @@ MAX_CHARS = 4500  # Google Translate per-request limit
 SEP = " ||| "     # batch separator unlikely to appear in content
 
 SCRIPTS_DIR = Path(__file__).parent
-SOURCE_DIR = SCRIPTS_DIR.parent  # gitbook root
+SOURCE_DIR = SCRIPTS_DIR.parent  # usermanual (Spanish source) root
 
 # ── State and memory files ────────────────────────────────────────────────────
 # Both files live in scripts/ and should be committed — they represent work.
@@ -656,6 +656,15 @@ def translate_files(
     print(f"\n── {lang_key} ({len(files)} file(s)) ──")
     for src in files:
         dst = output_path(src, source_dir, output_dir, folder_map, file_map)
+        if not src.exists():
+            # Deleted on the Spanish side since the last run — mirror the deletion
+            # instead of crashing on a source file that no longer exists.
+            if dst.exists():
+                dst.unlink()
+                print(f"  {src.relative_to(source_dir)} — deleted, removed {dst}")
+            else:
+                print(f"  {src.relative_to(source_dir)} — deleted, nothing to remove")
+            continue
         dst.parent.mkdir(parents=True, exist_ok=True)
         print(f"  {src.relative_to(source_dir)}")
         content = src.read_text(encoding="utf-8")
