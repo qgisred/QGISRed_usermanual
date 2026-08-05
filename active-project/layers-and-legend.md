@@ -6,7 +6,7 @@
 
 **Project bar → Layer manager** (Layer manager)
 
-Controls which project layers are active in QGIS, allows you to recreate missing base elements, and manages auxiliary layers in the Demands Builder. The dialog organizes its content into three tabs: **Basic elements**, **Digital Twin** and **Auxiliary layers**.
+Controls which project layers are active in QGIS, allows you to recreate missing base elements, and manages the auxiliary layers of the Nodal demand builder. The dialog organizes its content into three tabs: **Basic elements**, **Digital Twin** and **Auxiliary layers**.
 
 <figure><img src="../assets/images/proyecto/gestor-capas.png" alt="QGISRed Layer Manager Dialog"><figcaption><p>QGISRed Layer Manager Dialog</p></figcaption></figure>
 <!-- TODO: Capture outdated, dialog moved from stacked sections to tabs (see commits 12d9ee7 and 11c29ed) -->
@@ -44,33 +44,40 @@ QGISRed monitors in the background (checking every 5 seconds) the derived layers
 
 - The icon is for informational purposes only: it does not have any action associated with clicking on it.
 - To resolve the warning you must **regenerate the layer**, that is, re-launch the analysis or the query that created it (Isolated Segments, Hydraulic Sectors, a property query, etc.).
-- The auxiliary layers of the Demands Builder (Consumption Points, Demand Links, Sectors) are explicitly excluded from this surveillance: they are your own data that you import or create, not something that QGISRed recalculates from the network, so editing an input does not invalidate them.
+- The auxiliary layers of the Nodal demand builder (Consumption Points, Demand Links, Demand Sectors) are explicitly excluded from this surveillance: they are your own data that you import or create, not something that QGISRed recalculates from the network, so editing an input does not invalidate them.
 
 > 💡 This notice is different from the icon that appears when a layer has been deleted (see "Recover a deleted layer" above): here the layer still exists and is loaded, its content may simply no longer reflect the current state of the network.
 
-### Auxiliary layers tab: Demands Builder layers
+### Auxiliary layers tab: Nodal demand builder layers
 
-The **Auxiliary layers** tab contains the **Demand Builder** group, from where the empty work layers used by the tool for assigning demands to nodes (Nodal Demand Builder) are created and managed: **Consumption Points**, **Demand Links** and **Sectors**.
+The **Auxiliary layers** tab contains the **Demand Builder** group, from where the empty work layers used by the tool for assigning demands to nodes (Nodal demand builder) are created and managed: **Consumption Points**, **Demand Links** and **Demand Sectors**.
 
 <figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Auxiliary layers tab of the QGISRed Layer Manager"><figcaption><p>Auxiliary layers tab of the QGISRed Layer Manager</p></figcaption></figure>
 
 Each row in the table is a **theme** (theme) — you can have several themes of the same type, for example a different `Sectors` for each demand sectoring campaign. The table shows three columns:
 
 - Upload box (same as the other tabs: checked = uploaded to QGIS).
-- **Theme** — name of the theme, or "(default)" for which Demands Manager itself automatically creates.
-- **Type** — Consumption Points / Demand Links / Sectors.
+- **Theme** — name of the theme, or "(default)" for the one the Nodal demand builder itself automatically creates.
+- **Type** — Consumption Points / Demand Links / Demand Sectors.
 
 To create a new topic:
 
 1. Press **Create Auxiliary Theme**.
-2. In the **New auxiliary theme** dialog, choose the **Type** (Consumption Points, Demand Links or Sectors) and type a **Name**.
+2. In the **New auxiliary theme** dialog, choose the **Type** (Consumption Points, Demand Links or Demand Sectors) and type a **Name**.
 3. Press **Accept**. QGISRed creates the empty shapefile with the corresponding fields and adds it already marked and loaded to the table.
 
 To delete a theme, select its row and press **Delete Auxiliary Theme**; You will be asked for confirmation because the operation also deletes the files on the disk.
 
+When you select a **Consumption Points** theme, a **…** button also appears (tooltip "Base demand fields") that opens the **Base demand fields** dialog, where the theme's base demand columns are managed (every field after `DemID` and `Category`):
+
+- The list shows one field per row, with the name editable directly (double-click or keyboard).
+- **+** adds a new row with a suggested free name (`BaseDem`, `BaseDem2`…); **-** deletes the selected row. The theme always needs at least one base demand field.
+- When you press **Accept**, QGISRed validates the names: they cannot be empty, cannot exceed 10 characters (DBF format limit), must start with a letter and contain only letters, numbers and underscores, and no two fields can share the same name (case-insensitive). If something is not valid, the dialog does not close and shows the reason.
+- If an existing field has been removed from the list, applying the changes asks for explicit confirmation because its values are deleted too; renaming a field, on the other hand, keeps the data.
+
 > 💡 The layers that you leave marked in this table are remembered when closing and reopening the project — including projects that do not save a `.qgz` — just like the rest of the layers in the project.
 
-> To know how these layers are used within the Nodal Demand Builder (import consumption points, generate demand links, aggregate by sectors...), see [Demands and scenarios](../tools/demands-and-scenarios.md).
+> To know how these layers are used within the Nodal demand builder (import consumption points, generate demand links, aggregate by sectors...), see [Demands and scenarios](../tools/demands-and-scenarios.md).
 
 ### Model Summary (Summary)
 

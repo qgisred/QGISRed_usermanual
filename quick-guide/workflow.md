@@ -48,7 +48,7 @@ From the **Tools** bar:
 
 - **Interpolate elevations** if the nodes do not have elevations assigned.
 - **Assign roughness** based on material and installation date.
-- **Demand manager** to distribute consumption.
+- **Nodal demand builder** to distribute consumption.
 
 ## Step 6 — Simulate
 

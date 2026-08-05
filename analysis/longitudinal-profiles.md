@@ -10,7 +10,7 @@ The longitudinal profile shows the evolution of a hydraulic variable along an in
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Longitudinal profile dock with route drawn on the map and pressure graph"><figcaption><p>Longitudinal profile dock with route drawn on the map and pressure graph</p></figcaption></figure>
 *Longitudinal profile: route highlighted in red on the map (left) and graph of piezometric height + terrain elevation (right).*
-<!-- TODO: Deprecated screenshot — the Pick/Add node/Remove node/Move node/Branch buttons on the toolbar have been replaced by a single Edit trajectories button + Help button -->
+<!-- TODO: Deprecated capture — the Pick/Add node/Remove node/Move node/Branch buttons on the toolbar have been replaced with a single Edit Paths button + Help button -->
 
 ---
 
@@ -27,7 +27,7 @@ The plugin allows you to keep multiple profile docks open at the same time. Each
 ## Open and build profile
 
 1. Activate **Longitudinal profile** from the Analysis bar. The profile dock opens in the lower area of ​​QGIS.
-2. The **Edit trajectories** button is activated automatically; the cursor changes to the pencil icon.
+2. The **Edit paths** button is automatically activated; the cursor changes to the pencil icon.
 3. Click on a network node (Junctions, Tanks, Reservoirs) to set the first reference node.
 4. Click on another node: the plugin calculates the **minimum topological path** between both nodes and draws the profile.
 5. Each additional click extends the path by concatenating the path from the last node to the new one.
@@ -75,10 +75,10 @@ All editing actions are controlled from a single toggle button, rather than a se
 
 | Button | Function |
 |-------|---------|
-| **Edit trajectories** (pencil icon, toggleable) | Activate editing mode: left click to trace the route node by node, right click on a node to see its options (see [Mouse shortcuts](#atajos-de-ratón)). When disabled, moving the mouse over the path only highlights it and displays information, without modifying it. |
-| **Help** (ⓘ icon) | Opens the **"How to edit trajectories"** dialog, with a summary of all available editing actions and mouse shortcuts. |
+| **Edit paths** (pencil icon, toggleable) | Activate editing mode: left click to trace the route node by node, right click on a node to see its options (see [Mouse shortcuts](#atajos-de-ratón)). When disabled, moving the mouse over the path only highlights it and displays information, without modifying it. |
+| **Help** (ⓘ icon) | Opens the **"How to edit paths"** dialog, with a summary of all available editing actions and mouse shortcuts. |
 
-> 📝 Adding an intermediate step node, deleting it, moving it or creating a branch no longer has its own button in the toolbar: they are done with **Edit trajectories** active, using the context menu (right click) or the mouse shortcuts described in [Mouse shortcuts](#atajos-de-ratón). These actions work the same on the main route and on the branches.
+> 📝 Adding an intermediate step node, deleting it, moving it or creating a branch no longer has its own button on the toolbar: they are done with **Edit paths** active, using the context menu (right click) or the mouse shortcuts described in [Mouse shortcuts](#atajos-de-ratón). These actions work the same on the main route and on the branches.
 
 ### Chart navigation
 
@@ -133,7 +133,7 @@ When the envelope is active, the value table adds columns with the maximum value
 
 The **Create branch** action allows you to add lateral branches that share the same graph with the main path.
 
-1. With **Edit trajectories** active, right-click on a node already belonging to the main path or an existing branch and choose **Create branch** from the context menu (or double right-click directly on it if it is an interior node with connection degree greater than 2; see [Mouse shortcuts](#atajos-de-ratón)). That node defines the bifurcation point and its position on the X axis.
+1. With **Edit paths** active, right-click on a node already belonging to the main path or an existing branch and choose **Create branch** from the context menu (or double right-click directly on it if it is an interior node with connection degree greater than 2; see [Mouse shortcuts](#atajos-de-ratón)). That node defines the bifurcation point and its position on the X axis.
 2. Make successive clicks to extend the branch to other nodes.
 3. Right click to finish the branch.
 
@@ -156,7 +156,7 @@ The **Clear** button deletes the main path and all branches.
 
 ## Mouse shortcuts
 
-With **Edit trajectories** active, in addition to tracing the path click by click, the mouse supports several direct shortcuts that avoid going through the context menu. These shortcuts work the same on the main path and on the branches.
+With **Edit paths** active, in addition to tracing the path click by click, the mouse supports several direct shortcuts that avoid going through the context menu. These shortcuts work the same on the main route and on the branches.
 
 - **Double left click on an intermediate node** of the route (one that is not yet a pass node): declares it as a pass node (equivalent to **Declare pass node**).
 - **Double left click on an already declared pass node**: deletes it and the path is recalculated (equivalent to **Delete pass node**).
@@ -176,7 +176,7 @@ The context menu (simple right click) offers different options depending on the 
 | Interior passage node of the route | **Create branch**, **Move pass node**, **Delete pass node** |
 | Branch node (origin of a branch) | **Create branch** |
 
-> 💡 The **Help** button on the dock toolbar (ⓘ icon) opens the **"How to edit trajectories"** dialog at any time, with this same summary information.
+> 💡 The **Help** button on the dock toolbar (ⓘ icon) opens the **"How to edit paths"** dialog at any time, with this same summary information.
 
 ---
 
@@ -195,7 +195,7 @@ When you move the mouse over the graph, a dashed vertical line indicates the pos
 The interaction between the graph and the map is bidirectional and updates in real time:
 
 - When you move your mouse over the **graph**, the closest node is highlighted on the **map canvas** with an orange circle.
-- Hovering the mouse over the **map** while **Edit trajectories** is active moves the graph cursor to the corresponding node.
+- Moving the mouse over the **map** while **Edit paths** is active moves the graph cursor to the corresponding node.
 
 ---
 

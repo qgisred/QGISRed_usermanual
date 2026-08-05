@@ -47,6 +47,8 @@ Fields like `Status` that have a finite set of possible values:
 | `All` | No filter |
 | `=` | Equal to selected value |
 
+> ℹ️ For `Type`/`ValveType` on valves, the value selector shows the type's long descriptive name (e.g. "Pressure Reducing" for PRV) instead of the EPANET code.
+
 ### Free text fields
 
 Fields like `Tag` or `Id`:

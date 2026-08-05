@@ -30,7 +30,7 @@ The **Tools** bar groups the massive processing tools: automatic calculation of 
 
 | # | Tool | Function |
 |---|-------------|---------|
-| 8 | **Obtain demand sectors** | Generates demand sectors delimited by flowmeters |
+| 8 | **Demand sector builder…** | Generates demand sectors delimited by flowmeters |
 | 9 | **Minimum Cost Tree…** | Calculate the minimum cost tree from a selected node |
 
 ---

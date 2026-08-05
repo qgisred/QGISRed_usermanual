@@ -4,9 +4,9 @@ The last two tools in the Tools bar perform topological analyzes on the network:
 
 ---
 
-## Obtain demand sectors
+## Demand sector builder…
 
-**Tools Bar → Obtain demand sectors**
+**Tools Bar → Demand sector builder…**
 
 It generates a sectorization of the network based on the presence of **flowmeters** (flow meters). Each demand sector is the subnetwork supplied by a single flowmeter, without crossing other flowmeters.
 

@@ -96,7 +96,7 @@ Utilities to automate model preparation and management tasks.
 | **Interpolate dimensions** | Assigns dimensions to the nodes from an MDT in `.asc` format |
 | **Assign roughness** | Calculate the roughness coefficient based on the material and age |
 | **Convert roughness** | Transform the roughness coefficients between formulas (D-W ↔ H-W ↔ C-M) |
-| **Claim Manager** | Distribute consumption between nodes from area polygons or georeferenced points |
+| **Nodal demand builder** | Distribute consumption between nodes from area polygons or georeferenced points |
 | **Scenario Builder** | Export and import model parameters (roughnesses, demands, dimensions, states, qualities) in bulk to manage variants without duplicating projects |
 | **Isolated segments** | Calculate the segments that would be isolated when each shut-off valve is closed |
 | **Demand sectors** | Generates sectors based on demand and consumption patterns |

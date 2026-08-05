@@ -54,7 +54,8 @@ Renames the network and automatically updates the name of **all files** in the p
 
 1. Select the project.
 2. Press **Rename**.
-3. Enter the new name.
+3. The dialog offers two independent boxes, both checked by default: **Rename project data** (renames the network data files) and **Rename project map file** (also renames the QGIS project `.qgz`/`.qgs`, if it exists). At least one must be marked.
+4. Enter the new name in the field corresponding to each active box.
 
 > ⚠️ If you have the project open in QGIS, close it before renaming it to prevent QGIS from maintaining locks on the files.
 

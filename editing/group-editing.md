@@ -103,6 +103,7 @@ Just **Replace with**, selecting the new value from a list. The available option
 | `Material` | Project Materials Table |
 | `Curve` | Project curves filtered by type (pump, volume, efficiency, headloss) |
 | `Pattern` | Project patterns filtered by type (demand, quality, head, speed, price) |
+| `ValveType` (Valves only) | Fixed EPANET list (PRV, PSV, PBV, FCV, TCV, GPV), shown in the combo with its long descriptive name (e.g. "Pressure Reducing" for PRV) |
 
 ### Date fields
 

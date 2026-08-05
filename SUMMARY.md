@@ -39,7 +39,6 @@
 * [🔧 Tools](tools/README.md)
     * [Hydraulic properties](tools/hydraulic-properties.md)
     * [Demands and scenarios](tools/demands-and-scenarios.md)
-    * [Demand Sector Builder](tools/demand-sector-builder.md)
     * [Demand sectors and tree](tools/sectors-tree.md)
 
 * [🔍 Queries](queries/README.md)

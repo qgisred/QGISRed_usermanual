@@ -56,11 +56,11 @@ The Builder automatically applies the factor to all consumption values ​​bef
 
 The resulting layer is displayed with colors per category and labels with the demand value. Nodes with no assigned category appear in orange under the **Uncategorized** group.
 
-> 💡 The auxiliary layers of the Demand Builder (ConsumptionPoints, DemandLinks, Sectors...) can also be created empty from the Layer Manager, without the need to first run an analysis (see [Overview and layer management](../active-project/layers-and-legend.md)).
+> 💡 The auxiliary layers of the Nodal demand builder (ConsumptionPoints, DemandLinks, Sectors...) can also be created empty from the Layer Manager, without the need to first run an analysis (see [Overview and layer management](../active-project/layers-and-legend.md)).
 
 ### Lawsuit Cleanup
 
-The manager allows you to delete existing demands before assigning new ones:
+The Builder allows you to delete existing demands before assigning new ones:
 - **Delete demands from selected nodes**: eliminates values ​​of `Demand` and entries of `MultipleDemands`.
 - **Delete orphan patterns**: delete patterns that are no longer referenced by any nodes.
 
@@ -88,7 +88,7 @@ The hydraulic efficiency section by sectors also presents **two exclusive modes*
 
 #### Efficiency and pattern fixes
 
-After defining the efficiencies by sectors, the manager offers additional correction options:
+After defining the efficiencies by sectors, the Builder offers additional correction options:
 
 - **Correct category efficiencies to meet sector efficiency**: proportionally adjusts the efficiencies of each demand category so that the resulting efficiency in each sector matches the stated objective. Exclusive with the correction towards global efficiency.
 - **Correct sector patterns to comply with the global pattern**: after assigning sector patterns, correct these patterns so that their combination complies with the previously declared global pattern. Remediation options are broken down by pattern scope (global or category).

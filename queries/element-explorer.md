@@ -65,6 +65,8 @@ Attributes are organized by element type. For a typical **pipe**:
 
 For **nodes** `Elevation`, `Demand`, `Pattern`, `InitQuality`, etc. are shown. Each item type has its own set of fields.
 
+For **valves**, the `Type`/`ValveType` field is shown as the plain EPANET code (PRV, PSV, PBV, FCV, TCV, GPV, CV) — English has no separate localized abbreviation.
+
 If the project has simulation results loaded, the panel adds a section with the calculated values ​​(pressure, flow, velocity...) for the active period in the results viewer. The simulated time is indicated by the prefix **Time:** followed by the bold value in the format `HH:MM:SS`.
 
 > ⚠️ **Conditional quality fields.** The `Quality` field only appears when the project quality model is not *None*. The `ReactRate` field is only visible when the quality model is *Chemical*; remains hidden for *None*, *Age* and *Trace* models. These fields are only displayed when the project's quality model supports them.

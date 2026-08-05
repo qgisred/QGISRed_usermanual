@@ -70,7 +70,7 @@ Four content groups, each with its own box in the **Content** section (checked b
 | **Results** | Simulation results saved in `Results/` |
 | **Issues** | Incidents detected by verifications, in `Issues/` |
 | **Queries** | Queries saved, in `Queries/` |
-| **Auxiliary Layers** | Auxiliary layers (for example, from the Demands Builder), in `Auxiliary Layers/` |
+| **Auxiliary Layers** | Auxiliary layers (for example, of the Nodal demand builder), in `Auxiliary Layers/` |
 
 If the `.qgz` references complementary data, the dialog adds a **Complementary data** table with one row per layer (name, location, and state), each with its own checkbox — so you can leave out, for example, a multi-GB MDT without giving up the rest.
 
