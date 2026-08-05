@@ -22,7 +22,7 @@ La barra **Tools** agrupa las herramientas de procesamiento masivo: cálculo aut
 
 | # | Herramienta | Función |
 |---|-------------|---------|
-| 5 | **Nodal demand builder…** | Asigna demandas a nudos desde capas SHP externas (puntos o polígonos) |
+| 5 | **Constructor de demandas nodales…** | Asigna demandas a nudos desde capas SHP externas (puntos o polígonos) |
 | 6 | **Scenario builder…** | Exporta e importa en bloque parámetros del modelo para gestionar escenarios |
 | 7 | **Isolated segments…** | Identifica qué válvulas cerrar para aislar un tramo y qué zonas quedan sin servicio |
 
@@ -30,7 +30,7 @@ La barra **Tools** agrupa las herramientas de procesamiento masivo: cálculo aut
 
 | # | Herramienta | Función |
 |---|-------------|---------|
-| 8 | **Obtain demand sectors** | Genera sectores de demanda delimitados por caudalímetros |
+| 8 | **Constructor de sectores de demanda…** | Genera sectores de demanda delimitados por caudalímetros |
 | 9 | **Minimum Cost Tree…** | Calcula el árbol de mínimo coste desde un nudo seleccionado |
 
 ---

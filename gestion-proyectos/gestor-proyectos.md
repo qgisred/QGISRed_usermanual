@@ -54,7 +54,8 @@ Cambia el nombre de la red y actualiza automáticamente el nombre de **todos los
 
 1. Selecciona el proyecto.
 2. Pulsa **Renombrar**.
-3. Introduce el nuevo nombre.
+3. El diálogo ofrece dos casillas independientes, ambas marcadas por defecto: **Rename project data** (renombra los ficheros de datos de la red) y **Rename project map file** (renombra también el proyecto `.qgz`/`.qgs` de QGIS, si existe). Debe quedar al menos una marcada.
+4. Introduce el nuevo nombre en el campo correspondiente a cada casilla activa.
 
 > ⚠️ Si tienes el proyecto abierto en QGIS, ciérralo antes de renombrarlo para evitar que QGIS mantenga bloqueos sobre los archivos.
 

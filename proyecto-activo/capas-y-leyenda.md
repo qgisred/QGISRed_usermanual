@@ -6,7 +6,7 @@
 
 **Barra Project → Gestor de capas** (Layer manager)
 
-Controla qué capas del proyecto están activas en QGIS, permite recrear elementos base que falten y gestiona las capas auxiliares del Demands Builder. El diálogo organiza su contenido en tres pestañas: **Basic elements**, **Digital Twin** y **Auxiliary layers**.
+Controla qué capas del proyecto están activas en QGIS, permite recrear elementos base que falten y gestiona las capas auxiliares del Constructor de demandas nodales. El diálogo organiza su contenido en tres pestañas: **Basic elements**, **Digital Twin** y **Auxiliary layers**.
 
 <figure><img src="../assets/images/proyecto/gestor-capas.png" alt="Diálogo del Gestor de capas de QGISRed"><figcaption><p>Diálogo del Gestor de capas de QGISRed</p></figcaption></figure>
 <!-- TODO: captura desactualizada, el diálogo pasó de secciones apiladas a pestañas (ver commits 12d9ee7 y 11c29ed) -->
@@ -44,33 +44,40 @@ QGISRed vigila en segundo plano (comprobación cada 5 segundos) las capas deriva
 
 - El icono es solo informativo: no tiene ninguna acción asociada al hacer clic sobre él.
 - Para resolver el aviso hay que **regenerar la capa**, es decir, volver a lanzar el análisis o la consulta que la creó (Isolated Segments, Hydraulic Sectors, una consulta por propiedades, etc.).
-- Las capas auxiliares del Demands Builder (Consumption Points, Demand Links, Sectors) quedan explícitamente excluidas de esta vigilancia: son datos propios que tú importas o creas, no algo que QGISRed recalcule a partir de la red, así que editar un input no las invalida.
+- Las capas auxiliares del Constructor de demandas nodales (Consumption Points, Demand Links, Demand Sectors) quedan explícitamente excluidas de esta vigilancia: son datos propios que tú importas o creas, no algo que QGISRed recalcule a partir de la red, así que editar un input no las invalida.
 
 > 💡 Este aviso es distinto del icono que aparece cuando una capa ha sido borrada (ver "Recuperar una capa borrada" arriba): aquí la capa sigue existiendo y cargada, simplemente puede que su contenido ya no refleje el estado actual de la red.
 
-### Pestaña Auxiliary layers: capas del Demands Builder
+### Pestaña Auxiliary layers: capas del Constructor de demandas nodales
 
-La pestaña **Auxiliary layers** contiene el grupo **Demand Builder**, desde donde se crean y gestionan las capas vacías de trabajo que usa la herramienta de asignación de demandas a nudos (Nodal Demand Builder): **Consumption Points**, **Demand Links** y **Sectors**.
+La pestaña **Auxiliary layers** contiene el grupo **Demand Builder**, desde donde se crean y gestionan las capas vacías de trabajo que usa la herramienta de asignación de demandas a nudos (Constructor de demandas nodales): **Consumption Points**, **Demand Links** y **Demand Sectors**.
 
 <figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Pestaña Auxiliary layers del Gestor de capas de QGISRed"><figcaption><p>Pestaña Auxiliary layers del Gestor de capas de QGISRed</p></figcaption></figure>
 
 Cada fila de la tabla es un **tema** (theme) — puedes tener varios temas del mismo tipo, por ejemplo un `Sectors` distinto por cada campaña de sectorización de demanda. La tabla muestra tres columnas:
 
 - Casilla de carga (igual que en las otras pestañas: marcada = cargada en QGIS).
-- **Theme** — nombre del tema, o "(default)" para el que crea automáticamente el propio Demands Manager.
-- **Type** — Consumption Points / Demand Links / Sectors.
+- **Theme** — nombre del tema, o "(default)" para el que crea automáticamente el propio Constructor de demandas nodales.
+- **Type** — Consumption Points / Demand Links / Demand Sectors.
 
 Para crear un tema nuevo:
 
 1. Pulsa **Create Auxiliary Theme**.
-2. En el diálogo **New auxiliary theme**, elige el **Type** (Consumption Points, Demand Links o Sectors) y escribe un **Name**.
+2. En el diálogo **New auxiliary theme**, elige el **Type** (Consumption Points, Demand Links o Demand Sectors) y escribe un **Name**.
 3. Pulsa **Accept**. QGISRed crea el shapefile vacío con los campos correspondientes y lo añade ya marcado y cargado a la tabla.
 
 Para borrar un tema, selecciona su fila y pulsa **Delete Auxiliary Theme**; se te pedirá confirmación porque la operación borra también los ficheros del disco.
 
+Cuando seleccionas un tema de tipo **Consumption Points**, aparece además un botón **…** (tooltip "Base demand fields") que abre el diálogo **Base demand fields**, donde se gestionan las columnas de demanda base del tema (todos los campos posteriores a `DemID` y `Category`):
+
+- La lista muestra un campo por fila, con el nombre editable directamente (doble clic o tecla).
+- **+** añade una fila nueva con un nombre libre sugerido (`BaseDem`, `BaseDem2`…); **-** borra la fila seleccionada. El tema siempre necesita al menos un campo de demanda base.
+- Al pulsar **Accept**, QGISRed valida los nombres: no pueden quedar vacíos, no pueden superar 10 caracteres (límite del formato DBF), deben empezar por una letra y solo contener letras, números y guion bajo, y no puede haber dos campos con el mismo nombre (sin distinguir mayúsculas/minúsculas). Si algo no es válido, el diálogo no se cierra y muestra el motivo.
+- Si algún campo existente se ha eliminado de la lista, antes de aplicar los cambios se pide confirmación explícita porque se borran también sus valores; renombrar un campo, en cambio, conserva los datos.
+
 > 💡 Las capas que dejas marcadas en esta tabla se recuerdan al cerrar y reabrir el proyecto — incluidos los proyectos que no guardan un `.qgz` — igual que el resto de capas del proyecto.
 
-> Para saber cómo se usan estas capas dentro del Nodal Demand Builder (importar puntos de consumo, generar enlaces de demanda, agregar por sectores...), consulta [Demandas y escenarios](../herramientas/demandas-escenarios.md).
+> Para saber cómo se usan estas capas dentro del Constructor de demandas nodales (importar puntos de consumo, generar enlaces de demanda, agregar por sectores...), consulta [Demandas y escenarios](../herramientas/demandas-escenarios.md).
 
 ### Resumen del modelo (Summary)
 

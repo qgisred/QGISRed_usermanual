@@ -70,7 +70,7 @@ Cuatro grupos de contenido, cada uno con su propia casilla en el apartado **Cont
 | **Results** | Resultados de simulaciones guardados en `Results/` |
 | **Issues** | Incidencias detectadas por las verificaciones, en `Issues/` |
 | **Queries** | Consultas guardadas, en `Queries/` |
-| **Auxiliary Layers** | Capas auxiliares (por ejemplo, del Demands Builder), en `Auxiliary Layers/` |
+| **Auxiliary Layers** | Capas auxiliares (por ejemplo, del Constructor de demandas nodales), en `Auxiliary Layers/` |
 
 Si el `.qgz` referencia datos complementarios, el diálogo añade una tabla **Complementary data** con una fila por capa (nombre, ubicación y estado), cada una con su propia casilla — así puedes dejar fuera, por ejemplo, un MDT de varios GB sin renunciar al resto.
 

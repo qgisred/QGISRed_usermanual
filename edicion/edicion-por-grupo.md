@@ -103,6 +103,7 @@ Solo **Replace with**, seleccionando el nuevo valor de una lista. Las opciones d
 | `Material` | Tabla de materiales del proyecto |
 | `Curve` | Curvas del proyecto filtradas por tipo (pump, volume, efficiency, headloss) |
 | `Pattern` | Patrones del proyecto filtrados por tipo (demand, quality, head, speed, price) |
+| `ValveType` (solo Valves) | Lista fija de EPANET (PRV, PSV, PBV, FCV, TCV, GPV), mostrada en el combo con su nombre largo en español (p. ej. "Reductora de Presión" para PRV) |
 
 ### Campos de fecha
 

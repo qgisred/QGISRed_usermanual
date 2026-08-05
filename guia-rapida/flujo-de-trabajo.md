@@ -48,7 +48,7 @@ Desde la barra **Tools**:
 
 - **Interpolar cotas** si los nudos no tienen cota asignada.
 - **Asignar rugosidades** a partir de material y fecha de instalación.
-- **Gestor de demandas** para distribuir los consumos.
+- **Constructor de demandas nodales** para distribuir los consumos.
 
 ## Paso 6 — Simular
 

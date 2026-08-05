@@ -10,7 +10,7 @@ El perfil longitudinal muestra la evolución de una variable hidráulica a lo la
 
 <figure><img src="../assets/images/analisis/perfil-longitudinal-dock.png" alt="Dock de perfil longitudinal con recorrido dibujado en el mapa y gráfico de presión"><figcaption><p>Dock de perfil longitudinal con recorrido dibujado en el mapa y gráfico de presión</p></figcaption></figure>
 *Perfil longitudinal: recorrido resaltado en rojo en el mapa (izquierda) y gráfico de altura piezométrica + cota del terreno (derecha).*
-<!-- TODO: captura desactualizada — los botones Pick/Add node/Remove node/Move node/Branch de la barra de herramientas se sustituyeron por un único botón Edit trajectories + botón Help -->
+<!-- TODO: captura desactualizada — los botones Pick/Add node/Remove node/Move node/Branch de la barra de herramientas se sustituyeron por un único botón Editar trayectos + botón Help -->
 
 ---
 
@@ -27,7 +27,7 @@ El plugin permite mantener varios docks de perfil abiertos al mismo tiempo. Cada
 ## Abrir y construir el perfil
 
 1. Activa **Longitudinal profile** desde la barra Analysis. El dock de perfil se abre en la zona inferior de QGIS.
-2. El botón **Edit trajectories** se activa automáticamente; el cursor cambia al icono de lápiz.
+2. El botón **Editar trayectos** se activa automáticamente; el cursor cambia al icono de lápiz.
 3. Haz clic sobre un nudo de la red (Junctions, Tanks, Reservoirs) para fijar el primer nodo de referencia.
 4. Haz clic sobre otro nudo: el plugin calcula el **camino mínimo topológico** entre ambos nudos y dibuja el perfil.
 5. Cada clic adicional extiende el recorrido concatenando el camino desde el último nodo hasta el nuevo.
@@ -75,10 +75,10 @@ Todas las acciones de edición se controlan desde un único botón conmutable, e
 
 | Botón | Función |
 |-------|---------|
-| **Edit trajectories** (icono de lápiz, conmutable) | Activa el modo de edición: clic izquierdo para trazar el recorrido nudo a nudo, clic derecho sobre un nudo para ver sus opciones (ver [Atajos de ratón](#atajos-de-ratón)). Al desactivarlo, mover el ratón sobre el recorrido solo lo resalta y muestra información, sin modificarlo. |
-| **Help** (icono ⓘ) | Abre el diálogo **"How to edit trajectories"**, con un resumen de todas las acciones de edición y los atajos de ratón disponibles. |
+| **Editar trayectos** (icono de lápiz, conmutable) | Activa el modo de edición: clic izquierdo para trazar el recorrido nudo a nudo, clic derecho sobre un nudo para ver sus opciones (ver [Atajos de ratón](#atajos-de-ratón)). Al desactivarlo, mover el ratón sobre el recorrido solo lo resalta y muestra información, sin modificarlo. |
+| **Help** (icono ⓘ) | Abre el diálogo **"Cómo editar trayectos"**, con un resumen de todas las acciones de edición y los atajos de ratón disponibles. |
 
-> 📝 Añadir un nodo de paso intermedio, eliminarlo, moverlo o crear una rama ya no tienen un botón propio en la barra de herramientas: se realizan con **Edit trajectories** activo, mediante el menú contextual (clic derecho) o los atajos de ratón descritos en [Atajos de ratón](#atajos-de-ratón). Estas acciones funcionan igual sobre el recorrido principal y sobre las ramas.
+> 📝 Añadir un nodo de paso intermedio, eliminarlo, moverlo o crear una rama ya no tienen un botón propio en la barra de herramientas: se realizan con **Editar trayectos** activo, mediante el menú contextual (clic derecho) o los atajos de ratón descritos en [Atajos de ratón](#atajos-de-ratón). Estas acciones funcionan igual sobre el recorrido principal y sobre las ramas.
 
 ### Navegación del gráfico
 
@@ -133,7 +133,7 @@ Cuando la envolvente está activa, la tabla de valores añade columnas con el va
 
 La acción **Create branch** permite añadir derivaciones laterales que comparten el mismo gráfico con el recorrido principal.
 
-1. Con **Edit trajectories** activo, haz clic derecho sobre un nudo ya perteneciente al recorrido principal o a una rama existente y elige **Create branch** en el menú contextual (o haz doble clic derecho directamente sobre él si es un nudo interior con grado de conexión mayor que 2; ver [Atajos de ratón](#atajos-de-ratón)). Ese nudo define el punto de bifurcación y su posición en el eje X.
+1. Con **Editar trayectos** activo, haz clic derecho sobre un nudo ya perteneciente al recorrido principal o a una rama existente y elige **Create branch** en el menú contextual (o haz doble clic derecho directamente sobre él si es un nudo interior con grado de conexión mayor que 2; ver [Atajos de ratón](#atajos-de-ratón)). Ese nudo define el punto de bifurcación y su posición en el eje X.
 2. Haz clics sucesivos para extender la rama hacia otros nudos.
 3. Clic derecho para terminar la rama.
 
@@ -156,7 +156,7 @@ El botón **Clear** elimina el recorrido principal y todas las ramas.
 
 ## Atajos de ratón
 
-Con **Edit trajectories** activo, además de trazar el recorrido clic a clic, el ratón admite varios atajos directos que evitan pasar por el menú contextual. Estos atajos funcionan igual sobre el recorrido principal y sobre las ramas.
+Con **Editar trayectos** activo, además de trazar el recorrido clic a clic, el ratón admite varios atajos directos que evitan pasar por el menú contextual. Estos atajos funcionan igual sobre el recorrido principal y sobre las ramas.
 
 - **Doble clic izquierdo sobre un nodo intermedio** del recorrido (uno que aún no es nodo de paso): lo declara como nodo de paso (equivale a **Declare pass node**).
 - **Doble clic izquierdo sobre un nodo de paso** ya declarado: lo elimina y el recorrido se recalcula (equivale a **Delete pass node**).
@@ -176,7 +176,7 @@ El menú contextual (clic derecho simple) ofrece distintas opciones según el nu
 | Nodo de paso interior del recorrido | **Create branch**, **Move pass node**, **Delete pass node** |
 | Nodo de bifurcación (origen de una rama) | **Create branch** |
 
-> 💡 El botón **Help** de la barra de herramientas del dock (icono ⓘ) abre en cualquier momento el diálogo **"How to edit trajectories"**, con esta misma información resumida.
+> 💡 El botón **Help** de la barra de herramientas del dock (icono ⓘ) abre en cualquier momento el diálogo **"Cómo editar trayectos"**, con esta misma información resumida.
 
 ---
 
@@ -195,7 +195,7 @@ En el gráfico se dibujan **líneas verticales de referencia** en la posición X
 La interacción entre el gráfico y el mapa es bidireccional y se actualiza en tiempo real:
 
 - Al desplazar el ratón sobre el **gráfico**, el nodo más cercano queda resaltado en el **lienzo del mapa** con un círculo naranja.
-- Al desplazar el ratón sobre el **mapa** mientras **Edit trajectories** está activo, el cursor del gráfico se desplaza al nodo correspondiente.
+- Al desplazar el ratón sobre el **mapa** mientras **Editar trayectos** está activo, el cursor del gráfico se desplaza al nodo correspondiente.
 
 ---
 

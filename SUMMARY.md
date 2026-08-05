@@ -39,7 +39,6 @@
 * [🔧 Herramientas](herramientas/README.md)
     * [Propiedades hidráulicas](herramientas/propiedades-hidraulicas.md)
     * [Demandas y escenarios](herramientas/demandas-escenarios.md)
-    * [Constructor de Sectores de Demanda](herramientas/constructor-sectores-demanda.md)
     * [Sectores de demanda y árbol](herramientas/sectores-arbol.md)
 
 * [🔍 Consultas](consultas/README.md)

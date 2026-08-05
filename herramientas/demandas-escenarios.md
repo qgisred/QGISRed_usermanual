@@ -4,14 +4,14 @@ Las tres herramientas del segundo grupo de la barra Tools gestionan la asignaci�
 
 ---
 
-## Nodal demand builder…
+## Constructor de demandas nodales…
 
-**Barra Tools → Nodal demand builder…**
+**Barra Tools → Constructor de demandas nodales…**
 
 Asigna consumos a los nudos de la red de forma masiva a partir de capas SHP externas cargadas en QGIS. Es la herramienta principal para integrar datos de facturación, censos de usuarios o estimaciones por polígono en el modelo EPANET.
 
-<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Diálogo del Nodal demand builder con opciones de fuente y método de asignación"><figcaption><p>Diálogo del Nodal demand builder con opciones de fuente y método de asignación</p></figcaption></figure>
-*Nodal demand builder: capas de origen detectadas automáticamente, configuración de campos y método de distribución.*
+<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Diálogo del Constructor de demandas nodales con opciones de fuente y método de asignación"><figcaption><p>Diálogo del Constructor de demandas nodales con opciones de fuente y método de asignación</p></figcaption></figure>
+*Constructor de demandas nodales: capas de origen detectadas automáticamente, configuración de campos y método de distribución.*
 
 ### Fuentes de datos soportadas
 
@@ -24,7 +24,7 @@ Asigna consumos a los nudos de la red de forma masiva a partir de capas SHP exte
 ### Proceso
 
 1. Carga en QGIS la capa SHP externa con los datos de consumo antes de abrir el gestor.
-2. Activa **Nodal demand builder**. El diálogo detecta y lista automáticamente las capas externas.
+2. Activa **Constructor de demandas nodales**. El diálogo detecta y lista automáticamente las capas externas.
 3. Configura para cada capa:
    - **Campo de demanda**: columna con el valor de consumo.
    - **Campo de categoría**: para crear demandas múltiples por tipo de usuario (residencial, industrial, etc.).
@@ -45,22 +45,22 @@ Ambas opciones son independientes y pueden activarse simultáneamente.
 
 ### Unidades de demanda personalizadas
 
-Por defecto, el Builder interpreta los valores de demanda en las unidades de caudal del proyecto. Si los datos de origen usan unidades distintas, activa **Custom demand units** e introduce:
+Por defecto, el Constructor interpreta los valores de demanda en las unidades de caudal del proyecto. Si los datos de origen usan unidades distintas, activa **Custom demand units** e introduce:
 
 - **Units label**: etiqueta descriptiva de las unidades de origen (p. ej., `m³/mes`).
 - **Conversion factor**: factor multiplicador para convertir a las unidades del proyecto (p. ej., si el proyecto usa L/s y los datos vienen en m³/mes: `1000 / 86400 / 30 ≈ 0.000386`).
 
-El Builder aplica el factor automáticamente a todos los valores de consumo antes de asignarlos a los nudos.
+El Constructor aplica el factor automáticamente a todos los valores de consumo antes de asignarlos a los nudos.
 
 ### Resultado en el mapa
 
 La capa resultante se muestra con colores por categoría y etiquetas con el valor de demanda. Los nudos sin categoría asignada aparecen en naranja bajo el grupo **Uncategorized**.
 
-> 💡 Las capas auxiliares del Demand Builder (ConsumptionPoints, DemandLinks, Sectors…) también se pueden crear vacías desde el Gestor de Capas, sin necesidad de ejecutar antes un análisis (ver [Resumen y gestión de capas](../proyecto-activo/capas-y-leyenda.md)).
+> 💡 Las capas auxiliares del Constructor de demandas nodales (ConsumptionPoints, DemandLinks, Sectors…) también se pueden crear vacías desde el Gestor de Capas, sin necesidad de ejecutar antes un análisis (ver [Resumen y gestión de capas](../proyecto-activo/capas-y-leyenda.md)).
 
 ### Limpieza de demandas
 
-El gestor permite borrar demandas existentes antes de asignar las nuevas:
+El Constructor permite borrar demandas existentes antes de asignar las nuevas:
 - **Borrar demandas de nudos seleccionados**: elimina valores de `Demand` y entradas de `MultipleDemands`.
 - **Eliminar patrones huérfanos**: elimina patrones que ya no estén referenciados por ningún nudo.
 

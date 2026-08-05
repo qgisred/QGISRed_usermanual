@@ -136,7 +136,7 @@ Los siguientes campos se tratan como categorías (valores discretos):
 |-------|-------------|
 | `Material` | Material de la tubería |
 | `Type` | Tipo de elemento |
-| `ValveType` | Tipo de válvula |
+| `ValveType` | Tipo de válvula, mostrado con su abreviatura en español (VRP, VSP, VRC, VCQ, VRG, VPG, VR) en vez del código EPANET |
 | `MeterType` | Tipo de contador |
 | `SourceType` | Tipo de fuente |
 | `IniStatus` | Estado operacional inicial (Open / Closed / CV) |

@@ -47,6 +47,8 @@ Campos como `Status` que tienen un conjunto finito de valores posibles:
 | `All` | Sin filtro |
 | `=` | Igual al valor seleccionado |
 
+> ℹ️ Para `Type`/`ValveType` en válvulas, el selector de valor muestra el nombre largo del tipo en español (p. ej. "Reductora de Presión" para PRV) en lugar del código EPANET.
+
 ### Campos de texto libre
 
 Campos como `Tag` o `Id`:

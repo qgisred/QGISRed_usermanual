@@ -65,6 +65,8 @@ Los atributos se organizan según el tipo de elemento. Para una **tubería** tí
 
 Para **nudos** se muestran `Elevation`, `Demand`, `Pattern`, `InitQuality`, etc. Cada tipo de elemento tiene su propio conjunto de campos.
 
+Para **válvulas**, el campo `Type`/`ValveType` se muestra con su abreviatura en español (VRP, VSP, VRC, VCQ, VRG, VPG, VR) en lugar del código EPANET (PRV, PSV, PBV, FCV, TCV, GPV, CV).
+
 Si el proyecto tiene resultados de simulación cargados, el panel añade una sección con los valores calculados (presión, caudal, velocidad…) para el período activo en el visor de resultados. El instante simulado se indica con el prefijo **Time:** seguido del valor en negrita en formato `HH:MM:SS`.
 
 > ⚠️ **Campos de calidad condicionales.** El campo `Quality` solo aparece cuando el modelo de calidad del proyecto no es *None*. El campo `ReactRate` únicamente es visible cuando el modelo de calidad es *Chemical*; permanece oculto para los modelos *None*, *Age* y *Trace*. Estos campos solo se muestran cuando el modelo de calidad del proyecto los soporta.

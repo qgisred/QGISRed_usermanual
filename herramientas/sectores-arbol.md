@@ -4,9 +4,9 @@ Las dos últimas herramientas de la barra Tools realizan análisis topológicos 
 
 ---
 
-## Obtain demand sectors
+## Constructor de sectores de demanda…
 
-**Barra Tools → Obtain demand sectors**
+**Barra Tools → Constructor de sectores de demanda…**
 
 Genera una sectorización de la red basada en la presencia de **caudalímetros** (flow meters). Cada sector de demanda es la subred suministrada por un único caudalímetro, sin cruzar otros caudalímetros.
 
