@@ -210,8 +210,12 @@ LANGS = {
 # ── Constants ─────────────────────────────────────────────────────────────────
 
 DELAY = 0.4       # seconds between API calls — increase to 1.0 on 429 errors
-MAX_CHARS = 4500  # Google Translate per-request limit
+MAX_CHARS = 1500  # kept conservative — larger combined requests have been
+                   # observed to come back from Google Translate silently
+                   # truncated, with no exception raised
 SEP = " ||| "     # batch separator unlikely to appear in content
+
+_END_PUNCT = ('.', '!', '?', '"', "'", '»', ')', ':', ';', '”', '’')
 
 SCRIPTS_DIR = Path(__file__).parent
 SOURCE_DIR = SCRIPTS_DIR.parent  # usermanual (Spanish source) root
@@ -259,20 +263,50 @@ def _call_gt(text: str, google_lang: str) -> str:
             time.sleep(2 ** attempt)
 
 
+def _looks_truncated(source: str, translated: str) -> bool:
+    """
+    Heuristic: the source ends with sentence punctuation but the translation
+    doesn't end with any closing punctuation at all — a sign the API response
+    was cut off mid-sentence rather than genuinely finished. Only applied to
+    longer lines, where a batched response is more likely to have been cut.
+    """
+    source = source.strip()
+    translated = translated.strip()
+    if len(source) < 150 or not source.endswith(_END_PUNCT):
+        return False
+    return not translated.endswith(_END_PUNCT)
+
+
 def translate_batch(items: list, google_lang: str) -> list:
     """
     Translate a list of strings in as few API calls as possible by joining
     them with SEP.  Recurses when the combined length exceeds MAX_CHARS.
+
+    If the response doesn't split back into exactly len(items) parts, or the
+    last part looks cut off mid-sentence, falls back to translating every
+    item in the batch individually instead of silently keeping incomplete
+    text (this is how a truncated Google Translate response was previously
+    cached into translation memory unnoticed).
     """
     if not items:
         return []
     joined = SEP.join(items)
     if len(joined) <= MAX_CHARS:
         translated = _call_gt(joined, google_lang)
-        parts = re.split(r"\s*\|\|\|\s*", translated)
-        while len(parts) < len(items):
-            parts.append("")
-        return [p.strip() for p in parts[: len(items)]]
+        parts = [p.strip() for p in re.split(r"\s*\|\|\|\s*", translated)]
+        incomplete = len(parts) != len(items) or (
+            parts and _looks_truncated(items[-1], parts[-1])
+        )
+        if incomplete:
+            if len(items) == 1:
+                return [translated.strip()]
+            print(f"    ⚠ batch response looked incomplete, retranslating {len(items)} lines individually")
+            retried = [_call_gt(item, google_lang).strip() for item in items]
+            for src, out in zip(items, retried):
+                if _looks_truncated(src, out):
+                    print(f"    ⚠ still looks truncated after retry: {src[:80]!r}")
+            return retried
+        return parts
     mid = len(items) // 2
     return translate_batch(items[:mid], google_lang) + translate_batch(items[mid:], google_lang)
 
