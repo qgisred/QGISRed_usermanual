@@ -150,21 +150,23 @@ QGISRed incluye una tabla de materiales predefinida con los más comunes (CI, DI
 
 La tabla de materiales es propia de cada proyecto, pero puede compartirse con otros proyectos guardándola como tabla **global** (guardada en el perfil de usuario, fuera de cualquier proyecto — un `.dbf` por tabla).
 
-**Con un proyecto activo**, el diálogo edita directamente la tabla del proyecto (sin desplegable) y ofrece estos botones:
+**Con un proyecto activo** (ventana "Materiales del Proyecto"), el diálogo edita directamente la tabla del proyecto (sin desplegable) y ofrece estos botones:
 
 | Botón | Acción |
 |-------|--------|
-| **Copiar como global** | Guarda una copia de la tabla actual como una **nueva** tabla global, pidiendo un nombre. Si ya existe una tabla global con ese nombre, pide confirmación antes de sobrescribirla. |
-| **Restaurar materiales por defecto** | Sustituye la tabla del proyecto por la predefinida de QGISRed (según el idioma de la interfaz), descartando los materiales actuales del proyecto. |
-| **Cargar materiales** | Sustituye la tabla del proyecto por una tabla global guardada previamente, elegida en un diálogo aparte. |
+| **Guardar** | Cierra el diálogo y guarda los cambios en el proyecto. |
+| **Guardar como global** | Guarda una copia de la tabla actual como una **nueva** tabla global, pidiendo un nombre. Si ya existe una tabla global con ese nombre, pide confirmación antes de sobrescribirla. |
+| **Restaurar materiales por defecto (idioma)** | Sustituye la tabla del proyecto por la predefinida de QGISRed en el idioma indicado entre paréntesis (el de la interfaz), descartando los materiales actuales del proyecto. |
+| **Cargar Tabla de Materiales** | Sustituye la tabla del proyecto por otra, elegida en un diálogo aparte que lista tanto las tablas globales guardadas por el usuario como las predefinidas de QGISRed (marcadas "(por defecto)"). |
+| **Cancelar** | Cierra el diálogo sin guardar los cambios. |
 
-Los cambios quedan guardados en el proyecto al aceptar el diálogo.
+> ⚠️ No puede haber dos materiales con la misma abreviatura — si la hay, QGISRed lo avisa con un mensaje en rojo bajo la tabla e impide guardar hasta que corrijas la repetida. La misma comprobación se aplica al pulsar "Guardar" y "Guardar como global".
 
 ### Sin proyecto activo: gestor de tablas globales
 
-Si abres **Tabla de materiales** sin ningún proyecto QGISRed activo (por ejemplo nada más abrir QGIS, antes de crear o abrir un proyecto), el diálogo se abre como una ventana independiente — sin botones de aceptar/cancelar — para gestionar las tablas globales guardadas, con un **desplegable nuevo en la parte superior** que lista todas las disponibles:
+Si abres **Tabla de materiales** sin ningún proyecto QGISRed activo (por ejemplo nada más abrir QGIS, antes de crear o abrir un proyecto), el diálogo se abre como una ventana independiente ("Tablas Globales de Materiales") para gestionar las tablas globales guardadas, con la etiqueta **"Selecciona la tabla global de materiales"** junto a un desplegable que lista todas las disponibles:
 
-- Las **tablas globales guardadas** por el usuario (creadas con "Copiar como global" o "Guardar como global"), editables.
+- Las **tablas globales guardadas** por el usuario (creadas con "Guardar" o "Guardar como..."), editables.
 - Las **tablas predefinidas** de QGISRed por idioma, marcadas con el sufijo **"(por defecto)"** — de solo lectura: la cuadrícula no se puede editar mientras una de estas está seleccionada.
 
 Junto al desplegable hay un botón **Borrar** que elimina la tabla global seleccionada; solo está disponible para tablas propias, no para las predefinidas de solo lectura.
@@ -173,8 +175,9 @@ Los botones inferiores cambian según la tabla seleccionada:
 
 | Botón | Cuándo aparece | Acción |
 |-------|-----------------|--------|
-| **Guardar como global** | Solo con una tabla propia seleccionada (no predefinida) | Guarda los cambios **sobre la tabla ya seleccionada**, sin pedir un nombre nuevo — a diferencia de **Copiar como global**. |
-| **Copiar como global** | Siempre | Igual que con un proyecto activo: guarda una copia con un nombre nuevo y, si tiene éxito, la añade al desplegable y la selecciona a continuación. |
-| **Restaurar materiales por defecto** | Solo con una tabla propia seleccionada (no predefinida) | Sustituye el contenido de la tabla actual por la predefinida del idioma de la interfaz. |
+| **Guardar** | Solo con una tabla propia seleccionada (no predefinida) | Guarda los cambios **sobre la tabla ya seleccionada**, sin pedir un nombre nuevo — a diferencia de **Guardar como...**. |
+| **Guardar como...** | Siempre | Pide un nombre nuevo y guarda una copia como tabla global; si el nombre ya existe, pide confirmación antes de sobrescribirla. Si tiene éxito, la añade al desplegable y la selecciona a continuación. |
+| **Restaurar materiales por defecto (idioma)** | Solo con una tabla propia seleccionada (no predefinida) | Sustituye el contenido de la tabla actual por la predefinida del idioma de la interfaz. |
+| **Cancelar** | Siempre | Cierra la ventana. |
 
-> ⚠️ Si cambias de tabla en el desplegable con cambios sin guardar, QGISRed pregunta si quieres guardarlos antes de cambiar (Sí/No/Cancelar). Cerrar la ventana directamente, en cambio, no pregunta nada: al no haber un botón final que confirme todos los cambios de golpe (como si hay con un proyecto activo), aquí solo se conserva lo que ya hayas guardado explícitamente con "Guardar como global" o "Copiar como global".
+> ⚠️ Si cambias de tabla en el desplegable con cambios sin guardar, QGISRed pregunta si quieres guardarlos antes de cambiar (Sí/No/Cancelar). Cerrar la ventana con "Cancelar" (o con la X), en cambio, no pregunta nada: al no haber un botón final que confirme todos los cambios de golpe (como sí hay con un proyecto activo), aquí solo se conserva lo que ya hayas guardado explícitamente con "Guardar" o "Guardar como...".
