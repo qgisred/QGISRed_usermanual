@@ -1,4 +1,4 @@
-# # Table of contents
+# Table of contents
 
 * [🚀 Welcome to QGISRed](README.md)
     * [👥 Credits and Authorship](introduction/credits.md)

@@ -150,21 +150,23 @@ QGISRed includes a predefined material table with the most common ones (CI, DI, 
 
 The materials table is unique to each project, but can be shared with other projects by saving it as a **global** table (saved in the user profile, outside of any project — one `.dbf` per table).
 
-**With an active project**, the dialog directly edits the project table (no dropdown) and offers these buttons:
+**With an active project** ("Project Materials" window), the dialog directly edits the project table (without drop-down) and offers these buttons:
 
 | Button | Action |
 |-------|--------|
-| **Copy as global** | Saves a copy of the current table as a **new** global table, asking for a name. If a global table with that name already exists, ask for confirmation before overwriting it. |
-| **Reset default materials** | Replaces the project table with the predefined QGISRed one (depending on the interface language), discarding the current project materials. |
-| **Load materials** | Replaces the project table with a previously saved global table, chosen in a separate dialog. |
+| **Save** | Closes the dialog and saves the changes to the project. |
+| **Save as global** | Saves a copy of the current table as a **new** global table, asking for a name. If a global table with that name already exists, asks for confirmation before overwriting it. |
+| **Restore default materials (language)** | Replaces the project table with the predefined QGISRed one in the language indicated in parentheses (the one of the interface), discarding the current project materials. |
+| **Load Materials Table** | Replaces the project table with another one, chosen in a separate dialog that lists both the global tables saved by the user and the predefined QGISRed ones (marked "(default)"). |
+| **Cancel** | Closes the dialog without saving changes. |
 
-The changes are saved in the project when you accept the dialog.
+> ⚠️ There cannot be two materials with the same abbreviation — if there is, QGISRed warns you with a red message under the table and prevents saving until you correct the repeated one. The same check applies when pressing "Save" and "Save as global".
 
 ### No active project: global table manager
 
-If you open **Table of Materials** without any active QGISRed project (for example, as soon as you open QGIS, before creating or opening a project), the dialog opens as a separate window — without accept/cancel buttons — to manage the saved global tables, with a **new drop-down at the top** listing all available ones:
+If you open **Material Table** without any active QGISRed project (for example, as soon as you open QGIS, before creating or opening a project), the dialog opens as a separate window ("Global Material Tables") to manage the saved global tables, with the label **"Select the global material table"** next to a drop-down list that lists all the available ones:
 
-- **Global tables saved** by the user (created with "Copy as global" or "Save as global"), editable.
+- **Global tables saved** by the user (created with "Save" or "Save as..."), editable.
 - QGISRed **predefined tables** by language, marked with the suffix **"(default)"** — read-only: the grid cannot be edited while one of these is selected.
 
 Next to the dropdown is a **Delete** button that deletes the selected global table; it is only available for your own tables, not for predefined read-only ones.
@@ -173,8 +175,9 @@ The buttons below change depending on the selected table:
 
 | Button | When does it appear | Action |
 |-------|-----------------|--------|
-| **Save as global** | Only with own table selected (not predefined) | Saves changes **over the already selected table**, without asking for a new name — unlike **Copy as global**. |
-| **Copy as global** | Always | Same as with an active project: save a copy with a new name and, if successful, add it to the dropdown and select it next. |
-| **Reset default materials** | Only with own table selected (not predefined) | Replaces the content of the current table with the predefined one of the interface language. |
+| **Save** | Only with own table selected (not predefined) | Saves changes **over the already selected table**, without asking for a new name — unlike **Save As...**. |
+| **Save as...** | Always | Requests a new name and saves a copy as a global table; if the name already exists, asks for confirmation before overwriting it. If successful, it adds it to the dropdown and selects it next. |
+| **Restore default materials (language)** | Only with own table selected (not predefined) | Replaces the content of the current table with the predefined one of the interface language. |
+| **Cancel** | Always | Closes the window. |
 
-> ⚠️ If you change tables in the dropdown with unsaved changes, QGISRed asks if you want to save them before changing (Yes/No/Cancel). Closing the window directly, on the other hand, does not ask anything: since there is no final button that confirms all changes at once (as there is with an active project), only what you have already saved explicitly with "Save as global" or "Copy as global" is preserved here.
+> ⚠️ If you change tables in the dropdown with unsaved changes, QGISRed asks if you want to save them before changing (Yes/No/Cancel). Closing the window with "Cancel" (or with the X), on the other hand, doesn't ask anything: since there is no final button that confirms all the changes at once (unlike with an active project), only what you have already explicitly saved with "Save" or "Save as..." is kept here.
