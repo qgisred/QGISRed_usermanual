@@ -1,8 +1,8 @@
-# Propiedades hidráulicas
+# Propiedades Hidráulicas
 
 Las cuatro primeras herramientas de la barra Tools calculan o actualizan propiedades hidráulicas de las tuberías y nudos de forma masiva: longitud, cota y rugosidad. Funcionan sobre la selección actual o sobre toda la red si no hay selección.
 
-***
+---
 
 ## Automatically calculate pipe lengths
 
@@ -12,15 +12,15 @@ Recalcula el campo `Length` de cada tubería utilizando la longitud geométrica 
 
 ### Cuándo usarla
 
-* Tras mover vértices o nudos con las herramientas de Edition sin haber actualizado el atributo.
-* Después de importar desde un `.inp` cuyas longitudes difieren de la geometría real (coordenadas en escala distinta o proyección diferente).
-* Como paso previo a **Check pipe lengths** (Barra Debug) para dejar todos los valores sincronizados antes de la auditoría.
+- Tras mover vértices o nudos con las herramientas de Edition sin haber actualizado el atributo.
+- Después de importar desde un `.inp` cuyas longitudes difieren de la geometría real (coordenadas en escala distinta o proyección diferente).
+- Como paso previo a **Check pipe lengths** (Barra Debug) para dejar todos los valores sincronizados antes de la auditoría.
 
 La herramienta sobreescribe el valor de `Length` incondicionalmente en todas las tuberías del ámbito de selección. No pregunta confirmación ni filtra por tolerancia.
 
 > Usa siempre un CRS métrico proyectado (UTM, LCC, etc.). Si el proyecto usa coordenadas geográficas (grados decimales), la longitud calculada estará en grados, no en metros, y será inútil para la simulación.
 
-***
+---
 
 ## Interpolate elevation from .asc files…
 
@@ -28,7 +28,8 @@ La herramienta sobreescribe el valor de `Length` incondicionalmente en todas las
 
 Asigna la cota (campo `Elevation`) a los nudos, depósitos y embalses del proyecto interpolando su valor desde uno o varios Modelos Digitales del Terreno (MDT) en formato ASC.
 
-\*Selector de archivos MDT: puedes cargar varios archivos ASC para cubrir toda el área de la red.\*
+<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="Selector de archivos ASC para interpolación de cotas"><figcaption><p>Selector de archivos ASC para interpolación de cotas</p></figcaption></figure>
+*Selector de archivos MDT: puedes cargar varios archivos ASC para cubrir toda el área de la red.*
 
 ### Formato ASC soportado
 
@@ -42,12 +43,12 @@ nodata_value  -9999
 230.4 231.1 231.8 ...
 ```
 
-| Cabecera                  | Significado                                                                                         |
-| ------------------------- | --------------------------------------------------------------------------------------------------- |
-| `ncols` / `nrows`         | Número de columnas y filas de la malla                                                              |
+| Cabecera | Significado |
+|----------|-------------|
+| `ncols` / `nrows` | Número de columnas y filas de la malla |
 | `xllcenter` / `yllcenter` | Coordenadas del centro de la celda inferior-izquierda (también se acepta `xllcorner` / `yllcorner`) |
-| `cellsize`                | Tamaño de celda en las unidades del CRS                                                             |
-| `nodata_value`            | Valor que el plugin ignora (celda sin dato)                                                         |
+| `cellsize` | Tamaño de celda en las unidades del CRS |
+| `nodata_value` | Valor que el plugin ignora (celda sin dato) |
 
 ### Proceso de asignación
 
@@ -58,7 +59,7 @@ nodata_value  -9999
 
 > El CRS del archivo ASC debe coincidir con el CRS del proyecto. Si no coinciden, las coordenadas no se proyectan y los nudos quedarán fuera de la malla.
 
-***
+---
 
 ## Set roughness coefficients (from Material and Date)
 
@@ -77,7 +78,6 @@ Donde `Rugosidad_inicial` e `Incremento_anual` se obtienen de la fila de la Tabl
 ### Requisitos previos
 
 Antes de usar esta herramienta, verifica con la Barra Debug que:
-
 1. Todas las tuberías tienen un `Material` válido (**Check pipe materials**).
 2. Todas las tuberías tienen un `InstallYear` correcto (**Check pipe installation dates**).
 
@@ -85,15 +85,15 @@ Si alguno de estos campos está vacío o es inválido para una tubería, su rugo
 
 La rugosidad se escribe en las unidades de la fórmula activa del proyecto:
 
-| Fórmula              | Unidad de rugosidad                         |
-| -------------------- | ------------------------------------------- |
-| Darcy-Weisbach (D-W) | mm (rugosidad absoluta de pared)            |
+| Fórmula | Unidad de rugosidad |
+|---------|---------------------|
+| Darcy-Weisbach (D-W) | mm (rugosidad absoluta de pared) |
 | Hazen-Williams (H-W) | Coeficiente C adimensional (típico 100–150) |
-| Chezy-Manning (C-M)  | Coeficiente n (típico 0.010–0.020)          |
+| Chezy-Manning (C-M) | Coeficiente n (típico 0.010–0.020) |
 
 > La Tabla de materiales almacena la rugosidad inicial en unidades D-W (mm). Si el proyecto usa H-W o C-M, el valor calculado se convierte automáticamente al sistema activo.
 
-***
+---
 
 ## Convert roughness coefficients…
 
@@ -103,12 +103,12 @@ Convierte los valores del campo `Roughness` de todas las tuberías entre las tre
 
 ### Conversiones disponibles
 
-| Origen               | Destino              |
-| -------------------- | -------------------- |
+| Origen | Destino |
+|--------|---------|
 | Hazen-Williams (H-W) | Darcy-Weisbach (D-W) |
 | Darcy-Weisbach (D-W) | Hazen-Williams (H-W) |
-| Chezy-Manning (C-M)  | Darcy-Weisbach (D-W) |
-| Darcy-Weisbach (D-W) | Chezy-Manning (C-M)  |
+| Chezy-Manning (C-M) | Darcy-Weisbach (D-W) |
+| Darcy-Weisbach (D-W) | Chezy-Manning (C-M) |
 
 Al cambiar la fórmula hidráulica en **Opciones del proyecto**, QGISRed detecta el cambio y ofrece ejecutar esta herramienta automáticamente. Si rechazas en ese momento, puedes lanzarla manualmente desde aquí.
 

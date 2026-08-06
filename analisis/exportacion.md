@@ -2,7 +2,7 @@
 
 La barra Analysis ofrece dos vías de exportación: el modelo completo como archivo EPANET `.inp`, y los resultados de simulación como tablas CSV.
 
-***
+---
 
 ## Export model to INP…
 
@@ -10,23 +10,24 @@ La barra Analysis ofrece dos vías de exportación: el modelo completo como arch
 
 Exporta el modelo completo al formato estándar **INP** de EPANET. Útil para compartir el modelo con otros usuarios, ejecutarlo en la interfaz gráfica de EPANET o integrarlo con herramientas de terceros.
 
-\*Diálogo Export to INP: ruta de destino, exportación de datos de campo y apertura automática en EPANET.\*
+<figure><img src="../assets/images/analisis/export-inp-dialog.png" alt="Diálogo de exportación al formato INP"><figcaption><p>Diálogo de exportación al formato INP</p></figcaption></figure>
+*Diálogo Export to INP: ruta de destino, exportación de datos de campo y apertura automática en EPANET.*
 
 ### Opciones del diálogo
 
-| Opción                        | Descripción                                                                                          |
-| ----------------------------- | ---------------------------------------------------------------------------------------------------- |
-| **INP file**                  | Ruta completa del archivo `.inp` a generar. Usa el botón `…` para navegar.                           |
-| **Export field data files**   | Exporta también los archivos auxiliares de datos de campo asociados al modelo.                       |
-| **Open INP file with EPANET** | Si está activo, abre el `.inp` en EPANET al finalizar la exportación.                                |
-| **Epanet path**               | Ejecutable de EPANET detectado en el sistema. El desplegable muestra todas las versiones instaladas. |
-| **Specific Epanet path**      | Ruta manual a un ejecutable de EPANET no detectado automáticamente.                                  |
+| Opción | Descripción |
+|--------|-------------|
+| **INP file** | Ruta completa del archivo `.inp` a generar. Usa el botón `…` para navegar. |
+| **Export field data files** | Exporta también los archivos auxiliares de datos de campo asociados al modelo. |
+| **Open INP file with EPANET** | Si está activo, abre el `.inp` en EPANET al finalizar la exportación. |
+| **Epanet path** | Ejecutable de EPANET detectado en el sistema. El desplegable muestra todas las versiones instaladas. |
+| **Specific Epanet path** | Ruta manual a un ejecutable de EPANET no detectado automáticamente. |
 
 Pulsa **Export to INP** para generar el archivo con la configuración elegida.
 
 > ℹ️ **Precisión decimal según valores por defecto del proyecto.** El número de decimales utilizado para cada campo en el archivo `.inp` generado respeta la precisión configurada en los valores por defecto del proyecto, la misma que se muestra en los paneles de Propiedades y Consultas. En versiones anteriores se aplicaba un formato fijo de 4 a 6 decimales independientemente de la configuración del proyecto.
 
-***
+---
 
 ## Export results to CSV…
 
@@ -38,12 +39,12 @@ Exporta los resultados de la última simulación a dos archivos CSV: uno para nu
 
 ### Opciones del diálogo
 
-| Opción                | Descripción                                                                                                                  |
-| --------------------- | ---------------------------------------------------------------------------------------------------------------------------- |
-| **Nodes CSV**         | Ruta del archivo de salida para los resultados de nudos. Por defecto `{Red}_{Escenario}_Nodes.csv` en la carpeta `Results/`. |
-| **Links CSV**         | Ruta del archivo de salida para los resultados de tuberías. Por defecto `{Red}_{Escenario}_Links.csv`.                       |
-| **List separator**    | Separador de campos (detectado automáticamente del sistema regional; habitual `;` en locales europeas).                      |
-| **Decimal separator** | Separador decimal (detectado del sistema; habitual `,` en locales europeas).                                                 |
+| Opción | Descripción |
+|--------|-------------|
+| **Nodes CSV** | Ruta del archivo de salida para los resultados de nudos. Por defecto `{Red}_{Escenario}_Nodes.csv` en la carpeta `Results/`. |
+| **Links CSV** | Ruta del archivo de salida para los resultados de tuberías. Por defecto `{Red}_{Escenario}_Links.csv`. |
+| **List separator** | Separador de campos (detectado automáticamente del sistema regional; habitual `;` en locales europeas). |
+| **Decimal separator** | Separador decimal (detectado del sistema; habitual `,` en locales europeas). |
 
 ### Contenido de los archivos
 
