@@ -146,25 +146,27 @@ Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_
 
 QGISRed inclut une table de matériaux prédéfinis avec les plus courants (CI, DI, AC, PVC, PE, HDPE...). Vous pouvez les modifier ou les étendre en fonction des caractéristiques de votre système.
 
-### Enregistrez et réutilisez les tables entre les projets
+### Enregistrer et réutiliser les tables entre les projets
 
 La table des matériaux est unique à chaque projet, mais peut être partagée avec d'autres projets en l'enregistrant en tant que table **globale** (enregistrée dans le profil utilisateur, en dehors de tout projet — un `.dbf` par table).
 
-**Avec un projet actif**, la boîte de dialogue édite directement la table du projet (pas de liste déroulante) et propose ces boutons :
+**Avec un projet actif** (fenêtre "Matériaux du projet"), la boîte de dialogue édite directement le tableau du projet (sans liste déroulante) et propose ces boutons :
 
 | Bouton | Actions |
 |-------|--------|
-| **Copier au format global** | Enregistre une copie de la table actuelle en tant que **nouvelle** table globale, demandant un nom. Si une table globale portant ce nom existe déjà, demandez confirmation avant de l'écraser. |
-| **Restaurer les matériaux par défaut** | Remplace la table du projet par celle prédéfinie de QGISRed (en fonction de la langue de l'interface), en supprimant les matériaux du projet actuel. |
-| **Charger des matériaux** | Remplace la table du projet par une table globale précédemment enregistrée, choisie dans une boîte de dialogue séparée. |
+| **Enregistrer** | Ferme la boîte de dialogue et enregistre les modifications apportées au projet. |
+| **Enregistrer comme global** | Enregistre une copie de la table actuelle en tant que **nouvelle** table globale, demandant un nom. Si une table globale portant ce nom existe déjà, demande confirmation avant de l'écraser. |
+| **Restaurer les matériaux par défaut (langue)** | Remplace la table du projet par celle prédéfinie de QGISRed dans la langue indiquée entre parenthèses (celle de l'interface), en supprimant les matériaux du projet actuel. |
+| **Charger la table des matériaux** | Remplace la table du projet par une autre, choisie dans une boîte de dialogue séparée qui répertorie à la fois les tables globales enregistrées par l'utilisateur et celles prédéfinies par QGISRed (marquées "(par défaut)"). |
+| **Annuler** | Ferme la boîte de dialogue sans enregistrer les modifications. |
 
-Les modifications sont enregistrées dans le projet lorsque vous acceptez la boîte de dialogue.
+> ⚠️ Il ne peut pas y avoir deux matériaux avec la même abréviation — s'il y en a, QGISRed vous avertit avec un message rouge sous le tableau et empêche la sauvegarde jusqu'à ce que vous corrigiez celui qui est répété. La même vérification s'applique lorsque vous appuyez sur "Enregistrer" et "Enregistrer comme global".
 
 ### Aucun projet actif : gestionnaire de tables global
 
-Si vous ouvrez **Tableau des matériaux** sans aucun projet QGISRed actif (par exemple, dès que vous ouvrez QGIS, avant de créer ou d'ouvrir un projet), la boîte de dialogue s'ouvre comme une fenêtre séparée — sans boutons accepter/annuler — pour gérer les tables globales enregistrées, avec une **nouvelle liste déroulante en haut** répertoriant toutes celles disponibles :
+Si vous ouvrez **Table des matériaux** sans aucun projet QGISRed actif (par exemple, dès que vous ouvrez QGIS, avant de créer ou d'ouvrir un projet), la boîte de dialogue s'ouvre sous la forme d'une fenêtre séparée ("Tableaux de matériaux globaux") pour gérer les tables globales enregistrées, avec l'étiquette **"Sélectionnez la table de matériaux globale"** à côté d'une liste déroulante répertoriant toutes celles disponibles :
 
-- **Tableaux globaux enregistrés** par l'utilisateur (créés avec "Copier au format global" ou "Enregistrer au format global"), modifiables.
+- **Tableaux globaux enregistrés** par l'utilisateur (créés avec "Enregistrer" ou "Enregistrer sous..."), modifiables.
 - Les **tables prédéfinies** de QGISRed par langue, marquées du suffixe **"(par défaut)"** — en lecture seule : la grille ne peut pas être modifiée tant que l'une d'entre elles est sélectionnée.
 
 À côté de la liste déroulante se trouve un bouton **Supprimer** qui supprime la table globale sélectionnée ; il n'est disponible que pour vos propres tables, pas pour celles prédéfinies en lecture seule.
@@ -173,8 +175,9 @@ Les boutons ci-dessous changent en fonction de la table sélectionnée :
 
 | Bouton | Quand apparaît-il | Actions |
 |-------|-----------------|--------|
-| **Enregistrer au format global** | Uniquement avec votre propre table sélectionnée (non prédéfinie) | Enregistre les modifications **sur la table déjà sélectionnée**, sans demander de nouveau nom — contrairement à **Copier au format global**. |
-| **Copier au format global** | Toujours | Comme avec un projet actif : enregistrez une copie sous un nouveau nom et, en cas de succès, ajoutez-la à la liste déroulante et sélectionnez-la ensuite. |
-| **Restaurer les matériaux par défaut** | Uniquement avec votre propre table sélectionnée (non prédéfinie) | Remplace le contenu de la table courante par celui prédéfini de la langue de l'interface. |
+| **Enregistrer** | Uniquement avec votre propre table sélectionnée (non prédéfinie) | Enregistre les modifications **sur la table déjà sélectionnée**, sans demander de nouveau nom — contrairement à **Enregistrer sous...**. |
+| **Enregistrer sous...** | Toujours | Demande un nouveau nom et enregistre une copie en tant que table globale ; si le nom existe déjà, demande confirmation avant de l'écraser. En cas de succès, il l'ajoute à la liste déroulante et le sélectionne ensuite. |
+| **Restaurer les matériaux par défaut (langue)** | Uniquement avec votre propre table sélectionnée (non prédéfinie) | Remplace le contenu de la table courante par celui prédéfini de la langue de l'interface. |
+| **Annuler** | Toujours | Ferme la fenêtre. |
 
-> ⚠️ Si vous modifiez des tables dans la liste déroulante avec des modifications non enregistrées, QGISRed vous demande si vous souhaitez les enregistrer avant de les modifier (Oui/Non/Annuler). En revanche, fermer directement la fenêtre ne demande rien : comme il n'y a pas de bouton final qui confirme toutes les modifications d'un coup (comme c'est le cas avec un projet actif), seul ce que vous avez déjà enregistré explicitement avec "Enregistrer au format global" ou "Copier au format global" est conservé ici.
+> ⚠️ Si vous modifiez des tables dans la liste déroulante avec des modifications non enregistrées, QGISRed vous demande si vous souhaitez les enregistrer avant de les modifier (Oui/Non/Annuler). Fermer la fenêtre avec « Annuler » (ou avec le X), en revanche, ne demande rien : comme il n'y a pas de bouton final qui confirme tous les changements d'un coup (contrairement à un projet actif), seul ce que vous avez déjà enregistré explicitement avec « Enregistrer » ou « Enregistrer sous... » est conservé ici.
