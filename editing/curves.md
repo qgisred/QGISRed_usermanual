@@ -1,12 +1,13 @@
-# Patterns and curves
+# Patterns and Curves
 
 **Edition bar → Edit patterns and curves…**
 
 The patterns and curves editor centralizes the management of temporal and functional data that control the dynamic behavior of the model: how demand varies throughout the day, how a pump behaves according to its flow rate, or what is the volume of an irregular tank.
 
-\*Pattern and curve editor: list of elements on the left, graph and data table on the right.\*
+<figure><img src="../assets/images/edicion/editor-curvas.png" alt="QGISRed Pattern and Curve Editor"><figcaption><p>QGISRed Pattern and Curve Editor</p></figcaption></figure>
+*Pattern and curve editor: list of elements on the left, graph and data table on the right.*
 
-***
+---
 
 ## Demand Patterns
 
@@ -15,10 +16,9 @@ A pattern defines how you multiply a node's base demand (or other parameter) at 
 ### Structure of a pattern
 
 Each pattern has:
-
-* A unique **ID** (referenced from the nodes or pumps).
-* A list of **multiplier factors**, one per time interval.
-* The **time step of the pattern** is defined in the simulation options; If the pattern has fewer factors than simulation intervals, the values ​​are repeated cyclically.
+- A unique **ID** (referenced from the nodes or pumps).
+- A list of **multiplier factors**, one per time interval.
+- The **time step of the pattern** is defined in the simulation options; If the pattern has fewer factors than simulation intervals, the values ​​are repeated cyclically.
 
 ### Example
 
@@ -39,7 +39,7 @@ The node with base demand 2.0 L/s and pattern `DomResidential` consumes 0.8 L/s 
 3. The graph updates in real time.
 4. You can **import factors from CSV** (a column of numeric values) using the import button.
 
-***
+---
 
 ## Behavior curves
 
@@ -49,11 +49,11 @@ The curves relate two physical quantities. EPANET uses four types:
 
 It relates the **Manometric Height** (Head, Y axis) to the **Flow** (Flow, X axis). Defines the working point of the pump at nominal speed.
 
-| Number of points | Adjustment method                                                                      |
-| ---------------- | -------------------------------------------------------------------------------------- |
-| 1 point          | QGISRed fits the EPANET standard curve: H₀ = 133% of point, given Q₀, Hmax = 0 to 2×Q₀ |
-| 3 points         | Second degree polynomial fit passing through the three points                          |
-| N points         | Linear interpolation between points (free curve)                                       |
+| Number of points | Adjustment method |
+|--------------|-----------------|
+| 1 point | QGISRed fits the EPANET standard curve: H₀ = 133% of point, given Q₀, Hmax = 0 to 2×Q₀ |
+| 3 points | Second degree polynomial fit passing through the three points |
+| N points | Linear interpolation between points (free curve) |
 
 > The H-Q curve must have **negative slope** (higher head at lower flow). EPANET will warn if the curve has a positive slope in any section.
 
@@ -69,7 +69,7 @@ Relates the **Level** of the tank (m or ft, X axis) to the **Volume** stored (m�
 
 For **GPV** (General Purpose Valve) type valves, relate the **Head loss** (m or ft) to the **Flow** (Flow). It allows modeling any hydraulic control device for which the characteristic curve is known.
 
-***
+---
 
 ## Create and edit curves
 

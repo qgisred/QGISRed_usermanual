@@ -1,6 +1,6 @@
-# Save, export and close project
+# Save, Export and Close Project
 
-***
+---
 
 ## Save the project map
 
@@ -24,7 +24,7 @@ If a `.qgz` already exists, it directly overwrites it (equivalent to `Ctrl+S` in
 
 > ⚠️ Save the `.qgz` **does not save network data**. The data (diameters, dimensions, demands...) are automatically saved in the SHP+DBF when QGISRed modifies them. The `.qgz` only saves the visual presentation.
 
-***
+---
 
 ## Export the project
 
@@ -40,43 +40,45 @@ If the project you export is the one you have open in QGIS and its `.qgz` has un
 
 > _"The QGIS project has unsaved changes. Do you want to save it before exporting?"_
 
-* **Yes**: save the `.qgz` and export that newly saved version.
-* **No**: exports the `.qgz` as it was in the last save (pending changes do not travel in the ZIP).
-* **Cancel**: The export dialog does not open.
+- **Yes**: save the `.qgz` and export that newly saved version.
+- **No**: exports the `.qgz` as it was in the last save (pending changes do not travel in the ZIP).
+- **Cancel**: The export dialog does not open.
 
 ### The export dialog
 
-| Field                                        | Function                                                                            |
-| -------------------------------------------- | ----------------------------------------------------------------------------------- |
-| **File name:**                               | ZIP name (without extension); by default, the network name                          |
-| **Folder:**                                  | Destination folder; by default, the user's Downloads folder                         |
-| **Content**                                  | Optional groups to include (see below)                                              |
-| **Complementary data**                       | External data referenced by `.qgz`, selectable one by one                           |
+<figure><img src="../assets/images/proyecto/exportar-proyecto.png" alt="QGISRed export project dialog"><figcaption><p>QGISRed export project dialog</p></figcaption></figure>
+
+| Field | Function |
+|-------|---------|
+| **File name:** | ZIP name (without extension); by default, the network name |
+| **Folder:** | Destination folder; by default, the user's Downloads folder |
+| **Content** | Optional groups to include (see below) |
+| **Complementary data** | External data referenced by `.qgz`, selectable one by one |
 | **Open the containing folder when finished** | Open the file explorer in the destination folder when finished (enabled by default) |
 
 ### What is always included
 
-* The SHP+DBF+PRJ of the network in the root of the project folder (Pipes, Junctions, Valves, Pumps, Tanks, Reservoirs, Demands, Sources...) and the options and metadata files (`_Options.dbf`, `_Title.dbf`).
-* The map file `.qgz`, if QGISRed finds it in the project folder or in its parent folder. If there is no `.qgz` saved, the dialog warns that the map display will not be exported.
+- The SHP+DBF+PRJ of the network in the root of the project folder (Pipes, Junctions, Valves, Pumps, Tanks, Reservoirs, Demands, Sources...) and the options and metadata files (`_Options.dbf`, `_Title.dbf`).
+- The map file `.qgz`, if QGISRed finds it in the project folder or in its parent folder. If there is no `.qgz` saved, the dialog warns that the map display will not be exported.
 
 ### What's optionally included
 
 Four content groups, each with its own box in the **Content** section (checked by default if the group has data from this network; if empty, the box is disabled):
 
-| Box                  | Content                                                                             |
-| -------------------- | ----------------------------------------------------------------------------------- |
-| **Results**          | Simulation results saved in `Results/`                                              |
-| **Issues**           | Incidents detected by verifications, in `Issues/`                                   |
-| **Queries**          | Queries saved, in `Queries/`                                                        |
+| Box | Content |
+|---------|-----------|
+| **Results** | Simulation results saved in `Results/` |
+| **Issues** | Incidents detected by verifications, in `Issues/` |
+| **Queries** | Queries saved, in `Queries/` |
 | **Auxiliary Layers** | Auxiliary layers (for example, of the Nodal demand builder), in `Auxiliary Layers/` |
 
 If the `.qgz` references complementary data, the dialog adds a **Complementary data** table with one row per layer (name, location, and state), each with its own checkbox — so you can leave out, for example, a multi-GB MDT without giving up the rest.
 
 ### What is not included
 
-* Content groups that you leave unchecked.
-* The complementary data that is outside the project folder and its parent folder: the dialog marks them as _"Not exportable"_ and warns before exporting. To include them, move them with the file explorer to the project folder (or next to it) and reopen the project so that QGISRed relinks them.
-* Remote background layers (WMS services, XYZ, databases): there is nothing to copy, so they never block the export or appear in the table.
+- Content groups that you leave unchecked.
+- The complementary data that is outside the project folder and its parent folder: the dialog marks them as _"Not exportable"_ and warns before exporting. To include them, move them with the file explorer to the project folder (or next to it) and reopen the project so that QGISRed relinks them.
+- Remote background layers (WMS services, XYZ, databases): there is nothing to copy, so they never block the export or appear in the table.
 
 > ⚠️ If you leave out a content group or complementary layer that `.qgz` is still using, QGISRed warns you before exporting. Press **OK** a second time if you want to continue anyway.
 
@@ -92,7 +94,7 @@ Upon completion, QGISRed shows the full path of the created ZIP in the message b
 
 > 💡 **Best Practices**: Export the project before operations that modify many elements at once (bulk imports, CRS changes, roughness conversions) and before updating the plugin version. To recover an exported project, use **Import project → "QGISRed project" tab** — see [Open and import projects](../project-management/open-import.md).
 
-***
+---
 
 ## Close project
 
@@ -104,12 +106,12 @@ It is equivalent to using _Project → New_ in the QGIS menu.
 
 > ⚠️ If there are unsaved changes in file `.qgz`, QGIS will ask if you want to save them before closing.
 
-***
+---
 
 ## Summary: what each option saves
 
-| Operation                                 | What keeps                                                                   | Where                                    |
-| ----------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------- |
-| Editing Tools                             | Attributes and geometry                                                      | SHP/DBF on disk, immediately             |
-| Save map                                  | Styles, visible layers, framing                                              | File `.qgz`                              |
+| Operation | What keeps | Where |
+|-----------|-----------|-------|
+| Editing Tools | Attributes and geometry | SHP/DBF on disk, immediately |
+| Save map | Styles, visible layers, framing | File `.qgz` |
 | Export project (Project Manager → Export) | Network SHP/DBF, `.qgz` and optionally supplementary data and content groups | File `.zip` in the folder of your choice |

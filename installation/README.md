@@ -1,20 +1,20 @@
-# 🛠️ Getting started
+# 💻 Installing QGISRed
 
 QGISRed is a free plugin for QGIS that installs in just a few minutes. There are two methods: from the official QGIS repository (recommended) or from a local ZIP file.
 
-***
+---
 
 ## Prerequisites
 
-| Requirement          | Minimum version                       |
-| -------------------- | ------------------------------------- |
-| **Operating system** | Windows x64                           |
-| **QGIS**             | 3.28 or higher (compatible up to 4.x) |
-| **.NET Framework**   | 4.8.1                                 |
+| Requirement | Minimum version |
+|-----------|---------------|
+| **Operating system** | Windows x64 |
+| **QGIS** | 3.28 or higher (compatible up to 4.x) |
+| **.NET Framework** | 4.8.1 |
 
 > QGISRed is only available for **Windows**. The calculation engine (dependencies) is based on DLLs compiled in .NET and does not have a native version for Linux or macOS.
 
-***
+---
 
 ## In this section
 

@@ -1,12 +1,13 @@
-# Controls and rules
+# Controls and Rules
 
 **Edition bar → Edit controls…**
 
 The controls editor defines the **operating logic** of the network: when a valve opens, when a pump starts, or what sequence of actions triggers a certain system state. EPANET supports two levels of control with different complexity.
 
-\*Controls editor: Simple Controls and Rules tabs, element and condition selector.\*
+<figure><img src="../assets/images/edicion/editor-controles.png" alt="QGISRed Rules and Controls Editor"><figcaption><p>QGISRed Rules and Controls Editor</p></figcaption></figure>
+*Controls editor: Simple Controls and Rules tabs, element and condition selector.*
 
-***
+---
 
 ## Simple Controls
 
@@ -20,21 +21,21 @@ IF [elemento] [condición]  THEN [acción]
 
 ### Condition Types
 
-| Type                | Usage example                                              |
-| ------------------- | ---------------------------------------------------------- |
-| **Tank level**      | If the level of Tank T-1 exceeds 4.5 m → close pump BM-1   |
-| **Node pressure**   | If the pressure in J-120 drops below 10 m → open valve V-3 |
-| **Simulation time** | At 6 hours of simulation → turn on pump BM-2               |
-| **Clock**           | At 23:00 (clock time) → close pipe P-55                    |
+| Type | Usage example |
+|------|---------------|
+| **Tank level** | If the level of Tank T-1 exceeds 4.5 m → close pump BM-1 |
+| **Node pressure** | If the pressure in J-120 drops below 10 m → open valve V-3 |
+| **Simulation time** | At 6 hours of simulation → turn on pump BM-2 |
+| **Clock** | At 23:00 (clock time) → close pipe P-55 |
 
 ### Available actions
 
-| Action              | Applies to                               |
-| ------------------- | ---------------------------------------- |
-| **OPEN**            | Pipes, valves, pumps                     |
-| **CLOSED**          | Pipes, valves, pumps                     |
+| Action | Applies to |
+|--------|---------|
+| **OPEN** | Pipes, valves, pumps |
+| **CLOSED** | Pipes, valves, pumps |
 | **Setting = value** | Valves (changes the regulation setpoint) |
-| **Speed = value**   | Pumps (changes relative speed)           |
+| **Speed = value** | Pumps (changes relative speed) |
 
 ### Complete example
 
@@ -55,7 +56,7 @@ IF CLOCKTIME 10:00 AM
 THEN PUMP BM-REFUERZO CLOSED
 ```
 
-***
+---
 
 ## Operating rules
 
@@ -75,10 +76,10 @@ PRIORITY [número]           (opcional)
 
 ### Logical operators
 
-| Operator | Usage                                          |
-| -------- | ---------------------------------------------- |
-| **AND**  | All conditions must be met simultaneously      |
-| **OR**   | It is enough that any of the conditions is met |
+| Operator | Usage |
+|----------|-----|
+| **AND** | All conditions must be met simultaneously |
+| **OR** | It is enough that any of the conditions is met |
 
 ### PRIORITY
 
@@ -101,23 +102,23 @@ ELSE PUMP BM-REFUERZO CLOSED
 PRIORITY 1
 ```
 
-***
+---
 
 ## Editing in QGISRed
 
 The QGISRed dialog presents the rules in directly editable text format, equivalent to the `[CONTROLS]` and `[RULES]` section of the `.inp` file. You can:
 
-* **Write** controls and rules directly in the text area.
-* **Activate or deactivate** a rule by putting a `;` at the beginning (converts the line into a comment).
-* **Check syntax** with the validation button before saving.
+- **Write** controls and rules directly in the text area.
+- **Activate or deactivate** a rule by putting a `;` at the beginning (converts the line into a comment).
+- **Check syntax** with the validation button before saving.
 
 > The controls are exported exactly as they appear when generating the `.inp` from the Tools bar. If the syntax is incorrect, EPANET will reject the file in simulation.
 
-***
+---
 
 ## Modeling Tips
 
-* For a system with a pump and tank, always define **two controls per pump**: one to start (low level) and one to stop (high level). Without the stop control, the pump runs indefinitely.
-* Simple controls are processed **before** rules at each time step. If you have a simple control and a rule that act on the same element, the result can be contradictory.
-* The order of simple controls **does not matter**; neither does that of the rules, because priority orders them. But if two rules have the same priority and contradictory conditions, the result is indeterminate.
-* Avoid creating control loops (rule A activates B, rule B deactivates A in the same time step): EPANET may not converge.
+- For a system with a pump and tank, always define **two controls per pump**: one to start (low level) and one to stop (high level). Without the stop control, the pump runs indefinitely.
+- Simple controls are processed **before** rules at each time step. If you have a simple control and a rule that act on the same element, the result can be contradictory.
+- The order of simple controls **does not matter**; neither does that of the rules, because priority orders them. But if two rules have the same priority and contradictory conditions, the result is indeterminate.
+- Avoid creating control loops (rule A activates B, rule B deactivates A in the same time step): EPANET may not converge.
