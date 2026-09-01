@@ -75,6 +75,12 @@ For each element type you can select the corresponding SHP layer and assign its 
 
 **Services** — mappable fields: ID, Length, Diameter, Roughness, **Material**, Base demand, Pattern, Active, Installation date, Tag, Description.
 
+> If the connection layer is **points** (each connection is hooked to the nearest main pipe, instead of already having its own layout), two optional restrictions appear to decide which pipes each connection can be hooked to — combinable with each other:
+> - **Only pipes with diameters below this value are candidates** (in the project diameter units).
+> - **Only pipes currently selected in the Pipes layer are candidates** — only available if you already have pipes selected in the map before opening the importer; The box shows how many are selected.
+>
+> A connection that does not find any candidate pipes within those constraints is not imported, and QGISRed indicates this in the import summary.
+
 The other elements (valves, pumps, tanks, reservoirs, nodes, isolation valves, meters) have their own sets of mappable fields.
 
 When the import creates a new project, the **materials catalog** (same as when creating a project from scratch) and basic EPANET parameters (units and pressure drop formula) are also requested. If imported over an existing project, these parameters are ignored.

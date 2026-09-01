@@ -128,6 +128,10 @@ Manage the list of materials available for pipes and their aging properties.
 
 > ⚠️ There cannot be two materials with the same abbreviation — if there is, QGISRed warns you and prevents saving until you correct the repeated one.
 
+### Add a material
+
+The table always shows an **empty row** at the end. Write directly in it (abbreviation, description, initial roughness and annual increment) and, as soon as you leave the row, QGISRed registers it as a new material and adds another empty row below it — no separate "Add" button is needed. If you leave the initial roughness or increment blank, they are saved as 0.
+
 ### Delete a material
 
 Select a row and press **Del** to delete it. If the material is assigned to a pipe or connection, QGISRed notifies how many elements use it and asks for confirmation before deleting it — if you accept, those elements are left without assigned material.
@@ -144,7 +148,7 @@ Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_
 
 ### Materials included by default
 
-QGISRed includes a predefined material table with the most common ones (CI, DI, AC, PVC, PE, HDPE...). You can edit or extend them according to the characteristics of your system.
+QGISRed includes a predefined material table with the most common ones (FG, FD, ACE, PVC, PE, PE-AD...). You can edit or extend them according to the characteristics of your system.
 
 ### Save and reuse tables between projects
 

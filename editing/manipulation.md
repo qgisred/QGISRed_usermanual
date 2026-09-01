@@ -2,6 +2,8 @@
 
 The tools in the second group of the Edition bar allow you to modify the geometry and topology of the network without breaking connectivity. QGISRed maintains consistency between spatial geometry and model data at all times.
 
+> All the tools on this page that are activated by clicking on the map (Move nodes, Reverse elements, Merge/Dissolve junctions, Create/Remove T connections, Create/Remove crossings...) resolve the click against the **closest** element within the configured tolerance, not against the first one they find — important when there are several nodes very close to each other.
+
 ---
 
 ## Multiple selection (Select multiple elements)
@@ -73,12 +75,12 @@ Reverses the **orientation** of pipes and service connections. The orientation d
 
 Click on a pipe to **split** it at the indicated point: QGISRed creates a new junction at that point and two sections with the same diameter, material and InstallYear attributes as the original.
 
-To **join** two pipes, click on the intermediate node they share: if that node has exactly two connected pipes and the diameter, material and InstallYear properties are the same, QGISRed merges them into a single section and deletes the node.
+To **join** two pipes, click on the intermediate node they share: if that node has exactly two connected pipes and the diameter, material, roughness coefficient and InstallYear properties are the same, QGISRed merges them into a single section and eliminates the node.
 
 <figure><img src="../assets/images/edicion/split-pipe.png" alt="Split a pipe: an intermediate node and two sections are created"><figcaption><p>Split a pipe: an intermediate node and two sections are created</p></figcaption></figure>
 *Click on P-5 creates node J-42 and divides the pipe into P-5 and P-45.*
 
-> If the two pipes have different diameters or materials, the connection is not made and the plugin displays a warning.
+> If the two pipes have a different diameter, material, roughness coefficient or year of installation, the connection is not made and the plugin shows a warning.
 
 ---
 
@@ -88,12 +90,22 @@ To **join** two pipes, click on the intermediate node they share: if that node h
 
 This tool operates with **two clicks**:
 
-- **A single click** (click and without a second point): **Separates** the indicated node into as many independent nodes as there are pipes connected to it. Useful when a node groups together several pipes that should not be topologically connected.
-- **Two clicks** (origin → destination): **Merges** the origin node with the destination node. All pipes connected to the origin node are reconnected to the destination node. The origin node disappears.
+- **A single click** (click and without a second point): **Separates** the indicated node into as many independent nodes as there are pipes connected to it — you need at least two pipes connected to the node, otherwise QGISRed warns that there is nothing to dissolve. Useful when a node groups together several pipes that should not be topologically connected.
+- **Two clicks** (origin → destination): **Merges** the origin node with the destination node. All pipes connected to the origin node are reconnected to the destination node. The origin node disappears. If the two nodes chosen are already the two ends of the same pipe, the merge is not performed (it would create a loop) and QGISRed displays a warning.
 
 Common use cases:
 - Merge two very close nodes that were separated when importing from `.inp`.
 - Separate a node at a junction where the pipes are not actually connected.
+
+### What happens to the properties of the origin node when merging
+
+QGISRed does not simply discard the data of the disappearing node — it combines it with that of the destination node:
+
+| Property | Behavior |
+|-----------|-----------------|
+| **Base demand** | If the two nodes have a single demand with the same pattern, the base flows are added. In any other case, the demand(s) of the origin node are added as additional categories of the destination node (see [Demands and scenarios](../tools/demands-and-scenarios.md)). |
+| **Quality source** | If only one of the two nodes has a quality source, that one is kept. If both have it with the same type and pattern, their intensities are added. If both have it but with a different type or pattern, the one from the destination node is kept and the one from the origin is discarded, with a warning. |
+| **Emitter coefficient** | The coefficients of the two nodes are added. |
 
 ---
 
@@ -111,7 +123,7 @@ Manages T-joints: points where a node is very close to a pipe but **not** connec
 
 ### Delete a T
 
-Click on the existing T connection. QGISRed removes the intermediate node and restores the original pipe.
+Click on the existing T connection. QGISRed checks that the two pipes on either side of the node are actually **collinear** (form a straight line, within an angular tolerance): if they are, it removes the intermediate node and restores the original pipe; if not, it rejects the operation and shows how much the most aligned pair deviates from that straight line, so you know if it really was a T connection or a real junction/branch.
 
 ---
 
@@ -122,7 +134,7 @@ Click on the existing T connection. QGISRed removes the intermediate node and re
 Manages crossings between pipes that intersect on the map:
 
 - **Create junction**: Click on the intersection point between two pipes that do not have a shared node. QGISRed divides both pipes and creates a common node at the intersection.
-- **Delete junction**: Click on a junction node that has exactly four connected pipes. QGISRed removes the node and restores the two original pipes that pass above it.
+- **Delete junction**: Click on a junction node that has exactly four connected pipes. QGISRed checks that those four pipes form two **collinear** pairs (two straight lines that intersect, within an angular tolerance); If the best possible match deviates further from the tolerance, it rejects the operation and displays the deviation angle instead of undoing a match that was not actually a match. If the check passes, remove the knot and replace the two original pipes that pass over it.
 
 > This tool does not apply snapping to avoid false positives. The crossover detection tolerance uses the value configured in **Default Values**.
 

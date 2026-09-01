@@ -24,6 +24,6 @@ All buttons belong to a single group without separators.
 ## In this section
 
 * [Element Explorer](element-explorer.md) — floating panel with element search by ID and properties of the selected element, in two tabs
-* [Thematic maps](thematic-maps.md) — interval display of any pipe attribute
+* [Thematic maps](thematic-maps.md) — interval visual representation of pipe and node attributes
 * [Property inquiries](property-queries.md) — filtering and highlighting elements based on conditions on attributes
 * [Statistics](statistics.md) — distributions, histograms and statistical classification of the network
