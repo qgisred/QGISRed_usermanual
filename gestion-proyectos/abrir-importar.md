@@ -75,6 +75,12 @@ Para cada tipo de elemento puedes seleccionar la capa SHP correspondiente y asig
 
 **Acometidas** — campos mapeables: ID, Longitud, Diámetro, Rugosidad, **Material**, Demanda base, Patrón, Activa, Fecha instalación, Tag, Descripción.
 
+> Si la capa de acometidas es de **puntos** (cada acometida se engancha a la tubería principal más cercana, en vez de traer ya su propio trazado), aparecen dos restricciones opcionales para decidir a qué tuberías puede engancharse cada acometida — combinables entre sí:
+> - **Solo son candidatas las tuberías con diámetro por debajo de este valor** (en las unidades de diámetro del proyecto).
+> - **Solo son candidatas las tuberías seleccionadas actualmente en la capa Pipes** — solo está disponible si ya tienes tuberías seleccionadas en el mapa antes de abrir el importador; la casilla muestra cuántas hay seleccionadas.
+>
+> Una acometida que no encuentre ninguna tubería candidata dentro de esas restricciones no se importa, y QGISRed lo indica en el resumen de la importación.
+
 Los demás elementos (válvulas, bombas, depósitos, embalses, nudos, válvulas de aislamiento, medidores) disponen de sus propios conjuntos de campos mapeables.
 
 Cuando la importación crea un proyecto nuevo, también se solicita el **catálogo de materiales** (igual que al crear un proyecto desde cero) y los parámetros básicos de EPANET (unidades y fórmula de pérdida de carga). Si se importa sobre un proyecto ya existente, estos parámetros se omiten.
