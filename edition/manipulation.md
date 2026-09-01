@@ -2,6 +2,8 @@
 
 Les outils du deuxième groupe de la barre Edition permettent de modifier la géométrie et la topologie du réseau sans rompre la connectivité. QGISRed maintient à tout moment la cohérence entre la géométrie spatiale et les données du modèle.
 
+> Tous les outils de cette page qui sont activés en cliquant sur la carte (Déplacer des nœuds, Inverser des éléments, Fusionner/Dissoudre des jonctions, Créer/Supprimer des connexions en T, Créer/Supprimer des croisements...) résolvent le clic contre l'élément **le plus proche** dans la tolérance configurée, et non contre le premier qu'ils trouvent — important lorsqu'il y a plusieurs nœuds très proches les uns des autres.
+
 ---
 
 ## Sélection multiple (Sélectionner plusieurs éléments)
@@ -73,12 +75,12 @@ Inverse l'**orientation** des tuyaux et des connexions de service. L'orientation
 
 Cliquez sur un tuyau pour le **diviser** au point indiqué : QGISRed crée une nouvelle jonction à ce point et deux sections avec les mêmes attributs de diamètre, de matériau et d'InstallYear que l'original.
 
-Pour **joindre** deux tuyaux, cliquez sur le nœud intermédiaire qu'ils partagent : si ce nœud a exactement deux tuyaux connectés et que les propriétés diamètre, matériau et InstallYear sont les mêmes, QGISRed les fusionne en une seule section et supprime le nœud.
+Pour **joindre** deux tuyaux, cliquez sur le nœud intermédiaire qu'ils partagent : si ce nœud a exactement deux tuyaux connectés et que le diamètre, le matériau, le coefficient de rugosité et les propriétés InstallYear sont les mêmes, QGISRed les fusionne en une seule section et élimine le nœud.
 
 <figure><img src="../assets/images/edicion/split-pipe.png" alt="Fractionner un tuyau : un nœud intermédiaire et deux sections sont créés"><figcaption><p>Fractionner un tuyau : un nœud intermédiaire et deux sections sont créés</p></figcaption></figure>
 *Cliquer sur P-5 crée le nœud J-42 et divise le tuyau en P-5 et P-45.*
 
-> Si les deux tuyaux ont des diamètres ou des matériaux différents, le raccordement ne se fait pas et le plugin affiche un avertissement.
+> Si les deux tuyaux ont un diamètre, un matériau, un coefficient de rugosité ou une année d'installation différents, le raccordement n'est pas effectué et le plugin affiche un avertissement.
 
 ---
 
@@ -88,12 +90,22 @@ Pour **joindre** deux tuyaux, cliquez sur le nœud intermédiaire qu'ils partage
 
 Cet outil fonctionne en **deux clics** :
 
-- **Un simple clic** (clic et sans second point) : **Sépare** le nœud indiqué en autant de nœuds indépendants qu'il y a de canalisations qui y sont connectées. Utile lorsqu'un nœud regroupe plusieurs tuyaux qui ne doivent pas être connectés topologiquement.
-- **Deux clics** (origine → destination) : **Fusionne** le nœud d'origine avec le nœud de destination. Tous les tuyaux connectés au nœud d'origine sont reconnectés au nœud de destination. Le nœud d'origine disparaît.
+- **Un simple clic** (clic et sans deuxième point) : **Sépare** le nœud indiqué en autant de nœuds indépendants qu'il y a de tuyaux qui y sont connectés — il faut au moins deux tuyaux connectés au nœud, sinon QGISRed prévient qu'il n'y a rien à dissoudre. Utile lorsqu'un nœud regroupe plusieurs tuyaux qui ne doivent pas être connectés topologiquement.
+- **Deux clics** (origine → destination) : **Fusionne** le nœud d'origine avec le nœud de destination. Tous les tuyaux connectés au nœud d'origine sont reconnectés au nœud de destination. Le nœud d'origine disparaît. Si les deux nœuds choisis sont déjà les deux extrémités d'un même tube, la fusion n'est pas effectuée (cela créerait une boucle) et QGISRed affiche un avertissement.
 
 Cas d'utilisation courants :
 - Fusionner deux nœuds très proches qui ont été séparés lors de l'importation depuis `.inp`.
 - Séparez un nœud à une jonction où les tuyaux ne sont pas réellement connectés.
+
+### Qu'arrive-t-il aux propriétés du nœud d'origine lors de la fusion
+
+QGISRed ne supprime pas simplement les données du nœud qui disparaît — il les combine avec celles du nœud de destination :
+
+| Propriété | Comportement |
+|-----------|-----------------|
+| **Demanda base** | Si los dos nudos tienen una única demanda con el mismo patrón, se suman los caudales base. En cualquier otro caso, la(s) demanda(s) del nudo origen se añaden como categorías adicionales del nudo destino (ver [Exigences et scénarios](../outils/demandes-et-scenarios.md)). |
+| **Source de qualité** | Si un seul des deux nœuds possède une source de qualité, celui-là est conservé. Si les deux l’ont avec le même type et le même motif, leurs intensités s’ajoutent. Si les deux l'ont mais avec un type ou un modèle différent, celui du nœud de destination est conservé et celui de l'origine est rejeté, avec un avertissement. |
+| **Coefficient de l'émetteur** | Les coefficients des deux nœuds sont additionnés. |
 
 ---
 
@@ -111,7 +123,7 @@ Gère les joints en T : points où un nœud est très proche d'un tuyau mais **
 
 ### Supprimer un T
 
-Cliquez sur la connexion T existante. QGISRed supprime le nœud intermédiaire et restaure le canal d'origine.
+Cliquez sur la connexion T existante. QGISRed vérifie que les deux tuyaux de chaque côté du nœud sont bien **collinéaires** (forment une ligne droite, dans une tolérance angulaire) : si c'est le cas, il supprime le nœud intermédiaire et restaure le tuyau d'origine ; sinon, il rejette l'opération et montre à quel point la paire la plus alignée s'écarte de cette ligne droite, afin que vous sachiez s'il s'agissait vraiment d'une connexion en T ou d'une véritable jonction/branche.
 
 ---
 
@@ -122,7 +134,7 @@ Cliquez sur la connexion T existante. QGISRed supprime le nœud intermédiaire e
 Gère les croisements entre les canalisations qui se croisent sur la carte :
 
 - **Créer une jonction** : Cliquez sur le point d'intersection entre deux canalisations qui n'ont pas de nœud partagé. QGISRed divise les deux tuyaux et crée un nœud commun à l'intersection.
-- **Supprimer la jonction** : cliquez sur un nœud de jonction comportant exactement quatre tuyaux connectés. QGISRed supprime le nœud et restaure les deux tuyaux d'origine qui passent au-dessus.
+- **Supprimer la jonction** : cliquez sur un nœud de jonction comportant exactement quatre tuyaux connectés. QGISRed vérifie que ces quatre tuyaux forment deux paires **collinéaires** (deux lignes droites qui se coupent, dans une tolérance angulaire) ; Si la meilleure correspondance possible s'écarte davantage de la tolérance, il rejette l'opération et affiche l'angle de déviation au lieu d'annuler une correspondance qui n'en était pas réellement une. Si le contrôle réussit, retirez le nœud et remplacez les deux tuyaux d'origine qui passent dessus.
 
 > Cet outil n'applique pas de capture pour éviter les faux positifs. La tolérance de détection de croisement utilise la valeur configurée dans **Valeurs par défaut**.
 

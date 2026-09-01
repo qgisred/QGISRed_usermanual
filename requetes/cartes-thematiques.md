@@ -2,67 +2,93 @@
 
 **Barre de requêtes → Cartes thématiques…**
 
-Ouvre la boîte de dialogue **Cartes thématiques**, qui génère une représentation visuelle du réseau en colorant les canalisations par intervalles de tout attribut hydraulique ou résultat de simulation.
+Ouvre la boîte de dialogue **Cartes thématiques**, qui génère des couches qui colorent les canalisations et les nœuds par intervalles d'un attribut hydraulique. Contrairement aux autres boîtes de dialogue QGISRed, vous n'avez pas besoin de choisir un « champ et de confirmer » : chaque attribut disponible a sa propre case, et vous pouvez en cocher autant que vous le souhaitez à la fois — chacun génère sa propre couche, et ils vivent tous simultanément sur la carte.
 
-<figure><img src="../assets/images/consultas/thematic-maps-dialog.png" alt="Boîte de dialogue Cartes thématiques avec sélecteur de champs et gamme de couleurs"><figcaption><p>Boîte de dialogue Cartes thématiques avec sélecteur de champs et gamme de couleurs</p></figcaption></figure>
-*Boîte de dialogue Cartes thématiques : sélection des champs, nombre de classes et palette de couleurs.*
+<!-- TODO : capture en attente — Boîte de dialogue Cartes thématiques avec boîtes Tuyaux et Nœuds -->
 
 ---
 
-## Elément actif : tuyaux
+## Éléments actifs : tuyaux et nœuds
 
-Dans la version actuelle, **Les cartes thématiques fonctionnent exclusivement sur la couche Pipes**. Les options pour d'autres types d'éléments (nœuds, vannes, pompes, réservoirs, bâches) sont présentes dans l'interface mais sont automatiquement masquées car non encore implémentées. Lorsqu'elle est disponible, la boîte de dialogue affiche un sélecteur de type d'élément.
+Dans la version actuelle, **Les cartes thématiques fonctionnent sur les couches Canalisations et Jonctions**. Les options pour les autres types d'éléments (vannes, pompes, cuves, réservoirs) sont présentes dans l'interface mais sont automatiquement masquées car pas encore implémentées. Les groupes **Connexions de service**, **Vannes d'isolement** et **Compteurs** sont visibles, mais leur seule case à cocher ("Temporaire") n'est pas encore opérationnelle — ne la cochez pas.
 
 ---
 
 ## Processus
 
 1. Ouvrez les **Cartes thématiques** depuis la barre de requêtes.
-2. Sélectionnez le **champ à représenter** dans le menu déroulant (attribut d'entrée ou résultat de simulation).
-3. Choisissez le **nombre de classes de couleurs**.
-4. Sélectionnez la **palette de couleurs** (dégradé à plage unique ou bichromatique).
-5. Définissez la **plage** si vous souhaitez exclure les valeurs extrêmes.
-6. Confirmez. QGISRed génère la couche `ThematicPipes` dans le groupe de couches thématiques du panneau des couches QGIS.
+2. Cochez les cases des attributs que vous souhaitez représenter (vous pouvez cocher plusieurs tuyaux et nœuds en même temps).
+3. Appuyez sur **Accepter**. QGISRed crée une couche pour chaque case cochée, dans le groupe **Requêtes → Cartes thématiques** du panneau Calques QGIS.
+4. Pour supprimer une carte déjà générée, rouvrez la boîte de dialogue, décochez sa case et appuyez sur **Accepter** — QGISRed supprime cette couche spécifique sans toucher au reste. Les cases sur les cartes déjà générées apparaissent pré-marquées.
+
+> 💡 Vous pouvez ouvrir plusieurs cartes thématiques à la fois (par exemple, matériau de canalisation et année d'installation ainsi que demande de base de nœud) — chacune est une couche distincte, elles ne se remplacent pas comme c'était le cas auparavant.
 
 ---
 
 ## Champs disponibles pour les tuyaux
 
-### Attributs d'entrée du modèle
+| Champ | Descriptif |
+|-------|-------------|
+| `Diameter` | Diamètre du tuyau |
+| `Length` | Longueur |
+| `Material` | Matériau du tuyau, coloré avec la palette fixe de QGISRed (voir tableau ci-dessous) |
+| `Roughness` | Coefficient de rugosité — les classes et le fichier de style dépendent de la **formule de perte de pression** active dans le projet (Hazen-Williams, Colebrook-White ou Darcy-Weisbach) |
+| `Age` | Âge, calculé à partir de l'année d'installation ; les classes sont étiquetées avec le suffixe « ans » |
+| `Installation Year` | Année d'installation |
+
+> Les cartes **Âge** et **Année d'installation** ajoutent trois colonnes ensemble à la table attributaire de la couche : la date d'installation brute (`InstalDate`), l'année extraite (`InstYear`) et l'âge calculé (`Age`) — les voir toutes en même temps est utile même si vous n'avez marqué qu'une des deux cartes.
+
+---
+
+## Champs disponibles pour les nœuds
 
 | Champ | Descriptif |
 |-------|-------------|
-| `Diameter` | Diamètre du tuyau (mm) |
-| `Length` | Longueur (m) |
-| `Roughness` | Coefficient de rugosité |
-| `InstallYear` | Année d'installation |
+| `Elevation` | Niveau nœud. Les classes sont automatiquement calculées à partir des valeurs réelles du projet (il n'y a pas de plages standard) — la légende montre les coupes avec l'unité de longueur du projet (par exemple "< 120 m", "120 < 180 m", ">= 180 m"). |
+| `Total Base Demand` | Demande de base totale du nœud. Les cercles sont **dimensionnés proportionnellement** à la demande (non linéaire, afin que les très grandes valeurs ne dominent pas visuellement la carte), en classes également calculées à partir des données réelles, étiquetées sur l'unité de flux active du projet. Si le nœud a plusieurs catégories de demande (voir [Exigences et scénarios](../outils/demandes-et-scenarios.md)), la couche reflète la somme globale ; les nœuds avec une demande nulle ne sont pas affichés. |
 
-### Résultats des simulations
+---
 
-Disponible uniquement si des résultats sont chargés dans le projet :
+## Palette de matériaux
 
-| Champ | Descriptif |
-|-------|-------------|
-| `Flow` | Débit (l/s ou unité configurée) |
-| `Velocity` | Vitesse (m/s) |
-| `HeadLoss` | Perte de charge (m) |
-| `UnitHdLoss` | Perte unitaire (m/km) |
-| `FricFactor` | Facteur de friction |
-| `ReactRate` | Taux de réaction (modèles de qualité) |
-| `Quality` | Qualité de l'eau |
+La carte **Matériau** colore chaque tuyau en fonction de la valeur de son champ `Material`, en le comparant (insensible à la casse) avec l'abréviation ou le nom dans ce tableau fixe — un matériau qui n'apparaît pas ici reçoit une couleur aléatoire à la place :
+
+| Abrégé | Matériaux | Abrégé | Matériaux |
+|--------|----------|--------|----------|
+| FG | Fonte grise | Pb | Plomb |
+| FD | Coulée ductile | PVC | Chlorure de polyvinyle |
+| AS | Acier | PE | Polyéthylène |
+| ACIER INOXYDABLE | Acier inoxydable | PVC-BO | PVC orienté |
+| FC | Fibro-ciment | PVC-R | PVC rigide |
+| AGal | Acier galvanisé | Cu | Cuivre |
+| CCHC | Béton avec gaine en tôle | PE-AD | Polyéthylène haute densité |
+| CCSS | Béton sans gaine en tôle | PE-BD | Polyéthylène basse densité |
+| HAr | Béton armé | PE-MD | Polyéthylène densité moyenne |
+| HPr | Béton précontraint | PRV | Polyester renforcé de fibre de verre |
+
+> Cette table de couleurs s'applique uniquement au style **par défaut** fourni avec QGISRed. Si vous enregistrez votre propre légende de matériaux depuis l'éditeur de légende (voir [Présentation et gestion des couches](../projet-actif/couches-et-legende.md)), vos couleurs ont priorité sur cette palette lorsque vous régénérez la carte.
+
+---
+
+## Avis de carte obsolète
+
+Si vous modifiez les **unités**, la **formule de perte de charge** ou les **unités de débit** du projet après avoir généré une carte thématique qui en dépend (Diamètre, Longueur, Rugosité, Demande de base...), QGISRed marque cette couche avec une icône d'avertissement ⚠ dans le panneau des couches — la même icône qu'il utilise déjà pour avertir des résultats de simulation obsolètes.
+
+- Passez la souris sur l'icône pour voir la raison.
+- Cliquez sur l'icône pour reconstruire cette couche avec la configuration actuelle, sans avoir à rouvrir la boîte de dialogue.
 
 ---
 
 ## Résultat sur la carte
 
-L'outil génère la couche **`ThematicPipes`** au sein d'un groupe de couches thématiques QGISRed. La légende des couleurs est affichée directement dans le panneau des couches QGIS.
+Chaque case cochée génère sa propre couche (par exemple `Pipe Materials`, `Junction Elevations`) au sein du groupe **Requêtes → Cartes thématiques**. Les couches sont en lecture seule et se mettent à jour automatiquement lorsque vous modifiez le canal ou le nœud source (il n'est pas nécessaire de régénérer la carte manuellement après une modification spécifique) — la légende de chacune montre également le nombre d'éléments de chaque classe.
 
-Si vous exécutez à nouveau les cartes thématiques, l'ancienne couche est remplacée par les nouveaux paramètres.
+Si vous cochez et confirmez à nouveau une case déjà générée, QGISRed remplace cette couche spécifique par la nouvelle configuration, sans toucher au reste des cartes actives.
 
 ---
 
 ## Notes d'utilisation
 
-- La génération des cartes thématiques ne modifie aucune donnée du modèle ; seule la symbologie de la couche change.
-- Pour revenir à la symbologie standard, supprimez la couche `ThematicPipes` du panneau des couches ou rechargez la symbologie par défaut depuis les propriétés de la couche QGIS.
-- Si le projet ne dispose pas de résultats de simulation, les champs de résultats n'apparaissent pas dans la liste déroulante.
+- La génération des cartes thématiques ne modifie aucune donnée du modèle ; il crée uniquement de nouveaux calques avec la symbologie correspondante.
+- Pour supprimer une carte, décochez-la dans la boîte de dialogue (voir "Processus" ci-dessus) ou supprimez sa couche directement depuis le panneau des couches QGIS.
+- La carte **Total Base Demand** nécessite l'existence de nœuds avec une demande assignée ; Si le projet n'a aucune demande chargée, la couche est générée vide.

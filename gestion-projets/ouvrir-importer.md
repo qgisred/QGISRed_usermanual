@@ -75,6 +75,12 @@ Pour chaque type d'élément, vous pouvez sélectionner la couche SHP correspond
 
 **Services** — champs mappables : ID, Longueur, Diamètre, Rugosité, **Matériau**, Demande de base, Modulation, Actif, Date d'installation, Étiquette, Description.
 
+> Si la couche de connexion est constituée de **points** (chaque connexion est reliée au tuyau principal le plus proche, au lieu d'avoir déjà sa propre disposition), deux restrictions facultatives apparaissent pour décider à quels tuyaux chaque connexion peut être accrochée — combinables entre elles :
+> - **Seuls les tuyaux dont le diamètre est inférieur à cette valeur sont candidats** (dans les unités de diamètre du projet).
+> - **Seuls les canalisations actuellement sélectionnées dans la couche Canalisations sont candidates** — disponible uniquement si des canalisations sont déjà sélectionnées dans la carte avant d'ouvrir l'importateur ; La case indique combien sont sélectionnés.
+>
+> Une connexion qui ne trouve aucun canal candidat dans ces contraintes n'est pas importée, et QGISRed l'indique dans le résumé de l'importation.
+
 Les autres éléments (vannes, pompes, réservoirs, bâches, nœuds, vannes d'isolement, compteurs) possèdent leurs propres ensembles de champs mappables.
 
 Lorsque l'import crée un nouveau projet, le **catalogue des matériaux** (comme lors de la création d'un projet à partir de zéro) et les paramètres de base EPANET (unités et formule de perte de charge) sont également demandés. S'ils sont importés sur un projet existant, ces paramètres sont ignorés.

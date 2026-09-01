@@ -128,6 +128,10 @@ Gérez la liste des matériaux disponibles pour les tuyaux et leurs propriétés
 
 > ⚠️ Il ne peut pas y avoir deux matériaux avec la même abréviation — s'il y en a, QGISRed vous avertit et empêche la sauvegarde jusqu'à ce que vous corrigiez celui qui est répété.
 
+### Ajouter un matériau
+
+Le tableau affiche toujours une **ligne vide** à la fin. Écrivez-y directement (abréviation, description, rugosité initiale et incrément annuel) et, dès que vous quittez la ligne, QGISRed l'enregistre comme un nouveau matériau et ajoute une autre ligne vide en dessous — aucun bouton "Ajouter" distinct n'est nécessaire. Si vous laissez la rugosité ou l'incrément initial vide, ils sont enregistrés sous la valeur 0.
+
 ### Supprimer un matériau
 
 Sélectionnez une ligne et appuyez sur **Suppr** pour la supprimer. Si le matériau est attribué à un tuyau ou à une connexion, QGISRed informe du nombre d'éléments qui l'utilisent et demande une confirmation avant de le supprimer. Si vous acceptez, ces éléments restent sans matériau attribué.
@@ -144,7 +148,7 @@ Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_
 
 ### Matériaux inclus par défaut
 
-QGISRed inclut une table de matériaux prédéfinis avec les plus courants (CI, DI, AC, PVC, PE, HDPE...). Vous pouvez les modifier ou les étendre en fonction des caractéristiques de votre système.
+QGISRed inclut une table de matériaux prédéfinis avec les plus courants (FG, FD, ACE, PVC, PE, PE-AD...). Vous pouvez les modifier ou les étendre en fonction des caractéristiques de votre système.
 
 ### Enregistrer et réutiliser les tables entre les projets
 
@@ -180,4 +184,4 @@ Les boutons ci-dessous changent en fonction de la table sélectionnée :
 | **Restaurer les matériaux par défaut (langue)** | Uniquement avec votre propre table sélectionnée (non prédéfinie) | Remplace le contenu de la table courante par celui prédéfini de la langue de l'interface. |
 | **Annuler** | Toujours | Ferme la fenêtre. |
 
-> ⚠️ Si vous modifiez des tables dans la liste déroulante avec des modifications non enregistrées, QGISRed vous demande si vous souhaitez les enregistrer avant de les modifier (Oui/Non/Annuler). Fermer la fenêtre avec « Annuler » (ou avec le X), en revanche, ne demande rien : comme il n'y a pas de bouton final qui confirme tous les changements d'un coup (contrairement à un projet actif), seul ce que vous avez déjà enregistré explicitement avec « Enregistrer » ou « Enregistrer sous... » est conservé ici.
+> ⚠️ Si vous modifiez des tables dans la liste déroulante avec des modifications non enregistrées, QGISRed vous demande si vous souhaitez les enregistrer avant de les modifier (Oui/Non/Annuler). Fermer la fenêtre avec « Annuler » (ou avec le X), en revanche, ne demande rien : comme il n'y a pas de bouton final qui confirme tous les changements d'un coup (contrairement à un projet actif), seul ce que vous avez déjà enregistré explicitement avec « Enregistrer » ou « Enregistrer sous... » est conservé ici.
