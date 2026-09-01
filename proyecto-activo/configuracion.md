@@ -128,6 +128,10 @@ Gestiona la lista de materiales disponibles para las tuberías y sus propiedades
 
 > ⚠️ No puede haber dos materiales con la misma abreviatura — si la hay, QGISRed lo avisa e impide guardar hasta que corrijas la repetida.
 
+### Añadir un material
+
+La tabla siempre muestra una **fila vacía** al final. Escribe directamente en ella (abreviatura, descripción, rugosidad inicial e incremento anual) y, en cuanto sales de la fila, QGISRed la da de alta como material nuevo y añade otra fila vacía debajo — no hace falta ningún botón "Añadir" aparte. Si dejas la rugosidad inicial o el incremento en blanco, se guardan como 0.
+
 ### Eliminar un material
 
 Selecciona una fila y pulsa **Supr** para eliminarla. Si el material está asignado a alguna tubería o acometida, QGISRed avisa de cuántos elementos lo usan y pide confirmación antes de borrarlo — si aceptas, esos elementos quedan sin material asignado.
@@ -144,7 +148,7 @@ Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_
 
 ### Materiales incluidos por defecto
 
-QGISRed incluye una tabla de materiales predefinida con los más comunes (CI, DI, AC, PVC, PE, HDPE…). Puedes editarlos o ampliarlos según las características de tu sistema.
+QGISRed incluye una tabla de materiales predefinida con los más comunes (FG, FD, ACE, PVC, PE, PE-AD…). Puedes editarlos o ampliarlos según las características de tu sistema.
 
 ### Guardar y reutilizar tablas entre proyectos
 
