@@ -2,6 +2,8 @@
 
 Las herramientas del segundo grupo de la barra Edition permiten modificar la geometría y la topología de la red sin romper la conectividad. QGISRed mantiene la coherencia entre la geometría espacial y los datos del modelo en todo momento.
 
+> Todas las herramientas de esta página que se activan haciendo clic sobre el mapa (Move nodes, Reverse elements, Merge/Dissolve junctions, Create/Remove T connections, Create/Remove crossings…) resuelven el clic contra el elemento **más cercano** dentro de la tolerancia configurada, no contra el primero que encuentren — importante cuando hay varios nudos muy próximos entre sí.
+
 ---
 
 ## Selección múltiple (Select multiple elements)
@@ -73,12 +75,12 @@ Invierte la **orientación** de tuberías y conexiones de servicio. La orientaci
 
 Haz clic sobre una tubería para **dividirla** en el punto indicado: QGISRed crea un nuevo nudo (Junction) en ese punto y dos tramos con los mismos atributos de diámetro, material e InstallYear que el original.
 
-Para **unir** dos tuberías, haz clic sobre el nudo intermedio que comparten: si ese nudo tiene exactamente dos tuberías conectadas y las propiedades de diámetro, material e InstallYear son iguales, QGISRed los funde en un solo tramo y elimina el nudo.
+Para **unir** dos tuberías, haz clic sobre el nudo intermedio que comparten: si ese nudo tiene exactamente dos tuberías conectadas y las propiedades de diámetro, material, coeficiente de rugosidad e InstallYear son iguales, QGISRed los funde en un solo tramo y elimina el nudo.
 
 <figure><img src="../assets/images/edicion/split-pipe.png" alt="Dividir una tubería: se crea un nudo intermedio y dos tramos"><figcaption><p>Dividir una tubería: se crea un nudo intermedio y dos tramos</p></figcaption></figure>
 *Clic sobre P-5 crea el nudo J-42 y divide la tubería en P-5 y P-45.*
 
-> Si las dos tuberías tienen diámetros o materiales distintos, la unión no se realiza y el plugin muestra un aviso.
+> Si las dos tuberías tienen distinto diámetro, material, coeficiente de rugosidad o año de instalación, la unión no se realiza y el plugin muestra un aviso.
 
 ---
 
@@ -88,12 +90,22 @@ Para **unir** dos tuberías, haz clic sobre el nudo intermedio que comparten: si
 
 Esta herramienta opera con **dos clics**:
 
-- **Un solo clic** (clic y sin segundo punto): **Separa** el nudo indicado en tantos nudos independientes como tuberías tiene conectadas. Útil cuando un nudo agrupa varias tuberías que no deberían estar conectadas topológicamente.
-- **Dos clics** (origen → destino): **Fusiona** el nudo origen con el nudo destino. Todas las tuberías conectadas al nudo origen se reconectan al nudo destino. El nudo origen desaparece.
+- **Un solo clic** (clic y sin segundo punto): **Separa** el nudo indicado en tantos nudos independientes como tuberías tiene conectadas — necesita al menos dos tuberías conectadas al nudo, si no QGISRed avisa de que no hay nada que disolver. Útil cuando un nudo agrupa varias tuberías que no deberían estar conectadas topológicamente.
+- **Dos clics** (origen → destino): **Fusiona** el nudo origen con el nudo destino. Todas las tuberías conectadas al nudo origen se reconectan al nudo destino. El nudo origen desaparece. Si los dos nudos elegidos son ya los dos extremos de una misma tubería, la fusión no se realiza (crearía un bucle) y QGISRed muestra un aviso.
 
 Casos de uso habituales:
 - Fusionar dos nudos muy próximos que quedaron separados al importar desde `.inp`.
 - Separar un nudo en un cruce donde las tuberías realmente no están conectadas.
+
+### Qué pasa con las propiedades del nudo origen al fusionar
+
+QGISRed no descarta sin más los datos del nudo que desaparece — los combina con los del nudo destino:
+
+| Propiedad | Comportamiento |
+|-----------|-----------------|
+| **Demanda base** | Si los dos nudos tienen una única demanda con el mismo patrón, se suman los caudales base. En cualquier otro caso, la(s) demanda(s) del nudo origen se añaden como categorías adicionales del nudo destino (ver [Demandas y escenarios](../herramientas/demandas-escenarios.md)). |
+| **Fuente de calidad** | Si solo uno de los dos nudos tiene fuente de calidad, se conserva esa. Si los dos la tienen con el mismo tipo y patrón, se suman sus intensidades. Si los dos la tienen pero con tipo o patrón distintos, se conserva la del nudo destino y se descarta la del origen, con un aviso. |
+| **Coeficiente de emisor** | Se suman los coeficientes de los dos nudos. |
 
 ---
 
@@ -111,7 +123,7 @@ Gestiona las uniones en T: puntos donde un nudo está muy próximo a una tuberí
 
 ### Eliminar una T
 
-Haz clic sobre la conexión en T existente. QGISRed elimina el nudo intermedio y restaura la tubería original.
+Haz clic sobre la conexión en T existente. QGISRed comprueba que las dos tuberías a ambos lados del nudo sean realmente **colineales** (formen una línea recta, dentro de una tolerancia angular): si lo son, elimina el nudo intermedio y restaura la tubería original; si no, rechaza la operación y muestra cuánto se desvía el par más alineado de esa línea recta, para que sepas si de verdad era una conexión en T o un cruce/ramal real.
 
 ---
 
@@ -122,7 +134,7 @@ Haz clic sobre la conexión en T existente. QGISRed elimina el nudo intermedio y
 Gestiona los cruces entre tuberías que se intersectan en el mapa:
 
 - **Crear cruce**: Haz clic en el punto de intersección entre dos tuberías que no tienen nudo compartido. QGISRed divide ambas tuberías y crea un nudo común en la intersección.
-- **Eliminar cruce**: Haz clic sobre un nudo de cruce que tiene exactamente cuatro tuberías conectadas. QGISRed elimina el nudo y restituye las dos tuberías originales que pasan por encima.
+- **Eliminar cruce**: Haz clic sobre un nudo de cruce que tiene exactamente cuatro tuberías conectadas. QGISRed comprueba que esas cuatro tuberías formen dos pares **colineales** (dos líneas rectas que se cruzan, dentro de una tolerancia angular); si el mejor emparejamiento posible se desvía más de la tolerancia, rechaza la operación y muestra el ángulo de desviación en vez de deshacer un cruce que en realidad no lo era. Si la comprobación pasa, elimina el nudo y restituye las dos tuberías originales que pasan por encima.
 
 > Esta herramienta no aplica snapping para evitar falsos positivos. La tolerancia de detección de cruce usa el valor configurado en **Valores por defecto**.
 
