@@ -128,6 +128,10 @@ Gerencie a lista de materiais disponíveis para tubos e suas propriedades de env
 
 > ⚠️ Não pode haver dois materiais com a mesma abreviatura — se houver, o QGISRed avisa e impede o salvamento até que você corrija o repetido.
 
+### Adicione um material
+
+A tabela sempre mostra uma **linha vazia** no final. Escreva diretamente nele (abreviatura, descrição, rugosidade inicial e incremento anual) e, assim que você sair da linha, o QGISRed o registrará como um novo material e adicionará outra linha vazia abaixo dele - nenhum botão "Adicionar" separado é necessário. Se você deixar a rugosidade ou incremento inicial em branco, eles serão salvos como 0.
+
 ### Excluir um material
 
 Selecione uma linha e pressione **Del** para excluí-la. Se o material for atribuído a um tubo ou conexão, o QGISRed notifica quantos elementos o utilizam e pede confirmação antes de excluí-lo — se você aceitar, esses elementos ficam sem material atribuído.
@@ -144,7 +148,7 @@ Rugosidad = Rugosidad_inicial + (Año_actual - Año_instalación) × Incremento_
 
 ### Materiais incluídos por padrão
 
-QGISRed inclui uma tabela de materiais predefinida com os mais comuns (CI, DI, AC, PVC, PE, HDPE...). Você pode editá-los ou ampliá-los de acordo com as características do seu sistema.
+QGISRed inclui uma tabela de materiais predefinida com os mais comuns (FG, FD, ACE, PVC, PE, PE-AD...). Você pode editá-los ou ampliá-los de acordo com as características do seu sistema.
 
 ### Salvar e reutilizar tabelas entre projetos
 
@@ -160,7 +164,7 @@ A tabela de materiais é exclusiva para cada projeto, mas pode ser compartilhada
 | **Carregar Tabela de Materiais** | Substitui a tabela do projeto por outra, escolhida em uma caixa de diálogo separada que lista as tabelas globais salvas pelo usuário e as tabelas QGISRed predefinidas (marcadas como "(padrão)"). |
 | **Cancelar** | Fecha a caixa de diálogo sem salvar as alterações. |
 
-> ⚠️ Não pode haver dois materiais com a mesma abreviatura — se houver, o QGISRed avisa com uma mensagem vermelha embaixo da tabela e impede o salvamento até que você corrija o repetido. A mesma verificação se aplica ao pressionar “Salvar” e “Salvar como global”.
+> ⚠️ Não pode haver dois materiais com a mesma abreviatura — se houver, o QGISRed avisa com uma mensagem vermelha embaixo da tabela e impede o salvamento até que você corrija o repetido. A mesma verificação se aplica ao pressionar "Salvar" e "Salvar como global".
 
 ### Nenhum projeto ativo: gerenciador de tabelas global
 

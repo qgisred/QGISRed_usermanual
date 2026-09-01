@@ -2,6 +2,8 @@
 
 As ferramentas do segundo grupo da barra Edição permitem modificar a geometria e a topologia da rede sem interromper a conectividade. QGISRed mantém a consistência entre a geometria espacial e os dados do modelo em todos os momentos.
 
+> Todas as ferramentas desta página que são ativadas clicando no mapa (Mover nós, Inverter elementos, Mesclar/Dissolver junções, Criar/Remover conexões T, Criar/Remover cruzamentos...) resolvem o clique contra o elemento **mais próximo** dentro da tolerância configurada, e não contra o primeiro que encontrarem — importante quando há vários nós muito próximos uns dos outros.
+
 ---
 
 ## Seleção múltipla (selecione vários elementos)
@@ -73,12 +75,12 @@ Inverte a **orientação** de tubulações e conexões de serviço. A orientaç�
 
 Clique em um tubo para **dividi-lo** no ponto indicado: QGISRed cria uma nova junção naquele ponto e duas seções com o mesmo diâmetro, material e atributos InstallYear do original.
 
-Para **unir** dois tubos, clique no nó intermediário que eles compartilham: se esse nó tiver exatamente dois tubos conectados e as propriedades de diâmetro, material e InstallYear forem iguais, o QGISRed os mescla em uma única seção e exclui o nó.
+Para **unir** dois tubos, clique no nó intermediário que eles compartilham: se esse nó tiver exatamente dois tubos conectados e o diâmetro, material, coeficiente de rugosidade e propriedades InstallYear forem iguais, o QGISRed os mescla em uma única seção e elimina o nó.
 
 <figure><img src="../assets/images/edicion/split-pipe.png" alt="Dividir um tubo: um nó intermediário e duas seções são criados"><figcaption><p>Dividir um tubo: um nó intermediário e duas seções são criados</p></figcaption></figure>
 *Clique em P-5 cria o nó J-42 e divide o tubo em P-5 e P-45.*
 
-> Se os dois tubos tiverem diâmetros ou materiais diferentes, a conexão não é feita e o plugin exibe um aviso.
+> Se os dois tubos tiverem diâmetro, material, coeficiente de rugosidade ou ano de instalação diferentes, a conexão não é feita e o plugin mostra um aviso.
 
 ---
 
@@ -88,12 +90,22 @@ Para **unir** dois tubos, clique no nó intermediário que eles compartilham: se
 
 Esta ferramenta funciona com **dois cliques**:
 
-- **Um único clique** (clique e sem segundo ponto): **Separa** o nó indicado em tantos nós independentes quantos forem os tubos conectados a ele. Útil quando um nó agrupa vários tubos que não deveriam estar conectados topologicamente.
-- **Dois cliques** (origem → destino): **Mescla** o nó de origem com o nó de destino. Todos os pipes conectados ao nó de origem são reconectados ao nó de destino. O nó de origem desaparece.
+- **Um único clique** (clique e sem segundo ponto): **Separa** o nó indicado em tantos nós independentes quantos forem os tubos conectados a ele — você precisa de pelo menos dois tubos conectados ao nó, caso contrário o QGISRed avisa que não há nada para dissolver. Útil quando um nó agrupa vários tubos que não deveriam estar conectados topologicamente.
+- **Dois cliques** (origem → destino): **Mescla** o nó de origem com o nó de destino. Todos os pipes conectados ao nó de origem são reconectados ao nó de destino. O nó de origem desaparece. Se os dois nós escolhidos já forem as duas extremidades do mesmo tubo, a fusão não é realizada (criaria um loop) e o QGISRed exibe um aviso.
 
 Casos de uso comuns:
 - Mesclar dois nós muito próximos que foram separados durante a importação de `.inp`.
 - Separe um nó numa junção onde os tubos não estejam realmente conectados.
+
+### O que acontece com as propriedades do nó de origem ao mesclar
+
+QGISRed não simplesmente descarta os dados do nó que desaparece — ele os combina com os do nó de destino:
+
+| Propriedade | Comportamento |
+|-----------|-----------------|
+| **Demanda base** | Caso os dois nós tenham uma única demanda com o mesmo padrão, os fluxos base são adicionados. Em qualquer outro caso, as demandas do nó de origem são adicionadas como categorias adicionais do nó de destino (ver [Demandas e cenários](../ferramentas/demandas-e-cenarios.md)). |
+| **Fonte de qualidade** | Se apenas um dos dois nós tiver uma fonte de qualidade, esse será mantido. Se ambos tiverem o mesmo tipo e padrão, suas intensidades são somadas. Se ambos o possuírem, mas com tipo ou padrão diferente, o do nó de destino é mantido e o de origem é descartado, com aviso. |
+| **Coeficiente de emissor** | Os coeficientes dos dois nós são somados. |
 
 ---
 
@@ -111,7 +123,7 @@ Gerencia juntas em T: pontos onde um nó está muito próximo de um tubo, mas **
 
 ### Excluir um T
 
-Clique na conexão T existente. QGISRed remove o nó intermediário e restaura o tubo original.
+Clique na conexão T existente. O QGISRed verifica se os dois tubos em cada lado do nó são na verdade **colineares** (formam uma linha reta, dentro de uma tolerância angular): se estiverem, remove o nó intermediário e restaura o tubo original; caso contrário, ele rejeita a operação e mostra o quanto o par mais alinhado se desvia daquela reta, para você saber se realmente era uma conexão em T ou uma junção/ramo real.
 
 ---
 
@@ -122,7 +134,7 @@ Clique na conexão T existente. QGISRed remove o nó intermediário e restaura o
 Gerencia cruzamentos entre tubos que se cruzam no mapa:
 
 - **Criar junção**: Clique no ponto de interseção entre duas tubulações que não possuem um nó compartilhado. QGISRed divide os dois tubos e cria um nó comum na interseção.
-- **Excluir junção**: clique em um nó de junção que tenha exatamente quatro tubos conectados. QGISRed remove o nó e restaura os dois tubos originais que passam acima dele.
+- **Excluir junção**: clique em um nó de junção que tenha exatamente quatro tubos conectados. QGISRed verifica se esses quatro tubos formam dois pares **colineares** (duas linhas retas que se cruzam, dentro de uma tolerância angular); Se a melhor correspondência possível se desviar ainda mais da tolerância, ela rejeitará a operação e exibirá o ângulo de desvio em vez de desfazer uma correspondência que não era realmente uma correspondência. Se a verificação for aprovada, retire o nó e substitua os dois tubos originais que passam por ele.
 
 > Esta ferramenta não aplica snap para evitar falsos positivos. A tolerância de detecção de cruzamento usa o valor configurado em **Valores padrão**.
 

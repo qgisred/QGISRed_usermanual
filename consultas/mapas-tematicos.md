@@ -2,67 +2,93 @@
 
 **Barra de Consultas → Mapas temáticos…**
 
-Abre a caixa de diálogo **Mapas Temáticos**, que gera uma representação visual da rede colorindo as tubulações por intervalos de qualquer atributo hidráulico ou resultado de simulação.
+Abre a caixa de diálogo **Mapas Temáticos**, que gera camadas que colorem tubulações e nós por intervalos de um atributo hidráulico. Ao contrário de outras caixas de diálogo QGISRed, você não precisa escolher um "campo e confirmar": cada atributo disponível tem sua própria caixa, e você pode marcar quantos quiser de uma vez - cada um gera sua própria camada, e todos eles vivem no mapa simultaneamente.
 
-<figure><img src="../assets/images/consultas/thematic-maps-dialog.png" alt="Caixa de diálogo Mapas Temáticos com seletor de campo e faixa de cores"><figcaption><p>Caixa de diálogo Mapas Temáticos com seletor de campo e faixa de cores</p></figcaption></figure>
-*Diálogo de Mapas Temáticos: seleção de campos, número de classes e paleta de cores.*
+<!-- TODO: captura pendente — Diálogo de Mapas Temáticos com caixas de Tubos e Nós -->
 
 ---
 
-## Elemento ativo: pipes
+## Elementos ativos: tubos e nós
 
-Na versão atual, **Mapas Temáticos funciona exclusivamente na camada Tubulações**. Opções para outros tipos de elementos (nós, válvulas, bombas, RNVs, RNFs) estão presentes na interface, mas ficam automaticamente ocultados porque ainda não estão implementados. Quando disponível, a caixa de diálogo exibirá um seletor de tipo de elemento.
+Na versão atual, **Mapas Temáticos funcionam nas camadas de Tubulações e Junções**. As opções de outros tipos de elementos (válvulas, bombas, tanques, reservatórios) estão presentes na interface, mas ficam automaticamente ocultadas por ainda não estarem implementadas. Os grupos **Conexões de serviço**, **Válvulas de isolamento** e **Medidores** estão visíveis, mas sua única caixa de seleção ("Temporário") também não está operacional ainda - não marque.
 
 ---
 
 ## Processo
 
 1. Abra **Mapas temáticos** na barra de consultas.
-2. Selecione o **campo a representar** no menu suspenso (atributo de entrada ou resultado da simulação).
-3. Escolha o **número de classes de cores**.
-4. Selecione a **paleta de cores** (gradiente de intervalo único ou bicromático).
-5. Defina o **intervalo** se desejar excluir valores extremos.
-6. Confirme. QGISRed gera a camada `ThematicPipes` no grupo de camadas temáticas do painel de camadas do QGIS.
+2. Marque as caixas dos atributos que deseja representar (você pode marcar vários pipes e nós ao mesmo tempo).
+3. Pressione **Aceitar**. QGISRed cria uma camada para cada caixa marcada, dentro do grupo **Consultas → Mapas Temáticos** do painel de camadas do QGIS.
+4. Para remover um mapa já gerado, reabra a caixa de diálogo, desmarque sua caixa e pressione **Aceitar** — QGISRed exclui aquela camada específica sem tocar no resto. As caixas nos mapas já gerados aparecem pré-marcadas.
+
+> 💡 Você pode ter vários mapas temáticos abertos ao mesmo tempo (por exemplo, Material do tubo e Ano de instalação junto com a demanda base do nó) — cada um é uma camada separada, eles não se substituem como acontecia antes.
 
 ---
 
 ## Campos disponíveis para pipes
 
-### Atributos de entrada do modelo
+| Campo | Descrição |
+|-------|-------------|
+| `Diameter` | Diâmetro do tubo |
+| `Length` | Comprimento |
+| `Material` | Material do tubo, colorido com a paleta fixa do QGISRed (ver tabela abaixo) |
+| `Roughness` | Coeficiente de rugosidade — classes e arquivo de estilo dependem da **fórmula de perda de pressão** ativa no projeto (Hazen-Williams, Colebrook-White ou Darcy-Weisbach) |
+| `Age` | Idade, calculada a partir do ano de instalação; as classes são rotuladas com o sufixo "anos" |
+| `Installation Year` | Ano de instalação |
+
+> Os mapas **Idade** e **Ano de instalação** adicionam três colunas à tabela de atributos da camada: a data de instalação bruta (`InstalDate`), o ano extraído (`InstYear`) e a idade calculada (`Age`) — vê-los todos de uma vez é útil mesmo se você tiver marcado apenas um dos dois mapas.
+
+---
+
+## Campos disponíveis para nós
 
 | Campo | Descrição |
 |-------|-------------|
-| `Diameter` | Diâmetro do tubo (mm) |
-| `Length` | Comprimento (m) |
-| `Roughness` | Coeficiente de rugosidade |
-| `InstallYear` | Ano de instalação |
+| `Elevation` | Nível do nó. As classes são calculadas automaticamente a partir dos valores reais do projeto (não há intervalos padrão) — a legenda mostra os cortes com a unidade de comprimento do projeto (por exemplo, "< 120 m", "120 < 180 m", ">= 180 m"). |
+| `Total Base Demand` | Demanda base total do nó. Os círculos são **dimensionados proporcionalmente** à demanda (não lineares, para que valores muito grandes não dominem visualmente o mapa), em classes também calculadas a partir dos dados reais, rotuladas na unidade de fluxo ativo do projeto. Se o nó tiver múltiplas categorias de demanda (ver [Demandas e cenários](../ferramentas/demandas-e-cenarios.md)), a camada reflete a soma agregada; nós com demanda zero não são mostrados. |
 
-### Resultados da simulação
+---
 
-Disponível somente se houver resultados carregados no projeto:
+## Paleta de materiais
 
-| Campo | Descrição |
-|-------|-------------|
-| `Flow` | Vazão (l/s ou unidade configurada) |
-| `Velocity` | Velocidade (m/s) |
-| `HeadLoss` | Perda de carga (m) |
-| `UnitHdLoss` | Perda unitária (m/km) |
-| `FricFactor` | Fator de atrito |
-| `ReactRate` | Taxa de reação (modelos de qualidade) |
-| `Quality` | Qualidade da água |
+O mapa **Material** colore cada tubo com base no valor de seu campo `Material`, comparando-o (sem distinção entre maiúsculas e minúsculas) com a abreviatura ou nome nesta tabela fixa — um material que não aparece aqui recebe uma cor aleatória:
+
+| Abreviado | Materiais | Abreviado | Materiais |
+|--------|----------|--------|----------|
+| FG | Ferro Fundido Cinzento | Pb | Liderar |
+| FD | Fundição Dúctil | PVC | Cloreto de polivinila |
+| ÁS | Aço | EP | Polietileno |
+| AÇO INOX | Aço Inoxidável | PVC-O | PVC Orientado |
+| FC | Fibrocimento | PVC-R | PVC rígido |
+| AGal | Aço Galvanizado | Cu | Cobre |
+| HCCC | Concreto com revestimento em chapa | PE-AD | Polietileno de Alta Densidade |
+| HSCC | Concreto sem revestimento de chapa | PE-BD | Polietileno de Baixa Densidade |
+| HA | Concreto Armado | PE-MD | Polietileno de Média Densidade |
+| HPr | Concreto protendido | PRFV | Poliéster Reforçado com Fibra de Vidro |
+
+> Esta tabela de cores se aplica apenas ao estilo **padrão** que vem com o QGISRed. Se você salvar sua própria legenda de Material no editor de legendas (consulte [Visão geral e gerenciamento de camadas](../projeto-ativo/camadas-e-legenda.md)), suas cores terão precedência sobre esta paleta quando você regenerar o mapa.
+
+---
+
+## Aviso de mapa desatualizado
+
+Se você alterar as **unidades**, **fórmula de perda de carga** ou **unidades de fluxo** após gerar um mapa temático que depende delas (Diâmetro, Comprimento, Rugosidade, Demanda Base...), o QGISRed marca essa camada com um ícone de aviso ⚠ no painel de camadas - o mesmo ícone que já usa para avisar sobre resultados de simulação desatualizados.
+
+- Passe o mouse sobre o ícone para ver o motivo.
+- Clique no ícone para reconstruir aquela camada com a configuração atual, sem precisar reabrir a caixa de diálogo.
 
 ---
 
 ## Resultado no mapa
 
-A ferramenta gera a camada **`ThematicPipes`** dentro de um grupo de camadas temáticas QGISRed. A legenda de cores é exibida diretamente no painel de camadas do QGIS.
+Cada caixa marcada gera sua própria camada (por exemplo `Pipe Materials`, `Junction Elevations`) dentro do grupo **Consultas → Mapas Temáticos**. As camadas são somente leitura e se atualizam quando você edita o pipe ou nó de origem (não há necessidade de regenerar o mapa manualmente após uma alteração específica) — a legenda de cada uma também mostra quantos elementos cada classe possui.
 
-Se você executar Mapas Temáticos novamente, a camada antiga será substituída pelas novas configurações.
+Se você marcar e confirmar novamente uma caixa já gerada, o QGISRed substitui essa camada específica pela nova configuração, sem tocar no restante dos mapas ativos.
 
 ---
 
 ## Notas de uso
 
-- A geração de mapas temáticos não modifica nenhum dado do modelo; apenas a simbologia da camada muda.
-- Para retornar à simbologia padrão, remova a camada `ThematicPipes` do painel de camadas ou recarregue a simbologia padrão nas propriedades da camada QGIS.
-- Caso o projeto não possua resultados de simulação, os campos de resultados não aparecem no menu suspenso.
+- A geração de mapas temáticos não modifica nenhum dado do modelo; apenas cria novas camadas com a simbologia correspondente.
+- Para remover um mapa, desmarque-o na caixa de diálogo (veja "Processar" acima) ou exclua sua camada diretamente do painel de camadas do QGIS.
+- O mapa **Demanda Base Total** requer a existência de nós com demanda atribuída; Caso o projeto não possua demandas carregadas, a camada é gerada vazia.

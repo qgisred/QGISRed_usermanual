@@ -75,6 +75,12 @@ Para cada tipo de elemento você pode selecionar a camada SHP correspondente e a
 
 **Serviços** — campos mapeáveis: ID, Comprimento, Diâmetro, Rugosidade, **Material**, Demanda base, Padrão, Ativo, Data de instalação, Tag, Descrição.
 
+> Se a camada de conexão for **pontos** (cada conexão é conectada ao tubo principal mais próximo, em vez de já ter seu próprio layout), duas restrições opcionais aparecem para decidir a quais tubos cada conexão pode ser conectada — combináveis ​​entre si:
+> - **Somente tubos com diâmetros abaixo deste valor são candidatos** (nas unidades de diâmetro do projeto).
+> - **Apenas os tubos atualmente selecionados na camada Tubulações são candidatos** — disponível apenas se você já tiver tubos selecionados no mapa antes de abrir o importador; A caixa mostra quantos estão selecionados.
+>
+> Uma conexão que não encontra nenhum cano candidato dentro dessas restrições não é importada e o QGISRed indica isso no resumo de importação.
+
 Os demais elementos (válvulas, bombas, RNVs, RNFs, nós, válvulas de isolamento, medidores) possuem seus próprios conjuntos de campos mapeáveis.
 
 Quando a importação cria um novo projeto, também são solicitados o **catálogo de materiais** (igual ao criar um projeto do zero) e os parâmetros básicos do EPANET (unidades e fórmula de queda de pressão). Se importados sobre um projeto existente, esses parâmetros serão ignorados.
