@@ -33,8 +33,8 @@ Restez à jour avec les dernières améliorations de QGISRed.
 **Gestion des couches** :
 
 * Création d'un nouveau groupe de calques appelé AuxiliaryLayers pour héberger des thèmes complémentaires aux thèmes de base.
-* Création d'un sous-groupe au sein du groupe des Couches Auxiliaires, appelé Demand Builder, pour héberger ses propres thématiques : secteurs, demandes spécifiques et liens.
-* Ajout d'un nouvel onglet au Layer Manager pour créer, supprimer, charger ou télécharger des couches auxiliaires liées au Demand Builder.
+* Création d'un sous-groupe au sein du groupe des Couches Auxiliaires, appelé Constructeur de Demandes, pour héberger ses propres thématiques : secteurs, demandes spécifiques et liens.
+* Ajout d'un nouvel onglet au Gestionnaire de Couches pour créer, supprimer, charger ou télécharger des couches auxiliaires liées au Constructeur de Demandes.
 
 **Édition graphique** :
 
@@ -45,7 +45,7 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Révision de l'outil d'édition de sommets pour le rendre plus convivial.
 * Lors de la division d'un tuyau en un point intermédiaire, l'Id est divisé en ajoutant un suffixe numérique. L'identifiant d'origine peut être récupéré si les sections sont fusionnées dans le sens opposé à celui dans lequel les nœuds intermédiaires ont été créés.
 * Lorsque deux tuyaux en série ne peuvent être joints en éliminant le nœud intermédiaire, la cause est signalée.
-* Révision de l'outil pour faire fondre ou séparer les nœuds, permettant une plus grande séparation entre eux.
+* Révision de l'outil de fusion ou de séparation des nœuds, permettant une plus grande séparation entre eux.
 * La création d'une connexion en T prolonge désormais la dernière section de la branche jusqu'à ce qu'elle croise le tuyau principal.
 * Révision des outils d'annulation T et des croix, supprimant certaines restrictions et standardisant les actions de la souris.
 
@@ -65,17 +65,17 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Lors de la création de la carte des matériaux, chaque matériau se voit désormais attribuer sa propre couleur en fonction de son abréviation et de sa langue, qui est modifiable.
 * Lorsqu'une carte thématique devient obsolète en raison d'un changement d'unités ou d'une formule de perte, une icône d'avertissement s'affiche et peut être mise à jour en cliquant dessus.
 
-**Éditeur de sous-titres** :
+**Éditeur de légendes** :
 
 * Améliorations des assistants pour créer automatiquement des plages, des tailles et des couleurs afin de définir la légende de tous les calques.
 * Possibilité de modifier certains paramètres de style des thèmes de base du groupe Data.
-* Incorporation à l'éditeur QGISRed Legends des couches créées par Requêtes (cartes thématiques, secteurs hydrauliques, arbres, etc.).
+* Incorporation à l'Éditeur de légendes QGISRed des couches créées par les Requêtes (cartes thématiques, secteurs hydrauliques, arbres, etc.).
 * Ajout de calques de résultats à l'éditeur de légende pour personnaliser son style.
 * Option pour enregistrer les légendes au niveau du projet ou au niveau de l'utilisateur pour les appliquer à de nouveaux projets.
 * Possibilité de stocker des assistants permettant d'adapter la légende aux données, au lieu de sauvegarder une légende préconfigurée.
 * Création d'une bibliothèque QGISRed de symboles, rampes et palettes de couleurs, accessible depuis l'éditeur de légende et modifiable depuis QGIS.
 
-**Créateur de demande** :
+**Constructeur de Demandes** :
 
 * Option pour consolider les paramètres importés liés à l'affectation des demandes par secteurs dans un thème QGISRed.
 * Possibilité de répartir la demande globale ou par secteurs en fonction des diamètres qui convergent aux nœuds candidats.
@@ -88,12 +88,12 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Possibilité de répartir les demandes spécifiques en fonction des diamètres des canalisations qui convergent aux nœuds, ou en combinaison avec leur distance par rapport aux points de consommation.
 * Notification des nœuds chargés qui se trouvent à plus d'une distance donnée des points de consommation.
 * Possibilité d'éditer et de réutiliser les liens entre les points de consommation et les nœuds de demande.
-* Affectation des demandes aux nœuds en fonction des connexions déclarées comme éléments du Digital Twin.
+* Affectation des demandes aux nœuds en fonction des connexions déclarées comme éléments du Jumeau Numérique.
 * Différenciation des demandes de base par catégories, tant en consommation spécifique que par connexions, créant des demandes multiples aux nœuds.
 * Possibilité de charger les demandes uniquement des secteurs, points de consommation ou connexions sélectionnés.
 * Possibilité d'utiliser votre propre thème pour attribuer des performances et des modèles par secteur, importer leurs valeurs et les modifier.
-* Possibilité d'appliquer les rendements en eau et d'attribuer des modèles de demande par catégories.
-* Possibilité de réajuster les rendements et modèles déclarés à un niveau pour les impôts à un autre niveau supérieur (catégories -> secteurs -> global).
+* Possibilité d'appliquer les performances hydrauliques et d'attribuer des modèles de demande par catégories.
+* Possibilité de réajuster les performances et modèles déclarés à un niveau par ceux imposés à un niveau supérieur (catégories -> secteurs -> global).
 
 **Panneau de statistiques** :
 
@@ -108,9 +108,9 @@ Restez à jour avec les dernières améliorations de QGISRed.
 
 * Révision des outils Connectivité, Secteurs Hydrauliques et Arbres Graphiques : nouveaux noms, déplacement des couches, changements de style, etc.
 * Nouveau sujet pour mettre en avant des demandes isolées dans les secteurs hydrauliques.
-* Possibilité de créer et de gérer l'existence de plusieurs thèmes pour les Tree Graphs (maintenant appelés Minimum Cost Trees).
+* Possibilité de créer et de gérer l'existence de plusieurs thèmes pour les Graphes en Arbre (maintenant appelés Arbres de Coût Minimal).
 
-**Simulación**:
+**Simulation** :
 
 * Nouvelle boîte de dialogue de progression pour afficher la progression des calculs hydrauliques et de qualité.
 * La boîte de dialogue de progression peut être mise en pause pour observer attentivement la progression des calculs.
@@ -142,7 +142,7 @@ Restez à jour avec les dernières améliorations de QGISRed.
 * Option pour enregistrer et rappeler les paramètres du graphique d'évolution, y compris la création de modèles.
 * Possibilité de créer et de maintenir ouvertes plusieurs fenêtres de courbes d'évolution en même temps.
 
-**Idiomas**:
+**Langues** :
 
 * Toutes les options de menu, boîtes de dialogue et messages de QGISRed sont désormais également affichés en français et en portugais brésilien, lorsque cette langue est choisie pour l'interface QGIS. Actuellement, ils sont déjà diffusés en anglais et en espagnol.
 
