@@ -209,7 +209,7 @@ LANGS = {
 
 # ── Constants ─────────────────────────────────────────────────────────────────
 
-DELAY = 0.4       # seconds between API calls — increase to 1.0 on 429 errors
+DELAY = 1.0       # seconds between API calls — increase to 1.0 on 429 errors
 MAX_CHARS = 1500  # kept conservative — larger combined requests have been
                    # observed to come back from Google Translate silently
                    # truncated, with no exception raised
