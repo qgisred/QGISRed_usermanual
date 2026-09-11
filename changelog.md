@@ -41,11 +41,11 @@ Stay up to date with the latest QGISRed improvements.
 * Wand tapping on a pump, valve, or pipe now toggles only between open and closed states.
 * To toggle between the active or closed state of a valve, or declare a CV on a pipe, hold the Ctrl key when wand-clicking.
 * When inserting a pump or valve in a section smaller than the separation established between the extreme nodes, they are maintained and no longer move.
-* When moving a knot no layer is left open, avoiding conflicts with other editing tools.
+* When moving a node no layer is left open, avoiding conflicts with other editing tools.
 * Revised the vertex editing tool to make it more user-friendly.
 * When splitting a pipe at an intermediate point, the Id is split by adding a numerical suffix. The original Id can be recovered if the sections are merged in the opposite direction to which the intermediate nodes were created.
 * When two pipes in series cannot be joined by eliminating the intermediate node, the cause is reported.
-* Revised the tool for melting or separating knots, allowing greater separation between them.
+* Revised the tool for merging or separating nodes, allowing greater separation between them.
 * Creating a T connection now extends the last section of the branch until it intersects with the main pipe.
 * Revised the undo T and crosses tools, removing some restrictions and standardizing mouse actions.
 
@@ -65,7 +65,7 @@ Stay up to date with the latest QGISRed improvements.
 * When creating the material map, each material is now assigned its own color based on its abbreviation and language, which is editable.
 * When a thematic map becomes outdated due to a change in units or loss formula, a warning icon is displayed and can be updated by clicking on it.
 
-**Caption Editor**:
+**Legend Editor**:
 
 * Improvements to wizards to automatically create ranges, sizes and colors to set the legend for all layers.
 * Possibility of modifying some style parameters of the basic themes of the Data group.
@@ -91,9 +91,9 @@ Stay up to date with the latest QGISRed improvements.
 * Assignment of demands to nodes based on connections declared as elements of the Digital Twin.
 * Differentiation of base demands by categories, both in specific consumption and by connections, creating multiple demands at the nodes.
 * Option to load demands only from the selected sectors, consumption points or connections.
-* Option to use your own theme to assign performances and patterns by sector, import their values ​​and edit them.
-* Option to apply water yields and assign demand patterns by categories.
-* Option to readjust returns and patterns declared at one level for taxes at another higher level (categories -> sectors -> global).
+* Option to use your own theme to assign efficiencies and patterns by sector, import their values and edit them.
+* Option to apply hydraulic efficiencies and assign demand patterns by categories.
+* Option to readjust efficiencies and patterns declared at one level using those imposed at a higher level (categories -> sectors -> global).
 
 **Statistics panel**:
 
@@ -121,7 +121,7 @@ Stay up to date with the latest QGISRed improvements.
 * Option to show all calculation moments in the results map and other panels in which time intervenes.
 * Option to show the moment of the simulation in various formats: time elapsed since the beginning (in accumulated hours or grouped by days) or calendar time (in 24 hour or am/pm format).
 * New button bar to perform animations at controlled speed or step by step.
-* The variables chosen to display the results of knots and lines are now highlighted and have their own color assigned.
+* The variables chosen to display the results of nodes and lines are now highlighted and have their own color assigned.
 * New tab with several options to improve the visualization of the results on the map, the symbology and the background color.
 * New option to show in a histogram the distribution of the current variable of nodes or lines and their accumulated values, at the current moment.
 * New option to show a simplified evolution curve of the current variable of nodes or lines, for the chosen element on the map.
