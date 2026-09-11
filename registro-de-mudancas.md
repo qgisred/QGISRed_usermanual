@@ -33,8 +33,8 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 **Gerenciamento de camadas**:
 
 * Criação de um novo grupo de camadas denominado AuxiliaryLayers para hospedar temas complementares aos temas básicos.
-* Criação de um subgrupo dentro do grupo de Camadas Auxiliares, denominado Demand Builder, para hospedar temas próprios: setores, demandas específicas e links.
-* Adicionando uma nova aba ao Layer Manager para criar, excluir, carregar ou baixar camadas auxiliares vinculadas ao Demand Builder.
+* Criação de um subgrupo dentro do grupo de Camadas Auxiliares, denominado Construtor de Consumos, para hospedar temas próprios: setores, demandas específicas e links.
+* Adicionando uma nova aba ao Gerenciador de Camadas para criar, excluir, carregar ou baixar camadas auxiliares vinculadas ao Construtor de Consumos.
 
 **Edição gráfica**:
 
@@ -45,7 +45,7 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 * Revisada a ferramenta de edição de vértices para torná-la mais fácil de usar.
 * Ao dividir um tubo em um ponto intermediário, o Id é dividido adicionando um sufixo numérico. O Id original pode ser recuperado se as seções forem mescladas na direção oposta à qual os nós intermediários foram criados.
 * Quando dois tubos em série não podem ser unidos eliminando o nó intermediário, a causa é informada.
-* Revisada a ferramenta para derretimento ou separação de nós, permitindo maior separação entre eles.
+* Revisada a ferramenta de mesclagem ou separação de nós, permitindo maior separação entre eles.
 * A criação de uma conexão em T agora estende a última seção do ramal até que ela cruze com o tubo principal.
 * Revisadas as ferramentas de desfazer T e cruzar, removendo algumas restrições e padronizando ações do mouse.
 
@@ -69,13 +69,13 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 
 * Melhorias nos assistentes para criar automaticamente intervalos, tamanhos e cores para definir a legenda para todas as camadas.
 * Possibilidade de modificar alguns parâmetros de estilo dos temas básicos do grupo Dados.
-* Incorporação ao Editor QGISRed Legends das camadas criadas pelas Consultas (mapas temáticos, setores hidráulicos, árvores, etc.).
+* Incorporação ao Editor de Legendas do QGISRed das camadas criadas pelas Consultas (mapas temáticos, setores hidráulicos, árvores, etc.).
 * Adicionadas camadas de resultados ao Editor de legendas para personalizar seu estilo.
 * Opção para salvar legendas no nível do projeto ou no nível do usuário para aplicá-las a novos projetos.
 * Opção de armazenar assistentes para adaptar a legenda aos dados, em vez de salvar uma legenda pré-configurada.
 * Criação de uma biblioteca QGISRed de símbolos, rampas e paletas de cores, acessíveis no Editor de Legendas e editáveis ​​no QGIS.
 
-**Construtor de demanda**:
+**Construtor de Consumos**:
 
 * Opção de consolidação dos parâmetros importados relativos à atribuição de demandas por setores em um tema QGISRed.
 * Opção de distribuição da demanda global ou por setores com base nos diâmetros que convergem nos nós candidatos.
@@ -88,12 +88,12 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 * Opção de distribuição de demandas específicas em função dos diâmetros das tubulações que convergem nos nós, ou em combinação com sua distância dos pontos de consumo.
 * Notificação de nós carregados que estão a mais de uma determinada distância dos pontos de consumo.
 * Possibilidade de edição e reaproveitamento de links entre pontos de consumo e nós de demanda.
-* Atribuição de demandas aos nós com base nas conexões declaradas como elementos do Digital Twin.
+* Atribuição de demandas aos nós com base nas conexões declaradas como elementos do Gêmeo Digital.
 * Diferenciação das demandas base por categorias, tanto em consumo específico quanto por conexões, criando múltiplas demandas nos nós.
 * Opção de carregar demandas apenas dos setores, pontos de consumo ou ligações selecionados.
-* Opção de utilizar tema próprio para atribuir performances e padrões por setor, importar seus valores e editá-los.
-* Opção de aplicar rendimentos de água e atribuir padrões de demanda por categorias.
-* Opção de reajustar retornos e padrões declarados em um nível para impostos em outro nível superior (categorias -> setores -> globais).
+* Opção de utilizar tema próprio para atribuir eficiências e padrões por setor, importar seus valores e editá-los.
+* Opção de aplicar eficiências hidráulicas e atribuir padrões de demanda por categorias.
+* Opção de reajustar eficiências e padrões declarados em um nível pelos impostos em outro nível superior (categorias -> setores -> globais).
 
 **Painel de estatísticas**:
 
@@ -108,7 +108,7 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 
 * Revisadas as ferramentas Conectividade, Setores Hidráulicos e Gráficos de Árvore: novos nomes, realocação de camadas, mudanças de estilo, etc.
 * Novo tópico para destacar demandas isoladas nos setores hidráulicos.
-* Possibilidade de criar e gerenciar a existência de diversos temas para Tree Graphs (agora chamados de Árvores de Custo Mínimo).
+* Possibilidade de criar e gerenciar a existência de diversos temas para Grafos em Árvore (agora chamados de Árvores de Custo Mínimo).
 
 **Simulação**:
 
