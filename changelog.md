@@ -137,7 +137,7 @@ Stay up to date with the latest QGISRed improvements.
 * Optional synchronization of the cursor with the current moment of the Results Panel.
 * Incorporation of the evolution of the volume of a tank or the overflow flow, as new variables.
 * Option to represent the evolution curves of some global variables for the entire system.
-* New button to display in a table the numerical values ​​of the passing points of the evolution curves and export their values ​​to a CSV file.
+* New button to display in a table the numerical values of the passing points of the evolution curves and export their values to a CSV file.
 * New button to export graphs as images.
 * Option to save and recall evolution chart settings including template creation.
 * Ability to create and keep open several evolution curve windows at the same time.
