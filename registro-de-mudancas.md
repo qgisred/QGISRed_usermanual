@@ -73,7 +73,7 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 * Adicionadas camadas de resultados ao Editor de legendas para personalizar seu estilo.
 * Opção para salvar legendas no nível do projeto ou no nível do usuário para aplicá-las a novos projetos.
 * Opção de armazenar assistentes para adaptar a legenda aos dados, em vez de salvar uma legenda pré-configurada.
-* Criação de uma biblioteca QGISRed de símbolos, rampas e paletas de cores, acessíveis no Editor de Legendas e editáveis ​​no QGIS.
+* Criação de uma biblioteca QGISRed de símbolos, rampas e paletas de cores, acessíveis no Editor de Legendas e editáveis no QGIS.
 
 **Construtor de Consumos**:
 
@@ -121,7 +121,7 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 * Opção de mostrar todos os momentos de cálculo no mapa de resultados e outros painéis em que o tempo intervém.
 * Opção de mostrar o momento da simulação em vários formatos: tempo decorrido desde o início (em horas acumuladas ou agrupadas por dias) ou tempo de calendário (em formato 24 horas ou am/pm).
 * Nova barra de botões para realizar animações em velocidade controlada ou passo a passo.
-* As variáveis ​​escolhidas para exibir os resultados dos nós e linhas agora estão destacadas e possuem cor própria atribuída.
+* As variáveis escolhidas para exibir os resultados dos nós e linhas agora estão destacadas e possuem cor própria atribuída.
 * Nova aba com diversas opções para melhorar a visualização dos resultados no mapa, a simbologia e a cor de fundo.
 * Nova opção para mostrar em histograma a distribuição da variável atual de nós ou linhas e seus valores acumulados, no momento atual.
 * Nova opção para mostrar uma curva de evolução simplificada da variável atual de nós ou linhas, para o elemento escolhido no mapa.
@@ -136,7 +136,7 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 * Possibilidade de mostrar todos os momentos ou apenas momentos agendados, conforme escolhido no Painel de Resultados.
 * Sincronização opcional do cursor com o momento atual do Painel de Resultados.
 * Incorporação da evolução do volume de um tanque ou da vazão de transbordamento, como novas variáveis.
-* Opção de representar as curvas de evolução de algumas variáveis ​​globais para todo o sistema.
+* Opção de representar as curvas de evolução de algumas variáveis globais para todo o sistema.
 * Novo botão para exibir em tabela os valores numéricos dos pontos de passagem das curvas de evolução e exportar seus valores para um arquivo CSV.
 * Novo botão para exportar gráficos como imagens.
 * Opção para salvar e recuperar configurações do gráfico de evolução, incluindo criação de modelos.
@@ -152,9 +152,9 @@ Mantenha-se atualizado com as últimas melhorias do QGISRed.
 * Código da versão 0.19 verificado para compatibilidade com Qt6 e QGIS 4.xx.
 * Fim do suporte para bibliotecas QGISRed em sistemas de 32 bits (x86). A partir de agora o QGISRed funcionará apenas em sistemas de 64 bits.
 * Removidos os botões minimizar e maximizar em todas as caixas de diálogo incorporadas às bibliotecas.
-* Revisados ​​os nomes de alguns campos em arquivos shape, tabelas dbf e arquivos CSV, para uniformidade. Todos os campos de identificação agora terminam com ID.
-* Revisados ​​os nomes das propriedades exibidos em todas as caixas de diálogo do QGISRed, dependendo do idioma, para uniformidade.
-* Revisados ​​os decimais apresentados nas tabelas de atributos do tópico, dependendo das unidades utilizadas.
+* Revisados os nomes de alguns campos em arquivos shape, tabelas dbf e arquivos CSV, para uniformidade. Todos os campos de identificação agora terminam com ID.
+* Revisados os nomes das propriedades exibidos em todas as caixas de diálogo do QGISRed, dependendo do idioma, para uniformidade.
+* Revisados os decimais apresentados nas tabelas de atributos do tópico, dependendo das unidades utilizadas.
 
 **Correções de bugs**:
 
