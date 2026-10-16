@@ -30,7 +30,7 @@ La barra **Tools** agrupa las herramientas de procesamiento masivo: cálculo aut
 
 | # | Herramienta | Función |
 |---|-------------|---------|
-| 8 | **Constructor de sectores de demanda…** | Genera sectores de demanda delimitados por caudalímetros |
+| 8 | **Obtener sectores de demanda** | Genera sectores de demanda delimitados por caudalímetros |
 | 9 | **Minimum Cost Tree…** | Calcula el árbol de mínimo coste desde un nudo seleccionado |
 
 ---
