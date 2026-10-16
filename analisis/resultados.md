@@ -80,6 +80,10 @@ Dos combos situados bajo los controles de tiempo:
 
 > El botón **Appearance** (icono en la cabecera del grupo Nodes) lleva directamente a la pestaña Appearance sin necesidad de navegar por las pestañas.
 
+> 💡 Cuando el combo **Nodes** o **Links** está en «None», la capa correspondiente no desaparece del mapa: se muestra con un símbolo gris uniforme y sin leyenda, para que la red siga visible como referencia mientras no hay ninguna variable de resultado activa en ese tipo de elemento.
+
+> 💡 En el panel de capas de QGIS, cada capa de resultados abierta muestra el nombre de la propiedad representada junto con su unidad (por ejemplo, **Presiones (m)**), y cada clase de su leyenda indica entre paréntesis el número de elementos que contiene — igual que ya hacen las capas de entrada.
+
 ---
 
 ### Pestaña Report
@@ -129,6 +133,8 @@ Concentra todas las opciones de presentación visual de los resultados en el map
 #### Map Background
 
 Permite fijar un color de fondo sólido para el lienzo del mapa mientras se visualizan resultados. El color se restaura al original al cerrarse el dock. El botón **×** elimina el color de fondo.
+
+> 💡 El contorno de los símbolos de depósitos y embalses se recalcula automáticamente para seguir siendo visible sobre el color de fondo elegido.
 
 #### Reset all
 
