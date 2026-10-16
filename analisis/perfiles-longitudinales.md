@@ -1,5 +1,7 @@
 # Perfiles Longitudinales
 
+> ⚠️ **Herramienta no disponible temporalmente**. El botón **Longitudinal profile…** se ha retirado de la barra Analysis en esta versión del plugin. El resto de esta página describe la herramienta tal como funcionaba antes de su retirada, para cuando vuelva a estar disponible.
+
 **Barra Analysis → Longitudinal profile…**
 
 El perfil longitudinal muestra la evolución de una variable hidráulica a lo largo de un recorrido definido interactivamente sobre la red. El eje X representa la distancia acumulada desde el nodo inicial del recorrido; el eje Y, el valor de la variable seleccionada en cada nodo del camino. Es posible tener varios paneles de perfil abiertos simultáneamente, cada uno con su propio recorrido, variables y configuración independientes.
