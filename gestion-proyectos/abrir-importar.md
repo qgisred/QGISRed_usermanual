@@ -53,6 +53,7 @@ El caso más habitual: tienes un modelo EPANET existente y quieres trabajar con 
 2. Indica el **nombre de la red** que tendrá el proyecto QGISRed (puede ser diferente al nombre interno del INP).
 3. Elige la **carpeta destino** donde se crearán los SHP.
 4. QGISRed convierte todos los elementos (nudos, tuberías, válvulas, bombas, curvas, patrones, controles…) a la estructura SHP+DBF.
+5. Casilla **Separate overlapping nodes**: algunos programas exportan bombas y válvulas como enlaces cuyos nudos extremos comparten las mismas coordenadas. Al activar esta opción, esos nudos se separan ligeramente para que ningún elemento se pierda en la importación.
 
 > ⚠️ Las coordenadas del `.inp` deben estar en el mismo CRS que usarás en QGISRed. El plugin no reproyecta durante la importación.
 
