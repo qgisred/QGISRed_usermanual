@@ -36,6 +36,8 @@ Desplaza uno o varios nudos (Junctions, Tanks, Reservoirs) arrastrando consigo *
 
 > Esta herramienta **no** mueve vértices intermedios de tuberías. Para eso, usa **Edit link vertices**.
 
+> 📝 El punto de inicio del arrastre hace snap al nudo más cercano dentro de **10 píxeles de pantalla**, no de una distancia fija en unidades del mapa — así la tolerancia es la misma independientemente del nivel de zoom o del sistema de coordenadas del proyecto.
+
 ---
 
 ## Editar vértices de enlace (Edit link vertices)
