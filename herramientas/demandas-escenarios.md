@@ -147,3 +147,5 @@ Responde a la pregunta operacional: **"¿Qué válvulas debo cerrar para reparar
 4. Puedes hacer clic en más tuberías dentro de la misma sesión para acumular el análisis.
 
 Se genera la capa auxiliar `IsolatedSegments` con toda la información. No modifica el modelo.
+
+Los nudos con **demanda negativa** (un aporte de agua, como una elevación o un trasvase) se tratan como un punto de suministro: se cierran igual que un depósito o un embalse, pero el análisis sigue explorando la red más allá de ellos en vez de detenerse ahí. En el resumen de resultados aparecen contados como **Uniones** junto a válvulas, bombas, depósitos y embalses.
