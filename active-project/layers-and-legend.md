@@ -102,10 +102,10 @@ Useful to verify that the import was complete or to document the size of the mod
 
 **Project bar → Legend editor** (Legend editor)
 
-Opens a floating panel that allows you to build and customize the **symbology** of the project layers without navigating through the QGIS layer properties menu: legend type, automatic classification, sizes, colors, saving/loading styles and own rules per element type.
+Opens a floating panel that allows you to build and customize the **symbology** of the project layers without navigating through the QGIS layer properties menu: legend type, automatic classification, sizes, colors, opacity and border on polygon layers, its own ramp/palette library, saving/loading styles and own rules per element type.
 
 <figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="QGISRed Legend Editor Panel"><figcaption><p>QGISRed Legend Editor Panel</p></figcaption></figure>
-<!-- TODO: screenshot outdated, dialog completely redesigned (see commit a3038c2 et seq., Jul 20–31, 2026) -->
+<!-- TODO: screenshot outdated, dialog completely redesigned and has kept changing since then (block of [Legends]/[Styles] commits, Sep-Oct 2026) -->
 *Legend Editor panel: predefined styles and customization of colors and sizes.*
 
 ### Choose layer
@@ -115,46 +115,82 @@ In the dialog header:
 - **Group** — group of the layer tree on which you want to work (Inputs, Results, Queries and their subgroups...).
 - **Map Layer** — specific layer within that group. You can also change layers by selecting it directly in the QGIS layers panel; the editor follows the selection automatically.
 
+### Variant selector
+
+Several input layers show an additional dropdown that filters the table and the color/size/opacity rules to a subset of the layer instead of all its elements at once:
+
+| Layer | Dropdown | Options |
+|---|---|---|
+| Meters | **Meter Type** | "All types" or a specific meter type (the different icons stacked in the symbol) |
+| Junctions | **Demand** | "All", "Outflows (> 0)", "Inflows (< 0)" |
+| Sources | **Source Type** | "All types" or a specific source type |
+| Service Connections | **Component** | "All", "Line", "Demand circle" |
+| Link layers (Pipes and similar) | **Component** | "All", "Line", "Marker" |
+| Connectivity tree nodes (Tree) | **Node** | "All", "Junctions", "Root node" |
+| Layers with their own element types | **Element** | "All" + one type for each possible element of that layer |
+
+While the selector is set to "All" (or has no variants), the color/size is applied to all elements at once, unless the layer has fixed style rules (see below).
+
 ### Legend type and classification
 
-The **Legend Type** dropdown offers, depending on the type of layer, between **Single Symbol**, **Categorized** and **Graduated**. Only the options that make sense for that layer appear (for example, a numeric results layer does not offer Single Symbol).
-
-> 💡 For the **Meters** layer, the **Meter Type** drop-down also appears, which filters the table and the color/size rules to "All types" or to a specific type of counter (the different icons stacked in the Meters symbol).
+The **Legend Type** dropdown offers, depending on the type of layer, between **Single Symbol**, **Categorized** and **Graduated**. Only the options that make sense for that layer appear (for example, a numeric results layer does not offer Single Symbol); if the layer is Single Symbol with no classes, the panel shows the warning "Single symbol layer: no size or color classes."
 
 The central table lists one row per class, with visibility checkbox, color, size, value/range (or category), and legend label:
 
-- **Classes** (spinbox) sets the number of classes; The button next to it, **Classify All**, adds a class for each unique value of the layer (categorical) or automatically reclassifies the numerical range according to the mode chosen in **Intervals**.
-- The **+ / -** buttons next to Classes add or remove classes: left click adds a class below the selection, right click adds it above; In categorical legends, double clicking adds a special class "Other values" that groups the rest of the unclassified values.
+- **Classes** is only editable when the classification mode supports a variable number of classes (for example, not in Manual mode on a numeric legend nor on layers with a fixed legend); in the rest of cases it appears grayed out, with no arrows, and cannot be typed into. The button next to it, **Add all values** (formerly "Classify All"), adds a class for each unique value of the layer (categorical) or automatically reclassifies the numerical range according to the mode chosen in **Intervals**.
+- The **+** button next to Classes adds a class below the selection with a single click; the arrow next to it opens a menu with "Add class above the selection" and, on categorical legends, 'Add "Other values" class' (a special class that groups the rest of the unclassified values). The **-** button removes the selected class.
 - **Intervals** (`cbMode`) sets the automatic classification method for graduated legends: Manual, Equal Interval, Fixed Interval, Quantile (Equal Count), Natural Breaks (Jenks), Standard Deviation and Pretty Breaks. With **Fixed Interval** the **Interval Range** field appears to indicate the width of each class.
 - You can edit the range of a class by hand by **double clicking on its value** (Value column) to open a small dialog with the lower and upper limits.
-- **Up / Down** (arrows next to the table) reorder the selected class.
+- **Up / Down** (arrows next to the table) manually reorder the selected class. The **Class Order** dropdown (None / Ascending / Descending), above the table, automatically reorders all classes by their value at the moment the legend is applied.
 
 ### Sizes
 
-The **Sizes** block controls the size (line thickness or point symbol size) of the classes:
+The **Sizes** block controls the size of the classes, always in millimeters except for the exception below:
 
 - **Sizes** (`cbSizes`): Manual, Equal, Linear, Quadratic, Exponential or Proportional to Value.
 - **Equal** uses a single **Value** field for all classes.
 - Linear/Quadratic/Exponential/Proportional to Value distribute the size between **Min** and **Max** according to the chosen curve, with the **Invert** box to exchange which end (lower or higher value) receives the minimum size.
 
+> 💡 On layers with a fixed status legend (see "Specific style rules" below) or on a Single Symbol layer with the variant selector set to "All", the column header changes to **Size (%)**: the value is no longer a size in mm but a **percentage of the current sizes** — 100% leaves each element with the size it already has drawn, and the adjustment scales all of them at once instead of setting an absolute size per class.
+
 ### Colors
 
-The **Colors** block controls the color of each class:
+The **Colors** block controls the color of each class. The **Colors** dropdown (`cbColors`) offers, in addition to Manual/Equal/Random, the library's ramps and palettes grouped by type:
 
-- **Colors** (`cbColors`): Manual, Equal, Random, Ramp or Palette.
-- **Equal** applies a single color (color button next to the dropdown) to all classes.
-- **Random** generates different random colors per class, with the same "shuffle" criteria that QGIS uses natively. The refresh button next to the dropdown (visible only in this mode) reshuffles the colors without changing anything else.
-- **Ramp** displays, across the entire width of the dialog, the native QGIS color ramp selector to choose the ramp to apply to the classes; It includes both the standard QGIS catalog and QGISRed's own ramps.
-- **Palette** distributes the colors using a categorical palette instead of a continuous ramp.
-- The **Invert** box exchanges the direction of the ramp/vane.
+- **Manual** — each class keeps the color it has been set to by hand.
+- **Equal** — a single color (color button next to the dropdown) for all classes.
+- **Random** — different random colors per class, with the same "shuffled random colors" criterion that QGIS uses natively. The refresh button next to the dropdown (visible only in this mode) reshuffles the colors without changing anything else.
+- **2 colors Ramps / 3 colors Ramps / > 3 colors Ramps** — continuous color ramps, grouped by how many colors define the ramp.
+- **Span Palettes** — categorical palette whose colors are spread across the range of classes, keeping the first and last.
+- **Sequential Palettes** — categorical palette whose colors are assigned in the order they are declared in the palette.
+- **Labeled Palettes** — categorical palette where each class receives the color whose label matches its own value.
+
+The editor itself **recommends an option** based on the legend type (Span Palettes for numeric legends; Labeled Palettes if there is a labeled palette that matches the layer's categories, or Sequential Palettes in any other categorical case): that option appears in bold with the suffix "(recommended)". Options with no ramp/palette of that type in the active library, or Labeled Palettes on a numeric legend, appear disabled with a tooltip explaining why.
+
+The **Invert** box exchanges the direction of the chosen ramp/palette.
 
 > 💡 For the connectivity tree node layer (Tree), the row color does not color the entire symbol: it edits only the **stroke color** of the outer circle of the node, leaving the star and element icons with their own color.
+
+### Ramp and palette library
+
+Next to the Colors dropdown, **Symbol library** lets you choose where the ramps and palettes offered by that dropdown come from:
+
+- **Use default** — the library that ships with QGISRed out of the box.
+- **Use owner** — your own editable library. Selecting it shows the **Edit owner** button, which opens QGIS's native style manager (Style Manager) on that library to add, edit or delete ramps, palettes and symbols. Changes you make there are reflected immediately in the Colors dropdown, even recalculating already-applied colors if the active ramp changed.
+
+### Opacity and border (fill layers)
+
+On layers whose symbol is a polygon fill (for example, Hydraulic and Demand Sectors), the panel adds two controls that apply **to all classes at once**, not class by class:
+
+- **Opacity** (0–100%) — fill opacity; 100% is solid, 0% invisible.
+- **Border** — border mode for each class: "No border", "Black", "Fill color" (the border takes the same color as the fill) or "Darker than the fill"; with any option except "No border" the border width in mm also appears.
 
 ### Specific style rules per layer type
 
 Input elements (Inputs) and some query layers carry style rules with fixed states that the color/size you choose respects, instead of overriding the entire symbol. For example, Pipes/Valves/Pumps keep the "closed" state in red and active Valves in orange no matter what happens with the color you choose for the rest. Among the layers with their own rules:
 
 - **Multiple Demands**: the chosen color only colors the "positive demand" branch of the symbol (the inner marker), just like in Junctions; the negative demand and the rest of the symbol maintain their fixed colors.
+- **Junctions**: with the **Demand** selector set to "Outflows (> 0)" or "Inflows (< 0)" you can classify and color each group of nodes separately; negative demands always keep white in automatic range-based legends.
 - **Isolation Valves**: the chosen color only replaces the "open, no pressure loss" state; The colors of closed (red), with loss of charge (amber) and not available (gray) are set by the legend itself and cannot be edited from here.
 - **Meters**: The color and size are applied depending on what you have selected in **Meter Type** — to all meter types at once, or only to the chosen type, without touching the rest of the stacked icons.
 - **Service Connections**: the chosen color is applied to the active connection stroke and to a lighter version of the same color for its fill; The rest of the states retain their own color.

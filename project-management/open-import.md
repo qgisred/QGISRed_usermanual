@@ -53,6 +53,7 @@ The most common case: you have an existing EPANET model and you want to work wit
 2. Indicates the **name of the network** that the QGISRed project will have (it may be different from the internal name of the INP).
 3. Choose the **destination folder** where the SHPs will be created.
 4. QGISRed converts all elements (nodes, pipes, valves, pumps, curves, patterns, controls...) to the SHP+DBF structure.
+5. **Separate overlapping nodes** checkbox: some programs export pumps and valves as links whose end nodes share the same coordinates. Enabling this option slightly separates those nodes so that no element is lost during import.
 
 > ⚠️ The coordinates of `.inp` must be in the same CRS that you will use in QGISRed. The plugin does not reproject during import.
 

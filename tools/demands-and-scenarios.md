@@ -147,3 +147,5 @@ Answers the operational question: **"What valves should I close to repair this p
 4. You can click on more pipes within the same session to accumulate the analysis.
 
 The auxiliary layer `IsolatedSegments` is generated with all the information. Does not modify the model.
+
+Nodes with **negative demand** (a water inflow, such as a lift station or a transfer) are treated as a supply point: they are closed just like a tank or a reservoir, but the analysis keeps exploring the network beyond them instead of stopping there. In the results summary they are counted as **Junctions**, alongside valves, pumps, tanks and reservoirs.

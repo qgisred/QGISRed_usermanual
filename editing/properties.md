@@ -71,8 +71,10 @@ The nodes can have more than one demand (user categories: residential, industria
 | **Diameter** | Tank diameter (0 if using volume curve) |
 | **MinVol** | Minimum volume (m³) |
 | **VolCurve** | Volume curve ID (for non-cylindrical geometry) |
-| **MixModel** | Mixing model: MIXED, 2COMP, FIFO, LIFO |
-| **MixFraction** | Fraction of the first compartment (2COMP model) |
+| **MixModel** | Mixing model: MIXED, 2COMP, FIFO, LIFO. Defaults to MIXED on a new tank |
+| **MixFraction** | Fraction of the first compartment (only visible if MixModel = 2COMP) |
+
+> Both fields are only shown if the project has an active quality model (Chemical, Age or Trace); without a quality model, EPANET does not mix anything and the fields provide no information.
 
 ---
 
@@ -119,7 +121,7 @@ The nodes can have more than one demand (user categories: residential, industria
 
 The dialog includes a **browser** (Browser) that allows:
 
-- **Go to connected element**: lists the nodes and elements connected to the current element to jump to them.
+- **Go to connected element**: lists the nodes and elements connected to the current element to jump to them. On a pipe/valve/pump, its two end nodes are listed; on a node, the links that reach it. In both cases, isolation valves, meters and service connections are added, but only if their location matches the element (within the project's node tolerance) — being merely close by is not enough.
 - **History**: Previous / Next buttons to return to previously visited items without closing the dialog.
 - **Center on map**: button to move the map to the currently displayed element.
 

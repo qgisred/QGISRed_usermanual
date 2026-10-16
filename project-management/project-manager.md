@@ -16,6 +16,8 @@ The window shows all projects that have ever been opened on this computer. For e
 - **Double click** on any project → opens it directly.
 - If there is an open project with unsaved changes, QGISRed will ask for confirmation before closing it.
 
+> 📝 If the `.qgz`/`.qgs` file registered for the project no longer exists at the expected path (for example, after moving the folder by hand outside QGISRed), the warning _"We cannot find the QGIS project file. Do you want to find this file manually?"_ appears. Answering **Yes** lets you locate it with a file explorer; answering **No**, QGISRed rebuilds the project directly from the groups saved in the metadata (Inputs, Results, Issues… all that exist), not just the input layers.
+
 ## Available operations
 
 ### Load
@@ -54,8 +56,10 @@ Renames the network and automatically updates the name of **all files** in the p
 
 1. Select the project.
 2. Press **Rename**.
-3. The dialog offers two independent boxes, both checked by default: **Rename project data** (renames the network data files) and **Rename project map file** (also renames the QGIS project `.qgz`/`.qgs`, if it exists). At least one must be marked.
-4. Enter the new name in the field corresponding to each active box.
+3. The dialog offers three independent boxes: **Rename project data** (renames the network data files) and **Rename project map file** (also renames the QGIS project `.qgz`/`.qgs`, if it exists) — both checked by default — and **Rename project folder:** (also renames the folder containing the project), unchecked by default. At least one must be marked.
+4. Enter the new name in the field corresponding to each active box. The folder field automatically suggests the same name as the project as long as it hasn't been edited by hand.
+
+> 📝 **Rename project folder** is disabled, with the warning _"Another project in this folder is currently open in QGIS"_, if the folder contains a different project from the one you are renaming and that other project is currently open in QGIS — to avoid moving or deleting files that QGIS holds a lock on. The rest of the projects sharing the folder keep appearing normally in the list after the rename.
 
 > ⚠️ If you have the project open in QGIS, close it before renaming it to prevent QGIS from maintaining locks on the files.
 

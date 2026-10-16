@@ -1,5 +1,7 @@
 # Longitudinal Profiles
 
+> ⚠️ **Tool temporarily unavailable**. The **Longitudinal profile…** button has been removed from the Analysis bar in this version of the plugin. The rest of this page describes the tool as it worked before its removal, for when it becomes available again.
+
 **Analysis bar → Longitudinal profile…**
 
 The longitudinal profile shows the evolution of a hydraulic variable along an interactively defined path over the network. The X axis represents the accumulated distance from the initial node of the tour; the Y axis, the value of the selected variable at each node of the path. It is possible to have multiple profile panels open simultaneously, each with its own independent path, variables and settings.

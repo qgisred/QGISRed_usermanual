@@ -80,6 +80,10 @@ Two combos located under the time controls:
 
 > The **Appearance** button (icon in the header of the Nodes group) takes you directly to the Appearance tab without having to navigate through the tabs.
 
+> 💡 When the **Nodes** or **Links** combo is set to "None", the corresponding layer does not disappear from the map: it is shown with a uniform gray symbol and no legend, so the network remains visible as a reference while no result variable is active for that element type.
+
+> 💡 In the QGIS layers panel, each open results layer shows the name of the represented property together with its unit (for example, **Pressures (m)**), and each class in its legend indicates in parentheses the number of elements it contains — just as the input layers already do.
+
 ---
 
 ### Report Tab
@@ -129,6 +133,8 @@ Concentrates all the options for visual presentation of the results on the map. 
 #### Map Background
 
 Allows you to set a solid background color for the map canvas while viewing results. The color is restored to the original when the dock is closed. The **×** button removes the background color.
+
+> 💡 The outline of tank and reservoir symbols is automatically recalculated to remain visible against the chosen background color.
 
 #### Reset all
 

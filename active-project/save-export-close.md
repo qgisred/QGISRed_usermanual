@@ -102,9 +102,9 @@ Upon completion, QGISRed shows the full path of the created ZIP in the message b
 
 Close the current QGISRed project and clean the QGIS session: delete all loaded layers and restore the initial state.
 
-It is equivalent to using _Project → New_ in the QGIS menu.
+It is equivalent to using _Project → New_, _Project → Close_ or _Project → Open_ in the native QGIS menu, and also to closing the QGIS window directly: QGISRed intercepts all four actions to ask with its own dialog, instead of letting QGIS do it.
 
-> ⚠️ If there are unsaved changes in file `.qgz`, QGIS will ask if you want to save them before closing.
+> ⚠️ If there are unsaved changes in the `.qgz` file of a QGISRed project, the dialog **"Do you want to save the map of the current project?"** appears with three options: **Yes** saves and continues (if saving fails, the action is cancelled), **No** discards the changes and continues, **Cancel** aborts the action (closing, new project or opening another one) and the current project stays open as it was. This dialog only appears when there is an active QGISRed project; in a QGIS session without a QGISRed project, QGIS's native behavior does not change.
 
 ---
 

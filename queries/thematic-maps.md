@@ -81,7 +81,7 @@ If you change the project's **units**, **head loss formula** or **flow units** a
 
 ## Result on the map
 
-Each checked box generates its own layer (for example `Pipe Materials`, `Junction Elevations`) within the **Queries → Thematic Maps** group. The layers are read-only and update themselves when you edit the source pipe or node (there is no need to regenerate the map by hand after a specific change) — the legend of each one also shows how many elements each class has.
+Each checked box generates its own layer (for example `Pipes_Materials`, `Junctions_Elevations` — always `Element_Property`, both in plural except "Installation Year", which stays singular) within the **Queries → Thematic Maps** group. The layers are read-only and update themselves when you edit the source pipe or node (there is no need to regenerate the map by hand after a specific change) — the legend of each one also shows how many elements each class has.
 
 If you check and confirm an already generated box again, QGISRed replaces that specific layer with the new configuration, without touching the rest of the active maps.
 

@@ -36,6 +36,8 @@ Moves one or more nodes (Junctions, Tanks, Reservoirs) dragging with it **all co
 
 > This tool does **not** move intermediate pipe vertices. For that, use **Edit link vertices**.
 
+> 📝 The starting point of the drag snaps to the nearest node within **10 screen pixels**, not a fixed distance in map units — so the tolerance stays the same regardless of the zoom level or the project's coordinate system.
+
 ---
 
 ## Edit link vertices
