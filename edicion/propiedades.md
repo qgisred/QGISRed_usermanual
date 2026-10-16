@@ -71,8 +71,10 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 | **Diameter** | Diámetro del depósito (0 si usa curva de volumen) |
 | **MinVol** | Volumen mínimo (m³) |
 | **VolCurve** | ID de la curva de volumen (para geometría no cilíndrica) |
-| **MixModel** | Modelo de mezcla: MIXED, 2COMP, FIFO, LIFO |
-| **MixFraction** | Fracción del primer compartimento (modelo 2COMP) |
+| **MixModel** | Modelo de mezcla: MIXED, 2COMP, FIFO, LIFO. Por defecto, MIXED en un depósito nuevo |
+| **MixFraction** | Fracción del primer compartimento (solo visible si MixModel = 2COMP) |
+
+> Ambos campos solo se muestran si el proyecto tiene activo un modelo de calidad (Chemical, Age o Trace); sin modelo de calidad, EPANET no mezcla nada y los campos no aportan información.
 
 ---
 
@@ -119,7 +121,7 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 
 El diálogo incluye un **navegador** (Browser) que permite:
 
-- **Ir a elemento conectado**: lista los nudos y elementos conectados al elemento actual para saltar a ellos.
+- **Ir a elemento conectado**: lista los nudos y elementos conectados al elemento actual para saltar a ellos. En una tubería/válvula/bomba se listan sus dos nudos extremos; en un nudo, las líneas que llegan a él. En ambos casos se añaden válvulas de aislamiento, contadores y acometidas, pero solo si su ubicación coincide con el elemento (dentro de la tolerancia de nudo del proyecto) — no basta con estar simplemente cerca.
 - **Historial**: botones Anterior / Siguiente para volver a elementos visitados anteriormente sin cerrar el diálogo.
 - **Centrar en mapa**: botón para desplazar el mapa al elemento actualmente mostrado.
 
