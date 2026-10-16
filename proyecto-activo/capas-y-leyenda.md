@@ -102,10 +102,10 @@ Pumps: 8
 
 **Barra Project → Editor de leyenda** (Legend editor)
 
-Abre un panel flotante que permite construir y personalizar la **simbología** de las capas del proyecto sin navegar por el menú de propiedades de capa de QGIS: tipo de leyenda, clasificación automática, tamaños, colores, guardado/carga de estilos y reglas propias por tipo de elemento.
+Abre un panel flotante que permite construir y personalizar la **simbología** de las capas del proyecto sin navegar por el menú de propiedades de capa de QGIS: tipo de leyenda, clasificación automática, tamaños, colores, opacidad y borde en capas de polígono, biblioteca de rampas/paletas propia, guardado/carga de estilos y reglas propias por tipo de elemento.
 
 <figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="Panel del Editor de leyenda de QGISRed"><figcaption><p>Panel del Editor de leyenda de QGISRed</p></figcaption></figure>
-<!-- TODO: captura desactualizada, el diálogo se rediseñó por completo (ver commit a3038c2 y siguientes, 20–31 jul 2026) -->
+<!-- TODO: captura desactualizada, el diálogo se rediseñó por completo y ha seguido cambiando desde entonces (bloque de commits [Legends]/[Styles], sep-oct 2026) -->
 *Panel del Editor de leyenda: estilos predefinidos y personalización de colores y tamaños.*
 
 ### Elegir la capa
@@ -115,46 +115,82 @@ En la cabecera del diálogo:
 - **Group** — grupo del árbol de capas sobre el que quieres trabajar (Inputs, Results, Queries y sus subgrupos...).
 - **Map Layer** — capa concreta dentro de ese grupo. También puedes cambiar de capa seleccionándola directamente en el panel de capas de QGIS; el editor sigue la selección automáticamente.
 
+### Selector de variante
+
+Varias capas de entrada muestran un desplegable adicional que filtra la tabla y las reglas de color/tamaño/opacidad a un subconjunto de la capa en vez de a todos sus elementos a la vez:
+
+| Capa | Desplegable | Opciones |
+|---|---|---|
+| Meters | **Meter Type** | "All types" o un tipo concreto de contador (los distintos iconos apilados en el símbolo) |
+| Junctions | **Demand** | "All", "Outflows (> 0)", "Inflows (< 0)" |
+| Sources | **Source Type** | "All types" o un tipo concreto de fuente |
+| Service Connections | **Component** | "All", "Line", "Demand circle" |
+| Capas de enlace (Pipes y similares) | **Component** | "All", "Line", "Marker" |
+| Nodos del árbol de conectividad (Tree) | **Node** | "All", "Junctions", "Root node" |
+| Capas con tipos de elemento propios | **Element** | "All" + un tipo por cada elemento posible de esa capa |
+
+Mientras el selector esté en "All" (o no tenga variantes), el color/tamaño se aplica a todos los elementos a la vez salvo que la capa tenga reglas de estilo fijas (ver más abajo).
+
 ### Tipo de leyenda y clasificación
 
-El desplegable **Legend Type** ofrece, según el tipo de capa, entre **Single Symbol**, **Categorized** y **Graduated**. Solo aparecen las opciones que tienen sentido para esa capa (por ejemplo, una capa de resultados numéricos no ofrece Single Symbol).
-
-> 💡 Para la capa **Meters** aparece además el desplegable **Meter Type**, que filtra la tabla y las reglas de color/tamaño a "All types" o a un tipo concreto de contador (los distintos iconos apilados en el símbolo de Meters).
+El desplegable **Legend Type** ofrece, según el tipo de capa, entre **Single Symbol**, **Categorized** y **Graduated**. Solo aparecen las opciones que tienen sentido para esa capa (por ejemplo, una capa de resultados numéricos no ofrece Single Symbol); si la capa es de tipo Single Symbol sin clases, el panel avisa con el texto "Single symbol layer: no size or color classes."
 
 La tabla central lista una fila por clase, con casilla de visibilidad, color, tamaño, valor/rango (o categoría) y etiqueta de leyenda:
 
-- **Classes** (spinbox) fija el número de clases; el botón junto a él, **Classify All**, añade una clase por cada valor único de la capa (categórica) o reclasifica automáticamente el rango numérico según el modo elegido en **Intervals**.
-- Los botones **+ / -** junto a Classes añaden o quitan clases: clic izquierdo añade una clase debajo de la selección, clic derecho la añade encima; en leyendas categóricas, doble clic añade una clase especial "Other values" que agrupa el resto de valores no clasificados.
+- **Classes** es editable solo cuando el modo de clasificación admite un número variable de clases (por ejemplo, no en modo Manual sobre una leyenda numérica ni en capas con leyenda fija); en el resto de casos aparece en gris, sin flechas, y no se puede teclear. El botón junto a él, **Add all values** (antes "Classify All"), añade una clase por cada valor único de la capa (categórica) o reclasifica automáticamente el rango numérico según el modo elegido en **Intervals**.
+- El botón **+** junto a Classes añade una clase debajo de la selección con un solo clic; la flecha a su lado abre un menú con "Add class above the selection" y, en leyendas categóricas, 'Add "Other values" class' (una clase especial que agrupa el resto de valores no clasificados). El botón **-** quita la clase seleccionada.
 - **Intervals** (`cbMode`) fija el método de clasificación automática para leyendas graduadas: Manual, Equal Interval, Fixed Interval, Quantile (Equal Count), Natural Breaks (Jenks), Standard Deviation y Pretty Breaks. Con **Fixed Interval** aparece el campo **Interval Range** para indicar el ancho de cada clase.
 - Puedes editar el rango de una clase a mano haciendo **doble clic sobre su valor** (columna Value) para abrir un pequeño diálogo con los límites inferior y superior.
-- **Up / Down** (flechas junto a la tabla) reordenan la clase seleccionada.
+- **Up / Down** (flechas junto a la tabla) reordenan la clase seleccionada a mano. El desplegable **Class Order** (None / Ascending / Descending), por encima de la tabla, reordena todas las clases por su valor automáticamente en el momento de aplicar la leyenda.
 
 ### Tamaños
 
-El bloque **Sizes** controla el tamaño (grosor de línea o tamaño de símbolo puntual) de las clases:
+El bloque **Sizes** controla el tamaño de las clases, siempre en milímetros salvo la excepción de abajo:
 
 - **Sizes** (`cbSizes`): Manual, Equal, Linear, Quadratic, Exponential o Proportional to Value.
 - **Equal** usa un único campo **Value** para todas las clases.
 - Linear/Quadratic/Exponential/Proportional to Value reparten el tamaño entre **Min** y **Max** según la curva elegida, con la casilla **Invert** para intercambiar qué extremo (menor o mayor valor) recibe el tamaño mínimo.
 
+> 💡 En capas con leyenda de estado fija (ver "Reglas de estilo específicas" más abajo) o en una capa Single Symbol con el selector de variante en "All", la columna cambia de cabecera a **Size (%)**: el valor ya no es un tamaño en mm sino un **porcentaje de los tamaños actuales** — 100 % deja cada elemento con el tamaño que ya tiene dibujado, y el ajuste escala todos a la vez en vez de fijar un tamaño absoluto por clase.
+
 ### Colores
 
-El bloque **Colors** controla el color de cada clase:
+El bloque **Colors** controla el color de cada clase. El desplegable **Colors** (`cbColors`) ofrece, además de Manual/Equal/Random, las rampas y paletas de la biblioteca agrupadas por tipo:
 
-- **Colors** (`cbColors`): Manual, Equal, Random, Ramp o Palette.
-- **Equal** aplica un único color (botón de color junto al desplegable) a todas las clases.
-- **Random** genera colores aleatorios distintos por clase, con el mismo criterio de "colores aleatorios barajados" (shuffle) que usa QGIS de forma nativa. El botón de refrescar junto al desplegable (visible solo en este modo) vuelve a barajar los colores sin cambiar nada más.
-- **Ramp** muestra, a todo lo ancho del diálogo, el selector nativo de rampa de color de QGIS para elegir la rampa a aplicar sobre las clases; incluye tanto el catálogo estándar de QGIS como rampas propias de QGISRed.
-- **Palette** reparte los colores tomando una paleta categórica en vez de una rampa continua.
-- La casilla **Invert** intercambia el sentido de la rampa/paleta.
+- **Manual** — cada clase mantiene el color que tenga puesto a mano.
+- **Equal** — un único color (botón de color junto al desplegable) para todas las clases.
+- **Random** — colores aleatorios distintos por clase, con el mismo criterio de "colores aleatorios barajados" (shuffle) que usa QGIS de forma nativa. El botón de refrescar junto al desplegable (visible solo en este modo) vuelve a barajar los colores sin cambiar nada más.
+- **2 colors Ramps / 3 colors Ramps / > 3 colors Ramps** — rampas de color continuas, agrupadas por cuántos colores definen la rampa.
+- **Span Palettes** — paleta categórica cuyos colores se reparten a lo largo del rango de clases conservando el primero y el último.
+- **Sequential Palettes** — paleta categórica cuyos colores se asignan en el orden en que están declarados en la paleta.
+- **Labeled Palettes** — paleta categórica donde cada clase recibe el color cuya etiqueta coincide con su propio valor.
+
+El propio editor **recomienda una opción** según el tipo de leyenda (Span Palettes para leyendas numéricas; Labeled Palettes si existe una paleta etiquetada que encaje con las categorías de la capa, o Sequential Palettes en cualquier otro caso categórico): esa opción aparece en negrita con el sufijo "(recommended)". Las opciones sin ninguna rampa/paleta de ese tipo en la biblioteca activa, o Labeled Palettes sobre una leyenda numérica, aparecen deshabilitadas con un tooltip explicando el motivo.
+
+La casilla **Invert** intercambia el sentido de la rampa/paleta elegida.
 
 > 💡 Para la capa de nodos del árbol de conectividad (Tree), el color de la fila no tiñe el símbolo entero: edita solo el **color de trazo (stroke)** del círculo exterior del nodo, dejando la estrella y los iconos de elemento con su color propio.
+
+### Biblioteca de rampas y paletas
+
+Junto al desplegable Colors, **Symbol library** deja elegir de dónde salen las rampas y paletas que ofrece ese desplegable:
+
+- **Use default** — la biblioteca que trae QGISRed de serie.
+- **Use owner** — tu propia biblioteca editable. Al seleccionarla aparece el botón **Edit owner**, que abre el gestor de estilos nativo de QGIS (Style Manager) sobre esa biblioteca para añadir, editar o borrar rampas, paletas y símbolos. Los cambios que hagas ahí se reflejan al momento en el desplegable Colors, incluso recalculando los colores ya aplicados si la rampa activa cambió.
+
+### Opacidad y borde (capas de relleno)
+
+En capas cuyo símbolo es un relleno de polígono (por ejemplo, Sectores Hidráulicos y de Demanda), el panel añade dos controles que se aplican **a la vez a todas las clases**, no clase por clase:
+
+- **Opacity** (0–100 %) — opacidad del relleno; 100 % es sólido, 0 % invisible.
+- **Border** — modo del borde de cada clase: "No border", "Black", "Fill color" (el borde toma el mismo color que el relleno) o "Darker than the fill"; con cualquier opción salvo "No border" aparece además el ancho del borde en mm.
 
 ### Reglas de estilo específicas por tipo de capa
 
 Los elementos de entrada (Inputs) y algunas capas de consulta llevan reglas de estilo con estados fijos que el color/tamaño que elijas respeta, en lugar de sobrescribir el símbolo entero. Por ejemplo, Pipes/Valves/Pumps mantienen en rojo el estado "cerrada" y las Valves activas en naranja pase lo que pase con el color que elijas para el resto. Entre las capas con reglas propias:
 
 - **Multiple Demands**: el color elegido solo tiñe la rama de "demanda positiva" del símbolo (el marcador interior), igual que en Junctions; la demanda negativa y el resto del símbolo mantienen sus colores fijos.
+- **Junctions**: con el selector **Demand** en "Outflows (> 0)" o "Inflows (< 0)" puedes clasificar y colorear cada grupo de nudos por separado; las demandas negativas conservan siempre blanco en las leyendas automáticas por rango.
 - **Isolation Valves**: el color elegido solo sustituye al estado "abierta, sin pérdida de carga"; los colores de cerrada (rojo), con pérdida de carga (ámbar) y no disponible (gris) están fijados por la propia leyenda y no se pueden editar desde aquí.
 - **Meters**: el color y el tamaño se aplican según lo que tengas seleccionado en **Meter Type** — a todos los tipos de contador a la vez, o solo al tipo elegido, sin tocar el resto de iconos apilados.
 - **Service Connections**: el color elegido se aplica al trazo de la acometida activa y a una versión más clara del mismo color para su relleno; el resto de estados conserva su color propio.
