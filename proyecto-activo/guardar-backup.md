@@ -102,9 +102,9 @@ Al finalizar, QGISRed muestra en la barra de mensajes la ruta completa del ZIP c
 
 Cierra el proyecto actual de QGISRed y limpia la sesión de QGIS: elimina todas las capas cargadas y restablece el estado inicial.
 
-Es equivalente a usar _Proyecto → Nuevo_ en el menú de QGIS.
+Es equivalente a usar _Proyecto → Nuevo_, _Proyecto → Cerrar_ o _Proyecto → Abrir_ en el menú nativo de QGIS, y también a cerrar la ventana de QGIS directamente: QGISRed intercepta las cuatro acciones para preguntar con su propio diálogo, en vez de dejar que lo haga QGIS.
 
-> ⚠️ Si hay cambios no guardados en el archivo `.qgz`, QGIS preguntará si deseas guardarlos antes de cerrar.
+> ⚠️ Si hay cambios no guardados en el archivo `.qgz` de un proyecto QGISRed, aparece el diálogo **"¿Deseas guardar el mapa del proyecto actual?"** con tres opciones: **Yes** guarda y continúa (si el guardado falla, la acción se cancela), **No** descarta los cambios y continúa, **Cancel** aborta la acción (cerrar, nuevo proyecto o abrir otro) y el proyecto actual sigue abierto tal cual. Este diálogo solo aparece cuando hay un proyecto QGISRed activo; en una sesión de QGIS sin proyecto QGISRed, el comportamiento nativo de QGIS no cambia.
 
 ---
 

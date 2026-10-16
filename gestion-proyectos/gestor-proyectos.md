@@ -16,6 +16,8 @@ La ventana muestra todos los proyectos que han sido abiertos alguna vez en este 
 - **Doble clic** sobre cualquier proyecto → lo abre directamente.
 - Si hay un proyecto abierto con cambios sin guardar, QGISRed pedirá confirmación antes de cerrarlo.
 
+> 📝 Si el archivo `.qgz`/`.qgs` registrado para el proyecto ya no existe en la ruta esperada (por ejemplo, tras mover la carpeta a mano fuera de QGISRed), aparece el aviso _"We cannot find the QGIS project file. Do you want to find this file manually?"_. Respondiendo **Yes** puedes localizarlo con un explorador de archivos; respondiendo **No**, QGISRed reconstruye el proyecto directamente desde los grupos guardados en los metadatos (Inputs, Results, Issues… todos los que existan), no solo las capas de entrada.
+
 ## Operaciones disponibles
 
 ### Cargar (Load)
@@ -54,8 +56,10 @@ Cambia el nombre de la red y actualiza automáticamente el nombre de **todos los
 
 1. Selecciona el proyecto.
 2. Pulsa **Renombrar**.
-3. El diálogo ofrece dos casillas independientes, ambas marcadas por defecto: **Rename project data** (renombra los ficheros de datos de la red) y **Rename project map file** (renombra también el proyecto `.qgz`/`.qgs` de QGIS, si existe). Debe quedar al menos una marcada.
-4. Introduce el nuevo nombre en el campo correspondiente a cada casilla activa.
+3. El diálogo ofrece tres casillas independientes: **Rename project data** (renombra los ficheros de datos de la red) y **Rename project map file** (renombra también el proyecto `.qgz`/`.qgs` de QGIS, si existe) — ambas marcadas por defecto — y **Rename project folder:** (renombra también la carpeta que contiene el proyecto), desmarcada por defecto. Debe quedar al menos una marcada.
+4. Introduce el nuevo nombre en el campo correspondiente a cada casilla activa. El campo de la carpeta sugiere automáticamente el mismo nombre que el proyecto mientras no se edite a mano.
+
+> 📝 **Rename project folder** se deshabilita, con el aviso _"Another project in this folder is currently open in QGIS"_, si la carpeta contiene otro proyecto distinto del que estás renombrando y ese otro proyecto está actualmente abierto en QGIS — para no mover ni borrar archivos sobre los que QGIS mantiene un bloqueo. El resto de proyectos que compartan la carpeta siguen apareciendo en la lista con normalidad tras el renombrado.
 
 > ⚠️ Si tienes el proyecto abierto en QGIS, ciérralo antes de renombrarlo para evitar que QGIS mantenga bloqueos sobre los archivos.
 
