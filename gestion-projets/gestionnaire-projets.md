@@ -16,6 +16,8 @@ La fenêtre affiche tous les projets qui ont déjà été ouverts sur cet ordina
 - **Double-cliquez** sur n'importe quel projet → l'ouvre directement.
 - S'il existe un projet ouvert avec des modifications non enregistrées, QGISRed demandera une confirmation avant de le fermer.
 
+> 📝 Si le fichier `.qgz`/`.qgs` enregistré pour le projet n'existe plus à l'emplacement attendu (par exemple, après avoir déplacé le dossier à la main hors de QGISRed), l'avertissement _"We cannot find the QGIS project file. Do you want to find this file manually?"_ apparaît. Répondre **Yes** permet de le localiser avec un explorateur de fichiers ; répondre **No**, QGISRed reconstruit le projet directement à partir des groupes enregistrés dans les métadonnées (Inputs, Results, Issues… tous ceux qui existent), pas seulement les couches d'entrée.
+
 ## Opérations disponibles
 
 ### Charger (Charger)
@@ -54,8 +56,10 @@ Renomme le réseau et met automatiquement à jour le nom de **tous les fichiers*
 
 1. Sélectionnez le projet.
 2. Appuyez sur **Renommer**.
-3. La boîte de dialogue propose deux cases indépendantes, toutes deux cochées par défaut : **Renommer les données du projet** (renomme les fichiers de données réseau) et **Renommer le fichier de carte du projet** (renomme également le projet QGIS `.qgz`/`.qgs`, s'il existe). Au moins un doit être marqué.
-4. Saisissez le nouveau nom dans le champ correspondant à chaque case active.
+3. La boîte de dialogue propose trois cases indépendantes : **Renommer les données du projet** (renomme les fichiers de données réseau) et **Renommer le fichier de carte du projet** (renomme également le projet QGIS `.qgz`/`.qgs`, s'il existe) — toutes deux cochées par défaut — et **Rename project folder:** (renomme également le dossier contenant le projet), décochée par défaut. Au moins une doit être marquée.
+4. Saisissez le nouveau nom dans le champ correspondant à chaque case active. Le champ du dossier suggère automatiquement le même nom que le projet tant qu'il n'est pas modifié à la main.
+
+> 📝 **Rename project folder** est désactivée, avec l'avertissement _"Another project in this folder is currently open in QGIS"_, si le dossier contient un autre projet que celui que vous renommez et que cet autre projet est actuellement ouvert dans QGIS — afin de ne pas déplacer ni supprimer des fichiers sur lesquels QGIS maintient un verrou. Les autres projets partageant le dossier continuent d'apparaître normalement dans la liste après le renommage.
 
 > ⚠️ Si le projet est ouvert dans QGIS, fermez-le avant de le renommer pour empêcher QGIS de maintenir des verrous sur les fichiers.
 

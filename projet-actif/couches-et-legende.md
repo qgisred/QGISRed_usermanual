@@ -102,10 +102,10 @@ Utile pour vérifier que l'importation a été terminée ou pour documenter la t
 
 **Barre de projet → Éditeur de légende** (Éditeur de légende)
 
-Ouvre un panneau flottant qui vous permet de créer et de personnaliser la **symbologie** des couches du projet sans naviguer dans le menu des propriétés de la couche QGIS : type de légende, classification automatique, tailles, couleurs, styles d'enregistrement/chargement et règles propres par type d'élément.
+Ouvre un panneau flottant qui vous permet de créer et de personnaliser la **symbologie** des couches du projet sans naviguer dans le menu des propriétés de la couche QGIS : type de légende, classification automatique, tailles, couleurs, opacité et bordure sur les couches de polygones, bibliothèque de rampes/palettes propre, styles d'enregistrement/chargement et règles propres par type d'élément.
 
 <figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="Panneau de l'éditeur de légende QGISRed"><figcaption><p>Panneau de l'éditeur de légende QGISRed</p></figcaption></figure>
-<!-- TODO : capture d'écran obsolète, boîte de dialogue entièrement repensée (voir commit a3038c2 et suiv., 20-31 juillet 2026) -->
+<!-- TODO : capture d'écran obsolète, boîte de dialogue entièrement repensée et qui a continué à changer depuis (bloc de commits [Legends]/[Styles], sep-oct 2026) -->
 *Panneau Legend Editor : styles prédéfinis et personnalisation des couleurs et des tailles.*
 
 ### Choisir le calque
@@ -115,46 +115,82 @@ Dans l'en-tête de la boîte de dialogue :
 - **Groupe** — groupe de l'arborescence des couches sur laquelle vous souhaitez travailler (Entrées, Résultats, Requêtes et leurs sous-groupes...).
 - **Map Layer** — couche spécifique au sein de ce groupe. Vous pouvez également modifier les calques en les sélectionnant directement dans le panneau des calques de QGIS ; l'éditeur suit automatiquement la sélection.
 
+### Sélecteur de variante
+
+Plusieurs couches d'entrée affichent une liste déroulante supplémentaire qui filtre le tableau et les règles de couleur/taille/opacité à un sous-ensemble de la couche au lieu de tous ses éléments à la fois :
+
+| Couche | Liste déroulante | Options |
+|---|---|---|
+| Meters | **Meter Type** | « All types » ou un type précis de compteur (les différentes icônes empilées dans le symbole) |
+| Junctions | **Demand** | « All », « Outflows (> 0) », « Inflows (< 0) » |
+| Sources | **Source Type** | « All types » ou un type précis de source |
+| Service Connections | **Component** | « All », « Line », « Demand circle » |
+| Couches de liens (Pipes et similaires) | **Component** | « All », « Line », « Marker » |
+| Nœuds de l'arbre de connectivité (Tree) | **Node** | « All », « Junctions », « Root node » |
+| Couches avec leurs propres types d'éléments | **Element** | « All » + un type pour chaque élément possible de cette couche |
+
+Tant que le sélecteur est sur « All » (ou n'a pas de variante), la couleur/taille s'applique à tous les éléments à la fois, sauf si la couche a des règles de style fixes (voir plus bas).
+
 ### Type de légende et classification
 
-La liste déroulante **Type de légende** propose, selon le type de calque, entre **Symbole unique**, **Catégorisé** et **Gradué**. Seules les options pertinentes pour cette couche apparaissent (par exemple, une couche de résultats numériques n'offre pas de symbole unique).
+La liste déroulante **Type de légende** propose, selon le type de calque, entre **Symbole unique**, **Catégorisé** et **Gradué**. Seules les options pertinentes pour cette couche apparaissent (par exemple, une couche de résultats numériques n'offre pas de symbole unique) ; si la couche est de type Single Symbol sans classes, le panneau affiche l'avertissement « Single symbol layer: no size or color classes. »
 
-> 💡 Pour le calque **Mètres**, le menu déroulant **Type de compteur** apparaît également, qui filtre le tableau et les règles de couleur/taille sur "Tous les types" ou sur un type spécifique de compteur (les différentes icônes empilées dans le symbole Mètres).
+Le tableau central répertorie une ligne par classe, avec la case à cocher de visibilité, la couleur, la taille, la valeur/plage (ou catégorie) et l'étiquette de légende :
 
-Le tableau central répertorie une ligne par classe, avec la case à cocher de visibilité, la couleur, la taille, la valeur/plage (ou catégorie) et l'étiquette de légende :
-
-- **Classes** (spinbox) définit le nombre de classes ; Le bouton à côté, **Classifier tout**, ajoute une classe pour chaque valeur unique du calque (catégorique) ou reclasse automatiquement la plage numérique selon le mode choisi dans **Intervalles**.
-- Les boutons **+ / -** à côté de Classes ajoutent ou suppriment des classes : le clic gauche ajoute une classe en dessous de la sélection, le clic droit l'ajoute au dessus ; Dans les légendes catégorielles, un double-clic ajoute une classe spéciale "Autres valeurs" qui regroupe le reste des valeurs non classées.
-- **Intervalles** (`cbMode`) définit la méthode de classification automatique des légendes graduées : Manuel, Intervalle égal, Intervalle fixe, Quantile (Nombre égal), Ruptures naturelles (Jenks), Écart type et Jolies ruptures. Avec **Fixed Interval**, le champ **Interval Range** apparaît pour indiquer la largeur de chaque classe.
+- **Classes** n'est modifiable que lorsque le mode de classification admet un nombre variable de classes (par exemple, pas en mode Manual sur une légende numérique ni sur les couches à légende fixe) ; dans les autres cas, il apparaît en gris, sans flèches, et ne peut pas être saisi. Le bouton à côté, **Add all values** (anciennement « Classify All »), ajoute une classe pour chaque valeur unique du calque (catégorique) ou reclasse automatiquement la plage numérique selon le mode choisi dans **Intervalles**.
+- Le bouton **+** à côté de Classes ajoute une classe en dessous de la sélection en un seul clic ; la flèche à côté ouvre un menu avec « Add class above the selection » et, dans les légendes catégoriques, « Add "Other values" class » (une classe spéciale qui regroupe le reste des valeurs non classées). Le bouton **-** supprime la classe sélectionnée.
+- **Intervalles** (`cbMode`) définit la méthode de classification automatique des légendes graduées : Manuel, Intervalle égal, Intervalle fixe, Quantile (Nombre égal), Ruptures naturelles (Jenks), Écart type et Jolies ruptures. Avec **Fixed Interval**, le champ **Interval Range** apparaît pour indiquer la largeur de chaque classe.
 - Vous pouvez éditer manuellement la plage d'une classe en **double-cliquant sur sa valeur** (colonne Valeur) pour ouvrir une petite boîte de dialogue avec les limites inférieure et supérieure.
-- **Haut / Bas** (flèches à côté du tableau) réorganise la classe sélectionnée.
+- **Haut / Bas** (flèches à côté du tableau) réorganisent manuellement la classe sélectionnée. La liste déroulante **Class Order** (None / Ascending / Descending), au-dessus du tableau, réordonne automatiquement toutes les classes selon leur valeur au moment d'appliquer la légende.
 
 ### Tailles
 
-Le bloc **Sizes** contrôle la taille (épaisseur de ligne ou taille du symbole ponctuel) des classes :
+Le bloc **Sizes** contrôle la taille des classes, toujours en millimètres sauf l'exception ci-dessous :
 
 - **Tailles** (`cbSizes`) : Manuel, Égal, Linéaire, Quadratique, Exponentiel ou Proportionnel à la Valeur.
 - **Equal** utilise un seul champ **Value** pour toutes les classes.
 - Linéaire/Quadratique/Exponentiel/Proportionnel à la Valeur répartit la taille entre **Min** et **Max** selon la courbe choisie, avec la case **Inverser** pour échanger quelle extrémité (valeur inférieure ou supérieure) reçoit la taille minimale.
 
+> 💡 Sur les couches avec une légende d'état fixe (voir « Règles de style spécifiques » plus bas) ou sur une couche Single Symbol avec le sélecteur de variante sur « All », l'en-tête de colonne devient **Size (%)** : la valeur n'est plus une taille en mm mais un **pourcentage des tailles actuelles** — 100 % laisse chaque élément avec la taille déjà dessinée, et le réglage met à l'échelle tous les éléments à la fois au lieu de fixer une taille absolue par classe.
+
 ### Couleurs
 
-Le bloc **Colors** contrôle la couleur de chaque classe :
+Le bloc **Colors** contrôle la couleur de chaque classe. La liste déroulante **Colors** (`cbColors`) propose, en plus de Manual/Equal/Random, les rampes et palettes de la bibliothèque regroupées par type :
 
-- **Couleurs** (`cbColors`) : Manuel, Égal, Aléatoire, Rampe ou Palette.
-- **Égal** applique une seule couleur (bouton de couleur à côté de la liste déroulante) à toutes les classes.
-- **Random** génère différentes couleurs aléatoires par classe, avec les mêmes critères de « lecture aléatoire » que QGIS utilise nativement. Le bouton d'actualisation à côté de la liste déroulante (visible uniquement dans ce mode) remanie les couleurs sans rien changer d'autre.
-- **Ramp** affiche, sur toute la largeur de la boîte de dialogue, le sélecteur de rampe de couleurs natif de QGIS pour choisir la rampe à appliquer aux classes ; Il comprend à la fois le catalogue QGIS standard et les propres rampes de QGISRed.
-- **Palette** distribue les couleurs à l'aide d'une palette catégorielle au lieu d'une rampe continue.
-- La case **Inverser** échange la direction de la rampe/girouette.
+- **Manual** — chaque classe conserve la couleur qui lui a été attribuée à la main.
+- **Equal** — une seule couleur (bouton de couleur à côté de la liste déroulante) pour toutes les classes.
+- **Random** — des couleurs aléatoires différentes par classe, selon le même critère de « couleurs aléatoires mélangées » (shuffle) que QGIS utilise nativement. Le bouton de rafraîchissement à côté de la liste déroulante (visible uniquement dans ce mode) remélange les couleurs sans rien changer d'autre.
+- **2 colors Ramps / 3 colors Ramps / > 3 colors Ramps** — rampes de couleurs continues, regroupées selon le nombre de couleurs qui définissent la rampe.
+- **Span Palettes** — palette catégorique dont les couleurs sont réparties le long de la plage de classes en conservant la première et la dernière.
+- **Sequential Palettes** — palette catégorique dont les couleurs sont attribuées dans l'ordre où elles sont déclarées dans la palette.
+- **Labeled Palettes** — palette catégorique où chaque classe reçoit la couleur dont l'étiquette correspond à sa propre valeur.
+
+L'éditeur lui-même **recommande une option** selon le type de légende (Span Palettes pour les légendes numériques ; Labeled Palettes s'il existe une palette étiquetée qui correspond aux catégories de la couche, ou Sequential Palettes dans tout autre cas catégorique) : cette option apparaît en gras avec le suffixe « (recommended) ». Les options sans aucune rampe/palette de ce type dans la bibliothèque active, ou Labeled Palettes sur une légende numérique, apparaissent désactivées avec une infobulle expliquant pourquoi.
+
+La case **Inverser** échange le sens de la rampe/palette choisie.
 
 > 💡 Pour la couche de nœuds de l'arbre de connectivité (Tree), la couleur de la ligne ne colore pas l'intégralité du symbole : elle modifie uniquement la **couleur du trait** du cercle extérieur du nœud, laissant les icônes d'étoile et d'élément avec leur propre couleur.
+
+### Bibliothèque de rampes et palettes
+
+À côté de la liste déroulante Colors, **Symbol library** permet de choisir d'où viennent les rampes et palettes proposées par cette liste déroulante :
+
+- **Use default** — la bibliothèque fournie par défaut avec QGISRed.
+- **Use owner** — votre propre bibliothèque modifiable. En la sélectionnant, le bouton **Edit owner** apparaît, qui ouvre le gestionnaire de styles natif de QGIS (Style Manager) sur cette bibliothèque pour ajouter, modifier ou supprimer des rampes, palettes et symboles. Les modifications que vous y apportez se répercutent immédiatement dans la liste déroulante Colors, recalculant même les couleurs déjà appliquées si la rampe active a changé.
+
+### Opacité et bordure (couches de remplissage)
+
+Sur les couches dont le symbole est un remplissage de polygone (par exemple, les secteurs hydrauliques et de demande), le panneau ajoute deux contrôles qui s'appliquent **à toutes les classes à la fois**, pas classe par classe :
+
+- **Opacity** (0–100 %) — opacité du remplissage ; 100 % est plein, 0 % invisible.
+- **Border** — mode de bordure de chaque classe : « No border », « Black », « Fill color » (la bordure prend la même couleur que le remplissage) ou « Darker than the fill » ; avec n'importe quelle option sauf « No border », la largeur de la bordure en mm apparaît également.
 
 ### Règles de style spécifiques par type de calque
 
 Les éléments d'entrée (Inputs) et certaines couches de requête comportent des règles de style avec des états fixes que la couleur/taille que vous choisissez respecte, au lieu de remplacer l'intégralité du symbole. Par exemple, les Tuyaux/Vannes/Pompes gardent l'état "fermé" en rouge et les Vannes actives en orange, peu importe ce qui se passe avec la couleur que vous choisissez pour le reste. Parmi les couches avec leurs propres règles :
 
 - **Demandes Multiples** : la couleur choisie colore uniquement la branche "demande positive" du symbole (le marqueur intérieur), tout comme dans les Jonctions ; la demande négative et le reste du symbole conservent leurs couleurs fixes.
+- **Junctions** : avec le sélecteur **Demand** sur « Outflows (> 0) » ou « Inflows (< 0) », vous pouvez classer et colorer chaque groupe de nœuds séparément ; les demandes négatives conservent toujours le blanc dans les légendes automatiques par plage.
 - **Vannes d'isolement** : la couleur choisie remplace uniquement l'état « ouvert, pas de perte de pression » ; Les couleurs de fermé (rouge), avec perte de charge (ambre) et non disponible (gris) sont définies par la légende elle-même et ne peuvent pas être modifiées à partir d'ici.
 - **Mètres** : La couleur et la taille sont appliquées en fonction de ce que vous avez sélectionné dans **Type de compteur** — à tous les types de compteurs à la fois, ou uniquement au type choisi, sans toucher au reste des icônes empilées.
 - **Service Connections** : la couleur choisie est appliquée au trait de connexion actif et à une version plus claire de la même couleur pour son remplissage ; Les autres États conservent leur propre couleur.

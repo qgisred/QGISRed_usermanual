@@ -80,6 +80,10 @@ Deux combos situés sous les contrôles horaires :
 
 > Le bouton **Apparence** (icône en entête du groupe Nœuds) vous amène directement à l'onglet Apparence sans avoir à naviguer dans les onglets.
 
+> 💡 Lorsque le combo **Nodes** ou **Links** est réglé sur « None », la couche correspondante ne disparaît pas de la carte : elle s'affiche avec un symbole gris uniforme et sans légende, afin que le réseau reste visible comme référence tant qu'aucune variable de résultat n'est active pour ce type d'élément.
+
+> 💡 Dans le panneau des couches de QGIS, chaque couche de résultats ouverte affiche le nom de la propriété représentée avec son unité (par exemple, **Pressions (m)**), et chaque classe de sa légende indique entre parenthèses le nombre d'éléments qu'elle contient — tout comme le font déjà les couches d'entrée.
+
 ---
 
 ### Onglet Rapport
@@ -129,6 +133,8 @@ Concentre toutes les options de présentation visuelle des résultats sur la car
 #### Fond de carte
 
 Vous permet de définir une couleur d’arrière-plan unie pour le canevas de la carte lors de l’affichage des résultats. La couleur est restaurée à l'original lorsque le quai est fermé. Le bouton ****** supprime la couleur d'arrière-plan.
+
+> 💡 Le contour des symboles des réservoirs et des bâches est automatiquement recalculé pour rester visible sur la couleur de fond choisie.
 
 #### Tout réinitialiser
 

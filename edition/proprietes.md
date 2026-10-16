@@ -71,8 +71,10 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 | **Diamètre** | Diamètre du réservoir (0 si utilisation de la courbe de volume) |
 | **MinVol** | Volume minimal (m³) |
 | **VolCurve** | ID de courbe de volume (pour géométrie non cylindrique) |
-| **MixModel** | Modèle de mélange : MIXTE, 2COMP, FIFO, LIFO |
-| **MixFraction** | Fraction du premier compartiment (modèle 2COMP) |
+| **MixModel** | Modèle de mélange : MIXTE, 2COMP, FIFO, LIFO. Par défaut, MIXTE sur un nouveau réservoir |
+| **MixFraction** | Fraction du premier compartiment (visible uniquement si MixModel = 2COMP) |
+
+> Ces deux champs ne s'affichent que si le projet a un modèle de qualité actif (Chemical, Age ou Trace) ; sans modèle de qualité, EPANET ne mélange rien et les champs n'apportent aucune information.
 
 ---
 
@@ -119,7 +121,7 @@ Les nœuds peuvent avoir plus d'une demande (catégories d'utilisateurs : résid
 
 La boîte de dialogue comprend un **navigateur** (Browser) qui permet :
 
-- **Aller à l'élément connecté** : répertorie les nœuds et éléments connectés à l'élément actuel pour y accéder.
+- **Aller à l'élément connecté** : répertorie les nœuds et éléments connectés à l'élément actuel pour y accéder. Sur une canalisation/vanne/pompe, ses deux nœuds d'extrémité sont listés ; sur un nœud, les liens qui y arrivent. Dans les deux cas, les vannes d'isolement, les compteurs et les branchements sont ajoutés, mais seulement si leur emplacement coïncide avec l'élément (dans la tolérance de nœud du projet) — être simplement proche ne suffit pas.
 - **Historique** : boutons Précédent / Suivant pour revenir aux éléments précédemment visités sans fermer la boîte de dialogue.
 - **Centrer sur la carte** : bouton pour déplacer la carte vers l'élément actuellement affiché.
 

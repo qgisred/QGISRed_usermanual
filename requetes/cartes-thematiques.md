@@ -81,7 +81,7 @@ Si vous modifiez les **unités**, la **formule de perte de charge** ou les **uni
 
 ## Résultat sur la carte
 
-Chaque case cochée génère sa propre couche (par exemple `Pipe Materials`, `Junction Elevations`) au sein du groupe **Requêtes → Cartes thématiques**. Les couches sont en lecture seule et se mettent à jour automatiquement lorsque vous modifiez le canal ou le nœud source (il n'est pas nécessaire de régénérer la carte manuellement après une modification spécifique) — la légende de chacune montre également le nombre d'éléments de chaque classe.
+Chaque case cochée génère sa propre couche (par exemple `Pipes_Materials`, `Junctions_Elevations` — toujours `Élément_Propriété`, les deux au pluriel sauf « Installation Year », qui reste au singulier) au sein du groupe **Requêtes → Cartes thématiques**. Les couches sont en lecture seule et se mettent à jour automatiquement lorsque vous modifiez le canal ou le nœud source (il n'est pas nécessaire de régénérer la carte manuellement après une modification spécifique) — la légende de chacune montre également le nombre d'éléments de chaque classe.
 
 Si vous cochez et confirmez à nouveau une case déjà générée, QGISRed remplace cette couche spécifique par la nouvelle configuration, sans toucher au reste des cartes actives.
 

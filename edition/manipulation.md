@@ -36,6 +36,8 @@ Déplace un ou plusieurs nœuds (Jonctions, Réservoirs, Bâches) en entraînant
 
 > Cet outil ne déplace **pas** les sommets intermédiaires des tuyaux. Pour cela, utilisez **Modifier les sommets du lien**.
 
+> 📝 Le point de départ du glissement s'aimante au nœud le plus proche dans un rayon de **10 pixels d'écran**, et non d'une distance fixe en unités de carte — la tolérance reste ainsi la même quel que soit le niveau de zoom ou le système de coordonnées du projet.
+
 ---
 
 ## Modifier les sommets du lien

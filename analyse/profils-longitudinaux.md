@@ -1,5 +1,7 @@
 # Profils longitudinaux
 
+> ⚠️ **Outil temporairement indisponible**. Le bouton **Longitudinal profile…** a été retiré de la barre Analysis dans cette version du plugin. Le reste de cette page décrit l'outil tel qu'il fonctionnait avant son retrait, pour le jour où il sera de nouveau disponible.
+
 **Barre d'analyse → Profil longitudinal…**
 
 Le profil longitudinal montre l'évolution d'une variable hydraulique le long d'un chemin défini de manière interactive sur le réseau. L'axe X représente la distance accumulée depuis le nœud initial du tour ; l'axe Y, la valeur de la variable sélectionnée à chaque nœud du chemin. Il est possible d'ouvrir simultanément plusieurs panneaux de profil, chacun avec son propre chemin, ses variables et ses paramètres indépendants.

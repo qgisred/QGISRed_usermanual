@@ -102,9 +102,9 @@ Une fois terminé, QGISRed affiche le chemin complet du ZIP créé dans la barre
 
 Fermez le projet QGISRed actuel et nettoyez la session QGIS : supprimez toutes les couches chargées et restaurez l'état initial.
 
-Cela équivaut à utiliser _Projet → Nouveau_ dans le menu QGIS.
+Cela équivaut à utiliser _Projet → Nouveau_, _Projet → Fermer_ ou _Projet → Ouvrir_ dans le menu natif de QGIS, ainsi qu'à fermer directement la fenêtre de QGIS : QGISRed intercepte les quatre actions pour poser la question avec sa propre boîte de dialogue, au lieu de laisser QGIS le faire.
 
-> ⚠️ S'il y a des modifications non enregistrées dans le fichier `.qgz`, QGIS vous demandera si vous souhaitez les enregistrer avant de fermer.
+> ⚠️ S'il y a des modifications non enregistrées dans le fichier `.qgz` d'un projet QGISRed, la boîte de dialogue **« Voulez-vous enregistrer la carte du projet actuel ? »** apparaît avec trois options : **Yes** enregistre et continue (si l'enregistrement échoue, l'action est annulée), **No** abandonne les modifications et continue, **Cancel** annule l'action (fermeture, nouveau projet ou ouverture d'un autre) et le projet actuel reste ouvert tel qu'il était. Cette boîte de dialogue n'apparaît que lorsqu'un projet QGISRed est actif ; dans une session QGIS sans projet QGISRed, le comportement natif de QGIS ne change pas.
 
 ---
 

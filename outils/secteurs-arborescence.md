@@ -4,9 +4,9 @@ Les deux derniers outils de la barre Outils effectuent des analyses topologiques
 
 ---
 
-## Constructeur de secteurs de demande…
+## Obtenir les secteurs de demande
 
-**Barre d'outils → Constructeur de secteurs de demande…**
+**Barre d'outils → Obtenir les secteurs de demande** (anciennement « Constructeur de secteurs de demande… »)
 
 Il génère une sectorisation du réseau basée sur la présence de **débitmètres** (débitmètres). Chaque secteur de demande est le sous-réseau alimenté par un seul débitmètre, sans croiser d'autres débitmètres.
 
@@ -37,7 +37,10 @@ Calcule l'**arbre couvrant le coût minimum** du réseau à partir d'un nœud s�
 
 1. Activez l'outil.
 2. Cliquez sur le nœud source (par exemple, une source d'approvisionnement ou un point de livraison d'eau élevée).
-3. QGISRed calcule l'arbre et génère la couche `Tree` sur la carte, avec la distance accumulée depuis l'origine étiquetée sur chaque tronçon.
+3. QGISRed propose un nom pour l'arbre (par défaut, l'ID du nœud suivi de la fonction de coût choisie, par ex. `J5_R`) ; vous pouvez le modifier avant de calculer.
+4. QGISRed calcule l'arbre et génère son propre groupe **Tree_&lt;nom&gt;** sur la carte, avec la distance accumulée depuis l'origine étiquetée sur chaque tronçon.
+
+> 📝 Vous pouvez avoir **plusieurs arbres ouverts à la fois**, chacun avec son propre nom, groupe et paire de couches (nœuds et tronçons) indépendants — ils ne se remplacent pas entre eux. La boîte de dialogue de l'outil elle-même liste les arbres déjà calculés pour le projet et permet de supprimer individuellement n'importe lequel d'entre eux, sans affecter les autres.
 
 ### Interprétation du résultat
 
@@ -51,3 +54,5 @@ L'arborescence résultante montre quel chemin l'eau suivrait depuis le nœud sou
 ### ID du nœud racine
 
 Dans la couche de nœuds générée par l'arborescence, le nœud d'origine (racine) est identifié avec la valeur **"ROOT"** dans le champ `NodeType`. Le reste des nœuds ont leur type EPANET habituel (Jonction, Tank, Reservoir...). Cela vous permet de créer des règles de symbologie spécifiques pour le nœud racine directement dans QGIS.
+
+Le nœud racine conserve également, uniquement dans sa propre ligne, les paramètres avec lesquels l'arbre a été généré : le champ `CostFn` indique la fonction de coût utilisée (résistance hydraulique, diamètre ou longueur) et `IgnClosed` si les tuyaux fermés ont été ignorés. Utile pour vérifier comment un arbre déjà généré a été calculé sans avoir à répéter le processus.

@@ -30,7 +30,7 @@ La barre **Outils** regroupe les outils de traitement massifs : calcul automatiq
 
 | # | Outil | Fonction |
 |---|-------------|---------|
-| 8 | **Constructeur de secteurs de demande…** | Génère des secteurs de demande délimités par des débitmètres |
+| 8 | **Obtenir les secteurs de demande** | Génère des secteurs de demande délimités par des débitmètres |
 | 9 | **Arbre à coût minimum…** | Calculer l'arbre de coût minimum à partir d'un nœud sélectionné |
 
 ---

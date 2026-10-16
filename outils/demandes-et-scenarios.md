@@ -147,3 +147,5 @@ Répond à la question opérationnelle : **"Quelles vannes dois-je fermer pour 
 4. Vous pouvez cliquer sur plusieurs tuyaux au sein de la même session pour accumuler l'analyse.
 
 La couche auxiliaire `IsolatedSegments` est générée avec toutes les informations. Ne modifie pas le modèle.
+
+Les nœuds avec une **demande négative** (un apport d'eau, comme une station de relevage ou un transfert) sont traités comme un point d'approvisionnement : ils sont fermés comme un réservoir ou une bâche, mais l'analyse continue d'explorer le réseau au-delà d'eux au lieu de s'arrêter là. Dans le résumé des résultats, ils sont comptés comme des **Jonctions**, avec les vannes, les pompes, les réservoirs et les bâches.
