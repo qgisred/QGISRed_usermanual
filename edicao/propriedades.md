@@ -71,8 +71,10 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 | **Diameter** | Diâmetro do RNV (0 se utilizar curva de volume) |
 | **MinVol** | Volume mínimo (m³) |
 | **VolCurve** | ID da curva de volume (para geometria não cilíndrica) |
-| **MixModel** | Modelo de mixagem: MIXED, 2COMP, FIFO, LIFO |
-| **MixFraction** | Fração do primeiro compartimento (modelo 2COMP) |
+| **MixModel** | Modelo de mixagem: MIXED, 2COMP, FIFO, LIFO. Por padrão, MIXED em um RNV novo |
+| **MixFraction** | Fração do primeiro compartimento (visível apenas se MixModel = 2COMP) |
+
+> Ambos os campos só são exibidos se o projeto tiver um modelo de qualidade ativo (Chemical, Age ou Trace); sem modelo de qualidade, o EPANET não mistura nada e os campos não fornecem nenhuma informação.
 
 ---
 
@@ -119,7 +121,7 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 
 A caixa de diálogo inclui um **navegador** (Navegador) que permite:
 
-- **Ir para o elemento conectado**: lista os nós e elementos conectados ao elemento atual para ir até eles.
+- **Ir para o elemento conectado**: lista os nós e elementos conectados ao elemento atual para ir até eles. Em um tubo/válvula/bomba são listados seus dois nós extremos; em um nó, as linhas que chegam até ele. Em ambos os casos são adicionados válvulas de isolamento, medidores e ramais, mas somente se sua localização coincidir com o elemento (dentro da tolerância de nó do projeto) — não basta estar simplesmente próximo.
 - **Histórico**: botões Anterior/Próximo para retornar aos itens visitados anteriormente sem fechar a caixa de diálogo.
 - **Centralizar no mapa**: botão para mover o mapa para o elemento exibido atualmente.
 

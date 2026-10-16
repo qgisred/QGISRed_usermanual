@@ -80,6 +80,10 @@ Dois combos localizados sob os controles de tempo:
 
 > O botão **Aparência** (ícone no cabeçalho do grupo Nós) leva você diretamente para a aba Aparência sem precisar navegar pelas abas.
 
+> 💡 Quando o combo **Nodes** ou **Links** está em "None", a camada correspondente não desaparece do mapa: ela é exibida com um símbolo cinza uniforme e sem legenda, para que a rede continue visível como referência enquanto não houver nenhuma variável de resultado ativa nesse tipo de elemento.
+
+> 💡 No painel de camadas do QGIS, cada camada de resultados aberta mostra o nome da propriedade representada junto com sua unidade (por exemplo, **Pressões (m)**), e cada classe de sua legenda indica entre parênteses o número de elementos que ela contém — assim como já fazem as camadas de entrada.
+
 ---
 
 ### Guia Relatório
@@ -129,6 +133,8 @@ Concentra todas as opções de apresentação visual dos resultados no mapa. As 
 #### Plano de fundo do mapa
 
 Permite definir uma cor de fundo sólida para a tela do mapa durante a visualização dos resultados. A cor é restaurada ao original quando o encaixe é fechado. O botão ****** remove a cor de fundo.
+
+> 💡 O contorno dos símbolos de RNVs e RNFs é recalculado automaticamente para continuar visível sobre a cor de fundo escolhida.
 
 #### Redefinir tudo
 

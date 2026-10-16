@@ -14,9 +14,11 @@ Abre o painel **Consultas por Propriedades**, ferramenta de filtragem que destac
 O painel tem uma cor de identificação **roxo** (`#7B1FA2`) em seu cabeçalho para distingui-lo do resto dos painéis QGISRed. Contém:
 
 - **Seletor de tipo de elemento**: Tubulações, Junções, RNVs, RNFs, Bombas, Válvulas
+- **Modo de critério**: duas opções, **One Criterion** (uma única condição ativa) e **Multiple Criteria** (lista de condições combináveis, veja abaixo)
 - **Área de condições**: uma ou mais linhas com campo, operador e valor
 - **Botão Executar**: aplica a consulta e destaca o resultado
 - **Botão Limpar**: remove o destaque do mapa
+- **Painel de Estatísticas**: seletor de propriedade e tabela com os resultados numéricos da consulta (veja abaixo)
 - **Rótulo de tempo**: Quando os resultados da simulação são carregados, exibe o instante ativo com o prefixo "Tempo:" seguido do valor em negrito no formato `HH:MM:SS`. O rótulo de estatísticas do resultado também é mostrado em negrito.
 
 ---
@@ -70,14 +72,32 @@ Campos como `Tag` ou `Id`:
 1. Abra **Consultas por propriedades** na barra de Consultas.
 2. Selecione o **tipo de item** que você deseja filtrar.
 3. Adicione uma ou mais condições: escolha o campo, o operador e escreva o valor.
-4. Pressione **Executar**. QGISRed avalia a consulta e destaca em **magenta** todos os elementos que atendem todas as condições simultaneamente (lógica AND).
+4. Pressione **Executar**. QGISRed avalia a consulta e destaca em **magenta** os elementos que a atendem — no modo Multiple Criteria, segundo a lógica de inclusão/exclusão explicada abaixo.
 5. Os itens destacados permanecem visíveis enquanto o painel está ativo. Pressione **Limpar** para remover o destaque.
 
 ---
 
-## Combinação de condições
+## Modo de critério único ou múltiplo
 
-Todas as condições ativas são combinadas com a lógica **AND**: um elemento só é destacado se atender a **todas** condições de uma só vez. Para uma lógica OR (qualquer uma das condições), ela executa consultas separadas com um único critério por vez.
+O botão **One Criterion** limita o painel a uma única condição ativa por vez: alterar o campo, o operador ou o valor substitui a condição anterior. É o modo mais simples para consultas pontuais.
+
+O botão **Multiple Criteria** abre uma lista de condições independentes que podem ser combinadas entre si:
+
+- **Add**: adiciona a condição configurada acima à lista, marcada como condição de **inclusão** (`+`).
+- **Subtract**: adiciona a condição configurada acima à lista, marcada como condição de **exclusão** (`-`).
+- Cada linha da lista pode ser **reordenada** (setas para cima/baixo), **editada** (clique duplo ou botão de edição), **excluída**, ou **ativada/desativada** temporariamente sem excluí-la (botão "Enable/disable selected criterion") para testar combinações sem perder as condições já definidas.
+
+Ao passar de **Multiple Criteria** para **One Criterion** com mais de uma condição na lista, o QGISRed pede confirmação: apenas a primeira é mantida, o restante é descartado.
+
+### Lógica de combinação
+
+As condições de inclusão (`+`) se combinam entre si com **OR**: um elemento é destacado se atender a **qualquer uma** delas. As condições de exclusão (`-`) se combinam entre si com **AND** e o resultado é **subtraído** do anterior. Resumindo:
+
+> *(qualquer condição de inclusão)* **AND NOT** *(todas as condições de exclusão)*
+
+Por exemplo, para encontrar todos os tubos com diâmetro ≥ 300 mm que **não** sejam de ferro fundido: uma condição `Diameter >= 300` marcada com **Add**, e uma condição `Material = Cast Iron` marcada com **Subtract**.
+
+No modo **One Criterion** há apenas uma condição, portanto essa combinação não se aplica.
 
 ---
 
@@ -88,6 +108,28 @@ Caso o projeto possua resultados de simulação carregados, os campos de resulta
 > ⚠️ **Campos de qualidade condicional.** Os campos de resultado `Quality` e `ReactRate` só aparecem quando o modelo de qualidade do projeto permite: `Quality` fica oculto com o modelo *None* e `ReactRate` só fica visível com o modelo *Chemical*. Os campos de qualidade estáticos (`BulkCoeff`, `WallCoeff`, `ReactCoef`, `IniQuality`) ficam ocultos quando o modelo de qualidade é *None*, *Age* ou *Trace*.
 
 ---
+
+## Tabela de Estatísticas
+
+O painel calcula estatísticas numéricas sobre os elementos destacados sem necessidade de exportar nada. Selecione no menu suspenso **Statistics of... for selected Elements** a propriedade a calcular — qualquer campo numérico do tipo de elemento ativo, ou uma das variáveis de resultado se houver simulação carregada — e a tabela é atualizada automaticamente.
+
+As colunas dependem do tipo de propriedade:
+
+| Propriedade | Colunas |
+|---|---|
+| Campo de texto ou lista | **Count** (número de elementos) |
+| Campo numérico | **Count**, **Avg**, **Min**, **Max**, e **Sum** ou **StdD** de acordo com a propriedade (vazões e demandas mostram a soma; o restante, o desvio padrão) |
+| **None** (sem propriedade) | apenas **Count** |
+
+No modo **One Criterion** a tabela mostra uma única linha com o resultado da condição ativa. No modo **Multiple Criteria** com várias condições habilitadas, mostra uma linha para cada condição (rotulada `Cr1`, `Cr2`...) e uma linha final **All** em amarelo com o resultado combinado (a mesma lógica de inclusão/exclusão do destaque no mapa) — assim é possível comparar quantos elementos cada condição contribui isoladamente em relação ao total combinado.
+
+## Exportar critérios e estatísticas
+
+Os botões de exportação do painel (critérios de consulta e tabela de estatísticas) salvam por padrão na subpasta `Queries/Queries by properties` do projeto, em vez da pasta raiz.
+
+> 📝 Ao exportar vários critérios combinados para texto ou CSV, cada linha é numerada como `Cr1:`, `Cr2:`... em vez de começar diretamente pelo operador da condição — assim uma planilha não interpreta por engano um critério que comece com `+` ou `-` como uma fórmula.
+
+O CSV de estatísticas inclui, antes da tabela de valores, linhas de cabeçalho com o projeto, o cenário, o tipo de elemento, a consulta ou consultas aplicadas e a grandeza exportada.
 
 ## Notas de uso
 

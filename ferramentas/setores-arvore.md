@@ -4,9 +4,9 @@ As duas últimas ferramentas da barra Ferramentas realizam análises topológica
 
 ---
 
-## Construtor de setores de demanda…
+## Obter setores de demanda
 
-**Barra de Ferramentas → Construtor de setores de demanda…**
+**Barra de Ferramentas → Obter setores de demanda** (anteriormente "Construtor de setores de demanda…")
 
 Gera uma setorização da rede com base na presença de **medidores de vazão** (medidores de vazão). Cada setor de demanda é a sub-rede atendida por um único medidor de vazão, sem cruzar outros medidores de vazão.
 
@@ -37,7 +37,10 @@ Calcula a **árvore geradora de custo mínimo** da rede a partir de um nó selec
 
 1. Ative a ferramenta.
 2. Clique no nó de origem (por exemplo, uma fonte de abastecimento ou um ponto de abastecimento de água em alta).
-3. O QGISRed calcula a árvore e gera a camada `Tree` no mapa, com a distância acumulada da origem rotulada em cada trecho.
+3. O QGISRed propõe um nome para a árvore (por padrão, o ID do nó seguido da função de custo escolhida, por exemplo `J5_R`); você pode editá-lo antes de calcular.
+4. O QGISRed calcula a árvore e gera seu próprio grupo **Tree_&lt;nome&gt;** no mapa, com a distância acumulada da origem rotulada em cada trecho.
+
+> 📝 Você pode ter **várias árvores abertas ao mesmo tempo**, cada uma com seu próprio nome, grupo e par de camadas (nós e trechos) independentes — elas não se substituem entre si. A própria caixa de diálogo da ferramenta lista as árvores já calculadas para o projeto e permite excluir qualquer uma delas individualmente, sem afetar as demais.
 
 ### Interpretação do resultado
 
@@ -51,3 +54,5 @@ A árvore resultante mostra qual caminho a água seguiria a partir do nó fonte 
 ### ID do nó raiz
 
 Na camada de nós gerada pela árvore, o nó de origem (raiz) é identificado com o valor **"ROOT"** no campo `NodeType`. Os restantes nós têm o seu tipo EPANET habitual (Junção, RNV, RNF...). Isto permite criar regras de simbologia específicas para o nó raiz diretamente no QGIS.
+
+O nó raiz também guarda, somente em sua própria linha, com quais parâmetros a árvore foi gerada: o campo `CostFn` indica a função de custo usada (resistência hidráulica, diâmetro ou comprimento) e `IgnClosed` se os tubos fechados foram ignorados. Útil para verificar como uma árvore já gerada foi calculada sem precisar repetir o processo.

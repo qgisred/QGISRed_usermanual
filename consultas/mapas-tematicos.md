@@ -81,7 +81,7 @@ Se você alterar as **unidades**, **fórmula de perda de carga** ou **unidades d
 
 ## Resultado no mapa
 
-Cada caixa marcada gera sua própria camada (por exemplo `Pipe Materials`, `Junction Elevations`) dentro do grupo **Consultas → Mapas Temáticos**. As camadas são somente leitura e se atualizam quando você edita o pipe ou nó de origem (não há necessidade de regenerar o mapa manualmente após uma alteração específica) — a legenda de cada uma também mostra quantos elementos cada classe possui.
+Cada caixa marcada gera sua própria camada (por exemplo `Pipes_Materials`, `Junctions_Elevations` — sempre `Elemento_Propriedade`, ambos no plural, exceto "Installation Year", que permanece no singular) dentro do grupo **Consultas → Mapas Temáticos**. As camadas são somente leitura e se atualizam quando você edita o pipe ou nó de origem (não há necessidade de regenerar o mapa manualmente após uma alteração específica) — a legenda de cada uma também mostra quantos elementos cada classe possui.
 
 Se você marcar e confirmar novamente uma caixa já gerada, o QGISRed substitui essa camada específica pela nova configuração, sem tocar no restante dos mapas ativos.
 

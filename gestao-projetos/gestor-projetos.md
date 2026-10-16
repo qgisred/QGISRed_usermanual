@@ -16,6 +16,8 @@ A janela mostra todos os projetos que já foram abertos neste computador. Para c
 - **Clique duas vezes** em qualquer projeto → abre-o diretamente.
 - Se houver um projeto aberto com alterações não salvas, o QGISRed solicitará confirmação antes de fechá-lo.
 
+> 📝 Se o arquivo `.qgz`/`.qgs` registrado para o projeto não existir mais no caminho esperado (por exemplo, após mover a pasta manualmente fora do QGISRed), aparece o aviso _"We cannot find the QGIS project file. Do you want to find this file manually?"_. Respondendo **Yes** você pode localizá-lo com um explorador de arquivos; respondendo **No**, o QGISRed reconstrói o projeto diretamente a partir dos grupos salvos nos metadados (Inputs, Results, Issues… todos os que existirem), não apenas as camadas de entrada.
+
 ## Operações disponíveis
 
 ### Carregar (Carregar)
@@ -54,8 +56,10 @@ Renomeia a rede e atualiza automaticamente o nome de **todos os arquivos** do pr
 
 1. Selecione o projeto.
 2. Pressione **Renomear**.
-3. A caixa de diálogo oferece duas caixas independentes, ambas marcadas por padrão: **Renomear dados do projeto** (renomeia os arquivos de dados da rede) e **Renomear arquivo de mapa do projeto** (também renomeia o projeto QGIS `.qgz`/`.qgs`, se existir). Pelo menos um deve ser marcado.
-4. Insira o novo nome no campo correspondente a cada caixa ativa.
+3. A caixa de diálogo oferece três caixas independentes: **Renomear dados do projeto** (renomeia os arquivos de dados da rede) e **Renomear arquivo de mapa do projeto** (também renomeia o projeto QGIS `.qgz`/`.qgs`, se existir) — ambas marcadas por padrão — e **Rename project folder:** (também renomeia a pasta que contém o projeto), desmarcada por padrão. Pelo menos uma deve estar marcada.
+4. Insira o novo nome no campo correspondente a cada caixa ativa. O campo da pasta sugere automaticamente o mesmo nome do projeto enquanto não for editado manualmente.
+
+> 📝 **Rename project folder** fica desabilitada, com o aviso _"Another project in this folder is currently open in QGIS"_, se a pasta contiver outro projeto diferente daquele que você está renomeando e esse outro projeto estiver atualmente aberto no QGIS — para não mover nem excluir arquivos sobre os quais o QGIS mantém um bloqueio. Os demais projetos que compartilham a pasta continuam aparecendo normalmente na lista após a renomeação.
 
 > ⚠️ Se você estiver com o projeto aberto no QGIS, feche-o antes de renomeá-lo para evitar que o QGIS mantenha bloqueios nos arquivos.
 

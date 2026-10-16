@@ -53,6 +53,7 @@ O caso mais comum: você possui um modelo EPANET existente e deseja trabalhar co
 2. Indica o **nome da rede** que o projeto QGISRed terá (pode ser diferente do nome interno do INP).
 3. Escolha a **pasta de destino** onde serão criadas as PCHs.
 4. QGISRed converte todos os elementos (nós, tubos, válvulas, bombas, curvas, padrões, controles...) para a estrutura SHP+DBF.
+5. Caixa **Separate overlapping nodes**: alguns programas exportam bombas e válvulas como links cujos nós extremos compartilham as mesmas coordenadas. Ao ativar esta opção, esses nós são separados ligeiramente para que nenhum elemento se perca na importação.
 
 > ⚠️ As coordenadas de `.inp` devem estar no mesmo CRS que você usará no QGISRed. O plugin não reprojeta durante a importação.
 

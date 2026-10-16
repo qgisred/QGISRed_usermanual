@@ -36,6 +36,8 @@ Move um ou mais nós (Junções, RNVs, RNFs) arrastando consigo **todos os eleme
 
 > Esta ferramenta **não** move vértices de tubos intermediários. Para isso, use **Editar vértices do link**.
 
+> 📝 O ponto inicial do arrasto faz snap para o nó mais próximo dentro de **10 pixels de tela**, não de uma distância fixa em unidades do mapa — assim a tolerância é a mesma independentemente do nível de zoom ou do sistema de coordenadas do projeto.
+
 ---
 
 ## Editar vértices do link

@@ -102,10 +102,10 @@ Pumps: 8
 
 **Barra do projeto → Editor de legendas** (Editor de legendas)
 
-Abre um painel flutuante que permite construir e personalizar a **simbologia** das camadas do projeto sem navegar pelo menu de propriedades da camada QGIS: tipo de legenda, classificação automática, tamanhos, cores, estilos de salvar/carregar e regras próprias por tipo de elemento.
+Abre um painel flutuante que permite construir e personalizar a **simbologia** das camadas do projeto sem navegar pelo menu de propriedades da camada QGIS: tipo de legenda, classificação automática, tamanhos, cores, opacidade e borda em camadas de polígono, biblioteca própria de rampas/paletas, estilos de salvar/carregar e regras próprias por tipo de elemento.
 
 <figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="Painel do Editor de Legenda QGISRed"><figcaption><p>Painel do Editor de Legenda QGISRed</p></figcaption></figure>
-<!-- TODO: captura de tela desatualizada, caixa de diálogo completamente redesenhada (veja commit a3038c2 e seguintes, 20 a 31 de julho de 2026) -->
+<!-- TODO: captura de tela desatualizada, caixa de diálogo completamente redesenhada e que continuou mudando desde então (bloco de commits [Legends]/[Styles], set-out 2026) -->
 *Painel Editor de legendas: estilos predefinidos e personalização de cores e tamanhos.*
 
 ### Escolha a camada
@@ -115,46 +115,82 @@ No cabeçalho da caixa de diálogo:
 - **Grupo** — grupo da árvore de camadas no qual deseja trabalhar (Entradas, Resultados, Consultas e seus subgrupos...).
 - **Map Layer** — camada específica dentro desse grupo. Você também pode alterar as camadas selecionando-as diretamente no painel de camadas do QGIS; o editor segue a seleção automaticamente.
 
+### Seletor de variante
+
+Diversas camadas de entrada exibem um menu suspenso adicional que filtra a tabela e as regras de cor/tamanho/opacidade para um subconjunto da camada em vez de todos os seus elementos de uma vez:
+
+| Camada | Menu suspenso | Opções |
+|---|---|---|
+| Meters | **Meter Type** | "All types" ou um tipo específico de medidor (os diferentes ícones empilhados no símbolo) |
+| Junctions | **Demand** | "All", "Outflows (> 0)", "Inflows (< 0)" |
+| Sources | **Source Type** | "All types" ou um tipo específico de fonte |
+| Service Connections | **Component** | "All", "Line", "Demand circle" |
+| Camadas de ligação (Pipes e similares) | **Component** | "All", "Line", "Marker" |
+| Nós da árvore de conectividade (Tree) | **Node** | "All", "Junctions", "Root node" |
+| Camadas com tipos de elemento próprios | **Element** | "All" + um tipo para cada elemento possível daquela camada |
+
+Enquanto o seletor estiver em "All" (ou não tiver variantes), a cor/tamanho se aplica a todos os elementos de uma vez, exceto se a camada tiver regras de estilo fixas (veja abaixo).
+
 ### Tipo e classificação da legenda
 
-O menu suspenso **Tipo de legenda** oferece, dependendo do tipo de camada, entre **Símbolo único**, **Categorizado** e **Graduado**. Somente as opções que fazem sentido para aquela camada aparecem (por exemplo, uma camada de resultados numéricos não oferece Símbolo Único).
-
-> 💡 Para a camada **Metros**, o menu suspenso **Tipo de medidor** também aparece, que filtra a tabela e as regras de cor/tamanho para "Todos os tipos" ou para um tipo específico de contador (os diferentes ícones empilhados no símbolo de Metros).
+O menu suspenso **Tipo de legenda** oferece, dependendo do tipo de camada, entre **Símbolo único**, **Categorizado** e **Graduado**. Somente as opções que fazem sentido para aquela camada aparecem (por exemplo, uma camada de resultados numéricos não oferece Símbolo Único); se a camada for do tipo Single Symbol sem classes, o painel avisa com o texto "Single symbol layer: no size or color classes."
 
 A tabela central lista uma linha por classe, com caixa de seleção de visibilidade, cor, tamanho, valor/intervalo (ou categoria) e rótulo de legenda:
 
-- **Aulas** (spinbox) define o número de aulas; O botão ao lado, **Classificar Tudo**, adiciona uma classe para cada valor único da camada (categórico) ou reclassifica automaticamente o intervalo numérico de acordo com o modo escolhido em **Intervalos**.
-- Os botões **+ / -** ao lado de Classes adicionam ou removem classes: clique com o botão esquerdo adiciona uma classe abaixo da seleção, clique com o botão direito a adiciona acima; Nas legendas categóricas, clicar duas vezes adiciona uma classe especial “Outros valores” que agrupa o restante dos valores não classificados.
-- **Intervalos** (`cbMode`) define o método de classificação automática para legendas graduadas: Manual, Intervalo Igual, Intervalo Fixo, Quantil (Contagem Igual), Quebras Naturais (Jenks), Desvio Padrão e Quebras Bonitas. Com **Intervalo Fixo** o campo **Intervalo de Intervalo** aparece para indicar a largura de cada classe.
-- Você pode editar o intervalo de uma classe manualmente **clicando duas vezes em seu valor** (coluna Valor) para abrir uma pequena caixa de diálogo com os limites inferior e superior.
-- **Para cima/Para baixo** (setas ao lado da tabela) reordena a turma selecionada.
+- **Classes** é editável somente quando o modo de classificação admite um número variável de classes (por exemplo, não no modo Manual sobre uma legenda numérica nem em camadas com legenda fixa); nos demais casos aparece em cinza, sem setas, e não pode ser digitado. O botão ao lado, **Add all values** (antes "Classify All"), adiciona uma classe para cada valor único da camada (categórica) ou reclassifica automaticamente o intervalo numérico de acordo com o modo escolhido em **Intervals**.
+- O botão **+** ao lado de Classes adiciona uma classe abaixo da seleção com um único clique; a seta ao lado abre um menu com "Add class above the selection" e, em legendas categóricas, 'Add "Other values" class' (uma classe especial que agrupa o restante dos valores não classificados). O botão **-** remove a classe selecionada.
+- **Intervals** (`cbMode`) define o método de classificação automática para legendas graduadas: Manual, Equal Interval, Fixed Interval, Quantile (Equal Count), Natural Breaks (Jenks), Standard Deviation e Pretty Breaks. Com **Fixed Interval** aparece o campo **Interval Range** para indicar a largura de cada classe.
+- Você pode editar o intervalo de uma classe manualmente **clicando duas vezes em seu valor** (coluna Value) para abrir uma pequena caixa de diálogo com os limites inferior e superior.
+- **Up / Down** (setas ao lado da tabela) reordenam manualmente a classe selecionada. O menu suspenso **Class Order** (None / Ascending / Descending), acima da tabela, reordena automaticamente todas as classes por seu valor no momento de aplicar a legenda.
 
 ### Tamanhos
 
-O bloco **Sizes** controla o tamanho (espessura da linha ou tamanho do símbolo de ponto) das classes:
+O bloco **Sizes** controla o tamanho das classes, sempre em milímetros, exceto a exceção abaixo:
 
 - **Tamanhos** (`cbSizes`): Manual, Igual, Linear, Quadrático, Exponencial ou Proporcional ao Valor.
 - **Equal** usa um único campo **Value** para todas as classes.
 - Linear/Quadrático/Exponential/Proporcional ao Valor distribua o tamanho entre **Min** e **Max** de acordo com a curva escolhida, com a caixa **Inverter** para trocar qual extremo (menor ou maior valor) recebe o tamanho mínimo.
 
+> 💡 Em camadas com legenda de estado fixa (veja "Regras de estilo específicas" abaixo) ou em uma camada Single Symbol com o seletor de variante em "All", a coluna muda de cabeçalho para **Size (%)**: o valor não é mais um tamanho em mm, mas uma **porcentagem dos tamanhos atuais** — 100% deixa cada elemento com o tamanho que já está desenhado, e o ajuste escala todos de uma vez em vez de fixar um tamanho absoluto por classe.
+
 ### Cores
 
-O bloco **Colors** controla a cor de cada classe:
+O bloco **Colors** controla a cor de cada classe. O menu suspenso **Colors** (`cbColors`) oferece, além de Manual/Equal/Random, as rampas e paletas da biblioteca agrupadas por tipo:
 
-- **Cores** (`cbColors`): Manual, Igual, Aleatório, Rampa ou Paleta.
-- **Igual** aplica uma única cor (botão de cor próximo ao menu suspenso) a todas as classes.
-- **Random** gera diferentes cores aleatórias por classe, com os mesmos critérios de "shuffle" que o QGIS usa nativamente. O botão de atualização próximo ao menu suspenso (visível apenas neste modo) embaralha as cores sem alterar mais nada.
-- **Ramp** exibe, em toda a largura da caixa de diálogo, o seletor de rampa de cores nativo do QGIS para escolher a rampa a ser aplicada às classes; Inclui o catálogo QGIS padrão e as próprias rampas do QGISRed.
-- **Paleta** distribui as cores usando uma paleta categórica em vez de uma rampa contínua.
-- A caixa **Invert** troca a direção da rampa/palheta.
+- **Manual** — cada classe mantém a cor que foi definida manualmente.
+- **Equal** — uma única cor (botão de cor próximo ao menu suspenso) para todas as classes.
+- **Random** — cores aleatórias diferentes por classe, com o mesmo critério de "cores aleatórias embaralhadas" (shuffle) que o QGIS usa nativamente. O botão de atualização próximo ao menu suspenso (visível apenas neste modo) embaralha novamente as cores sem alterar mais nada.
+- **2 colors Ramps / 3 colors Ramps / > 3 colors Ramps** — rampas de cores contínuas, agrupadas pelo número de cores que definem a rampa.
+- **Span Palettes** — paleta categórica cujas cores são distribuídas ao longo do intervalo de classes mantendo a primeira e a última.
+- **Sequential Palettes** — paleta categórica cujas cores são atribuídas na ordem em que são declaradas na paleta.
+- **Labeled Palettes** — paleta categórica em que cada classe recebe a cor cuja etiqueta corresponde ao seu próprio valor.
+
+O próprio editor **recomenda uma opção** de acordo com o tipo de legenda (Span Palettes para legendas numéricas; Labeled Palettes se existir uma paleta rotulada que combine com as categorias da camada, ou Sequential Palettes em qualquer outro caso categórico): essa opção aparece em negrito com o sufixo "(recommended)". As opções sem nenhuma rampa/paleta desse tipo na biblioteca ativa, ou Labeled Palettes sobre uma legenda numérica, aparecem desabilitadas com uma dica explicando o motivo.
+
+A caixa **Invert** troca o sentido da rampa/paleta escolhida.
 
 > 💡 Para a camada do nó da árvore de conectividade (Árvore), a cor da linha não colore todo o símbolo: ela edita apenas a **cor do traço** do círculo externo do nó, deixando os ícones de estrela e elemento com sua própria cor.
+
+### Biblioteca de rampas e paletas
+
+Ao lado do menu suspenso Colors, **Symbol library** permite escolher de onde vêm as rampas e paletas oferecidas por esse menu suspenso:
+
+- **Use default** — a biblioteca que o QGISRed já traz por padrão.
+- **Use owner** — sua própria biblioteca editável. Ao selecioná-la aparece o botão **Edit owner**, que abre o gerenciador de estilos nativo do QGIS (Style Manager) sobre essa biblioteca para adicionar, editar ou excluir rampas, paletas e símbolos. As alterações feitas ali se refletem imediatamente no menu suspenso Colors, recalculando até as cores já aplicadas se a rampa ativa tiver mudado.
+
+### Opacidade e borda (camadas de preenchimento)
+
+Em camadas cujo símbolo é um preenchimento de polígono (por exemplo, Setores Hidráulicos e de Demanda), o painel adiciona dois controles que se aplicam **a todas as classes de uma vez**, não classe por classe:
+
+- **Opacity** (0–100%) — opacidade do preenchimento; 100% é sólido, 0% invisível.
+- **Border** — modo da borda de cada classe: "No border", "Black", "Fill color" (a borda assume a mesma cor do preenchimento) ou "Darker than the fill"; com qualquer opção exceto "No border" aparece também a largura da borda em mm.
 
 ### Regras de estilo específicas por tipo de camada
 
 Os elementos de entrada (Entradas) e algumas camadas de consulta carregam regras de estilo com estados fixos que a cor/tamanho escolhido respeita, em vez de substituir o símbolo inteiro. Por exemplo, Tubos/Válvulas/Bombas mantêm o estado "fechado" em vermelho e Válvulas ativas em laranja, não importa o que aconteça com a cor que você escolher para o restante. Entre as camadas com regras próprias:
 
 - **Demandas Múltiplas**: a cor escolhida colore apenas o ramo "demanda positiva" do símbolo (o marcador interno), assim como nas Junções; a demanda negativa e o restante do símbolo mantêm suas cores fixas.
+- **Junctions**: com o seletor **Demand** em "Outflows (> 0)" ou "Inflows (< 0)" você pode classificar e colorir cada grupo de nós separadamente; as demandas negativas sempre mantêm branco nas legendas automáticas por intervalo.
 - **Válvulas de Isolamento**: a cor escolhida substitui apenas o estado “aberta, sem perda de pressão”; As cores fechado (vermelho), com perda de carga (âmbar) e não disponível (cinza) são definidas pela própria legenda e não podem ser editadas aqui.
 - **Medidores**: A cor e o tamanho são aplicados dependendo do que você selecionou em **Tipo de medidor** — a todos os tipos de medidor de uma vez, ou apenas ao tipo escolhido, sem tocar no restante dos ícones empilhados.
 - **Conexões de Serviço**: a cor escolhida é aplicada ao traço da conexão ativa e a uma versão mais clara da mesma cor para seu preenchimento; Os demais estados mantêm sua própria cor.

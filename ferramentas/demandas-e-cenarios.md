@@ -147,3 +147,5 @@ Responde à questão operacional: **"Quais válvulas devo fechar para reparar es
 4. Você pode clicar em mais pipes na mesma sessão para acumular a análise.
 
 A camada auxiliar `IsolatedSegments` é gerada com todas as informações. Não modifica o modelo.
+
+Nós com **demanda negativa** (um aporte de água, como uma elevatória ou uma transferência) são tratados como um ponto de abastecimento: são fechados da mesma forma que um RNV ou um RNF, mas a análise continua explorando a rede além deles em vez de parar ali. No resumo dos resultados eles aparecem contados como **Junções**, junto com válvulas, bombas, RNVs e RNFs.

@@ -30,7 +30,7 @@ A barra **Ferramentas** agrupa as massivas ferramentas de processamento: cálcul
 
 | # | Ferramenta | Função |
 |---|-------------|---------|
-| 8 | **Construtor de setores de demanda…** | Gera setores de demanda delimitados por medidores de vazão |
+| 8 | **Obter setores de demanda** | Gera setores de demanda delimitados por medidores de vazão |
 | 9 | **Árvore de Custo Mínimo…** | Calcular a árvore de custo mínimo de um nó selecionado |
 
 ---
