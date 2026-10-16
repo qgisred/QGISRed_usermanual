@@ -51,3 +51,5 @@ El árbol resultante muestra qué camino seguiría el agua desde el nudo de orig
 ### Identificación del nodo raíz
 
 En la capa de nudos generada por el árbol, el nudo de origen (raíz) se identifica con el valor **"ROOT"** en el campo `NodeType`. El resto de nudos llevan su tipo EPANET habitual (Junction, Tank, Reservoir…). Esto permite crear reglas de simbología específicas para el nodo raíz directamente en QGIS.
+
+El nudo raíz también guarda, solo en su propia fila, con qué parámetros se generó el árbol: el campo `CostFn` indica la función de coste usada (resistencia hidráulica, diámetro o longitud) y `IgnClosed` si se ignoraron las tuberías cerradas. Útil para comprobar cómo se calculó un árbol ya generado sin tener que repetir el proceso.
