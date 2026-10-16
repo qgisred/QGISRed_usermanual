@@ -14,9 +14,11 @@ Abre el panel **Queries by Properties**, una herramienta de filtrado que resalta
 El panel tiene un color identificativo **morado** (`#7B1FA2`) en su cabecera para distinguirlo del resto de paneles de QGISRed. Contiene:
 
 - **Selector de tipo de elemento**: Pipes, Junctions, Tanks, Reservoirs, Pumps, Valves
+- **Modo de criterio**: dos opciones, **One Criterion** (una sola condición activa) y **Multiple Criteria** (lista de condiciones combinables, ver más abajo)
 - **Área de condiciones**: una o varias filas con campo, operador y valor
 - **Botón Ejecutar**: aplica la consulta y resalta el resultado
 - **Botón Limpiar**: elimina el resaltado del mapa
+- **Panel de Estadísticas**: selector de propiedad y tabla con los resultados numéricos de la consulta (ver más abajo)
 - **Etiqueta de tiempo**: cuando hay resultados de simulación cargados, muestra el instante activo con el prefijo "Time:" seguido del valor en negrita en formato `HH:MM:SS`. La etiqueta de estadísticas del resultado se muestra igualmente en negrita.
 
 ---
@@ -70,14 +72,32 @@ Campos como `Tag` o `Id`:
 1. Abre **Queries by properties** desde la barra Queries.
 2. Selecciona el **tipo de elemento** sobre el que quieres filtrar.
 3. Añade una o varias condiciones: elige el campo, el operador y escribe el valor.
-4. Pulsa **Ejecutar**. QGISRed evalúa la consulta y resalta en **magenta** todos los elementos que cumplen todas las condiciones simultáneamente (lógica AND).
+4. Pulsa **Ejecutar**. QGISRed evalúa la consulta y resalta en **magenta** los elementos que la cumplen — en modo Multiple Criteria, según la lógica de inclusión/exclusión que se explica más abajo.
 5. Los elementos resaltados permanecen visibles mientras el panel está activo. Pulsa **Limpiar** para eliminar el resaltado.
 
 ---
 
-## Combinación de condiciones
+## Modo de criterio único o múltiple
 
-Todas las condiciones activas se combinan con lógica **AND**: un elemento solo queda resaltado si cumple **todas** las condiciones a la vez. Para una lógica OR (cualquiera de las condiciones), ejecuta consultas separadas con un solo criterio cada vez.
+El radio **One Criterion** limita el panel a una sola condición activa a la vez: cambiar el campo, el operador o el valor reemplaza la condición anterior. Es el modo más simple para consultas puntuales.
+
+El radio **Multiple Criteria** abre una lista de condiciones independientes que se pueden combinar entre sí:
+
+- **Add**: añade la condición configurada arriba a la lista, marcada como condición de **inclusión** (`+`).
+- **Subtract**: añade la condición configurada arriba a la lista, marcada como condición de **exclusión** (`-`).
+- Cada fila de la lista se puede **reordenar** (flechas arriba/abajo), **editar** (doble clic o botón de edición), **eliminar**, o **activar/desactivar** temporalmente sin borrarla (botón "Enable/disable selected criterion") para probar combinaciones sin perder las condiciones ya definidas.
+
+Al pasar de **Multiple Criteria** a **One Criterion** con más de una condición en la lista, QGISRed pide confirmación: solo se conserva la primera, el resto se descarta.
+
+### Lógica de combinación
+
+Las condiciones de inclusión (`+`) se combinan entre sí con **OR**: un elemento se resalta si cumple **cualquiera** de ellas. Las condiciones de exclusión (`-`) se combinan entre sí con **AND** y el resultado se **resta** del anterior. En resumen:
+
+> *(cualquier condición de inclusión)* **AND NOT** *(todas las condiciones de exclusión)*
+
+Por ejemplo, para encontrar todas las tuberías de diámetro ≥ 300 mm que **no** sean de fundición: una condición `Diameter >= 300` marcada con **Add**, y una condición `Material = Cast Iron` marcada con **Subtract**.
+
+En modo **One Criterion** solo hay una condición, así que esta combinación no aplica.
 
 ---
 
@@ -88,6 +108,20 @@ Si el proyecto tiene resultados de simulación cargados, los campos de resultado
 > ⚠️ **Campos de calidad condicionales.** Los campos de resultado `Quality` y `ReactRate` solo aparecen cuando el modelo de calidad del proyecto lo permite: `Quality` se oculta con modelo *None* y `ReactRate` únicamente es visible con modelo *Chemical*. Los campos estáticos de calidad (`BulkCoeff`, `WallCoeff`, `ReactCoef`, `IniQuality`) se ocultan cuando el modelo de calidad es *None*, *Age* o *Trace*.
 
 ---
+
+## Tabla de Estadísticas
+
+El panel calcula estadísticas numéricas sobre los elementos resaltados sin necesidad de exportar nada. Selecciona en el desplegable **Statistics of... for selected Elements** la propiedad a calcular — cualquier campo numérico del tipo de elemento activo, o una de las variables de resultado si hay simulación cargada — y la tabla se actualiza automáticamente.
+
+Las columnas dependen del tipo de propiedad:
+
+| Propiedad | Columnas |
+|---|---|
+| Campo de texto o lista | **Count** (número de elementos) |
+| Campo numérico | **Count**, **Avg**, **Min**, **Max**, y **Sum** o **StdD** según la propiedad (caudales y demandas muestran la suma; el resto, la desviación típica) |
+| **None** (sin propiedad) | solo **Count** |
+
+En modo **One Criterion** la tabla muestra una única fila con el resultado de la condición activa. En modo **Multiple Criteria** con varias condiciones habilitadas, muestra una fila por cada condición (etiquetada `Cr1`, `Cr2`...) y una fila final **All** en amarillo con el resultado combinado (la misma lógica de inclusión/exclusión que el resaltado del mapa) — así se puede comparar cuántos elementos aporta cada condición por separado frente al total combinado.
 
 ## Exportar criterios y estadísticas
 
