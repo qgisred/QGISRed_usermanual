@@ -89,6 +89,14 @@ Si el proyecto tiene resultados de simulación cargados, los campos de resultado
 
 ---
 
+## Exportar criterios y estadísticas
+
+Los botones de exportación del panel (criterios de consulta y tabla de estadísticas) guardan por defecto en la subcarpeta `Queries/Queries by properties` del proyecto, en lugar de la carpeta raíz.
+
+> 📝 Al exportar varios criterios combinados a texto o CSV, cada línea se numera como `Cr1:`, `Cr2:`... en vez de empezar directamente por el operador de la condición — así una hoja de cálculo no interpreta por error un criterio que empieza por `+` o `-` como una fórmula.
+
+El CSV de estadísticas incluye, antes de la tabla de valores, unas líneas de cabecera con el proyecto, el escenario, el tipo de elemento, la consulta o consultas aplicadas y la magnitud exportada.
+
 ## Notas de uso
 
 - La consulta no modifica ningún dato del modelo ni crea capas nuevas: solo cambia la simbología temporal.
