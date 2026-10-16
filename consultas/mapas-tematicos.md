@@ -81,7 +81,7 @@ Si cambias las **unidades**, la **fórmula de pérdida de carga** o las **unidad
 
 ## Resultado en el mapa
 
-Cada casilla marcada genera su propia capa (por ejemplo `Pipe Materials`, `Junction Elevations`) dentro del grupo **Queries → Thematic Maps**. Las capas son de solo lectura y se actualizan solas cuando editas la tubería o el nudo de origen (no hace falta regenerar el mapa a mano tras un cambio puntual) — la leyenda de cada una muestra además cuántos elementos tiene cada clase.
+Cada casilla marcada genera su propia capa (por ejemplo `Pipes_Materials`, `Junctions_Elevations` — siempre `Elemento_Propiedad`, ambos en plural salvo "Installation Year", que se mantiene en singular) dentro del grupo **Queries → Thematic Maps**. Las capas son de solo lectura y se actualizan solas cuando editas la tubería o el nudo de origen (no hace falta regenerar el mapa a mano tras un cambio puntual) — la leyenda de cada una muestra además cuántos elementos tiene cada clase.
 
 Si vuelves a marcar y confirmar una casilla ya generada, QGISRed reemplaza esa capa concreta con la nueva configuración, sin tocar el resto de mapas activos.
 
