@@ -1,0 +1,30 @@
+[
+  {
+    "chapter": "instalacion",
+    "md_file": "instalacion/desde-archivo-local.md",
+    "line": 25,
+    "image": "instalacion/instalar-desde-zip.png",
+    "alt": "Instalación desde ZIP",
+    "steps": [
+      {"type": "menu_path", "path": ["Complementos", "Administrar e instalar complementos…"]},
+      {"type": "click_relative", "window_title_contains": "complementos", "x_frac": 0.111, "y_frac": 0.155}
+    ],
+    "preconditions": "Ninguna",
+    "capture_target": "dialog",
+    "dialog_title_contains": "complementos",
+    "confidence": "confirmed",
+    "notes": "La barra lateral del gestor de complementos no expone ningun arbol de accesibilidad (ni UIA ni MSAA) - confirmado en vivo. click_relative usa fraccion del rect de la ventana (0.111, 0.155 -> 3er item, 'Instalar a partir de ZIP', en una ventana 903x780)."
+  },
+  {
+    "chapter": "instalacion",
+    "md_file": "instalacion/dependencias.md",
+    "line": 11,
+    "image": "instalacion/dialogo-dependencias.png",
+    "alt": "Diálogo de instalación de dependencias",
+    "steps": [],
+    "preconditions": "Especial: mover %AppData%\\QGISRed\\ (sin perder dlls\\x64) antes de lanzar, restaurar después. QMessageBox automático de checkDependencies(), no requiere navegación.",
+    "capture_target": "dialog",
+    "confidence": "confirmed",
+    "special": "dependencies_dialog"
+  }
+]

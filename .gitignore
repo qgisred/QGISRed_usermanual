@@ -1,3 +1,4 @@
 book/
 mdbook.exe
 scripts/__pycache__/
+scripts/.qgis_profiles/
