@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-16"?>
+<GISRed>
+  <Title>QGISRed manual demo network</Title>
+  <Notes>Small example network used to generate screenshots for the QGISRed user manual.
+Based on EPANET's classic "Net1" example topology.</Notes>
+  <Creator>aguil</Creator>
+  <DateCreation>17/10/2026 22:20:40</DateCreation>
+  <DateModification>17/10/2026 22:23:27</DateModification>
+  <Guid>d43ffbd5-3f3c-49d0-9425-99cf4e21e94f</Guid>
+  <EPSG>4326</EPSG>
+  <DigitalTwin>
+    <TransferDemands>True</TransferDemands>
+    <SeparateDemands>True</SeparateDemands>
+    <IgnorePatterns>False</IgnorePatterns>
+    <ChangeStatusFromIsolationValves>True</ChangeStatusFromIsolationValves>
+    <HideProgressWindow>False</HideProgressWindow>
+  </DigitalTwin>
+  <ThirdParty>
+    <QGISRed>
+      <QGisProject>demo_network.qgz</QGisProject>
+    </QGISRed>
+  </ThirdParty>
+</GISRed>
