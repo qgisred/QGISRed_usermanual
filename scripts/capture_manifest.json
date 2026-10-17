@@ -7,13 +7,31 @@
     "alt": "Instalación desde ZIP",
     "steps": [
       {"type": "menu_path", "path": ["Complementos", "Administrar e instalar complementos…"]},
-      {"type": "click_relative", "window_title_contains": "complementos", "x_frac": 0.111, "y_frac": 0.155}
+      {"type": "click_list_item_from_end", "window_title_contains": "complementos", "first_item_x_frac": 0.111, "first_item_y_frac": 0.049, "offset_from_end": 1}
     ],
     "preconditions": "Ninguna",
     "capture_target": "dialog",
     "dialog_title_contains": "complementos",
     "confidence": "confirmed",
-    "notes": "La barra lateral del gestor de complementos no expone ningun arbol de accesibilidad (ni UIA ni MSAA) - confirmado en vivo. click_relative usa fraccion del rect de la ventana (0.111, 0.155 -> 3er item, 'Instalar a partir de ZIP', en una ventana 903x780)."
+    "notes": "La barra lateral del gestor de complementos no expone ningun arbol de accesibilidad (ni UIA ni MSAA). FRAGIL: un click_relative con y_frac fijo se rompio cuando la cache del repositorio ya estaba caliente (la lista pasa de 4 a 6 categorias, desplazando 'Instalar a partir de ZIP' hacia abajo) - confirmado en vivo, capturo la lista 'No instalado' por error. Arreglado con click_list_item_from_end: click en el primer item (siempre estable), luego End+Up - 'Instalar a partir de ZIP' es siempre el penultimo item de la lista, independientemente de cuantas categorias de repositorio se hayan cargado."
+  },
+  {
+    "chapter": "instalacion",
+    "md_file": "instalacion/desde-repositorio.md",
+    "line": 15,
+    "image": "instalacion/buscar-qgisred-repositorio.png",
+    "alt": "Búsqueda de QGISRed en el repositorio oficial de complementos",
+    "steps": [
+      {"type": "menu_path", "path": ["Complementos", "Administrar e instalar complementos…"]},
+      {"type": "click_relative", "window_title_contains": "complementos", "x_frac": 0.111, "y_frac": 0.049},
+      {"type": "type_relative", "window_title_contains": "complementos", "x_frac": 0.5, "y_frac": 0.058, "text": "QGISRed"},
+      {"type": "send_keys", "window_title_contains": "complementos", "keys": "{TAB}Q", "wait": 1}
+    ],
+    "preconditions": "Ninguna",
+    "capture_target": "dialog",
+    "dialog_title_contains": "complementos",
+    "confidence": "confirmed",
+    "notes": "La barra lateral y el cuadro de busqueda no exponen arbol de accesibilidad. FRAGIL: con la cache del repositorio caliente, buscar 'QGISRed' coincide tambien con otros plugins que lo mencionan en su descripcion (HydroProfile, HydroSizer) - un click_relative fijo selecciono el primero por error. Arreglado con send_keys {TAB}Q: Tab mueve el foco del cuadro de busqueda a la lista de resultados, y Q usa el 'type-ahead find' nativo de Qt para saltar directamente al primer item cuyo nombre empieza por Q - 'QGISRed' siempre, sin importar cuantos otros resultados haya antes por descripcion."
   },
   {
     "chapter": "instalacion",

@@ -34,7 +34,7 @@ try:
     import win32process
     import win32ui
     from PIL import Image
-    from pywinauto import Application, mouse
+    from pywinauto import Application, keyboard, mouse
 except ImportError:
     sys.exit("Run: pip install pywinauto pywin32 Pillow")
 
@@ -529,6 +529,67 @@ def run_entry(entry: dict, lang: str, main_hwnd: int):
             y = t + int(h * step["y_frac"])
             mouse.click(coords=(x, y))
             time.sleep(1)
+        elif stype == "type_relative":
+            # Same rationale as click_relative: click a field with no
+            # accessible name/role, then type into it via real keyboard
+            # (requires an attached interactive desktop session).
+            dlg_hwnd = _find_dialog_window(main_hwnd, step.get("window_title_contains"))
+            if dlg_hwnd is None:
+                raise RuntimeError(f"No dialog window found for type_relative step {step!r}")
+            l, t, r, b = win32gui.GetWindowRect(dlg_hwnd)
+            w, h = r - l, b - t
+            x = l + int(w * step["x_frac"])
+            y = t + int(h * step["y_frac"])
+            mouse.click(coords=(x, y))
+            time.sleep(0.3)
+            keyboard.send_keys(step["text"], with_spaces=True)
+            time.sleep(1.5)
+        elif stype == "click_list_item_from_end":
+            # For sidebar/list widgets with no accessible tree whose ITEM
+            # COUNT varies at runtime (e.g. QGIS's own Plugin Manager: the
+            # category list only grows to its full size once the plugin
+            # repository has been fetched — cold vs warm cache differ by 2
+            # extra rows, confirmed live, which silently broke a fixed
+            # y_frac click). Click a position known to always be item #0
+            # (to focus + select the list) then navigate with End/Up,
+            # which anchors from the LAST item instead — stable regardless
+            # of how many rows exist above it.
+            dlg_hwnd = _find_dialog_window(main_hwnd, step.get("window_title_contains"))
+            if dlg_hwnd is None:
+                raise RuntimeError(f"No dialog window found for click_list_item_from_end step {step!r}")
+            l, t, r, b = win32gui.GetWindowRect(dlg_hwnd)
+            w, h = r - l, b - t
+            x = l + int(w * step["first_item_x_frac"])
+            y = t + int(h * step["first_item_y_frac"])
+            mouse.click(coords=(x, y))
+            time.sleep(0.5)
+            keyboard.send_keys("{END}")
+            time.sleep(0.3)
+            for _ in range(step.get("offset_from_end", 0)):
+                keyboard.send_keys("{UP}")
+                time.sleep(0.2)
+            time.sleep(0.5)
+        elif stype == "send_keys":
+            # Generic fallback for any no-accessibility widget: optionally
+            # click a known-stable point first (e.g. to move focus into a
+            # list after filtering it), then send an arbitrary pywinauto
+            # key sequence. Used e.g. for Qt's built-in list type-ahead
+            # find ({TAB}Q jumps to the first item starting with "Q" —
+            # confirmed far more robust than clicking a fixed list
+            # position, which broke once a plugin-repository search
+            # started matching multiple unrelated plugins by description).
+            dlg_hwnd = _find_dialog_window(main_hwnd, step.get("window_title_contains"))
+            if dlg_hwnd is None:
+                raise RuntimeError(f"No dialog window found for send_keys step {step!r}")
+            if "x_frac" in step:
+                l, t, r, b = win32gui.GetWindowRect(dlg_hwnd)
+                w, h = r - l, b - t
+                x = l + int(w * step["x_frac"])
+                y = t + int(h * step["y_frac"])
+                mouse.click(coords=(x, y))
+                time.sleep(0.3)
+            keyboard.send_keys(step["keys"])
+            time.sleep(step.get("wait", 1))
         else:
             raise ValueError(f"Unknown step type: {stype!r}")
 
