@@ -24,9 +24,14 @@ import time
 from pathlib import Path
 
 try:
-    from deep_translator import GoogleTranslator
+    from deep_translator import GoogleTranslator, MyMemoryTranslator
 except ImportError:
     sys.exit("Run: pip install deep-translator")
+
+# MyMemory (free, no API key) is used as a fallback when Google Translate's
+# free scraping endpoint is blocked (CAPTCHA/429) — it needs full locale codes,
+# and has a hard 500-char-per-request limit.
+MY_MEMORY_TARGET = {"en": "en-GB", "fr": "fr-FR", "pt": "pt-BR"}
 
 # ── Language configuration ────────────────────────────────────────────────────
 # google: language code accepted by Google Translate
@@ -247,8 +252,36 @@ def save_memory(lang: str, memory: dict):
 
 # ── Translation API wrapper ───────────────────────────────────────────────────
 
+def _call_mymemory(text: str, google_lang: str) -> str | None:
+    """
+    Fallback translator (free, no API key, 500-char limit per request).
+    Returns None if the text is too long for a single MyMemory call or the
+    call itself fails — caller decides what to do next.
+    """
+    if len(text) > 500:
+        return None
+    target = MY_MEMORY_TARGET.get(google_lang, google_lang)
+    for attempt in range(2):
+        try:
+            result = MyMemoryTranslator(source="es-ES", target=target).translate(text)
+            time.sleep(DELAY)
+            return result or None
+        except Exception as exc:
+            if attempt == 1:
+                print(f"    ⚠ MyMemory fallback also failed: {exc}")
+                return None
+            time.sleep(2 ** attempt)
+    return None
+
+
 def _call_gt(text: str, google_lang: str) -> str:
-    """Single Google Translate call with retry on transient errors."""
+    """
+    Single translate call: Google Translate first (3 retries), falling back
+    to MyMemory (free, no key) if Google keeps failing — e.g. the free
+    scraping endpoint is CAPTCHA/429-blocked by IP. If the text is a batch
+    joined with SEP and too long for one MyMemory call, retries MyMemory
+    per item instead of giving up on the whole batch.
+    """
     if not text.strip():
         return text
     for attempt in range(3):
@@ -258,7 +291,21 @@ def _call_gt(text: str, google_lang: str) -> str:
             return result or text
         except Exception as exc:
             if attempt == 2:
-                print(f"    ⚠ translation error: {exc}")
+                print(f"    ⚠ Google Translate error, trying MyMemory fallback: {exc}")
+                fallback = _call_mymemory(text, google_lang)
+                if fallback:
+                    return fallback
+                if len(text) > 500 and SEP in text:
+                    parts = [p.strip() for p in text.split(SEP)]
+                    translated = []
+                    for part in parts:
+                        tp = _call_mymemory(part, google_lang)
+                        if tp is None:
+                            break
+                        translated.append(tp)
+                    if len(translated) == len(parts):
+                        return SEP.join(translated)
+                print(f"    ⚠ translation error, keeping source text: {exc}")
                 return text
             time.sleep(2 ** attempt)
 
