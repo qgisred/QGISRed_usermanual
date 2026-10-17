@@ -12,6 +12,8 @@ C'est la méthode recommandée. Installez QGISRed directement depuis le référe
 4. Sélectionnez **QGISRed** dans la liste des résultats.
 5. Cliquez sur **Installer le plug-in**.
 
+<figure><img src="../assets/images/instalacion/buscar-qgisred-repositorio.png" alt="Recherche de QGISRed dans le répertoire officiel des plugins"><figcaption><p>Onglet "Tous" du gestionnaire de plugins avec QGISRed localisé après la recherche.</p></figcaption></figure>
+
 Une fois terminé, la barre principale de QGISRed et le menu **QGISRed** apparaîtront dans la barre de menus de QGIS.
 
 ---
