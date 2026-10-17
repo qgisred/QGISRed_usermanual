@@ -20,6 +20,7 @@ details of this constraint.
 import argparse
 import ctypes
 import json
+import re
 import shutil
 import subprocess
 import sys
@@ -495,6 +496,7 @@ def _find_dialog_window(main_hwnd: int, title_contains: str = None):
 def run_entry(entry: dict, lang: str, main_hwnd: int):
     out_path = image_output_path(lang, entry["image"])
     target = entry.get("capture_target", "main_window")
+    toggled_toolbars = []
 
     for step in entry["steps"]:
         stype = step["type"]
@@ -590,6 +592,25 @@ def run_entry(entry: dict, lang: str, main_hwnd: int):
                 time.sleep(0.3)
             keyboard.send_keys(step["keys"])
             time.sleep(step.get("wait", 1))
+        elif stype == "toggle_toolbar_button":
+            # QGISRed's main toolbar drop-down buttons (General/Project/
+            # Edition/.../Digital Twin) ARE exposed as plain UIA Button
+            # elements directly on the main window (no menu involved) —
+            # confirmed live. They're checkable: .invoke() alone had no
+            # visible effect, .toggle() is the pattern that actually
+            # flips the sub-toolbar's visibility (confirmed by querying
+            # QToolBar.isVisible() via the Python console, not just
+            # visually — the new toolbar extends the SAME row rather than
+            # wrapping to a new one if there's enough width, easy to miss
+            # in a screenshot otherwise).
+            btns = [b for b in Application(backend="uia").connect(handle=main_hwnd)
+                    .window(handle=main_hwnd).descendants(control_type="Button")
+                    if b.window_text() == step["label"]]
+            if not btns:
+                raise RuntimeError(f"Toolbar button not found: {step['label']!r}")
+            btns[0].toggle()
+            toggled_toolbars.append(step["label"])
+            time.sleep(1.5)
         else:
             raise ValueError(f"Unknown step type: {stype!r}")
 
@@ -611,6 +632,69 @@ def run_entry(entry: dict, lang: str, main_hwnd: int):
         win32gui.PostMessage(hwnd, win32con.WM_CLOSE, 0, 0)
         time.sleep(1)
 
+    # Same reasoning for toolbar toggles: revert so the next entry (which
+    # may run in the same QGIS session) starts from a clean, single-toolbar
+    # state instead of accumulating every previously-toggled one.
+    for label in toggled_toolbars:
+        btns = [b for b in Application(backend="uia").connect(handle=main_hwnd)
+                .window(handle=main_hwnd).descendants(control_type="Button")
+                if b.window_text() == label]
+        if btns:
+            btns[0].toggle()
+            time.sleep(0.5)
+
+
+FIGURE_RE = re.compile(
+    r'<figure><img src="([^"]+)" alt="([^"]+)"><figcaption><p>(.*?)</p></figcaption></figure>'
+)
+
+
+def scan_figures() -> list:
+    """Parse every <figure> block in the ES manual: (chapter, md_file, line,
+    image, alt, caption). `image` is normalized to the assets/images/...
+    relative path (same path reused verbatim for every language branch —
+    confirmed translate.py's copy_non_md() never remaps asset folders)."""
+    skip = {".git", "book", "scripts"}
+    results = []
+    for path in sorted(SOURCE_DIR.rglob("*.md")):
+        rel = path.relative_to(SOURCE_DIR)
+        if any(p in skip for p in rel.parts):
+            continue
+        chapter = rel.parts[0] if len(rel.parts) > 1 else rel.stem
+        text = path.read_text(encoding="utf-8")
+        for i, line in enumerate(text.split("\n"), start=1):
+            m = FIGURE_RE.search(line)
+            if not m:
+                continue
+            src, alt, caption = m.groups()
+            image = src.split("assets/images/", 1)[-1] if "assets/images/" in src else src
+            results.append({
+                "chapter": chapter,
+                "md_file": str(rel).replace("\\", "/"),
+                "line": i,
+                "image": image,
+                "alt": alt,
+                "caption": caption,
+            })
+    return results
+
+
+def cmd_pending(args):
+    have = {e["image"] for e in load_manifest()}
+    found = scan_figures()
+    missing = [f for f in found if f["image"] not in have]
+    by_chapter = {}
+    for f in missing:
+        by_chapter.setdefault(f["chapter"], []).append(f)
+    print(f"{len(found)} <figure> blocks total, {len(have)} already in manifest, "
+          f"{len(missing)} pending.\n")
+    for chapter in sorted(by_chapter):
+        print(f"## {chapter} ({len(by_chapter[chapter])})")
+        for f in by_chapter[chapter]:
+            print(f"  {f['md_file']}:{f['line']} -> {f['image']}")
+            print(f"    alt: {f['alt']!r}")
+        print()
+
 
 # ── CLI ────────────────────────────────────────────────────────────────────
 
@@ -621,9 +705,13 @@ def cmd_prepare(args):
 
 
 def cmd_run(args):
-    all_entries = [e for e in load_manifest() if e["chapter"] == args.chapter]
+    chapters = args.chapter.split(",")
+    all_entries = [e for e in load_manifest() if e["chapter"] in chapters]
     if not all_entries:
-        sys.exit(f"No manifest entries for chapter {args.chapter!r}")
+        sys.exit(f"No manifest entries for chapter(s) {args.chapter!r}")
+    missing_chapters = set(chapters) - {e["chapter"] for e in all_entries}
+    if missing_chapters:
+        print(f"WARNING: no manifest entries for: {', '.join(sorted(missing_chapters))}")
     specials = [e for e in all_entries if e.get("special")]
     manifest = [e for e in all_entries if not e.get("special")]
     langs = args.lang.split(",")
@@ -660,7 +748,8 @@ def cmd_run(args):
 
         close_qgis(main_hwnd, force_after=10)
 
-    state[args.chapter] = {"last_run": time.strftime("%Y-%m-%dT%H:%M:%S"), "langs": langs}
+    for chapter in chapters:
+        state[chapter] = {"last_run": time.strftime("%Y-%m-%dT%H:%M:%S"), "langs": langs}
     save_state(state)
 
 
@@ -680,6 +769,9 @@ def main():
     p_run.add_argument("--project", type=Path, default=None,
                         help="Path to the demo .qgz project (none for instalacion/ captures)")
     p_run.set_defaults(func=cmd_run)
+
+    p_pending = sub.add_parser("pending", help="List <figure> blocks not yet in the manifest")
+    p_pending.set_defaults(func=cmd_pending)
 
     args = parser.parse_args()
     args.func(args)

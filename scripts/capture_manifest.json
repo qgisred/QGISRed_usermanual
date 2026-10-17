@@ -44,5 +44,122 @@
     "capture_target": "dialog",
     "confidence": "confirmed",
     "special": "dependencies_dialog"
+  },
+  {
+    "chapter": "analisis",
+    "md_file": "analisis/README.md",
+    "line": 7,
+    "image": "analisis/barra-analysis.png",
+    "alt": "Barra de herramientas Analysis de QGISRed",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "Análisis"}
+    ],
+    "preconditions": "Ninguna para activar la barra; sin proyecto abierto los iconos salen deshabilitados (recapturar en Fase 3 con el proyecto de demo para un aspecto mas realista).",
+    "capture_target": "main_window",
+    "confidence": "confirmed",
+    "notes": "Boton 'Analisis' expuesto directamente como UIA Button en la ventana principal (no es un MenuItem). Requiere .toggle(), no .invoke() - confirmado consultando QToolBar.isVisible() por la consola de Python, el efecto visual es sutil porque la barra nueva se añade al final de la misma fila existente en vez de crear una fila aparte."
+  },
+  {
+    "chapter": "consultas",
+    "md_file": "consultas/README.md",
+    "line": 5,
+    "image": "consultas/barra-queries.png",
+    "alt": "Barra de herramientas Queries de QGISRed",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "Consultas"}
+    ],
+    "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
+    "capture_target": "main_window",
+    "confidence": "confirmed"
+  },
+  {
+    "chapter": "edicion",
+    "md_file": "edicion/README.md",
+    "line": 5,
+    "image": "edicion/barra-edition.png",
+    "alt": "Barra de herramientas Edition de QGISRed",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "Edición"}
+    ],
+    "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
+    "capture_target": "main_window",
+    "confidence": "confirmed"
+  },
+  {
+    "chapter": "gemelo-digital",
+    "md_file": "gemelo-digital/README.md",
+    "line": 5,
+    "image": "gemelo-digital/barra-digital-twin.png",
+    "alt": "Barra de herramientas Digital Twin de QGISRed",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "Gemelo Digital"}
+    ],
+    "preconditions": "Ninguna.",
+    "capture_target": "main_window",
+    "confidence": "confirmed"
+  },
+  {
+    "chapter": "gestion-proyectos",
+    "md_file": "gestion-proyectos/README.md",
+    "line": 5,
+    "image": "general/barra-general.png",
+    "alt": "Barra de herramientas General de QGISRed con sus cuatro botones",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "General"}
+    ],
+    "preconditions": "Ninguna - los 4 botones estan siempre habilitados.",
+    "capture_target": "main_window",
+    "confidence": "confirmed"
+  },
+  {
+    "chapter": "guia-rapida",
+    "md_file": "guia-rapida/README.md",
+    "line": 5,
+    "image": "guia-rapida/barra-principal.png",
+    "alt": "Barra principal de QGISRed con los botones desplegables de cada toolbar",
+    "steps": [],
+    "preconditions": "La barra principal 'QGISRed' esta siempre visible tras cargar el plugin, no requiere ninguna accion. Recapturar en Fase 3 con proyecto abierto para que el indicador de unidades muestre valores reales.",
+    "capture_target": "main_window",
+    "confidence": "confirmed"
+  },
+  {
+    "chapter": "herramientas",
+    "md_file": "herramientas/README.md",
+    "line": 5,
+    "image": "herramientas/barra-tools.png",
+    "alt": "Barra de herramientas Tools de QGISRed",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "Herramientas"}
+    ],
+    "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
+    "capture_target": "main_window",
+    "confidence": "confirmed"
+  },
+  {
+    "chapter": "proyecto-activo",
+    "md_file": "proyecto-activo/README.md",
+    "line": 5,
+    "image": "proyecto/barra-project.png",
+    "alt": "Barra de herramientas Project de QGISRed con sus nueve botones",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "Proyecto"}
+    ],
+    "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
+    "capture_target": "main_window",
+    "confidence": "confirmed",
+    "notes": "README.md ya tiene un TODO marcando esta captura desactualizada (boton 'Project backup' eliminado) - verificar al revisar la imagen final."
+  },
+  {
+    "chapter": "verificaciones",
+    "md_file": "verificaciones/README.md",
+    "line": 5,
+    "image": "debug/barra-debug.png",
+    "alt": "Barra de herramientas Debug de QGISRed",
+    "steps": [
+      {"type": "toggle_toolbar_button", "label": "Depuración"}
+    ],
+    "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
+    "capture_target": "main_window",
+    "confidence": "confirmed"
   }
 ]
