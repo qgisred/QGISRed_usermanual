@@ -50,7 +50,6 @@
 * [📊 Analyse](analyse/README.md)
     * [Exécution et options](analyse/execution.md)
     * [Visionneuse de résultats](analyse/resultats.md)
-    * [Profils longitudinaux](analyse/profils-longitudinaux.md)
     * [Exportation de modèle](analyse/exportation.md)
 
 * [🧬 Jumeau numérique](jumeau-numerique/README.md)
