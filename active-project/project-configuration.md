@@ -1,17 +1,17 @@
 # Project Configuration
 
-The **Project** bar groups three configuration dialogs that affect the hydraulic behavior of the model and the default values ​​with which new elements are created.
+This page brings together three configuration dialogs that affect the hydraulic behavior of the model and the default values used when creating new elements: Analysis options (**Analysis** bar) and Default values / Materials table (**Project** bar).
 
 ---
 
-## Project Options
+## Analysis options
 
-**Project bar → Project options** (Project settings)
+**Analysis bar → Analysis options...** (Analysis options)
 
 Opens the main EPANET options dialog. It is equivalent to section `[OPTIONS]` of file `.inp`.
 
-<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Project options dialog: Hydraulics, Quality, Time and Energy tabs"><figcaption><p>Project options dialog: Hydraulics, Quality, Time and Energy tabs</p></figcaption></figure>
-*Project Options dialog with its four tabs.*
+<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Analysis Options Dialog: Hydraulics, Quality, Time and Energy tabs"><figcaption><p>Analysis Options Dialog: Hydraulics, Quality, Time and Energy tabs</p></figcaption></figure>
+*Analysis options dialog with its four tabs.*
 
 ### Hydraulic Tab
 
@@ -39,7 +39,7 @@ Opens the main EPANET options dialog. It is equivalent to section `[OPTIONS]` of
 | **Diffusivity** | Relative molecular diffusion coefficient (1.0 for chlorine in water) |
 | **Tolerance** | Convergence criterion for the quality solver |
 
-### Times Tab
+### Time Tab
 
 | Field | Description |
 |-------|-------------|

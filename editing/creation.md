@@ -46,7 +46,7 @@ Place a Tank on the map. Tanks have a variable level and participate in the hydr
 2. Click on an **existing node** or on an empty point on the map.
 - If you click on an existing node, that node **becomes** a Tank.
 - If you click on an empty point, QGISRed creates a new Tank (no initial connection; you will need to connect it with a pipe).
-3. QGISRed opens the properties dialog of the new tank so you can enter the data (bottom elevation, initial level, minimum level, maximum level, diameter).
+3. The reservoir is created with the default values; use **Edit properties of the elements...** to enter the data (background dimension, initial level, minimum level, maximum level, diameter).
 
 ### Main tank parameters
 
@@ -96,7 +96,7 @@ Insert a valve into an existing pipe. The original pipe is **divided into two se
 - Create a node at that point.
 - Divides the original pipe into two sections with the same diameter and material attributes.
 - Create the valve between the two new ends.
-4. The properties dialog opens to configure the valve type and setting.
+4. The valve is created with the default type and setting; use **Edit Element Properties...** to configure its type and setting.
 
 ### Available valve types
 
@@ -121,7 +121,7 @@ Insert a pump into an existing pipe, splitting it exactly the same as with valve
 
 1. Activate the tool and click on the pipe.
 2. QGISRed divides the pipe and creates the pump between the two resulting sections.
-3. The properties dialog opens to configure the H-Q curve and initial velocity.
+3. The pump is created with the default values; use **Edit Element Properties...** to set the H-Q curve and initial speed.
 
 ### Pump parameters
 

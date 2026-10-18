@@ -1,15 +1,15 @@
 # Element Explorer
 
-The **Element Explorer** is a floating panel (dock) that QGISRed maintains as a single instance. It groups two related functionalities into separate tabs: searching for elements by ID and viewing the properties of the selected element on the map.
+The **Element Explorer** is a floating panel (dock) that QGISRed maintains as a single instance. It groups two related functionalities into two drop-down sections, stacked vertically (not in side-by-side tabs): search for elements by ID and display of properties of the selected element on the map.
 
-<figure><img src="../assets/images/consultas/element-explorer.png" alt="Element Explorer panel with the two tabs Find Elements and Properties"><figcaption><p>Element Explorer panel with the two tabs Find Elements and Properties</p></figcaption></figure>
-*Element Explorer panel: Find Elements tab (left) and Properties tab (right).*
+<figure><img src="../assets/images/consultas/element-explorer.png" alt="Element Explorer panel with Search Elements by Id and Element Properties sections expanded"><figcaption><p>Element Explorer panel with Search Elements by Id and Element Properties sections expanded</p></figcaption></figure>
+* Element Explorer panel: "Search Elements by Id" section (top) and "Element Properties" section (bottom).*
 
-The **Find elements by ID** and **Element properties** buttons in the Queries bar open this same panel and activate the corresponding tab. Switching tabs within the panel does not close any functionality.
+The **Find elements by ID** and **Element properties** buttons in the Queries bar open this same pane and expand the corresponding section — but **automatically collapse the other**, as only one section remains expanded at a time by default. If you need to view both at once (for example, for captures or to compare results), you can manually re-expand the collapsed section by clicking on its header; this does not close any functionality.
 
 ---
 
-## Find Elements Tab — Search by ID
+## "Search Items by Id" section
 
 **Queries Bar → Find elements by ID…**
 
@@ -36,11 +36,11 @@ The panel displays a warning and the map does not change.
 
 ---
 
-## Properties tab — Element properties
+## "Element Properties" section
 
 **Queries bar → Element properties…**
 
-Activates an interactive identification tool: when you click on any element on the map, the panel shows all its attributes in the Properties tab.
+Activate an interactive identification tool: when you click on any element of the map, the panel displays all its attributes in this section.
 
 ### Process
 
