@@ -46,7 +46,7 @@ Coloca un depósito de almacenamiento (Tank) en el mapa. Los depósitos tienen n
 2. Haz clic sobre un **nudo existente** o sobre un punto vacío del mapa.
    - Si haces clic sobre un nudo existente, ese nudo se **convierte** en Tank.
    - Si haces clic en un punto vacío, QGISRed crea un Tank nuevo (sin conexión inicial; necesitarás conectarlo con una tubería).
-3. QGISRed abre el diálogo de propiedades del nuevo depósito para que introduzcas los datos (cota de fondo, nivel inicial, nivel mínimo, nivel máximo, diámetro).
+3. El depósito se crea con los valores por defecto; usa **Editar propiedades de los elementos...** para introducir los datos (cota de fondo, nivel inicial, nivel mínimo, nivel máximo, diámetro).
 
 ### Parámetros principales del depósito
 
@@ -96,7 +96,7 @@ Inserta una válvula dentro de una tubería existente. La tubería original se *
    - Crea un nudo en ese punto.
    - Divide la tubería original en dos tramos con los mismos atributos de diámetro y material.
    - Crea la válvula entre los dos nuevos extremos.
-4. Se abre el diálogo de propiedades para configurar el tipo y ajuste de la válvula.
+4. La válvula se crea con el tipo y ajuste por defecto; usa **Editar propiedades de los elementos...** para configurar su tipo y ajuste.
 
 ### Tipos de válvula disponibles
 
@@ -121,7 +121,7 @@ Inserta una bomba en una tubería existente, dividiéndola exactamente igual que
 
 1. Activa la herramienta y haz clic sobre la tubería.
 2. QGISRed divide la tubería y crea la bomba entre los dos tramos resultantes.
-3. Se abre el diálogo de propiedades para configurar la curva H-Q y la velocidad inicial.
+3. La bomba se crea con los valores por defecto; usa **Editar propiedades de los elementos...** para configurar la curva H-Q y la velocidad inicial.
 
 ### Parámetros de la bomba
 

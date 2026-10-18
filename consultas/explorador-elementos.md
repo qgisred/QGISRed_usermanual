@@ -1,15 +1,15 @@
 # Element Explorer
 
-El **Element Explorer** es un panel flotante (dock) que QGISRed mantiene como instancia única. Agrupa dos funcionalidades relacionadas en sendas pestañas: búsqueda de elementos por ID y visualización de propiedades del elemento seleccionado en el mapa.
+El **Element Explorer** es un panel flotante (dock) que QGISRed mantiene como instancia única. Agrupa dos funcionalidades relacionadas en sendas secciones desplegables, apiladas verticalmente (no en pestañas lado a lado): búsqueda de elementos por ID y visualización de propiedades del elemento seleccionado en el mapa.
 
-<figure><img src="../assets/images/consultas/element-explorer.png" alt="Panel Element Explorer con las dos pestañas Find Elements y Properties"><figcaption><p>Panel Element Explorer con las dos pestañas Find Elements y Properties</p></figcaption></figure>
-*Panel Element Explorer: pestaña Find Elements (izquierda) y pestaña Properties (derecha).*
+<figure><img src="../assets/images/consultas/element-explorer.png" alt="Panel Element Explorer con las secciones Buscar elementos por Id y Propiedades de los elementos expandidas"><figcaption><p>Panel Element Explorer con las secciones Buscar elementos por Id y Propiedades de los elementos expandidas</p></figcaption></figure>
+*Panel Element Explorer: sección "Buscar elementos por Id" (arriba) y sección "Propiedades de los elementos" (abajo).*
 
-Los botones **Find elements by ID** y **Element properties** de la barra Queries abren este mismo panel y activan la pestaña correspondiente. Cambiar de pestaña dentro del panel no cierra ninguna funcionalidad.
+Los botones **Find elements by ID** y **Element properties** de la barra Queries abren este mismo panel y expanden la sección correspondiente — pero **colapsan automáticamente la otra**, ya que solo una sección permanece expandida a la vez por defecto. Si necesitas ver ambas a la vez (por ejemplo, para capturas o para comparar resultados), puedes volver a expandir manualmente la sección colapsada haciendo clic en su cabecera; esto no cierra ninguna funcionalidad.
 
 ---
 
-## Pestaña Find Elements — Buscar por ID
+## Sección "Buscar elementos por Id"
 
 **Barra Queries → Find elements by ID…**
 
@@ -36,11 +36,11 @@ El panel muestra un aviso y el mapa no cambia.
 
 ---
 
-## Pestaña Properties — Propiedades del elemento
+## Sección "Propiedades de los elementos"
 
 **Barra Queries → Element properties…**
 
-Activa una herramienta de identificación interactiva: al hacer clic sobre cualquier elemento del mapa, el panel muestra todos sus atributos en la pestaña Properties.
+Activa una herramienta de identificación interactiva: al hacer clic sobre cualquier elemento del mapa, el panel muestra todos sus atributos en esta sección.
 
 ### Proceso
 
