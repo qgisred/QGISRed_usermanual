@@ -3,11 +3,23 @@
     "chapter": "instalacion",
     "md_file": "instalacion/desde-archivo-local.md",
     "line": 25,
-    "image": "instalacion/instalar-desde-zip.png",
+    "image": "installation/install-from-zip.png",
     "alt": "Instalación desde ZIP",
     "steps": [
-      {"type": "menu_path", "path": ["Complementos", "Administrar e instalar complementos…"]},
-      {"type": "click_list_item_from_end", "window_title_contains": "complementos", "first_item_x_frac": 0.111, "first_item_y_frac": 0.049, "offset_from_end": 1}
+      {
+        "type": "menu_path",
+        "path": [
+          "Complementos",
+          "Administrar e instalar complementos…"
+        ]
+      },
+      {
+        "type": "click_list_item_from_end",
+        "window_title_contains": "complementos",
+        "first_item_x_frac": 0.111,
+        "first_item_y_frac": 0.049,
+        "offset_from_end": 1
+      }
     ],
     "preconditions": "Ninguna",
     "capture_target": "dialog",
@@ -19,13 +31,35 @@
     "chapter": "instalacion",
     "md_file": "instalacion/desde-repositorio.md",
     "line": 15,
-    "image": "instalacion/buscar-qgisred-repositorio.png",
+    "image": "installation/search-qgisred-repository.png",
     "alt": "Búsqueda de QGISRed en el repositorio oficial de complementos",
     "steps": [
-      {"type": "menu_path", "path": ["Complementos", "Administrar e instalar complementos…"]},
-      {"type": "click_relative", "window_title_contains": "complementos", "x_frac": 0.111, "y_frac": 0.049},
-      {"type": "type_relative", "window_title_contains": "complementos", "x_frac": 0.5, "y_frac": 0.058, "text": "QGISRed"},
-      {"type": "send_keys", "window_title_contains": "complementos", "keys": "{TAB}Q", "wait": 1}
+      {
+        "type": "menu_path",
+        "path": [
+          "Complementos",
+          "Administrar e instalar complementos…"
+        ]
+      },
+      {
+        "type": "click_relative",
+        "window_title_contains": "complementos",
+        "x_frac": 0.111,
+        "y_frac": 0.049
+      },
+      {
+        "type": "type_relative",
+        "window_title_contains": "complementos",
+        "x_frac": 0.5,
+        "y_frac": 0.058,
+        "text": "QGISRed"
+      },
+      {
+        "type": "send_keys",
+        "window_title_contains": "complementos",
+        "keys": "{TAB}Q",
+        "wait": 1
+      }
     ],
     "preconditions": "Ninguna",
     "capture_target": "dialog",
@@ -37,7 +71,7 @@
     "chapter": "instalacion",
     "md_file": "instalacion/dependencias.md",
     "line": 11,
-    "image": "instalacion/dialogo-dependencias.png",
+    "image": "installation/dependencies-dialog.png",
     "alt": "Diálogo de instalación de dependencias",
     "steps": [],
     "preconditions": "Especial: mover %AppData%\\QGISRed\\ (sin perder dlls\\x64) antes de lanzar, restaurar después. QMessageBox automático de checkDependencies(), no requiere navegación.",
@@ -49,10 +83,13 @@
     "chapter": "analisis",
     "md_file": "analisis/README.md",
     "line": 7,
-    "image": "analisis/barra-analysis.png",
+    "image": "analysis/toolbar.png",
     "alt": "Barra de herramientas Analysis de QGISRed",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "Análisis"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "Análisis"
+      }
     ],
     "preconditions": "Ninguna para activar la barra; sin proyecto abierto los iconos salen deshabilitados (recapturar en Fase 3 con el proyecto de demo para un aspecto mas realista).",
     "capture_target": "main_window",
@@ -63,10 +100,13 @@
     "chapter": "consultas",
     "md_file": "consultas/README.md",
     "line": 5,
-    "image": "consultas/barra-queries.png",
+    "image": "queries/toolbar.png",
     "alt": "Barra de herramientas Queries de QGISRed",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "Consultas"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "Consultas"
+      }
     ],
     "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
     "capture_target": "main_window",
@@ -76,10 +116,13 @@
     "chapter": "edicion",
     "md_file": "edicion/README.md",
     "line": 5,
-    "image": "edicion/barra-edition.png",
+    "image": "editing/toolbar.png",
     "alt": "Barra de herramientas Edition de QGISRed",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "Edición"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "Edición"
+      }
     ],
     "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
     "capture_target": "main_window",
@@ -89,10 +132,13 @@
     "chapter": "gemelo-digital",
     "md_file": "gemelo-digital/README.md",
     "line": 5,
-    "image": "gemelo-digital/barra-digital-twin.png",
+    "image": "digital-twin/toolbar.png",
     "alt": "Barra de herramientas Digital Twin de QGISRed",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "Gemelo Digital"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "Gemelo Digital"
+      }
     ],
     "preconditions": "Ninguna.",
     "capture_target": "main_window",
@@ -102,10 +148,13 @@
     "chapter": "gestion-proyectos",
     "md_file": "gestion-proyectos/README.md",
     "line": 5,
-    "image": "general/barra-general.png",
+    "image": "project-management/toolbar.png",
     "alt": "Barra de herramientas General de QGISRed con sus cuatro botones",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "General"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "General"
+      }
     ],
     "preconditions": "Ninguna - los 4 botones estan siempre habilitados.",
     "capture_target": "main_window",
@@ -115,7 +164,7 @@
     "chapter": "guia-rapida",
     "md_file": "guia-rapida/README.md",
     "line": 5,
-    "image": "guia-rapida/barra-principal.png",
+    "image": "quick-guide/toolbar.png",
     "alt": "Barra principal de QGISRed con los botones desplegables de cada toolbar",
     "steps": [],
     "preconditions": "La barra principal 'QGISRed' esta siempre visible tras cargar el plugin, no requiere ninguna accion. Recapturar en Fase 3 con proyecto abierto para que el indicador de unidades muestre valores reales.",
@@ -126,10 +175,13 @@
     "chapter": "herramientas",
     "md_file": "herramientas/README.md",
     "line": 5,
-    "image": "herramientas/barra-tools.png",
+    "image": "tools/toolbar.png",
     "alt": "Barra de herramientas Tools de QGISRed",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "Herramientas"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "Herramientas"
+      }
     ],
     "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
     "capture_target": "main_window",
@@ -139,10 +191,13 @@
     "chapter": "proyecto-activo",
     "md_file": "proyecto-activo/README.md",
     "line": 5,
-    "image": "proyecto/barra-project.png",
+    "image": "project/toolbar.png",
     "alt": "Barra de herramientas Project de QGISRed con sus nueve botones",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "Proyecto"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "Proyecto"
+      }
     ],
     "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
     "capture_target": "main_window",
@@ -153,10 +208,13 @@
     "chapter": "verificaciones",
     "md_file": "verificaciones/README.md",
     "line": 5,
-    "image": "debug/barra-debug.png",
+    "image": "debug/toolbar.png",
     "alt": "Barra de herramientas Debug de QGISRed",
     "steps": [
-      {"type": "toggle_toolbar_button", "label": "Depuración"}
+      {
+        "type": "toggle_toolbar_button",
+        "label": "Depuración"
+      }
     ],
     "preconditions": "Ninguna para activar la barra; recapturar en Fase 3 con proyecto abierto para un aspecto mas realista.",
     "capture_target": "main_window",

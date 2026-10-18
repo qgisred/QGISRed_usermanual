@@ -407,8 +407,9 @@ def main():
     parser.add_argument("--timeout", type=int, default=420, help="segundos por intento de la captura")
     parser.add_argument("--entry", default="run_all", choices=sorted(ENTRY_LOG_SUFFIX),
                          help="funcion de capture_inside.py a invocar (run_all = las 44 propias de "
-                              "QGISRed; run_instalacion = las 2 automatizables de instalacion/ -- "
-                              "dialogo-dependencias.png no esta cubierta, necesita precondicion especial)")
+                              "QGISRed; run_instalacion = las 3 de installation/, incluida "
+                              "dependencies-dialog.png con su precondicion especial de "
+                              "mover/restaurar dlls/x64)")
     args = parser.parse_args()
     acquire_lock()
     try:
