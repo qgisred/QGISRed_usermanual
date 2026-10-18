@@ -403,8 +403,7 @@ def capture_toolbar(attr_name, object_name, out_rel):
     was_visible = tb.isVisible()
     tb.setVisible(True)
     QApplication.processEvents()
-    time.sleep(0.5)
-    QApplication.processEvents()
+    pump(0.5)
     gl, gt, gr, gb = toolbar_global_rect(general)
     tl, tt, tr, tb_ = toolbar_global_rect(tb)
     rect = (min(gl, tl), gt, max(gr, tr), tb_)
@@ -420,8 +419,7 @@ def capture_main_toolbar_only(out_rel):
     QApplication.processEvents()
     general.setVisible(True)
     QApplication.processEvents()
-    time.sleep(0.4)
-    QApplication.processEvents()
+    pump(0.4)
     rect = toolbar_global_rect(general)
     cap_region_global(MAIN_HWND, rect, out_rel)
 
@@ -682,10 +680,19 @@ def capture_canvas(action_fn, out_rel, delay=0.6, hide_cons=True):
     except Exception as exc:
         log(f"EXCEPCION en {out_rel}: {exc!r}")
         return
-    time.sleep(delay)
+    # time.sleep() aqui (version anterior) bloqueaba el bucle de eventos de
+    # Qt entero, exactamente el mismo bug ya documentado en pump() -- las
+    # capas de resultado con simbologia categorizada compleja (Isolated
+    # Segments, Hydraulic Sectors...) no llegaban a terminar de pintarse
+    # antes de capturar (confirmado en vivo por el usuario: su sesion
+    # manual mostraba el mapa completo, la captura automatica no, aunque
+    # la leyenda ya estuviera poblada igual en ambas -- la leyenda se
+    # puebla al instante, el pintado de los simbolos no).
+    iface.mapCanvas().refresh()
+    pump(delay)
     if hide_cons:
         hide_console()
-        time.sleep(0.3)
+        pump(0.3)
     cap_win(MAIN_HWND, out_rel)
     if hide_cons:
         show_console()
@@ -933,8 +940,12 @@ def run_all():
     def _aux_tab(hwnd):
         w = widget_from_hwnd(hwnd)
         if w is not None and hasattr(w, "tabElements"):
-            w.tabElements.setCurrentIndex(1)
-            time.sleep(0.3)
+            # indice 0=Elementos basicos, 1=Gemelo Digital, 2=Capas
+            # auxiliares -- confirmado en vivo tras arreglar sleep->pump()
+            # que el indice 1 (el que habia antes) mostraba "Gemelo
+            # Digital", no la pestaña que da nombre a esta captura.
+            w.tabElements.setCurrentIndex(2)
+            pump(0.3)
 
     capture_blocking(p.runLayerManagement, None, "project/auxiliary-layers.png",
                       before_close=_aux_tab)
@@ -1056,9 +1067,15 @@ def run_all():
         if hasattr(w, "tabWidget") and hasattr(w, "tabProject"):
             w.tabWidget.setCurrentWidget(w.tabProject)
         w.tbZipFile.setText(str(DESKTOP_ZIP))
+        # inspectZipFile() NO lee tbZipFile.text() -- lee self.ZipFile, un
+        # atributo Python aparte que normalmente solo rellena selectZIP()
+        # (el flujo con QFileDialog real que no usamos aqui). Confirmado
+        # leyendo qgisred_import_dialog.py:1328-1341. Sin esto,
+        # inspectZipFile() revienta con "No such file or directory: ''".
+        w.ZipFile = str(DESKTOP_ZIP)
         if hasattr(w, "inspectZipFile"):
             w.inspectZipFile()
-        time.sleep(0.3)
+        pump(0.3)
 
     capture_blocking(_open_import_fresh, None, "project-management/import-qgisred-project.png",
                       before_close=_fill_zip_field)
@@ -1217,7 +1234,12 @@ def run_part2a():
         QgsProject.instance().removeMapLayer(_consumos_layer_id)
 
     def _isolated_segments():
-        p.runIsolatedSegments(QgsPointXY(23, 70))
+        # Pipe "21" (30,40)-(50,40) en vez del punto original (23,70) en la
+        # pipe "10" -- confirmado por el usuario en vivo: esta zona queda
+        # mucho mejor acotada porque comparte el nudo (30,40) con la IV3
+        # (pipe "111") Y con la pipe "122" (50,40)-(50,10), que ya esta
+        # CERRADA de fabrica (limite natural sin necesitar mas valvulas).
+        p.runIsolatedSegments(QgsPointXY(40, 40))
 
     _before_iso = snapshot_layers()
     capture_canvas(_isolated_segments, "tools/isolated-segments.png", delay=1.5)
