@@ -3,3 +3,4 @@ mdbook.exe
 scripts/__pycache__/
 scripts/.qgis_profiles/
 scripts/capture_inside_*.log
+scripts/.orchestrator.lock

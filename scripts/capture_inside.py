@@ -33,6 +33,12 @@ from qgis.PyQt.QtCore import QTimer
 from qgis.PyQt.QtWidgets import QDockWidget, QToolBar
 from qgis.core import QgsPointXY, QgsRectangle, QgsProject
 
+try:
+    from pywinauto import Application as _UiaApplication
+    HAVE_PYWINAUTO = True
+except ImportError:
+    HAVE_PYWINAUTO = False
+
 # ── Config por idioma ─────────────────────────────────────────────────────
 
 QGISRED_ROOT = Path(r"D:\Claude\nesty\QGISRed")
@@ -152,18 +158,44 @@ def windows_now():
     return found
 
 
-def find_new_window(titlesub, before):
+def find_new_window(titlesub, before, exclude_log_messages=True):
+    """Busca una ventana nueva desde `before`. Por defecto DESCARTA (y
+    cierra) cualquier ventana "generica" que aparezca colada -- "Log
+    Messages" (puede surgir como efecto secundario de una accion anterior,
+    p.ej. un aviso de IsolationValve huerfano tras insert-valve) o "Save
+    Project?" (efecto secundario de marcar el proyecto como modificado,
+    p.ej. iface.addVectorLayer() dentro de _demand_builder()) -- si no se
+    descartan aqui, capture_blocking/capture_file_dialog las capturan
+    pensando que son el dialogo real que se esperaba (confirmado en vivo
+    con propiedades-elemento.png/demand-builder.png en frances, y con
+    demand-builder.png/interpolate-elevation.png capturando "Save
+    Project?" en vez del dialogo real cuando titlesub=None). No basta con
+    detectarlas: tambien hay que seguir buscando DESPUES de cerrarlas,
+    porque el dialogo real puede aparecer con un pequeno retraso."""
     candidates = []
+    strays = []
 
     def cb(h, _):
         if win32gui.IsWindowVisible(h) and h not in before:
             t = win32gui.GetWindowText(h)
+            if exclude_log_messages and is_stray_title(t):
+                strays.append(h)
+                return True
             if titlesub is None or titlesub.lower() in t.lower():
                 candidates.append(h)
         return True
 
     win32gui.EnumWindows(cb, None)
-    return candidates[0] if candidates else None
+    if candidates:
+        return candidates[0]
+    if strays:
+        # Se colo un aviso -- cerrarlo y dar un segundo margen a que
+        # aparezca el dialogo real antes de rendirse.
+        for h in strays:
+            close_stray_win(h)
+        time.sleep(1.0)
+        return find_new_window(titlesub, before | set(strays), exclude_log_messages=False)
+    return None
 
 
 def find_new_untitled_popup(before):
@@ -180,20 +212,53 @@ def find_new_untitled_popup(before):
     return candidates[0] if candidates else None
 
 
+def is_log_messages_title(t):
+    """Detecta el dialogo de avisos de QGISRed ("Log Messages") por titulo,
+    en cualquiera de los 4 idiomas. Importante: "Journal des messages" es
+    el orden REAL en frances (se tuvo mal una vez -- "Messages du journal"
+    -- y por eso ensure_clean_state() no lo detectaba y se colaba como "la
+    ventana nueva" en capturas posteriores). Match por substring en vez de
+    igualdad exacta, para no depender de que el titulo no tenga sufijos."""
+    tl = t.lower()
+    return any(k in tl for k in (
+        "log messages", "registro de mensajes", "journal des messages",
+        "mensagens de log", "mensagens de registro",
+    ))
+
+
+def is_save_project_title(t):
+    """Detecta el MessageBox nativo "Save Project?"/"¿Guardar proyecto?"
+    que QGIS puede mostrar como efecto secundario de marcar el proyecto
+    como modificado (p.ej. iface.addVectorLayer() dentro de
+    _demand_builder()) -- confirmado en vivo que se cuela como "la ventana
+    nueva" en capturas que usan titlesub=None (demand-builder.png,
+    interpolate-elevation.png), capturando este aviso en vez del dialogo
+    real que se esperaba."""
+    tl = t.lower()
+    return any(k in tl for k in (
+        "save project", "guardar proyecto", "enregistrer le projet",
+        "salvar projeto",
+    ))
+
+
+def is_stray_title(t):
+    """Cualquier ventana generica que NO es nunca el objetivo real de una
+    captura y por tanto hay que saltarsela (y cerrarla) si aparece colada
+    como "la ventana nueva"."""
+    return is_log_messages_title(t) or is_save_project_title(t)
+
+
 def ensure_clean_state():
-    """Cierra cualquier dialogo "Log Messages"/"Registro de mensajes" que
-    haya quedado abierto de una accion anterior (p.ej. un aviso de
+    """Cierra cualquier dialogo generico ("Log Messages", "Save Project?")
+    que haya quedado abierto de una accion anterior (p.ej. un aviso de
     IsolationValve huerfano tras insert-valve/split-pipe) -- confirmado en
     vivo que se cuela como "la ventana nueva" en la siguiente captura si no
     se cierra antes. Tambien hace ensure_no_editing()."""
     ensure_no_editing()
 
     def cb(h, _):
-        if win32gui.IsWindowVisible(h):
-            t = win32gui.GetWindowText(h)
-            if t in ("Log Messages", "Registro de mensajes", "Messages du journal",
-                      "Mensagens de Log", "Mensagens de log"):
-                close_win(h)
+        if win32gui.IsWindowVisible(h) and is_stray_title(win32gui.GetWindowText(h)):
+            close_stray_win(h)
         return True
 
     win32gui.EnumWindows(cb, None)
@@ -215,11 +280,36 @@ def ensure_no_editing():
             pass
 
 
+def close_stray_win(hwnd):
+    """Cierra un dialogo GENERICO ("Log Messages", "Save Project?" -- ver
+    is_stray_title()) con WM_CLOSE puro, SIN mover el raton. Para estos
+    dialogos en concreto, el clic real que usa close_win() puede fallar de
+    forma sutil: confirmado en vivo que, al cerrarse el dialogo informativo
+    "Isolated Segments Details" por clic, el clic a veces "atraviesa" a la
+    ventana principal justo debajo y cae sobre el LIENZO DEL MAPA en las
+    coordenadas donde estaba la X -- si la herramienta "Isolated segments"
+    seguia activa, eso basta para relanzarla en ese punto, generando un
+    "Log Messages" nuevo que vuelve a cerrarse igual: un bucle infinito que
+    colgo un run completo hasta que se interrumpio a mano. WM_CLOSE puro no
+    tiene este riesgo porque nunca toca el raton."""
+    if not hwnd:
+        return
+    try:
+        win32gui.PostMessage(hwnd, win32con.WM_CLOSE, 0, 0)
+        time.sleep(0.3)
+    except Exception as exc:
+        log(f"AVISO: WM_CLOSE fallo para stray {hwnd}: {exc!r}")
+    if win32gui.IsWindow(hwnd) and win32gui.IsWindowVisible(hwnd):
+        close_win(hwnd)
+
+
 def close_win(hwnd):
     """Cierra la ventana con un CLIC REAL en la X de la barra de titulo, no
     WM_CLOSE: confirmado en vivo que algunos dialogos WPF (GISRed deprecated)
     ignoran WM_CLOSE por completo y se quedan colgados bloqueando el hilo de
-    Python (bloquean la llamada .exec()-equivalente indefinidamente)."""
+    Python (bloquean la llamada .exec()-equivalente indefinidamente). Para
+    dialogos genericos/informativos (Log Messages, Save Project?) usar
+    close_stray_win() en su lugar -- ver su docstring."""
     if not hwnd:
         return
     try:
@@ -313,23 +403,57 @@ def capture_main_toolbar_only(out_rel):
 
 # ── Patrones de captura de dialogo ──────────────────────────────────────
 
-def capture_blocking(action_fn, titlesub, out_rel, delay=1300, before_close=None):
+def capture_blocking(action_fn, titlesub, out_rel, delay=1300, before_close=None, max_retries=40, retry_ms=500):
     """Para metodos que BLOQUEAN el hilo de Python hasta que el dialogo se
     cierra (.exec() de Qt, o una llamada WPF deprecated sincrona tipo
     GISRed.EditControls). Se programa un QTimer ANTES de llamar a action_fn();
     el timer se sigue disparando aunque action_fn() este bloqueado, porque un
-    dialogo modal solo restringe el foco, no el bucle de eventos de Qt."""
+    dialogo modal solo restringe el foco, no el bucle de eventos de Qt.
+
+    Los dialogos WPF deprecated pueden tardar varios segundos en aparecer la
+    PRIMERA vez que se invocan en la sesion (carga de BAML) -- un solo intento
+    a los `delay` ms puede llegar antes de que exista la ventana, y entonces
+    el dialogo se queda abierto SIN CERRAR, bloqueando el hilo de Python
+    indefinidamente (nadie mas lo cierra). Por eso _cb() reintenta solo, via
+    QTimer re-programado (nunca time.sleep() aqui -- bloquearia el bombeo de
+    mensajes del que depende que el dialogo termine de aparecer), hasta
+    max_retries veces antes de rendirse y dejar el dialogo abierto."""
     before = windows_now()
 
-    def _cb():
+    def _cb(attempt=0):
         h = find_new_window(titlesub, before)
         if h is None:
-            log(f"FALLO: no aparecio ventana '{titlesub}' para {out_rel}")
+            if attempt < max_retries:
+                QTimer.singleShot(retry_ms, lambda: _cb(attempt + 1))
+                return
+            log(f"FALLO: no aparecio ventana '{titlesub}' para {out_rel} (tras {attempt} reintentos)")
             return
-        if before_close:
-            before_close(h)
-        cap_win(h, out_rel)
-        close_win(h)
+
+        def _do_capture():
+            # red de seguridad: un QTimer de un capture_blocking ANTERIOR
+            # puede seguir "en vuelo" (reintentando) cuando esta captura ya
+            # ha avanzado -- si esa ventana se cierra entre medias (p.ej.
+            # otra captura la confunde con un stray y la cierra), cap_win()
+            # revienta con pywintypes.error 1400 "handle invalido" y aborta
+            # el resto de run_part2() sin avisar (confirmado en vivo).
+            # Comprobar IsWindow() y envolver en try/except para que, como
+            # mucho, se pierda ESTA captura concreta, nunca las siguientes.
+            if not win32gui.IsWindow(h):
+                log(f"FALLO: la ventana para {out_rel} desaparecio antes de capturarla")
+                return
+            try:
+                if before_close:
+                    before_close(h)
+                cap_win(h, out_rel)
+                close_win(h)
+            except Exception as exc:
+                log(f"EXCEPCION capturando {out_rel}: {exc!r}")
+
+        # la ventana existe pero su contenido WPF puede no haber terminado
+        # de pintarse todavia (visto en vivo: titulo correcto, panel en
+        # blanco) -- un asentamiento corto, vía QTimer (nunca sleep aqui,
+        # bloquearia el pintado que estamos esperando), antes de capturar.
+        QTimer.singleShot(500, _do_capture)
 
     ensure_clean_state()
     QTimer.singleShot(delay, _cb)
@@ -339,9 +463,94 @@ def capture_blocking(action_fn, titlesub, out_rel, delay=1300, before_close=None
         log(f"EXCEPCION en {out_rel}: {exc!r}")
 
 
-def capture_nonmodal(action_fn, titlesub, out_rel, delay=1.0, before_shot=None, close_after=True):
+_ACCEPT_BUTTON_TEXTS = ("accept", "aceptar", "aceitar", "accepter", "ok")
+
+
+def click_accept_button(hwnd):
+    """Pulsa el boton "Aceptar/Accept/Aceitar/Accepter" del dialogo de
+    confirmacion de simulacion (GISRed.RunModel) via UI Automation
+    (pywinauto, backend 'uia') -- los botones WPF SI se exponen por UIA
+    (confirmado en vivo), solo no son HWND hijos de Win32 (EnumChildWindows
+    no encuentra nada). `.invoke()` dispara el boton real sin mover el
+    raton ni depender de z-order/foreground, mucho mas fiable que calcular
+    una posicion proporcional a ciegas (tecnica anterior, fallaba la
+    mayoria de las veces).
+
+    Cerrar este dialogo en concreto por la X de la barra de titulo (en vez
+    de pulsar Aceptar) se vio en vivo que DESCARTA los resultados de la
+    simulacion (el dock se queda con 'No Node results available' en vez de
+    los datos reales) -- por eso hace falta el boton real, no basta con
+    cerrar la ventana. Devuelve True si encontro y pulso el boton."""
+    if not HAVE_PYWINAUTO:
+        return False
+    try:
+        conn = _UiaApplication(backend="uia").connect(handle=hwnd)
+        w = conn.window(handle=hwnd)
+        for btn in w.descendants(control_type="Button"):
+            if btn.window_text().strip().lower() in _ACCEPT_BUTTON_TEXTS:
+                btn.invoke()
+                return True
+    except Exception as exc:
+        log(f"AVISO: click_accept_button via UIA fallo: {exc!r}")
+    return False
+
+
+def run_with_auto_dismiss(action_fn, poll_ms=400, label=""):
+    """Para llamadas sincronas que pueden mostrar, de forma transitoria, uno
+    o varios dialogos modales que NO nos interesa capturar (p.ej.
+    GISRed.RunModel: muestra un progreso "Simulando..." y luego una
+    confirmacion "Simulacion finalizada" que hay que aceptar) -- sin esto
+    action_fn() se queda bloqueada para siempre esperando un clic que nadie
+    da. Se programa un QTimer recurrente que, para cada ventana top-level
+    nueva que no sea MAIN_HWND, intenta pulsar su boton de aceptar real
+    (click_accept_button) y solo si no lo encuentra cae a cerrar por la X
+    (close_win) -- reprogramandose solo mientras la llamada siga en marcha
+    (se detiene via una lista mutable 'running' que el propio try/finally
+    apaga al terminar)."""
+    before = windows_now()
+    running = [True]
+
+    def _poll():
+        if not running[0]:
+            return
+        for h in windows_now() - before:
+            if h != MAIN_HWND and win32gui.IsWindow(h) and win32gui.IsWindowVisible(h):
+                t = win32gui.GetWindowText(h)
+                # solo el dialogo de confirmacion de "Simulando..." necesita
+                # el boton Aceitar real (cerrarlo por X descarta resultados)
+                # -- cualquier otro dialogo (p.ej. "Mensagens de log") es
+                # puramente informativo, cerrar por X es seguro e igual de
+                # valido.
+                if "simula" in t.lower() and click_accept_button(h):
+                    log(f"  [auto-dismiss{(' ' + label) if label else ''}] aceptando {t!r}")
+                else:
+                    log(f"  [auto-dismiss{(' ' + label) if label else ''}] cerrando {t!r}")
+                    close_stray_win(h)
+        if running[0]:
+            QTimer.singleShot(poll_ms, _poll)
+
+    QTimer.singleShot(poll_ms, _poll)
+    try:
+        action_fn()
+    finally:
+        running[0] = False
+
+
+def capture_nonmodal(action_fn, titlesub, out_rel, delay=1.0, before_shot=None, close_after=True,
+                      max_retries=0, retry_delay=0.5):
     """Para metodos que NO bloquean (.show() de Qt, docks). Llama, espera,
-    busca, opcionalmente ajusta algo (before_shot(hwnd)), captura y cierra."""
+    busca, opcionalmente ajusta algo (before_shot(hwnd)), captura y cierra.
+
+    `max_retries>0`: reintenta la busqueda si no aparece a la primera --
+    hace falta para dialogos WPF que, a diferencia de la mayoria, se
+    muestran de forma NO bloqueante (p.ej. GISRed.DemandBuilder, confirmado
+    en vivo: action_fn() retorna casi al instante, pero el dialogo tarda
+    ~5-6s en terminar de cargar su BAML la primera vez). Usar
+    capture_blocking() aqui (pensado para llamadas que SI bloquean, como la
+    mayoria de dialogos WPF) era el error real: su QTimer de reintento
+    seguia "en vuelo" de fondo mucho despues de que run_part2() ya hubiera
+    seguido con las siguientes capturas, descoordinado con todo lo demas y
+    capturando en el peor caso una ventana ya cerrada."""
     before = windows_now()
     ensure_clean_state()
     try:
@@ -349,10 +558,15 @@ def capture_nonmodal(action_fn, titlesub, out_rel, delay=1.0, before_shot=None, 
     except Exception as exc:
         log(f"EXCEPCION en {out_rel}: {exc!r}")
         return
-    time.sleep(delay)
+    pump(delay)
     h = find_new_window(titlesub, before)
+    attempt = 0
+    while h is None and attempt < max_retries:
+        pump(retry_delay)
+        h = find_new_window(titlesub, before)
+        attempt += 1
     if h is None:
-        log(f"FALLO: no aparecio ventana '{titlesub}' para {out_rel}")
+        log(f"FALLO: no aparecio ventana '{titlesub}' para {out_rel} (tras {attempt} reintentos)")
         return
     if before_shot:
         before_shot(h)
@@ -361,30 +575,62 @@ def capture_nonmodal(action_fn, titlesub, out_rel, delay=1.0, before_shot=None, 
         close_win(h)
 
 
-def capture_dock(action_fn, out_rel, delay=1.5, hide_cons=True):
+def pump(seconds):
+    """Como time.sleep() pero bombeando QApplication.processEvents() -- un
+    sleep() normal bloquea el bucle de eventos de Qt entero, así que si la
+    accion que acabamos de disparar necesita que se procesen eventos para
+    terminar de pintarse (confirmado en vivo: el lienzo del mapa se quedaba
+    en blanco tras GISRed.RunModel hasta forzar processEvents() + un
+    refresh() explicito), un sleep() simple no basta por mucho que se
+    alargue el delay."""
+    from qgis.PyQt.QtWidgets import QApplication
+    end = time.time() + seconds
+    while time.time() < end:
+        QApplication.processEvents()
+        time.sleep(0.05)
+
+
+def capture_dock(action_fn, out_rel, delay=1.5, hide_cons=True, refresh_canvas=False):
     """Para paneles acoplables (QDockWidget) anadidos con iface.addDockWidget
     -- viven DENTRO de la ventana principal, no son una ventana top-level
     propia, asi que no tiene sentido buscarlos con find_new_window. Se
-    captura directamente MAIN_HWND tras esperar a que se pinten."""
+    captura directamente MAIN_HWND tras esperar a que se pinten (con pump(),
+    no sleep() -- ver su docstring). `refresh_canvas=True` fuerza ademas un
+    iface.mapCanvas().refresh() antes de capturar, para los casos donde
+    action_fn() cambia que capas/tema esta activo (p.ej. tras ejecutar el
+    modelo, QGISRed cambia el arbol de capas a 'Resultados')."""
     ensure_clean_state()
     try:
         action_fn()
     except Exception as exc:
         log(f"EXCEPCION en {out_rel}: {exc!r}")
         return
-    time.sleep(delay)
+    pump(delay)
+    if refresh_canvas:
+        iface.mapCanvas().refresh()
+        pump(1.5)
     if hide_cons:
         hide_console()
-        time.sleep(0.3)
+        pump(0.3)
     cap_win(MAIN_HWND, out_rel)
     if hide_cons:
         show_console()
 
 
 def capture_canvas(action_fn, out_rel, delay=0.6, hide_cons=True):
+    """Para acciones de lienzo (p.ej. p.runIsolatedSegments(...)) cuyo
+    resultado se ve directamente en el mapa, no en un dialogo propio.
+    Algunas de estas acciones (confirmado en vivo con Isolated Segments)
+    muestran su resultado en un dialogo "Log Messages" que ADEMAS bloquea
+    el hilo hasta que se cierra -- sin esto, action_fn() nunca retorna y el
+    resto de la captura (y de run_part2()) se queda colgado para siempre.
+    run_with_auto_dismiss() cierra cualquier ventana asi (via
+    close_stray_win, WM_CLOSE puro, sin raton -- un clic real aqui se vio
+    en vivo que podia "atravesar" al lienzo de debajo y reactivar la
+    herramienta, generando un bucle infinito de dialogos)."""
     ensure_clean_state()
     try:
-        action_fn()
+        run_with_auto_dismiss(action_fn, label=out_rel)
     except Exception as exc:
         log(f"EXCEPCION en {out_rel}: {exc!r}")
         return
@@ -438,17 +684,25 @@ def fill_native_file_dialog(hwnd, path_str, open_button_text="Abrir"):
     return True
 
 
-def capture_file_dialog(action_fn, titlesub, path_str, out_rel, delay=1.2, cancel_after=True):
+def capture_file_dialog(action_fn, titlesub, path_str, out_rel, delay=1.2, cancel_after=True,
+                         max_retries=20, retry_ms=400):
     """Para dialogos QFileDialog nativos abiertos por un metodo NO bloqueante
     en el sentido de Python (igual que capture_blocking: action_fn() bloquea
-    hasta que el picker se cierra, asi que usamos QTimer igual)."""
+    hasta que el picker se cierra, asi que usamos QTimer igual). Reintenta
+    la busqueda de la ventana igual que capture_blocking -- este dialogo en
+    concreto (interpolate-elevation) fallaba con 'no aparecio el selector'
+    porque antes solo se comprobaba UNA vez a los `delay` segundos, sin
+    reintentos, y a veces tarda mas en aparecer."""
     before = windows_now()
     ensure_clean_state()
 
-    def _cb():
+    def _cb(attempt=0):
         h = find_new_window(titlesub, before)
         if h is None:
-            log(f"FALLO: no aparecio el selector de archivo para {out_rel}")
+            if attempt < max_retries:
+                QTimer.singleShot(retry_ms, lambda: _cb(attempt + 1))
+                return
+            log(f"FALLO: no aparecio el selector de archivo para {out_rel} (tras {attempt} reintentos)")
             return
         edits = []
 
@@ -461,11 +715,17 @@ def capture_file_dialog(action_fn, titlesub, path_str, out_rel, delay=1.2, cance
         if edits:
             win32gui.SendMessage(edits[-1], win32con.WM_SETTEXT, 0, path_str)
         time.sleep(0.3)
-        cap_win(h, out_rel)
-        if cancel_after:
-            close_win(h)
-        else:
-            win32gui.PostMessage(h, win32con.WM_COMMAND, 1, 0)
+        if not win32gui.IsWindow(h):
+            log(f"FALLO: el selector de archivo para {out_rel} desaparecio antes de capturarlo")
+            return
+        try:
+            cap_win(h, out_rel)
+            if cancel_after:
+                close_win(h)
+            else:
+                win32gui.PostMessage(h, win32con.WM_COMMAND, 1, 0)
+        except Exception as exc:
+            log(f"EXCEPCION capturando {out_rel}: {exc!r}")
 
     QTimer.singleShot(int(delay * 1000), _cb)
     try:
@@ -565,6 +825,33 @@ def widget_from_hwnd(hwnd):
 # sin forzar nada.
 
 
+def reload_demo_project():
+    """Recarga sample_project/demo_network.qgz como proyecto activo.
+    QgsProject.read() deja el proyecto a medias (capas sin cargar, "Loading
+    layer..." colgado en la barra de estado para siempre) --
+    iface.addProject() es el mismo mecanismo que usa QGIS para abrir un
+    .qgz real y SI espera a que termine antes de devolver el control.
+
+    IMPORTANTE: varios metodos de QGISRed (confirmado leyendo el codigo
+    fuente de runCreateProject en project_management_section.py) llaman a
+    QgsProject.instance().clear() como efecto secundario ANTES de mostrar
+    su propio dialogo, incluso si luego se cancela sin confirmar nada --
+    p.ej. runCreateProject() (usado para crear-proyecto.png). Herramientas
+    como "Demand builder" solo funcionan con un proyecto QGISRed real
+    cargado (confirmado por el usuario): hay que volver a llamar a esta
+    funcion despues de CUALQUIER captura que pueda haber limpiado el
+    proyecto, no solo una vez al principio."""
+    demo_qgz = str(QGISRED_ROOT / "usermanual" / "scripts" / "sample_project" / "demo_network.qgz")
+    ok = iface.addProject(demo_qgz)
+    log(f"Reapertura del proyecto demo: {ok}")
+    for _ in range(30):
+        if len(QgsProject.instance().mapLayers()) >= 7:
+            break
+        time.sleep(0.5)
+    time.sleep(1.0)
+    return ok
+
+
 # ── Las 44 capturas propias de QGISRed (todo lo que no sea instalacion/) ───
 
 def run_all():
@@ -625,7 +912,8 @@ def run_all():
     capture_blocking(p.runAnalysisOptions, None, "analisis/analysis-options.png")
     capture_blocking(p.runExportInp, None, "analisis/export-inp-dialog.png")
     capture_dock(p.runProfile, "analisis/perfil-longitudinal-dock.png", delay=1.5)
-    capture_dock(p.runModel, "analisis/results-dock.png", delay=2.5)
+    capture_dock(lambda: run_with_auto_dismiss(p.runModel, label="runModel"), "analisis/results-dock.png",
+                 delay=4.0, refresh_canvas=True)
     capture_dock(lambda: p.timeSeriesButton.trigger(), "analisis/time-series-dock.png", delay=1.5)
 
     # -- gestion-proyectos/ (carpeta de imagen: general/) -------------------
@@ -662,19 +950,8 @@ def run_all():
                       before_close=_fill_zip_field)
 
     # reabrir el proyecto de demo (el import de arriba lo dejo en un
-    # proyecto sin titulo, sin llegar a importar nada). QgsProject.read()
-    # aqui dejo el proyecto a medias (capas sin cargar, "Loading layer..."
-    # colgado en la barra de estado para siempre) -- iface.addProject() es
-    # el mismo mecanismo que usa QGIS para abrir un .qgz real y SI espera
-    # a que termine antes de devolver el control.
-    demo_qgz = str(QGISRED_ROOT / "usermanual" / "scripts" / "sample_project" / "demo_network.qgz")
-    ok = iface.addProject(demo_qgz)
-    log(f"Reapertura del proyecto demo: {ok}")
-    for _ in range(30):
-        if len(QgsProject.instance().mapLayers()) >= 7:
-            break
-        time.sleep(0.5)
-    time.sleep(1.0)
+    # proyecto sin titulo, sin llegar a importar nada).
+    reload_demo_project()
 
     capture_blocking(p.runCreateProject, None, "general/crear-proyecto.png")
     capture_blocking(p.runProjectManager, None, "general/gestor-proyectos.png")
@@ -690,7 +967,16 @@ def run_all():
 def run_part2():
     """herramientas/, consultas/, gemelo-digital/ y verificaciones/ --
     separado de run_all() para poder repetir solo este tramo si hace falta
-    (p.ej. tras el bug del proyecto que no terminaba de recargar)."""
+    (p.ej. tras el bug del proyecto que no terminaba de recargar).
+
+    Recarga el proyecto demo al empezar SIEMPRE (no solo cuando se llama
+    desde run_all()): la captura inmediatamente anterior en run_all(),
+    general/crear-proyecto.png, deja el proyecto activo vacio como efecto
+    secundario de abrir su dialogo (ver reload_demo_project()) -- varias
+    capturas de aqui (demand-builder.png en concreto, confirmado por el
+    usuario) solo funcionan con un proyecto QGISRed real cargado."""
+    reload_demo_project()
+
     # -- herramientas/ -------------------------------------------------------
     capture_toolbar("toolsToolbar", "QGISRed Tools", "herramientas/barra-tools.png")
 
@@ -701,6 +987,15 @@ def run_part2():
         _load_consumos()
         p.runDemandBuilder()
 
+    # confirmado en vivo (imprimiendo justo antes y justo despues de la
+    # llamada, con el "despues" solo apareciendo tras cerrar el dialogo
+    # desde fuera): runDemandBuilder() SI bloquea el hilo, igual que la
+    # mayoria de dialogos WPF deprecated de este fichero -- capture_nonmodal
+    # (probado antes, pensando erroneamente que no bloqueaba por un
+    # artefacto del propio metodo de diagnostico) nunca llegaba a buscar la
+    # ventana porque la llamada a action_fn() no retornaba hasta que algo
+    # cerrara el dialogo, y nada lo hacia. capture_blocking() es el patron
+    # correcto aqui.
     capture_blocking(_demand_builder, None, "herramientas/demand-builder.png")
 
     def _isolated_segments():
@@ -727,37 +1022,87 @@ def run_part2():
         "gemelo-digital/add-service-connection.png",
     )
 
-    def _meter_popup():
+    def _meter_popup(max_attempts=3):
         """boton.showMenu() programatico NO genera una ventana detectable
-        (confirmado en vivo, EN y FR, con QGIS estable) -- hace falta un
-        CLIC REAL sobre la flecha del QToolButton (MenuButtonPopup), con
-        win32api, igual que hizo un usuario de verdad para la version ES."""
+        (confirmado en vivo) y UIA tampoco sirve aqui (confirmado en vivo:
+        el QToolButton en modo MenuButtonPopup expone un UNICO elemento
+        Button por todo su ancho -- UIA no distingue la mitad "accion
+        principal" de la mitad "flecha", y expand() lanza
+        NoPatternInterfaceError, el boton no soporta ExpandCollapsePattern)
+        -- hace falta un CLIC REAL sobre la flecha, con win32api.
+
+        Hallazgo clave (causo un cuelgue real en vivo, QGIS totalmente
+        congelado hasta que el orquestador externo lo mato por timeout a
+        los 420s): el popup de un QToolButton en modo MenuButtonPopup se
+        muestra via QMenu::exec() dentro del propio manejador del evento de
+        bajada de raton -- es una llamada BLOQUEANTE, exactamente igual que
+        un dialogo .exec() de Qt o una llamada WPF deprecated sincrona. La
+        PRIMERA version de este codigo llamaba a pump()/processEvents()
+        DESPUES del mousedown esperando encontrar la ventana -- pero esa
+        misma llamada a processEvents() es la que entrega el evento de
+        bajada a Qt y por tanto la que se queda bloqueada dentro de
+        QMenu::exec() hasta que algo cierre el menu; como "ese algo" era el
+        propio codigo que seguia despues (nunca llegaba a ejecutarse), era
+        un interbloqueo real, no solo lento.
+
+        El arreglo es el MISMO patron que capture_blocking(): programar un
+        QTimer.singleShot ANTES de disparar el mousedown. El timer se sigue
+        disparando aunque haya una llamada bloqueante en curso (confirmado
+        en vivo repetidas veces en este fichero), asi que _cb() puede
+        encontrar la ventana, capturarla y cerrarla (clic fuera del menu,
+        mas fiable que Escape aqui) MIENTRAS QMenu::exec() sigue
+        bloqueado -- en cuanto el menu se cierra, exec() devuelve el
+        control al mousedown, que a su vez devuelve el control al pump()
+        que lo disparo, y la ejecucion continua con normalidad."""
         import win32api
         tb = get_toolbar("QGISRed Digital Twin")
         tb.setVisible(True)
         from qgis.PyQt.QtWidgets import QApplication
         QApplication.processEvents()
-        time.sleep(0.4)
+        pump(0.4)
         btn = p.addMeterDropButton
-        r = btn.rect()
-        tl = btn.mapToGlobal(r.topLeft())
-        br = btn.mapToGlobal(r.bottomRight())
-        # la flecha esta en el ultimo tramo derecho del boton
-        x = br.x() - 6
-        y = (tl.y() + br.y()) // 2
-        before = windows_now()
-        win32api.SetCursorPos((x, y))
-        time.sleep(0.1)
-        win32api.mouse_event(0x0002, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTDOWN
-        time.sleep(0.05)
-        win32api.mouse_event(0x0004, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTUP
-        time.sleep(1.0)
-        h = find_new_window(None, before)
-        if h:
-            cap_win(h, "gemelo-digital/add-meter-dropdown.png")
-            win32api.keybd_event(0x1B, 0, 0, 0)  # VK_ESCAPE para cerrar el menu
-            win32api.keybd_event(0x1B, 0, 0x0002, 0)
-            time.sleep(0.3)
+
+        for attempt in range(1, max_attempts + 1):
+            try:
+                win32gui.SetForegroundWindow(MAIN_HWND)
+            except Exception:
+                pass
+            win32gui.SetWindowPos(MAIN_HWND, win32con.HWND_TOPMOST, 0, 0, 0, 0,
+                                   win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
+            win32gui.SetWindowPos(MAIN_HWND, win32con.HWND_NOTOPMOST, 0, 0, 0, 0,
+                                   win32con.SWP_NOMOVE | win32con.SWP_NOSIZE)
+            pump(0.2)
+
+            r = btn.rect()
+            tl = btn.mapToGlobal(r.topLeft())
+            br = btn.mapToGlobal(r.bottomRight())
+            # la flecha esta en el ultimo tramo derecho del boton
+            x = br.x() - 7
+            y = (tl.y() + br.y()) // 2
+            before = windows_now()
+            found = [None]
+
+            def _cb(_x=x, _y=y):
+                h = find_new_window(None, before)
+                if h:
+                    cap_win(h, "gemelo-digital/add-meter-dropdown.png")
+                    found[0] = h
+                # clic lejos del boton y del menu para cerrarlo -- mas
+                # fiable aqui que Escape (confirmado en vivo: Escape
+                # enviado por win32api global no siempre llega al menu).
+                win32api.SetCursorPos((_x + 200, _y + 300))
+                win32api.mouse_event(0x0002, 0, 0, 0, 0)
+                win32api.mouse_event(0x0004, 0, 0, 0, 0)
+
+            win32api.SetCursorPos((x, y))
+            QTimer.singleShot(300, _cb)
+            win32api.mouse_event(0x0002, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTDOWN
+            win32api.mouse_event(0x0004, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTUP
+            pump(1.5)  # aqui es donde Qt procesa el down y bloquea en exec()
+
+            if found[0]:
+                break
+            log(f"  [meter-popup] intento {attempt}/{max_attempts} sin ventana nueva")
         else:
             log("FALLO: popup de 'Add meter' no encontrado")
         tb.setVisible(False)
@@ -782,44 +1127,148 @@ PLUGMAN_TAB_ALL = 0
 PLUGMAN_TAB_INSTALL_FROM_ZIP = 6
 
 
-def _plugin_manager_widget(tab_index):
-    from qgis.PyQt.QtWidgets import QApplication
-    before = windows_now()
-    iface.pluginManagerInterface().showPluginManager(tab_index)
-    time.sleep(1.0)
-    h = find_new_window(None, before)
-    if h is None:
-        cands = [w for w in QApplication.topLevelWidgets()
-                 if type(w).__name__ == "QgsPluginManager" and w.isVisible()]
-        h = int(cands[0].winId()) if cands else None
-    return h
+def _capture_dependencias():
+    """dialogo-dependencias.png: QMessageBox nativo "QGISRed Dependencies"
+    que checkDependencies() muestra cuando la version de las DLLs en
+    <AppData>/QGISRed/dlls/x64 no coincide con la esperada (confirmado
+    leyendo el codigo fuente: _dependenciesInstalled() exige que exista esa
+    carpeta Y que GISRed.QGISRed.dll tenga la version correcta -- ver
+    lifecycle_section.py). Para forzarlo sin desinstalar nada de verdad,
+    renombramos esa carpeta real a un nombre temporal, disparamos CUALQUIER
+    accion que empiece con `if not self.checkDependencies(): return`
+    (runProjectManager vale, no necesita proyecto abierto ni hace nada mas
+    si la comprobacion falla), y restauramos la carpeta SIEMPRE en un
+    finally -- incluso si algo de en medio falla, nunca debe quedar la
+    instalacion real de QGISRed rota."""
+    import os
+    import shutil
+    dll_dir = Path(os.environ["APPDATA"]) / "QGISRed" / "dlls" / "x64"
+    backup_dir = Path(os.environ["APPDATA"]) / "QGISRed" / "dlls" / "x64_capture_backup"
+    if not dll_dir.is_dir():
+        log("FALLO: no se encontro <AppData>/QGISRed/dlls/x64 real, no se puede simular dependencias ausentes")
+        return
+    if backup_dir.exists():
+        log("AVISO: x64_capture_backup ya existia (resto de una ejecucion anterior interrumpida) -- se reutiliza")
+    else:
+        shutil.move(str(dll_dir), str(backup_dir))
+    try:
+        capture_blocking(p.runProjectManager, None, "instalacion/dialogo-dependencias.png")
+    finally:
+        if backup_dir.exists():
+            if dll_dir.exists():
+                shutil.rmtree(dll_dir)
+            shutil.move(str(backup_dir), str(dll_dir))
+            log("dlls/x64 restaurada")
 
 
 def run_instalacion():
     log("=== Inicio run_instalacion() ===")
 
-    h = _plugin_manager_widget(PLUGMAN_TAB_INSTALL_FROM_ZIP)
-    if h:
-        cap_win(h, "instalacion/instalar-desde-zip.png")
-        close_win(h)
-    else:
-        log("FALLO: gestor de complementos no encontrado (instalar-desde-zip)")
+    _capture_dependencias()
+    import os as _os
+    _real_dll_dir = Path(_os.environ["APPDATA"]) / "QGISRed" / "dlls" / "x64"
+    if not _real_dll_dir.is_dir():
+        log("AVISO GRAVE: dlls/x64 real NO esta en su sitio tras _capture_dependencias() -- "
+            "revisar a mano, la instalacion de QGISRed puede haber quedado rota")
 
-    from qgis.PyQt.QtWidgets import QLineEdit
-    h = _plugin_manager_widget(PLUGMAN_TAB_ALL)
-    if h:
+    # showPluginManager() BLOQUEA el hilo igual que .exec() (confirmado en
+    # vivo: con el patron viejo de time.sleep()-despues-de-la-llamada, el
+    # script se quedaba colgado para siempre -- nada cerraba el dialogo
+    # mientras showPluginManager() seguia esperando a que alguien lo
+    # cerrara). capture_blocking() es el patron correcto, igual que para
+    # cualquier otro dialogo bloqueante de este fichero.
+    capture_blocking(
+        lambda: iface.pluginManagerInterface().showPluginManager(PLUGMAN_TAB_INSTALL_FROM_ZIP),
+        None, "instalacion/instalar-desde-zip.png",
+    )
+
+    from qgis.PyQt.QtWidgets import QLineEdit, QListWidget, QListView
+
+    def _fill_search_field(h):
         w = widget_from_hwnd(h)
-        if w is not None:
-            edits = [e for e in w.findChildren(QLineEdit) if e.isVisible()]
-            if edits:
-                edits[0].setText("QGISRed")
-                time.sleep(0.8)
+        if w is None:
+            return
+        # el gestor de complementos recuerda la ULTIMA pestaña usada en esta
+        # sesion (confirmado en vivo: tras capturar instalar-desde-zip.png
+        # en la pestaña "Install from ZIP", reabrirlo para esta captura
+        # volvia a esa misma pestaña en vez de "All") -- forzar la pestaña
+        # "All" (indice 0). Dos intentos por conteo de filas (5, luego
+        # cualquier QAbstractItemView con 5) no encontraron nada -- un
+        # volcado de diagnostico en vivo revelo el widget real:
+        # QListWidget objectName="mOptionsListWidget", con 8 filas (no 5 --
+        # probablemente incluye entradas ocultas/separadoras ademas de las
+        # 5 visibles). Buscar por objectName, que es un identificador
+        # interno de QGIS estable entre idiomas, en vez de adivinar por
+        # conteo.
+        nav_list = w.findChild(QListWidget, "mOptionsListWidget")
+        if nav_list is not None:
+            nav_list.setCurrentRow(0)
+            pump(0.5)
+        else:
+            log("AVISO: no se encontro mOptionsListWidget en el gestor de complementos")
+        edits = [e for e in w.findChildren(QLineEdit) if e.isVisible()]
+        if edits:
+            edits[0].setText("QGISRed")
+            pump(0.8)
+        else:
+            log("AVISO: no se encontro el campo de busqueda en el gestor de complementos")
+
+        # Seleccionar la fila de QGISRed en la lista de resultados
+        # (vwPlugins, QListView visto en el diagnostico en vivo con 3104
+        # filas) -- sin esto la fila se queda sin resaltar y el panel
+        # derecho no cambia de la ficha generica "All Plugins" a la propia
+        # de QGISRed (confirmado en vivo en los 4 idiomas: ES/EN/FR/PT-BR
+        # mostraban todos el mismo texto generico en ingles/sin traducir).
+        # setCurrentIndex() dispara currentChanged si hay algo conectado
+        # ahi, pero por si el panel solo reacciona a un clic real se emite
+        # tambien la señal clicked() con el mismo indice.
+        plugin_view = w.findChild(QListView, "vwPlugins")
+        if plugin_view is not None and plugin_view.model() is not None:
+            model = plugin_view.model()
+            target = None
+            for row in range(model.rowCount()):
+                idx = model.index(row, 0)
+                if "qgisred" in str(idx.data()).lower():
+                    target = idx
+                    break
+            if target is not None:
+                plugin_view.setCurrentIndex(target)
+                plugin_view.clicked.emit(target)
+                pump(0.5)
             else:
-                log("AVISO: no se encontro el campo de busqueda en el gestor de complementos")
-        cap_win(h, "instalacion/buscar-qgisred-repositorio.png")
-        close_win(h)
-    else:
-        log("FALLO: gestor de complementos no encontrado (buscar-qgisred)")
+                log("AVISO: no se encontro la fila de QGISRed en vwPlugins")
+        else:
+            log("AVISO: no se encontro vwPlugins en el gestor de complementos")
+
+    def _open_plugin_manager_via_menu():
+        # iface.pluginManagerInterface().showPluginManager(tab) SOLO
+        # muestra la ventana -- NO dispara la descarga del catalogo real de
+        # complementos, asi que la lista "Todos" se queda con los 4
+        # complementos de fabrica (Geometry Checker, GRASS 8, OfflineEditing,
+        # Topology Checker) y buscar "QGISRed" no encuentra nada (confirmado
+        # en vivo, 2 intentos, incluso esperando 25s). El USUARIO encontro
+        # que abrir el gestor a mano desde el menu Complementos SI carga el
+        # catalogo bien -- la diferencia es que el menu dispara la QAction
+        # real (objectName "mActionManagePlugins"), que hace algo mas que
+        # solo mostrar la ventana. Buscarla con menu.actions() no la
+        # encuentra siempre (parece poblarse de forma perezosa) -- pero
+        # iface.mainWindow().findChild(QAction, "mActionManagePlugins") SI
+        # la encuentra siempre, sea cual sea el estado del menu. Disparada
+        # asi, "Todos" carga el catalogo real (confirmado en vivo: "Plugins
+        # | All (3104)", igual que el ES de referencia) y ademas abre
+        # directamente en la pestaña "All" -- no hace falta indicar pestana.
+        from qgis.PyQt.QtWidgets import QAction
+        a = iface.mainWindow().findChild(QAction, "mActionManagePlugins")
+        if a is None:
+            log("FALLO: no se encontro la QAction mActionManagePlugins")
+            return
+        a.trigger()
+
+    capture_blocking(
+        _open_plugin_manager_via_menu,
+        None, "instalacion/buscar-qgisred-repositorio.png",
+        before_close=_fill_search_field,
+    )
 
     log("=== Fin run_instalacion() ===")
     log_path = SCRIPTS_DIR / f"capture_inside_instalacion_{LANG}.log"

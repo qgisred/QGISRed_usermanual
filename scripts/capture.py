@@ -165,7 +165,16 @@ def prepare_profile(lang: str):
         f"userLocale={locale}\n"
         "overrideFlag=true\n\n"
         "[PythonPlugins]\n"
-        "QGISRed=true\n",
+        "QGISRed=true\n\n"
+        "[app]\n"
+        # sin esto, el gestor de complementos de este perfil desechable solo
+        # ve los 4 complementos de fabrica de QGIS (Geometry Checker, GRASS
+        # 8, OfflineEditing, Topology Checker) -- confirmado en vivo que
+        # buscar "QGISRed" en ese estado da una lista vacia, porque el
+        # perfil nunca tiene registrado el repositorio online real del que
+        # vendria (un perfil por defecto normal SI lo trae de serie).
+        "plugin_repositories\\Repositorio%20oficial%20de%20complementos%20de%20QGIS\\url="
+        "https://plugins.qgis.org/plugins/plugins.xml\n",
         encoding="utf-8",
     )
 
