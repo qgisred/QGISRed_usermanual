@@ -50,7 +50,6 @@
 * [📊 Analysis](analysis/README.md)
     * [Execution and Options](analysis/execution.md)
     * [Results Viewer](analysis/results.md)
-    * [Longitudinal Profiles](analysis/longitudinal-profiles.md)
     * [Model Export](analysis/export.md)
 
 * [🧬 Digital Twin](digital-twin/README.md)
