@@ -4,7 +4,7 @@
 
 Abre a caixa de diálogo **Mapas Temáticos**, que gera camadas que colorem tubulações e nós por intervalos de um atributo hidráulico. Ao contrário de outras caixas de diálogo QGISRed, você não precisa escolher um "campo e confirmar": cada atributo disponível tem sua própria caixa, e você pode marcar quantos quiser de uma vez - cada um gera sua própria camada, e todos eles vivem no mapa simultaneamente.
 
-<!-- TODO: captura pendente — Diálogo de Mapas Temáticos com caixas de Tubos e Nós -->
+<figure><img src="../assets/images/queries/thematic-maps-dialog.png" alt="Diálogo de Mapas Temáticos com as caixas Material (tubos) e Dimensão (nós) marcadas"><figcaption><p>Diálogo de Mapas Temáticos com as caixas Material (tubos) e Dimensão (nós) marcadas</p></figcaption></figure>
 
 ---
 
@@ -80,6 +80,8 @@ Se você alterar as **unidades**, **fórmula de perda de carga** ou **unidades d
 ---
 
 ## Resultado no mapa
+
+<figure><img src="../assets/images/queries/thematic-maps-result.png" alt="Rede colorida por Material de Tubulação e Dimensão do Nó após a geração dos mapas temáticos"><figcaption><p>Rede colorida por Material de Tubulação e Dimensão do Nó após a geração dos mapas temáticos</p></figcaption></figure>
 
 Cada caixa marcada gera sua própria camada (por exemplo `Pipes_Materials`, `Junctions_Elevations` — sempre `Elemento_Propriedade`, ambos no plural, exceto "Installation Year", que permanece no singular) dentro do grupo **Consultas → Mapas Temáticos**. As camadas são somente leitura e se atualizam quando você edita o pipe ou nó de origem (não há necessidade de regenerar o mapa manualmente após uma alteração específica) — a legenda de cada uma também mostra quantos elementos cada classe possui.
 

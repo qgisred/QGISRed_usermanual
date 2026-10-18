@@ -122,6 +122,8 @@ Concentra todas as opções de apresentação visual dos resultados no mapa. As 
 
 #### Simbologia
 
+<figure><img src="../assets/images/analysis/results-appearance-symbology.png" alt="Aba Aparência com Proporcional ao valor e tags de Id ativadas, rede colorida por resultados no mapa"><figcaption><p>Aba Aparência com Proporcional ao valor e tags de Id ativadas, rede colorida por resultados no mapa</p></figcaption></figure>
+
 | Opção | Descrição |
 |--------|-------------|
 | **Ocultar borda nos cruzamentos** | Oculta a borda/contorno dos marcadores de junção. Ativar esta opção remove o contorno ao redor do símbolo do nó. |

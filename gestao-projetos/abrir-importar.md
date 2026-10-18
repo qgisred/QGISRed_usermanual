@@ -70,6 +70,8 @@ O caso mais comum: você possui um modelo EPANET existente e deseja trabalhar co
 
 Caso você possua camadas SHP com a geometria da rede mas sem a estrutura interna do QGISRed, o importador permite mapear as colunas de atributos de cada camada para os campos esperados pelo plugin.
 
+<figure><img src="../assets/images/project-management/import-shp.png" alt="Aba SHP da caixa de diálogo de importação, com a pasta escolhida e os combos de camadas preenchidos"><figcaption><p>Aba SHP da caixa de diálogo de importação, com a pasta escolhida e os combos de camadas preenchidos</p></figcaption></figure>
+
 Para cada tipo de elemento você pode selecionar a camada SHP correspondente e atribuir seus campos aos atributos do modelo. Os campos reconhecidos automaticamente (se o nome corresponder) são pré-selecionados:
 
 **Tubos** — campos mapeáveis: ID, Comprimento, Diâmetro, Rugosidade, Coeff. perdas, **Material**, Data de instalação, Estado inicial, Coef. reação em massa, Coef. reação da parede, Tag, Descrição.

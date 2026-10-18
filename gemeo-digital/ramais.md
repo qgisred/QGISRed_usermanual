@@ -49,6 +49,8 @@ As válvulas de corte por si só não modificam o modelo EPANET. Para que seu st
 
 Incorpora as ligações traçadas em `ServiceConnections` ao modelo EPANET ativo. Requer que a camada `ServiceConnections` exista e contenha pelo menos uma conexão.
 
+<figure><img src="../assets/images/digital-twin/convert-service-connections.png" alt="Caixa de diálogo de conversão de conexão, com as opções As nodes e As pipes"><figcaption><p>Caixa de diálogo de conversão de conexão, com as opções As nodes e As pipes</p></figcaption></figure>
+
 ### Opções de conversão
 
 Ao executar a ferramenta, uma caixa de diálogo aparece com duas opções:

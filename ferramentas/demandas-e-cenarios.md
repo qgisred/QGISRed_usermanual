@@ -105,6 +105,10 @@ Ao executar a análise de segmentos isolados ou setores hidráulicos, o plugin g
 
 Exporte e importe parâmetros do modelo em massa, criando “instantâneos” do estado da rede que podem ser restaurados a qualquer momento. É a ferramenta para gerenciar variantes de modelos sem duplicar projetos.
 
+<figure><img src="../assets/images/tools/scenario-builder.png" alt="Caixa de diálogo do construtor de cenários com tabela de parâmetros de rede"><figcaption><p>Caixa de diálogo do construtor de cenários com tabela de parâmetros de rede</p></figcaption></figure>
+
+> 💡 A tabela é preenchida apenas com elementos previamente selecionados no mapa (tubos e/ou nós). Se você abrir a ferramenta sem nenhuma seleção, a tabela aparecerá vazia.
+
 ### Parâmetros gerenciados
 
 | Parâmetro | Descrição |

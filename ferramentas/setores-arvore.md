@@ -40,9 +40,13 @@ Calcula a **árvore geradora de custo mínimo** da rede a partir de um nó selec
 3. O QGISRed propõe um nome para a árvore (por padrão, o ID do nó seguido da função de custo escolhida, por exemplo `J5_R`); você pode editá-lo antes de calcular.
 4. O QGISRed calcula a árvore e gera seu próprio grupo **Tree_&lt;nome&gt;** no mapa, com a distância acumulada da origem rotulada em cada trecho.
 
+<figure><img src="../assets/images/tools/minimum-cost-tree-dialog.png" alt="Caixa de diálogo Árvore de Custo Mínimo com nó de origem já selecionado"><figcaption><p>Caixa de diálogo Árvore de Custo Mínimo com nó de origem já selecionado</p></figcaption></figure>
+
 > 📝 Você pode ter **várias árvores abertas ao mesmo tempo**, cada uma com seu próprio nome, grupo e par de camadas (nós e trechos) independentes — elas não se substituem entre si. A própria caixa de diálogo da ferramenta lista as árvores já calculadas para o projeto e permite excluir qualquer uma delas individualmente, sem afetar as demais.
 
 ### Interpretação do resultado
+
+<figure><img src="../assets/images/tools/minimum-cost-tree-result.png" alt="Árvore de custo mínimo calculado, com a distância acumulada rotulada em cada seção"><figcaption><p>Árvore de custo mínimo calculado, com a distância acumulada rotulada em cada seção</p></figcaption></figure>
 
 A árvore resultante mostra qual caminho a água seguiria a partir do nó fonte se a rede fosse puramente ramificada (sem loops). É útil para:
 

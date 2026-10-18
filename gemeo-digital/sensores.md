@@ -43,6 +43,8 @@ Coloque um medidor ou sensor em um tubo clicando no ponto de instalação. O men
 
 Importa leituras de medidores inteligentes (medição inteligente) e as associa às conexões do projeto. As leituras enriquecem as demandas do modelo com dados de consumo reais, em vez de demandas estimadas.
 
+<figure><img src="../assets/images/digital-twin/load-meter-readings.png" alt="Diálogo de Carga de Leituras do Medidor, em seu estado padrão"><figcaption><p>Diálogo de Carga de Leituras do Medidor, em seu estado padrão</p></figcaption></figure>
+
 ### Formatos de importação suportados
 
 | Formato | Estrutura de arquivos |
@@ -51,6 +53,18 @@ Importa leituras de medidores inteligentes (medição inteligente) e as associa 
 | **Série** | Uma linha por registro: `Id; Time; Demand`. Todos os contadores no mesmo arquivo. |
 
 Os separadores de campo são detectados automaticamente no sistema regional. O campo `Time` aceita carimbos de data/hora absolutos e deslocamento em horas desde o início da simulação.
+
+> A caixa de diálogo também tem guias para outros formatos de leitura (por hora/diária/periódica e um formato de cobrança GO) — eles são desativados na versão atual, reservados para expansão futura.
+
+### Onde as leituras são carregadas
+
+Um grupo de opções (botões de opção) decide qual elemento do modelo recebe as leituras importadas:
+
+| Opção | Resultado |
+|--------|-----------|
+| **Carregar as leituras para as Entradas ** | As leituras estão associadas à própria camada `ServiceConnections`, sem tocar nos nós do modelo EPANET. |
+| **Carregue as leituras diretamente nas Juntas ** | As leituras são atribuídas diretamente ao nó mais próximo (`Junction`), ignorando a conexão intermediária. |
+| **Carregue as leituras nas Juntas através das Conexões** | As leituras são atribuídas ao nó após o → nó da cadeia de conexão, adicionando várias conexões no mesmo nó se elas compartilharem uma conexão. |
 
 ---
 

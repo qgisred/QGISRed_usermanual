@@ -44,6 +44,8 @@ Se a simulação detectar problemas (pressões negativas, nós desconectados, bo
 
 ### Opções de diálogo de progresso
 
+<figure><img src="../assets/images/analysis/simulation-progress.png" alt="Diálogo de progresso da simulação EPANET"><figcaption><p>Diálogo de progresso da simulação EPANET</p></figcaption></figure>
+
 A caixa de diálogo de progresso inclui um botão **Pausar** (ícone ‖). Quando pressionado, a simulação para no final do intervalo de tempo atual e o ícone muda para ▶. Pressionar novamente retoma a execução. O botão desaparece assim que a simulação for concluída.
 
 A caixa de diálogo também inclui a caixa de seleção **"Não mostrar esta janela de progresso novamente"**. Se você marcá-la e a simulação terminar com êxito, as execuções subsequentes iniciarão o cálculo diretamente, sem exibir a caixa de diálogo.
@@ -83,6 +85,8 @@ Equivale a **Executar modelo** mas priorizando os resultados já calculados: se 
 **Barra de análise → Relatório de status**
 
 Abre o painel de resultados diretamente na aba **Relatório de Status**, que exibe o relatório de texto gerado pelo motor EPANET após a conclusão da simulação.
+
+<figure><img src="../assets/images/analysis/results-report.png" alt="Aba Relatório de Status do Painel de Resultados"><figcaption><p>Aba Relatório de Status do Painel de Resultados</p></figcaption></figure>
 
 O relatório inclui:
 

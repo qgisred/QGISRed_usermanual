@@ -70,7 +70,7 @@ Calcula e atribui o coeficiente de rugosidade atual de cada tubo com base no seu
 ### Fórmula de cálculo
 
 ```
-Rugosidade_atual = Rugosidade_inicial + (Ano_atual − InstallYear) × Aumento_anual
+Rugosidad_actual = Rugosidad_inicial + (Año_actual − InstallYear) × Incremento_anual
 ```
 
 Onde `Rugosidade_inicial` e `Aumento_anual` são obtidos da linha da Tabela de Materiais que corresponde ao campo `Material` do tubo.
@@ -100,6 +100,8 @@ A rugosidade é escrita nas unidades da fórmula do projeto ativo:
 **Barra de ferramentas → Converter coeficientes de rugosidade…**
 
 Converte os valores do campo `Roughness` de todas as tubulações entre as três fórmulas de perda de pressão. É necessário quando você altera a fórmula hidráulica do projeto e deseja que os valores existentes mantenham seu significado físico.
+
+<figure><img src="../assets/images/tools/convert-roughness.png" alt="Diálogo de conversão de rugosidade entre fórmulas"><figcaption><p>Diálogo de conversão de rugosidade entre fórmulas</p></figcaption></figure>
 
 ### Conversões disponíveis
 

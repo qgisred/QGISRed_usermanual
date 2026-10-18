@@ -55,6 +55,10 @@ As feições com diâmetros problemáticos são selecionadas no mapa e um resumo
 
 Verifique se o valor do campo `Material` de cada tubo está definido na **Tabela de Materiais do Projeto** (Barra do Projeto → Tabela de Materiais).
 
+<figure><img src="../assets/images/debug/check-materials.png" alt="Verificar o resultado dos materiais dos tubos: tubos com material inválido selecionado no mapa"><figcaption><p>Verificar o resultado dos materiais dos tubos: tubos com material inválido selecionado no mapa</p></figcaption></figure>
+
+Ele não exibe nenhuma caixa de diálogo própria: seleciona diretamente no mapa os itens com problemas e resume o resultado no painel de mensagens do QGIS.
+
 ### O que detecta
 
 - Tubos vazios ou sem material.
@@ -86,7 +90,7 @@ Verifica o campo das tubulações `InstallYear`, que armazena o ano de instalaç
 A data de instalação, combinada com o material, permite calcular a **rugosidade atual** de cada tubo usando a fórmula de envelhecimento:
 
 ```
-Rugosidade = Rugosidade_inicial + (Ano_atual − InstallYear) × Aumento_anual
+Rugosidad = Rugosidad_inicial + (Año_actual − InstallYear) × Incremento_anual
 ```
 
 Se a data estiver incorreta, a rugosidade calculada estará errada e a simulação hidráulica produzirá resultados distantes da realidade.
