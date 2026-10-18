@@ -1261,6 +1261,21 @@ def run_part2a():
     capture_blocking(p.runConvertRoughness, None, "tools/convert-roughness.png")
     log_mem("tras convert-roughness")
 
+    def _find_pipes_layer():
+        """Buscar por nombre de capa ("Tuberias") fallaba en EN/FR/PT-BR --
+        confirmado en vivo (AVISO: no se encontro la capa Tuberias): el
+        nombre mostrado en el arbol de capas SI cambia con el idioma de
+        QGIS, aunque el .qgz guarde un nombre base. La ruta del SHP fuente
+        (<Red>_Pipes.shp) es estable en los 4 idiomas, buscar por ahi."""
+        for lyr in QgsProject.instance().mapLayers().values():
+            try:
+                src = lyr.source()
+            except Exception:
+                continue
+            if "_Pipes.shp" in src:
+                return lyr
+        return None
+
     # runScenarioManager() tambien construye su dialogo WPF (ScenarioManagerView
     # en ModalWindowView, 500x740) dentro de GISRed.ScenarioManager(...) --
     # igual que ConvertRoughness. Investigado en codigo: la tabla de
@@ -1268,18 +1283,18 @@ def run_part2a():
     # de llamar al metodo (el C# solo la puebla si los ids llegan no
     # vacios) -- preseleccionar unas tuberias primero.
     def _preselect_pipes_for_scenario():
-        layer = QgsProject.instance().mapLayersByName("Tuberías")
-        if not layer:
-            log("AVISO: no se encontro la capa Tuberias para preseleccionar en Scenario builder")
+        layer = _find_pipes_layer()
+        if layer is None:
+            log("AVISO: no se encontro la capa Tuberias (*_Pipes.shp) para preseleccionar en Scenario builder")
             return
-        ids = [f.id() for f in layer[0].getFeatures()][:3]
-        layer[0].selectByIds(ids)
+        ids = [f.id() for f in layer.getFeatures()][:3]
+        layer.selectByIds(ids)
 
     _preselect_pipes_for_scenario()
     capture_blocking(p.runScenarioManager, None, "tools/scenario-builder.png")
-    _pipes_layer = QgsProject.instance().mapLayersByName("Tuberías")
-    if _pipes_layer:
-        _pipes_layer[0].removeSelection()
+    _pipes_layer = _find_pipes_layer()
+    if _pipes_layer is not None:
+        _pipes_layer.removeSelection()
     log_mem("tras scenario-builder")
 
     # runTree(point) acepta un QgsPointXY directo (igual que
