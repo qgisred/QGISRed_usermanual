@@ -1,15 +1,15 @@
 # Element Explorer
 
-O **Element Explorer** é um painel flutuante (dock) que o QGISRed mantém como uma única instância. Ele agrupa duas funcionalidades relacionadas em abas separadas: busca de elementos por ID e visualização das propriedades do elemento selecionado no mapa.
+O **Element Explorer** é um painel flutuante (dock) que o QGISRed mantém como uma única instância. Ele agrupa duas funcionalidades relacionadas em duas seções suspensas, empilhadas verticalmente (não em guias lado a lado): pesquisa de elementos por ID e exibição de propriedades do elemento selecionado no mapa.
 
-<figure><img src="../assets/images/consultas/element-explorer.png" alt="Painel Element Explorer com as duas guias Localizar Elementos e Propriedades"><figcaption><p>Painel Element Explorer com as duas guias Localizar Elementos e Propriedades</p></figcaption></figure>
-*Painel Element Explorer: guia Localizar Elementos (esquerda) e guia Propriedades (direita).*
+<figure><img src="../assets/images/consultas/element-explorer.png" alt="Painel Explorador de Elementos com as seções Pesquisar Elementos por Id e Propriedades do Elemento expandidas"><figcaption><p>Painel Explorador de Elementos com as seções Pesquisar Elementos por Id e Propriedades do Elemento expandidas</p></figcaption></figure>
+*Painel Explorador de Elementos: seção "Pesquisar Elementos por Id" (superior) e seção "Propriedades do Elemento" (inferior).*
 
-Os botões **Localizar elementos por ID** e **Propriedades do elemento** na barra de Consultas abrem este mesmo painel e ativam a aba correspondente. A troca de guias dentro do painel não fecha nenhuma funcionalidade.
+Os botões **Localizar elementos por ID** e **Propriedades do elemento** na barra Consultas abrem este mesmo painel e expandem a seção correspondente — mas **recolhem automaticamente a outra**, pois apenas uma seção permanece expandida de cada vez por padrão. Se você precisar visualizar os dois ao mesmo tempo (por exemplo, para capturas ou para comparar resultados), poderá expandir manualmente a seção recolhida clicando em seu cabeçalho; isso não fecha nenhuma funcionalidade.
 
 ---
 
-## Guia Encontrar Elementos — Pesquise por ID
+## Seção "Pesquisar itens por ID"
 
 **Barra de consultas → Encontrar elementos por ID…**
 
@@ -36,11 +36,11 @@ O painel exibe um aviso e o mapa não muda.
 
 ---
 
-## Aba Propriedades — Propriedades do elemento
+## Seção "Propriedades do elemento"
 
 **Barra de consultas → Propriedades do elemento…**
 
-Ativa uma ferramenta interativa de identificação: ao clicar em qualquer elemento do mapa, o painel mostra todos os seus atributos na aba Propriedades.
+Ative uma ferramenta de identificação interativa: ao clicar em qualquer elemento do mapa, o painel exibe todos os seus atributos nesta seção.
 
 ### Processo
 

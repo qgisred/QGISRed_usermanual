@@ -46,7 +46,7 @@ Coloque um Reservatório de Nível Variável (RNV) no mapa. Os RNVs possuem nív
 2. Clique em um **nó existente** ou em um ponto vazio no mapa.
 - Se você clicar em um nó existente, esse nó **se tornará** um RNV.
 - Se você clicar em um ponto vazio, o QGISRed cria um novo RNV (sem conexão inicial; você precisará conectá-lo com um tubo).
-3. QGISRed abre a caixa de diálogo de propriedades do novo RNV para que você possa inserir os dados (elevação inferior, nível inicial, nível mínimo, nível máximo, diâmetro).
+3. O reservatório é criado com os valores padrão; use **Editar propriedades dos elementos...** para inserir os dados (dimensão de fundo, nível inicial, nível mínimo, nível máximo, diâmetro).
 
 ### Principais parâmetros do RNV
 
@@ -96,7 +96,7 @@ Insira uma válvula em um tubo existente. O tubo original é **dividido em duas 
 - Crie um nó nesse ponto.
 - Divide o tubo original em duas seções com o mesmo diâmetro e atributos de material.
 - Crie a válvula entre as duas novas extremidades.
-4. A caixa de diálogo de propriedades é aberta para configurar o tipo e a configuração da válvula.
+4. A válvula é criada com o tipo e a configuração padrão; use **Editar propriedades do elemento...** para configurar seu tipo e configuração.
 
 ### Tipos de válvulas disponíveis
 
@@ -121,7 +121,7 @@ Insira uma bomba em um tubo existente, dividindo-o exatamente da mesma forma que
 
 1. Ative a ferramenta e clique no tubo.
 2. QGISRed divide o tubo e cria a bomba entre as duas seções resultantes.
-3. A caixa de diálogo de propriedades é aberta para configurar a curva H-Q e a velocidade inicial.
+3. A bomba é criada com os valores padrão; use **Editar Propriedades do Elemento...** para definir a curva H-Q e a velocidade inicial.
 
 ### Parâmetros da bomba
 

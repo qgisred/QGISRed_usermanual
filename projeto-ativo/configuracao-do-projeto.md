@@ -1,19 +1,19 @@
 # Configuração do Projeto
 
-A barra **Projeto** agrupa três caixas de diálogo de configuração que afetam o comportamento hidráulico do modelo e os valores padrão com os quais novos elementos são criados.
+Esta página reúne três diálogos de configuração que afetam o comportamento hidráulico do modelo e os valores padrão com que os novos elementos são criados: Opções de análise (barra **Analysis**) e Valores padrão / Tabela de materiais (barra **Project**).
 
 ---
 
-## Opções de Projeto
+## Opções de análise
 
-**Barra do projeto → Opções do projeto** (Configurações do projeto)
+**Barra Analysis → Opções de análise...** (Analysis options)
 
 Abre a caixa de diálogo principal de opções do EPANET. É equivalente à seção `[OPTIONS]` do arquivo `.inp`.
 
-<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Caixa de diálogo de opções do projeto: guias Hidráulica, Qualidade, Tempo e Energia"><figcaption><p>Caixa de diálogo de opções do projeto: guias Hidráulica, Qualidade, Tempo e Energia</p></figcaption></figure>
-*Caixa de diálogo Opções do Projeto com suas quatro guias.*
+<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Diálogo de Opções de Análise: Abas de Hidráulica, Qualidade, Tempo e Energia"><figcaption><p>Diálogo de Opções de Análise: Abas de Hidráulica, Qualidade, Tempo e Energia</p></figcaption></figure>
+*Diálogo de Opções de análise com suas quatro abas.*
 
-### Aba Hidráulica
+### Guia Hidráulica
 
 | Campo | Descrição |
 |-------|-------------|
@@ -39,7 +39,7 @@ Abre a caixa de diálogo principal de opções do EPANET. É equivalente à seç
 | **Difusividade** | Coeficiente de difusão molecular relativo (1,0 para cloro em água) |
 | **Tolerância** | Critério de convergência para o solucionador de qualidade |
 
-### Guia Tempos
+### Guia Tempo
 
 | Campo | Descrição |
 |-------|-------------|
