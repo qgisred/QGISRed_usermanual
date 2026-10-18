@@ -1,19 +1,19 @@
 # Configuración del Proyecto
 
-La barra **Project** agrupa tres diálogos de configuración que afectan al comportamiento hidráulico del modelo y a los valores por defecto con que se crean los nuevos elementos.
+Esta página reúne tres diálogos de configuración que afectan al comportamiento hidráulico del modelo y a los valores por defecto con que se crean los nuevos elementos: Opciones de análisis (barra **Analysis**) y Valores por defecto / Tabla de materiales (barra **Project**).
 
 ---
 
-## Opciones del proyecto
+## Opciones de análisis
 
-**Barra Project → Opciones del proyecto** (Project settings)
+**Barra Analysis → Opciones de análisis...** (Analysis options)
 
 Abre el diálogo principal de opciones de EPANET. Es equivalente a la sección `[OPTIONS]` del archivo `.inp`.
 
-<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Diálogo de opciones del proyecto: pestañas de Hidráulica, Calidad, Tiempos y Energía"><figcaption><p>Diálogo de opciones del proyecto: pestañas de Hidráulica, Calidad, Tiempos y Energía</p></figcaption></figure>
-*Diálogo de Opciones del proyecto con sus cuatro pestañas.*
+<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Diálogo de opciones de análisis: pestañas de Hidráulicas, Calidad, Tiempo y Energía"><figcaption><p>Diálogo de opciones de análisis: pestañas de Hidráulicas, Calidad, Tiempo y Energía</p></figcaption></figure>
+*Diálogo de Opciones de análisis con sus cuatro pestañas.*
 
-### Pestaña Hidráulica
+### Pestaña Hidráulicas
 
 | Campo | Descripción |
 |-------|-------------|
@@ -39,7 +39,7 @@ Abre el diálogo principal de opciones de EPANET. Es equivalente a la sección `
 | **Difusividad** | Coeficiente de difusión molecular relativa (1.0 para cloro en agua) |
 | **Tolerancia** | Criterio de convergencia para el solver de calidad |
 
-### Pestaña Tiempos
+### Pestaña Tiempo
 
 | Campo | Descripción |
 |-------|-------------|
