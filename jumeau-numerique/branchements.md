@@ -49,6 +49,8 @@ Les vannes d'arrêt à elles seules ne modifient pas le modèle EPANET. Pour que
 
 Intègre les connexions tracées dans `ServiceConnections` au modèle EPANET actif. Nécessite que la couche `ServiceConnections` existe et contienne au moins une connexion.
 
+<figure><img src="../assets/images/digital-twin/convert-service-connections.png" alt="Dialogue de conversion des raccordements, avec les options As nœuds et As pipes"><figcaption><p>Dialogue de conversion des raccordements, avec les options As nœuds et As pipes</p></figcaption></figure>
+
 ### Options de conversion
 
 Lorsque vous exécutez l'outil, une boîte de dialogue apparaît avec deux options :

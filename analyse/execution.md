@@ -44,6 +44,8 @@ Si la simulation détecte des problèmes (pressions négatives, nœuds déconnec
 
 ### Options de la boîte de dialogue de progression
 
+<figure><img src="../assets/images/analysis/simulation-progress.png" alt="Dialogue de progression de la simulation EPANET"><figcaption><p>Dialogue de progression de la simulation EPANET</p></figcaption></figure>
+
 La boîte de dialogue de progression comprend un bouton **Pause** (icône ‖). Lorsqu'on appuie dessus, la simulation s'arrête à la fin du pas de temps en cours et l'icône se transforme en ▶. Un nouvel appui reprend l'exécution. Le bouton disparaît une fois la simulation terminée.
 
 La boîte de dialogue inclut également la case à cocher **"Ne plus afficher cette fenêtre de progression"**. Si vous le cochez et que la simulation se termine avec succès, les exécutions suivantes lanceront directement le calcul sans afficher la boîte de dialogue.
@@ -83,6 +85,8 @@ C'est équivalent à **Run model** mais en priorisant les résultats déjà calc
 **Barre d'analyse → Rapport d'état**
 
 Ouvre le panneau de résultats directement dans l'onglet **Rapport d'état**, qui affiche le rapport texte généré par le moteur EPANET à la fin de la simulation.
+
+<figure><img src="../assets/images/analysis/results-report.png" alt="Onglet Status Report du tableau de bord des résultats"><figcaption><p>Onglet Status Report du tableau de bord des résultats</p></figcaption></figure>
 
 Le rapport comprend :
 

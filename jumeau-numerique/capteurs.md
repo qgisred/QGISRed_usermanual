@@ -43,6 +43,8 @@ Placez un compteur ou un capteur sur une canalisation en cliquant sur le point d
 
 Importe les relevés des compteurs intelligents (smart metering) et les associe aux connexions du projet. Les lectures enrichissent les demandes du modèle avec des données de consommation réelles plutôt que des demandes estimées.
 
+<figure><img src="../assets/images/digital-twin/load-meter-readings.png" alt="Boîte de dialogue de chargement des lectures de compteurs, dans son état par défaut"><figcaption><p>Boîte de dialogue de chargement des lectures de compteurs, dans son état par défaut</p></figcaption></figure>
+
 ### Formats d'importation pris en charge
 
 | Formater | Structure du fichier |
@@ -51,6 +53,18 @@ Importe les relevés des compteurs intelligents (smart metering) et les associe 
 | **Série** | Une ligne par enregistrement : `Id; Time; Demand`. Tous les compteurs dans le même fichier. |
 
 Les séparateurs de champs sont automatiquement détectés à partir du système régional. Le champ `Time` accepte à la fois les horodatages absolus et le décalage en heures depuis le début de la simulation.
+
+> Le dialogue comporte également des onglets pour d'autres formats de lecture (heures/jours/périodiques, et un format de facturation GO) — ils sont désactivés dans la version actuelle, réservés à une future extension.
+
+### Où se chargent les lectures
+
+Un groupe d'options (boutons radio) décide quel élément du modèle reçoit les lectures importées :
+
+| Option | Résultat |
+|--------|-----------|
+| **Charger les lectures sur les raccordements** | Les lectures sont associées à la couche `ServiceConnections` elle-même, sans toucher aux nœuds du modèle EPANET. |
+| **Charger les lectures directement sur les nœuds** | Les lectures sont assignées directement au nœud (`Junction`) le plus proche, en ignorant le raccordement intermédiaire. |
+| **Charger les lectures sur les nœuds via les raccordements** | Les lectures sont assignées au nœud en suivant la chaîne raccordement → nœud, en agrégeant plusieurs raccordements sur le même nœud s'ils partagent une connexion. |
 
 ---
 

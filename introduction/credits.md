@@ -29,16 +29,16 @@ Le développement de QGISRed fait partie des activités de recherche et de trans
 | Entité | Logo |
 | ------------------ | ---------------------------------------------------------------- |
 | **Portail QGISRed** | [![Logo QGISRouge](../assets/images/credits/logo-qgisred.png)](http://qgisred.upv.es) |
-| **REDHISP** | ![Logo REDHISP](../assets/images/credits/logo-redhisp.png) |
-| **IIAMA** | [![Logo IIAMA](../assets/images/credits/logo-iiama.png)](http://www.iiama.upv.es) |
-| **UPV** | [![Logo UPV](../assets/images/credits/logo-upv.png)](http://www.upv.es) |
+| **REDHISP**        | ![Logo REDHISP](../assets/images/credits/logo-redhisp.png)                          |
+| **IIAMA**          | [![Logo IIAMA](../assets/images/credits/logo-iiama.png)](http://www.iiama.upv.es)   |
+| **UPV**            | [![Logo UPV](../assets/images/credits/logo-upv.png)](http://www.upv.es)             |
 
 ### Collaborateurs
 
 | Entité | Logo |
 | ----------------- | ---------------------------------------------------------------- |
-| **EauPi** | ![Logo WaterPi](../assets/images/credits/logo-waterpi.png) |
-| **Ingénieux** | ![Logo Ingeniousware](../assets/images/credits/logo-ingeniousware.png) |
+| **WaterPi**       | ![Logo WaterPi](../assets/images/credits/logo-waterpi.png)             |
+| **Ingeniousware** | ![Logo Ingeniousware](../assets/images/credits/logo-ingeniousware.png)                       |
 
 ***
 

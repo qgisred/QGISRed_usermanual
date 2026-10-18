@@ -122,6 +122,8 @@ Concentre toutes les options de présentation visuelle des résultats sur la car
 
 #### Symbologie
 
+<figure><img src="../assets/images/analysis/results-appearance-symbology.png" alt="Onglet Appearance avec Proportional to value et les étiquettes ID activées, réseau coloré par les résultats sur la carte"><figcaption><p>Onglet Appearance avec Proportional to value et les étiquettes ID activées, réseau coloré par les résultats sur la carte</p></figcaption></figure>
+
 | Options | Descriptif |
 |--------|-------------|
 | **Masquer la bordure aux carrefours** | Masque le bord/contour des marqueurs de jonction. L'activation de cette option supprime le contour entourant le symbole du nœud. |

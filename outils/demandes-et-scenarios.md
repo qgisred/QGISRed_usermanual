@@ -105,6 +105,10 @@ Lors de l'exécution de l'analyse de segments isolés ou de secteurs hydraulique
 
 Exportez et importez en masse les paramètres du modèle, créant des « instantanés » de l’état du réseau qui peuvent être restaurés à tout moment. C'est l'outil permettant de gérer les variantes de modèles sans dupliquer les projets.
 
+<figure><img src="../assets/images/tools/scenario-builder.png" alt="Dialogue Scenario builder avec le tableau des paramètres du réseau"><figcaption><p>Dialogue Scenario builder avec le tableau des paramètres du réseau</p></figcaption></figure>
+
+> 💡 La table n'est peuplée que d'éléments préalablement sélectionnés sur la carte (tuyaux et/ou nœuds). Si vous ouvrez l'outil sans aucune sélection, le tableau apparaît vide.
+
 ### Paramètres gérés
 
 | Paramètre | Descriptif |

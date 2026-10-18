@@ -4,7 +4,7 @@
 
 Ouvre la boîte de dialogue **Cartes thématiques**, qui génère des couches qui colorent les canalisations et les nœuds par intervalles d'un attribut hydraulique. Contrairement aux autres boîtes de dialogue QGISRed, vous n'avez pas besoin de choisir un « champ et de confirmer » : chaque attribut disponible a sa propre case, et vous pouvez en cocher autant que vous le souhaitez à la fois — chacun génère sa propre couche, et ils vivent tous simultanément sur la carte.
 
-<!-- TODO : capture en attente — Boîte de dialogue Cartes thématiques avec boîtes Tuyaux et Nœuds -->
+<figure><img src="../assets/images/queries/thematic-maps-dialog.png" alt="Boîte de dialogue Thematic Maps avec les cases Matériel (tuyaux) et Cote (nœuds) cochées"><figcaption><p>Boîte de dialogue Thematic Maps avec les cases Matériel (tuyaux) et Cote (nœuds) cochées</p></figcaption></figure>
 
 ---
 
@@ -80,6 +80,8 @@ Si vous modifiez les **unités**, la **formule de perte de charge** ou les **uni
 ---
 
 ## Résultat sur la carte
+
+<figure><img src="../assets/images/queries/thematic-maps-result.png" alt="Réseau coloré par Matériau de tuyauterie et Cote de nœuds après avoir généré les cartes thématiques"><figcaption><p>Réseau coloré par Matériau de tuyauterie et Cote de nœuds après avoir généré les cartes thématiques</p></figcaption></figure>
 
 Chaque case cochée génère sa propre couche (par exemple `Pipes_Materials`, `Junctions_Elevations` — toujours `Élément_Propriété`, les deux au pluriel sauf « Installation Year », qui reste au singulier) au sein du groupe **Requêtes → Cartes thématiques**. Les couches sont en lecture seule et se mettent à jour automatiquement lorsque vous modifiez le canal ou le nœud source (il n'est pas nécessaire de régénérer la carte manuellement après une modification spécifique) — la légende de chacune montre également le nombre d'éléments de chaque classe.
 

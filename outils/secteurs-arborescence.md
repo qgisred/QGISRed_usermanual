@@ -40,9 +40,13 @@ Calcule l'**arbre couvrant le coût minimum** du réseau à partir d'un nœud s�
 3. QGISRed propose un nom pour l'arbre (par défaut, l'ID du nœud suivi de la fonction de coût choisie, par ex. `J5_R`) ; vous pouvez le modifier avant de calculer.
 4. QGISRed calcule l'arbre et génère son propre groupe **Tree_&lt;nom&gt;** sur la carte, avec la distance accumulée depuis l'origine étiquetée sur chaque tronçon.
 
+<figure><img src="../assets/images/tools/minimum-cost-tree-dialog.png" alt="Dialogue Minimum Cost Tree avec le nœud d'origine déjà sélectionné"><figcaption><p>Dialogue Minimum Cost Tree avec le nœud d'origine déjà sélectionné</p></figcaption></figure>
+
 > 📝 Vous pouvez avoir **plusieurs arbres ouverts à la fois**, chacun avec son propre nom, groupe et paire de couches (nœuds et tronçons) indépendants — ils ne se remplacent pas entre eux. La boîte de dialogue de l'outil elle-même liste les arbres déjà calculés pour le projet et permet de supprimer individuellement n'importe lequel d'entre eux, sans affecter les autres.
 
 ### Interprétation du résultat
+
+<figure><img src="../assets/images/tools/minimum-cost-tree-result.png" alt="Arbre à coût minimal calculé, avec la distance cumulée étiquetée sur chaque tronçon"><figcaption><p>Arbre à coût minimal calculé, avec la distance cumulée étiquetée sur chaque tronçon</p></figcaption></figure>
 
 L'arborescence résultante montre quel chemin l'eau suivrait depuis le nœud source si le réseau était purement ramifié (pas de boucles). Il est utile pour :
 

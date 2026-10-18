@@ -55,6 +55,10 @@ Les entités présentant des diamètres problématiques sont sélectionnées sur
 
 Vérifiez que la valeur du champ `Material` de chaque tuyau est définie dans la **Tableau des matériaux du projet** (Barre du projet → Table des matériaux).
 
+<figure><img src="../assets/images/debug/check-materials.png" alt="Résultat de Check pipe materials : tuyaux avec matériau non valide sélectionnés sur la carte"><figcaption><p>Résultat de Check pipe materials : tuyaux avec matériau non valide sélectionnés sur la carte</p></figcaption></figure>
+
+Il n'affiche pas de dialogue propre : il sélectionne directement sur la carte les éléments problématiques et résume le résultat dans le panneau des messages de QGIS.
+
 ### Ce qu'il détecte
 
 - Tuyaux vides ou sans matériel.

@@ -33,6 +33,8 @@ Permet d'ajouter à la liste un projet qui n'apparaît pas dans l'historique (pa
 
 Créez une copie complète du projet sous un nom différent. Utile pour créer des variantes sans perdre l'original.
 
+<figure><img src="../assets/images/project-management/clone-project.png" alt="Dialogue de clonage de projet"><figcaption><p>Dialogue de clonage de projet</p></figcaption></figure>
+
 1. Sélectionnez le projet que vous souhaitez cloner.
 2. Appuyez sur **Cloner**.
 3. Saisissez le nouveau nom du réseau.

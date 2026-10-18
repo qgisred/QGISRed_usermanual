@@ -70,6 +70,8 @@ Le cas le plus courant : vous disposez d’un modèle EPANET existant et vous so
 
 Si vous disposez de couches SHP avec la géométrie du réseau mais sans la structure interne de QGISRed, l'importateur permet de mapper les colonnes d'attributs de chaque couche aux champs attendus par le plugin.
 
+<figure><img src="../assets/images/project-management/import-shp.png" alt="Onglet SHP de la boîte de dialogue d'importation, avec le dossier choisi et les combos de couche peuplés"><figcaption><p>Onglet SHP de la boîte de dialogue d'importation, avec le dossier choisi et les combos de couche peuplés</p></figcaption></figure>
+
 Pour chaque type d'élément, vous pouvez sélectionner la couche SHP correspondante et attribuer ses champs aux attributs du modèle. Les champs automatiquement reconnus (si le nom correspond) sont présélectionnés :
 
 **Tuyaux** — champs mappables : ID, Longueur, Diamètre, Rugosité, Coeff. pertes, **Matériau**, Date d'installation, Etat initial, Coeff. réaction de masse, Coef. réaction du mur, Tag, Description.

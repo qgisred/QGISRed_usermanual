@@ -101,6 +101,8 @@ La rugosité s'écrit dans les unités de la formule du projet actif :
 
 Convertit les valeurs du champ `Roughness` de tous les tuyaux entre les trois formules de perte de pression. C'est nécessaire lorsque l'on change la formule hydraulique du projet et que l'on souhaite que les valeurs existantes conservent leur signification physique.
 
+<figure><img src="../assets/images/tools/convert-roughness.png" alt="Dialogue de conversion de rugosité entre formules"><figcaption><p>Dialogue de conversion de rugosité entre formules</p></figcaption></figure>
+
 ### Conversions disponibles
 
 | Origine | Destination |
