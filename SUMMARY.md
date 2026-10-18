@@ -50,7 +50,6 @@
 * [📊 Análise](analise/README.md)
     * [Execução e Opções](analise/execucao.md)
     * [Visualizador de resultados](analise/resultados.md)
-    * [Perfis longitudinais](analise/perfis-longitudinais.md)
     * [Exportação de modelo](analise/exportacao.md)
 
 * [🧬 Gêmeo Digital](gemeo-digital/README.md)
