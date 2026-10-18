@@ -728,15 +728,39 @@ def run_part2():
     )
 
     def _meter_popup():
+        """boton.showMenu() programatico NO genera una ventana detectable
+        (confirmado en vivo, EN y FR, con QGIS estable) -- hace falta un
+        CLIC REAL sobre la flecha del QToolButton (MenuButtonPopup), con
+        win32api, igual que hizo un usuario de verdad para la version ES."""
+        import win32api
+        tb = get_toolbar("QGISRed Digital Twin")
+        tb.setVisible(True)
+        from qgis.PyQt.QtWidgets import QApplication
+        QApplication.processEvents()
+        time.sleep(0.4)
+        btn = p.addMeterDropButton
+        r = btn.rect()
+        tl = btn.mapToGlobal(r.topLeft())
+        br = btn.mapToGlobal(r.bottomRight())
+        # la flecha esta en el ultimo tramo derecho del boton
+        x = br.x() - 6
+        y = (tl.y() + br.y()) // 2
         before = windows_now()
-        p.addMeterDropButton.showMenu()
-        time.sleep(0.8)
-        h = find_new_untitled_popup(before)
+        win32api.SetCursorPos((x, y))
+        time.sleep(0.1)
+        win32api.mouse_event(0x0002, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTDOWN
+        time.sleep(0.05)
+        win32api.mouse_event(0x0004, 0, 0, 0, 0)  # MOUSEEVENTF_LEFTUP
+        time.sleep(1.0)
+        h = find_new_window(None, before)
         if h:
             cap_win(h, "gemelo-digital/add-meter-dropdown.png")
-            close_win(h)
+            win32api.keybd_event(0x1B, 0, 0, 0)  # VK_ESCAPE para cerrar el menu
+            win32api.keybd_event(0x1B, 0, 0x0002, 0)
+            time.sleep(0.3)
         else:
             log("FALLO: popup de 'Add meter' no encontrado")
+        tb.setVisible(False)
 
     _meter_popup()
 
