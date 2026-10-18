@@ -2,7 +2,7 @@
 
 QGISRed integrates into QGIS as a set of **specialized toolbars**. Each bar groups the tools of a stage of the workflow: project management, network editing, verification, simulation, etc.
 
-<figure><img src="../assets/images/guia-rapida/barra-principal.png" alt="QGISRed main bar with the drop-down buttons of each toolbar"><figcaption><p>QGISRed main bar with the drop-down buttons of each toolbar</p></figcaption></figure>
+<figure><img src="../assets/images/quick-guide/toolbar.png" alt="QGISRed main bar with the drop-down buttons of each toolbar"><figcaption><p>QGISRed main bar with the drop-down buttons of each toolbar</p></figcaption></figure>
 *QGISRed main bar: each dropdown button activates/deactivates a toolbar.*
 
 ---

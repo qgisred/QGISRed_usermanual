@@ -10,7 +10,7 @@ The first three actions on the Analysis bar control the simulation cycle: config
 
 Opens the EPANET Engine Options dialog. It allows you to configure all the parameters that control how the hydraulic and quality simulation is carried out.
 
-<figure><img src="../assets/images/analisis/analysis-options.png" alt="Analysis Options dialog with EPANET engine configuration tabs"><figcaption><p>Analysis Options dialog with EPANET engine configuration tabs</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/analysis-options.png" alt="Analysis Options dialog with EPANET engine configuration tabs"><figcaption><p>Analysis Options dialog with EPANET engine configuration tabs</p></figcaption></figure>
 *Analysis Options dialog: complete configuration of the EPANET engine.*
 
 ### Configurable parameters

@@ -12,7 +12,7 @@ The Results dock is anchored to the right area of ​​the screen. Contains **t
 - **Report**: EPANET engine text report.
 - **Appearance**: complete configuration of the visual appearance of the results on the map.
 
-<figure><img src="../assets/images/analisis/results-dock.png" alt="Results panel with variable selector and time bar"><figcaption><p>Results panel with variable selector and time bar</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/results-dock.png" alt="Results panel with variable selector and time bar"><figcaption><p>Results panel with variable selector and time bar</p></figcaption></figure>
 *Results dock: variable selection, statistics mode and navigation by time instants.*
 <!-- TODO: screenshot outdated after adding the Constant playback rate button next to the speed slider -->
 
@@ -182,7 +182,7 @@ The dock supports multiple outcome scenarios. Each scenario is identified by a n
 
 Activates an interactive selection tool that plots the time evolution of any result property for one or more network elements.
 
-<figure><img src="../assets/images/analisis/time-series-dock.png" alt="Panel Time series with multi-node pressure curves"><figcaption><p>Panel Time series with multi-node pressure curves</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/time-series-dock.png" alt="Panel Time series with multi-node pressure curves"><figcaption><p>Panel Time series with multi-node pressure curves</p></figcaption></figure>
 *Panel Time series: time evolution of pressure in several nodes selected simultaneously.*
 
 ### Process

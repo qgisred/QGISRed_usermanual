@@ -10,7 +10,7 @@ The Digital Twin meters and sensors are elements that record physical magnitudes
 
 Place a meter or sensor on a pipe by clicking on the installation point. The button drop-down menu allows you to choose the type before placing it; The last type used remains as the default action of the button.
 
-<figure><img src="../assets/images/gemelo-digital/add-meter-dropdown.png" alt="Meter type dropdown in the Digital Twin bar"><figcaption><p>Meter type dropdown in the Digital Twin bar</p></figcaption></figure>
+<figure><img src="../assets/images/digital-twin/add-meter-dropdown.png" alt="Meter type dropdown in the Digital Twin bar"><figcaption><p>Meter type dropdown in the Digital Twin bar</p></figcaption></figure>
 *Add meter drop-down: the 11 meter types available.*
 
 ### Available meter types

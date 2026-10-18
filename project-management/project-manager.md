@@ -4,7 +4,7 @@
 
 The Project Manager is the central administration window of QGISRed. Allows access to all known projects without having to remember where they are stored.
 
-<figure><img src="../assets/images/general/gestor-proyectos.png" alt="QGISRed Project Manager Window"><figcaption><p>QGISRed Project Manager Window</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/project-manager.png" alt="QGISRed Project Manager Window"><figcaption><p>QGISRed Project Manager Window</p></figcaption></figure>
 *Project Manager window: list of recent projects and available operations.*
 
 ---

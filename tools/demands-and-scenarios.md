@@ -10,7 +10,7 @@ The three tools in the second group of the Tools bar manage mass demand assignme
 
 Assign consumption to network nodes in bulk from external SHP layers loaded in QGIS. It is the main tool for integrating billing data, user censuses or polygon estimates into the EPANET model.
 
-<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Nodal demand builder dialog with source and assignment method options"><figcaption><p>Nodal demand builder dialog with source and assignment method options</p></figcaption></figure>
+<figure><img src="../assets/images/tools/demand-builder.png" alt="Nodal demand builder dialog with source and assignment method options"><figcaption><p>Nodal demand builder dialog with source and assignment method options</p></figcaption></figure>
 *Nodal demand builder: automatically detected source layers, field configuration and distribution method.*
 
 ### Supported data sources
@@ -133,7 +133,7 @@ The scenario files are saved as CSV in the project folder.
 
 Answers the operational question: **"What valves should I close to repair this pipeline, and which users will be left without service?"**
 
-<figure><img src="../assets/images/herramientas/isolated-segments.png" alt="Result of Isolated segments: affected pipe, shut-off valves and zone without service"><figcaption><p>Result of Isolated segments: affected pipe, shut-off valves and zone without service</p></figcaption></figure>
+<figure><img src="../assets/images/tools/isolated-segments.png" alt="Result of Isolated segments: affected pipe, shut-off valves and zone without service"><figcaption><p>Result of Isolated segments: affected pipe, shut-off valves and zone without service</p></figcaption></figure>
 *In red the pipe to be repaired, in yellow the valves to close and in blue the area without service.*
 
 ### Process

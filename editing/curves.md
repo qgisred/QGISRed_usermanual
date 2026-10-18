@@ -4,7 +4,7 @@
 
 The patterns and curves editor centralizes the management of temporal and functional data that control the dynamic behavior of the model: how demand varies throughout the day, how a pump behaves according to its flow rate, or what is the volume of an irregular tank.
 
-<figure><img src="../assets/images/edicion/editor-curvas.png" alt="QGISRed Pattern and Curve Editor"><figcaption><p>QGISRed Pattern and Curve Editor</p></figcaption></figure>
+<figure><img src="../assets/images/editing/curves-editor.png" alt="QGISRed Pattern and Curve Editor"><figcaption><p>QGISRed Pattern and Curve Editor</p></figcaption></figure>
 *Pattern and curve editor: list of elements on the left, graph and data table on the right.*
 
 ---

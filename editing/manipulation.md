@@ -24,7 +24,7 @@ The selection is used as **input** for other tools: Reverse elements and Delete 
 
 Moves one or more nodes (Junctions, Tanks, Reservoirs) dragging with it **all connected linear elements** (pipes, valves, pumps). The network remains connected after the movement.
 
-<figure><img src="../assets/images/edicion/move-nodes.png" alt="Move a node and its connected pipes on the map"><figcaption><p>Move a node and its connected pipes on the map</p></figcaption></figure>
+<figure><img src="../assets/images/editing/move-nodes.png" alt="Move a node and its connected pipes on the map"><figcaption><p>Move a node and its connected pipes on the map</p></figcaption></figure>
 *When you drag a node, all connected pipes follow the movement.*
 
 ### How to use it
@@ -79,7 +79,7 @@ Click on a pipe to **split** it at the indicated point: QGISRed creates a new ju
 
 To **join** two pipes, click on the intermediate node they share: if that node has exactly two connected pipes and the diameter, material, roughness coefficient and InstallYear properties are the same, QGISRed merges them into a single section and eliminates the node.
 
-<figure><img src="../assets/images/edicion/split-pipe.png" alt="Split a pipe: an intermediate node and two sections are created"><figcaption><p>Split a pipe: an intermediate node and two sections are created</p></figcaption></figure>
+<figure><img src="../assets/images/editing/split-pipe.png" alt="Split a pipe: an intermediate node and two sections are created"><figcaption><p>Split a pipe: an intermediate node and two sections are created</p></figcaption></figure>
 *Click on P-5 creates node J-42 and divides the pipe into P-5 and P-45.*
 
 > If the two pipes have a different diameter, material, roughness coefficient or year of installation, the connection is not made and the plugin shows a warning.

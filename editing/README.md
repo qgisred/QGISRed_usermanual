@@ -2,7 +2,7 @@
 
 The **Edition** bar contains all the tools to build and edit the network directly on the QGIS map. Work on the layers of the active project without having to open attribute tables or external files.
 
-<figure><img src="../assets/images/edicion/barra-edition.png" alt="QGISRed Edition Toolbar"><figcaption><p>QGISRed Edition Toolbar</p></figcaption></figure>
+<figure><img src="../assets/images/editing/toolbar.png" alt="QGISRed Edition Toolbar"><figcaption><p>QGISRed Edition Toolbar</p></figcaption></figure>
 *Bar Edition: creation of elements, geometric and topological editing, properties and operation data.*
 
 > All buttons require a valid project uploaded. If there are none, the plugin displays _"No valid project is opened"_.

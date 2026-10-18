@@ -4,7 +4,7 @@
 
 The controls editor defines the **operating logic** of the network: when a valve opens, when a pump starts, or what sequence of actions triggers a certain system state. EPANET supports two levels of control with different complexity.
 
-<figure><img src="../assets/images/edicion/editor-controles.png" alt="QGISRed Rules and Controls Editor"><figcaption><p>QGISRed Rules and Controls Editor</p></figcaption></figure>
+<figure><img src="../assets/images/editing/controls-editor.png" alt="QGISRed Rules and Controls Editor"><figcaption><p>QGISRed Rules and Controls Editor</p></figcaption></figure>
 *Controls editor: Simple Controls and Rules tabs, element and condition selector.*
 
 ---

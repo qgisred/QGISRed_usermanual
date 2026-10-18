@@ -4,7 +4,7 @@
 
 The properties dialog is the central tool for viewing and editing all attributes of any network element. It works as a smart form that loads the data of the clicked element and allows you to navigate between elements without closing it.
 
-<figure><img src="../assets/images/edicion/propiedades-elemento.png" alt="Properties dialog of a pipe with all its fields"><figcaption><p>Properties dialog of a pipe with all its fields</p></figcaption></figure>
+<figure><img src="../assets/images/editing/element-properties.png" alt="Properties dialog of a pipe with all its fields"><figcaption><p>Properties dialog of a pipe with all its fields</p></figcaption></figure>
 *Properties dialog: element attributes, connected elements navigator and centering button.*
 
 ---

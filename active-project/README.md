@@ -2,7 +2,7 @@
 
 The **Project** bar groups the administration tools of the project that is already open in QGISRed. All of your buttons require a valid project loaded; If there are none, the plugin will warn with the message _"No valid project is opened"_.
 
-<figure><img src="../assets/images/proyecto/barra-project.png" alt="QGISRed Project toolbar with its nine buttons"><figcaption><p>QGISRed Project toolbar with its nine buttons</p></figcaption></figure>
+<figure><img src="../assets/images/project/toolbar.png" alt="QGISRed Project toolbar with its nine buttons"><figcaption><p>QGISRed Project toolbar with its nine buttons</p></figcaption></figure>
 *Project Bar: active project management tools.*
 
 <!-- TODO: screenshot outdated after removal of "Project backup" button (commit 7b2415f) -->

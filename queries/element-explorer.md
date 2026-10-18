@@ -2,7 +2,7 @@
 
 The **Element Explorer** is a floating panel (dock) that QGISRed maintains as a single instance. It groups two related functionalities into two drop-down sections, stacked vertically (not in side-by-side tabs): search for elements by ID and display of properties of the selected element on the map.
 
-<figure><img src="../assets/images/consultas/element-explorer.png" alt="Element Explorer panel with Search Elements by Id and Element Properties sections expanded"><figcaption><p>Element Explorer panel with Search Elements by Id and Element Properties sections expanded</p></figcaption></figure>
+<figure><img src="../assets/images/queries/element-explorer.png" alt="Element Explorer panel with Search Elements by Id and Element Properties sections expanded"><figcaption><p>Element Explorer panel with Search Elements by Id and Element Properties sections expanded</p></figcaption></figure>
 * Element Explorer panel: "Search Elements by Id" section (top) and "Element Properties" section (bottom).*
 
 The **Find elements by ID** and **Element properties** buttons in the Queries bar open this same pane and expand the corresponding section — but **automatically collapse the other**, as only one section remains expanded at a time by default. If you need to view both at once (for example, for captures or to compare results), you can manually re-expand the collapsed section by clicking on its header; this does not close any functionality.

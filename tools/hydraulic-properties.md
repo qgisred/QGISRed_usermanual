@@ -28,7 +28,7 @@ The tool overwrites the value of `Length` unconditionally on all pipes in the se
 
 Assigns the elevation (field `Elevation`) to the nodes, tanks and reservoirs of the project by interpolating their value from one or more Digital Terrain Models (DTM) in ASC format.
 
-<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="ASC file selector for elevation interpolation"><figcaption><p>ASC file selector for elevation interpolation</p></figcaption></figure>
+<figure><img src="../assets/images/tools/interpolate-elevation.png" alt="ASC file selector for elevation interpolation"><figcaption><p>ASC file selector for elevation interpolation</p></figcaption></figure>
 *MDT File Selector: You can upload multiple ASC files to cover the entire network area.*
 
 ### ASC format supported

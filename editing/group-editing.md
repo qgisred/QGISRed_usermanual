@@ -6,7 +6,7 @@ The **Edit properties by group** tool allows you to modify an attribute of multi
 
 The dialog is **modeless**: you can still interact with the map while it is open.
 
-<figure><img src="../assets/images/edicion/edicion-por-grupo.png" alt="Edit properties by group dialog with configured filter and action"><figcaption><p>Edit properties by group dialog with configured filter and action</p></figcaption></figure>
+<figure><img src="../assets/images/editing/group-editing.png" alt="Edit properties by group dialog with configured filter and action"><figcaption><p>Edit properties by group dialog with configured filter and action</p></figcaption></figure>
 *Edit dialog by group: filter by numeric field and Multiply by action on pipes.*
 
 ---

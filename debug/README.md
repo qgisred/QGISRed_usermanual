@@ -2,7 +2,7 @@
 
 The **Debug** bar groups together the model verification and debugging tools. Its objective is to detect and correct topological errors, attribute inconsistencies and connectivity problems **before launching the simulation**, thus avoiding errors that are difficult to diagnose in EPANET.
 
-<figure><img src="../assets/images/debug/barra-debug.png" alt="QGISRed Debug Toolbar"><figcaption><p>QGISRed Debug Toolbar</p></figcaption></figure>
+<figure><img src="../assets/images/debug/toolbar.png" alt="QGISRed Debug Toolbar"><figcaption><p>QGISRed Debug Toolbar</p></figcaption></figure>
 *Debug bar: data validation, topological debugging, review of attributes and hydraulic sectors.*
 
 ---

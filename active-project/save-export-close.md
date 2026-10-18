@@ -46,7 +46,7 @@ If the project you export is the one you have open in QGIS and its `.qgz` has un
 
 ### The export dialog
 
-<figure><img src="../assets/images/proyecto/exportar-proyecto.png" alt="QGISRed export project dialog"><figcaption><p>QGISRed export project dialog</p></figcaption></figure>
+<figure><img src="../assets/images/project/export-project.png" alt="QGISRed export project dialog"><figcaption><p>QGISRed export project dialog</p></figcaption></figure>
 
 | Field | Function |
 |-------|---------|

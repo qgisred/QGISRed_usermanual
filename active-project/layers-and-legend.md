@@ -8,7 +8,7 @@
 
 Controls which project layers are active in QGIS, allows you to recreate missing base elements, and manages the auxiliary layers of the Nodal demand builder. The dialog organizes its content into three tabs: **Basic elements**, **Digital Twin** and **Auxiliary layers**.
 
-<figure><img src="../assets/images/proyecto/gestor-capas.png" alt="QGISRed Layer Manager Dialog"><figcaption><p>QGISRed Layer Manager Dialog</p></figcaption></figure>
+<figure><img src="../assets/images/project/layer-manager.png" alt="QGISRed Layer Manager Dialog"><figcaption><p>QGISRed Layer Manager Dialog</p></figcaption></figure>
 <!-- TODO: Capture outdated, dialog moved from stacked sections to tabs (see commits 12d9ee7 and 11c29ed) -->
 *Layer manager: list of all the layers in the project with their loading status.*
 
@@ -52,7 +52,7 @@ QGISRed monitors in the background (checking every 5 seconds) the derived layers
 
 The **Auxiliary layers** tab contains the **Demand Builder** group, from where the empty work layers used by the tool for assigning demands to nodes (Nodal demand builder) are created and managed: **Consumption Points**, **Demand Links** and **Demand Sectors**.
 
-<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Auxiliary layers tab of the QGISRed Layer Manager"><figcaption><p>Auxiliary layers tab of the QGISRed Layer Manager</p></figcaption></figure>
+<figure><img src="../assets/images/project/auxiliary-layers.png" alt="Auxiliary layers tab of the QGISRed Layer Manager"><figcaption><p>Auxiliary layers tab of the QGISRed Layer Manager</p></figcaption></figure>
 
 Each row in the table is a **theme** (theme) — you can have several themes of the same type, for example a different `Sectors` for each demand sectoring campaign. The table shows three columns:
 
@@ -104,7 +104,7 @@ Useful to verify that the import was complete or to document the size of the mod
 
 Opens a floating panel that allows you to build and customize the **symbology** of the project layers without navigating through the QGIS layer properties menu: legend type, automatic classification, sizes, colors, opacity and border on polygon layers, its own ramp/palette library, saving/loading styles and own rules per element type.
 
-<figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="QGISRed Legend Editor Panel"><figcaption><p>QGISRed Legend Editor Panel</p></figcaption></figure>
+<figure><img src="../assets/images/project/legend-editor.png" alt="QGISRed Legend Editor Panel"><figcaption><p>QGISRed Legend Editor Panel</p></figcaption></figure>
 <!-- TODO: screenshot outdated, dialog completely redesigned and has kept changing since then (block of [Legends]/[Styles] commits, Sep-Oct 2026) -->
 *Legend Editor panel: predefined styles and customization of colors and sizes.*
 

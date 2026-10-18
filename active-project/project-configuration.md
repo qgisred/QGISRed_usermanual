@@ -10,7 +10,7 @@ This page brings together three configuration dialogs that affect the hydraulic 
 
 Opens the main EPANET options dialog. It is equivalent to section `[OPTIONS]` of file `.inp`.
 
-<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Analysis Options Dialog: Hydraulics, Quality, Time and Energy tabs"><figcaption><p>Analysis Options Dialog: Hydraulics, Quality, Time and Energy tabs</p></figcaption></figure>
+<figure><img src="../assets/images/project/project-options.png" alt="Analysis Options Dialog: Hydraulics, Quality, Time and Energy tabs"><figcaption><p>Analysis Options Dialog: Hydraulics, Quality, Time and Energy tabs</p></figcaption></figure>
 *Analysis options dialog with its four tabs.*
 
 ### Hydraulic Tab
@@ -70,7 +70,7 @@ Allows you to define the energy cost of the pumps for consumption analysis:
 
 Defines the values ​​that are automatically assigned to new elements when they are created with the editing tools.
 
-<figure><img src="../assets/images/proyecto/valores-defecto.png" alt="Defaults dialog with sections for nodes, pipes and prefixes"><figcaption><p>Defaults dialog with sections for nodes, pipes and prefixes</p></figcaption></figure>
+<figure><img src="../assets/images/project/default-values.png" alt="Defaults dialog with sections for nodes, pipes and prefixes"><figcaption><p>Defaults dialog with sections for nodes, pipes and prefixes</p></figcaption></figure>
 *Default values ​​dialog: initial parameters for each element type.*
 
 ### ID Prefixes
@@ -114,7 +114,7 @@ The prefixes are configurable. The starting number can also be set.
 
 Manage the list of materials available for pipes and their aging properties.
 
-<figure><img src="../assets/images/proyecto/tabla-materiales.png" alt="Table of materials: code, name, initial roughness and annual increase"><figcaption><p>Table of materials: code, name, initial roughness and annual increase</p></figcaption></figure>
+<figure><img src="../assets/images/project/materials-table.png" alt="Table of materials: code, name, initial roughness and annual increase"><figcaption><p>Table of materials: code, name, initial roughness and annual increase</p></figcaption></figure>
 *Table of materials with initial roughness and increase per year.*
 
 ### Table fields

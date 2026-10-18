@@ -4,7 +4,7 @@
 
 Opens the **Queries by Properties** panel, a filtering tool that highlights on the map all elements that meet one or more conditions on their attributes. It is the fastest way to find, for example, all pipes with a diameter less than 80 mm, all nodes with pressure below a threshold, or all valves in a closed state.
 
-<figure><img src="../assets/images/consultas/queries-by-properties.png" alt="Queries by Properties panel with configured conditions and result highlighted in magenta"><figcaption><p>Queries by Properties panel with configured conditions and result highlighted in magenta</p></figcaption></figure>
+<figure><img src="../assets/images/queries/queries-by-properties.png" alt="Queries by Properties panel with configured conditions and result highlighted in magenta"><figcaption><p>Queries by Properties panel with configured conditions and result highlighted in magenta</p></figcaption></figure>
 *Queries by Properties Panel: conditions configured on pipe attributes. Items that meet the condition are highlighted in magenta on the map.*
 
 ---

@@ -10,7 +10,7 @@ The Analysis bar offers two export paths: the full model as an EPANET `.inp` fil
 
 Exports the entire model to the standard EPANET **INP** format. Useful for sharing the model with other users, running it in the EPANET graphical interface or integrating it with third-party tools.
 
-<figure><img src="../assets/images/analisis/export-inp-dialog.png" alt="Export dialog to INP format"><figcaption><p>Export dialog to INP format</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/export-inp-dialog.png" alt="Export dialog to INP format"><figcaption><p>Export dialog to INP format</p></figcaption></figure>
 *Export to INP dialog: destination route, field data export and automatic opening in EPANET.*
 
 ### Dialog Options

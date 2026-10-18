@@ -6,7 +6,7 @@ Opens the **Statistics** panel, which calculates and displays the statistical di
 
 > **ℹ️ Note:** The Statistics panel opens **docked** in the main QGIS window and respects the panels already grouped into tabs. Its controls also adapt to narrow panel widths, without being cut off on the right edge.
 
-<figure><img src="../assets/images/consultas/statistics-panel.png" alt="Statistics panel with histogram of pipe diameters"><figcaption><p>Statistics panel with histogram of pipe diameters</p></figcaption></figure>
+<figure><img src="../assets/images/queries/statistics-panel.png" alt="Statistics panel with histogram of pipe diameters"><figcaption><p>Statistics panel with histogram of pipe diameters</p></figcaption></figure>
 *Statistics Panel: histogram of pipe diameters with classification by intervals.*
 
 ---

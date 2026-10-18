@@ -4,7 +4,7 @@
 
 The hydraulic sectors tool scans the network using a BFS (breadth-first search) algorithm from all supply sources and classifies each connected subnetwork according to whether or not it has a hydraulic source (H) and whether or not it has demand (Q). The result is dumped into SHP layers and into a CSV report.
 
-<figure><img src="../assets/images/debug/sectores-hidraulicos.png" alt="Map of hydraulic sectors: areas colored by type H-Q, H-nQ, nH-Q and nH-nQ"><figcaption><p>Map of hydraulic sectors: areas colored by type H-Q, H-nQ, nH-Q and nH-nQ</p></figcaption></figure>
+<figure><img src="../assets/images/debug/hydraulic-sectors.png" alt="Map of hydraulic sectors: areas colored by type H-Q, H-nQ, nH-Q and nH-nQ"><figcaption><p>Map of hydraulic sectors: areas colored by type H-Q, H-nQ, nH-Q and nH-nQ</p></figcaption></figure>
 *Hydraulic sectors: each color represents a type of classification. Sectors nH-Q (no source with demand) appear in red.*
 
 ---

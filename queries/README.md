@@ -2,7 +2,7 @@
 
 The **Queries** bar groups the interactive model query and inspection tools: search for elements by ID, exploration of individual properties, thematic maps, queries by conditions on attributes and network statistics. Unlike editing or analysis bars, these tools do not modify the model: they only interrogate and visualize what already exists.
 
-<figure><img src="../assets/images/consultas/barra-queries.png" alt="QGISRed Queries Toolbar"><figcaption><p>QGISRed Queries Toolbar</p></figcaption></figure>
+<figure><img src="../assets/images/queries/toolbar.png" alt="QGISRed Queries Toolbar"><figcaption><p>QGISRed Queries Toolbar</p></figcaption></figure>
 *Queries Bar: the five query and inspection buttons.*
 
 ---

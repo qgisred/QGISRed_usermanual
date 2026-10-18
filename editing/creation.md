@@ -10,7 +10,7 @@ The first five tools on the Edition bar allow you to add elements to the network
 
 Line drawing mode: Each click adds a vertex to the pipe. The tool remains active until you finish the layout.
 
-<figure><img src="../assets/images/edicion/add-pipe.png" alt="Add pipe tool in action on the QGIS map"><figcaption><p>Add pipe tool in action on the QGIS map</p></figcaption></figure>
+<figure><img src="../assets/images/editing/add-pipe.png" alt="Add pipe tool in action on the QGIS map"><figcaption><p>Add pipe tool in action on the QGIS map</p></figcaption></figure>
 *Drawing a pipe: The temporary red line follows the cursor until the next click.*
 
 ### Process
@@ -85,7 +85,7 @@ The process is identical to that of the tank. The parameters are simpler:
 
 Insert a valve into an existing pipe. The original pipe is **divided into two sections** that are connected through the valve.
 
-<figure><img src="../assets/images/edicion/insert-valve.png" alt="Result of inserting a valve: the original pipe is divided into two"><figcaption><p>Result of inserting a valve: the original pipe is divided into two</p></figcaption></figure>
+<figure><img src="../assets/images/editing/insert-valve.png" alt="Result of inserting a valve: the original pipe is divided into two"><figcaption><p>Result of inserting a valve: the original pipe is divided into two</p></figcaption></figure>
 *The original P-12 pipe is divided into P-12 and P-13, with valve V-1 between them.*
 
 ### Process

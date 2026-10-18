@@ -10,7 +10,7 @@ The connections and cut-off valves are the two elements that connect the hydraul
 
 Draws a drop as a polyline from the main pipe to the customer's delivery point. The connection is stored in the complementary layer `ServiceConnections` of the project.
 
-<figure><img src="../assets/images/gemelo-digital/add-service-connection.png" alt="Connection drawing tool on the map"><figcaption><p>Connection drawing tool on the map</p></figcaption></figure>
+<figure><img src="../assets/images/digital-twin/add-service-connection.png" alt="Connection drawing tool on the map"><figcaption><p>Connection drawing tool on the map</p></figcaption></figure>
 *Service drawing: the line starts from the main pipe and reaches the client's plot boundary.*
 
 ### Process

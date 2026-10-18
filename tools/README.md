@@ -2,7 +2,7 @@
 
 The **Tools** bar groups the massive processing tools: automatic calculation of hydraulic properties, assignment of demands from external sources, scenario management and topological analysis. Unlike the Edition tools, these act on the entire network or on large selections, not element by element.
 
-<figure><img src="../assets/images/herramientas/barra-tools.png" alt="QGISRed Tools toolbar"><figcaption><p>QGISRed Tools toolbar</p></figcaption></figure>
+<figure><img src="../assets/images/tools/toolbar.png" alt="QGISRed Tools toolbar"><figcaption><p>QGISRed Tools toolbar</p></figcaption></figure>
 *Tools bar: hydraulic properties, demands and scenarios, topological analysis.*
 
 ---

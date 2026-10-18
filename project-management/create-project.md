@@ -4,7 +4,7 @@
 
 Create a completely new QGISRed project from scratch, generating the SHP file structure necessary to define a distribution network.
 
-<figure><img src="../assets/images/general/crear-proyecto.png" alt="New project creation dialog"><figcaption><p>New project creation dialog</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/create-project.png" alt="New project creation dialog"><figcaption><p>New project creation dialog</p></figcaption></figure>
 *Project creation dialog: name, folder and reference system.*
 
 ---

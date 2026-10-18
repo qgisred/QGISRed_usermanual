@@ -4,7 +4,7 @@ The **Analysis** bar groups the hydraulic simulation tools, visualization of res
 
 > Before simulating it is advisable to have passed the [topology and attribute checks](../debug/README.md) to avoid convergence errors.
 
-<figure><img src="../assets/images/analisis/barra-analysis.png" alt="QGISRed Analysis Toolbar"><figcaption><p>QGISRed Analysis Toolbar</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/toolbar.png" alt="QGISRed Analysis Toolbar"><figcaption><p>QGISRed Analysis Toolbar</p></figcaption></figure>
 *Analysis bar: simulation, results viewer, time series and export.*
 
 ---

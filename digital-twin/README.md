@@ -2,7 +2,7 @@
 
 The **Digital Twin** bus adds to the hydraulic model the infrastructure elements that connect the network with the end user and with the field monitoring systems: connections, shut-off valves, meters and sensors. These elements are not strictly part of the EPANET model but enrich the digital twin with operational and remote reading information.
 
-<figure><img src="../assets/images/gemelo-digital/barra-digital-twin.png" alt="QGISRed Digital Twin Toolbar"><figcaption><p>QGISRed Digital Twin Toolbar</p></figcaption></figure>
+<figure><img src="../assets/images/digital-twin/toolbar.png" alt="QGISRed Digital Twin Toolbar"><figcaption><p>QGISRed Digital Twin Toolbar</p></figcaption></figure>
 *Digital Twin Bar: connections, shut-off valves, meters and field data loading.*
 
 ---
