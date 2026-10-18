@@ -40,9 +40,13 @@ Calcula el **árbol de expansión de mínimo coste** de la red desde un nudo sel
 3. QGISRed propone un nombre para el árbol (por defecto, el ID del nudo seguido de la función de coste elegida, p. ej. `J5_R`); puedes editarlo antes de calcular.
 4. QGISRed calcula el árbol y genera su propio grupo **Tree_&lt;nombre&gt;** en el mapa, con la distancia acumulada desde el origen etiquetada en cada tramo.
 
+<figure><img src="../assets/images/tools/minimum-cost-tree-dialog.png" alt="Diálogo Minimum Cost Tree con el nudo de origen ya seleccionado"><figcaption><p>Diálogo Minimum Cost Tree con el nudo de origen ya seleccionado</p></figcaption></figure>
+
 > 📝 Puedes tener **varios árboles abiertos a la vez**, cada uno con su propio nombre, grupo y par de capas (nudos y tramos) independientes — no se sustituyen entre sí. El propio diálogo de la herramienta lista los árboles ya calculados para el proyecto y permite eliminar individualmente cualquiera de ellos, sin afectar a los demás.
 
 ### Interpretación del resultado
+
+<figure><img src="../assets/images/tools/minimum-cost-tree-result.png" alt="Árbol de mínimo coste calculado, con la distancia acumulada etiquetada en cada tramo"><figcaption><p>Árbol de mínimo coste calculado, con la distancia acumulada etiquetada en cada tramo</p></figcaption></figure>
 
 El árbol resultante muestra qué camino seguiría el agua desde el nudo de origen si la red fuera puramente ramificada (sin bucles). Es útil para:
 

@@ -49,6 +49,8 @@ Las válvulas de corte por sí solas no modifican el modelo EPANET. Para que su 
 
 Incorpora las acometidas dibujadas en `ServiceConnections` al modelo EPANET activo. Requiere que la capa `ServiceConnections` exista y contenga al menos una acometida.
 
+<figure><img src="../assets/images/digital-twin/convert-service-connections.png" alt="Diálogo de conversión de acometidas, con las opciones As nodes y As pipes"><figcaption><p>Diálogo de conversión de acometidas, con las opciones As nodes y As pipes</p></figcaption></figure>
+
 ### Opciones de conversión
 
 Al ejecutar la herramienta aparece un diálogo con dos opciones:

@@ -122,6 +122,8 @@ Concentra todas las opciones de presentación visual de los resultados en el map
 
 #### Symbology
 
+<figure><img src="../assets/images/analysis/results-appearance-symbology.png" alt="Pestaña Appearance con Proportional to value y las etiquetas de Id activadas, red coloreada por resultados en el mapa"><figcaption><p>Pestaña Appearance con Proportional to value y las etiquetas de Id activadas, red coloreada por resultados en el mapa</p></figcaption></figure>
+
 | Opción | Descripción |
 |--------|-------------|
 | **Hide border on junctions** | Oculta el borde/contorno de los marcadores de nudos (junctions). Activar esta opción elimina el contorno que rodea el símbolo del nudo. |

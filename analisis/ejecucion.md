@@ -44,6 +44,8 @@ Si la simulación detecta problemas (presiones negativas, nudos desconectados, b
 
 ### Opciones del diálogo de progreso
 
+<figure><img src="../assets/images/analysis/simulation-progress.png" alt="Diálogo de progreso de la simulación EPANET"><figcaption><p>Diálogo de progreso de la simulación EPANET</p></figcaption></figure>
+
 El diálogo de progreso incluye un botón de **Pausa** (icono ‖). Al pulsarlo, la simulación se detiene al finalizar el paso de tiempo en curso y el icono cambia a ▶. Pulsar de nuevo reanuda la ejecución. El botón desaparece una vez que la simulación ha concluido.
 
 El diálogo también incluye la casilla **"Do not show this progress window again"**. Si la marcas y la simulación finaliza correctamente, las ejecuciones siguientes lanzarán el cálculo directamente sin mostrar el diálogo.
@@ -83,6 +85,8 @@ Equivale a **Run model** pero priorizando los resultados ya calculados: si el ar
 **Barra Analysis → Status report**
 
 Abre el panel de resultados directamente en la pestaña **Status Report**, que muestra el informe de texto generado por el motor EPANET al finalizar la simulación.
+
+<figure><img src="../assets/images/analysis/results-report.png" alt="Pestaña Status Report del panel de resultados"><figcaption><p>Pestaña Status Report del panel de resultados</p></figcaption></figure>
 
 El informe incluye:
 

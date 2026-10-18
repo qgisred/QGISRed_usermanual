@@ -55,6 +55,10 @@ Los elementos con diámetros problemáticos se seleccionan en el mapa y se muest
 
 Comprueba que el valor del campo `Material` de cada tubería esté definido en la **Tabla de materiales del proyecto** (Barra Project → Tabla de materiales).
 
+<figure><img src="../assets/images/debug/check-materials.png" alt="Resultado de Check pipe materials: tuberías con material no válido seleccionadas en el mapa"><figcaption><p>Resultado de Check pipe materials: tuberías con material no válido seleccionadas en el mapa</p></figcaption></figure>
+
+No muestra ningún diálogo propio: selecciona directamente en el mapa los elementos con problemas y resume el resultado en el panel de mensajes de QGIS.
+
 ### Qué detecta
 
 - Tuberías con material vacío o nulo.

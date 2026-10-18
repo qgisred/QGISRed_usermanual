@@ -105,6 +105,10 @@ Al ejecutar el análisis de segmentos aislados o de sectores hidráulicos, el pl
 
 Exporta e importa en bloque parámetros del modelo, creando "fotografías" del estado de la red que pueden restaurarse en cualquier momento. Es la herramienta para gestionar variantes del modelo sin duplicar proyectos.
 
+<figure><img src="../assets/images/tools/scenario-builder.png" alt="Diálogo Scenario builder con la tabla de parámetros de la red"><figcaption><p>Diálogo Scenario builder con la tabla de parámetros de la red</p></figcaption></figure>
+
+> 💡 La tabla solo se puebla con elementos previamente seleccionados en el mapa (tuberías y/o nudos). Si abres la herramienta sin ninguna selección, la tabla aparece vacía.
+
 ### Parámetros que gestiona
 
 | Parámetro | Descripción |

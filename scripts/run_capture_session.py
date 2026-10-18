@@ -281,6 +281,9 @@ def run_console(main_hwnd, code, wait=1.0):
 
 ENTRY_LOG_SUFFIX = {
     "run_all": "",
+    "run_part2a": "_part2a",
+    "run_part2b": "_part2b",
+    "run_part2c": "_part2c",
     "run_instalacion": "_instalacion",
 }
 
@@ -290,7 +293,7 @@ def trigger_capture(main_hwnd, lang, entry="run_all"):
     run_console(main_hwnd, cmd, wait=1.0)
 
 
-def wait_for_completion(pid, lang, timeout=420, entry="run_all"):
+def wait_for_completion(pid, lang, timeout=900, entry="run_all"):
     """Espera a que aparezca capture_inside[_instalacion]_<lang>.log
     (escrito por run_all()/run_instalacion() al terminar, ver
     ENTRY_LOG_SUFFIX) o a que el proceso muera antes. Devuelve
@@ -337,7 +340,7 @@ def close_qgis(pid, main_hwnd):
 
 # ── Bucle principal con reintento ante cuelgues tempranos ──────────────────
 
-def run_one_language(lang, max_attempts=8, capture_timeout=420, entry="run_all"):
+def run_one_language(lang, max_attempts=8, capture_timeout=900, entry="run_all"):
     revert_sample_project()
     for attempt in range(1, max_attempts + 1):
         log(f"[{lang}] intento {attempt}/{max_attempts}: lanzando QGIS...")
@@ -404,12 +407,18 @@ def main():
     parser = argparse.ArgumentParser(description=__doc__)
     parser.add_argument("--lang", required=True, help="es | en | fr | pt-BR")
     parser.add_argument("--max-attempts", type=int, default=8)
-    parser.add_argument("--timeout", type=int, default=420, help="segundos por intento de la captura")
+    parser.add_argument("--timeout", type=int, default=900, help="segundos por intento de la captura (run_all ahora incluye un paso de ~4min, thematic maps)")
     parser.add_argument("--entry", default="run_all", choices=sorted(ENTRY_LOG_SUFFIX),
-                         help="funcion de capture_inside.py a invocar (run_all = las 44 propias de "
-                              "QGISRed; run_instalacion = las 3 de installation/, incluida "
-                              "dependencies-dialog.png con su precondicion especial de "
-                              "mover/restaurar dlls/x64)")
+                         help="funcion de capture_inside.py a invocar: run_all = guia-rapida/"
+                              "edicion/proyecto/analisis/gestion-proyectos; run_part2a/b/c = "
+                              "herramientas / consultas / gemelo-digital+verificaciones, cada uno "
+                              "en su propia sesion de QGIS a proposito (ver memoria "
+                              "project_qgisred_memory_leak -- Isolated segments, Thematic Maps y "
+                              "Add service connection hacen crecer la memoria del proceso varios "
+                              "GB cada uno, encadenarlos en una sola sesion larga provoco que el "
+                              "sistema entero se quedara sin memoria); run_instalacion = las 3 de "
+                              "installation/, incluida dependencies-dialog.png con su precondicion "
+                              "especial de mover/restaurar dlls/x64")
     args = parser.parse_args()
     acquire_lock()
     try:

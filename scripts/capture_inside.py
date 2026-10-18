@@ -80,12 +80,37 @@ def console_input_global_pos():
 
 LOG = []
 _T0 = time.time()
+try:
+    _LIVE_LOG_PATH = SCRIPTS_DIR / f"capture_inside_{LANG}_live.log"
+    _LIVE_LOG_PATH.write_text("", encoding="utf-8")
+except Exception:
+    _LIVE_LOG_PATH = None
 
 
 def log(msg):
     line = f"[{time.time() - _T0:7.1f}s] {msg}"
     LOG.append(line)
     print(line)
+    if _LIVE_LOG_PATH is not None:
+        try:
+            with open(_LIVE_LOG_PATH, "a", encoding="utf-8") as f:
+                f.write(line + "\n")
+        except Exception:
+            pass
+
+
+def log_mem(label):
+    """Memoria real (WorkingSetSize) del propio proceso qgis-ltr-bin.exe en
+    ese instante -- para localizar en que paso exacto crece (confirmado en
+    vivo: crece hasta 17GB+ a lo largo de run_all(), descartado que sea por
+    acumulacion de capas en el lienzo, ver remove_new_layers())."""
+    try:
+        import win32process
+        info = win32process.GetProcessMemoryInfo(win32process.GetCurrentProcess())
+        mb = info["WorkingSetSize"] / (1024 * 1024)
+        log(f"MEM {label}: {mb:.0f} MB")
+    except Exception as exc:
+        log(f"MEM {label}: FALLO {exc!r}")
 
 
 # ── Captura de ventanas (PrintWindow + recorte DWM) ─────────────────────────
@@ -590,6 +615,29 @@ def pump(seconds):
         time.sleep(0.05)
 
 
+def snapshot_layers():
+    """Para usar con remove_new_layers() alrededor de cualquier captura que
+    genere capas de RESULTADO que ninguna captura posterior necesita
+    (mapas tematicos, arbol de coste minimo, isolated segments, sectores
+    hidraulicos, conectividad...). Sin esto, run_all() acumula decenas de
+    capas de resultado durante toda la sesion -- confirmado en vivo que la
+    memoria de QGIS crecia de forma descontrolada (hasta 17.8GB) y que
+    operaciones de creacion de capa posteriores (p.ej. Thematic Maps,
+    Add service connection) se volvian progresivamente mas lentas con cada
+    capa extra acumulada (de <2s en una sesion limpia a varios minutos)."""
+    return set(QgsProject.instance().mapLayers().keys())
+
+
+def remove_new_layers(before, label=""):
+    proj = QgsProject.instance()
+    new_ids = set(proj.mapLayers().keys()) - before
+    for lid in new_ids:
+        proj.removeMapLayer(lid)
+    if new_ids:
+        log(f"  [limpieza{(' ' + label) if label else ''}] {len(new_ids)} capa(s) de resultado eliminadas")
+    return len(new_ids)
+
+
 def capture_dock(action_fn, out_rel, delay=1.5, hide_cons=True, refresh_canvas=False):
     """Para paneles acoplables (QDockWidget) anadidos con iface.addDockWidget
     -- viven DENTRO de la ventana principal, no son una ventana top-level
@@ -856,6 +904,7 @@ def reload_demo_project():
 
 def run_all():
     log(f"=== Inicio run_all() LANG={LANG} ===")
+    log_mem("inicio run_all")
     iface.mapCanvas().zoomToFullExtent()
     hide_console()
     time.sleep(0.3)
@@ -914,8 +963,71 @@ def run_all():
     # Perfiles longitudinales no entra en v0.19 (pagina quitada del manual,
     # ver memoria project_manual_v019_exclusiones) -- reañadir esta captura
     # cuando se prepare v0.20.
-    capture_dock(lambda: run_with_auto_dismiss(p.runModel, label="runModel"), "analysis/results-dock.png",
+
+    def _run_model_capturing_progress():
+        """Variante de run_with_auto_dismiss(p.runModel) que ADEMAS
+        captura el propio dialogo 'Simulating with EPANET' justo antes de
+        aceptarlo (analysis/simulation-progress.png) -- confirmado en vivo
+        que es la MISMA ventana/titulo durante todo el proceso (progreso
+        -> mensaje final con boton Aceptar), asi que capturarla justo
+        antes del clic de aceptar la pilla ya en su estado final
+        (renderizado completo), no a medio progreso."""
+        before = windows_now()
+        running = [True]
+        captured = [False]
+
+        def _poll():
+            if not running[0]:
+                return
+            for h in windows_now() - before:
+                if h != MAIN_HWND and win32gui.IsWindow(h) and win32gui.IsWindowVisible(h):
+                    t = win32gui.GetWindowText(h)
+                    if "simula" in t.lower():
+                        if not captured[0]:
+                            pump(0.3)
+                            cap_win(h, "analysis/simulation-progress.png")
+                            captured[0] = True
+                        if click_accept_button(h):
+                            log(f"  [auto-dismiss runModel] aceptando {t!r}")
+                        else:
+                            log(f"  [auto-dismiss runModel] cerrando {t!r}")
+                            close_stray_win(h)
+                    else:
+                        log(f"  [auto-dismiss runModel] cerrando {t!r}")
+                        close_stray_win(h)
+            if running[0]:
+                QTimer.singleShot(400, _poll)
+
+        QTimer.singleShot(400, _poll)
+        try:
+            p.runModel()
+        finally:
+            running[0] = False
+
+    capture_dock(_run_model_capturing_progress, "analysis/results-dock.png",
                  delay=4.0, refresh_canvas=True)
+
+    # El dock de resultados sigue abierto tras la captura de arriba -- no
+    # hace falta reabrirlo, solo cambiar de pestaña/marcar casillas por
+    # referencia directa (p.ResultDockwidget, instanciado en
+    # analysis_section.py). Confirmado via investigacion de codigo:
+    # self.tabWidget / self.tabReport / self.tabAppearance /
+    # self.cbProportional / self.cbShowNodeId / self.cbShowLinkId
+    # (ui/analysis/qgisred_results_dock.ui).
+    capture_dock(
+        lambda: p.ResultDockwidget.tabWidget.setCurrentWidget(p.ResultDockwidget.tabReport),
+        "analysis/results-report.png", delay=1.0,
+    )
+
+    def _apply_results_symbology():
+        p.ResultDockwidget.tabWidget.setCurrentWidget(p.ResultDockwidget.tabAppearance)
+        p.ResultDockwidget.cbProportional.setChecked(True)
+        p.ResultDockwidget.cbShowNodeId.setChecked(True)
+        p.ResultDockwidget.cbShowLinkId.setChecked(True)
+
+    capture_dock(_apply_results_symbology, "analysis/results-appearance-symbology.png",
+                 delay=1.0, refresh_canvas=True)
+
     capture_dock(lambda: p.timeSeriesButton.trigger(), "analysis/time-series-dock.png", delay=1.5)
 
     # -- gestion-proyectos/ (carpeta de imagen: general/) -------------------
@@ -951,6 +1063,35 @@ def run_all():
     capture_blocking(_open_import_fresh, None, "project-management/import-qgisred-project.png",
                       before_close=_fill_zip_field)
 
+    def _fill_shp_tab(hwnd):
+        w = widget_from_hwnd(hwnd)
+        if w is None or not hasattr(w, "tbShpDirectory"):
+            log("AVISO: no se encontro tbShpDirectory en el dialogo de importacion")
+            return
+        if hasattr(w, "tabWidget") and hasattr(w, "tabSHP"):
+            w.tabWidget.setCurrentWidget(w.tabSHP)
+        # selectSHPDirectory() (el slot real de btSelectSHPDirectory) es
+        # quien puebla los combos cbPipeLayer/cbJunctionLayer/... a partir
+        # del contenido de la carpeta -- llamar solo a setText() en
+        # tbShpDirectory no dispara esa logica. Monkey-patchear
+        # QFileDialog.getExistingDirectory para devolver sample_project/
+        # (ya tiene los Network_*.shp) y disparar el boton real, en vez de
+        # reimplementar el poblado a mano.
+        from qgis.PyQt.QtWidgets import QFileDialog
+        _orig = QFileDialog.getExistingDirectory
+        QFileDialog.getExistingDirectory = staticmethod(lambda *a, **k: str(SCRIPTS_DIR / "sample_project"))
+        try:
+            if hasattr(w, "btSelectSHPDirectory"):
+                w.btSelectSHPDirectory.click()
+            else:
+                log("AVISO: no se encontro btSelectSHPDirectory en el dialogo de importacion")
+        finally:
+            QFileDialog.getExistingDirectory = _orig
+        pump(0.5)
+
+    capture_blocking(_open_import_fresh, None, "project-management/import-shp.png",
+                      before_close=_fill_shp_tab)
+
     # reabrir el proyecto de demo (el import de arriba lo dejo en un
     # proyecto sin titulo, sin llegar a importar nada).
     reload_demo_project()
@@ -958,7 +1099,66 @@ def run_all():
     capture_blocking(p.runCreateProject, None, "project-management/create-project.png")
     capture_blocking(p.runProjectManager, None, "project-management/project-manager.png")
 
-    run_part2()
+    def _capture_clone_project_dialog():
+        """cloneProject() (qgisred_projectmanager_dialog.py:569, conectado
+        al boton btClone) abre un segundo dialogo Qt ANIDADO
+        (QGISRedCloneProjectDialog, .exec() bloqueante) DENTRO del clic --
+        hace falta un segundo nivel de QTimer pre-programado (mismo patron
+        que _capture_dependencias/_apply_thematic_maps, pero con el
+        dialogo exterior tambien gestionado a mano aqui en vez de con
+        capture_blocking, para no duplicar project-manager.png ya
+        capturado arriba sin el clic)."""
+        before_outer = windows_now()
+
+        def _outer_cb(attempt=0):
+            h = find_new_window(None, before_outer)
+            if h is None:
+                if attempt < 40:
+                    QTimer.singleShot(500, lambda: _outer_cb(attempt + 1))
+                else:
+                    log("FALLO: no aparecio Project manager para clonar")
+                return
+            w = widget_from_hwnd(h)
+            if w is None or not hasattr(w, "twProjectList") or not hasattr(w, "btClone"):
+                log("AVISO: no se encontro twProjectList/btClone en Project manager")
+                close_stray_win(h)
+                return
+            w.twProjectList.selectRow(0)
+
+            before_inner = windows_now()
+
+            def _inner_cb(attempt=0):
+                h2 = find_new_window(None, before_inner)
+                if h2 is None:
+                    if attempt < 40:
+                        QTimer.singleShot(500, lambda: _inner_cb(attempt + 1))
+                    else:
+                        log("FALLO: no aparecio el dialogo de Clonar proyecto")
+                    return
+                pump(0.3)
+                w2 = widget_from_hwnd(h2)
+                cap_win(h2, "project-management/clone-project.png")
+                # Cancelar siempre -- no queremos clonar un proyecto de
+                # verdad como efecto secundario de una captura.
+                if w2 is not None and hasattr(w2, "btCancel"):
+                    w2.btCancel.click()
+                else:
+                    close_stray_win(h2)
+
+            QTimer.singleShot(800, _inner_cb)
+            try:
+                w.btClone.click()  # bloquea hasta que _inner_cb cierre el anidado
+            except Exception as exc:
+                log(f"EXCEPCION en btClone.click(): {exc!r}")
+            close_win(h)
+
+        QTimer.singleShot(1300, _outer_cb)
+        try:
+            p.runProjectManager()
+        except Exception as exc:
+            log(f"EXCEPCION capturando Clonar proyecto: {exc!r}")
+
+    _capture_clone_project_dialog()
 
     log(f"=== Fin run_all() LANG={LANG} -- {len(LOG)} lineas de log ===")
     log_path = SCRIPTS_DIR / f"capture_inside_{LANG}.log"
@@ -966,10 +1166,13 @@ def run_all():
     print(f"LOG escrito en {log_path}")
 
 
-def run_part2():
-    """herramientas/, consultas/, gemelo-digital/ y verificaciones/ --
-    separado de run_all() para poder repetir solo este tramo si hace falta
-    (p.ej. tras el bug del proyecto que no terminaba de recargar).
+def run_part2a():
+    """herramientas/ -- antes era la primera parte de run_part2(), ahora en
+    su propia sesion de QGIS (ver run_part2b/run_part2c y la memoria
+    project_qgisred_memory_leak): Isolated segments por si solo ya hace
+    crecer la memoria del proceso +1.5GB (confirmado en vivo, log_mem) --
+    separarlo de los otros 2 pasos que tambien crecen (Thematic Maps,
+    Add service connection) evita que se sumen en la misma sesion larga.
 
     Recarga el proyecto demo al empezar SIEMPRE (no solo cuando se llama
     desde run_all()): la captura inmediatamente anterior en run_all(),
@@ -977,6 +1180,7 @@ def run_part2():
     secundario de abrir su dialogo (ver reload_demo_project()) -- varias
     capturas de aqui (demand-builder.png en concreto, confirmado por el
     usuario) solo funcionan con un proyecto QGISRed real cargado."""
+    log(f"=== Inicio run_part2a() LANG={LANG} ===")
     reload_demo_project()
 
     # -- herramientas/ -------------------------------------------------------
@@ -1003,6 +1207,7 @@ def run_part2():
     # cerrara el dialogo, y nada lo hacia. capture_blocking() es el patron
     # correcto aqui.
     capture_blocking(_demand_builder, None, "tools/demand-builder.png")
+    log_mem("tras demand-builder")
 
     # Consumos_Demo se cargaba y nunca se quitaba del lienzo -- se colaba
     # (puntos amarillos alrededor de cada union) en isolated-segments.png,
@@ -1014,12 +1219,98 @@ def run_part2():
     def _isolated_segments():
         p.runIsolatedSegments(QgsPointXY(23, 70))
 
+    _before_iso = snapshot_layers()
     capture_canvas(_isolated_segments, "tools/isolated-segments.png", delay=1.5)
+    remove_new_layers(_before_iso, label="isolated-segments")
+    log_mem("tras isolated-segments")
 
     capture_file_dialog(
         p.runElevationInterpolation, None, str(DOCS_DEMO_DIR / "demo_elevation.asc"),
         "tools/interpolate-elevation.png",
     )
+    log_mem("tras interpolate-elevation")
+
+    # runConvertRoughness() es una llamada de una linea a
+    # GISRed.ConvertRoughness(...) en el wrapper Python (tools_section.py),
+    # pero el dialogo real (seleccion de formula origen/destino) se
+    # construye DENTRO de esa llamada C# (ModalWindowView 400x170, ver
+    # QGISRed.cs:2690-2723) -- mismo patron WPF deprecated bloqueante que
+    # AnalysisOptions/EditControls, capture_blocking() de siempre.
+    capture_blocking(p.runConvertRoughness, None, "tools/convert-roughness.png")
+    log_mem("tras convert-roughness")
+
+    # runScenarioManager() tambien construye su dialogo WPF (ScenarioManagerView
+    # en ModalWindowView, 500x740) dentro de GISRed.ScenarioManager(...) --
+    # igual que ConvertRoughness. Investigado en codigo: la tabla de
+    # elementos sale VACIA si no hay features seleccionadas en QGIS antes
+    # de llamar al metodo (el C# solo la puebla si los ids llegan no
+    # vacios) -- preseleccionar unas tuberias primero.
+    def _preselect_pipes_for_scenario():
+        layer = QgsProject.instance().mapLayersByName("Tuberías")
+        if not layer:
+            log("AVISO: no se encontro la capa Tuberias para preseleccionar en Scenario builder")
+            return
+        ids = [f.id() for f in layer[0].getFeatures()][:3]
+        layer[0].selectByIds(ids)
+
+    _preselect_pipes_for_scenario()
+    capture_blocking(p.runScenarioManager, None, "tools/scenario-builder.png")
+    _pipes_layer = QgsProject.instance().mapLayersByName("Tuberías")
+    if _pipes_layer:
+        _pipes_layer[0].removeSelection()
+    log_mem("tras scenario-builder")
+
+    # runTree(point) acepta un QgsPointXY directo (igual que
+    # runIsolatedSegments) -- si cae sobre un nudo real, SelectedNode llega
+    # pre-rellenado y el dialogo (WPF ModalWindowView 350x400, titulo
+    # tlTreeOptions) se abre ya en modo "confirmar". Nudo "11" real en
+    # (30, 70) (verificado en Network_Junctions.shp).
+    capture_blocking(lambda: p.runTree(QgsPointXY(30, 70)), None, "tools/minimum-cost-tree-dialog.png")
+    log_mem("tras minimum-cost-tree-dialog")
+
+    def _apply_tree(point):
+        """Como _apply_thematic_maps, pero para un dialogo WPF (no Qt) --
+        widget_from_hwnd()/findChild() no sirven aqui (no son QWidgets),
+        hace falta click_accept_button() (UIA), el mismo mecanismo ya
+        probado para el dialogo de confirmacion de runModel()."""
+        before = windows_now()
+
+        def _cb(attempt=0):
+            h = find_new_window(None, before)
+            if h is None:
+                if attempt < 40:
+                    QTimer.singleShot(500, lambda: _cb(attempt + 1))
+                else:
+                    log("FALLO: no aparecio el dialogo de Minimum Cost Tree para aplicar")
+                return
+            if not click_accept_button(h):
+                log("AVISO: no se encontro boton de aceptar en Minimum Cost Tree, cerrando por X")
+                close_stray_win(h)
+
+        QTimer.singleShot(1300, _cb)
+        try:
+            p.runTree(point)
+        except Exception as exc:
+            log(f"EXCEPCION aplicando Minimum Cost Tree: {exc!r}")
+
+    _before_tree = snapshot_layers()
+    _apply_tree(QgsPointXY(30, 70))
+    pump(1.5)
+    cap_win(MAIN_HWND, "tools/minimum-cost-tree-result.png")
+    remove_new_layers(_before_tree, label="minimum-cost-tree")
+    log_mem("tras minimum-cost-tree-result")
+
+    log(f"=== Fin run_part2a() LANG={LANG} ===")
+    log_path = SCRIPTS_DIR / f"capture_inside_part2a_{LANG}.log"
+    log_path.write_text("\n".join(LOG), encoding="utf-8")
+
+
+def run_part2b():
+    """consultas/ -- ver run_part2a para por que esta en su propia sesion
+    (Thematic Maps con Accept real hace crecer la memoria +5.2GB por si
+    solo, confirmado en vivo)."""
+    log(f"=== Inicio run_part2b() LANG={LANG} ===")
+    reload_demo_project()
 
     # -- consultas/ ------------------------------------------------------------
     capture_toolbar("queriesToolbar", "QGISRed Queries", "queries/toolbar.png")
@@ -1027,13 +1318,120 @@ def run_part2():
     capture_dock(p.runStatistics, "queries/statistics-panel.png", delay=1.0)
     capture_dock(lambda: p.openFindElementsDialog.trigger(),
                  "queries/element-explorer.png", delay=1.0)
+    log_mem("tras consultas (pre thematic-maps)")
+
+    from qgis.PyQt.QtWidgets import QCheckBox, QPushButton
+
+    def _check_thematic_boxes(h):
+        w = widget_from_hwnd(h)
+        if w is None:
+            return
+        for name in ("cbPipesMaterial", "cbJunctionsElevation"):
+            cb = w.findChild(QCheckBox, name)
+            if cb is not None:
+                cb.setChecked(True)
+            else:
+                log(f"AVISO: no se encontro {name} en Thematic Maps")
+
+    capture_blocking(p.runThematicMaps, None, "queries/thematic-maps-dialog.png",
+                      before_close=_check_thematic_boxes)
+    log_mem("tras thematic-maps-dialog (solo abrir+cancelar)")
+
+    def _apply_thematic_maps(field_names):
+        """Abre Thematic Maps, marca las casillas dadas y pulsa Accept (crea
+        las capas de verdad) -- a diferencia de la captura de arriba, aqui
+        no nos interesa el dialogo en si, solo su efecto en el lienzo, asi
+        que no se captura nada hasta que termine (mismo patron QTimer
+        pre-programado de capture_blocking, pero sin cap_win()).
+
+        AVISO DE RENDIMIENTO (confirmado en vivo, diagnosticado con log en
+        vivo tras parecer colgado): btAccept.click() con Material+Elevation
+        tarda ~3.7 minutos en devolver el control (creacion real de 2 capas
+        tematicas), no es un cuelgue -- solo lento. El timeout por defecto
+        del orquestador (420s) no es suficiente para una sesion completa
+        con esta captura; usar --timeout 900 o mas."""
+        ensure_clean_state()
+        before = windows_now()
+
+        def _cb(attempt=0):
+            h = find_new_window(None, before)
+            if h is None:
+                if attempt < 40:
+                    QTimer.singleShot(500, lambda: _cb(attempt + 1))
+                else:
+                    log("FALLO: no aparecio el dialogo de Thematic Maps para aplicar")
+                return
+            w = widget_from_hwnd(h)
+            if w is None:
+                return
+            for name in field_names:
+                cb = w.findChild(QCheckBox, name)
+                if cb is not None:
+                    cb.setChecked(True)
+                else:
+                    log(f"AVISO: no se encontro {name} en Thematic Maps (aplicar)")
+            btn = w.findChild(QPushButton, "btAccept")
+            if btn is not None:
+                btn.click()
+            else:
+                log("AVISO: no se encontro btAccept en Thematic Maps")
+
+        QTimer.singleShot(1300, _cb)
+        try:
+            p.runThematicMaps()
+        except Exception as exc:
+            log(f"EXCEPCION aplicando Thematic Maps: {exc!r}")
+
+    _before_thematic = snapshot_layers()
+    _apply_thematic_maps(["cbPipesMaterial", "cbJunctionsElevation"])
+    pump(1.5)
+    cap_win(MAIN_HWND, "queries/thematic-maps-result.png")
+    remove_new_layers(_before_thematic, label="thematic-maps")
+    log_mem("tras thematic-maps-result (Accept real)")
+
+    log(f"=== Fin run_part2b() LANG={LANG} ===")
+    log_path = SCRIPTS_DIR / f"capture_inside_part2b_{LANG}.log"
+    log_path.write_text("\n".join(LOG), encoding="utf-8")
+
+
+def run_part2c():
+    """gemelo-digital/ y verificaciones/ -- ver run_part2a para por que
+    esta en su propia sesion (Add service connection hace crecer la
+    memoria +6.9GB por si solo, confirmado en vivo)."""
+    log(f"=== Inicio run_part2c() LANG={LANG} ===")
+    reload_demo_project()
 
     # -- gemelo-digital/ ---------------------------------------------------------
     capture_toolbar("dtToolbar", "QGISRed Digital Twin", "digital-twin/toolbar.png")
+    _before_svc = snapshot_layers()
     capture_canvas(
         lambda: p.runCreateServiceConnection([QgsPointXY(45, 40), QgsPointXY(45, 35)]),
         "digital-twin/add-service-connection.png",
     )
+    # runAddConnections() solo exige que el SHP exista EN DISCO
+    # (os.path.exists, no que la capa este cargada en el lienzo) -- quitar
+    # la capa del proyecto aqui (sin tocar el fichero) para no acumularla
+    # el resto de la sesion.
+    remove_new_layers(_before_svc, label="add-service-connection")
+    log_mem("tras add-service-connection")
+
+    # runAddConnections() (no "runConvertServiceConnections" -- el metodo
+    # real tiene otro nombre, digital_twin_section.py:232) comprueba que
+    # exista <Network>_ServiceConnections.shp ANTES de mostrar el dialogo;
+    # si no existe, solo hace pushMessage() y nunca abre nada. Ese SHP lo
+    # crea como efecto secundario add-service-connection.png de arriba --
+    # por eso esta captura tiene que ir despues, en la misma sesion.
+    capture_blocking(p.runAddConnections, None, "digital-twin/convert-service-connections.png")
+    log_mem("tras convert-service-connections")
+
+    # runLoadReadings() abre un dialogo WPF real (LoadReadingsView en
+    # ModalWindowView, 650x700, QGISRed.cs:3440-3482) -- capturarlo en su
+    # estado por defecto (sin cargar ningun CSV) ya muestra toda la
+    # estructura (modos Hourly/Daily/Periodic/Table/Series, combos de
+    # unidad/fecha, radios "To connections"/"To junctions"); construir un
+    # CSV de ejemplo con el formato exacto no aporta frente al esfuerzo.
+    capture_blocking(p.runLoadReadings, None, "digital-twin/load-meter-readings.png")
+    log_mem("tras load-meter-readings")
 
     def _meter_popup(max_attempts=3):
         """boton.showMenu() programatico NO genera una ventana detectable
@@ -1124,9 +1522,24 @@ def run_part2():
 
     # -- verificaciones/ (carpeta de imagen: debug/) -----------------------------
     capture_toolbar("debugToolbar", "QGISRed Debug", "debug/toolbar.png")
+    _before_sectors = snapshot_layers()
     capture_canvas(p.runHydraulicSectors, "debug/hydraulic-sectors.png", delay=1.5)
+    remove_new_layers(_before_sectors, label="hydraulic-sectors")
+
+    _before_connectivity = snapshot_layers()
     capture_canvas(lambda: p.runCheckConnectivity(False), "debug/check-connectivity.png", delay=1.5)
-    log(f"=== Fin run_part2() LANG={LANG} ===")
+    remove_new_layers(_before_connectivity, label="check-connectivity")
+
+    # Check pipe materials: sin dialogo propio (confirmado en codigo,
+    # debug_validation_section.py), selecciona elementos problematicos y
+    # muestra un aviso en el banner de mensajes de QGIS. El Material esta
+    # vacio en las 17 tuberias de sample_project/ (import estandar desde
+    # .inp, sin ese campo) -- resultado real, toda la red se selecciona,
+    # coherente con una red recien importada antes de rellenar metadatos.
+    capture_canvas(p.runCheckMaterials, "debug/check-materials.png", delay=1.0)
+    log(f"=== Fin run_part2c() LANG={LANG} ===")
+    log_path = SCRIPTS_DIR / f"capture_inside_part2c_{LANG}.log"
+    log_path.write_text("\n".join(LOG), encoding="utf-8")
 
 
 # ── instalacion/ (gestor de complementos NATIVO de QGIS, no de QGISRed) ───

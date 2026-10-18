@@ -33,6 +33,8 @@ Permite añadir a la lista un proyecto que no aparece en el historial (por ejemp
 
 Crea una copia completa del proyecto bajo un nombre diferente. Útil para crear variantes sin perder el original.
 
+<figure><img src="../assets/images/project-management/clone-project.png" alt="Diálogo de clonado de proyecto"><figcaption><p>Diálogo de clonado de proyecto</p></figcaption></figure>
+
 1. Selecciona el proyecto que quieres clonar.
 2. Pulsa **Clonar**.
 3. Introduce el nuevo nombre de la red.

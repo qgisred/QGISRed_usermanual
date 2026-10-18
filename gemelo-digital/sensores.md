@@ -43,6 +43,8 @@ Coloca un medidor o sensor sobre una tubería haciendo clic en el punto de insta
 
 Importa lecturas de contadores inteligentes (smart metering) y las asocia a las acometidas del proyecto. Las lecturas enriquecen las demandas del modelo con datos reales de consumo en lugar de demandas estimadas.
 
+<figure><img src="../assets/images/digital-twin/load-meter-readings.png" alt="Diálogo de carga de lecturas de contadores, en su estado por defecto"><figcaption><p>Diálogo de carga de lecturas de contadores, en su estado por defecto</p></figcaption></figure>
+
 ### Formatos de importación soportados
 
 | Formato | Estructura del archivo |
@@ -51,6 +53,18 @@ Importa lecturas de contadores inteligentes (smart metering) y las asocia a las 
 | **Serie** | Una fila por registro: `Id; Time; Demand`. Todos los contadores en el mismo archivo. |
 
 Los separadores de campo se detectan automáticamente del sistema regional. El campo `Time` acepta tanto marcas de tiempo absolutas como offset en horas desde el inicio de la simulación.
+
+> El diálogo también tiene pestañas para otros formatos de lectura (por horas/por días/periódicas, y un formato de facturación GO) — están deshabilitadas en la versión actual, reservadas para una futura ampliación.
+
+### Dónde se cargan las lecturas
+
+Un grupo de opciones (radio buttons) decide qué elemento del modelo recibe las lecturas importadas:
+
+| Opción | Resultado |
+|--------|-----------|
+| **Cargar las lecturas a las Acometidas** | Las lecturas se asocian a la propia capa `ServiceConnections`, sin tocar los nudos del modelo EPANET. |
+| **Cargar las lecturas a las Uniones directamente** | Las lecturas se asignan directamente al nudo (`Junction`) más próximo, ignorando la acometida intermedia. |
+| **Cargar las lecturas a las Uniones a través de las Acometidas** | Las lecturas se asignan al nudo siguiendo la cadena acometida → nudo, agregando varias acometidas sobre el mismo nudo si comparten conexión. |
 
 ---
 

@@ -4,7 +4,7 @@
 
 Abre el diálogo de **Thematic Maps**, que genera capas que colorean tuberías y nudos por intervalos de un atributo hidráulico. A diferencia de otros diálogos de QGISRed, no hay que elegir "un campo y confirmar": cada atributo disponible tiene su propia casilla, y puedes marcar tantas a la vez como quieras — cada una genera su propia capa, y todas conviven en el mapa simultáneamente.
 
-<!-- TODO: captura pendiente — diálogo Thematic Maps con las casillas de Tuberías y Nudos -->
+<figure><img src="../assets/images/queries/thematic-maps-dialog.png" alt="Diálogo Thematic Maps con las casillas Material (tuberías) y Cota (nudos) marcadas"><figcaption><p>Diálogo Thematic Maps con las casillas Material (tuberías) y Cota (nudos) marcadas</p></figcaption></figure>
 
 ---
 
@@ -80,6 +80,8 @@ Si cambias las **unidades**, la **fórmula de pérdida de carga** o las **unidad
 ---
 
 ## Resultado en el mapa
+
+<figure><img src="../assets/images/queries/thematic-maps-result.png" alt="Red coloreada por Material de tuberías y Cota de nudos tras generar los mapas temáticos"><figcaption><p>Red coloreada por Material de tuberías y Cota de nudos tras generar los mapas temáticos</p></figcaption></figure>
 
 Cada casilla marcada genera su propia capa (por ejemplo `Pipes_Materials`, `Junctions_Elevations` — siempre `Elemento_Propiedad`, ambos en plural salvo "Installation Year", que se mantiene en singular) dentro del grupo **Queries → Thematic Maps**. Las capas son de solo lectura y se actualizan solas cuando editas la tubería o el nudo de origen (no hace falta regenerar el mapa a mano tras un cambio puntual) — la leyenda de cada una muestra además cuántos elementos tiene cada clase.
 

@@ -101,6 +101,8 @@ La rugosidad se escribe en las unidades de la fórmula activa del proyecto:
 
 Convierte los valores del campo `Roughness` de todas las tuberías entre las tres fórmulas de pérdida de carga. Es necesaria cuando cambias la fórmula hidráulica del proyecto y quieres que los valores existentes mantengan su significado físico.
 
+<figure><img src="../assets/images/tools/convert-roughness.png" alt="Diálogo de conversión de rugosidad entre fórmulas"><figcaption><p>Diálogo de conversión de rugosidad entre fórmulas</p></figcaption></figure>
+
 ### Conversiones disponibles
 
 | Origen | Destino |
