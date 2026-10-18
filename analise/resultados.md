@@ -12,7 +12,7 @@ O encaixe Resultados está ancorado na área direita da tela. Contém **três gu
 - **Relatório**: relatório de texto do motor EPANET.
 - **Aparência**: configuração completa da aparência visual dos resultados no mapa.
 
-<figure><img src="../assets/images/analisis/results-dock.png" alt="Painel de resultados com seletor de variáveis ​​e barra de tempo"><figcaption><p>Painel de resultados com seletor de variáveis ​​e barra de tempo</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/results-dock.png" alt="Painel de resultados com seletor de variáveis ​​e barra de tempo"><figcaption><p>Painel de resultados com seletor de variáveis ​​e barra de tempo</p></figcaption></figure>
 *Dock de resultados: seleção de variáveis, modo estatístico e navegação por instantes de tempo.*
 <!-- TODO: captura de tela desatualizada após adicionar o botão Taxa de reprodução constante próximo ao controle deslizante de velocidade -->
 
@@ -182,7 +182,7 @@ O dock oferece suporte a vários cenários de resultados. Cada cenário é ident
 
 Ativa uma ferramenta de seleção interativa que traça a evolução temporal de qualquer propriedade de resultado para um ou mais elementos da rede.
 
-<figure><img src="../assets/images/analisis/time-series-dock.png" alt="Série temporal do painel com curvas de pressão multinó"><figcaption><p>Série temporal do painel com curvas de pressão multinó</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/time-series-dock.png" alt="Série temporal do painel com curvas de pressão multinó"><figcaption><p>Série temporal do painel com curvas de pressão multinó</p></figcaption></figure>
 *Série temporal do painel: evolução temporal da pressão em vários nós selecionados simultaneamente.*
 
 ### Processo

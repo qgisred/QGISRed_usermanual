@@ -10,7 +10,7 @@ Esta página reúne três diálogos de configuração que afetam o comportamento
 
 Abre a caixa de diálogo principal de opções do EPANET. É equivalente à seção `[OPTIONS]` do arquivo `.inp`.
 
-<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Diálogo de Opções de Análise: Abas de Hidráulica, Qualidade, Tempo e Energia"><figcaption><p>Diálogo de Opções de Análise: Abas de Hidráulica, Qualidade, Tempo e Energia</p></figcaption></figure>
+<figure><img src="../assets/images/project/project-options.png" alt="Diálogo de Opções de Análise: Abas de Hidráulica, Qualidade, Tempo e Energia"><figcaption><p>Diálogo de Opções de Análise: Abas de Hidráulica, Qualidade, Tempo e Energia</p></figcaption></figure>
 *Diálogo de Opções de análise com suas quatro abas.*
 
 ### Guia Hidráulica
@@ -70,7 +70,7 @@ Permite definir o custo energético das bombas para análise de consumo:
 
 Define os valores que são atribuídos automaticamente aos novos elementos quando eles são criados com as ferramentas de edição.
 
-<figure><img src="../assets/images/proyecto/valores-defecto.png" alt="Diálogo de padrões com seções para nós, tubulações e prefixos"><figcaption><p>Diálogo de padrões com seções para nós, tubulações e prefixos</p></figcaption></figure>
+<figure><img src="../assets/images/project/default-values.png" alt="Diálogo de padrões com seções para nós, tubulações e prefixos"><figcaption><p>Diálogo de padrões com seções para nós, tubulações e prefixos</p></figcaption></figure>
 *Caixa de diálogo de valores padrão: parâmetros iniciais para cada tipo de elemento.*
 
 ### Prefixos de ID
@@ -114,7 +114,7 @@ Os prefixos são configuráveis. O número inicial também pode ser definido.
 
 Gerencie a lista de materiais disponíveis para tubos e suas propriedades de envelhecimento.
 
-<figure><img src="../assets/images/proyecto/tabla-materiales.png" alt="Tabela de materiais: código, nome, rugosidade inicial e acréscimo anual"><figcaption><p>Tabela de materiais: código, nome, rugosidade inicial e acréscimo anual</p></figcaption></figure>
+<figure><img src="../assets/images/project/materials-table.png" alt="Tabela de materiais: código, nome, rugosidade inicial e acréscimo anual"><figcaption><p>Tabela de materiais: código, nome, rugosidade inicial e acréscimo anual</p></figcaption></figure>
 *Tabela de materiais com rugosidade inicial e aumento por ano.*
 
 ### Campos da tabela

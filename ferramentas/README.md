@@ -2,7 +2,7 @@
 
 A barra **Ferramentas** agrupa as massivas ferramentas de processamento: cálculo automático de propriedades hidráulicas, atribuição de demandas de fontes externas, gerenciamento de cenários e análise topológica. Ao contrário das ferramentas de edição, estas atuam em toda a rede ou em grandes seleções, não elemento por elemento.
 
-<figure><img src="../assets/images/herramientas/barra-tools.png" alt="Barra de ferramentas QGISRed Tools"><figcaption><p>Barra de ferramentas QGISRed Tools</p></figcaption></figure>
+<figure><img src="../assets/images/tools/toolbar.png" alt="Barra de ferramentas QGISRed Tools"><figcaption><p>Barra de ferramentas QGISRed Tools</p></figcaption></figure>
 *Barra de ferramentas: propriedades hidráulicas, demandas e cenários, análise topológica.*
 
 ---

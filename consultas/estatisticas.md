@@ -6,7 +6,7 @@ Abre o painel **Estatísticas**, que calcula e exibe a distribuição estatísti
 
 > **ℹ️ Nota:** O painel Estatísticas abre **encaixado** na janela principal do QGIS e respeita os painéis já agrupados em abas. Seus controles também se adaptam a larguras estreitas de painéis, sem serem cortados na borda direita.
 
-<figure><img src="../assets/images/consultas/statistics-panel.png" alt="Painel de estatísticas com histograma de diâmetros de tubos"><figcaption><p>Painel de estatísticas com histograma de diâmetros de tubos</p></figcaption></figure>
+<figure><img src="../assets/images/queries/statistics-panel.png" alt="Painel de estatísticas com histograma de diâmetros de tubos"><figcaption><p>Painel de estatísticas com histograma de diâmetros de tubos</p></figcaption></figure>
 *Painel de Estatísticas: histograma de diâmetros de tubos com classificação por intervalos.*
 
 ---

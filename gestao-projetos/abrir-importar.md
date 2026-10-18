@@ -16,7 +16,7 @@ QGISRed oferece três maneiras de começar a trabalhar com uma rede existente:
 
 Abre um projeto QGISRed existente (criado anteriormente com o plugin) que não aparece no Gerenciador de Projetos ou que foi movido de uma pasta.
 
-<figure><img src="../assets/images/general/abrir-proyecto.png" alt="Caixa de diálogo de abertura do projeto"><figcaption><p>Caixa de diálogo de abertura do projeto</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/open-project.png" alt="Caixa de diálogo de abertura do projeto"><figcaption><p>Caixa de diálogo de abertura do projeto</p></figcaption></figure>
 *Caixa de diálogo de abertura: insira o nome da rede e selecione a pasta.*
 
 ### Processo
@@ -46,7 +46,7 @@ Converta dados externos em um projeto QGISRed ou recupere um projeto exportado a
 
 O caso mais comum: você possui um modelo EPANET existente e deseja trabalhar com ele no QGISRed.
 
-<figure><img src="../assets/images/general/importar-inp.png" alt="Caixa de diálogo de importação de arquivo EPANET INP"><figcaption><p>Caixa de diálogo de importação de arquivo EPANET INP</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/import-inp.png" alt="Caixa de diálogo de importação de arquivo EPANET INP"><figcaption><p>Caixa de diálogo de importação de arquivo EPANET INP</p></figcaption></figure>
 *Caixa de diálogo de importação: seleção do arquivo .inp, nome da rede e pasta de destino.*
 
 1. Selecione o arquivo `.inp`.
@@ -92,7 +92,7 @@ Quando a importação cria um novo projeto, também são solicitados o **catálo
 
 Recupera um projeto empacotado com o botão **Exportar** de [Gestor de projeto](gestor-projetos.md) — veja [Salvar, exportar e fechar projeto](../projeto-ativo/salvar-exportar-fechar.md). Também reconhece ZIPs gerados por versões anteriores do plugin, mesmo que não possuam o manifesto interno das exportações atuais.
 
-<figure><img src="../assets/images/general/importar-proyecto-qgisred.png" alt="Aba QGISRed project da caixa de diálogo de importação"><figcaption><p>Aba QGISRed project da caixa de diálogo de importação</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/import-qgisred-project.png" alt="Aba QGISRed project da caixa de diálogo de importação"><figcaption><p>Aba QGISRed project da caixa de diálogo de importação</p></figcaption></figure>
 
 1. Na aba **Projeto QGISRed**, pressione o botão **...** próximo a **Arquivo ZIP:** e selecione o arquivo `.zip`.
 2. QGISRed inspeciona o conteúdo ZIP sem extraí-lo ainda e exibe um resumo no campo:

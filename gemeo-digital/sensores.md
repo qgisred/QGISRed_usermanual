@@ -10,7 +10,7 @@ Os medidores e sensores Digital Twin são elementos que registram magnitudes fí
 
 Coloque um medidor ou sensor em um tubo clicando no ponto de instalação. O menu suspenso do botão permite escolher o tipo antes de colocá-lo; O último tipo utilizado permanece como ação padrão do botão.
 
-<figure><img src="../assets/images/gemelo-digital/add-meter-dropdown.png" alt="Menu suspenso de tipo de medidor na barra Digital Twin"><figcaption><p>Menu suspenso de tipo de medidor na barra Digital Twin</p></figcaption></figure>
+<figure><img src="../assets/images/digital-twin/add-meter-dropdown.png" alt="Menu suspenso de tipo de medidor na barra Digital Twin"><figcaption><p>Menu suspenso de tipo de medidor na barra Digital Twin</p></figcaption></figure>
 *Adicionar menu suspenso de medidores: os 11 tipos de medidores disponíveis.*
 
 ### Tipos de medidores disponíveis

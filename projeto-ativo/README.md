@@ -2,7 +2,7 @@
 
 A barra **Projeto** agrupa as ferramentas de administração do projeto que já está aberto no QGISRed. Todos os seus botões requerem um projeto válido carregado; Caso não haja nenhum, o plugin avisará com a mensagem _"Nenhum projeto válido foi aberto"_.
 
-<figure><img src="../assets/images/proyecto/barra-project.png" alt="Barra de ferramentas do projeto QGISRed com seus nove botões"><figcaption><p>Barra de ferramentas do projeto QGISRed com seus nove botões</p></figcaption></figure>
+<figure><img src="../assets/images/project/toolbar.png" alt="Barra de ferramentas do projeto QGISRed com seus nove botões"><figcaption><p>Barra de ferramentas do projeto QGISRed com seus nove botões</p></figcaption></figure>
 *Barra de Projetos: ferramentas ativas de gerenciamento de projetos.*
 
 <!-- TODO: captura de tela desatualizada após remoção do botão "Backup do projeto" (commit 7b2415f) -->

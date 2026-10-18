@@ -4,7 +4,7 @@
 
 Abre o painel **Consultas por Propriedades**, ferramenta de filtragem que destaca no mapa todos os elementos que atendem a uma ou mais condições em seus atributos. É a maneira mais rápida de encontrar, por exemplo, todos os tubos com diâmetro inferior a 80 mm, todos os nós com pressão abaixo de um limite ou todas as válvulas em estado fechado.
 
-<figure><img src="../assets/images/consultas/queries-by-properties.png" alt="Painel Consultas por Propriedades com condições configuradas e resultado destacado em magenta"><figcaption><p>Painel Consultas por Propriedades com condições configuradas e resultado destacado em magenta</p></figcaption></figure>
+<figure><img src="../assets/images/queries/queries-by-properties.png" alt="Painel Consultas por Propriedades com condições configuradas e resultado destacado em magenta"><figcaption><p>Painel Consultas por Propriedades com condições configuradas e resultado destacado em magenta</p></figcaption></figure>
 *Consultas por Painel de Propriedades: condições configuradas nos atributos do pipe. Os itens que atendem à condição são destacados em magenta no mapa.*
 
 ---

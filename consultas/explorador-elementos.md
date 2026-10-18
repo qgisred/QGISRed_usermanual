@@ -2,7 +2,7 @@
 
 O **Element Explorer** é um painel flutuante (dock) que o QGISRed mantém como uma única instância. Ele agrupa duas funcionalidades relacionadas em duas seções suspensas, empilhadas verticalmente (não em guias lado a lado): pesquisa de elementos por ID e exibição de propriedades do elemento selecionado no mapa.
 
-<figure><img src="../assets/images/consultas/element-explorer.png" alt="Painel Explorador de Elementos com as seções Pesquisar Elementos por Id e Propriedades do Elemento expandidas"><figcaption><p>Painel Explorador de Elementos com as seções Pesquisar Elementos por Id e Propriedades do Elemento expandidas</p></figcaption></figure>
+<figure><img src="../assets/images/queries/element-explorer.png" alt="Painel Explorador de Elementos com as seções Pesquisar Elementos por Id e Propriedades do Elemento expandidas"><figcaption><p>Painel Explorador de Elementos com as seções Pesquisar Elementos por Id e Propriedades do Elemento expandidas</p></figcaption></figure>
 *Painel Explorador de Elementos: seção "Pesquisar Elementos por Id" (superior) e seção "Propriedades do Elemento" (inferior).*
 
 Os botões **Localizar elementos por ID** e **Propriedades do elemento** na barra Consultas abrem este mesmo painel e expandem a seção correspondente — mas **recolhem automaticamente a outra**, pois apenas uma seção permanece expandida de cada vez por padrão. Se você precisar visualizar os dois ao mesmo tempo (por exemplo, para capturas ou para comparar resultados), poderá expandir manualmente a seção recolhida clicando em seu cabeçalho; isso não fecha nenhuma funcionalidade.

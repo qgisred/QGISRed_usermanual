@@ -4,7 +4,7 @@
 
 A ferramenta de setores hidráulicos varre a rede usando um algoritmo BFS (pesquisa em largura) de todas as fontes de abastecimento e classifica cada sub-rede conectada de acordo com se possui ou não uma fonte hidráulica (H) e se tem ou não demanda (Q). O resultado é despejado em camadas SHP e em um relatório CSV.
 
-<figure><img src="../assets/images/debug/sectores-hidraulicos.png" alt="Mapa dos setores hidráulicos: áreas coloridas por tipo H-Q, H-nQ, nH-Q e nH-nQ"><figcaption><p>Mapa dos setores hidráulicos: áreas coloridas por tipo H-Q, H-nQ, nH-Q e nH-nQ</p></figcaption></figure>
+<figure><img src="../assets/images/debug/hydraulic-sectors.png" alt="Mapa dos setores hidráulicos: áreas coloridas por tipo H-Q, H-nQ, nH-Q e nH-nQ"><figcaption><p>Mapa dos setores hidráulicos: áreas coloridas por tipo H-Q, H-nQ, nH-Q e nH-nQ</p></figcaption></figure>
 *Setores hidráulicos: cada cor representa um tipo de classificação. Os setores nH-Q (sem fonte com demanda) aparecem em vermelho.*
 
 ---

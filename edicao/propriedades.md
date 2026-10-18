@@ -4,7 +4,7 @@
 
 A caixa de diálogo de propriedades é a ferramenta central para visualizar e editar todos os atributos de qualquer elemento da rede. Funciona como um formulário inteligente que carrega os dados do elemento clicado e permite navegar entre os elementos sem fechá-lo.
 
-<figure><img src="../assets/images/edicion/propiedades-elemento.png" alt="Caixa de diálogo de propriedades de um tubo com todos os seus campos"><figcaption><p>Caixa de diálogo de propriedades de um tubo com todos os seus campos</p></figcaption></figure>
+<figure><img src="../assets/images/editing/element-properties.png" alt="Caixa de diálogo de propriedades de um tubo com todos os seus campos"><figcaption><p>Caixa de diálogo de propriedades de um tubo com todos os seus campos</p></figcaption></figure>
 *Diálogo de propriedades: atributos do elemento, navegador de elementos conectados e botão de centralização.*
 
 ---

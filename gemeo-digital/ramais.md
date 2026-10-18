@@ -10,7 +10,7 @@ As ligações e válvulas de corte são os dois elementos que ligam o modelo hid
 
 Desenha uma gota como uma polilinha do tubo principal até o ponto de entrega do cliente. A conexão é armazenada na camada complementar `ServiceConnections` do projeto.
 
-<figure><img src="../assets/images/gemelo-digital/add-service-connection.png" alt="Ferramenta de desenho de conexão no mapa"><figcaption><p>Ferramenta de desenho de conexão no mapa</p></figcaption></figure>
+<figure><img src="../assets/images/digital-twin/add-service-connection.png" alt="Ferramenta de desenho de conexão no mapa"><figcaption><p>Ferramenta de desenho de conexão no mapa</p></figcaption></figure>
 *Desenho do serviço: a linha parte da tubulação principal e chega até o limite do terreno do cliente.*
 
 ### Processo

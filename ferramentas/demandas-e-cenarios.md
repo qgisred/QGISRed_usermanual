@@ -10,7 +10,7 @@ As três ferramentas do segundo grupo da barra de ferramentas gerenciam a atribu
 
 Atribua o consumo aos nós da rede em massa a partir de camadas externas do SHP carregadas no QGIS. É a principal ferramenta para integração de dados de faturação, censos de utilizadores ou estimativas de polígonos no modelo EPANET.
 
-<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Caixa de diálogo Construtor de consumos nodais com opções de método de origem e atribuição"><figcaption><p>Caixa de diálogo Construtor de consumos nodais com opções de método de origem e atribuição</p></figcaption></figure>
+<figure><img src="../assets/images/tools/demand-builder.png" alt="Caixa de diálogo Construtor de consumos nodais com opções de método de origem e atribuição"><figcaption><p>Caixa de diálogo Construtor de consumos nodais com opções de método de origem e atribuição</p></figcaption></figure>
 *Construtor de consumos nodais: camadas de origem detectadas automaticamente, configuração de campo e método de distribuição.*
 
 ### Fontes de dados suportadas
@@ -133,7 +133,7 @@ Os arquivos do cenário são salvos como CSV na pasta do projeto.
 
 Responde à questão operacional: **"Quais válvulas devo fechar para reparar esta tubulação e quais usuários ficarão sem atendimento?"**
 
-<figure><img src="../assets/images/herramientas/isolated-segments.png" alt="Resultado de segmentos isolados: tubulação afetada, válvulas de corte e zona sem serviço"><figcaption><p>Resultado de segmentos isolados: tubulação afetada, válvulas de corte e zona sem serviço</p></figcaption></figure>
+<figure><img src="../assets/images/tools/isolated-segments.png" alt="Resultado de segmentos isolados: tubulação afetada, válvulas de corte e zona sem serviço"><figcaption><p>Resultado de segmentos isolados: tubulação afetada, válvulas de corte e zona sem serviço</p></figcaption></figure>
 *Em vermelho a tubulação a ser reparada, em amarelo as válvulas a fechar e em azul a área sem atendimento.*
 
 ### Processo

@@ -28,17 +28,17 @@ O desenvolvimento do QGISRed faz parte das atividades de pesquisa e transferênc
 
 | Entidade | Logotipo |
 | ------------------ | ---------------------------------------------------------------- |
-| **Portal QGISRed** | [![Logotipo QGISRed](../assets/images/creditos/logo-qgisred.png)](http://qgisred.upv.es) |
-| **REDISP** | ![Logotipo da REDHISP](../assets/images/creditos/logo-redhisp.png) |
-| **IIAMA** | [![Logotipo IIAMA](../assets/images/creditos/logo-iiama.png)](http://www.iiama.upv.es) |
-| **UPV** | [![Logotipo UPV](../assets/images/creditos/logo-upv.png)](http://www.upv.es) |
+| **Portal QGISRed** | [![Logotipo QGISRed](../assets/images/credits/logo-qgisred.png)](http://qgisred.upv.es) |
+| **REDISP** | ![Logotipo da REDHISP](../assets/images/credits/logo-redhisp.png) |
+| **IIAMA** | [![Logotipo IIAMA](../assets/images/credits/logo-iiama.png)](http://www.iiama.upv.es) |
+| **UPV** | [![Logotipo UPV](../assets/images/credits/logo-upv.png)](http://www.upv.es) |
 
 ### Colaboradores
 
 | Entidade | Logotipo |
 | ----------------- | ---------------------------------------------------------------- |
-| **ÁguaPi** | ![Logotipo WaterPi](../assets/images/creditos/logo-waterpi.png) |
-| **Engenhosoware** | ![Logo Ingeniousware](../assets/images/creditos/logo-ingeniousware.png) |
+| **ÁguaPi** | ![Logotipo WaterPi](../assets/images/credits/logo-waterpi.png) |
+| **Engenhosoware** | ![Logo Ingeniousware](../assets/images/credits/logo-ingeniousware.png) |
 
 ***
 
@@ -50,5 +50,5 @@ Versões do QGISRed a partir de **0,18** estão sendo financiadas pelo **Banco I
 
 | Entidade | Logotipo |
 | -------------------------------------------- | ----------------------------------------------------------------------- |
-| **Banco Interamericano de Desenvolvimento (BID)** | [![logotipo do BID](../assets/images/creditos/logo-bid.png)](https://www.iadb.org/es) |
+| **Banco Interamericano de Desenvolvimento (BID)** | [![logotipo do BID](../assets/images/credits/logo-bid.png)](https://www.iadb.org/es) |
 

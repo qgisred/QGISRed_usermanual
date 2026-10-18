@@ -4,7 +4,7 @@
 
 O Gerenciador de Projetos é a janela de administração central do QGISRed. Permite acesso a todos os projetos conhecidos sem a necessidade de lembrar onde estão armazenados.
 
-<figure><img src="../assets/images/general/gestor-proyectos.png" alt="Janela do Gerenciador de Projeto QGISRed"><figcaption><p>Janela do Gerenciador de Projeto QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/project-manager.png" alt="Janela do Gerenciador de Projeto QGISRed"><figcaption><p>Janela do Gerenciador de Projeto QGISRed</p></figcaption></figure>
 *Janela do Gerenciador de Projetos: lista de projetos recentes e operações disponíveis.*
 
 ---

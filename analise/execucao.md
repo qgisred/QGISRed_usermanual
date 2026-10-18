@@ -10,7 +10,7 @@ As três primeiras ações na barra Análise controlam o ciclo de simulação: c
 
 Abre a caixa de diálogo Opções do mecanismo EPANET. Permite configurar todos os parâmetros que controlam a forma como é realizada a simulação hidráulica e de qualidade.
 
-<figure><img src="../assets/images/analisis/analysis-options.png" alt="Caixa de diálogo Opções de análise com guias de configuração do mecanismo EPANET"><figcaption><p>Caixa de diálogo Opções de análise com guias de configuração do mecanismo EPANET</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/analysis-options.png" alt="Caixa de diálogo Opções de análise com guias de configuração do mecanismo EPANET"><figcaption><p>Caixa de diálogo Opções de análise com guias de configuração do mecanismo EPANET</p></figcaption></figure>
 *Caixa de diálogo Opções de análise: configuração completa do motor EPANET.*
 
 ### Parâmetros configuráveis ​​

@@ -4,7 +4,7 @@
 
 O editor de padrões e curvas centraliza a gestão de dados temporais e funcionais que controlam o comportamento dinâmico do modelo: como a demanda varia ao longo do dia, como uma bomba se comporta de acordo com sua vazão ou qual o volume de um RNV irregular.
 
-<figure><img src="../assets/images/edicion/editor-curvas.png" alt="Editor de padrões e curvas QGISRed"><figcaption><p>Editor de padrões e curvas QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/editing/curves-editor.png" alt="Editor de padrões e curvas QGISRed"><figcaption><p>Editor de padrões e curvas QGISRed</p></figcaption></figure>
 *Editor de padrões e curvas: lista de elementos à esquerda, gráfico e tabela de dados à direita.*
 
 ---

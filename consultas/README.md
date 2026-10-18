@@ -2,7 +2,7 @@
 
 A barra **Consultas** agrupa as ferramentas interativas de consulta e inspeção do modelo: busca de elementos por ID, exploração de propriedades individuais, mapas temáticos, consultas por condições em atributos e estatísticas da rede. Ao contrário das barras de edição ou análise, estas ferramentas não modificam o modelo: apenas interrogam e visualizam o que já existe.
 
-<figure><img src="../assets/images/consultas/barra-queries.png" alt="Barra de ferramentas de consultas QGISRed"><figcaption><p>Barra de ferramentas de consultas QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/queries/toolbar.png" alt="Barra de ferramentas de consultas QGISRed"><figcaption><p>Barra de ferramentas de consultas QGISRed</p></figcaption></figure>
 *Barra de Consultas: os cinco botões de consulta e inspeção.*
 
 ---

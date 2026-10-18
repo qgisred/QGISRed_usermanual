@@ -24,7 +24,7 @@ A seleção é usada como **entrada** para outras ferramentas: Reverter elemento
 
 Move um ou mais nós (Junções, RNVs, RNFs) arrastando consigo **todos os elementos lineares conectados** (tubos, válvulas, bombas). A rede permanece conectada após o movimento.
 
-<figure><img src="../assets/images/edicion/move-nodes.png" alt="Mova um nó e seus tubos conectados no mapa"><figcaption><p>Mova um nó e seus tubos conectados no mapa</p></figcaption></figure>
+<figure><img src="../assets/images/editing/move-nodes.png" alt="Mova um nó e seus tubos conectados no mapa"><figcaption><p>Mova um nó e seus tubos conectados no mapa</p></figcaption></figure>
 *Quando você arrasta um nó, todos os tubos conectados seguem o movimento.*
 
 ### Como usar
@@ -79,7 +79,7 @@ Clique em um tubo para **dividi-lo** no ponto indicado: QGISRed cria uma nova ju
 
 Para **unir** dois tubos, clique no nó intermediário que eles compartilham: se esse nó tiver exatamente dois tubos conectados e o diâmetro, material, coeficiente de rugosidade e propriedades InstallYear forem iguais, o QGISRed os mescla em uma única seção e elimina o nó.
 
-<figure><img src="../assets/images/edicion/split-pipe.png" alt="Dividir um tubo: um nó intermediário e duas seções são criados"><figcaption><p>Dividir um tubo: um nó intermediário e duas seções são criados</p></figcaption></figure>
+<figure><img src="../assets/images/editing/split-pipe.png" alt="Dividir um tubo: um nó intermediário e duas seções são criados"><figcaption><p>Dividir um tubo: um nó intermediário e duas seções são criados</p></figcaption></figure>
 *Clique em P-5 cria o nó J-42 e divide o tubo em P-5 e P-45.*
 
 > Se os dois tubos tiverem diâmetro, material, coeficiente de rugosidade ou ano de instalação diferentes, a conexão não é feita e o plugin mostra um aviso.

@@ -28,7 +28,7 @@ A ferramenta substitui o valor de `Length` incondicionalmente em todos os tubos 
 
 Atribui a cota (campo `Elevation`) aos nós, RNVs e RNFs do projeto interpolando seu valor a partir de um ou mais Modelos Digitais de Terreno (MDT) em formato ASC.
 
-<figure><img src="../assets/images/herramientas/interpolate-elevation.png" alt="Seletor de arquivo ASC para interpolação de dimensão"><figcaption><p>Seletor de arquivo ASC para interpolação de dimensão</p></figcaption></figure>
+<figure><img src="../assets/images/tools/interpolate-elevation.png" alt="Seletor de arquivo ASC para interpolação de dimensão"><figcaption><p>Seletor de arquivo ASC para interpolação de dimensão</p></figcaption></figure>
 *Seletor de arquivo MDT: você pode fazer upload de vários arquivos ASC para cobrir toda a área da rede.*
 
 ### Formato ASC suportado

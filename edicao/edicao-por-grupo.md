@@ -6,7 +6,7 @@ A ferramenta **Editar propriedades por grupo** permite modificar um atributo de 
 
 A caixa de diálogo é **sem janela restrita**: você ainda pode interagir com o mapa enquanto ele estiver aberto.
 
-<figure><img src="../assets/images/edicion/edicion-por-grupo.png" alt="Editar propriedades por caixa de diálogo de grupo com filtro e ação configurados"><figcaption><p>Editar propriedades por caixa de diálogo de grupo com filtro e ação configurados</p></figcaption></figure>
+<figure><img src="../assets/images/editing/group-editing.png" alt="Editar propriedades por caixa de diálogo de grupo com filtro e ação configurados"><figcaption><p>Editar propriedades por caixa de diálogo de grupo com filtro e ação configurados</p></figcaption></figure>
 *Editar caixa de diálogo por grupo: filtrar por campo numérico e multiplicar por ação em tubos.*
 
 ---

@@ -2,7 +2,7 @@
 
 QGISRed integra-se ao QGIS como um conjunto de **barras de ferramentas especializadas**. Cada barra agrupa as ferramentas de uma etapa do fluxo de trabalho: gerenciamento de projetos, edição de rede, verificação, simulação, etc.
 
-<figure><img src="../assets/images/guia-rapida/barra-principal.png" alt="Barra principal QGISRed com os botões suspensos de cada barra de ferramentas"><figcaption><p>Barra principal QGISRed com os botões suspensos de cada barra de ferramentas</p></figcaption></figure>
+<figure><img src="../assets/images/quick-guide/toolbar.png" alt="Barra principal QGISRed com os botões suspensos de cada barra de ferramentas"><figcaption><p>Barra principal QGISRed com os botões suspensos de cada barra de ferramentas</p></figcaption></figure>
 *Barra principal QGISRed: cada botão suspenso ativa/desativa uma barra de ferramentas.*
 
 ---

@@ -10,7 +10,7 @@ As primeiras cinco ferramentas da barra de edição permitem adicionar elementos
 
 Modo de desenho de linha: Cada clique adiciona um vértice à tubulação. A ferramenta permanece ativa até você finalizar o layout.
 
-<figure><img src="../assets/images/edicion/add-pipe.png" alt="Adicionar ferramenta de tubo em ação no mapa QGIS"><figcaption><p>Adicionar ferramenta de tubo em ação no mapa QGIS</p></figcaption></figure>
+<figure><img src="../assets/images/editing/add-pipe.png" alt="Adicionar ferramenta de tubo em ação no mapa QGIS"><figcaption><p>Adicionar ferramenta de tubo em ação no mapa QGIS</p></figcaption></figure>
 *Desenhando um cano: A linha vermelha temporária segue o cursor até o próximo clique.*
 
 ### Processo
@@ -85,7 +85,7 @@ O processo é idêntico ao do RNV. Os parâmetros são mais simples:
 
 Insira uma válvula em um tubo existente. O tubo original é **dividido em duas seções** que são conectadas através da válvula.
 
-<figure><img src="../assets/images/edicion/insert-valve.png" alt="Resultado da inserção de uma válvula: o tubo original é dividido em dois"><figcaption><p>Resultado da inserção de uma válvula: o tubo original é dividido em dois</p></figcaption></figure>
+<figure><img src="../assets/images/editing/insert-valve.png" alt="Resultado da inserção de uma válvula: o tubo original é dividido em dois"><figcaption><p>Resultado da inserção de uma válvula: o tubo original é dividido em dois</p></figcaption></figure>
 *O tubo P-12 original é dividido em P-12 e P-13, com a válvula V-1 entre eles.*
 
 ### Processo

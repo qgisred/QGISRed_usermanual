@@ -8,7 +8,7 @@
 
 Controla quais camadas do projeto estão ativas no QGIS, permite recriar elementos base ausentes e gerencia as camadas auxiliares do Construtor de consumos nodais. A caixa de diálogo organiza seu conteúdo em três guias: **Elementos básicos**, **Gêmeo digital** e **Camadas auxiliares**.
 
-<figure><img src="../assets/images/proyecto/gestor-capas.png" alt="Caixa de diálogo Gerenciador de camadas QGISRed"><figcaption><p>Caixa de diálogo Gerenciador de camadas QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/layer-manager.png" alt="Caixa de diálogo Gerenciador de camadas QGISRed"><figcaption><p>Caixa de diálogo Gerenciador de camadas QGISRed</p></figcaption></figure>
 <!-- TODO: Captura desatualizada, caixa de diálogo movida de seções empilhadas para guias (veja commits 12d9ee7 e 11c29ed) -->
 *Gerenciador de camadas: lista de todas as camadas do projeto com seu status de carregamento.*
 
@@ -52,7 +52,7 @@ O QGISRed monitora em segundo plano (verificando a cada 5 segundos) as camadas d
 
 A aba **Camadas auxiliares** contém o grupo **Demand Builder**, de onde são criadas e gerenciadas as camadas de trabalho vazias utilizadas pela ferramenta de atribuição de demandas aos nós (Construtor de consumos nodais): **Pontos de Consumo**, **Links de Demanda** e **Setores de Consumo**.
 
-<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Aba Auxiliary layers do Gerenciador de Camadas do QGISRed"><figcaption><p>Aba Auxiliary layers do Gerenciador de Camadas do QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/auxiliary-layers.png" alt="Aba Auxiliary layers do Gerenciador de Camadas do QGISRed"><figcaption><p>Aba Auxiliary layers do Gerenciador de Camadas do QGISRed</p></figcaption></figure>
 
 Cada linha da tabela é um **theme** (tema) — você pode ter vários temas do mesmo tipo, por exemplo um `Sectors` diferente para cada campanha de setorização de demanda. A tabela mostra três colunas:
 
@@ -104,7 +104,7 @@ Pumps: 8
 
 Abre um painel flutuante que permite construir e personalizar a **simbologia** das camadas do projeto sem navegar pelo menu de propriedades da camada QGIS: tipo de legenda, classificação automática, tamanhos, cores, opacidade e borda em camadas de polígono, biblioteca própria de rampas/paletas, estilos de salvar/carregar e regras próprias por tipo de elemento.
 
-<figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="Painel do Editor de Legenda QGISRed"><figcaption><p>Painel do Editor de Legenda QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/legend-editor.png" alt="Painel do Editor de Legenda QGISRed"><figcaption><p>Painel do Editor de Legenda QGISRed</p></figcaption></figure>
 <!-- TODO: captura de tela desatualizada, caixa de diálogo completamente redesenhada e que continuou mudando desde então (bloco de commits [Legends]/[Styles], set-out 2026) -->
 *Painel Editor de legendas: estilos predefinidos e personalização de cores e tamanhos.*
 
