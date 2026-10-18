@@ -478,9 +478,22 @@ def capture_file_dialog(action_fn, titlesub, path_str, out_rel, delay=1.2, cance
 #    internamente -- evita tener que simular eventos de raton reales) ──────
 
 def _layer(name):
+    """Busca una capa por su nombre EN QGISRED (p.ej. 'Pipes', 'Junctions').
+    El nombre MOSTRADO esta traducido por idioma (en frances 'Pipes' se ve
+    como 'Conduites') asi que primero se intenta por nombre exacto (sirve
+    para es/en) y si no aparece se cae a la ruta del fichero fuente, que
+    siempre es el nombre ingles real del shapefile (Network_Pipes.shp etc.)
+    independientemente del idioma de la interfaz."""
     for lyr in QgsProject.instance().mapLayers().values():
         if lyr.name() == name:
             return lyr
+    needle = f"_{name}.shp".lower()
+    for lyr in QgsProject.instance().mapLayers().values():
+        try:
+            if needle in lyr.source().lower():
+                return lyr
+        except Exception:
+            pass
     return None
 
 
@@ -506,7 +519,11 @@ def move_node(junction_id, new_point, pipe_layer_name="Pipes", junction_layer_na
     edit_p = QgsVectorLayerEditUtils(pl)
     for pf in pl.getFeatures():
         geom = pf.geometry()
+        if geom.isMultipart():
+            continue  # algun shapefile deja pipes como MultiLineString de una sola parte
         pts = geom.asPolyline()
+        if not pts:
+            continue
         for idx in (0, len(pts) - 1):
             if (abs(pts[idx].x() - old_pt.x()) < 1e-6 and abs(pts[idx].y() - old_pt.y()) < 1e-6):
                 edit_p.moveVertex(new_point.x(), new_point.y(), pf.id(), idx)
