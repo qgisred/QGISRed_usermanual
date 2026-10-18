@@ -911,7 +911,9 @@ def run_all():
     capture_toolbar("analysisToolbar", "QGISRed Analysis", "analysis/toolbar.png")
     capture_blocking(p.runAnalysisOptions, None, "analysis/analysis-options.png")
     capture_blocking(p.runExportInp, None, "analysis/export-inp-dialog.png")
-    capture_dock(p.runProfile, "analisis/perfil-longitudinal-dock.png", delay=1.5)
+    # Perfiles longitudinales no entra en v0.19 (pagina quitada del manual,
+    # ver memoria project_manual_v019_exclusiones) -- reañadir esta captura
+    # cuando se prepare v0.20.
     capture_dock(lambda: run_with_auto_dismiss(p.runModel, label="runModel"), "analysis/results-dock.png",
                  delay=4.0, refresh_canvas=True)
     capture_dock(lambda: p.timeSeriesButton.trigger(), "analysis/time-series-dock.png", delay=1.5)
