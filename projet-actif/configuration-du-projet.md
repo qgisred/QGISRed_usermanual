@@ -1,19 +1,19 @@
 # Configuration du projet
 
-La barre **Projet** regroupe trois boîtes de dialogue de configuration qui affectent le comportement hydraulique du modèle et les valeurs par défaut avec lesquelles de nouveaux éléments sont créés.
+Cette page regroupe trois boîtes de dialogue de configuration qui affectent le comportement hydraulique du modèle et les valeurs par défaut avec lesquelles les nouveaux éléments sont créés : Options d'analyse (barre **Analysis**) et Valeurs par défaut / Table des matières (barre **Project**).
 
 ---
 
-## Options du projet
+## Options d'analyse
 
-**Barre de projet → Options du projet** (Paramètres du projet)
+**Barre Analysis → Options d'analyse...** (Analysis options)
 
 Ouvre la boîte de dialogue principale des options d'EPANET. Il équivaut à la section `[OPTIONS]` du fichier `.inp`.
 
-<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Boîte de dialogue Options du projet : onglets Hydraulique, Qualité, Temps et Énergie"><figcaption><p>Boîte de dialogue Options du projet : onglets Hydraulique, Qualité, Temps et Énergie</p></figcaption></figure>
-*Boîte de dialogue Options du projet avec ses quatre onglets.*
+<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Dialogue d'options d'analyse : onglets Hydrauliques, Qualité, Temps et Énergie"><figcaption><p>Dialogue d'options d'analyse : onglets Hydrauliques, Qualité, Temps et Énergie</p></figcaption></figure>
+*Dialogue d'options d'analyse avec ses quatre onglets.*
 
-### Onglet hydraulique
+### Onglet Hydraulique
 
 | Champ | Descriptif |
 |-------|-------------|
@@ -39,7 +39,7 @@ Ouvre la boîte de dialogue principale des options d'EPANET. Il équivaut à la 
 | **Diffusivité** | Coefficient de diffusion moléculaire relatif (1,0 pour le chlore dans l'eau) |
 | **Tolérance** | Critère de convergence pour le solveur qualité |
 
-### Onglet Heures
+### Onglet Temps
 
 | Champ | Descriptif |
 |-------|-------------|

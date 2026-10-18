@@ -46,7 +46,7 @@ Placez un réservoir de stockage (Tank) sur la carte. Les réservoirs ont un niv
 2. Cliquez sur un **nœud existant** ou sur un point vide de la carte.
 - Si vous cliquez sur un nœud existant, ce nœud **devient** un Tank.
 - Si vous cliquez sur un point vide, QGISRed crée un nouveau Tank (pas de connexion initiale ; vous devrez le connecter avec un tuyau).
-3. QGISRed ouvre la boîte de dialogue des propriétés du nouveau réservoir afin que vous puissiez saisir les données (altitude du fond, niveau initial, niveau minimum, niveau maximum, diamètre).
+3. Le réservoir est créé avec les valeurs par défaut ; utilisez **Modifier les propriétés des éléments...** pour saisir les données (cote de fond, niveau initial, niveau minimum, niveau maximum, diamètre).
 
 ### Principaux paramètres du réservoir
 
@@ -96,7 +96,7 @@ Insérez une vanne dans un tuyau existant. Le tuyau d'origine est **divisé en d
 - Créez un nœud à ce stade.
 - Divise le tuyau d'origine en deux sections avec les mêmes attributs de diamètre et de matériau.
 - Créer la valve entre les deux nouvelles extrémités.
-4. La boîte de dialogue des propriétés s'ouvre pour configurer le type et le réglage de la vanne.
+4. La vanne est créée avec le type et le réglage par défaut ; utilisez **Modifier les propriétés des éléments...** pour configurer leur type et leur réglage.
 
 ### Types de vannes disponibles
 
@@ -121,7 +121,7 @@ Insérez une pompe dans un tuyau existant, en la divisant exactement de la même
 
 1. Activez l'outil et cliquez sur le tuyau.
 2. QGISRed divise le tuyau et crée la pompe entre les deux sections résultantes.
-3. La boîte de dialogue des propriétés s'ouvre pour configurer la courbe H-Q et la vitesse initiale.
+3. La pompe est créée avec les valeurs par défaut ; utilisez **Modifier les propriétés des éléments...** pour configurer la courbe H-Q et la vitesse initiale.
 
 ### Paramètres de la pompe
 

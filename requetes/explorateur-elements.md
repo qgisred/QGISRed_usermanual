@@ -1,15 +1,15 @@
 # Element Explorer
 
-Le **Element Explorer** est un panneau flottant (dock) que QGISRed gère comme une instance unique. Il regroupe deux fonctionnalités liées dans des onglets distincts : la recherche d'éléments par ID et la visualisation des propriétés de l'élément sélectionné sur la carte.
+Le **Element Explorer** est un panneau flottant (dock) que QGISRed maintient en tant qu'instance unique. Il regroupe deux fonctionnalités connexes dans des sections déroulantes, empilées verticalement (pas dans des onglets côte à côte) : recherche d'éléments par ID et affichage des propriétés de l'élément sélectionné sur la carte.
 
-<figure><img src="../assets/images/consultas/element-explorer.png" alt="Panneau Explorateur d'éléments avec les deux onglets Rechercher des éléments et Propriétés"><figcaption><p>Panneau Explorateur d'éléments avec les deux onglets Rechercher des éléments et Propriétés</p></figcaption></figure>
-*Panneau Explorateur d'éléments : onglet Rechercher des éléments (à gauche) et onglet Propriétés (à droite).*
+<figure><img src="../assets/images/consultas/element-explorer.png" alt="Panneau Element Explorer avec les sections Rechercher des éléments par ID et Propriétés des éléments développés"><figcaption><p>Panneau Element Explorer avec les sections Rechercher des éléments par ID et Propriétés des éléments développés</p></figcaption></figure>
+*Panneau Element Explorer : section "Rechercher des éléments par ID" (en haut) et section "Propriétés des éléments" (en bas).*
 
-Les boutons **Rechercher des éléments par ID** et **Propriétés des éléments** de la barre Requêtes ouvrent ce même panneau et activent l'onglet correspondant. Changer d’onglet dans le panneau ne ferme aucune fonctionnalité.
+Les boutons **Find elements by ID** et **Element properties** de la barre Queries ouvrent ce même panneau et développent la section correspondante — mais **effondrent automatiquement l'autre**, puisqu' une seule section reste développée à la fois par défaut. Si vous avez besoin de voir les deux en même temps (par exemple, pour les captures ou pour comparer les résultats), vous pouvez développer manuellement la section effondrée en cliquant sur son en-tête ; cela ne ferme aucune fonctionnalité.
 
 ---
 
-## Onglet Rechercher des éléments — Recherche par ID
+## Section "Rechercher des éléments par ID"
 
 **Barre de requêtes → Rechercher des éléments par ID…**
 
@@ -36,11 +36,11 @@ Le panneau affiche un avertissement et la carte ne change pas.
 
 ---
 
-## Onglet Propriétés — Propriétés des éléments
+## Section "Propriétés des éléments"
 
 **Barre de requêtes → Propriétés des éléments…**
 
-Active un outil d'identification interactif : lorsque vous cliquez sur n'importe quel élément de la carte, le panneau affiche tous ses attributs dans l'onglet Propriétés.
+Activez un outil d'identification interactif : en cliquant sur n'importe quel élément de la carte, le tableau de bord affiche tous ses attributs dans cette section.
 
 ### Processus
 
