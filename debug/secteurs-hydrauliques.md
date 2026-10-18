@@ -4,7 +4,7 @@
 
 L'outil des secteurs hydrauliques scanne le réseau à l'aide d'un algorithme BFS (breadth-first search) à partir de toutes les sources d'approvisionnement et classe chaque sous-réseau connecté selon qu'il dispose ou non d'une source hydraulique (H) et qu'il ait ou non une demande (Q). Le résultat est transféré dans les couches SHP et dans un rapport CSV.
 
-<figure><img src="../assets/images/debug/sectores-hidraulicos.png" alt="Carte des secteurs hydrauliques : zones colorées par type H-Q, H-nQ, nH-Q et nH-nQ"><figcaption><p>Carte des secteurs hydrauliques : zones colorées par type H-Q, H-nQ, nH-Q et nH-nQ</p></figcaption></figure>
+<figure><img src="../assets/images/debug/hydraulic-sectors.png" alt="Carte des secteurs hydrauliques : zones colorées par type H-Q, H-nQ, nH-Q et nH-nQ"><figcaption><p>Carte des secteurs hydrauliques : zones colorées par type H-Q, H-nQ, nH-Q et nH-nQ</p></figcaption></figure>
 *Secteurs hydrauliques : chaque couleur représente un type de classification. Les secteurs nH-Q (aucune source avec demande) apparaissent en rouge.*
 
 ---

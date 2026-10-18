@@ -4,7 +4,7 @@ La barre **Analyse** regroupe les outils de simulation hydraulique, de visualisa
 
 > Avant de simuler il est conseillé d'avoir passé le [vérifications de topologie et d'attributs](../debug/README.md) pour éviter les erreurs de convergence.
 
-<figure><img src="../assets/images/analisis/barra-analysis.png" alt="Barre d'outils d'analyse QGISRed"><figcaption><p>Barre d'outils d'analyse QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/toolbar.png" alt="Barre d'outils d'analyse QGISRed"><figcaption><p>Barre d'outils d'analyse QGISRed</p></figcaption></figure>
 *Barre d'analyse : simulation, visionneuse de résultats, séries temporelles et export.*
 
 ---

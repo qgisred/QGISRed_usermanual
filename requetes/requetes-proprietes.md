@@ -4,7 +4,7 @@
 
 Ouvre le panneau **Requêtes par propriétés**, un outil de filtrage qui met en évidence sur la carte tous les éléments qui remplissent une ou plusieurs conditions sur leurs attributs. C'est le moyen le plus rapide de retrouver, par exemple, toutes les canalisations d'un diamètre inférieur à 80 mm, tous les nœuds dont la pression est inférieure à un seuil, ou encore toutes les vannes à l'état fermé.
 
-<figure><img src="../assets/images/consultas/queries-by-properties.png" alt="Panneau Requêtes par propriétés avec conditions configurées et résultat mis en évidence en magenta"><figcaption><p>Panneau Requêtes par propriétés avec conditions configurées et résultat mis en évidence en magenta</p></figcaption></figure>
+<figure><img src="../assets/images/queries/queries-by-properties.png" alt="Panneau Requêtes par propriétés avec conditions configurées et résultat mis en évidence en magenta"><figcaption><p>Panneau Requêtes par propriétés avec conditions configurées et résultat mis en évidence en magenta</p></figcaption></figure>
 *Requêtes par panneau de propriétés : conditions configurées sur les attributs du canal. Les éléments qui remplissent la condition sont surlignés en magenta sur la carte.*
 
 ---

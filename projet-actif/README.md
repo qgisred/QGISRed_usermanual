@@ -2,7 +2,7 @@
 
 La barre **Projet** regroupe les outils d'administration du projet déjà ouvert dans QGISRed. Tous vos boutons nécessitent un projet valide chargé ; S'il n'y en a pas, le plugin vous avertira avec le message _"Aucun projet valide n'est ouvert"_.
 
-<figure><img src="../assets/images/proyecto/barra-project.png" alt="Barre d'outils du projet QGISRed avec ses neuf boutons"><figcaption><p>Barre d'outils du projet QGISRed avec ses neuf boutons</p></figcaption></figure>
+<figure><img src="../assets/images/project/toolbar.png" alt="Barre d'outils du projet QGISRed avec ses neuf boutons"><figcaption><p>Barre d'outils du projet QGISRed avec ses neuf boutons</p></figcaption></figure>
 *Barre de projet : outils de gestion de projet actifs.*
 
 <!-- TODO : capture d'écran obsolète après suppression du bouton "Sauvegarde du projet" (commit 7b2415f) -->

@@ -22,7 +22,7 @@ Téléchargez le fichier `QGISRed.zip` depuis :
 4. Cliquez sur le bouton `…` et sélectionnez le fichier `QGISRed.zip`.
 5. Cliquez sur **Installer le plug-in**.
 
-<figure><img src="../assets/images/instalacion/instalar-desde-zip.png" alt="Installation à partir de ZIP"><figcaption><p>Onglet "Installer depuis ZIP" du gestionnaire de plugins QGIS.</p></figcaption></figure>
+<figure><img src="../assets/images/installation/install-from-zip.png" alt="Installation à partir de ZIP"><figcaption><p>Onglet "Installer depuis ZIP" du gestionnaire de plugins QGIS.</p></figcaption></figure>
 
 ---
 

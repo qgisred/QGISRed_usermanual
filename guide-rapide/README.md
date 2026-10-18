@@ -2,7 +2,7 @@
 
 QGISRed s'intègre à QGIS sous la forme d'un ensemble de **barres d'outils spécialisées**. Chaque barre regroupe les outils d'une étape du workflow : gestion de projet, édition du réseau, vérification, simulation, etc.
 
-<figure><img src="../assets/images/guia-rapida/barra-principal.png" alt="Barre principale de QGISRed avec les boutons déroulants de chaque barre d'outils"><figcaption><p>Barre principale de QGISRed avec les boutons déroulants de chaque barre d'outils</p></figcaption></figure>
+<figure><img src="../assets/images/quick-guide/toolbar.png" alt="Barre principale de QGISRed avec les boutons déroulants de chaque barre d'outils"><figcaption><p>Barre principale de QGISRed avec les boutons déroulants de chaque barre d'outils</p></figcaption></figure>
 *Barre principale de QGISRed : chaque bouton déroulant active/désactive une barre d'outils.*
 
 ---

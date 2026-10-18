@@ -10,7 +10,7 @@ Cette page regroupe trois boîtes de dialogue de configuration qui affectent le 
 
 Ouvre la boîte de dialogue principale des options d'EPANET. Il équivaut à la section `[OPTIONS]` du fichier `.inp`.
 
-<figure><img src="../assets/images/proyecto/opciones-proyecto.png" alt="Dialogue d'options d'analyse : onglets Hydrauliques, Qualité, Temps et Énergie"><figcaption><p>Dialogue d'options d'analyse : onglets Hydrauliques, Qualité, Temps et Énergie</p></figcaption></figure>
+<figure><img src="../assets/images/project/project-options.png" alt="Dialogue d'options d'analyse : onglets Hydrauliques, Qualité, Temps et Énergie"><figcaption><p>Dialogue d'options d'analyse : onglets Hydrauliques, Qualité, Temps et Énergie</p></figcaption></figure>
 *Dialogue d'options d'analyse avec ses quatre onglets.*
 
 ### Onglet Hydraulique
@@ -70,7 +70,7 @@ Permet de définir le coût énergétique des pompes pour l'analyse de la consom
 
 Définit les valeurs qui sont automatiquement attribuées aux nouveaux éléments lors de leur création avec les outils d'édition.
 
-<figure><img src="../assets/images/proyecto/valores-defecto.png" alt="Boîte de dialogue des valeurs par défaut avec des sections pour les nœuds, les tuyaux et les préfixes"><figcaption><p>Boîte de dialogue des valeurs par défaut avec des sections pour les nœuds, les tuyaux et les préfixes</p></figcaption></figure>
+<figure><img src="../assets/images/project/default-values.png" alt="Boîte de dialogue des valeurs par défaut avec des sections pour les nœuds, les tuyaux et les préfixes"><figcaption><p>Boîte de dialogue des valeurs par défaut avec des sections pour les nœuds, les tuyaux et les préfixes</p></figcaption></figure>
 *Boîte de dialogue Valeurs par défaut : paramètres initiaux pour chaque type d'élément.*
 
 ### Préfixes d'identification
@@ -114,7 +114,7 @@ Les préfixes sont configurables. Le numéro de départ peut également être d�
 
 Gérez la liste des matériaux disponibles pour les tuyaux et leurs propriétés de vieillissement.
 
-<figure><img src="../assets/images/proyecto/tabla-materiales.png" alt="Table des matériaux : code, dénomination, rugosité initiale et augmentation annuelle"><figcaption><p>Table des matériaux : code, dénomination, rugosité initiale et augmentation annuelle</p></figcaption></figure>
+<figure><img src="../assets/images/project/materials-table.png" alt="Table des matériaux : code, dénomination, rugosité initiale et augmentation annuelle"><figcaption><p>Table des matériaux : code, dénomination, rugosité initiale et augmentation annuelle</p></figcaption></figure>
 *Tableau des matériaux avec rugosité initiale et augmentation par an.*
 
 ### Champs du tableau

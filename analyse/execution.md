@@ -10,7 +10,7 @@ Les trois premières actions de la barre Analyse contrôlent le cycle de simulat
 
 Ouvre la boîte de dialogue Options du moteur EPANET. Il permet de configurer tous les paramètres qui contrôlent la manière dont la simulation hydraulique et qualité est réalisée.
 
-<figure><img src="../assets/images/analisis/analysis-options.png" alt="Boîte de dialogue Options d'analyse avec les onglets de configuration du moteur EPANET"><figcaption><p>Boîte de dialogue Options d'analyse avec les onglets de configuration du moteur EPANET</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/analysis-options.png" alt="Boîte de dialogue Options d'analyse avec les onglets de configuration du moteur EPANET"><figcaption><p>Boîte de dialogue Options d'analyse avec les onglets de configuration du moteur EPANET</p></figcaption></figure>
 *Boîte de dialogue Options d'analyse : configuration complète du moteur EPANET.*
 
 ### Paramètres configurables

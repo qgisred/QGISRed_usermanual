@@ -4,7 +4,7 @@
 
 La boîte de dialogue des propriétés est l'outil central pour afficher et modifier tous les attributs de n'importe quel élément de réseau. Il fonctionne comme un formulaire intelligent qui charge les données de l'élément cliqué et vous permet de naviguer entre les éléments sans le fermer.
 
-<figure><img src="../assets/images/edicion/propiedades-elemento.png" alt="Boîte de dialogue Propriétés d'un tuyau avec tous ses champs"><figcaption><p>Boîte de dialogue Propriétés d'un tuyau avec tous ses champs</p></figcaption></figure>
+<figure><img src="../assets/images/editing/element-properties.png" alt="Boîte de dialogue Propriétés d'un tuyau avec tous ses champs"><figcaption><p>Boîte de dialogue Propriétés d'un tuyau avec tous ses champs</p></figcaption></figure>
 *Boîte de dialogue Propriétés : attributs des éléments, navigateur d'éléments connectés et bouton de centrage.*
 
 ---

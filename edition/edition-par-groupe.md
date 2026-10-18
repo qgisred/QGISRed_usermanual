@@ -6,7 +6,7 @@ L'outil **Modifier les propriétés par groupe** vous permet de modifier un attr
 
 La boîte de dialogue est **non modale** : vous pouvez toujours interagir avec la carte lorsqu'elle est ouverte.
 
-<figure><img src="../assets/images/edicion/edicion-por-grupo.png" alt="Modifier les propriétés par boîte de dialogue de groupe avec filtre et action configurés"><figcaption><p>Modifier les propriétés par boîte de dialogue de groupe avec filtre et action configurés</p></figcaption></figure>
+<figure><img src="../assets/images/editing/group-editing.png" alt="Modifier les propriétés par boîte de dialogue de groupe avec filtre et action configurés"><figcaption><p>Modifier les propriétés par boîte de dialogue de groupe avec filtre et action configurés</p></figcaption></figure>
 *Boîte de dialogue Modifier par groupe : filtrer par champ numérique et multiplier par action sur les canalisations.*
 
 ---

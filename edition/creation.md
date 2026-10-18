@@ -10,7 +10,7 @@ Les cinq premiers outils de la barre Edition vous permettent d'ajouter des élé
 
 Mode dessin au trait : chaque clic ajoute un sommet au tuyau. L'outil reste actif jusqu'à ce que vous ayez terminé la mise en page.
 
-<figure><img src="../assets/images/edicion/add-pipe.png" alt="Ajouter un outil de canalisation en action sur la carte QGIS"><figcaption><p>Ajouter un outil de canalisation en action sur la carte QGIS</p></figcaption></figure>
+<figure><img src="../assets/images/editing/add-pipe.png" alt="Ajouter un outil de canalisation en action sur la carte QGIS"><figcaption><p>Ajouter un outil de canalisation en action sur la carte QGIS</p></figcaption></figure>
 *Dessiner un tuyau : La ligne rouge temporaire suit le curseur jusqu'au prochain clic.*
 
 ### Processus
@@ -85,7 +85,7 @@ Le processus est identique à celui du réservoir. Les paramètres sont plus sim
 
 Insérez une vanne dans un tuyau existant. Le tuyau d'origine est **divisé en deux sections** qui sont reliées par la vanne.
 
-<figure><img src="../assets/images/edicion/insert-valve.png" alt="Résultat de l'insertion d'une vanne : le tuyau d'origine est divisé en deux"><figcaption><p>Résultat de l'insertion d'une vanne : le tuyau d'origine est divisé en deux</p></figcaption></figure>
+<figure><img src="../assets/images/editing/insert-valve.png" alt="Résultat de l'insertion d'une vanne : le tuyau d'origine est divisé en deux"><figcaption><p>Résultat de l'insertion d'une vanne : le tuyau d'origine est divisé en deux</p></figcaption></figure>
 *Le tuyau P-12 d'origine est divisé en P-12 et P-13, avec la vanne V-1 entre eux.*
 
 ### Processus

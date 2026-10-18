@@ -2,7 +2,7 @@
 
 La barre **Général** est le point d'entrée de toute session de travail avec QGISRed. Il contient les quatre actions pour gérer le cycle de vie des projets : les créer, les ouvrir, les importer et gérer l'historique.
 
-<figure><img src="../assets/images/general/barra-general.png" alt="Barre d'outils générale QGISRed avec ses quatre boutons"><figcaption><p>Barre d'outils générale QGISRed avec ses quatre boutons</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/toolbar.png" alt="Barre d'outils générale QGISRed avec ses quatre boutons"><figcaption><p>Barre d'outils générale QGISRed avec ses quatre boutons</p></figcaption></figure>
 *Barre générale : Gestionnaire de projet, Ouvrir, Créer et Importer.*
 
 ---

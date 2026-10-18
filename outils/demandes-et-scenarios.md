@@ -10,7 +10,7 @@ Les trois outils du deuxième groupe de la barre d'outils gèrent l'affectation 
 
 Attribuez la consommation aux nœuds du réseau en masse à partir de couches SHP externes chargées dans QGIS. Il s'agit du principal outil d'intégration des données de facturation, des recensements d'utilisateurs ou des estimations de polygones dans le modèle EPANET.
 
-<figure><img src="../assets/images/herramientas/demand-builder.png" alt="Boîte de dialogue Constructeur de demandes nodales avec options de source et de méthode d'affectation"><figcaption><p>Boîte de dialogue Constructeur de demandes nodales avec options de source et de méthode d'affectation</p></figcaption></figure>
+<figure><img src="../assets/images/tools/demand-builder.png" alt="Boîte de dialogue Constructeur de demandes nodales avec options de source et de méthode d'affectation"><figcaption><p>Boîte de dialogue Constructeur de demandes nodales avec options de source et de méthode d'affectation</p></figcaption></figure>
 *Constructeur de demandes nodales : couches sources détectées automatiquement, configuration du champ et méthode de distribution.*
 
 ### Sources de données prises en charge
@@ -133,7 +133,7 @@ Les fichiers de scénario sont enregistrés au format CSV dans le dossier du pro
 
 Répond à la question opérationnelle : **"Quelles vannes dois-je fermer pour réparer ce pipeline et quels utilisateurs seront laissés sans service ?"**
 
-<figure><img src="../assets/images/herramientas/isolated-segments.png" alt="Résultat des segments isolés : canalisation concernée, vannes d'arrêt et zone sans service"><figcaption><p>Résultat des segments isolés : canalisation concernée, vannes d'arrêt et zone sans service</p></figcaption></figure>
+<figure><img src="../assets/images/tools/isolated-segments.png" alt="Résultat des segments isolés : canalisation concernée, vannes d'arrêt et zone sans service"><figcaption><p>Résultat des segments isolés : canalisation concernée, vannes d'arrêt et zone sans service</p></figcaption></figure>
 *En rouge le tuyau à réparer, en jaune les vannes à fermer et en bleu la zone sans service.*
 
 ### Processus

@@ -24,7 +24,7 @@ La sélection est utilisée comme **entrée** pour d'autres outils : Inverser le
 
 Déplace un ou plusieurs nœuds (Jonctions, Réservoirs, Bâches) en entraînant avec lui **tous les éléments linéaires connectés** (tuyaux, vannes, pompes). Le réseau reste connecté après le mouvement.
 
-<figure><img src="../assets/images/edicion/move-nodes.png" alt="Déplacer un nœud et ses tuyaux connectés sur la carte"><figcaption><p>Déplacer un nœud et ses tuyaux connectés sur la carte</p></figcaption></figure>
+<figure><img src="../assets/images/editing/move-nodes.png" alt="Déplacer un nœud et ses tuyaux connectés sur la carte"><figcaption><p>Déplacer un nœud et ses tuyaux connectés sur la carte</p></figcaption></figure>
 *Lorsque vous faites glisser un nœud, tous les tuyaux connectés suivent le mouvement.*
 
 ### Comment l'utiliser
@@ -79,7 +79,7 @@ Cliquez sur un tuyau pour le **diviser** au point indiqué : QGISRed crée une n
 
 Pour **joindre** deux tuyaux, cliquez sur le nœud intermédiaire qu'ils partagent : si ce nœud a exactement deux tuyaux connectés et que le diamètre, le matériau, le coefficient de rugosité et les propriétés InstallYear sont les mêmes, QGISRed les fusionne en une seule section et élimine le nœud.
 
-<figure><img src="../assets/images/edicion/split-pipe.png" alt="Fractionner un tuyau : un nœud intermédiaire et deux sections sont créés"><figcaption><p>Fractionner un tuyau : un nœud intermédiaire et deux sections sont créés</p></figcaption></figure>
+<figure><img src="../assets/images/editing/split-pipe.png" alt="Fractionner un tuyau : un nœud intermédiaire et deux sections sont créés"><figcaption><p>Fractionner un tuyau : un nœud intermédiaire et deux sections sont créés</p></figcaption></figure>
 *Cliquer sur P-5 crée le nœud J-42 et divise le tuyau en P-5 et P-45.*
 
 > Si les deux tuyaux ont un diamètre, un matériau, un coefficient de rugosité ou une année d'installation différents, le raccordement n'est pas effectué et le plugin affiche un avertissement.

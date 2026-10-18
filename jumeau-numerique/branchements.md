@@ -10,7 +10,7 @@ Les raccordements et les vannes de coupure sont les deux éléments qui relient 
 
 Dessine une goutte sous forme de polyligne depuis le tuyau principal jusqu'au point de livraison du client. La connexion est stockée dans la couche complémentaire `ServiceConnections` du projet.
 
-<figure><img src="../assets/images/gemelo-digital/add-service-connection.png" alt="Outil de dessin de connexion sur la carte"><figcaption><p>Outil de dessin de connexion sur la carte</p></figcaption></figure>
+<figure><img src="../assets/images/digital-twin/add-service-connection.png" alt="Outil de dessin de connexion sur la carte"><figcaption><p>Outil de dessin de connexion sur la carte</p></figcaption></figure>
 *Dessin de service : la ligne part du tuyau principal et atteint la limite du terrain du client.*
 
 ### Processus

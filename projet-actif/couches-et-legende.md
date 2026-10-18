@@ -8,7 +8,7 @@
 
 Contrôle quelles couches de projet sont actives dans QGIS, vous permet de recréer les éléments de base manquants et gère les couches auxiliaires du Constructeur de demandes nodales. La boîte de dialogue organise son contenu en trois onglets : **Éléments de base**, **Digital Twin** et **Couches auxiliaires**.
 
-<figure><img src="../assets/images/proyecto/gestor-capas.png" alt="Boîte de dialogue Gestionnaire de couches QGISRed"><figcaption><p>Boîte de dialogue Gestionnaire de couches QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/layer-manager.png" alt="Boîte de dialogue Gestionnaire de couches QGISRed"><figcaption><p>Boîte de dialogue Gestionnaire de couches QGISRed</p></figcaption></figure>
 <!-- TODO : Capture obsolète, boîte de dialogue déplacée des sections empilées vers les onglets (voir commits 12d9ee7 et 11c29ed) -->
 *Gestionnaire de calques : liste de tous les calques du projet avec leur état de chargement.*
 
@@ -52,7 +52,7 @@ QGISRed surveille en arrière-plan (vérifiant toutes les 5 secondes) les couche
 
 L'onglet **Couches auxiliaires** contient le groupe **Demand Builder**, à partir duquel sont créées et gérées les couches de travail vides utilisées par l'outil d'attribution des demandes aux nœuds (Constructeur de demandes nodales) : **Points de consommation**, **Liens de demande** et **Secteurs de demande**.
 
-<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Onglet Auxiliary layers du gestionnaire de couches QGISRed"><figcaption><p>Onglet Auxiliary layers du gestionnaire de couches QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/auxiliary-layers.png" alt="Onglet Auxiliary layers du gestionnaire de couches QGISRed"><figcaption><p>Onglet Auxiliary layers du gestionnaire de couches QGISRed</p></figcaption></figure>
 
 Chaque ligne du tableau est un **thème** (thème) — vous pouvez avoir plusieurs thèmes du même type, par exemple un `Sectors` différent pour chaque campagne de sectorisation de la demande. Le tableau comporte trois colonnes :
 
@@ -104,7 +104,7 @@ Utile pour vérifier que l'importation a été terminée ou pour documenter la t
 
 Ouvre un panneau flottant qui vous permet de créer et de personnaliser la **symbologie** des couches du projet sans naviguer dans le menu des propriétés de la couche QGIS : type de légende, classification automatique, tailles, couleurs, opacité et bordure sur les couches de polygones, bibliothèque de rampes/palettes propre, styles d'enregistrement/chargement et règles propres par type d'élément.
 
-<figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="Panneau de l'éditeur de légende QGISRed"><figcaption><p>Panneau de l'éditeur de légende QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/legend-editor.png" alt="Panneau de l'éditeur de légende QGISRed"><figcaption><p>Panneau de l'éditeur de légende QGISRed</p></figcaption></figure>
 <!-- TODO : capture d'écran obsolète, boîte de dialogue entièrement repensée et qui a continué à changer depuis (bloc de commits [Legends]/[Styles], sep-oct 2026) -->
 *Panneau Legend Editor : styles prédéfinis et personnalisation des couleurs et des tailles.*
 

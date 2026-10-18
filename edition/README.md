@@ -2,7 +2,7 @@
 
 La barre **Edition** contient tous les outils pour construire et modifier le réseau directement sur la carte QGIS. Travaillez sur les couches du projet actif sans avoir à ouvrir des tables attributaires ou des fichiers externes.
 
-<figure><img src="../assets/images/edicion/barra-edition.png" alt="Barre d'outils QGISRed Edition"><figcaption><p>Barre d'outils QGISRed Edition</p></figcaption></figure>
+<figure><img src="../assets/images/editing/toolbar.png" alt="Barre d'outils QGISRed Edition"><figcaption><p>Barre d'outils QGISRed Edition</p></figcaption></figure>
 *Bar Edition : création d'éléments, édition géométrique et topologique, propriétés et données d'exploitation.*
 
 > Tous les boutons nécessitent un projet valide téléchargé. S'il n'y en a pas, le plugin affiche _"Aucun projet valide n'est ouvert"_.

@@ -4,7 +4,7 @@
 
 L'éditeur de modulations et de courbes centralise la gestion des données temporelles et fonctionnelles qui contrôlent le comportement dynamique du modèle : comment varie la demande au cours de la journée, comment se comporte une pompe en fonction de son débit, ou encore quel est le volume d'un réservoir irrégulier.
 
-<figure><img src="../assets/images/edicion/editor-curvas.png" alt="Éditeur de modulations et de courbes QGISRed"><figcaption><p>Éditeur de modulations et de courbes QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/editing/curves-editor.png" alt="Éditeur de modulations et de courbes QGISRed"><figcaption><p>Éditeur de modulations et de courbes QGISRed</p></figcaption></figure>
 *Éditeur de modulations et de courbes : liste des éléments à gauche, graphique et tableau de données à droite.*
 
 ---

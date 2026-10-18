@@ -4,7 +4,7 @@
 
 L'éditeur de contrôles définit la **logique de fonctionnement** du réseau : lorsqu'une vanne s'ouvre, lorsqu'une pompe démarre ou quelle séquence d'actions déclenche un certain état du système. EPANET prend en charge deux niveaux de contrôle de complexité différente.
 
-<figure><img src="../assets/images/edicion/editor-controles.png" alt="Éditeur de règles et de contrôles QGISRed"><figcaption><p>Éditeur de règles et de contrôles QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/editing/controls-editor.png" alt="Éditeur de règles et de contrôles QGISRed"><figcaption><p>Éditeur de règles et de contrôles QGISRed</p></figcaption></figure>
 *Éditeur de contrôles : onglets Contrôles et Règles simples, sélecteur d'éléments et de conditions.*
 
 ---

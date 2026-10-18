@@ -10,7 +10,7 @@ La barre Analyse propose deux chemins d'export : le modèle complet sous forme d
 
 Exporte l'intégralité du modèle au format standard EPANET **INP**. Utile pour partager le modèle avec d'autres utilisateurs, l'exécuter dans l'interface graphique EPANET ou l'intégrer à des outils tiers.
 
-<figure><img src="../assets/images/analisis/export-inp-dialog.png" alt="Boîte de dialogue Exporter au format INP"><figcaption><p>Boîte de dialogue Exporter au format INP</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/export-inp-dialog.png" alt="Boîte de dialogue Exporter au format INP"><figcaption><p>Boîte de dialogue Exporter au format INP</p></figcaption></figure>
 *Boîte de dialogue Exporter vers INP : itinéraire de destination, export des données de terrain et ouverture automatique dans EPANET.*
 
 ### Options de boîte de dialogue

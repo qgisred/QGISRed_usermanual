@@ -2,7 +2,7 @@
 
 La barre **Requêtes** regroupe les outils interactifs de requête et d'inspection du modèle : recherche d'éléments par ID, exploration de propriétés individuelles, cartes thématiques, requêtes par conditions sur les attributs et statistiques du réseau. Contrairement aux barres d'édition ou d'analyse, ces outils ne modifient pas le modèle : ils interrogent et visualisent uniquement ce qui existe déjà.
 
-<figure><img src="../assets/images/consultas/barra-queries.png" alt="Barre d'outils des requêtes QGISRed"><figcaption><p>Barre d'outils des requêtes QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/queries/toolbar.png" alt="Barre d'outils des requêtes QGISRed"><figcaption><p>Barre d'outils des requêtes QGISRed</p></figcaption></figure>
 *Barre de requêtes : les cinq boutons de requête et d'inspection.*
 
 ---

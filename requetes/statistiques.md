@@ -6,7 +6,7 @@ Ouvre le panneau **Statistiques**, qui calcule et affiche la distribution statis
 
 > **ℹ️ Remarque :** Le panneau Statistiques s'ouvre **ancré** dans la fenêtre principale de QGIS et respecte les panneaux déjà regroupés en onglets. Ses commandes s'adaptent également aux largeurs de panneaux étroites, sans être coupées sur le bord droit.
 
-<figure><img src="../assets/images/consultas/statistics-panel.png" alt="Panneau de statistiques avec histogramme des diamètres de tuyaux"><figcaption><p>Panneau de statistiques avec histogramme des diamètres de tuyaux</p></figcaption></figure>
+<figure><img src="../assets/images/queries/statistics-panel.png" alt="Panneau de statistiques avec histogramme des diamètres de tuyaux"><figcaption><p>Panneau de statistiques avec histogramme des diamètres de tuyaux</p></figcaption></figure>
 *Panneau de statistiques : histogramme des diamètres de tuyaux avec classification par intervalles.*
 
 ---

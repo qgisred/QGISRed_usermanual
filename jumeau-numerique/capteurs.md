@@ -10,7 +10,7 @@ Les compteurs et capteurs Digital Twin sont des éléments qui enregistrent des 
 
 Placez un compteur ou un capteur sur une canalisation en cliquant sur le point d'installation. Le menu déroulant des boutons permet de choisir le type avant de le placer ; Le dernier type utilisé reste l'action par défaut du bouton.
 
-<figure><img src="../assets/images/gemelo-digital/add-meter-dropdown.png" alt="Liste déroulante des types de compteurs dans la barre Digital Twin"><figcaption><p>Liste déroulante des types de compteurs dans la barre Digital Twin</p></figcaption></figure>
+<figure><img src="../assets/images/digital-twin/add-meter-dropdown.png" alt="Liste déroulante des types de compteurs dans la barre Digital Twin"><figcaption><p>Liste déroulante des types de compteurs dans la barre Digital Twin</p></figcaption></figure>
 *Ajouter une liste déroulante de compteur : les 11 types de compteurs disponibles.*
 
 ### Types de compteurs disponibles

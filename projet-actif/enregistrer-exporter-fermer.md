@@ -46,7 +46,7 @@ Si le projet que vous exportez est celui que vous avez ouvert dans QGIS et que s
 
 ### La boîte de dialogue d'exportation
 
-<figure><img src="../assets/images/proyecto/exportar-proyecto.png" alt="Boîte de dialogue d'exportation de projet QGISRed"><figcaption><p>Boîte de dialogue d'exportation de projet QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/export-project.png" alt="Boîte de dialogue d'exportation de projet QGISRed"><figcaption><p>Boîte de dialogue d'exportation de projet QGISRed</p></figcaption></figure>
 
 | Champ | Fonction |
 |-------|---------|

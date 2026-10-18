@@ -4,7 +4,7 @@
 
 Créez un tout nouveau projet QGISRed à partir de zéro, en générant la structure de fichiers SHP nécessaire pour définir un réseau de distribution.
 
-<figure><img src="../assets/images/general/crear-proyecto.png" alt="Boîte de dialogue de création d'un nouveau projet"><figcaption><p>Boîte de dialogue de création d'un nouveau projet</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/create-project.png" alt="Boîte de dialogue de création d'un nouveau projet"><figcaption><p>Boîte de dialogue de création d'un nouveau projet</p></figcaption></figure>
 *Boîte de dialogue de création de projet : nom, dossier et système de référence.*
 
 ---

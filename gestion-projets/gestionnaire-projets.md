@@ -4,7 +4,7 @@
 
 Le Gestionnaire de Projet est la fenêtre d'administration centrale de QGISRed. Permet d'accéder à tous les projets connus sans avoir à se rappeler où ils sont stockés.
 
-<figure><img src="../assets/images/general/gestor-proyectos.png" alt="Fenêtre du gestionnaire de projet QGISRed"><figcaption><p>Fenêtre du gestionnaire de projet QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project-management/project-manager.png" alt="Fenêtre du gestionnaire de projet QGISRed"><figcaption><p>Fenêtre du gestionnaire de projet QGISRed</p></figcaption></figure>
 *Fenêtre Gestionnaire de projets : liste des projets récents et des opérations disponibles.*
 
 ---

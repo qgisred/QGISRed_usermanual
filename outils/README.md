@@ -2,7 +2,7 @@
 
 La barre **Outils** regroupe les outils de traitement massifs : calcul automatique des propriétés hydrauliques, affectation des demandes provenant de sources externes, gestion de scénarios et analyse topologique. Contrairement aux outils d'Edition, ceux-ci agissent sur l'ensemble du réseau ou sur de larges sélections, et non élément par élément.
 
-<figure><img src="../assets/images/herramientas/barra-tools.png" alt="Barre d'outils Outils QGISRed"><figcaption><p>Barre d'outils Outils QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/tools/toolbar.png" alt="Barre d'outils Outils QGISRed"><figcaption><p>Barre d'outils Outils QGISRed</p></figcaption></figure>
 *Barre d'outils : propriétés hydrauliques, exigences et scénarios, analyse topologique.*
 
 ---

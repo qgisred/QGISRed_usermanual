@@ -12,7 +12,7 @@ Le dock Résultats est ancré dans la zone droite de l’écran. Contient **troi
 - **Rapport** : rapport texte du moteur EPANET.
 - **Apparence** : configuration complète de l'apparence visuelle des résultats sur la carte.
 
-<figure><img src="../assets/images/analisis/results-dock.png" alt="Panneau de résultats avec sélecteur de variable et barre de temps"><figcaption><p>Panneau de résultats avec sélecteur de variable et barre de temps</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/results-dock.png" alt="Panneau de résultats avec sélecteur de variable et barre de temps"><figcaption><p>Panneau de résultats avec sélecteur de variable et barre de temps</p></figcaption></figure>
 *Dock de résultats : sélection de variables, mode statistiques et navigation par instants de temps.*
 <!-- TODO : capture d'écran obsolète après l'ajout du bouton Taux de lecture constant à côté du curseur de vitesse -->
 
@@ -182,7 +182,7 @@ Le dock prend en charge plusieurs scénarios de résultats. Chaque scénario est
 
 Active un outil de sélection interactif qui trace l'évolution temporelle de toute propriété de résultat pour un ou plusieurs éléments du réseau.
 
-<figure><img src="../assets/images/analisis/time-series-dock.png" alt="Panel Séries temporelles avec courbes de pression multi-nœuds"><figcaption><p>Panel Séries temporelles avec courbes de pression multi-nœuds</p></figcaption></figure>
+<figure><img src="../assets/images/analysis/time-series-dock.png" alt="Panel Séries temporelles avec courbes de pression multi-nœuds"><figcaption><p>Panel Séries temporelles avec courbes de pression multi-nœuds</p></figcaption></figure>
 *Panel Séries temporelles : évolution temporelle de la pression dans plusieurs nœuds sélectionnés simultanément.*
 
 ### Processus
