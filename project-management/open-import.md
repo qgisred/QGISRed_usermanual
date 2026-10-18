@@ -70,6 +70,8 @@ The most common case: you have an existing EPANET model and you want to work wit
 
 If you have SHP layers with the geometry of the network but without the internal structure of QGISRed, the importer allows you to map the attribute columns of each layer to the fields expected by the plugin.
 
+<figure><img src="../assets/images/project-management/import-shp.png" alt="SHP tab of the import dialog, with the chosen folder and populated layer combos"><figcaption><p>SHP tab of the import dialog, with the chosen folder and populated layer combos</p></figcaption></figure>
+
 For each element type you can select the corresponding SHP layer and assign its fields to the model attributes. Automatically recognized fields (if the name matches) are preselected:
 
 **Pipes** — mappable fields: ID, Length, Diameter, Roughness, Minor loss coeff., **Material**, Installation date, Initial status, Bulk reaction coeff., Wall reaction coeff., Tag, Description.

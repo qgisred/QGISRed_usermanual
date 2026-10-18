@@ -55,6 +55,10 @@ Features with problematic diameters are selected on the map and a summary is dis
 
 Check that the value of the `Material` field of each pipe is defined in the **Project Materials Table** (Project Bar → Materials Table).
 
+<figure><img src="../assets/images/debug/check-materials.png" alt="Check pipe materials result: pipes with invalid material selected on the map"><figcaption><p>Check pipe materials result: pipes with invalid material selected on the map</p></figcaption></figure>
+
+It does not display any dialog of its own: it selects directly on the map the items with problems and summarizes the result in the QGIS message pane.
+
 ### What it detects
 
 - Pipes with empty or no material.

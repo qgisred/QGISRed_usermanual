@@ -4,7 +4,7 @@
 
 Opens the **Thematic Maps** dialog, which generates layers that color pipes and nodes by intervals of a hydraulic attribute. Unlike other QGISRed dialogs, you don't have to choose a "field and confirm": each available attribute has its own box, and you can check as many at once as you want — each one generates its own layer, and they all live on the map simultaneously.
 
-<!-- TODO: capture pending — Thematic Maps dialog with Pipes and Knots boxes -->
+<figure><img src="../assets/images/queries/thematic-maps-dialog.png" alt="Thematic Maps dialog with the Material (pipes) and Elevation (junctions) boxes marked"><figcaption><p>Thematic Maps dialog with the Material (pipes) and Elevation (junctions) boxes marked</p></figcaption></figure>
 
 ---
 
@@ -80,6 +80,8 @@ If you change the project's **units**, **head loss formula** or **flow units** a
 ---
 
 ## Result on the map
+
+<figure><img src="../assets/images/queries/thematic-maps-result.png" alt="Network colored by Pipe Material and Junction Elevation after generating the thematic maps"><figcaption><p>Network colored by Pipe Material and Junction Elevation after generating the thematic maps</p></figcaption></figure>
 
 Each checked box generates its own layer (for example `Pipes_Materials`, `Junctions_Elevations` — always `Element_Property`, both in plural except "Installation Year", which stays singular) within the **Queries → Thematic Maps** group. The layers are read-only and update themselves when you edit the source pipe or node (there is no need to regenerate the map by hand after a specific change) — the legend of each one also shows how many elements each class has.
 

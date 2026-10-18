@@ -33,6 +33,8 @@ Allows you to add a project that does not appear in the history to the list (for
 
 Create a complete copy of the project under a different name. Useful for creating variants without losing the original.
 
+<figure><img src="../assets/images/project-management/clone-project.png" alt="Project Clone Dialog"><figcaption><p>Project Clone Dialog</p></figcaption></figure>
+
 1. Select the project you want to clone.
 2. Press **Clone**.
 3. Enter the new network name.

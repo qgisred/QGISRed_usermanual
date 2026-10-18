@@ -43,6 +43,8 @@ Place a meter or sensor on a pipe by clicking on the installation point. The but
 
 Imports smart meter readings (smart metering) and associates them with the project connections. The readings enrich the model demands with actual consumption data rather than estimated demands.
 
+<figure><img src="../assets/images/digital-twin/load-meter-readings.png" alt="Meter Readings Load Dialog, in its default state"><figcaption><p>Meter Readings Load Dialog, in its default state</p></figcaption></figure>
+
 ### Supported import formats
 
 | Format | File structure |
@@ -51,6 +53,18 @@ Imports smart meter readings (smart metering) and associates them with the proje
 | **Series** | One row per record: `Id; Time; Demand`. All counters in the same file. |
 
 Field separators are automatically detected from the regional system. The `Time` field accepts both absolute timestamps and offset in hours from the start of the simulation.
+
+> The dialog also has tabs for other reading formats (hourly/daily/periodic, and a GO billing format) — they are disabled in the current version, reserved for future expansion.
+
+### Where readings are uploaded
+
+A group of options (radio buttons) decides which element of the model receives the imported readings:
+
+| Option | Result |
+|--------|-----------|
+| **Load the readings to the service connections** | The readings are associated with the `ServiceConnections` layer itself, without touching the EPANET model nodes. |
+| **Load the readings to the junctions directly** | The readings are assigned directly to the nearest node (`Junction`), ignoring the intermediate service connection. |
+| **Load the readings to the junctions through the service connections** | The readings are assigned to the node following the service connection → node chain, aggregating several service connections on the same node if they share a connection. |
 
 ---
 

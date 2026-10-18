@@ -49,6 +49,8 @@ Shutoff valves alone do not modify the EPANET model. To have its status (open/cl
 
 Incorporates the connections drawn in `ServiceConnections` to the active EPANET model. Requires that layer `ServiceConnections` exists and contains at least one connection.
 
+<figure><img src="../assets/images/digital-twin/convert-service-connections.png" alt="Connection conversion dialog, with the As nodes and As pipes options"><figcaption><p>Connection conversion dialog, with the As nodes and As pipes options</p></figcaption></figure>
+
 ### Conversion options
 
 When you run the tool, a dialog appears with two options:

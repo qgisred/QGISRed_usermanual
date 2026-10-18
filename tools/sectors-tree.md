@@ -40,9 +40,13 @@ Calculates the **minimum cost spanning tree** of the network from a selected nod
 3. QGISRed suggests a name for the tree (by default, the node ID followed by the chosen cost function, e.g. `J5_R`); you can edit it before calculating.
 4. QGISRed calculates the tree and generates its own **Tree_&lt;name&gt;** group on the map, with the accumulated distance from the origin labeled on each reach.
 
+<figure><img src="../assets/images/tools/minimum-cost-tree-dialog.png" alt="Minimum Cost Tree dialog with source node already selected"><figcaption><p>Minimum Cost Tree dialog with source node already selected</p></figcaption></figure>
+
 > 📝 You can have **several trees open at once**, each with its own independent name, group and pair of layers (nodes and reaches) — they don't replace each other. The tool's own dialog lists the trees already calculated for the project and lets you delete any of them individually, without affecting the rest.
 
 ### Interpretation of the result
+
+<figure><img src="../assets/images/tools/minimum-cost-tree-result.png" alt="Calculated minimum cost tree, with the accumulated distance labeled in each section"><figcaption><p>Calculated minimum cost tree, with the accumulated distance labeled in each section</p></figcaption></figure>
 
 The resulting tree shows which path the water would follow from the source node if the network were purely branched (no loops). It is useful for:
 

@@ -122,6 +122,8 @@ Concentrates all the options for visual presentation of the results on the map. 
 
 #### Symbology
 
+<figure><img src="../assets/images/analysis/results-appearance-symbology.png" alt="Appearance tab with Proportional to value and Id tags activated, network colored by results on the map"><figcaption><p>Appearance tab with Proportional to value and Id tags activated, network colored by results on the map</p></figcaption></figure>
+
 | Option | Description |
 |--------|-------------|
 | **Hide border on junctions** | Hides the edge/outline of junction markers. Enabling this option removes the outline surrounding the node symbol. |

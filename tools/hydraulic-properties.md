@@ -101,6 +101,8 @@ Roughness is written in the units of the active project formula:
 
 Converts the values ​​of the `Roughness` field of all pipes between the three pressure loss formulas. It is necessary when you change the hydraulic formula of the project and want the existing values ​​to maintain their physical meaning.
 
+<figure><img src="../assets/images/tools/convert-roughness.png" alt="Roughness Conversion Dialogue Between Formulas"><figcaption><p>Roughness Conversion Dialogue Between Formulas</p></figcaption></figure>
+
 ### Available conversions
 
 | Origin | Destination |

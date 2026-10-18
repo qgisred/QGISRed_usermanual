@@ -105,6 +105,10 @@ When executing the analysis of isolated segments or hydraulic sectors, the plugi
 
 Bulk export and import model parameters, creating “snapshots” of the network state that can be restored at any time. It is the tool to manage model variants without duplicating projects.
 
+<figure><img src="../assets/images/tools/scenario-builder.png" alt="Scenario builder dialog with network parameter table"><figcaption><p>Scenario builder dialog with network parameter table</p></figcaption></figure>
+
+> 💡 The table is only populated with elements previously selected on the map (pipes and/or junctions). If you open the tool without any selection, the table appears empty.
+
 ### Parameters managed
 
 | Parameter | Description |
