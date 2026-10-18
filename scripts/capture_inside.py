@@ -862,24 +862,24 @@ def run_all():
     show_console()
 
     # -- guia-rapida/ --------------------------------------------------
-    capture_main_toolbar_only("guia-rapida/barra-principal.png")
+    capture_main_toolbar_only("quick-guide/toolbar.png")
 
     # -- edicion/ --------------------------------------------------------
-    capture_toolbar("editionToolbar", "QGISRed Edition", "edicion/barra-edition.png")
-    capture_blocking(p.runControls, None, "edicion/editor-controles.png")
+    capture_toolbar("editionToolbar", "QGISRed Edition", "editing/toolbar.png")
+    capture_blocking(p.runControls, None, "editing/controls-editor.png")
     capture_canvas(lambda: add_pipe_direct("Pipes", (50, 10), (50, -5), id_value="900"),
-                    "edicion/add-pipe.png")
-    capture_canvas(lambda: p.runInsertValve(QgsPointXY(25, 70)), "edicion/insert-valve.png")
-    capture_blocking(p.runPatternsCurves, None, "edicion/editor-curvas.png")
-    capture_nonmodal(p.runGroupEdit, None, "edicion/edicion-por-grupo.png")
-    capture_canvas(lambda: move_node("22", QgsPointXY(50, 25)), "edicion/move-nodes.png")
-    capture_canvas(lambda: p.runSplitPipe(QgsPointXY(60, 40)), "edicion/split-pipe.png")
+                    "editing/add-pipe.png")
+    capture_canvas(lambda: p.runInsertValve(QgsPointXY(25, 70)), "editing/insert-valve.png")
+    capture_blocking(p.runPatternsCurves, None, "editing/curves-editor.png")
+    capture_nonmodal(p.runGroupEdit, None, "editing/group-editing.png")
+    capture_canvas(lambda: move_node("22", QgsPointXY(50, 25)), "editing/move-nodes.png")
+    capture_canvas(lambda: p.runSplitPipe(QgsPointXY(60, 40)), "editing/split-pipe.png")
     capture_blocking(lambda: p.runProperties(QgsPointXY(25, 70)), None,
-                      "edicion/propiedades-elemento.png")
+                      "editing/element-properties.png")
 
     # -- proyecto-activo/ (carpeta de imagen: proyecto/) -----------------
-    capture_toolbar("projectToolbar", "QGISRed Project", "proyecto/barra-project.png")
-    capture_blocking(p.runLayerManagement, None, "proyecto/gestor-capas.png")
+    capture_toolbar("projectToolbar", "QGISRed Project", "project/toolbar.png")
+    capture_blocking(p.runLayerManagement, None, "project/layer-manager.png")
 
     def _aux_tab(hwnd):
         w = widget_from_hwnd(hwnd)
@@ -887,14 +887,14 @@ def run_all():
             w.tabElements.setCurrentIndex(1)
             time.sleep(0.3)
 
-    capture_blocking(p.runLayerManagement, None, "proyecto/capas-auxiliares.png",
+    capture_blocking(p.runLayerManagement, None, "project/auxiliary-layers.png",
                       before_close=_aux_tab)
 
-    capture_nonmodal(p.runLegends, None, "proyecto/editor-leyenda.png")
+    capture_nonmodal(p.runLegends, None, "project/legend-editor.png")
 
-    capture_blocking(p.runAnalysisOptions, None, "proyecto/opciones-proyecto.png")
-    capture_blocking(p.runDefaultValues, None, "proyecto/valores-defecto.png")
-    capture_blocking(p.runMaterials, None, "proyecto/tabla-materiales.png")
+    capture_blocking(p.runAnalysisOptions, None, "project/project-options.png")
+    capture_blocking(p.runDefaultValues, None, "project/default-values.png")
+    capture_blocking(p.runMaterials, None, "project/materials-table.png")
 
     def _export_dialog():
         from QGISRed.tools.utils.qgisred_project_export import QGISRedProjectPackage
@@ -905,20 +905,20 @@ def run_all():
         dlg = QGISRedExportProjectDialog(plan, pkg, iface.mainWindow())
         dlg.exec()
 
-    capture_blocking(_export_dialog, None, "proyecto/exportar-proyecto.png")
+    capture_blocking(_export_dialog, None, "project/export-project.png")
 
     # -- analisis/ ---------------------------------------------------------
-    capture_toolbar("analysisToolbar", "QGISRed Analysis", "analisis/barra-analysis.png")
-    capture_blocking(p.runAnalysisOptions, None, "analisis/analysis-options.png")
-    capture_blocking(p.runExportInp, None, "analisis/export-inp-dialog.png")
+    capture_toolbar("analysisToolbar", "QGISRed Analysis", "analysis/toolbar.png")
+    capture_blocking(p.runAnalysisOptions, None, "analysis/analysis-options.png")
+    capture_blocking(p.runExportInp, None, "analysis/export-inp-dialog.png")
     capture_dock(p.runProfile, "analisis/perfil-longitudinal-dock.png", delay=1.5)
-    capture_dock(lambda: run_with_auto_dismiss(p.runModel, label="runModel"), "analisis/results-dock.png",
+    capture_dock(lambda: run_with_auto_dismiss(p.runModel, label="runModel"), "analysis/results-dock.png",
                  delay=4.0, refresh_canvas=True)
-    capture_dock(lambda: p.timeSeriesButton.trigger(), "analisis/time-series-dock.png", delay=1.5)
+    capture_dock(lambda: p.timeSeriesButton.trigger(), "analysis/time-series-dock.png", delay=1.5)
 
     # -- gestion-proyectos/ (carpeta de imagen: general/) -------------------
-    capture_toolbar("generalToolbar", "QGISRed General", "general/barra-general.png")
-    capture_blocking(p.runOpenProject, None, "general/abrir-proyecto.png")
+    capture_toolbar("generalToolbar", "QGISRed General", "project-management/toolbar.png")
+    capture_blocking(p.runOpenProject, None, "project-management/open-project.png")
 
     def _fill_inp_field(hwnd):
         w = widget_from_hwnd(hwnd)
@@ -931,7 +931,7 @@ def run_all():
         iface.newProject(True)
         p.runImport()
 
-    capture_blocking(_open_import_fresh, None, "general/importar-inp.png",
+    capture_blocking(_open_import_fresh, None, "project-management/import-inp.png",
                       before_close=_fill_inp_field)
 
     def _fill_zip_field(hwnd):
@@ -946,15 +946,15 @@ def run_all():
             w.inspectZipFile()
         time.sleep(0.3)
 
-    capture_blocking(_open_import_fresh, None, "general/importar-proyecto-qgisred.png",
+    capture_blocking(_open_import_fresh, None, "project-management/import-qgisred-project.png",
                       before_close=_fill_zip_field)
 
     # reabrir el proyecto de demo (el import de arriba lo dejo en un
     # proyecto sin titulo, sin llegar a importar nada).
     reload_demo_project()
 
-    capture_blocking(p.runCreateProject, None, "general/crear-proyecto.png")
-    capture_blocking(p.runProjectManager, None, "general/gestor-proyectos.png")
+    capture_blocking(p.runCreateProject, None, "project-management/create-project.png")
+    capture_blocking(p.runProjectManager, None, "project-management/project-manager.png")
 
     run_part2()
 
@@ -978,10 +978,14 @@ def run_part2():
     reload_demo_project()
 
     # -- herramientas/ -------------------------------------------------------
-    capture_toolbar("toolsToolbar", "QGISRed Tools", "herramientas/barra-tools.png")
+    capture_toolbar("toolsToolbar", "QGISRed Tools", "tools/toolbar.png")
+
+    _consumos_layer_id = None
 
     def _load_consumos():
-        iface.addVectorLayer(str(DOCS_DEMO_DIR / "Consumos_Demo.shp"), "Consumos_Demo", "ogr")
+        nonlocal _consumos_layer_id
+        layer = iface.addVectorLayer(str(DOCS_DEMO_DIR / "Consumos_Demo.shp"), "Consumos_Demo", "ogr")
+        _consumos_layer_id = layer.id() if layer is not None else None
 
     def _demand_builder():
         _load_consumos()
@@ -996,30 +1000,37 @@ def run_part2():
     # ventana porque la llamada a action_fn() no retornaba hasta que algo
     # cerrara el dialogo, y nada lo hacia. capture_blocking() es el patron
     # correcto aqui.
-    capture_blocking(_demand_builder, None, "herramientas/demand-builder.png")
+    capture_blocking(_demand_builder, None, "tools/demand-builder.png")
+
+    # Consumos_Demo se cargaba y nunca se quitaba del lienzo -- se colaba
+    # (puntos amarillos alrededor de cada union) en isolated-segments.png,
+    # capturada justo despues en la misma sesion (confirmado en vivo por el
+    # usuario, captura adjunta). Quitarla en cuanto deja de hacer falta.
+    if _consumos_layer_id is not None:
+        QgsProject.instance().removeMapLayer(_consumos_layer_id)
 
     def _isolated_segments():
         p.runIsolatedSegments(QgsPointXY(23, 70))
 
-    capture_canvas(_isolated_segments, "herramientas/isolated-segments.png", delay=1.5)
+    capture_canvas(_isolated_segments, "tools/isolated-segments.png", delay=1.5)
 
     capture_file_dialog(
         p.runElevationInterpolation, None, str(DOCS_DEMO_DIR / "demo_elevation.asc"),
-        "herramientas/interpolate-elevation.png",
+        "tools/interpolate-elevation.png",
     )
 
     # -- consultas/ ------------------------------------------------------------
-    capture_toolbar("queriesToolbar", "QGISRed Queries", "consultas/barra-queries.png")
-    capture_dock(p.runQueriesByProperties, "consultas/queries-by-properties.png", delay=1.0)
-    capture_dock(p.runStatistics, "consultas/statistics-panel.png", delay=1.0)
+    capture_toolbar("queriesToolbar", "QGISRed Queries", "queries/toolbar.png")
+    capture_dock(p.runQueriesByProperties, "queries/queries-by-properties.png", delay=1.0)
+    capture_dock(p.runStatistics, "queries/statistics-panel.png", delay=1.0)
     capture_dock(lambda: p.openFindElementsDialog.trigger(),
-                 "consultas/element-explorer.png", delay=1.0)
+                 "queries/element-explorer.png", delay=1.0)
 
     # -- gemelo-digital/ ---------------------------------------------------------
-    capture_toolbar("dtToolbar", "QGISRed Digital Twin", "gemelo-digital/barra-digital-twin.png")
+    capture_toolbar("dtToolbar", "QGISRed Digital Twin", "digital-twin/toolbar.png")
     capture_canvas(
         lambda: p.runCreateServiceConnection([QgsPointXY(45, 40), QgsPointXY(45, 35)]),
-        "gemelo-digital/add-service-connection.png",
+        "digital-twin/add-service-connection.png",
     )
 
     def _meter_popup(max_attempts=3):
@@ -1085,7 +1096,7 @@ def run_part2():
             def _cb(_x=x, _y=y):
                 h = find_new_window(None, before)
                 if h:
-                    cap_win(h, "gemelo-digital/add-meter-dropdown.png")
+                    cap_win(h, "digital-twin/add-meter-dropdown.png")
                     found[0] = h
                 # clic lejos del boton y del menu para cerrarlo -- mas
                 # fiable aqui que Escape (confirmado en vivo: Escape
@@ -1110,8 +1121,8 @@ def run_part2():
     _meter_popup()
 
     # -- verificaciones/ (carpeta de imagen: debug/) -----------------------------
-    capture_toolbar("debugToolbar", "QGISRed Debug", "debug/barra-debug.png")
-    capture_canvas(p.runHydraulicSectors, "debug/sectores-hidraulicos.png", delay=1.5)
+    capture_toolbar("debugToolbar", "QGISRed Debug", "debug/toolbar.png")
+    capture_canvas(p.runHydraulicSectors, "debug/hydraulic-sectors.png", delay=1.5)
     capture_canvas(lambda: p.runCheckConnectivity(False), "debug/check-connectivity.png", delay=1.5)
     log(f"=== Fin run_part2() LANG={LANG} ===")
 
@@ -1152,7 +1163,7 @@ def _capture_dependencias():
     else:
         shutil.move(str(dll_dir), str(backup_dir))
     try:
-        capture_blocking(p.runProjectManager, None, "instalacion/dialogo-dependencias.png")
+        capture_blocking(p.runProjectManager, None, "installation/dependencies-dialog.png")
     finally:
         if backup_dir.exists():
             if dll_dir.exists():
@@ -1179,7 +1190,7 @@ def run_instalacion():
     # cualquier otro dialogo bloqueante de este fichero.
     capture_blocking(
         lambda: iface.pluginManagerInterface().showPluginManager(PLUGMAN_TAB_INSTALL_FROM_ZIP),
-        None, "instalacion/instalar-desde-zip.png",
+        None, "installation/install-from-zip.png",
     )
 
     from qgis.PyQt.QtWidgets import QLineEdit, QListWidget, QListView
@@ -1266,7 +1277,7 @@ def run_instalacion():
 
     capture_blocking(
         _open_plugin_manager_via_menu,
-        None, "instalacion/buscar-qgisred-repositorio.png",
+        None, "installation/search-qgisred-repository.png",
         before_close=_fill_search_field,
     )
 

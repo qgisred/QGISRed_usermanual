@@ -28,17 +28,17 @@ El desarrollo de QGISRed se enmarca dentro de las actividades de investigación 
 
 | Entidad            | Logo                                                             |
 | ------------------ | ---------------------------------------------------------------- |
-| **Portal QGISRed** | [![Logo QGISRed](../assets/images/creditos/logo-qgisred.png)](http://qgisred.upv.es) |
-| **REDHISP**        | ![Logo REDHISP](../assets/images/creditos/logo-redhisp.png)                          |
-| **IIAMA**          | [![Logo IIAMA](../assets/images/creditos/logo-iiama.png)](http://www.iiama.upv.es)   |
-| **UPV**            | [![Logo UPV](../assets/images/creditos/logo-upv.png)](http://www.upv.es)             |
+| **Portal QGISRed** | [![Logo QGISRed](../assets/images/credits/logo-qgisred.png)](http://qgisred.upv.es) |
+| **REDHISP**        | ![Logo REDHISP](../assets/images/credits/logo-redhisp.png)                          |
+| **IIAMA**          | [![Logo IIAMA](../assets/images/credits/logo-iiama.png)](http://www.iiama.upv.es)   |
+| **UPV**            | [![Logo UPV](../assets/images/credits/logo-upv.png)](http://www.upv.es)             |
 
 ### Colaboradores
 
 | Entidad           | Logo                                                             |
 | ----------------- | ---------------------------------------------------------------- |
-| **WaterPi**       | ![Logo WaterPi](../assets/images/creditos/logo-waterpi.png)             |
-| **Ingeniousware** | ![Logo Ingeniousware](../assets/images/creditos/logo-ingeniousware.png)                       |
+| **WaterPi**       | ![Logo WaterPi](../assets/images/credits/logo-waterpi.png)             |
+| **Ingeniousware** | ![Logo Ingeniousware](../assets/images/credits/logo-ingeniousware.png)                       |
 
 ***
 
@@ -50,5 +50,5 @@ Las versiones de QGISRed a partir de la **0.18** están siendo financiadas por e
 
 | Entidad                                      | Logo                                                                    |
 | -------------------------------------------- | ----------------------------------------------------------------------- |
-| **Banco Interamericano de Desarrollo (BID)** | [![Logo BID](../assets/images/creditos/logo-bid.png)](https://www.iadb.org/es) |
+| **Banco Interamericano de Desarrollo (BID)** | [![Logo BID](../assets/images/credits/logo-bid.png)](https://www.iadb.org/es) |
 

@@ -8,7 +8,7 @@
 
 Controla qué capas del proyecto están activas en QGIS, permite recrear elementos base que falten y gestiona las capas auxiliares del Constructor de demandas nodales. El diálogo organiza su contenido en tres pestañas: **Basic elements**, **Digital Twin** y **Auxiliary layers**.
 
-<figure><img src="../assets/images/proyecto/gestor-capas.png" alt="Diálogo del Gestor de capas de QGISRed"><figcaption><p>Diálogo del Gestor de capas de QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/layer-manager.png" alt="Diálogo del Gestor de capas de QGISRed"><figcaption><p>Diálogo del Gestor de capas de QGISRed</p></figcaption></figure>
 <!-- TODO: captura desactualizada, el diálogo pasó de secciones apiladas a pestañas (ver commits 12d9ee7 y 11c29ed) -->
 *Gestor de capas: lista de todas las capas del proyecto con su estado de carga.*
 
@@ -52,7 +52,7 @@ QGISRed vigila en segundo plano (comprobación cada 5 segundos) las capas deriva
 
 La pestaña **Auxiliary layers** contiene el grupo **Demand Builder**, desde donde se crean y gestionan las capas vacías de trabajo que usa la herramienta de asignación de demandas a nudos (Constructor de demandas nodales): **Consumption Points**, **Demand Links** y **Demand Sectors**.
 
-<figure><img src="../assets/images/proyecto/capas-auxiliares.png" alt="Pestaña Auxiliary layers del Gestor de capas de QGISRed"><figcaption><p>Pestaña Auxiliary layers del Gestor de capas de QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/auxiliary-layers.png" alt="Pestaña Auxiliary layers del Gestor de capas de QGISRed"><figcaption><p>Pestaña Auxiliary layers del Gestor de capas de QGISRed</p></figcaption></figure>
 
 Cada fila de la tabla es un **tema** (theme) — puedes tener varios temas del mismo tipo, por ejemplo un `Sectors` distinto por cada campaña de sectorización de demanda. La tabla muestra tres columnas:
 
@@ -104,7 +104,7 @@ Pumps: 8
 
 Abre un panel flotante que permite construir y personalizar la **simbología** de las capas del proyecto sin navegar por el menú de propiedades de capa de QGIS: tipo de leyenda, clasificación automática, tamaños, colores, opacidad y borde en capas de polígono, biblioteca de rampas/paletas propia, guardado/carga de estilos y reglas propias por tipo de elemento.
 
-<figure><img src="../assets/images/proyecto/editor-leyenda.png" alt="Panel del Editor de leyenda de QGISRed"><figcaption><p>Panel del Editor de leyenda de QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/project/legend-editor.png" alt="Panel del Editor de leyenda de QGISRed"><figcaption><p>Panel del Editor de leyenda de QGISRed</p></figcaption></figure>
 <!-- TODO: captura desactualizada, el diálogo se rediseñó por completo y ha seguido cambiando desde entonces (bloque de commits [Legends]/[Styles], sep-oct 2026) -->
 *Panel del Editor de leyenda: estilos predefinidos y personalización de colores y tamaños.*
 

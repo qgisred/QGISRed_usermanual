@@ -6,7 +6,7 @@ Abre el panel **Statistics**, que calcula y visualiza la distribución estadíst
 
 > **ℹ️ Nota:** El panel Statistics se abre **acoplado** en la ventana principal de QGIS y respeta los paneles ya agrupados en pestañas. Sus controles se adaptan también a anchos de panel estrechos, sin recortarse en el borde derecho.
 
-<figure><img src="../assets/images/consultas/statistics-panel.png" alt="Panel Statistics con histograma de diámetros de tuberías"><figcaption><p>Panel Statistics con histograma de diámetros de tuberías</p></figcaption></figure>
+<figure><img src="../assets/images/queries/statistics-panel.png" alt="Panel Statistics con histograma de diámetros de tuberías"><figcaption><p>Panel Statistics con histograma de diámetros de tuberías</p></figcaption></figure>
 *Panel Statistics: histograma de diámetros de tuberías con clasificación por intervalos.*
 
 ---

@@ -2,7 +2,7 @@
 
 La barra **Debug** agrupa las herramientas de verificación y depuración del modelo. Su objetivo es detectar y corregir errores topológicos, inconsistencias de atributos y problemas de conectividad **antes de lanzar la simulación**, evitando así errores difíciles de diagnosticar en EPANET.
 
-<figure><img src="../assets/images/debug/barra-debug.png" alt="Barra de herramientas Debug de QGISRed"><figcaption><p>Barra de herramientas Debug de QGISRed</p></figcaption></figure>
+<figure><img src="../assets/images/debug/toolbar.png" alt="Barra de herramientas Debug de QGISRed"><figcaption><p>Barra de herramientas Debug de QGISRed</p></figcaption></figure>
 *Barra Debug: validación de datos, depuración topológica, revisión de atributos y sectores hidráulicos.*
 
 ---

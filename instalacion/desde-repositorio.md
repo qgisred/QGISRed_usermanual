@@ -12,7 +12,7 @@ Es el método recomendado. Instala QGISRed directamente desde el repositorio ofi
 4. Selecciona **QGISRed** en la lista de resultados.
 5. Haz clic en **Instalar complemento**.
 
-<figure><img src="../assets/images/instalacion/buscar-qgisred-repositorio.png" alt="Búsqueda de QGISRed en el repositorio oficial de complementos"><figcaption><p>Pestaña "Todos" del gestor de complementos con QGISRed localizado tras la búsqueda.</p></figcaption></figure>
+<figure><img src="../assets/images/installation/search-qgisred-repository.png" alt="Búsqueda de QGISRed en el repositorio oficial de complementos"><figcaption><p>Pestaña "Todos" del gestor de complementos con QGISRed localizado tras la búsqueda.</p></figcaption></figure>
 
 Al terminar, aparecerán en QGIS la barra principal de QGISRed y el menú **QGISRed** en la barra de menús.
 

@@ -18,14 +18,14 @@ sigue siendo una revision visual aparte, el log de capture_inside.py solo
 sabe decir "aparecio una ventana nueva y la guarde", no "era la correcta".
 
 Huecos conocidos, ya aceptados (no perseguir mas sin una idea nueva, ver
-memoria feedback_stop_whackamole_debugging): "herramientas/interpolate-
+memoria feedback_stop_whackamole_debugging): "tools/interpolate-
 elevation.png" necesita el .asc sintetico ya commiteado en sample_project/
 pero el selector de archivo nativo tarda en aparecer de forma poco fiable;
-"gemelo-digital/add-meter-dropdown.png" (clic real sobre la flecha del
+"digital-twin/add-meter-dropdown.png" (clic real sobre la flecha del
 QToolButton, ver _meter_popup() en capture_inside.py) funciona la mayoria de
-veces pero no siempre. run_instalacion() (los 3 pantallazos de instalacion/)
-NO se ha ejecutado nunca via este orquestador, solo a mano -- probarlo antes
-de confiar en el para una ronda nueva.
+veces pero no siempre. run_instalacion() (los 3 pantallazos de installation/)
+ya se ha validado repetidas veces via este orquestador en los 4 idiomas
+(2026-10-18).
 
 IMPORTANTE -- nunca lanzar dos instancias de este script a la vez (ni en el
 mismo idioma ni en distinto): cada una lanza su propio QGIS y ambas
