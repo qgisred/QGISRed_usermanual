@@ -15,6 +15,9 @@ Based on EPANET's classic "Net1" example topology.
  31              	214         	6           	                	;
  32              	217         	6           	                	;
  14              	217         	0           	                	;
+ 40              	210         	0           	                	;
+ 50              	210         	0           	                	;
+ 51              	210         	0           	                	;
 
 [RESERVOIRS]
 ;ID              	Head        	Pattern
@@ -23,6 +26,7 @@ Based on EPANET's classic "Net1" example topology.
 [TANKS]
 ;ID              	Elevation   	InitLevel   	MinLevel    	MaxLevel    	Diameter    	MinVol      	VolCurve
  2               	260         	36          	30          	45          	15.5        	0           	                	;
+ 3               	230         	20          	15          	25          	10          	0           	                	;
 
 [PIPES]
 ;ID              	Node1           	Node2             	Length      	Diameter    	Roughness   	MinorLoss   	Status
@@ -36,8 +40,11 @@ Based on EPANET's classic "Net1" example topology.
  111             	11              	21              	1610        	250         	1           	0           	Open  	;
  112             	12              	22              	1610        	300         	1           	0           	Open  	;
  113             	13              	23              	1610        	200         	1           	0           	Open  	;
- 121             	21              	31              	1610        	200         	1           	0           	Open  	;
- 122             	22              	32              	1610        	150         	1           	0           	Open  	;
+ 121             	21              	31              	1610        	200         	1           	0           	Closed	;
+ 122             	22              	32              	1610        	150         	1           	0           	Closed	;
+ 200             	40              	23              	200         	200         	1           	0           	Closed	;
+ 201             	3               	40              	100         	200         	1           	0           	Open  	;
+ 202             	50              	51              	100         	200         	1           	0           	Open  	;
 
 [PUMPS]
 ;ID              	Node1           	Node2           	Parameters
@@ -100,8 +107,12 @@ PRIORITY 1
  31              	0.5
  32              	0.5
  14              	0.5
+ 40              	0.5
+ 50              	0.5
+ 51              	0.5
  9               	1.0
  2               	1.0
+ 3               	1.0
 
 [SOURCES]
 ;Node            	Type        	Quality     	Pattern
@@ -170,6 +181,10 @@ PRIORITY 1
  14              	36.1223021582734	69.9424460431655
  9               	10              	70
  2               	50              	90
+ 40              	85              	55
+ 3               	85              	70
+ 50              	95              	10
+ 51              	95              	0
 
 [VERTICES]
 ;Link            	X-Coord          	Y-Coord

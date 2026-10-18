@@ -4,9 +4,9 @@
   <Notes>Small example network used to generate screenshots for the QGISRed user manual.
 Based on EPANET's classic "Net1" example topology.</Notes>
   <Creator>aguil</Creator>
-  <DateCreation>17/10/2026 22:20:40</DateCreation>
-  <DateModification>17/10/2026 22:23:27</DateModification>
-  <Guid>d43ffbd5-3f3c-49d0-9425-99cf4e21e94f</Guid>
+  <DateCreation>18/10/2026 06:50:51</DateCreation>
+  <DateModification>18/10/2026 06:55:35</DateModification>
+  <Guid>c1ab5dc3-4052-482e-8bf7-33328ff8bcc0</Guid>
   <EPSG>4326</EPSG>
   <DigitalTwin>
     <TransferDemands>True</TransferDemands>
