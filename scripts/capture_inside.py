@@ -29,7 +29,7 @@ from ctypes import Structure, byref, c_long, sizeof, windll
 from pathlib import Path
 
 from PIL import Image
-from qgis.PyQt.QtCore import QTimer
+from qgis.PyQt.QtCore import QTimer, QPoint
 from qgis.PyQt.QtWidgets import QDockWidget, QToolBar
 from qgis.core import QgsPointXY, QgsRectangle, QgsProject
 
@@ -388,39 +388,65 @@ def get_toolbar(object_name):
     return iface.mainWindow().findChild(QToolBar, object_name)
 
 
-def toolbar_global_rect(tb):
-    tl = tb.mapToGlobal(tb.rect().topLeft())
-    br = tb.mapToGlobal(tb.rect().bottomRight())
+def toolbar_global_rect(tb, pad=4):
+    """Rectangulo global de la toolbar recortado al contenido real (los
+    botones), no al ancho completo del widget. Un QToolBar que es el unico
+    ocupante de su fila en el QMainWindow se estira para rellenar el resto
+    del ancho de la ventana (comportamiento de layout de Qt), aunque sus
+    botones solo ocupen una fraccion -- capturar tb.rect() tal cual dejaba
+    las imagenes con todo el ancho de la ventana y un hueco vacio enorme a
+    la derecha (visto en vivo en barra-principal.png y en las 8 capturas de
+    sub-toolbar). childrenRect() da el bounding box real de los widgets
+    hijos visibles (botones, separadores...), que es lo que hay que usar
+    para el borde derecho, con un pequeno margen para no dejar el ultimo
+    icono pegado al borde.
+
+    El borde IZQUIERDO se deja tal cual (full.left(), normalmente 0): el
+    "handle" de arrastre de una toolbar movible no es un widget hijo (lo
+    pinta el estilo directamente), asi que childrenRect() no lo incluye --
+    usar su left() aqui recortaria el handle de la captura."""
+    full = tb.rect()
+    content = tb.childrenRect()
+    right = min(full.right(), content.right() + pad)
+    tl = tb.mapToGlobal(QPoint(full.left(), full.top()))
+    br = tb.mapToGlobal(QPoint(right, full.bottom()))
     return tl.x(), tl.y(), br.x(), br.y()
 
 
 def capture_toolbar(attr_name, object_name, out_rel):
-    """Activa la toolbar `object_name`, la recorta junto con la fila de la
-    toolbar general (siempre visible) justo encima, y la vuelve a ocultar."""
+    """Activa la toolbar `object_name`, la recorta SOLO a ella (no a la
+    toolbar "QGISRed General" -- se recortaban juntas antes, pero esa
+    toolbar es ajena al capitulo que se esta documentando en cada caso
+    (Edition/Project/Analysis/Tools/Queries/Digital Twin/Debug) y no debe
+    aparecer mezclada), y la vuelve a ocultar."""
     from qgis.PyQt.QtWidgets import QApplication
-    general = get_toolbar("QGISRed General")
     tb = get_toolbar(object_name)
     was_visible = tb.isVisible()
     tb.setVisible(True)
     QApplication.processEvents()
     pump(0.5)
-    gl, gt, gr, gb = toolbar_global_rect(general)
-    tl, tt, tr, tb_ = toolbar_global_rect(tb)
-    rect = (min(gl, tl), gt, max(gr, tr), tb_)
+    rect = toolbar_global_rect(tb)
     cap_region_global(MAIN_HWND, rect, out_rel)
     tb.setVisible(was_visible)
 
 
 def capture_main_toolbar_only(out_rel):
-    """barra-principal: solo la toolbar general, siempre visible."""
+    """barra-principal: la toolbar PRINCIPAL de QGISRed (objectName "QGISRed",
+    creada en lifecycle_section.py:69-70), la que lleva el boton desplegable
+    de cada una de las 8 sub-toolbars (General/Project/Edition/Debug/Tools/
+    Queries/Analysis/Digital Twin) -- ver menu_section.py:68
+    (setup_dropdown_button(..., self.toolbar)). NO es "QGISRed General", que
+    es una sub-toolbar aparte (acciones de crear/abrir/importar/guardar
+    proyecto, oculta por defecto) -- usar esa por error daba una captura con
+    4 iconos de proyecto en vez de los 8 botones desplegables reales."""
     from qgis.PyQt.QtWidgets import QApplication
-    general = get_toolbar("QGISRed General")
-    general.setVisible(False)
+    main_tb = get_toolbar("QGISRed")
+    main_tb.setVisible(False)
     QApplication.processEvents()
-    general.setVisible(True)
+    main_tb.setVisible(True)
     QApplication.processEvents()
     pump(0.4)
-    rect = toolbar_global_rect(general)
+    rect = toolbar_global_rect(main_tb)
     cap_region_global(MAIN_HWND, rect, out_rel)
 
 
