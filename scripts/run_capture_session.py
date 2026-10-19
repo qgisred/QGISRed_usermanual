@@ -88,8 +88,22 @@ def revert_sample_project():
     if sample_project_is_clean():
         return
     log("Revirtiendo scripts/sample_project/ a limpio...")
-    git("checkout", "--", "scripts/sample_project/")
-    git("clean", "-fd", "scripts/sample_project/")
+    # QGIS puede tardar un instante en soltar los handles de los .dbf/.shp
+    # tras cerrarse (visto en vivo: "unable to unlink ... Invalid argument"
+    # justo despues de un close_qgis() que SI mato el proceso) -- reintentar
+    # con una pequena espera en vez de dejar que un fallo aqui tumbe toda la
+    # sesion de idioma (crashaba run_one_language entero, con check=True sin
+    # capturar la excepcion).
+    last_err = None
+    for attempt in range(5):
+        try:
+            git("checkout", "--", "scripts/sample_project/")
+            git("clean", "-fd", "scripts/sample_project/")
+            return
+        except subprocess.CalledProcessError as e:
+            last_err = e
+            time.sleep(2)
+    log(f"AVISO: no se pudo revertir sample_project/ tras varios intentos: {last_err.stderr}")
 
 
 # ── Proceso QGIS ──────────────────────────────────────────────────────────
@@ -335,7 +349,17 @@ def close_qgis(pid, main_hwnd):
                 pass
         time.sleep(1)
     if qgis_alive(pid):
-        subprocess.run(["taskkill", "/F", "/PID", str(pid)], capture_output=True)
+        for _ in range(3):
+            subprocess.run(["taskkill", "/F", "/PID", str(pid)], capture_output=True)
+            time.sleep(1)
+            if not qgis_alive(pid):
+                break
+    # dar un pequeno margen tras la muerte del proceso antes de que el
+    # llamante toque los .dbf/.shp del proyecto (Windows puede tardar un
+    # instante en soltar los handles abiertos por GDAL/OGR) -- visto en vivo
+    # un "unable to unlink ... Invalid argument" en el siguiente
+    # revert_sample_project() pese a que el proceso ya constaba como muerto.
+    time.sleep(1.5)
 
 
 # ── Bucle principal con reintento ante cuelgues tempranos ──────────────────
