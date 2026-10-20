@@ -11,8 +11,12 @@
 ### Development and Maintenance
 
 * **Néstor Lerma Elvira**
+* 🏢 Fluit (from v 0.19)
 * 🏢 WaterPi (up to v 0.17)
-* 📧 [info@waterpi.com](mailto:info@waterpi.com)
+* 📧 [nestor@fluit.es](mailto:nestor@fluit.es)
+* **Elena Melchor Gil**
+* 🏢 Fluit (from v 0.19)
+* 📧 [elena@fluit.es](mailto:elena@fluit.es)
 * **Vitor Moura Vieira**
 * 🏢 Ingeniousware (since v 0.18)
 * 📧 [contact@watering.online](mailto:contact@watering.online)
@@ -37,8 +41,9 @@ The development of QGISRed is part of the research and technology transfer activ
 
 | Entity | Logo |
 | ----------------- | ---------------------------------------------------------------- |
-| **WaterPi**       | ![WaterPi Logo](../assets/images/credits/logo-waterpi.png)             |
+| **Fluit**         | [![Logo Fluit](../assets/images/credits/logo-fluit.png)](https://fluit.es) |
 | **Ingeniousware** | ![Logo Ingeniousware](../assets/images/credits/logo-ingeniousware.png)                       |
+| **WaterPi**       | ![WaterPi Logo](../assets/images/credits/logo-waterpi.png)             |
 
 ***
 
