@@ -72,4 +72,4 @@ Eles estão todos agrupados na legenda do QGIS em um grupo chamado **"{Red}" →
 
 Depois que o projeto for criado, a próxima etapa é **construir a rede** usando a barra **Edição**. Consulte a seção [Edição e Modelagem](../edicao/README.md) para ver como adicionar tubos, nós e elementos especiais.
 
-> 💡 Se você já possui um arquivo EPANET `.inp`, é mais rápido usar [Importar projeto](abrir-importar.md#importar-desde-epanet) do que criar do zero.
+> 💡 Se você já possui um arquivo EPANET `.inp`, é mais rápido usar [Importar projeto](abrir-importar.md#importar-do-epanet) do que criar do zero.

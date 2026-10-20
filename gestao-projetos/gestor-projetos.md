@@ -50,7 +50,7 @@ Empacota o projeto selecionado em um ZIP portátil (SHP/DBF, `.qgz` e, opcionalm
 2. Pressione **Exportar**.
 3. Preencha a caixa de diálogo de exportação.
 
-Veja todos os detalhes do diálogo, o que está incluído e o que não está, em [Salvar, exportar e fechar projeto](../projeto-ativo/guardar-backup.md#exportar-el-proyecto).
+Veja todos os detalhes do diálogo, o que está incluído e o que não está, em [Salvar, exportar e fechar projeto](../projeto-ativo/salvar-exportar-fechar.md#exporte-o-projeto).
 
 ### Renomear
 
