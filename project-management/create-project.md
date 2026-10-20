@@ -72,4 +72,4 @@ They are all grouped together in the QGIS legend under a group called **"{Red}" 
 
 Once the project is created, the next step is to **build the network** using the **Edition** bar. See section [Editing and Modeling](../editing/README.md) to see how to add pipes, nodes, and special elements.
 
-> 💡 If you already have an EPANET `.inp` file, it's faster to use [Import project](abrir-importar.md#importar-desde-epanet) than creating from scratch.
+> 💡 If you already have an EPANET `.inp` file, it's faster to use [Import project](open-import.md#import-from-epanet) than creating from scratch.

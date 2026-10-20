@@ -50,7 +50,7 @@ Packages the selected project in a portable ZIP (SHP/DBF, `.qgz` and, optionally
 2. Press **Export**.
 3. Complete the export dialog.
 
-See the full detail of the dialogue, what is included and what is not, in [Save, export and close project](../active-project/guardar-backup.md#exportar-el-proyecto).
+See the full detail of the dialogue, what is included and what is not, in [Save, export and close project](../active-project/save-export-close.md#export-the-project).
 
 ### Rename
 

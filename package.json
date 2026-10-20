@@ -1,0 +1,22 @@
+{
+  "name": "qgisred-manual",
+  "private": true,
+  "version": "0.19.0",
+  "type": "module",
+  "engines": {
+    "node": ">=22"
+  },
+  "description": "QGISRed user manual: Markdown -> static HTML + PDF, deployed by GitHub Actions over FTP.",
+  "scripts": {
+    "manual:build": "node scripts/build-manual.ts",
+    "manual:pdf": "node scripts/build-manual-pdf.ts",
+    "manual:serve": "node scripts/serve-manual.ts",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@playwright/test": "^1.56.1",
+    "@types/node": "^22.15.0",
+    "marked": "^16.4.1",
+    "typescript": "^5.9.3"
+  }
+}
