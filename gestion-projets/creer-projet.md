@@ -72,4 +72,4 @@ Ils sont tous regroupés dans la légende de QGIS sous un groupe appelé **"{Red
 
 Une fois le projet créé, l'étape suivante consiste à **construire le réseau** à l'aide de la barre **Édition**. Voir la section [Édition et modélisation](../edition/README.md) pour voir comment ajouter des tuyaux, des nœuds et des éléments spéciaux.
 
-> 💡 Si vous possédez déjà un fichier EPANET `.inp`, il est plus rapide d'utiliser [Importer un projet](abrir-importar.md#importar-desde-epanet) que de créer à partir de zéro.
+> 💡 Si vous possédez déjà un fichier EPANET `.inp`, il est plus rapide d'utiliser [Importer un projet](ouvrir-importer.md#import-from-epanet) que de créer à partir de zéro.

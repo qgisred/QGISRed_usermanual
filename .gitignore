@@ -1,2 +1,6 @@
 book/
 mdbook.exe
+
+# Manual site build (HTML+PDF generator)
+node_modules/
+dist/
