@@ -1,8 +1,8 @@
 # Mapas Temáticos
 
-**Barra Queries → Thematic maps…**
+**Barra Consultas → Mapas temáticos…**
 
-Abre el diálogo de **Thematic Maps**, que genera capas que colorean tuberías y nudos por intervalos de un atributo hidráulico. A diferencia de otros diálogos de QGISRed, no hay que elegir "un campo y confirmar": cada atributo disponible tiene su propia casilla, y puedes marcar tantas a la vez como quieras — cada una genera su propia capa, y todas conviven en el mapa simultáneamente.
+Abre el diálogo de **Mapas Temáticos**, que genera capas que colorean tuberías y nudos por intervalos de un atributo hidráulico. A diferencia de otros diálogos de QGISRed, no hay que elegir "un campo y confirmar": cada atributo disponible tiene su propia casilla, y puedes marcar tantas a la vez como quieras — cada una genera su propia capa, y todas conviven en el mapa simultáneamente.
 
 <figure><img src="../assets/images/queries/thematic-maps-dialog.png" alt="Diálogo Thematic Maps con las casillas Material (tuberías) y Cota (nudos) marcadas"><figcaption><p>Diálogo Thematic Maps con las casillas Material (tuberías) y Cota (nudos) marcadas</p></figcaption></figure>
 
@@ -10,7 +10,7 @@ Abre el diálogo de **Thematic Maps**, que genera capas que colorean tuberías y
 
 ## Elementos activos: tuberías y nudos
 
-En la versión actual, **Thematic Maps trabaja sobre las capas Pipes (tuberías) y Junctions (nudos)**. Las opciones de otros tipos de elementos (válvulas, bombas, depósitos, embalses) están presentes en la interfaz pero se ocultan automáticamente porque aún no están implementadas. Los grupos **Service connections**, **Isolation valves** y **Meters** sí son visibles, pero su única casilla ("Temporary") tampoco está operativa todavía — no la marques.
+En la versión actual, **Thematic Maps trabaja sobre las capas Pipes (tuberías) y Junctions (nudos)**. Las opciones de otros tipos de elementos (válvulas, bombas, depósitos, embalses) están presentes en la interfaz pero se ocultan automáticamente porque aún no están implementadas. Los grupos **Acometidas**, **Válvulas de seccionamiento** y **Medidores** sí son visibles, pero su única casilla ("Temporal") tampoco está operativa todavía — no la marques.
 
 ---
 
@@ -18,8 +18,8 @@ En la versión actual, **Thematic Maps trabaja sobre las capas Pipes (tuberías)
 
 1. Abre **Thematic maps** desde la barra Queries.
 2. Marca las casillas de los atributos que quieras representar (puedes marcar varios de tuberías y de nudos a la vez).
-3. Pulsa **Accept**. QGISRed crea una capa por cada casilla marcada, dentro del grupo **Queries → Thematic Maps** del panel de capas de QGIS.
-4. Para quitar un mapa ya generado, vuelve a abrir el diálogo, desmarca su casilla y pulsa **Accept** — QGISRed elimina esa capa concreta sin tocar el resto. Las casillas de los mapas ya generados aparecen premarcadas.
+3. Pulsa **Aceptar**. QGISRed crea una capa por cada casilla marcada, dentro del grupo **Queries → Thematic Maps** del panel de capas de QGIS.
+4. Para quitar un mapa ya generado, vuelve a abrir el diálogo, desmarca su casilla y pulsa **Aceptar** — QGISRed elimina esa capa concreta sin tocar el resto. Las casillas de los mapas ya generados aparecen premarcadas.
 
 > 💡 Puedes tener varios mapas temáticos abiertos a la vez (por ejemplo, Material y Año de Instalación de tuberías junto con Demanda Base de nudos) — cada uno es una capa independiente, no se sustituyen entre sí como ocurría antes.
 
@@ -36,7 +36,7 @@ En la versión actual, **Thematic Maps trabaja sobre las capas Pipes (tuberías)
 | `Age` | Antigüedad, calculada a partir del año de instalación; las clases se etiquetan con sufijo "yrs" |
 | `Installation Year` | Año de instalación |
 
-> Los mapas de **Age** e **Installation Year** añaden a la tabla de atributos de la capa tres columnas juntas: la fecha de instalación en bruto (`InstalDate`), el año extraído (`InstYear`) y la antigüedad calculada (`Age`) — verlas todas a la vez es útil aunque solo hayas marcado uno de los dos mapas.
+> Los mapas de **Edad** e **Año de instalación** añaden a la tabla de atributos de la capa tres columnas juntas: la fecha de instalación en bruto (`InstalDate`), el año extraído (`InstYear`) y la antigüedad calculada (`Age`) — verlas todas a la vez es útil aunque solo hayas marcado uno de los dos mapas.
 
 ---
 
@@ -83,7 +83,7 @@ Si cambias las **unidades**, la **fórmula de pérdida de carga** o las **unidad
 
 <figure><img src="../assets/images/queries/thematic-maps-result.png" alt="Red coloreada por Material de tuberías y Cota de nudos tras generar los mapas temáticos"><figcaption><p>Red coloreada por Material de tuberías y Cota de nudos tras generar los mapas temáticos</p></figcaption></figure>
 
-Cada casilla marcada genera su propia capa (por ejemplo `Pipes_Materials`, `Junctions_Elevations` — siempre `Elemento_Propiedad`, ambos en plural salvo "Installation Year", que se mantiene en singular) dentro del grupo **Queries → Thematic Maps**. Las capas son de solo lectura y se actualizan solas cuando editas la tubería o el nudo de origen (no hace falta regenerar el mapa a mano tras un cambio puntual) — la leyenda de cada una muestra además cuántos elementos tiene cada clase.
+Cada casilla marcada genera su propia capa (por ejemplo `Pipes_Materials`, `Junctions_Elevations` — siempre `Elemento_Propiedad`, ambos en plural salvo "Año de instalación", que se mantiene en singular) dentro del grupo **Queries → Thematic Maps**. Las capas son de solo lectura y se actualizan solas cuando editas la tubería o el nudo de origen (no hace falta regenerar el mapa a mano tras un cambio puntual) — la leyenda de cada una muestra además cuántos elementos tiene cada clase.
 
 Si vuelves a marcar y confirmar una casilla ya generada, QGISRed reemplaza esa capa concreta con la nueva configuración, sin tocar el resto de mapas activos.
 
@@ -93,4 +93,4 @@ Si vuelves a marcar y confirmar una casilla ya generada, QGISRed reemplaza esa c
 
 - La generación de mapas temáticos no modifica ningún dato del modelo; solo crea capas nuevas con la simbología correspondiente.
 - Para quitar un mapa, desmárcalo en el diálogo (ver "Proceso" más arriba) o elimina su capa directamente desde el panel de capas de QGIS.
-- El mapa de **Total Base Demand** necesita que existan nudos con demanda asignada; si el proyecto no tiene demandas cargadas, la capa se genera vacía.
+- El mapa de **Demanda base total** necesita que existan nudos con demanda asignada; si el proyecto no tiene demandas cargadas, la capa se genera vacía.

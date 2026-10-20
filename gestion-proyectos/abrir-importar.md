@@ -27,8 +27,8 @@ Abre un proyecto QGISRed existente (creado previamente con el plugin) que no apa
 
 ### Qué ocurre al abrir
 
-- Se carga el grupo de capas **Inputs** con los 6 SHP base más cualquier capa auxiliar (demandas múltiples, fuentes, etc.).
-- Si el proyecto tiene resultados de simulaciones anteriores, se carga también el grupo **Results**.
+- Se carga el grupo de capas **Datos** con los 6 SHP base más cualquier capa auxiliar (demandas múltiples, fuentes, etc.).
+- Si el proyecto tiene resultados de simulaciones anteriores, se carga también el grupo **Resultados**.
 - Se leen las opciones del proyecto (`_Options.dbf`) y se actualiza el indicador de unidades en la barra principal.
 - Si los estilos visuales (QML) han cambiado respecto a la versión del plugin con que se guardó, se actualizan automáticamente.
 
@@ -53,7 +53,7 @@ El caso más habitual: tienes un modelo EPANET existente y quieres trabajar con 
 2. Indica el **nombre de la red** que tendrá el proyecto QGISRed (puede ser diferente al nombre interno del INP).
 3. Elige la **carpeta destino** donde se crearán los SHP.
 4. QGISRed convierte todos los elementos (nudos, tuberías, válvulas, bombas, curvas, patrones, controles…) a la estructura SHP+DBF.
-5. Casilla **Separate overlapping nodes**: algunos programas exportan bombas y válvulas como enlaces cuyos nudos extremos comparten las mismas coordenadas. Al activar esta opción, esos nudos se separan ligeramente para que ningún elemento se pierda en la importación.
+5. Casilla **Separar nudos superpuestos**: algunos programas exportan bombas y válvulas como enlaces cuyos nudos extremos comparten las mismas coordenadas. Al activar esta opción, esos nudos se separan ligeramente para que ningún elemento se pierda en la importación.
 
 > ⚠️ Las coordenadas del `.inp` deben estar en el mismo CRS que usarás en QGISRed. El plugin no reproyecta durante la importación.
 
@@ -92,28 +92,28 @@ Cuando la importación crea un proyecto nuevo, también se solicita el **catálo
 
 ### Importar un proyecto QGISRed exportado (ZIP) {#importar-zip}
 
-Recupera un proyecto empaquetado con el botón **Export** del [Gestor de proyectos](gestor-proyectos.md) — ver [Guardar, exportar y cerrar proyecto](../proyecto-activo/guardar-backup.md). También reconoce ZIPs generados por versiones anteriores del plugin, aunque no tengan el manifiesto interno de las exportaciones actuales.
+Recupera un proyecto empaquetado con el botón **Exportar** del [Gestor de proyectos](gestor-proyectos.md) — ver [Guardar, exportar y cerrar proyecto](../proyecto-activo/guardar-backup.md). También reconoce ZIPs generados por versiones anteriores del plugin, aunque no tengan el manifiesto interno de las exportaciones actuales.
 
 <figure><img src="../assets/images/project-management/import-qgisred-project.png" alt="Pestaña QGISRed project del diálogo de importación"><figcaption><p>Pestaña QGISRed project del diálogo de importación</p></figcaption></figure>
 
-1. En la pestaña **QGISRed project**, pulsa el botón **...** junto a **ZIP file:** y selecciona el archivo `.zip`.
+1. En la pestaña **QGISRed project**, pulsa el botón **...** junto a **Archivo ZIP:** y selecciona el archivo `.zip`.
 2. QGISRed inspecciona el contenido del ZIP sin extraerlo todavía y muestra un resumen bajo el campo:
-   - **Project:** nombre de la red que contiene el ZIP (sustituye a cualquier nombre que hayas escrito antes; el campo de nombre de proyecto se oculta en esta pestaña).
+   - **Proyecto:** nombre de la red que contiene el ZIP (sustituye a cualquier nombre que hayas escrito antes; el campo de nombre de proyecto se oculta en esta pestaña).
    - Si el ZIP incluye el mapa de QGIS, indica el archivo `.qgz`/`.qgs`; si no lo incluye, avisa de que solo se importarán los datos.
    - Si el ZIP trae datos complementarios (cartografía de fondo, MDT, etc.), indica cuántos elementos y su tamaño total.
-3. Si el ZIP incluye datos complementarios, aparece la casilla **Import the complementary data included in the ZIP file**, marcada por defecto. Desmárcala si no quieres traerlos.
-4. La casilla **Automatically create a subfolder for this project** decide si el proyecto se coloca en una subcarpeta con el nombre de la red dentro de la carpeta de destino:
+3. Si el ZIP incluye datos complementarios, aparece la casilla **Importar los datos complementarios incluidos en el archivo ZIP**, marcada por defecto. Desmárcala si no quieres traerlos.
+4. La casilla **Crear automáticamente una subcarpeta para este proyecto** decide si el proyecto se coloca en una subcarpeta con el nombre de la red dentro de la carpeta de destino:
    - Si el ZIP ya contiene su propia carpeta de proyecto (se exportó junto con datos complementarios en carpetas hermanas), QGISRed desmarca y deshabilita esta casilla automáticamente — anidarlo en otra carpeta rompería las rutas relativas a esos datos.
    - En caso contrario, puedes marcarla o desmarcarla libremente.
-5. Pulsa **Import From Project**.
+5. Pulsa **Importar desde proyecto**.
 
 Si el ZIP no es un proyecto QGISRed válido, QGISRed lo indica sin llegar a importar nada:
 
 | Situación | Mensaje |
 |-----------|---------|
-| El ZIP no contiene un proyecto QGISRed reconocible | _"ZIP file does not contain a valid QGISRed project"_ |
-| El ZIP se generó con una versión más nueva de QGISRed que la instalada | _"This ZIP file was created with a newer version of QGISRed. Please update the plugin."_ |
-| El ZIP contiene rutas de archivo no seguras | _"The ZIP file contains unsafe file paths and will not be imported."_ |
+| El ZIP no contiene un proyecto QGISRed reconocible | _"El archivo ZIP no contiene un proyecto de QGISRed válido"_ |
+| El ZIP se generó con una versión más nueva de QGISRed que la instalada | _"Este archivo ZIP se creó con una versión más reciente de QGISRed. Actualice el complemento."_ |
+| El ZIP contiene rutas de archivo no seguras | _"El archivo ZIP contiene rutas de archivo no seguras y no se importará."_ |
 
 > ⚠️ Si ya existe un proyecto con el mismo nombre (o archivos con el mismo nombre) en la carpeta de destino, QGISRed pide confirmación antes de sobrescribirlos.
 
@@ -123,7 +123,7 @@ Si el ZIP no es un proyecto QGISRed válido, QGISRed lo indica sin llegar a impo
 
 ## Añadir datos por importación
 
-**Barra Project → Añadir datos por importación**
+**Barra Proyecto → Añadir datos por importación**
 
 Disponible solo cuando hay un proyecto ya abierto. Permite enriquecer el proyecto con datos adicionales sin cerrar lo que hay cargado.
 

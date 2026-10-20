@@ -1,6 +1,6 @@
 # 📋 Proyecto
 
-La barra **Project** agrupa las herramientas de administración del proyecto que ya está abierto en QGISRed. Todos sus botones requieren un proyecto válido cargado; si no hay ninguno, el plugin avisará con el mensaje _"No valid project is opened"_.
+La barra **Proyecto** agrupa las herramientas de administración del proyecto que ya está abierto en QGISRed. Todos sus botones requieren un proyecto válido cargado; si no hay ninguno, el plugin avisará con el mensaje _"No hay ningún proyecto válido abierto"_.
 
 <figure><img src="../assets/images/project/toolbar.png" alt="Barra de herramientas Project de QGISRed con sus nueve botones"><figcaption><p>Barra de herramientas Project de QGISRed con sus nueve botones</p></figcaption></figure>
 *Barra Project: herramientas de administración del proyecto activo.*
@@ -25,7 +25,7 @@ La barra **Project** agrupa las herramientas de administración del proyecto que
 | 8 | **Guardar mapa** | Guarda el archivo `.qgz` de QGIS |
 | 9 | **Cerrar proyecto** | Cierra el proyecto y limpia la sesión de QGIS |
 
-> 💡 El antiguo botón **Copia de seguridad** (_Project backup_) se ha eliminado de esta barra sin sustituto directo. Para exportar el proyecto a un ZIP portable, usa el botón **Export** del [Gestor de proyectos](../gestion-proyectos/gestor-proyectos.md) — ver [Guardar, exportar y cerrar proyecto](guardar-backup.md).
+> 💡 El antiguo botón **Copia de seguridad** (_Project backup_) se ha eliminado de esta barra sin sustituto directo. Para exportar el proyecto a un ZIP portable, usa el botón **Exportar** del [Gestor de proyectos](../gestion-proyectos/gestor-proyectos.md) — ver [Guardar, exportar y cerrar proyecto](guardar-backup.md).
 
 ## En esta sección
 

@@ -6,7 +6,7 @@ Las dos últimas herramientas de la barra Tools realizan análisis topológicos 
 
 ## Obtener sectores de demanda
 
-**Barra Tools → Obtener sectores de demanda** (antes "Constructor de sectores de demanda…")
+**Barra Herramientas → Obtener sectores de demanda** (antes "Constructor de sectores de demanda…")
 
 Genera una sectorización de la red basada en la presencia de **caudalímetros** (flow meters). Cada sector de demanda es la subred suministrada por un único caudalímetro, sin cruzar otros caudalímetros.
 
@@ -29,7 +29,7 @@ No requiere configuración: se lanza directamente sin diálogo.
 
 ## Minimum Cost Tree…
 
-**Barra Tools → Minimum Cost Tree…**
+**Barra Herramientas → Árbol Mínimo Coste…**
 
 Calcula el **árbol de expansión de mínimo coste** de la red desde un nudo seleccionado. Muestra el camino hidráulicamente más eficiente (menor resistencia acumulada) desde ese nudo hasta todos los demás puntos alcanzables de la red.
 

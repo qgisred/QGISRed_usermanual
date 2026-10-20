@@ -20,7 +20,7 @@ yyyyMMdd
 
 **Ejemplo correcto**: `20230715` (15 de julio de 2023)
 
-Si el valor no sigue este formato exacto, la herramienta **Check pipe installation dates** (barra Debug) lo marcará como incidencia y la herramienta **Set roughness coefficients** (barra Tools) no podrá calcular la rugosidad por envejecimiento para esa tubería.
+Si el valor no sigue este formato exacto, la herramienta **Comprobar fechas de instalación de tuberías** (barra Debug) lo marcará como incidencia y la herramienta **Set roughness coefficients** (barra Tools) no podrá calcular la rugosidad por envejecimiento para esa tubería.
 
 ---
 

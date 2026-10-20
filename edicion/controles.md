@@ -1,6 +1,6 @@
 # Controles y Reglas
 
-**Barra Edition → Edit controls…**
+**Barra Edición → Editar controles…**
 
 El editor de controles define la **lógica de operación** de la red: cuándo se abre una válvula, cuándo arranca una bomba, o qué secuencia de acciones desencadena un determinado estado del sistema. EPANET soporta dos niveles de control con distinta complejidad.
 

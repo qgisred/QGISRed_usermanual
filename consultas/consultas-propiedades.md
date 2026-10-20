@@ -1,6 +1,6 @@
 # Consultas por Propiedades
 
-**Barra Queries → Queries by properties…**
+**Barra Consultas → Consultas por propiedades…**
 
 Abre el panel **Queries by Properties**, una herramienta de filtrado que resalta en el mapa todos los elementos que cumplen una o varias condiciones sobre sus atributos. Es la forma más rápida de encontrar, por ejemplo, todas las tuberías con diámetro menor de 80 mm, todos los nudos con presión por debajo de un umbral, o todas las válvulas en estado cerrado.
 
@@ -14,12 +14,12 @@ Abre el panel **Queries by Properties**, una herramienta de filtrado que resalta
 El panel tiene un color identificativo **morado** (`#7B1FA2`) en su cabecera para distinguirlo del resto de paneles de QGISRed. Contiene:
 
 - **Selector de tipo de elemento**: Pipes, Junctions, Tanks, Reservoirs, Pumps, Valves
-- **Modo de criterio**: dos opciones, **One Criterion** (una sola condición activa) y **Multiple Criteria** (lista de condiciones combinables, ver más abajo)
+- **Modo de criterio**: dos opciones, **Un criterio** (una sola condición activa) y **Múltiples criterios** (lista de condiciones combinables, ver más abajo)
 - **Área de condiciones**: una o varias filas con campo, operador y valor
 - **Botón Ejecutar**: aplica la consulta y resalta el resultado
 - **Botón Limpiar**: elimina el resaltado del mapa
 - **Panel de Estadísticas**: selector de propiedad y tabla con los resultados numéricos de la consulta (ver más abajo)
-- **Etiqueta de tiempo**: cuando hay resultados de simulación cargados, muestra el instante activo con el prefijo "Time:" seguido del valor en negrita en formato `HH:MM:SS`. La etiqueta de estadísticas del resultado se muestra igualmente en negrita.
+- **Etiqueta de tiempo**: cuando hay resultados de simulación cargados, muestra el instante activo con el prefijo "Instante:" seguido del valor en negrita en formato `HH:MM:SS`. La etiqueta de estadísticas del resultado se muestra igualmente en negrita.
 
 ---
 
@@ -79,15 +79,15 @@ Campos como `Tag` o `Id`:
 
 ## Modo de criterio único o múltiple
 
-El radio **One Criterion** limita el panel a una sola condición activa a la vez: cambiar el campo, el operador o el valor reemplaza la condición anterior. Es el modo más simple para consultas puntuales.
+El radio **Un criterio** limita el panel a una sola condición activa a la vez: cambiar el campo, el operador o el valor reemplaza la condición anterior. Es el modo más simple para consultas puntuales.
 
-El radio **Multiple Criteria** abre una lista de condiciones independientes que se pueden combinar entre sí:
+El radio **Múltiples criterios** abre una lista de condiciones independientes que se pueden combinar entre sí:
 
-- **Add**: añade la condición configurada arriba a la lista, marcada como condición de **inclusión** (`+`).
-- **Subtract**: añade la condición configurada arriba a la lista, marcada como condición de **exclusión** (`-`).
-- Cada fila de la lista se puede **reordenar** (flechas arriba/abajo), **editar** (doble clic o botón de edición), **eliminar**, o **activar/desactivar** temporalmente sin borrarla (botón "Enable/disable selected criterion") para probar combinaciones sin perder las condiciones ya definidas.
+- **Añadir**: añade la condición configurada arriba a la lista, marcada como condición de **inclusión** (`+`).
+- **Restar**: añade la condición configurada arriba a la lista, marcada como condición de **exclusión** (`-`).
+- Cada fila de la lista se puede **reordenar** (flechas arriba/abajo), **editar** (doble clic o botón de edición), **eliminar**, o **activar/desactivar** temporalmente sin borrarla (botón "Habilitar/deshabilitar el criterio seleccionado") para probar combinaciones sin perder las condiciones ya definidas.
 
-Al pasar de **Multiple Criteria** a **One Criterion** con más de una condición en la lista, QGISRed pide confirmación: solo se conserva la primera, el resto se descarta.
+Al pasar de **Múltiples criterios** a **Un criterio** con más de una condición en la lista, QGISRed pide confirmación: solo se conserva la primera, el resto se descarta.
 
 ### Lógica de combinación
 
@@ -95,9 +95,9 @@ Las condiciones de inclusión (`+`) se combinan entre sí con **OR**: un element
 
 > *(cualquier condición de inclusión)* **AND NOT** *(todas las condiciones de exclusión)*
 
-Por ejemplo, para encontrar todas las tuberías de diámetro ≥ 300 mm que **no** sean de fundición: una condición `Diameter >= 300` marcada con **Add**, y una condición `Material = Cast Iron` marcada con **Subtract**.
+Por ejemplo, para encontrar todas las tuberías de diámetro ≥ 300 mm que **no** sean de fundición: una condición `Diameter >= 300` marcada con **Añadir**, y una condición `Material = Cast Iron` marcada con **Restar**.
 
-En modo **One Criterion** solo hay una condición, así que esta combinación no aplica.
+En modo **Un criterio** solo hay una condición, así que esta combinación no aplica.
 
 ---
 
@@ -117,11 +117,11 @@ Las columnas dependen del tipo de propiedad:
 
 | Propiedad | Columnas |
 |---|---|
-| Campo de texto o lista | **Count** (número de elementos) |
-| Campo numérico | **Count**, **Avg**, **Min**, **Max**, y **Sum** o **StdD** según la propiedad (caudales y demandas muestran la suma; el resto, la desviación típica) |
-| **None** (sin propiedad) | solo **Count** |
+| Campo de texto o lista | **Recuento** (número de elementos) |
+| Campo numérico | **Recuento**, **Promedio**, **Mínimo**, **Máximo**, y **Suma** o **Desv. Típica** según la propiedad (caudales y demandas muestran la suma; el resto, la desviación típica) |
+| **Ninguna** (sin propiedad) | solo **Recuento** |
 
-En modo **One Criterion** la tabla muestra una única fila con el resultado de la condición activa. En modo **Multiple Criteria** con varias condiciones habilitadas, muestra una fila por cada condición (etiquetada `Cr1`, `Cr2`...) y una fila final **All** en amarillo con el resultado combinado (la misma lógica de inclusión/exclusión que el resaltado del mapa) — así se puede comparar cuántos elementos aporta cada condición por separado frente al total combinado.
+En modo **Un criterio** la tabla muestra una única fila con el resultado de la condición activa. En modo **Múltiples criterios** con varias condiciones habilitadas, muestra una fila por cada condición (etiquetada `Cr1`, `Cr2`...) y una fila final **Todos** en amarillo con el resultado combinado (la misma lógica de inclusión/exclusión que el resaltado del mapa) — así se puede comparar cuántos elementos aporta cada condición por separado frente al total combinado.
 
 ## Exportar criterios y estadísticas
 

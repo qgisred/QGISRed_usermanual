@@ -1,6 +1,6 @@
-# 🔧 Tools
+# 🔧 Herramientas
 
-La barra **Tools** agrupa las herramientas de procesamiento masivo: cálculo automático de propiedades hidráulicas, asignación de demandas desde fuentes externas, gestión de escenarios y análisis topológico. A diferencia de las herramientas de Edition, estas actúan sobre el conjunto de la red o sobre grandes selecciones, no elemento a elemento.
+La barra **Herramientas** agrupa las herramientas de procesamiento masivo: cálculo automático de propiedades hidráulicas, asignación de demandas desde fuentes externas, gestión de escenarios y análisis topológico. A diferencia de las herramientas de Edition, estas actúan sobre el conjunto de la red o sobre grandes selecciones, no elemento a elemento.
 
 <figure><img src="../assets/images/tools/toolbar.png" alt="Barra de herramientas Tools de QGISRed"><figcaption><p>Barra de herramientas Tools de QGISRed</p></figcaption></figure>
 *Barra Tools: propiedades hidráulicas, demandas y escenarios, análisis topológico.*
@@ -13,9 +13,9 @@ La barra **Tools** agrupa las herramientas de procesamiento masivo: cálculo aut
 
 | # | Herramienta | Función |
 |---|-------------|---------|
-| 1 | **Automatically calculate pipe lengths** | Recalcula la longitud de cada tubería a partir de su geometría |
+| 1 | **Calcular automáticamente longitudes de tuberías** | Recalcula la longitud de cada tubería a partir de su geometría |
 | 2 | **Interpolate elevation from .asc files…** | Asigna cotas a los nudos interpolando desde un MDT en formato ASC |
-| 3 | **Set roughness coefficients (from Material and Date)** | Calcula la rugosidad actual de cada tubería por envejecimiento |
+| 3 | **Establecer coeficientes de rugosidad (desde Material y Fecha)** | Calcula la rugosidad actual de cada tubería por envejecimiento |
 | 4 | **Convert roughness coefficients…** | Convierte rugosidades entre fórmulas H-W, D-W y C-M |
 
 ### Grupo 2 — Demandas y escenarios

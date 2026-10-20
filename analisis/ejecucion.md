@@ -6,7 +6,7 @@ Las tres primeras acciones de la barra Analysis controlan el ciclo de simulació
 
 ## Analysis options…
 
-**Barra Analysis → Analysis options…**
+**Barra Análisis → Opciones de análisis…**
 
 Abre el diálogo de opciones del motor EPANET. Permite configurar todos los parámetros que controlan cómo se realiza la simulación hidráulica y de calidad.
 
@@ -18,18 +18,18 @@ Abre el diálogo de opciones del motor EPANET. Permite configurar todos los par�
 | Grupo | Parámetros principales |
 |-------|------------------------|
 | **Hydraulics** | Unidades de caudal (LPS, GPM, CMH…), fórmula de pérdida de carga (H-W / D-W / C-M), viscosidad, gravedad específica |
-| **Quality** | Tipo de análisis de calidad (ninguno, cloro, edad del agua, traza de fuente), coeficientes de reacción |
+| **Calidad** | Tipo de análisis de calidad (ninguno, cloro, edad del agua, traza de fuente), coeficientes de reacción |
 | **Times** | Duración total de la simulación, paso de tiempo hidráulico, paso de tiempo de calidad, paso de informe, hora de inicio |
-| **Energy** | Precio de la electricidad, eficiencia global de las bombas |
+| **Energía** | Precio de la electricidad, eficiencia global de las bombas |
 | **General** | Modo PDA (Pressure Dependent Analysis): activa la demanda dependiente de la presión local |
 
 > La Tabla de materiales del proyecto almacena la rugosidad en unidades D-W (mm). Si cambias la fórmula hidráulica aquí, QGISRed te ofrecerá convertir automáticamente los coeficientes de rugosidad existentes.
 
 ---
 
-## Run model
+## Ejecutar modelo
 
-**Barra Analysis → Run model**
+**Barra Análisis → Ejecutar modelo**
 
 Lanza la simulación EPANET con las opciones configuradas y carga los resultados en el panel de resultados.
 
@@ -70,19 +70,19 @@ El diálogo de progreso informa de las distintas fases del cálculo:
 
 ---
 
-## Results browser
+## Explorador de resultados
 
-**Barra Analysis → Results browser**
+**Barra Análisis → Explorador de resultados**
 
 Abre el panel de resultados si ya existe una simulación previa para el proyecto activo, sin volver a simular. Si no hay resultados, lanza la simulación automáticamente.
 
-Equivale a **Run model** pero priorizando los resultados ya calculados: si el archivo `.out` existe y corresponde al proyecto actual, los carga directamente. Útil para reabrir el visor tras cerrarlo sin perder los resultados.
+Equivale a **Ejecutar modelo** pero priorizando los resultados ya calculados: si el archivo `.out` existe y corresponde al proyecto actual, los carga directamente. Útil para reabrir el visor tras cerrarlo sin perder los resultados.
 
 ---
 
-## Status report
+## Informe de estado
 
-**Barra Analysis → Status report**
+**Barra Análisis → Informe de estado**
 
 Abre el panel de resultados directamente en la pestaña **Status Report**, que muestra el informe de texto generado por el motor EPANET al finalizar la simulación.
 

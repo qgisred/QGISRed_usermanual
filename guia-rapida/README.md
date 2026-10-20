@@ -20,13 +20,13 @@ QGISRed incluye **8 barras de herramientas** organizadas por área de trabajo:
 | Barra | Función principal |
 |-------|------------------|
 | **General** | Crear, abrir e importar proyectos |
-| **Project** | Configuración, capas y copia de seguridad |
-| **Edition** | Dibujar y editar la red hidráulica |
-| **Debug** | Verificar la calidad y consistencia del modelo |
-| **Tools** | Herramientas de cálculo y gestión de datos |
-| **Queries** | Consultar, filtrar y visualizar la información |
-| **Analysis** | Simular y explorar resultados |
-| **Digital Twin** | Acometidas, válvulas de corte y sensores |
+| **Proyecto** | Configuración, capas y copia de seguridad |
+| **Edición** | Dibujar y editar la red hidráulica |
+| **Depuración** | Verificar la calidad y consistencia del modelo |
+| **Herramientas** | Herramientas de cálculo y gestión de datos |
+| **Consultas** | Consultar, filtrar y visualizar la información |
+| **Análisis** | Simular y explorar resultados |
+| **Gemelo Digital** | Acometidas, válvulas de corte y sensores |
 
 > 💡 **CONSEJO**: Activa solo las barras que necesites en cada momento para mantener el espacio de trabajo ordenado. El estado de visibilidad de cada barra se guarda automáticamente entre sesiones.
 

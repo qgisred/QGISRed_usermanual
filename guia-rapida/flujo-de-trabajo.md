@@ -14,7 +14,7 @@ Usa la barra **General** para empezar:
 
 ## Paso 2 — Configurar las opciones del proyecto
 
-Desde la barra **Project**, accede a _Opciones del proyecto_ para definir:
+Desde la barra **Proyecto**, accede a _Opciones del proyecto_ para definir:
 - **Unidades de caudal** (LPS, GPM, CMH…)
 - **Fórmula de pérdida de carga** (D-W, H-W, C-M)
 - **Modelo de calidad** (Ninguno, Cloro, Edad, Trazador)
@@ -23,7 +23,7 @@ El indicador en la barra principal (`LPS | D-W`) siempre refleja los valores act
 
 ## Paso 3 — Construir la red
 
-Activa la barra **Edition** y dibuja la red sobre el mapa:
+Activa la barra **Edición** y dibuja la red sobre el mapa:
 
 1. Comienza con las **tuberías** — los nudos extremos se crean solos.
 2. Añade **depósitos y embalses** pulsando sobre nudos existentes.
@@ -34,7 +34,7 @@ Activa la barra **Edition** y dibuja la red sobre el mapa:
 
 ## Paso 4 — Verificar la calidad del modelo
 
-Antes de simular, usa la barra **Debug**:
+Antes de simular, usa la barra **Depuración**:
 
 1. **Consolidar y revisar datos** — detecta atributos incompletos o incoherentes.
 2. **Verificar conectividad** — identifica zonas aisladas sin fuente de presión.
@@ -44,7 +44,7 @@ Corrige los problemas que señale el informe de incidencias antes de continuar.
 
 ## Paso 5 — Preparar los datos de demanda
 
-Desde la barra **Tools**:
+Desde la barra **Herramientas**:
 
 - **Interpolar cotas** si los nudos no tienen cota asignada.
 - **Asignar rugosidades** a partir de material y fecha de instalación.
@@ -52,7 +52,7 @@ Desde la barra **Tools**:
 
 ## Paso 6 — Simular
 
-Desde la barra **Analysis**:
+Desde la barra **Análisis**:
 
 1. _Opciones de análisis_ — revisa la duración y el paso de tiempo.
 2. _Ejecutar modelo_ — la simulación puede tardar desde un segundo hasta varios minutos según el tamaño de la red.

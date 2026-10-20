@@ -6,7 +6,7 @@ La barra Analysis ofrece dos vías de exportación: el modelo completo como arch
 
 ## Export model to INP…
 
-**Barra Analysis → Export model to INP…**
+**Barra Análisis → Exportar modelo a INP…**
 
 Exporta el modelo completo al formato estándar **INP** de EPANET. Útil para compartir el modelo con otros usuarios, ejecutarlo en la interfaz gráfica de EPANET o integrarlo con herramientas de terceros.
 
@@ -31,7 +31,7 @@ Pulsa **Export to INP** para generar el archivo con la configuración elegida.
 
 ## Export results to CSV…
 
-**Barra Analysis → Export results to CSV…**
+**Barra Análisis → Exportar resultados a CSV…**
 
 Exporta los resultados de la última simulación a dos archivos CSV: uno para nudos y otro para tuberías. Es el método estándar para llevar los resultados a Excel, Python, R u otras herramientas de análisis externo.
 

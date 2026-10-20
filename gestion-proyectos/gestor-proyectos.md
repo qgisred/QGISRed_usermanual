@@ -44,10 +44,10 @@ Crea una copia completa del proyecto bajo un nombre diferente. Útil para crear 
 
 ### Exportar
 
-Empaqueta el proyecto seleccionado en un ZIP portable (SHP/DBF, `.qgz` y, opcionalmente, resultados, incidencias, consultas, capas auxiliares y datos complementarios). Es la única forma de exportar un proyecto: ya no existe un botón equivalente en la barra **Project**.
+Empaqueta el proyecto seleccionado en un ZIP portable (SHP/DBF, `.qgz` y, opcionalmente, resultados, incidencias, consultas, capas auxiliares y datos complementarios). Es la única forma de exportar un proyecto: ya no existe un botón equivalente en la barra **Proyecto**.
 
 1. Selecciona el proyecto en la lista (no hace falta tenerlo abierto en QGIS).
-2. Pulsa **Export**.
+2. Pulsa **Exportar**.
 3. Completa el diálogo de exportación.
 
 Ver el detalle completo del diálogo, qué se incluye y qué no, en [Guardar, exportar y cerrar proyecto](../proyecto-activo/guardar-backup.md#exportar-el-proyecto).
@@ -58,7 +58,7 @@ Cambia el nombre de la red y actualiza automáticamente el nombre de **todos los
 
 1. Selecciona el proyecto.
 2. Pulsa **Renombrar**.
-3. El diálogo ofrece tres casillas independientes: **Rename project data** (renombra los ficheros de datos de la red) y **Rename project map file** (renombra también el proyecto `.qgz`/`.qgs` de QGIS, si existe) — ambas marcadas por defecto — y **Rename project folder:** (renombra también la carpeta que contiene el proyecto), desmarcada por defecto. Debe quedar al menos una marcada.
+3. El diálogo ofrece tres casillas independientes: **Rename project data** (renombra los ficheros de datos de la red) y **Rename project map file** (renombra también el proyecto `.qgz`/`.qgs` de QGIS, si existe) — ambas marcadas por defecto — y **Renombrar carpeta del proyecto:** (renombra también la carpeta que contiene el proyecto), desmarcada por defecto. Debe quedar al menos una marcada.
 4. Introduce el nuevo nombre en el campo correspondiente a cada casilla activa. El campo de la carpeta sugiere automáticamente el mismo nombre que el proyecto mientras no se edite a mano.
 
 > 📝 **Rename project folder** se deshabilita, con el aviso _"Another project in this folder is currently open in QGIS"_, si la carpeta contiene otro proyecto distinto del que estás renombrando y ese otro proyecto está actualmente abierto en QGIS — para no mover ni borrar archivos sobre los que QGIS mantiene un bloqueo. El resto de proyectos que compartan la carpeta siguen apareciendo en la lista con normalidad tras el renombrado.
@@ -87,6 +87,6 @@ Cuando abres QGIS con un proyecto `.qgz` ya guardado, QGISRed reconoce automáti
 
 Si la capa de tuberías está cargada pero no tiene ese identificador (por ejemplo, porque se añadió manualmente sin pasar por QGISRed), el plugin avisará con el mensaje:
 
-> _"Please, open the project from the QGISRed Project Manager"_
+> _"Por favor, abre el proyecto desde el Gestor de Proyectos de QGISRed"_
 
 En ese caso, cierra las capas y usa el Gestor de proyectos para abrir el proyecto correctamente.

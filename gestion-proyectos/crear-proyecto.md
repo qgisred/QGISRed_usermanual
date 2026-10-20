@@ -64,12 +64,12 @@ Al confirmar la creación, QGISRed genera los siguientes archivos en la carpeta 
 | `{Red}_Options.dbf` | Opciones de EPANET (unidades, fórmula, calidad…) |
 | `{Red}_Title.dbf` | Metadatos del proyecto (nombre del escenario, notas…) |
 
-Todos se agrupan en la leyenda de QGIS bajo un grupo llamado **"{Red}" → "Inputs"**.
+Todos se agrupan en la leyenda de QGIS bajo un grupo llamado **"{Red}" → "Datos"**.
 
 ---
 
 ## Qué hacer a continuación
 
-Una vez creado el proyecto, el siguiente paso es **construir la red** usando la barra de **Edition**. Consulta la sección [Edición y Modelado](../edicion/README.md) para ver cómo añadir tuberías, nudos y elementos especiales.
+Una vez creado el proyecto, el siguiente paso es **construir la red** usando la barra de **Edición**. Consulta la sección [Edición y Modelado](../edicion/README.md) para ver cómo añadir tuberías, nudos y elementos especiales.
 
 > 💡 Si ya tienes un archivo `.inp` de EPANET, es más rápido usar [Importar proyecto](abrir-importar.md#importar-desde-epanet) que crear desde cero.

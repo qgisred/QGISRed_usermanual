@@ -1,6 +1,6 @@
 # Patrones y Curvas
 
-**Barra Edition → Edit patterns and curves…**
+**Barra Edición → Editar patrones y curvas…**
 
 El editor de patrones y curvas centraliza la gestión de los datos temporales y funcionales que controlan el comportamiento dinámico del modelo: cómo varía la demanda a lo largo del día, cómo se comporta una bomba según su caudal, o cuál es el volumen de un depósito irregular.
 
@@ -67,7 +67,7 @@ Relaciona el **Nivel** del depósito (m o ft, eje X) con el **Volumen** almacena
 
 ### Curva de pérdida de carga GPV (Head loss curve)
 
-Para válvulas de tipo **GPV** (General Purpose Valve), relaciona la **Pérdida de carga** (m o ft) con el **Caudal** (Flow). Permite modelar cualquier dispositivo de control hidráulico para el que se conozca la curva característica.
+Para válvulas de tipo **VPG** (General Purpose Valve), relaciona la **Pérdida de carga** (m o ft) con el **Caudal** (Flow). Permite modelar cualquier dispositivo de control hidráulico para el que se conozca la curva característica.
 
 ---
 

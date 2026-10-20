@@ -4,9 +4,9 @@ Las cuatro primeras herramientas de la barra Tools calculan o actualizan propied
 
 ---
 
-## Automatically calculate pipe lengths
+## Calcular automáticamente longitudes de tuberías
 
-**Barra Tools → Automatically calculate pipe lengths**
+**Barra Herramientas → Calcular automáticamente longitudes de tuberías**
 
 Recalcula el campo `Length` de cada tubería utilizando la longitud geométrica real medida sobre los vértices del SHP en las unidades del CRS del proyecto.
 
@@ -14,7 +14,7 @@ Recalcula el campo `Length` de cada tubería utilizando la longitud geométrica 
 
 - Tras mover vértices o nudos con las herramientas de Edition sin haber actualizado el atributo.
 - Después de importar desde un `.inp` cuyas longitudes difieren de la geometría real (coordenadas en escala distinta o proyección diferente).
-- Como paso previo a **Check pipe lengths** (Barra Debug) para dejar todos los valores sincronizados antes de la auditoría.
+- Como paso previo a **Comprobar longitudes de tuberías** (Barra Debug) para dejar todos los valores sincronizados antes de la auditoría.
 
 La herramienta sobreescribe el valor de `Length` incondicionalmente en todas las tuberías del ámbito de selección. No pregunta confirmación ni filtra por tolerancia.
 
@@ -24,7 +24,7 @@ La herramienta sobreescribe el valor de `Length` incondicionalmente en todas las
 
 ## Interpolate elevation from .asc files…
 
-**Barra Tools → Interpolate elevation from .asc files…**
+**Barra Herramientas → Interpolar cotas desde archivos .asc**
 
 Asigna la cota (campo `Elevation`) a los nudos, depósitos y embalses del proyecto interpolando su valor desde uno o varios Modelos Digitales del Terreno (MDT) en formato ASC.
 
@@ -61,9 +61,9 @@ nodata_value  -9999
 
 ---
 
-## Set roughness coefficients (from Material and Date)
+## Establecer coeficientes de rugosidad (desde Material y Fecha)
 
-**Barra Tools → Set roughness coefficients (from Material and Date)**
+**Barra Herramientas → Establecer coeficientes de rugosidad (desde Material y Fecha)**
 
 Calcula y asigna el coeficiente de rugosidad actual de cada tubería en función de su material, su año de instalación y los parámetros de la **Tabla de materiales** del proyecto.
 
@@ -78,8 +78,8 @@ Donde `Rugosidad_inicial` e `Incremento_anual` se obtienen de la fila de la Tabl
 ### Requisitos previos
 
 Antes de usar esta herramienta, verifica con la Barra Debug que:
-1. Todas las tuberías tienen un `Material` válido (**Check pipe materials**).
-2. Todas las tuberías tienen un `InstallYear` correcto (**Check pipe installation dates**).
+1. Todas las tuberías tienen un `Material` válido (**Comprobar materiales de tuberías**).
+2. Todas las tuberías tienen un `InstallYear` correcto (**Comprobar fechas de instalación de tuberías**).
 
 Si alguno de estos campos está vacío o es inválido para una tubería, su rugosidad no se actualiza y se registra como incidencia.
 
@@ -97,7 +97,7 @@ La rugosidad se escribe en las unidades de la fórmula activa del proyecto:
 
 ## Convert roughness coefficients…
 
-**Barra Tools → Convert roughness coefficients…**
+**Barra Herramientas → Convertir coeficientes de rugosidad**
 
 Convierte los valores del campo `Roughness` de todas las tuberías entre las tres fórmulas de pérdida de carga. Es necesaria cuando cambias la fórmula hidráulica del proyecto y quieres que los valores existentes mantengan su significado físico.
 

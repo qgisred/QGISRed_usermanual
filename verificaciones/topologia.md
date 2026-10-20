@@ -4,9 +4,9 @@ Las herramientas del primer grupo de la barra Debug detectan y corrigen los erro
 
 ---
 
-## Check && commit data
+## Comprobar y confirmar datos
 
-**Barra Debug → Check && commit data**
+**Barra Depuración → Comprobar y confirmar datos**
 
 Es la herramienta de validación principal. Recorre todos los elementos del proyecto, comprueba la coherencia de los datos (cotas, diámetros, IDs duplicados, referencias a curvas y patrones inexistentes, etc.) y **consolida los cambios pendientes**.
 
@@ -20,16 +20,16 @@ Es la herramienta de validación principal. Recorre todos los elementos del proy
 
 ### Resultado
 
-- Si todo es válido: mensaje _"Input data is valid"_ en verde.
+- Si todo es válido: mensaje _"Los datos de entrada son válidos"_ en verde.
 - Si hay errores: lista de problemas con el ID y tipo de elemento afectado. Los elementos con error se seleccionan automáticamente en el mapa para facilitar su localización.
 
-> Ejecuta **Check && commit data** siempre que hayas editado la tabla de atributos manualmente (fuera del diálogo de propiedades), ya que esos cambios no pasan por la validación automática del plugin.
+> Ejecuta **Comprobar y confirmar datos** siempre que hayas editado la tabla de atributos manualmente (fuera del diálogo de propiedades), ya que esos cambios no pasan por la validación automática del plugin.
 
 ---
 
-## Remove overlapping elements
+## Eliminar elementos superpuestos
 
-**Barra Debug → Remove overlapping elements**
+**Barra Depuración → Eliminar elementos superpuestos**
 
 Detecta elementos que comparten exactamente la misma posición geográfica: nudos sobre nudos, tuberías sobre tuberías o nudos sobre el extremo de otra capa.
 
@@ -47,9 +47,9 @@ La herramienta opera sobre la selección actual o sobre toda la red si no hay se
 
 ---
 
-## Simplify link vertices
+## Simplificar vértices de líneas
 
-**Barra Debug → Simplify link vertices**
+**Barra Depuración → Simplificar vértices de líneas**
 
 Elimina los vértices intermedios que están alineados (dentro de un umbral de tolerancia angular) con los segmentos adyacentes. Estos vértices no aportan información geométrica pero aumentan el tamaño del SHP y ralentizan el renderizado.
 
@@ -66,7 +66,7 @@ Los vértices en puntos de quiebre real (cambio de dirección) no se eliminan. S
 
 ## Join consecutive pipes
 
-**Barra Debug → Join consecutive pipes (= diameter, material and year)**
+**Barra Depuración → Unir tuberías consecutivas (= diámetro, material y año)**
 
 Fusiona tuberías adyacentes cuando comparten **los tres atributos**: diámetro, material y año de instalación. El nudo intermedio se elimina si no tiene demanda ni está conectado a otras capas.
 
@@ -81,9 +81,9 @@ Tuberías que antes estaban fragmentadas (por importación desde GIS, por divisi
 
 ---
 
-## Create T connections
+## Crear conexiones en T
 
-**Barra Debug → Create T connections**
+**Barra Depuración → Crear conexiones en T**
 
 Detecta automáticamente situaciones donde el extremo de una tubería (o un nudo de demanda) cae sobre el trazado de otra tubería, sin estar conectado a ella. En esos casos, el plugin divide la tubería y crea el nudo de unión.
 
@@ -93,13 +93,13 @@ Al digitalizar redes a mano, es frecuente que una derivación quede "flotando" s
 
 ### Tolerancia
 
-Usa la tolerancia de nudo configurada en **Barra Project → Valores por defecto**. Si el extremo de la tubería está a menos de esa distancia del eje de otra tubería, se considera una T a resolver.
+Usa la tolerancia de nudo configurada en **Barra Proyecto → Valores por defecto**. Si el extremo de la tubería está a menos de esa distancia del eje de otra tubería, se considera una T a resolver.
 
 ---
 
-## Check connectivity
+## Comprobar conectividad
 
-**Barra Debug → Check connectivity** *(con sub-opción Delete isolated subzones)*
+**Barra Depuración → Comprobar conectividad** *(con sub-opción Delete isolated subzones)*
 
 Analiza la conectividad de toda la red desde las fuentes de suministro (Reservoirs y Tanks). Identifica qué tuberías y nudos **no están conectados** a ninguna fuente.
 
@@ -116,4 +116,4 @@ Abre un diálogo que pide el **número máximo de tuberías** de una subzona par
 
 Este umbral es útil para limpiar "basura" topológica — fragmentos de 1-3 tuberías que quedaron sueltos tras una importación.
 
-> Ejecuta siempre **Remove overlapping elements** antes de **Check connectivity** para evitar que nudos duplicados generen falsos aislamientos.
+> Ejecuta siempre **Eliminar elementos superpuestos** antes de **Comprobar conectividad** para evitar que nudos duplicados generen falsos aislamientos.

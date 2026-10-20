@@ -8,9 +8,9 @@ Una vez completada la simulación, QGISRed ofrece dos herramientas complementari
 
 El Results dock se ancla en la zona derecha de la pantalla. Contiene **tres pestañas**:
 
-- **Results**: visualización interactiva sobre el mapa con selección de variable, navegación temporal y opciones de mapa.
-- **Report**: informe de texto del motor EPANET.
-- **Appearance**: configuración completa del aspecto visual de los resultados en el mapa.
+- **Resultados**: visualización interactiva sobre el mapa con selección de variable, navegación temporal y opciones de mapa.
+- **Informe**: informe de texto del motor EPANET.
+- **Apariencia**: configuración completa del aspecto visual de los resultados en el mapa.
 
 <figure><img src="../assets/images/analysis/results-dock.png" alt="Panel de resultados con selector de variable y barra de tiempo"><figcaption><p>Panel de resultados con selector de variable y barra de tiempo</p></figcaption></figure>
 *Results dock: selección de variable, modo de estadística y navegación por instantes de tiempo.*
@@ -34,9 +34,9 @@ Cuando está activo un modo de estadística (Maximum, Minimum…), el área de t
 | **Combo de instantes** (`cbTimes`) | Lista desplegable con todos los instantes disponibles. |
 | **Botones de avance/retroceso** | Siguiente, anterior, inicio, fin. |
 | **Play / Play backward** | Animación automática hacia adelante o atrás. |
-| **Slider de velocidad** | Controla la velocidad relativa de la animación (1–10). Se oculta cuando **Constant playback rate** está activo. |
-| **Constant playback rate** | Botón conmutable junto al slider de velocidad. Al activarlo, el slider se sustituye por el campo **"1h in: N sec"**: N son los segundos reales que tarda en reproducirse una hora de tiempo simulado (1–3600), de modo que la velocidad de reproducción es constante respecto al tiempo simulado incluso si el paso entre instantes no es uniforme. Al desactivarlo, vuelve a usarse el slider de velocidad relativa. El estado y el valor se guardan en el proyecto. |
-| **Loop** | Repite la animación en bucle. |
+| **Slider de velocidad** | Controla la velocidad relativa de la animación (1–10). Se oculta cuando **Velocidad de reproducción constante** está activo. |
+| **Velocidad de reproducción constante** | Botón conmutable junto al slider de velocidad. Al activarlo, el slider se sustituye por el campo **"1h in: N sec"**: N son los segundos reales que tarda en reproducirse una hora de tiempo simulado (1–3600), de modo que la velocidad de reproducción es constante respecto al tiempo simulado incluso si el paso entre instantes no es uniforme. Al desactivarlo, vuelve a usarse el slider de velocidad relativa. El estado y el valor se guardan en el proyecto. |
+| **Bucle** | Repite la animación en bucle. |
 
 > 💡 Al cambiar de instante de tiempo, activar o desactivar un modo de estadística, modificar los decimales en la pestaña Appearance, o cargar todos los resultados de golpe, QGISRed relee y reformatea los valores. Si la operación tarda (redes grandes con muchos elementos), aparece un aviso superpuesto y centrado sobre el mapa: **"Reading results… NN%"**. En operaciones rápidas no llega a mostrarse, para evitar parpadeos.
 
@@ -46,41 +46,41 @@ Dos combos situados bajo los controles de tiempo:
 
 | Combo | Descripción |
 |-------|-------------|
-| **Reported Times** (`cbResultTimes`) | Filtra qué instantes se muestran: Single Period, Step times o All calculation times. |
-| **Statistics** (`cbStatistics`) | Aplica una estadística sobre todos los períodos: Maximum, Minimum, Range, Average, StdDev, Warning. Cuando está activo, el reloj se sustituye por el nombre de la estadística. |
+| **Instantes Reportados** (`cbResultTimes`) | Filtra qué instantes se muestran: Single Period, Step times o All calculation times. |
+| **Estadísticas** (`cbStatistics`) | Aplica una estadística sobre todos los períodos: Maximum, Minimum, Range, Average, StdDev, Warning. Cuando está activo, el reloj se sustituye por el nombre de la estadística. |
 
-> 💡 En los modos **Maximum** y **Minimum**, las etiquetas del mapa muestran el valor junto con el instante de ocurrencia en el formato `valor (@ HH:MM:SS)`. Al situar el cursor sobre un elemento del mapa, el tooltip incluye una línea adicional `@ HH:MM:SS` con el instante exacto en que se produjo ese máximo o mínimo.
+> 💡 En los modos **Máximo** y **Mínimo**, las etiquetas del mapa muestran el valor junto con el instante de ocurrencia en el formato `valor (@ HH:MM:SS)`. Al situar el cursor sobre un elemento del mapa, el tooltip incluye una línea adicional `@ HH:MM:SS` con el instante exacto en que se produjo ese máximo o mínimo.
 
-> 💡 Con cualquier modo de estadística activo, el tooltip antepone al valor la abreviatura de la estadística mostrada: **Max**, **Min**, **Avg** (Average), **Rng** (Range) o **Std** (StdDev). Por ejemplo, `Max 45.2` en lugar de simplemente `45.2`.
+> 💡 Con cualquier modo de estadística activo, el tooltip antepone al valor la abreviatura de la estadística mostrada: **Máximo**, **Mínimo**, **Promedio** (Average), **Rango** (Range) o **Desv. estándar** (StdDev). Por ejemplo, `Max 45.2` en lugar de simplemente `45.2`.
 
 #### Grupo Mapping — Nodes
 
 | Control | Descripción |
 |---------|-------------|
 | **Combo Nodes** (`cbNodes`) | Propiedad a visualizar en nudos: Pressure, Head, Demand, Quality. |
-| **Show Node Labels** | Muestra etiquetas con el Id y el valor sobre cada nudo en el mapa. |
-| **Show Node Histogram** | Abre un histograma integrado en el dock con la distribución del valor actual en nudos. |
-| **Show Node Evolution** | Abre un mini-gráfico integrado con la evolución temporal del nudo seleccionado en el mapa. |
+| **Mostrar Etiquetas de Nudos** | Muestra etiquetas con el Id y el valor sobre cada nudo en el mapa. |
+| **Mostrar histograma de nudos** | Abre un histograma integrado en el dock con la distribución del valor actual en nudos. |
+| **Mostrar evolución de nudos** | Abre un mini-gráfico integrado con la evolución temporal del nudo seleccionado en el mapa. |
 
-> 💡 Cuando se selecciona una variable en el combo **Nodes**, aparece junto al encabezado del grupo una etiqueta con el nombre de la variable en negrita y su unidad entre paréntesis (por ejemplo, **Presión** (m)).
+> 💡 Cuando se selecciona una variable en el combo **Nudos**, aparece junto al encabezado del grupo una etiqueta con el nombre de la variable en negrita y su unidad entre paréntesis (por ejemplo, **Presión** (m)).
 
 #### Grupo Mapping — Links
 
 | Control | Descripción |
 |---------|-------------|
 | **Combo Links** (`cbLinks`) | Propiedad a visualizar en tuberías/válvulas/bombas: Flow, Velocity, HeadLoss, UnitHdLoss, FricFactor, Status, ReactRate, Quality. |
-| **Show Link Labels** | Muestra etiquetas con el Id y el valor sobre cada tubería. |
-| **Show Flow Directions** | Añade flechas de sentido de flujo sobre las tuberías. |
-| **Show Link Histogram** | Histograma integrado en el dock con la distribución del valor actual en tuberías. |
-| **Show Link Evolution** | Mini-gráfico integrado con la evolución temporal de la tubería seleccionada en el mapa. |
+| **Mostrar Etiquetas de Líneas** | Muestra etiquetas con el Id y el valor sobre cada tubería. |
+| **Mostrar Direcciones de Flujo** | Añade flechas de sentido de flujo sobre las tuberías. |
+| **Mostrar histograma de líneas** | Histograma integrado en el dock con la distribución del valor actual en tuberías. |
+| **Mostrar evolución de líneas** | Mini-gráfico integrado con la evolución temporal de la tubería seleccionada en el mapa. |
 
-> 💡 Del mismo modo, cuando se selecciona una variable en el combo **Links**, aparece junto al encabezado del grupo una etiqueta con el nombre de la variable en negrita y su unidad entre paréntesis (por ejemplo, **Velocidad** (m/s)).
+> 💡 Del mismo modo, cuando se selecciona una variable en el combo **Líneas**, aparece junto al encabezado del grupo una etiqueta con el nombre de la variable en negrita y su unidad entre paréntesis (por ejemplo, **Velocidad** (m/s)).
 
-> ⚠️ Cuando la variable de **Links** es **Status**, las etiquetas de texto se simplifican: los ~13 estados internos que puede devolver EPANET se agrupan en solo dos textos, **"Closed"** (incluye "Temp Closed") y **"Active"** (incluye "Active (Rev Pump)"). Los enlaces con cualquier estado **"Open*"** no muestran ninguna etiqueta, para no saturar el mapa con la mayoría de las tuberías (que suelen estar abiertas). No es un error si, con Status activo, la mayor parte de las tuberías aparecen sin etiqueta.
+> ⚠️ Cuando la variable de **Líneas** es **Estado**, las etiquetas de texto se simplifican: los ~13 estados internos que puede devolver EPANET se agrupan en solo dos textos, **"Cerrada"** (incluye "Temp Closed") y **"Activa"** (incluye "Active (Rev Pump)"). Los enlaces con cualquier estado **"Open*"** no muestran ninguna etiqueta, para no saturar el mapa con la mayoría de las tuberías (que suelen estar abiertas). No es un error si, con Status activo, la mayor parte de las tuberías aparecen sin etiqueta.
 
-> El botón **Appearance** (icono en la cabecera del grupo Nodes) lleva directamente a la pestaña Appearance sin necesidad de navegar por las pestañas.
+> El botón **Apariencia** (icono en la cabecera del grupo Nodes) lleva directamente a la pestaña Appearance sin necesidad de navegar por las pestañas.
 
-> 💡 Cuando el combo **Nodes** o **Links** está en «None», la capa correspondiente no desaparece del mapa: se muestra con un símbolo gris uniforme y sin leyenda, para que la red siga visible como referencia mientras no hay ninguna variable de resultado activa en ese tipo de elemento.
+> 💡 Cuando el combo **Nudos** o **Líneas** está en «None», la capa correspondiente no desaparece del mapa: se muestra con un símbolo gris uniforme y sin leyenda, para que la red siga visible como referencia mientras no hay ninguna variable de resultado activa en ese tipo de elemento.
 
 > 💡 En el panel de capas de QGIS, cada capa de resultados abierta muestra el nombre de la propiedad representada junto con su unidad (por ejemplo, **Presiones (m)**), y cada clase de su leyenda indica entre paréntesis el número de elementos que contiene — igual que ya hacen las capas de entrada.
 
@@ -107,38 +107,38 @@ Concentra todas las opciones de presentación visual de los resultados en el map
 
 > 💡 Cada control numérico de la pestaña Appearance dispone de un pequeño botón ↺ individual que restaura únicamente ese campo a su valor por defecto, sin afectar al resto de ajustes.
 
-> ⚠️ Los controles del grupo **Nodes** se deshabilitan automáticamente cuando el combo Nodes está en «None», y lo mismo ocurre para **Links**. Además, el control **Decimals** queda deshabilitado cuando la variable activa es **Status** (variable categórica sin decimales aplicables).
+> ⚠️ Los controles del grupo **Nudos** se deshabilitan automáticamente cuando el combo Nodes está en «None», y lo mismo ocurre para **Líneas**. Además, el control **Decimals** queda deshabilitado cuando la variable activa es **Estado** (variable categórica sin decimales aplicables).
 
-#### Map Labels
+#### Etiquetas de Mapa
 
 | Opción | Descripción |
 |--------|-------------|
 | **Font size (pt)** | Tamaño de la fuente de las etiquetas en el mapa (6–24 pt, por defecto 8). |
 | **Nodes / Links decimals** | Número de decimales mostrados en las etiquetas de nudos y tuberías respectivamente (0–6). El control se etiqueta con el nombre de la variable activa en ese momento. |
-| **Text color** | Color por defecto: nudos **#333333** (gris oscuro), tuberías **#0A143C** (azul marino). **Black**: texto negro siempre. **By range**: el color del texto sigue la paleta del rango de valores activo. Cuando **Show Node ID** o **Show Link ID** está activo, la línea del Id usa el color del propio elemento y la línea del valor usa el color del símbolo o rango. |
-| **Background** | Color de fondo detrás de las etiquetas del mapa. Incluye un selector de color y un botón de borrado para eliminar el fondo. Junto al selector hay un icono de **candado**: abierto (por defecto), el fondo de las etiquetas es independiente del fondo del mapa; al cerrarlo, el selector y el botón de borrado se deshabilitan y el fondo de las etiquetas queda vinculado al color de **Map Background** (ver más abajo), de modo que cambiar ese color también cambia automáticamente el fondo de las etiquetas. |
+| **Text color** | Color por defecto: nudos **#333333** (gris oscuro), tuberías **#0A143C** (azul marino). **Negro**: texto negro siempre. **Por rango**: el color del texto sigue la paleta del rango de valores activo. Cuando **Mostrar ID de nudos** o **Mostrar ID de líneas** está activo, la línea del Id usa el color del propio elemento y la línea del valor usa el color del símbolo o rango. |
+| **Background** | Color de fondo detrás de las etiquetas del mapa. Incluye un selector de color y un botón de borrado para eliminar el fondo. Junto al selector hay un icono de **candado**: abierto (por defecto), el fondo de las etiquetas es independiente del fondo del mapa; al cerrarlo, el selector y el botón de borrado se deshabilitan y el fondo de las etiquetas queda vinculado al color de **Fondo del mapa** (ver más abajo), de modo que cambiar ese color también cambia automáticamente el fondo de las etiquetas. |
 | **Buffer** | Color de contorno (halo) alrededor del texto de las etiquetas, con su propio selector de color y botón de borrado. Es independiente del Background y nunca se vincula al Map Background. Sin color asignado (por defecto) no se dibuja ningún halo. |
-| **Show Node ID** / **Show Link ID** | Dos casillas independientes: añaden el Id del nudo o de la tubería, respectivamente, en la primera línea de su etiqueta. |
+| **Mostrar ID de nudos** / **Mostrar ID de líneas** | Dos casillas independientes: añaden el Id del nudo o de la tubería, respectivamente, en la primera línea de su etiqueta. |
 
-#### Symbology
+#### Simbología
 
 <figure><img src="../assets/images/analysis/results-appearance-symbology.png" alt="Pestaña Appearance con Proportional to value y las etiquetas de Id activadas, red coloreada por resultados en el mapa"><figcaption><p>Pestaña Appearance con Proportional to value y las etiquetas de Id activadas, red coloreada por resultados en el mapa</p></figcaption></figure>
 
 | Opción | Descripción |
 |--------|-------------|
-| **Hide border on junctions** | Oculta el borde/contorno de los marcadores de nudos (junctions). Activar esta opción elimina el contorno que rodea el símbolo del nudo. |
-| **Proportional to value** | Escala el tamaño de los nudos y el grosor de las tuberías linealmente con el valor representado. No aplica al campo Status. |
+| **Ocultar borde en uniones** | Oculta el borde/contorno de los marcadores de nudos (junctions). Activar esta opción elimina el contorno que rodea el símbolo del nudo. |
+| **Proporcional al valor** | Escala el tamaño de los nudos y el grosor de las tuberías linealmente con el valor representado. No aplica al campo Status. |
 | **Nodes factor** | Factor de escala base del tamaño de los marcadores de nudo (0.25–4.0, por defecto 1.0). |
 | **Links factor** | Factor de escala base del grosor de las tuberías (0.25–4.0, por defecto 1.0). |
 | **Arrows factor** | Factor de escala de las flechas de dirección de flujo (0.25–4.0, por defecto 1.0). |
 
-#### Map Background
+#### Fondo del mapa
 
 Permite fijar un color de fondo sólido para el lienzo del mapa mientras se visualizan resultados. El color se restaura al original al cerrarse el dock. El botón **×** elimina el color de fondo.
 
 > 💡 El contorno de los símbolos de depósitos y embalses se recalcula automáticamente para seguir siendo visible sobre el color de fondo elegido.
 
-#### Reset all
+#### Resetar todo
 
 Devuelve todos los parámetros de la pestaña Appearance a sus valores por defecto.
 
@@ -174,13 +174,13 @@ El dock soporta múltiples escenarios de resultado. Cada escenario se identifica
 | `ReactRate` | Tasa de reacción (modelos de calidad) |
 | `Quality` | Calidad del agua |
 
-> 💡 Las etiquetas del mapa para la variable **Flow** muestran siempre el valor absoluto (sin signo negativo), incluso en los modos de estadística Máximo y Mínimo. El sentido del flujo se indica mediante las flechas de dirección, no mediante el signo del valor.
+> 💡 Las etiquetas del mapa para la variable **Caudal** muestran siempre el valor absoluto (sin signo negativo), incluso en los modos de estadística Máximo y Mínimo. El sentido del flujo se indica mediante las flechas de dirección, no mediante el signo del valor.
 
 ---
 
 ## Series temporales (Time series…)
 
-**Barra Analysis → Time series…**
+**Barra Análisis → Curvas de evolución**
 
 Activa una herramienta de selección interactiva que dibuja la evolución temporal de cualquier propiedad de resultado para uno o varios elementos de la red.
 
@@ -189,7 +189,7 @@ Activa una herramienta de selección interactiva que dibuja la evolución tempor
 
 ### Proceso
 
-1. Activa **Time series** (botón checkable). El panel Time series se abre en la zona inferior de la pantalla.
+1. Activa **Curvas de evolución** (botón checkable). El panel Time series se abre en la zona inferior de la pantalla.
 2. Haz clic sobre cualquier elemento del mapa (nudo, tubería, válvula, bomba, depósito, embalse).
 3. El panel dibuja la curva temporal de la propiedad activa en el Results dock para ese elemento.
 4. El elemento queda resaltado en azul en el mapa.
@@ -207,11 +207,11 @@ Activa una herramienta de selección interactiva que dibuja la evolución tempor
 
 ### Propiedades adicionales para depósitos
 
-Para el tipo de elemento **Tank** (depósito), están disponibles dos magnitudes adicionales:
+Para el tipo de elemento **Depósito** (depósito), están disponibles dos magnitudes adicionales:
 
 | Magnitud | Descripción |
 |----------|-------------|
-| **Volume** | Volumen almacenado en m³ (o ft³ según las unidades del proyecto), calculado a partir de los binarios de resultado EPANET. |
+| **Volumen** | Volumen almacenado en m³ (o ft³ según las unidades del proyecto), calculado a partir de los binarios de resultado EPANET. |
 | **TankSpill** | Caudal de desbordamiento. Solo es distinto de cero si el depósito tiene activada la opción de overflow en EPANET. |
 
 ### Variables globales de red
@@ -250,11 +250,11 @@ La función de copiar genera **dos filas de cabecera**: la primera con el nombre
 
 ### Exportar e importar configuración del gráfico
 
-Los botones **Export chart configuration** e **Import chart configuration** guardan y recuperan la configuración completa de curvas, ejes y estilos en un archivo `.cfg`. También es posible exportar la configuración de la plantilla general (ejes, estilos) aunque no haya curvas cargadas, y aplicarla al importarla sobre un gráfico nuevo.
+Los botones **Exportar configuración de la gráfica** e **Importar configuración de la gráfica** guardan y recuperan la configuración completa de curvas, ejes y estilos en un archivo `.cfg`. También es posible exportar la configuración de la plantilla general (ejes, estilos) aunque no haya curvas cargadas, y aplicarla al importarla sobre un gráfico nuevo.
 
 ### Múltiples ventanas de gráfico
 
-El botón **New chart window** abre una nueva ventana de Series Temporales independiente. Cada ventana tiene su propio contexto de curvas, propiedad y elementos seleccionados. Puedes mantener varias ventanas abiertas simultáneamente para comparar distintas variables o zonas de la red.
+El botón **Nueva ventana de gráfica** abre una nueva ventana de Series Temporales independiente. Cada ventana tiene su propio contexto de curvas, propiedad y elementos seleccionados. Puedes mantener varias ventanas abiertas simultáneamente para comparar distintas variables o zonas de la red.
 
 ### Sincronización del formato horario
 
@@ -262,4 +262,4 @@ La columna "Hora del día" en la tabla de valores utiliza automáticamente el mi
 
 ### Cierre
 
-Al desactivar el botón **Time series** o cerrar el panel, el resaltado desaparece y el cursor vuelve al modo de navegación estándar.
+Al desactivar el botón **Curvas de evolución** o cerrar el panel, el resaltado desaparece y el cursor vuelve al modo de navegación estándar.

@@ -6,7 +6,7 @@ Las cinco primeras herramientas de la barra Edition permiten añadir elementos a
 
 ## Añadir tubería (Add pipe)
 
-**Barra Edition → Add pipe**
+**Barra Edición → Añadir tubería**
 
 Modo de dibujo lineal: cada clic añade un vértice a la tubería. La herramienta permanece activa hasta que termines el trazado.
 
@@ -30,13 +30,13 @@ Modo de dibujo lineal: cada clic añade un vértice a la tubería. La herramient
 
 Si el punto inicial o final cae dentro de la tolerancia de un nudo, válvula, bomba, depósito o embalse existente, la nueva tubería **se conecta a ese elemento** en lugar de crear un nudo nuevo.
 
-> El ajuste al nudo más cercano usa la tolerancia configurada en **Barra Project → Valores por defecto → Tolerancia de nudo**. Puedes revisar o cambiarla antes de dibujar redes densas.
+> El ajuste al nudo más cercano usa la tolerancia configurada en **Barra Proyecto → Valores por defecto → Tolerancia de nudo**. Puedes revisar o cambiarla antes de dibujar redes densas.
 
 ---
 
 ## Añadir depósito (Add tank)
 
-**Barra Edition → Add tank**
+**Barra Edición → Añadir depósito**
 
 Coloca un depósito de almacenamiento (Tank) en el mapa. Los depósitos tienen nivel variable y participan en la simulación hidráulica.
 
@@ -52,11 +52,11 @@ Coloca un depósito de almacenamiento (Tank) en el mapa. Los depósitos tienen n
 
 | Parámetro | Descripción |
 |-----------|-------------|
-| **Elevation** | Cota del fondo del depósito (m o ft) |
+| **Cota** | Cota del fondo del depósito (m o ft) |
 | **InitLevel** | Nivel inicial del agua por encima del fondo |
 | **MinLevel** | Nivel mínimo de operación |
 | **MaxLevel** | Nivel máximo de operación |
-| **Diameter** | Diámetro del depósito (para sección circular); si usa curva de volumen, poner 0 |
+| **Diámetro** | Diámetro del depósito (para sección circular); si usa curva de volumen, poner 0 |
 | **MinVol** | Volumen mínimo (opcional) |
 | **VolCurve** | ID de la curva de volumen (para geometría no cilíndrica) |
 
@@ -64,7 +64,7 @@ Coloca un depósito de almacenamiento (Tank) en el mapa. Los depósitos tienen n
 
 ## Añadir embalse (Add reservoir)
 
-**Barra Edition → Add reservoir**
+**Barra Edición → Añadir embalse**
 
 Coloca un embalse o punto de alimentación externo (Reservoir). A diferencia del Tank, el Reservoir tiene **nivel fijo** (carga piezométrica constante) y representa una fuente de agua de capacidad ilimitada.
 
@@ -72,7 +72,7 @@ El proceso es idéntico al del depósito. Los parámetros son más simples:
 
 | Parámetro | Descripción |
 |-----------|-------------|
-| **Head** | Carga piezométrica fija (cota del nivel libre del agua, m o ft) |
+| **Altura** | Carga piezométrica fija (cota del nivel libre del agua, m o ft) |
 | **Pattern** | Patrón de variación de carga a lo largo del tiempo (opcional) |
 
 > Usa embalses para representar puntos de entrega de agua en alta (conexiones con sistemas externos) o puntos de suministro de caudal constante.
@@ -81,7 +81,7 @@ El proceso es idéntico al del depósito. Los parámetros son más simples:
 
 ## Insertar válvula en tubería (Insert valve in pipe)
 
-**Barra Edition → Insert valve in pipe**
+**Barra Edición → Insertar válvula en tubería**
 
 Inserta una válvula dentro de una tubería existente. La tubería original se **divide en dos tramos** que quedan conectados a través de la válvula.
 
@@ -102,18 +102,18 @@ Inserta una válvula dentro de una tubería existente. La tubería original se *
 
 | Tipo | Nombre | Función |
 |------|--------|---------|
-| **PRV** | Pressure Reducing Valve | Reduce la presión aguas abajo al valor de consigna |
-| **PSV** | Pressure Sustaining Valve | Mantiene la presión aguas arriba al valor de consigna |
-| **PBV** | Pressure Breaker Valve | Produce una pérdida de carga fija |
-| **FCV** | Flow Control Valve | Limita el caudal al valor de consigna |
-| **TCV** | Throttle Control Valve | Simula una válvula parcialmente cerrada mediante un coeficiente de pérdidas |
-| **GPV** | General Purpose Valve | Pérdida de carga definida por una curva personalizada |
+| **VRP** | Pressure Reducing Valve | Reduce la presión aguas abajo al valor de consigna |
+| **VSP** | Pressure Sustaining Valve | Mantiene la presión aguas arriba al valor de consigna |
+| **VRC** | Pressure Breaker Valve | Produce una pérdida de carga fija |
+| **VCQ** | Flow Control Valve | Limita el caudal al valor de consigna |
+| **VRG** | Throttle Control Valve | Simula una válvula parcialmente cerrada mediante un coeficiente de pérdidas |
+| **VPG** | General Purpose Valve | Pérdida de carga definida por una curva personalizada |
 
 ---
 
 ## Insertar bomba en tubería (Insert pump in pipe)
 
-**Barra Edition → Insert pump in pipe**
+**Barra Edición → Insertar bomba en tubería**
 
 Inserta una bomba en una tubería existente, dividiéndola exactamente igual que con válvulas.
 
@@ -128,8 +128,8 @@ Inserta una bomba en una tubería existente, dividiéndola exactamente igual que
 | Parámetro | Descripción |
 |-----------|-------------|
 | **Curve** | ID de la curva H-Q (obligatorio para simular) |
-| **Speed** | Factor de velocidad inicial (1.0 = velocidad nominal) |
+| **Velocidad** | Factor de velocidad inicial (1.0 = velocidad nominal) |
 | **Pattern** | Patrón de variación de velocidad |
-| **Power** | Potencia constante (alternativa a la curva H-Q) |
+| **Potencia** | Potencia constante (alternativa a la curva H-Q) |
 
 > Si la bomba necesita una curva de eficiencia para el cálculo de energía, defínela en el **Editor de patrones y curvas** y referencíala desde las propiedades de la bomba.

@@ -8,7 +8,7 @@ Las herramientas del segundo grupo de la barra Edition permiten modificar la geo
 
 ## Selección múltiple (Select multiple elements)
 
-**Barra Edition → Select multiple elements**
+**Barra Edición → Seleccionar múltiples elementos**
 
 Herramienta de selección simultánea sobre varias capas. Actívala y dibuja un rectángulo en el mapa: todos los elementos de todas las capas del proyecto que queden dentro del área quedan seleccionados.
 
@@ -20,7 +20,7 @@ La selección se usa como **entrada** para otras herramientas: Reverse elements 
 
 ## Mover nudos (Move nodes)
 
-**Barra Edition → Move nodes**
+**Barra Edición → Mover nudos**
 
 Desplaza uno o varios nudos (Junctions, Tanks, Reservoirs) arrastrando consigo **todos los elementos lineales conectados** (tuberías, válvulas, bombas). La red permanece conectada tras el movimiento.
 
@@ -34,7 +34,7 @@ Desplaza uno o varios nudos (Junctions, Tanks, Reservoirs) arrastrando consigo *
 3. Arrastra hasta la nueva posición.
 4. Suelta el botón del ratón para confirmar.
 
-> Esta herramienta **no** mueve vértices intermedios de tuberías. Para eso, usa **Edit link vertices**.
+> Esta herramienta **no** mueve vértices intermedios de tuberías. Para eso, usa **Editar vértices de líneas**.
 
 > 📝 El punto de inicio del arrastre hace snap al nudo más cercano dentro de **10 píxeles de pantalla**, no de una distancia fija en unidades del mapa — así la tolerancia es la misma independientemente del nivel de zoom o del sistema de coordenadas del proyecto.
 
@@ -42,7 +42,7 @@ Desplaza uno o varios nudos (Junctions, Tanks, Reservoirs) arrastrando consigo *
 
 ## Editar vértices de enlace (Edit link vertices)
 
-**Barra Edition → Edit link vertices**
+**Barra Edición → Editar vértices de líneas**
 
 Permite ajustar el trazado visual de tuberías y otros elementos lineales manipulando sus vértices intermedios. No afecta a los nudos extremos ni a la topología.
 
@@ -58,7 +58,7 @@ Permite ajustar el trazado visual de tuberías y otros elementos lineales manipu
 
 ## Invertir elementos (Reverse elements)
 
-**Barra Edition → Reverse elements**
+**Barra Edición → Invertir elementos**
 
 Invierte la **orientación** de tuberías y conexiones de servicio. La orientación determina el sentido positivo del flujo en los resultados de simulación.
 
@@ -73,7 +73,7 @@ Invierte la **orientación** de tuberías y conexiones de servicio. La orientaci
 
 ## Dividir/Unir tuberías (Split/Join pipes)
 
-**Barra Edition → Split/Join pipes**
+**Barra Edición → Dividir/Unir tuberías**
 
 Haz clic sobre una tubería para **dividirla** en el punto indicado: QGISRed crea un nuevo nudo (Junction) en ese punto y dos tramos con los mismos atributos de diámetro, material e InstallYear que el original.
 
@@ -88,7 +88,7 @@ Para **unir** dos tuberías, haz clic sobre el nudo intermedio que comparten: si
 
 ## Fusionar/Separar nudos (Merge/Dissolve junctions)
 
-**Barra Edition → Merge/Dissolve junctions**
+**Barra Edición → Fusionar/Disolver uniones**
 
 Esta herramienta opera con **dos clics**:
 
@@ -113,7 +113,7 @@ QGISRed no descarta sin más los datos del nudo que desaparece — los combina c
 
 ## Crear/Eliminar conexiones en T (Create/Remove T connections)
 
-**Barra Edition → Create/Remove T connections**
+**Barra Edición → Crear/Eliminar conexiones en T**
 
 Gestiona las uniones en T: puntos donde un nudo está muy próximo a una tubería pero **no** conectado a ella.
 
@@ -131,7 +131,7 @@ Haz clic sobre la conexión en T existente. QGISRed comprueba que las dos tuber�
 
 ## Crear/Eliminar cruces (Create/Remove crossings)
 
-**Barra Edition → Create/Remove crossings**
+**Barra Edición → Crear/Eliminar cruces**
 
 Gestiona los cruces entre tuberías que se intersectan en el mapa:
 
@@ -144,7 +144,7 @@ Gestiona los cruces entre tuberías que se intersectan en el mapa:
 
 ## Mover válvulas y bombas (Move valves/pumps)
 
-**Barra Edition → Move valves/pumps**
+**Barra Edición → Mover válvulas/bombas**
 
 Mueve una válvula o bomba de una tubería a otra manteniendo todas sus propiedades (tipo, ajuste, curva…).
 
@@ -159,14 +159,14 @@ Mueve una válvula o bomba de una tubería a otra manteniendo todas sus propieda
 
 ## Cambiar estado de elemento (Change element status)
 
-**Barra Edition → Change element status**
+**Barra Edición → Cambiar estado de elementos**
 
 Alterna el estado operativo (Open/Closed) de tuberías y válvulas manuales sin abrir el diálogo de propiedades.
 
 - **Clic simple**: Alterna entre Open y Closed.
 - **Ctrl + Clic**: Ciclo por todos los estados disponibles: Open → Closed → CV (Check Valve) → Open.
 
-La capa de **Isolation Valves** (válvulas de corte del gemelo digital) también puede gestionarse con esta herramienta si está cargada.
+La capa de **Válvulas de seccionamiento** (válvulas de corte del gemelo digital) también puede gestionarse con esta herramienta si está cargada.
 
 > El estado se almacena en el campo `InitStatus` de la capa correspondiente y se exporta al `.inp` de EPANET.
 
@@ -174,7 +174,7 @@ La capa de **Isolation Valves** (válvulas de corte del gemelo digital) también
 
 ## Eliminar elementos (Delete elements)
 
-**Barra Edition → Delete elements**
+**Barra Edición → Eliminar elementos**
 
 Elimina uno o varios elementos del proyecto. Funciona de dos modos:
 

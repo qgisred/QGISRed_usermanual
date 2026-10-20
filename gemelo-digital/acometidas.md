@@ -4,9 +4,9 @@ Las acometidas y las válvulas de corte son los dos elementos que conectan el mo
 
 ---
 
-## Add service connection
+## Añadir acometida
 
-**Barra Digital Twin → Add service connection**
+**Barra Gemelo Digital → Añadir acometida**
 
 Dibuja una acometida como polilínea desde la tubería principal hasta el punto de entrega del cliente. La acometida queda almacenada en la capa complementaria `ServiceConnections` del proyecto.
 
@@ -15,7 +15,7 @@ Dibuja una acometida como polilínea desde la tubería principal hasta el punto 
 
 ### Proceso
 
-1. Activa **Add service connection**. El cursor cambia a modo de dibujo de línea.
+1. Activa **Añadir acometida**. El cursor cambia a modo de dibujo de línea.
 2. Haz clic sobre la tubería principal en el punto de toma.
 3. Haz clic en los puntos intermedios de la traza si la acometida no es recta.
 4. Doble clic en el punto final (límite de parcela o contador) para completar el trazado.
@@ -25,27 +25,27 @@ La acometida hereda automáticamente el nudo de conexión más cercano de la red
 
 ---
 
-## Add isolation valve
+## Añadir válvula de seccionamiento
 
-**Barra Digital Twin → Add isolation valve**
+**Barra Gemelo Digital → Añadir válvula de seccionamiento**
 
 Añade una válvula de corte manual sobre una tubería existente haciendo clic sobre ella. Las válvulas de corte se almacenan en la capa complementaria `IsolationValves` y no son elementos EPANET: no aparecen en la simulación pero sí en el análisis de segmentos aislados (**Isolated segments**, barra Tools).
 
 ### Proceso
 
-1. Activa **Add isolation valve**.
+1. Activa **Añadir válvula de seccionamiento**.
 2. Haz clic sobre la tubería en el punto donde quieres colocar la válvula.
 3. QGISRed la inserta en la capa `IsolationValves` y la representa sobre el mapa.
 
 ### Relación con la simulación
 
-Las válvulas de corte por sí solas no modifican el modelo EPANET. Para que su estado (abierta/cerrada) afecte a la simulación, usa la herramienta **Set pipe's initial status from isolation valves** del Grupo 2.
+Las válvulas de corte por sí solas no modifican el modelo EPANET. Para que su estado (abierta/cerrada) afecte a la simulación, usa la herramienta **Establecer estado inicial de tuberías desde válvulas de seccionamiento** del Grupo 2.
 
 ---
 
-## Convert service connections into pipes/nodes
+## Convertir acometidas en tuberías/nudos
 
-**Barra Digital Twin → Convert service connections into pipes/nodes**
+**Barra Gemelo Digital → Convertir acometidas en tuberías/nudos**
 
 Incorpora las acometidas dibujadas en `ServiceConnections` al modelo EPANET activo. Requiere que la capa `ServiceConnections` exista y contenga al menos una acometida.
 

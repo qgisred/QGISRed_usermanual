@@ -33,7 +33,7 @@ Herramientas de administración del proyecto abierto.
 | **Guardar mapa** | Guarda el proyecto QGIS (`.qgz`) |
 | **Cerrar proyecto** | Cierra el proyecto actual |
 
-> 💡 La exportación del proyecto (ZIP portable) ya no está en esta barra: se hace desde el botón **Export** del Gestor de proyectos (ver [Guardar, Exportar y Cerrar Proyecto](../proyecto-activo/guardar-backup.md)).
+> 💡 La exportación del proyecto (ZIP portable) ya no está en esta barra: se hace desde el botón **Exportar** del Gestor de proyectos (ver [Guardar, Exportar y Cerrar Proyecto](../proyecto-activo/guardar-backup.md)).
 
 ---
 

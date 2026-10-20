@@ -1,12 +1,12 @@
 # Configuración del Proyecto
 
-Esta página reúne tres diálogos de configuración que afectan al comportamiento hidráulico del modelo y a los valores por defecto con que se crean los nuevos elementos: Opciones de análisis (barra **Analysis**) y Valores por defecto / Tabla de materiales (barra **Project**).
+Esta página reúne tres diálogos de configuración que afectan al comportamiento hidráulico del modelo y a los valores por defecto con que se crean los nuevos elementos: Opciones de análisis (barra **Análisis**) y Valores por defecto / Tabla de materiales (barra **Proyecto**).
 
 ---
 
 ## Opciones de análisis
 
-**Barra Analysis → Opciones de análisis...** (Analysis options)
+**Barra Análisis → Opciones de análisis...** (Analysis options)
 
 Abre el diálogo principal de opciones de EPANET. Es equivalente a la sección `[OPTIONS]` del archivo `.inp`.
 
@@ -66,7 +66,7 @@ Permite definir el coste energético de las bombas para el análisis de consumo:
 
 ## Valores por defecto
 
-**Barra Project → Valores por defecto** (Default values)
+**Barra Proyecto → Valores por defecto** (Default values)
 
 Define los valores que se asignan automáticamente a los nuevos elementos al crearlos con las herramientas de edición.
 
@@ -110,7 +110,7 @@ Los prefijos son configurables. El número inicial también puede establecerse.
 
 ## Tabla de materiales
 
-**Barra Project → Tabla de materiales** (Materials table)
+**Barra Proyecto → Tabla de materiales** (Materials table)
 
 Gestiona la lista de materiales disponibles para las tuberías y sus propiedades de envejecimiento.
 

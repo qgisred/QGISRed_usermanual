@@ -6,7 +6,7 @@ Las tres herramientas del segundo grupo de la barra Tools gestionan la asignaci�
 
 ## Constructor de demandas nodales…
 
-**Barra Tools → Constructor de demandas nodales…**
+**Barra Herramientas → Constructor de demandas nodales…**
 
 Asigna consumos a los nudos de la red de forma masiva a partir de capas SHP externas cargadas en QGIS. Es la herramienta principal para integrar datos de facturación, censos de usuarios o estimaciones por polígono en el modelo EPANET.
 
@@ -54,7 +54,7 @@ El Constructor aplica el factor automáticamente a todos los valores de consumo 
 
 ### Resultado en el mapa
 
-La capa resultante se muestra con colores por categoría y etiquetas con el valor de demanda. Los nudos sin categoría asignada aparecen en naranja bajo el grupo **Uncategorized**.
+La capa resultante se muestra con colores por categoría y etiquetas con el valor de demanda. Los nudos sin categoría asignada aparecen en naranja bajo el grupo **Sin categoría**.
 
 > 💡 Las capas auxiliares del Constructor de demandas nodales (ConsumptionPoints, DemandLinks, Sectors…) también se pueden crear vacías desde el Gestor de Capas, sin necesidad de ejecutar antes un análisis (ver [Resumen y gestión de capas](../proyecto-activo/capas-y-leyenda.md)).
 
@@ -101,7 +101,7 @@ Al ejecutar el análisis de segmentos aislados o de sectores hidráulicos, el pl
 
 ## Scenario builder…
 
-**Barra Tools → Scenario builder…**
+**Barra Herramientas → Constructor de escenarios…**
 
 Exporta e importa en bloque parámetros del modelo, creando "fotografías" del estado de la red que pueden restaurarse en cualquier momento. Es la herramienta para gestionar variantes del modelo sin duplicar proyectos.
 
@@ -113,11 +113,11 @@ Exporta e importa en bloque parámetros del modelo, creando "fotografías" del e
 
 | Parámetro | Descripción |
 |-----------|-------------|
-| **Roughness** | Coeficientes de rugosidad de todas las tuberías |
+| **Rugosidad** | Coeficientes de rugosidad de todas las tuberías |
 | **InitStatus** | Estados de apertura/cierre de tuberías y válvulas |
-| **Demands** | Demandas base de todos los nudos |
+| **Demandas** | Demandas base de todos los nudos |
 | **InitQuality** | Calidades iniciales de nudos y tuberías |
-| **Elevations** | Cotas de nudos, depósitos y embalses |
+| **Cotas** | Cotas de nudos, depósitos y embalses |
 
 ### Flujo de trabajo típico
 
@@ -133,7 +133,7 @@ Los archivos de escenario se guardan como CSV en la carpeta del proyecto.
 
 ## Isolated segments…
 
-**Barra Tools → Isolated segments…**
+**Barra Herramientas → Polígonos de corte…**
 
 Responde a la pregunta operacional: **"¿Qué válvulas debo cerrar para reparar esta tubería, y qué usuarios quedarán sin servicio?"**
 

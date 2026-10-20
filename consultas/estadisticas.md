@@ -1,8 +1,8 @@
 # Estadísticas
 
-**Barra Queries → Statistics…**
+**Barra Consultas → Estadísticas**
 
-Abre el panel **Statistics**, que calcula y visualiza la distribución estadística de cualquier atributo numérico o categórico de la red, con soporte para clasificación automática, segunda clasificación cruzada y representación gráfica.
+Abre el panel **Estadísticas**, que calcula y visualiza la distribución estadística de cualquier atributo numérico o categórico de la red, con soporte para clasificación automática, segunda clasificación cruzada y representación gráfica.
 
 > **ℹ️ Nota:** El panel Statistics se abre **acoplado** en la ventana principal de QGIS y respeta los paneles ya agrupados en pestañas. Sus controles se adaptan también a anchos de panel estrechos, sin recortarse en el borde derecho.
 
@@ -36,19 +36,19 @@ Selecciona el tipo de elemento (Junctions, Pipes, Tanks…) y la propiedad a ana
 
 #### Métodos de clasificación disponibles
 
-Los métodos siguientes están disponibles tanto para la clasificación principal como para la segunda clasificación. El método por defecto es **Pretty Breaks**.
+Los métodos siguientes están disponibles tanto para la clasificación principal como para la segunda clasificación. El método por defecto es **Rupturas Bonitas**.
 
 | Método | Descripción |
 |--------|-------------|
 | **Jenks (Natural Breaks)** | Minimiza la varianza intra-clase. Idóneo para distribuciones no uniformes. |
-| **Pretty Breaks** | Límites de intervalo "redondos". Preferible para presentaciones. *(Por defecto)* |
-| **Equal Count** | Cada clase contiene el mismo número de elementos. |
-| **Fixed Interval** | Todos los intervalos tienen la misma amplitud. |
+| **Rupturas Bonitas** | Límites de intervalo "redondos". Preferible para presentaciones. *(Por defecto)* |
+| **Recuento Igual** | Cada clase contiene el mismo número de elementos. |
+| **Intervalo Fijo** | Todos los intervalos tienen la misma amplitud. |
 | **Manual** | El usuario define directamente los límites de cada intervalo. |
 
 > **ℹ️ Nota:** Cuando todos los valores son idénticos o muy similares, los extremos de clase duplicados se colapsan mostrando un único valor en lugar de "100.0 - 100.0".
 
-> **ℹ️ Nota — Campos sin datos útiles:** Si el campo elegido para clasificar no tiene ningún valor calculado, el panel no muestra un aviso de error: genera directamente una única clase **NULL** que agrupa todos los elementos sin valor. Si el campo tiene valores pero todos son iguales (incluido el caso de que todos sean cero), se genera una única clase con ese valor, igual que en el caso anterior de extremos colapsados. En ambos casos el histograma y la tabla se generan con normalidad, sin interrumpir el análisis.
+> **ℹ️ Nota — Campos sin datos útiles:** Si el campo elegido para clasificar no tiene ningún valor calculado, el panel no muestra un aviso de error: genera directamente una única clase **NULO** que agrupa todos los elementos sin valor. Si el campo tiene valores pero todos son iguales (incluido el caso de que todos sean cero), se genera una única clase con ese valor, igual que en el caso anterior de extremos colapsados. En ambos casos el histograma y la tabla se generan con normalidad, sin interrumpir el análisis.
 
 > **ℹ️ Nota:** Cuando se analiza un campo de resultado de simulación dinámico, los **límites de clase se calculan una vez** considerando todos los instantes de tiempo simultáneamente. Al avanzar el paso de simulación, el recuento de elementos por barra varía, pero los límites permanecen constantes, lo que permite **comparar distribuciones entre instantes de tiempo** con total coherencia.
 
@@ -59,7 +59,7 @@ Antes de calcular, puedes acotar el conjunto de elementos con una condición sob
 - Campos **numéricos**: `>=`, `<=`, `=`, `>`, `<`, `≠`, `Range`
 - Campos **de lista**: `=`
 - Campos **de texto**: `=`, `≠`, `ILIKE`, `NOT ILIKE`, `LIKE`, `NOT LIKE`
-- Selecciona **No Filter** para incluir todos los elementos sin restricción.
+- Selecciona **Sin filtro** para incluir todos los elementos sin restricción.
 
 El campo **Valor** incluye un botón de borrado **(×)**: al pulsarlo, limpia el texto introducido y deja sin selección activa, facilitando cambiar el filtro rápidamente.
 
@@ -69,7 +69,7 @@ Cuando el atributo de filtro es un campo de resultado de simulación, el combo m
 
 ### Restringir a la selección activa
 
-La casilla **Only selected elements** limita el análisis a los elementos actualmente seleccionados en el mapa. La selección se evalúa de forma conjunta entre la capa de **Inputs** y su correspondiente capa de **Results**: si el elemento está seleccionado en cualquiera de las dos capas del mismo tipo (por ejemplo, `Pipes` en Inputs y su tema de resultados de tuberías), se incluye en el cálculo.
+La casilla **Solo elementos seleccionados** limita el análisis a los elementos actualmente seleccionados en el mapa. La selección se evalúa de forma conjunta entre la capa de **Datos** y su correspondiente capa de **Resultados**: si el elemento está seleccionado en cualquiera de las dos capas del mismo tipo (por ejemplo, `Pipes` en Inputs y su tema de resultados de tuberías), se incluye en el cálculo.
 
 > ⚠️ Si activas la casilla y no hay ningún elemento seleccionado en ninguna de las dos capas, el panel muestra un aviso y no ejecuta el análisis.
 
@@ -174,7 +174,7 @@ Disponibles solo si hay resultados cargados:
 | `ReactRate` | Tasa de reacción |
 | `Quality` | Calidad del agua |
 
-> **⚠️ Nota:** Los campos `Velocity`, `UnitHdLoss`, `FricFactor` y `ReactRate` no están disponibles cuando el tipo de elemento seleccionado es **Pumps** (bombas) o **Valves** (válvulas); son exclusivos de tuberías.
+> **⚠️ Nota:** Los campos `Velocity`, `UnitHdLoss`, `FricFactor` y `ReactRate` no están disponibles cuando el tipo de elemento seleccionado es **Bombas** (bombas) o **Válvulas** (válvulas); son exclusivos de tuberías.
 
 ---
 

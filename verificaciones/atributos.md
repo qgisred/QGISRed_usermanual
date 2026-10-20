@@ -6,9 +6,9 @@ Todas operan sobre la selección actual o sobre toda la red si no hay selección
 
 ---
 
-## Check pipe lengths
+## Comprobar longitudes de tuberías
 
-**Barra Debug → Check pipe lengths**
+**Barra Depuración → Comprobar longitudes de tuberías**
 
 Compara la **longitud almacenada en el atributo `Length`** de cada tubería con la **longitud geométrica real** calculada a partir de los vértices del SHP.
 
@@ -31,9 +31,9 @@ Al activar la herramienta se abre un diálogo donde defines:
 
 ---
 
-## Check diameters
+## Comprobar diámetros
 
-**Barra Debug → Check diameters**
+**Barra Depuración → Comprobar diámetros**
 
 Revisa los diámetros de todas las tuberías seleccionadas (o de toda la red) y señala aquellos que estén fuera del rango habitual o que sean cero.
 
@@ -49,9 +49,9 @@ Los elementos con diámetros problemáticos se seleccionan en el mapa y se muest
 
 ---
 
-## Check pipe materials
+## Comprobar materiales de tuberías
 
-**Barra Debug → Check pipe materials**
+**Barra Depuración → Comprobar materiales de tuberías**
 
 Comprueba que el valor del campo `Material` de cada tubería esté definido en la **Tabla de materiales del proyecto** (Barra Project → Tabla de materiales).
 
@@ -71,9 +71,9 @@ El material es imprescindible para la herramienta **Asignar rugosidades** (Barra
 
 ---
 
-## Check pipe installation dates
+## Comprobar fechas de instalación de tuberías
 
-**Barra Debug → Check pipe installation dates**
+**Barra Depuración → Comprobar fechas de instalación de tuberías**
 
 Verifica el campo `InstallYear` de las tuberías, que almacena el año de instalación en formato numérico (`YYYY`).
 

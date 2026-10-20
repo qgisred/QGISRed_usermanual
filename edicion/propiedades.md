@@ -1,6 +1,6 @@
 # Propiedades de Elementos
 
-**Barra Edition → Edit element properties…**
+**Barra Edición → Editar propiedades de los elementos…**
 
 El diálogo de propiedades es la herramienta central para ver y editar todos los atributos de cualquier elemento de la red. Funciona como un formulario inteligente que carga los datos del elemento pulsado y permite navegar entre elementos sin cerrarlo.
 
@@ -24,9 +24,9 @@ El diálogo de propiedades es la herramienta central para ver y editar todos los
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | Identificador único de la tubería |
-| **Length** | Longitud calculada automáticamente a partir de la geometría (m o ft) |
-| **Diameter** | Diámetro interior (mm o pulgadas) |
-| **Roughness Coeff** | Rugosidad para la fórmula de pérdida de carga configurada |
+| **Longitud** | Longitud calculada automáticamente a partir de la geometría (m o ft) |
+| **Diámetro** | Diámetro interior (mm o pulgadas) |
+| **Coef. Rugosidad** | Rugosidad para la fórmula de pérdida de carga configurada |
 | **MinorLoss** | Coeficiente de pérdidas menores (0 si no aplica) |
 | **InitStatus** | Estado inicial: Open, Closed o CV (Check Valve) |
 | **Material** | Código del material (referenciado en la Tabla de materiales) |
@@ -41,8 +41,8 @@ El diálogo de propiedades es la herramienta central para ver y editar todos los
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | Identificador único del nudo |
-| **Elevation** | Cota del nudo (m o ft) |
-| **Demand** | Demanda base (en las unidades de caudal del proyecto) |
+| **Cota** | Cota del nudo (m o ft) |
+| **Demanda** | Demanda base (en las unidades de caudal del proyecto) |
 | **Pattern** | ID del patrón de demanda aplicado |
 | **EmitterCoeff** | Coeficiente de emisor (para modelar fugas dependientes de presión) |
 | **InitQuality** | Concentración o edad del agua inicial (solo si el modelo de calidad está activo) |
@@ -53,9 +53,9 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 
 | Campo | Descripción |
 |-------|-------------|
-| **Demand** | Valor de demanda para esta categoría |
+| **Demanda** | Valor de demanda para esta categoría |
 | **Pattern** | Patrón de demanda específico de la categoría |
-| **Name** | Etiqueta de la categoría (informativa) |
+| **Nombre** | Etiqueta de la categoría (informativa) |
 
 ---
 
@@ -64,11 +64,11 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | Identificador único |
-| **Elevation** | Cota del fondo del depósito |
+| **Cota** | Cota del fondo del depósito |
 | **InitLevel** | Nivel inicial del agua sobre el fondo |
 | **MinLevel** | Nivel mínimo operativo |
 | **MaxLevel** | Nivel máximo operativo |
-| **Diameter** | Diámetro del depósito (0 si usa curva de volumen) |
+| **Diámetro** | Diámetro del depósito (0 si usa curva de volumen) |
 | **MinVol** | Volumen mínimo (m³) |
 | **VolCurve** | ID de la curva de volumen (para geometría no cilíndrica) |
 | **MixModel** | Modelo de mezcla: MIXED, 2COMP, FIFO, LIFO. Por defecto, MIXED en un depósito nuevo |
@@ -83,7 +83,7 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | Identificador único |
-| **Head** | Carga piezométrica fija (m o ft) |
+| **Altura** | Carga piezométrica fija (m o ft) |
 | **Pattern** | Patrón de variación de carga a lo largo del tiempo |
 
 ---
@@ -93,9 +93,9 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 | Campo | Descripción |
 |-------|-------------|
 | **ID** | Identificador único |
-| **Diameter** | Diámetro (mm o pulgadas) |
-| **Valve Type** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
-| **Setting** | Consigna de regulación (presión, caudal o pérdida de carga según el tipo) |
+| **Diámetro** | Diámetro (mm o pulgadas) |
+| **Tipo de válvula** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
+| **Consigna** | Consigna de regulación (presión, caudal o pérdida de carga según el tipo) |
 | **MinorLoss** | Coeficiente de pérdidas menores |
 | **InitStatus** | Estado inicial: Open, Closed, Active |
 
@@ -107,9 +107,9 @@ Los nudos pueden tener más de una demanda (categorías de usuario: residencial,
 |-------|-------------|
 | **ID** | Identificador único |
 | **Curve** | ID de la curva H-Q de la bomba |
-| **Speed** | Factor de velocidad de giro (1.0 = nominal) |
+| **Velocidad** | Factor de velocidad de giro (1.0 = nominal) |
 | **Pattern** | Patrón de variación de velocidad |
-| **Power** | Potencia constante (alternativa a la curva H-Q) |
+| **Potencia** | Potencia constante (alternativa a la curva H-Q) |
 | **EfficiencyCurve** | ID de la curva de eficiencia (para análisis de energía) |
 | **EnergyPrice** | Precio de la energía específico para esta bomba |
 | **PricePattern** | Patrón de variación de precio de energía |
@@ -137,5 +137,5 @@ Estos campos no forman parte del estándar EPANET pero son usados por el plugin:
 |-------|------|-------------|
 | **Material** | Pipes | Código de material referenciado en la Tabla de materiales |
 | **InstallYear** | Pipes | Año de instalación para cálculo de rugosidad por envejecimiento |
-| **IsActive** | Varios | Habilita/deshabilita el elemento en el Gemelo Digital |
-| **Tag** | Todos | Etiqueta libre (equivalente al campo TAG de EPANET) |
+| **Activa** | Varios | Habilita/deshabilita el elemento en el Gemelo Digital |
+| **Etiqueta** | Todos | Etiqueta libre (equivalente al campo TAG de EPANET) |

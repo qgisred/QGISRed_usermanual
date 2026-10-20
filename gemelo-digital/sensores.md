@@ -6,7 +6,7 @@ Los medidores y sensores del Digital Twin son elementos que registran magnitudes
 
 ## Add meter (desplegable)
 
-**Barra Digital Twin → Add meter**
+**Barra Gemelo Digital → Añadir medidor**
 
 Coloca un medidor o sensor sobre una tubería haciendo clic en el punto de instalación. El desplegable del botón permite elegir el tipo antes de colocarlo; el último tipo usado queda como acción por defecto del botón.
 
@@ -18,16 +18,16 @@ Coloca un medidor o sensor sobre una tubería haciendo clic en el punto de insta
 | Tipo | Nombre en la barra | Magnitud registrada |
 |------|--------------------|---------------------|
 | **Automatic meter** | Add automatic meter | Tipo determinado automáticamente por contexto |
-| **Manometer** | Add manometer | Presión (m.c.a.) |
-| **Flowmeter** | Add flowmeter | Caudal (l/s o unidad configurada) |
-| **Countermeter** | Add countermeter | Volumen acumulado (contador de agua) |
+| **Manómetro** | Add manometer | Presión (m.c.a.) |
+| **Caudalímetro** | Add flowmeter | Caudal (l/s o unidad configurada) |
+| **Contador** | Add countermeter | Volumen acumulado (contador de agua) |
 | **Level sensor** | Add level sensor | Nivel de lámina libre en depósito |
 | **Differential manometer** | Add differential manometer | Diferencia de presión entre dos puntos |
 | **Quality sensor** | Add quality sensor | Concentración de cloro u otro parámetro de calidad |
 | **Energy sensor** | Add energy sensor | Potencia o energía consumida (grupos de bombeo) |
 | **Status sensor** | Add status sensor | Estado operacional de una tubería o válvula |
 | **Valve opening** | Add valve opening | Grado de apertura de una válvula reguladora |
-| **Tachometer** | Add tachometer | Velocidad de giro de una bomba (rpm) |
+| **Tacómetro** | Add tachometer | Velocidad de giro de una bomba (rpm) |
 
 ### Proceso
 
@@ -39,7 +39,7 @@ Coloca un medidor o sensor sobre una tubería haciendo clic en el punto de insta
 
 ## Load meter readings…
 
-**Barra Digital Twin → Load meter readings…**
+**Barra Gemelo Digital → Cargar lecturas de medidor…**
 
 Importa lecturas de contadores inteligentes (smart metering) y las asocia a las acometidas del proyecto. Las lecturas enriquecen las demandas del modelo con datos reales de consumo en lugar de demandas estimadas.
 
@@ -68,9 +68,9 @@ Un grupo de opciones (radio buttons) decide qué elemento del modelo recibe las 
 
 ---
 
-## Set pipe's initial status from isolation valves
+## Establecer estado inicial de tuberías desde válvulas de seccionamiento
 
-**Barra Digital Twin → Set pipe's initial status from isolation valves**
+**Barra Gemelo Digital → Establecer estado inicial de tuberías desde válvulas de seccionamiento**
 
 Propaga el estado de apertura o cierre de las válvulas de corte de la capa `IsolationValves` al campo `InitStatus` de las tuberías que atraviesan cada válvula. Así el modelo EPANET recoge el estado real de la red sin necesidad de modificar manualmente cada tubería.
 
@@ -81,7 +81,7 @@ La capa `IsolationValves.shp` debe existir en el directorio del proyecto. Si no 
 ### Cuándo usarla
 
 - Antes de simular un escenario operacional concreto (por ejemplo, con un sector cerrado por mantenimiento).
-- Después de actualizar el estado de varias válvulas de corte en el mapa y antes de ejecutar **Run model**.
+- Después de actualizar el estado de varias válvulas de corte en el mapa y antes de ejecutar **Ejecutar modelo**.
 
 > Esta operación sí modifica el modelo EPANET (campo `InitStatus` de `Pipes`). Para volver al estado original, usa **Scenario builder** (barra Tools) si habías guardado el escenario base antes de la operación.
 
@@ -89,7 +89,7 @@ La capa `IsolationValves.shp` debe existir en el directorio del proyecto. Si no 
 
 ## Load field data…
 
-**Barra Digital Twin → Load field data…**
+**Barra Gemelo Digital → Cargar datos de campo…**
 
 Importa datos de campo procedentes de sistemas SCADA o registradores de datos y los asocia a los medidores de la capa `Meters`. Los datos cargados quedan vinculados a cada sensor para su comparación posterior con los resultados de la simulación.
 
@@ -99,5 +99,5 @@ El diálogo permite seleccionar el archivo de datos y configurar el formato de f
 
 1. Exporta los datos de los sensores de campo desde el SCADA a un archivo CSV o DAT.
 2. Ejecuta **Load field data** y selecciona el archivo.
-3. Ejecuta la simulación (**Run model**).
-4. Compara visualmente en el **Time series** dock los valores medidos (campo) y calculados (simulación) para cada sensor.
+3. Ejecuta la simulación (**Ejecutar modelo**).
+4. Compara visualmente en el **Curvas de evolución** dock los valores medidos (campo) y calculados (simulación) para cada sensor.
