@@ -15,15 +15,15 @@ La boîte de dialogue est **non modale** : vous pouvez toujours interagir avec 
 
 | Élément | Descriptif |
 |----------|-------------|
-| **Junctions** | Nœuds de réseau |
-| **Multiple Demands** | Demandes multiples par catégorie |
-| **Pipes** | Tuyaux |
-| **Tanks** | Réservoirs |
-| **Reservoirs** | Bâches |
-| **Pumps** | Pompes |
-| **Valves** | Vannes |
+| **Nœuds de demande** | Nœuds de réseau |
+| **Demandes multiples** | Demandes multiples par catégorie |
+| **Conduites** | Tuyaux |
+| **Réservoirs** | Réservoirs |
+| **Bâches** | Bâches |
+| **Pompes** | Pompes |
+| **Vannes** | Vannes |
 | **Sources** | Sources de qualité |
-| **Service Connections** | Branchements |
+| **Branchements** | Branchements |
 | **Vannes d'isolement** | Vannes d'isolement |
 | **Mètres** | Débitmètres |
 
@@ -42,10 +42,10 @@ La liste déroulante des champs commence par l'option **Aucun filtre**. Pendant 
 Lorsque vous sélectionnez un champ spécifique, les contrôles d'opérateur et de valeur apparaissent :
 
 - L'**opérateur** détermine le type de comparaison (voir tableau ci-dessous).
-- La **valeur** est automatiquement remplie avec les valeurs uniques présentes dans le calque. La liste inclut **NULL** comme première option :
+- La **valeur** est automatiquement remplie avec les valeurs uniques présentes dans le calque. La liste inclut **NUL** comme première option :
 - L'opérateur `=` avec NULL génère un filtre **IS NULL**.
 - L'opérateur `≠` avec NULL génère un filtre **IS NOT NULL**.
-- Le champ de valeur dispose d'un bouton ****** pour le supprimer rapidement. De plus, le champ est **modifiable** : l'utilisateur peut saisir une valeur personnalisée qui n'est pas répertoriée dans la liste déroulante.
+- Le champ de valeur dispose d'un bouton **×** pour le supprimer rapidement. De plus, le champ est **modifiable** : l'utilisateur peut saisir une valeur personnalisée qui n'est pas répertoriée dans la liste déroulante.
 
 #### Opérateurs disponibles par type de champ
 
@@ -119,7 +119,7 @@ Action **Définir sur** : La date est sélectionnée à partir de la combinaiso
 | **Accepter** | Il affiche une simple confirmation et, après acceptation, enregistre définitivement toutes les modifications accumulées dans le tampon sur le disque. Fermez le dialogue ; les tables attributaires restent ouvertes. |
 | **Annuler** | Annule **toutes** les modifications accumulées dans le tampon (restauration complète) et ferme la boîte de dialogue. Efface la sélection sur la carte, mais les tables attributaires restent ouvertes. |
 
-> Les modifications ne sont écrites sur le disque que lorsque vous appuyez sur **Accepter**. Lorsque vous travaillez avec **Apply**, les données se trouvent dans le tampon d'édition de QGIS et peuvent être annulées en masse avec **Cancel** à tout moment.
+> Les modifications ne sont écrites sur le disque que lorsque vous appuyez sur **Accepter**. Lorsque vous travaillez avec **Appliquer**, les données se trouvent dans le tampon d'édition de QGIS et peuvent être annulées en masse avec **Annuler** à tout moment.
 
 ---
 

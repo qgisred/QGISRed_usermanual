@@ -23,7 +23,7 @@ C'est le principal outil de validation. Il parcourt tous les éléments du proje
 - Si tout est valide : message _"Les données d'entrée sont valides"_ en vert.
 - S'il y a des erreurs : liste des problèmes avec l'ID et le type de l'élément concerné. Les éléments comportant des erreurs sont automatiquement sélectionnés sur la carte pour les rendre plus faciles à localiser.
 
-> Exécutez **Check && commit data** chaque fois que vous avez modifié la table attributaire manuellement (en dehors de la boîte de dialogue des propriétés), car ces modifications ne passent pas par la validation automatique du plugin.
+> Exécutez **Vérifier && valider les données** chaque fois que vous avez modifié la table attributaire manuellement (en dehors de la boîte de dialogue des propriétés), car ces modifications ne passent pas par la validation automatique du plugin.
 
 ---
 

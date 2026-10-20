@@ -14,12 +14,12 @@ Ouvre le panneau **Requêtes par propriétés**, un outil de filtrage qui met en
 Le panneau a une couleur d'identification **violet** (`#7B1FA2`) dans son en-tête pour le distinguer du reste des panneaux QGISRed. Contient :
 
 - **Sélecteur de type d'élément** : Tuyaux, Jonctions, Réservoirs, Bâches, Pompes, Vannes
-- **Mode de critère** : deux options, **One Criterion** (une seule condition active) et **Multiple Criteria** (liste de conditions combinables, voir plus bas)
+- **Mode de critère** : deux options, **Un critère** (une seule condition active) et **Critères multiples** (liste de conditions combinables, voir plus bas)
 - **Zone Conditions** : une ou plusieurs lignes avec champ, opérateur et valeur
 - **Bouton Exécuter** : applique la requête et met en surbrillance le résultat
 - **Bouton Effacer** : supprime la surbrillance de la carte
 - **Panneau Statistiques** : sélecteur de propriété et tableau avec les résultats numériques de la requête (voir plus bas)
-- **Étiquette temporelle** : Lorsque les résultats de la simulation sont chargés, affiche l'instant actif avec le préfixe "Time :" suivi de la valeur en gras au format `HH:MM:SS`. L'étiquette statistique du résultat est également affichée en gras.
+- **Étiquette temporelle** : Lorsque les résultats de la simulation sont chargés, affiche l'instant actif avec le préfixe "Temps :" suivi de la valeur en gras au format `HH:MM:SS`. L'étiquette statistique du résultat est également affichée en gras.
 
 ---
 
@@ -79,15 +79,15 @@ Champs comme `Tag` ou `Id` :
 
 ## Mode critère unique ou multiple
 
-Le bouton radio **One Criterion** limite le panneau à une seule condition active à la fois : changer le champ, l'opérateur ou la valeur remplace la condition précédente. C'est le mode le plus simple pour des requêtes ponctuelles.
+Le bouton radio **Un critère** limite le panneau à une seule condition active à la fois : changer le champ, l'opérateur ou la valeur remplace la condition précédente. C'est le mode le plus simple pour des requêtes ponctuelles.
 
-Le bouton radio **Multiple Criteria** ouvre une liste de conditions indépendantes qui peuvent être combinées entre elles :
+Le bouton radio **Critères multiples** ouvre une liste de conditions indépendantes qui peuvent être combinées entre elles :
 
-- **Add** : ajoute la condition configurée ci-dessus à la liste, marquée comme condition d'**inclusion** (`+`).
-- **Subtract** : ajoute la condition configurée ci-dessus à la liste, marquée comme condition d'**exclusion** (`-`).
+- **Ajouter** : ajoute la condition configurée ci-dessus à la liste, marquée comme condition d'**inclusion** (`+`).
+- **Soustraire** : ajoute la condition configurée ci-dessus à la liste, marquée comme condition d'**exclusion** (`-`).
 - Chaque ligne de la liste peut être **réordonnée** (flèches haut/bas), **modifiée** (double-clic ou bouton d'édition), **supprimée**, ou **activée/désactivée** temporairement sans la supprimer (bouton « Enable/disable selected criterion ») pour essayer des combinaisons sans perdre les conditions déjà définies.
 
-En passant de **Multiple Criteria** à **One Criterion** avec plus d'une condition dans la liste, QGISRed demande une confirmation : seule la première est conservée, le reste est abandonné.
+En passant de **Critères multiples** à **Un critère** avec plus d'une condition dans la liste, QGISRed demande une confirmation : seule la première est conservée, le reste est abandonné.
 
 ### Logique de combinaison
 
@@ -95,9 +95,9 @@ Les conditions d'inclusion (`+`) se combinent entre elles avec **OR** : un élé
 
 > *(n'importe quelle condition d'inclusion)* **AND NOT** *(toutes les conditions d'exclusion)*
 
-Par exemple, pour trouver toutes les canalisations de diamètre ≥ 300 mm qui **ne sont pas** en fonte : une condition `Diameter >= 300` marquée avec **Add**, et une condition `Material = Cast Iron` marquée avec **Subtract**.
+Par exemple, pour trouver toutes les canalisations de diamètre ≥ 300 mm qui **ne sont pas** en fonte : une condition `Diameter >= 300` marquée avec **Ajouter**, et une condition `Material = Cast Iron` marquée avec **Soustraire**.
 
-En mode **One Criterion**, il n'y a qu'une seule condition, donc cette combinaison ne s'applique pas.
+En mode **Un critère**, il n'y a qu'une seule condition, donc cette combinaison ne s'applique pas.
 
 ---
 
@@ -117,11 +117,11 @@ Les colonnes dépendent du type de propriété :
 
 | Propriété | Colonnes |
 |---|---|
-| Champ de texte ou de liste | **Count** (nombre d'éléments) |
-| Champ numérique | **Count**, **Avg**, **Min**, **Max**, et **Sum** ou **StdD** selon la propriété (les débits et les demandes affichent la somme ; le reste, l'écart type) |
-| **None** (sans propriété) | seulement **Count** |
+| Champ de texte ou de liste | **Nombre** (nombre d'éléments) |
+| Champ numérique | **Nombre**, **Moyenne**, **Min**, **Max**, et **Somme** ou **Éc.type** selon la propriété (les débits et les demandes affichent la somme ; le reste, l'écart type) |
+| **Aucune** (sans propriété) | seulement **Nombre** |
 
-En mode **One Criterion**, le tableau affiche une seule ligne avec le résultat de la condition active. En mode **Multiple Criteria** avec plusieurs conditions activées, il affiche une ligne par condition (étiquetée `Cr1`, `Cr2`...) et une dernière ligne **All** en jaune avec le résultat combiné (la même logique d'inclusion/exclusion que la mise en évidence sur la carte) — ce qui permet de comparer combien d'éléments apporte chaque condition séparément par rapport au total combiné.
+En mode **Un critère**, le tableau affiche une seule ligne avec le résultat de la condition active. En mode **Critères multiples** avec plusieurs conditions activées, il affiche une ligne par condition (étiquetée `Cr1`, `Cr2`...) et une dernière ligne **Tous** en jaune avec le résultat combiné (la même logique d'inclusion/exclusion que la mise en évidence sur la carte) — ce qui permet de comparer combien d'éléments apporte chaque condition séparément par rapport au total combiné.
 
 ## Exporter les critères et les statistiques
 

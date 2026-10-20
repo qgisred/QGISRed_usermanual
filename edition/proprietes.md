@@ -137,5 +137,5 @@ Ces champs ne font pas partie du standard EPANET mais sont utilisés par le plug
 |-------|------|-------------|
 | **Matériel** | Tuyaux | Code matériau référencé dans le tableau des matériaux |
 | **InstallYear** | Tuyaux | Année d'installation pour le calcul de la rugosité due au vieillissement |
-| **IsActive** | Divers | Activer/désactiver l'élément dans le Digital Twin |
+| **Actif** | Divers | Activer/désactiver l'élément dans le Digital Twin |
 | **Étiquette** | Tout | Tag gratuit (équivalent au champ EPANET TAG) |

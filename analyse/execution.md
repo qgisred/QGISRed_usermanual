@@ -76,7 +76,7 @@ La boîte de dialogue de progression informe sur les différentes phases du calc
 
 Ouvre le panneau des résultats si une simulation précédente existe déjà pour le projet actif, sans simuler à nouveau. S'il n'y a aucun résultat, il lance automatiquement la simulation.
 
-C'est équivalent à **Run model** mais en priorisant les résultats déjà calculés : si le fichier `.out` existe et correspond au projet en cours, il les charge directement. Utile pour rouvrir la visionneuse après l'avoir fermée sans perdre les résultats.
+C'est équivalent à **Exécuter le modèle** mais en priorisant les résultats déjà calculés : si le fichier `.out` existe et correspond au projet en cours, il les charge directement. Utile pour rouvrir la visionneuse après l'avoir fermée sans perdre les résultats.
 
 ---
 

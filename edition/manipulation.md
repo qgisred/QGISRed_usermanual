@@ -166,7 +166,7 @@ Bascule l'état de fonctionnement (Ouvert/Fermé) des tuyaux et des vannes manue
 - **Un seul clic** : basculer entre ouvert et fermé.
 - **Ctrl + Clic** : Parcourez tous les états disponibles : Ouvert → Fermé → CV (clapet anti-retour) → Ouvert.
 
-La couche **Isolation Valves** peut également être gérée avec cet outil si elle est chargée.
+La couche **Vannes d’isolement** peut également être gérée avec cet outil si elle est chargée.
 
 > L'état est stocké dans le champ `InitStatus` de la couche correspondante et exporté vers le `.inp` d'EPANET.
 

@@ -23,7 +23,7 @@ L'indicateur sur la barre principale (`LPS | D-W`) reflète toujours les valeurs
 
 ## Étape 3 — Construire le réseau
 
-Activez la barre **Edition** et dessinez le réseau sur la carte :
+Activez la barre **Édition** et dessinez le réseau sur la carte :
 
 1. Commencez par les **tuyaux** — les nœuds extrêmes se créent d'eux-mêmes.
 2. Ajoutez des **réservoirs et bâches** en cliquant sur les nœuds existants.
@@ -34,7 +34,7 @@ Activez la barre **Edition** et dessinez le réseau sur la carte :
 
 ## Étape 4 — Vérifier la qualité du modèle
 
-Avant de simuler, utilisez la barre **Debug** :
+Avant de simuler, utilisez la barre **Débogage** :
 
 1. **Consolider et examiner les données** : détecte les attributs incomplets ou incohérents.
 2. **Vérifier la connectivité** — identifie les zones isolées sans source de pression.

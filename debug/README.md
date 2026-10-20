@@ -1,6 +1,6 @@
 # ✅ Débogage
 
-La barre **Debug** regroupe les outils de vérification et de débogage du modèle. Son objectif est de détecter et corriger les erreurs topologiques, les incohérences d'attributs et les problèmes de connectivité **avant de lancer la simulation**, évitant ainsi les erreurs difficiles à diagnostiquer dans EPANET.
+La barre **Débogage** regroupe les outils de vérification et de débogage du modèle. Son objectif est de détecter et corriger les erreurs topologiques, les incohérences d'attributs et les problèmes de connectivité **avant de lancer la simulation**, évitant ainsi les erreurs difficiles à diagnostiquer dans EPANET.
 
 <figure><img src="../assets/images/debug/toolbar.png" alt="Barre d'outils de débogage QGISRed"><figcaption><p>Barre d'outils de débogage QGISRed</p></figcaption></figure>
 *Barre de débogage : validation des données, débogage topologique, revue des attributs et des secteurs hydrauliques.*

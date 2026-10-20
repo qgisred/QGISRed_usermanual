@@ -10,7 +10,7 @@ La meilleure chose à propos de QGISRed est qu'il combine les fonctionnalités d
 * **Géoréférencement complet** : Profitez de tous les avantages de QGIS pour géolocaliser les éléments du réseau, et les superposer sur n'importe quel fond cartographique, ainsi que pour interagir avec lesdits fonds.
 * **Gestion simple des données** : Permet d'importer des fichiers INP et SHP, géoréférencés ou non, avec une structure relationnelle simple et intuitive. Le modèle de données QGISRed est ouvert et permet l'interopérabilité avec d'autres applications.
 * **Outils spécialisés** : comprend des utilitaires pour le débogage du réseau, l'attribution automatique des longueurs, des élévations et de la rugosité, l'attribution des demandes aux nœuds, la gestion de scénarios et l'analyse complète des résultats sans quitter QGIS.
-* **Digital Twins** : prend en charge des éléments supplémentaires tels que des connexions, des vannes manuelles et des compteurs pour un niveau de détail avancé. La connexion de ces éléments avec les données de terrain permet de reproduire le mode de comportement réel du réseau.
+* **Jumeaux numériques** : prend en charge des éléments supplémentaires tels que des connexions, des vannes manuelles et des compteurs pour un niveau de détail avancé. La connexion de ces éléments avec les données de terrain permet de reproduire le mode de comportement réel du réseau.
 * **Du monde académique au professionnel :** De la construction de schémas simples de systèmes hydrauliques, à la modélisation de la réalité pour planifier des actions visant à améliorer les performances hydrauliques, l'efficacité énergétique ou la qualité de l'eau, jusqu'au suivi du comportement du réseau basé sur des données réelles pour la prise de décision.
 
 ***

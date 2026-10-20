@@ -64,12 +64,12 @@ Après confirmation de la création, QGISRed génère les fichiers suivants dans
 | `{Red}_Options.dbf` | Options EPANET (unités, formule, qualité...) |
 | `{Red}_Title.dbf` | Métadonnées du projet (nom du scénario, notes…) |
 
-Ils sont tous regroupés dans la légende de QGIS sous un groupe appelé **"{Red}" → "Inputs"**.
+Ils sont tous regroupés dans la légende de QGIS sous un groupe appelé **"{Red}" → "Entrées"**.
 
 ---
 
 ## Que faire ensuite
 
-Une fois le projet créé, l'étape suivante consiste à **construire le réseau** à l'aide de la barre **Edition**. Voir la section [Édition et modélisation](../edition/README.md) pour voir comment ajouter des tuyaux, des nœuds et des éléments spéciaux.
+Une fois le projet créé, l'étape suivante consiste à **construire le réseau** à l'aide de la barre **Édition**. Voir la section [Édition et modélisation](../edition/README.md) pour voir comment ajouter des tuyaux, des nœuds et des éléments spéciaux.
 
 > 💡 Si vous possédez déjà un fichier EPANET `.inp`, il est plus rapide d'utiliser [Importer un projet](abrir-importar.md#importar-desde-epanet) que de créer à partir de zéro.

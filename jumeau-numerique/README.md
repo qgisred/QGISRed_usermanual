@@ -1,6 +1,6 @@
 # 🧬Jumeau numérique
 
-Le bus **Digital Twin** ajoute au modèle hydraulique les éléments d'infrastructure qui relient le réseau à l'utilisateur final et aux systèmes de surveillance du terrain : connexions, vannes d'arrêt, compteurs et capteurs. Ces éléments ne font pas strictement partie du modèle EPANET mais enrichissent le jumeau numérique d’informations opérationnelles et de télérelevé.
+Le bus **Jumeau Numérique** ajoute au modèle hydraulique les éléments d'infrastructure qui relient le réseau à l'utilisateur final et aux systèmes de surveillance du terrain : connexions, vannes d'arrêt, compteurs et capteurs. Ces éléments ne font pas strictement partie du modèle EPANET mais enrichissent le jumeau numérique d’informations opérationnelles et de télérelevé.
 
 <figure><img src="../assets/images/digital-twin/toolbar.png" alt="Barre d'outils QGISRed Digital Twin"><figcaption><p>Barre d'outils QGISRed Digital Twin</p></figcaption></figure>
 *Digital Twin Bar : connexions, vannes d'arrêt, compteurs et chargement des données de terrain.*

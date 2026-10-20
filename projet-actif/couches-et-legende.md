@@ -6,18 +6,18 @@
 
 **Barre de projet → Gestionnaire de calques** (Gestionnaire de calques)
 
-Contrôle quelles couches de projet sont actives dans QGIS, vous permet de recréer les éléments de base manquants et gère les couches auxiliaires du Constructeur de demandes nodales. La boîte de dialogue organise son contenu en trois onglets : **Éléments de base**, **Digital Twin** et **Couches auxiliaires**.
+Contrôle quelles couches de projet sont actives dans QGIS, vous permet de recréer les éléments de base manquants et gère les couches auxiliaires du Constructeur de demandes nodales. La boîte de dialogue organise son contenu en trois onglets : **Éléments de base**, **Jumeau Numérique** et **Couches auxiliaires**.
 
 <figure><img src="../assets/images/project/layer-manager.png" alt="Boîte de dialogue Gestionnaire de couches QGISRed"><figcaption><p>Boîte de dialogue Gestionnaire de couches QGISRed</p></figcaption></figure>
 <!-- TODO : Capture obsolète, boîte de dialogue déplacée des sections empilées vers les onglets (voir commits 12d9ee7 et 11c29ed) -->
 *Gestionnaire de calques : liste de tous les calques du projet avec leur état de chargement.*
 
-Au dessus des onglets le champ **CRS** est toujours visible, avec le système de coordonnées du projet et un bouton ****** pour le modifier.
+Au dessus des onglets le champ **CRS** est toujours visible, avec le système de coordonnées du projet et un bouton **...** pour le modifier.
 
 ### Éléments de base et onglets Digital Twin
 
 - **Éléments de base** regroupe les 6 éléments de base d'EPANET (Tuyaux, Jonctions, Réservoirs, Bâches, Vannes, Pompes) plus les couches complémentaires Demandes et Sources Multiples.
-- **Digital Twin** rassemble les couches du jumeau numérique : connexions de service, vannes d'isolement et compteurs.
+- **Jumeau Numérique** rassemble les couches du jumeau numérique : connexions de service, vannes d'isolement et compteurs.
 
 Pour chaque élément, la ligne affiche l'une des deux choses suivantes selon que son fichier existe ou non sur le disque :
 
@@ -38,7 +38,7 @@ Si vous avez accidentellement supprimé une couche de la légende QGIS (ou son f
 
 En plus de l'icône d'avertissement de couche supprimée, la légende QGIS peut afficher un deuxième type d'icône d'avertissement (⚠) sur les couches qui **existent** mais dont le contenu est peut-être devenu obsolète.
 
-QGISRed surveille en arrière-plan (vérifiant toutes les 5 secondes) les couches dérivées suspendues aux dossiers du projet **Issues**, **Queries** et **Results**, dont le nom de fichier commence par `<Red>_`. Si le fichier d'entrée le plus récent du réseau (Tuyaux, Jonctions, etc.) a été modifié après la génération de l'une de ces couches dérivées, cette couche reçoit l'icône d'avertissement avec le message :
+QGISRed surveille en arrière-plan (vérifiant toutes les 5 secondes) les couches dérivées suspendues aux dossiers du projet **Problèmes**, **Requêtes** et **Résultats**, dont le nom de fichier commence par `<Red>_`. Si le fichier d'entrée le plus récent du réseau (Tuyaux, Jonctions, etc.) a été modifié après la génération de l'une de ces couches dérivées, cette couche reçoit l'icône d'avertissement avec le message :
 
 > "La couche est peut-être obsolète — les entrées ont changé depuis la dernière génération"
 
@@ -50,7 +50,7 @@ QGISRed surveille en arrière-plan (vérifiant toutes les 5 secondes) les couche
 
 ### Onglet Couches auxiliaires : couches du Constructeur de demandes nodales
 
-L'onglet **Couches auxiliaires** contient le groupe **Demand Builder**, à partir duquel sont créées et gérées les couches de travail vides utilisées par l'outil d'attribution des demandes aux nœuds (Constructeur de demandes nodales) : **Points de consommation**, **Liens de demande** et **Secteurs de demande**.
+L'onglet **Couches auxiliaires** contient le groupe **Constructeur de Demandes**, à partir duquel sont créées et gérées les couches de travail vides utilisées par l'outil d'attribution des demandes aux nœuds (Constructeur de demandes nodales) : **Points de consommation**, **Liens de demande** et **Secteurs de demande**.
 
 <figure><img src="../assets/images/project/auxiliary-layers.png" alt="Onglet Auxiliary layers du gestionnaire de couches QGISRed"><figcaption><p>Onglet Auxiliary layers du gestionnaire de couches QGISRed</p></figcaption></figure>
 
@@ -113,7 +113,7 @@ Ouvre un panneau flottant qui vous permet de créer et de personnaliser la **sym
 Dans l'en-tête de la boîte de dialogue :
 
 - **Groupe** — groupe de l'arborescence des couches sur laquelle vous souhaitez travailler (Entrées, Résultats, Requêtes et leurs sous-groupes...).
-- **Map Layer** — couche spécifique au sein de ce groupe. Vous pouvez également modifier les calques en les sélectionnant directement dans le panneau des calques de QGIS ; l'éditeur suit automatiquement la sélection.
+- **Couche de carte** — couche spécifique au sein de ce groupe. Vous pouvez également modifier les calques en les sélectionnant directement dans le panneau des calques de QGIS ; l'éditeur suit automatiquement la sélection.
 
 ### Sélecteur de variante
 
@@ -121,13 +121,13 @@ Plusieurs couches d'entrée affichent une liste déroulante supplémentaire qui 
 
 | Couche | Liste déroulante | Options |
 |---|---|---|
-| Meters | **Meter Type** | « All types » ou un type précis de compteur (les différentes icônes empilées dans le symbole) |
-| Junctions | **Demand** | « All », « Outflows (> 0) », « Inflows (< 0) » |
-| Sources | **Source Type** | « All types » ou un type précis de source |
-| Service Connections | **Component** | « All », « Line », « Demand circle » |
-| Couches de liens (Pipes et similaires) | **Component** | « All », « Line », « Marker » |
-| Nœuds de l'arbre de connectivité (Tree) | **Node** | « All », « Junctions », « Root node » |
-| Couches avec leurs propres types d'éléments | **Element** | « All » + un type pour chaque élément possible de cette couche |
+| Meters | **Type de compteur** | « All types » ou un type précis de compteur (les différentes icônes empilées dans le symbole) |
+| Junctions | **Demande** | « All », « Outflows (> 0) », « Inflows (< 0) » |
+| Sources | **Type de source** | « All types » ou un type précis de source |
+| Service Connections | **Composant** | « All », « Line », « Demand circle » |
+| Couches de liens (Pipes et similaires) | **Composant** | « All », « Line », « Marker » |
+| Nœuds de l'arbre de connectivité (Tree) | **Noeud** | « All », « Junctions », « Root node » |
+| Couches avec leurs propres types d'éléments | **Élément** | « All » + un type pour chaque élément possible de cette couche |
 
 Tant que le sélecteur est sur « All » (ou n'a pas de variante), la couleur/taille s'applique à tous les éléments à la fois, sauf si la couche a des règles de style fixes (voir plus bas).
 
@@ -137,33 +137,33 @@ La liste déroulante **Type de légende** propose, selon le type de calque, entr
 
 Le tableau central répertorie une ligne par classe, avec la case à cocher de visibilité, la couleur, la taille, la valeur/plage (ou catégorie) et l'étiquette de légende :
 
-- **Classes** n'est modifiable que lorsque le mode de classification admet un nombre variable de classes (par exemple, pas en mode Manual sur une légende numérique ni sur les couches à légende fixe) ; dans les autres cas, il apparaît en gris, sans flèches, et ne peut pas être saisi. Le bouton à côté, **Add all values** (anciennement « Classify All »), ajoute une classe pour chaque valeur unique du calque (catégorique) ou reclasse automatiquement la plage numérique selon le mode choisi dans **Intervalles**.
+- **Classes** n'est modifiable que lorsque le mode de classification admet un nombre variable de classes (par exemple, pas en mode Manual sur une légende numérique ni sur les couches à légende fixe) ; dans les autres cas, il apparaît en gris, sans flèches, et ne peut pas être saisi. Le bouton à côté, **Ajouter toutes les valeurs** (anciennement « Classify All »), ajoute une classe pour chaque valeur unique du calque (catégorique) ou reclasse automatiquement la plage numérique selon le mode choisi dans **Intervalles**.
 - Le bouton **+** à côté de Classes ajoute une classe en dessous de la sélection en un seul clic ; la flèche à côté ouvre un menu avec « Add class above the selection » et, dans les légendes catégoriques, « Add "Other values" class » (une classe spéciale qui regroupe le reste des valeurs non classées). Le bouton **-** supprime la classe sélectionnée.
-- **Intervalles** (`cbMode`) définit la méthode de classification automatique des légendes graduées : Manuel, Intervalle égal, Intervalle fixe, Quantile (Nombre égal), Ruptures naturelles (Jenks), Écart type et Jolies ruptures. Avec **Fixed Interval**, le champ **Interval Range** apparaît pour indiquer la largeur de chaque classe.
+- **Intervalles** (`cbMode`) définit la méthode de classification automatique des légendes graduées : Manuel, Intervalle égal, Intervalle fixe, Quantile (Nombre égal), Ruptures naturelles (Jenks), Écart type et Jolies ruptures. Avec **Intervalle fixe**, le champ **Plage d'intervalles** apparaît pour indiquer la largeur de chaque classe.
 - Vous pouvez éditer manuellement la plage d'une classe en **double-cliquant sur sa valeur** (colonne Valeur) pour ouvrir une petite boîte de dialogue avec les limites inférieure et supérieure.
-- **Haut / Bas** (flèches à côté du tableau) réorganisent manuellement la classe sélectionnée. La liste déroulante **Class Order** (None / Ascending / Descending), au-dessus du tableau, réordonne automatiquement toutes les classes selon leur valeur au moment d'appliquer la légende.
+- **Haut / Bas** (flèches à côté du tableau) réorganisent manuellement la classe sélectionnée. La liste déroulante **Ordre des classes** (None / Ascending / Descending), au-dessus du tableau, réordonne automatiquement toutes les classes selon leur valeur au moment d'appliquer la légende.
 
 ### Tailles
 
-Le bloc **Sizes** contrôle la taille des classes, toujours en millimètres sauf l'exception ci-dessous :
+Le bloc **Tailles** contrôle la taille des classes, toujours en millimètres sauf l'exception ci-dessous :
 
 - **Tailles** (`cbSizes`) : Manuel, Égal, Linéaire, Quadratique, Exponentiel ou Proportionnel à la Valeur.
-- **Equal** utilise un seul champ **Value** pour toutes les classes.
+- **Égal** utilise un seul champ **Valeur** pour toutes les classes.
 - Linéaire/Quadratique/Exponentiel/Proportionnel à la Valeur répartit la taille entre **Min** et **Max** selon la courbe choisie, avec la case **Inverser** pour échanger quelle extrémité (valeur inférieure ou supérieure) reçoit la taille minimale.
 
-> 💡 Sur les couches avec une légende d'état fixe (voir « Règles de style spécifiques » plus bas) ou sur une couche Single Symbol avec le sélecteur de variante sur « All », l'en-tête de colonne devient **Size (%)** : la valeur n'est plus une taille en mm mais un **pourcentage des tailles actuelles** — 100 % laisse chaque élément avec la taille déjà dessinée, et le réglage met à l'échelle tous les éléments à la fois au lieu de fixer une taille absolue par classe.
+> 💡 Sur les couches avec une légende d'état fixe (voir « Règles de style spécifiques » plus bas) ou sur une couche Single Symbol avec le sélecteur de variante sur « All », l'en-tête de colonne devient **Taille (%)** : la valeur n'est plus une taille en mm mais un **pourcentage des tailles actuelles** — 100 % laisse chaque élément avec la taille déjà dessinée, et le réglage met à l'échelle tous les éléments à la fois au lieu de fixer une taille absolue par classe.
 
 ### Couleurs
 
-Le bloc **Colors** contrôle la couleur de chaque classe. La liste déroulante **Colors** (`cbColors`) propose, en plus de Manual/Equal/Random, les rampes et palettes de la bibliothèque regroupées par type :
+Le bloc **Couleurs** contrôle la couleur de chaque classe. La liste déroulante **Couleurs** (`cbColors`) propose, en plus de Manual/Equal/Random, les rampes et palettes de la bibliothèque regroupées par type :
 
-- **Manual** — chaque classe conserve la couleur qui lui a été attribuée à la main.
-- **Equal** — une seule couleur (bouton de couleur à côté de la liste déroulante) pour toutes les classes.
-- **Random** — des couleurs aléatoires différentes par classe, selon le même critère de « couleurs aléatoires mélangées » (shuffle) que QGIS utilise nativement. Le bouton de rafraîchissement à côté de la liste déroulante (visible uniquement dans ce mode) remélange les couleurs sans rien changer d'autre.
+- **Manuel** — chaque classe conserve la couleur qui lui a été attribuée à la main.
+- **Égal** — une seule couleur (bouton de couleur à côté de la liste déroulante) pour toutes les classes.
+- **Aléatoire** — des couleurs aléatoires différentes par classe, selon le même critère de « couleurs aléatoires mélangées » (shuffle) que QGIS utilise nativement. Le bouton de rafraîchissement à côté de la liste déroulante (visible uniquement dans ce mode) remélange les couleurs sans rien changer d'autre.
 - **2 colors Ramps / 3 colors Ramps / > 3 colors Ramps** — rampes de couleurs continues, regroupées selon le nombre de couleurs qui définissent la rampe.
-- **Span Palettes** — palette catégorique dont les couleurs sont réparties le long de la plage de classes en conservant la première et la dernière.
-- **Sequential Palettes** — palette catégorique dont les couleurs sont attribuées dans l'ordre où elles sont déclarées dans la palette.
-- **Labeled Palettes** — palette catégorique où chaque classe reçoit la couleur dont l'étiquette correspond à sa propre valeur.
+- **Palettes étendues** — palette catégorique dont les couleurs sont réparties le long de la plage de classes en conservant la première et la dernière.
+- **Palettes séquentielles** — palette catégorique dont les couleurs sont attribuées dans l'ordre où elles sont déclarées dans la palette.
+- **Palettes étiquetées** — palette catégorique où chaque classe reçoit la couleur dont l'étiquette correspond à sa propre valeur.
 
 L'éditeur lui-même **recommande une option** selon le type de légende (Span Palettes pour les légendes numériques ; Labeled Palettes s'il existe une palette étiquetée qui correspond aux catégories de la couche, ou Sequential Palettes dans tout autre cas catégorique) : cette option apparaît en gras avec le suffixe « (recommended) ». Les options sans aucune rampe/palette de ce type dans la bibliothèque active, ou Labeled Palettes sur une légende numérique, apparaissent désactivées avec une infobulle expliquant pourquoi.
 
@@ -173,28 +173,28 @@ La case **Inverser** échange le sens de la rampe/palette choisie.
 
 ### Bibliothèque de rampes et palettes
 
-À côté de la liste déroulante Colors, **Symbol library** permet de choisir d'où viennent les rampes et palettes proposées par cette liste déroulante :
+À côté de la liste déroulante Colors, **Bibliothèque de symboles** permet de choisir d'où viennent les rampes et palettes proposées par cette liste déroulante :
 
-- **Use default** — la bibliothèque fournie par défaut avec QGISRed.
-- **Use owner** — votre propre bibliothèque modifiable. En la sélectionnant, le bouton **Edit owner** apparaît, qui ouvre le gestionnaire de styles natif de QGIS (Style Manager) sur cette bibliothèque pour ajouter, modifier ou supprimer des rampes, palettes et symboles. Les modifications que vous y apportez se répercutent immédiatement dans la liste déroulante Colors, recalculant même les couleurs déjà appliquées si la rampe active a changé.
+- **Utiliser la valeur par défaut** — la bibliothèque fournie par défaut avec QGISRed.
+- **Utiliser la mienne** — votre propre bibliothèque modifiable. En la sélectionnant, le bouton **Modifier la mienne** apparaît, qui ouvre le gestionnaire de styles natif de QGIS (Style Manager) sur cette bibliothèque pour ajouter, modifier ou supprimer des rampes, palettes et symboles. Les modifications que vous y apportez se répercutent immédiatement dans la liste déroulante Colors, recalculant même les couleurs déjà appliquées si la rampe active a changé.
 
 ### Opacité et bordure (couches de remplissage)
 
 Sur les couches dont le symbole est un remplissage de polygone (par exemple, les secteurs hydrauliques et de demande), le panneau ajoute deux contrôles qui s'appliquent **à toutes les classes à la fois**, pas classe par classe :
 
-- **Opacity** (0–100 %) — opacité du remplissage ; 100 % est plein, 0 % invisible.
-- **Border** — mode de bordure de chaque classe : « No border », « Black », « Fill color » (la bordure prend la même couleur que le remplissage) ou « Darker than the fill » ; avec n'importe quelle option sauf « No border », la largeur de la bordure en mm apparaît également.
+- **Opacité** (0–100 %) — opacité du remplissage ; 100 % est plein, 0 % invisible.
+- **Bordure** — mode de bordure de chaque classe : « No border », « Black », « Fill color » (la bordure prend la même couleur que le remplissage) ou « Darker than the fill » ; avec n'importe quelle option sauf « No border », la largeur de la bordure en mm apparaît également.
 
 ### Règles de style spécifiques par type de calque
 
 Les éléments d'entrée (Inputs) et certaines couches de requête comportent des règles de style avec des états fixes que la couleur/taille que vous choisissez respecte, au lieu de remplacer l'intégralité du symbole. Par exemple, les Tuyaux/Vannes/Pompes gardent l'état "fermé" en rouge et les Vannes actives en orange, peu importe ce qui se passe avec la couleur que vous choisissez pour le reste. Parmi les couches avec leurs propres règles :
 
 - **Demandes Multiples** : la couleur choisie colore uniquement la branche "demande positive" du symbole (le marqueur intérieur), tout comme dans les Jonctions ; la demande négative et le reste du symbole conservent leurs couleurs fixes.
-- **Junctions** : avec le sélecteur **Demand** sur « Outflows (> 0) » ou « Inflows (< 0) », vous pouvez classer et colorer chaque groupe de nœuds séparément ; les demandes négatives conservent toujours le blanc dans les légendes automatiques par plage.
+- **Nœuds de demande** : avec le sélecteur **Demande** sur « Outflows (> 0) » ou « Inflows (< 0) », vous pouvez classer et colorer chaque groupe de nœuds séparément ; les demandes négatives conservent toujours le blanc dans les légendes automatiques par plage.
 - **Vannes d'isolement** : la couleur choisie remplace uniquement l'état « ouvert, pas de perte de pression » ; Les couleurs de fermé (rouge), avec perte de charge (ambre) et non disponible (gris) sont définies par la légende elle-même et ne peuvent pas être modifiées à partir d'ici.
 - **Mètres** : La couleur et la taille sont appliquées en fonction de ce que vous avez sélectionné dans **Type de compteur** — à tous les types de compteurs à la fois, ou uniquement au type choisi, sans toucher au reste des icônes empilées.
-- **Service Connections** : la couleur choisie est appliquée au trait de connexion actif et à une version plus claire de la même couleur pour son remplissage ; Les autres États conservent leur propre couleur.
-- **Connect_Links** (résultat de l'outil Connectivité, au sein des Requêtes) : contrairement aux précédents, il n'a pas de règles par état — la couleur et la taille sont appliquées directement au symbole, comme dans n'importe quel calque de Symbole Unique.
+- **Branchements** : la couleur choisie est appliquée au trait de connexion actif et à une version plus claire de la même couleur pour son remplissage ; Les autres États conservent leur propre couleur.
+- **Connect_Liens** (résultat de l'outil Connectivité, au sein des Requêtes) : contrairement aux précédents, il n'a pas de règles par état — la couleur et la taille sont appliquées directement au symbole, comme dans n'importe quel calque de Symbole Unique.
 
 ### Charger et enregistrer les styles
 
@@ -212,7 +212,7 @@ Les boutons **Charger** et **Enregistrer**, en bas de la boîte de dialogue, ouv
 
 Lors de la sauvegarde, une petite boîte de dialogue vous permet de choisir si vous souhaitez sauvegarder la légende **telle que vue** ou une **stratégie** qui se régénère automatiquement au prochain chargement (en marquant les parties à conserver : la structure classe/gamme, les tailles et/ou les couleurs).
 
-> ⚠️ **Load** et **Revert to Original Legend** mettent à jour uniquement l'aperçu du dialogue. La couche du projet ne change pas tant que vous n'appuyez pas sur **Appliquer** ou **Accepter**.
+> ⚠️ **Charger** et **Revenir à la légende d'origine** mettent à jour uniquement l'aperçu du dialogue. La couche du projet ne change pas tant que vous n'appuyez pas sur **Appliquer** ou **Accepter**.
 
 ### Postuler, accepter et annuler
 

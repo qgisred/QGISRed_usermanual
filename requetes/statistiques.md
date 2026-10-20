@@ -15,7 +15,7 @@ Ouvre le panneau **Statistiques**, qui calcule et affiche la distribution statis
 
 Le panneau Statistiques est organisé en deux onglets :
 
-- **Setup** : définit ce qui est analysé et comment c'est classé.
+- **Configuration** : définit ce qui est analysé et comment c'est classé.
 - **Rapport** : affiche l'histogramme et le tableau des résultats. Il est activé automatiquement après l'exécution de l'analyse.
 
 ---
@@ -36,7 +36,7 @@ Sélectionnez le type d'élément (Jonctions, Canalisations, Réservoirs...) et 
 
 #### Méthodes de tri disponibles
 
-Les méthodes suivantes sont disponibles pour le tri principal et le deuxième tri. La méthode par défaut est **Pretty Breaks**.
+Les méthodes suivantes sont disponibles pour le tri principal et le deuxième tri. La méthode par défaut est **Discontinuités arrondies**.
 
 | Méthode | Descriptif |
 |--------|-------------|
@@ -48,7 +48,7 @@ Les méthodes suivantes sont disponibles pour le tri principal et le deuxième t
 
 > **ℹ️ Remarque :** Lorsque toutes les valeurs sont identiques ou très similaires, les points de terminaison de classe en double sont réduits en affichant une seule valeur au lieu de "100,0 - 100,0".
 
-> **ℹ️ Note — Champs sans données utiles :** Si le champ choisi à classer n'a aucune valeur calculée, le panneau n'affiche pas de message d'erreur : il génère directement une seule classe **NULL** qui regroupe tous les éléments sans valeur. Si le champ a des valeurs mais qu'elles sont toutes égales (y compris le cas où elles sont toutes nulles), une seule classe est générée avec cette valeur, tout comme dans le cas précédent de points de terminaison réduits. Dans les deux cas, l'histogramme et le tableau sont générés normalement, sans interrompre l'analyse.
+> **ℹ️ Note — Champs sans données utiles :** Si le champ choisi à classer n'a aucune valeur calculée, le panneau n'affiche pas de message d'erreur : il génère directement une seule classe **NUL** qui regroupe tous les éléments sans valeur. Si le champ a des valeurs mais qu'elles sont toutes égales (y compris le cas où elles sont toutes nulles), une seule classe est générée avec cette valeur, tout comme dans le cas précédent de points de terminaison réduits. Dans les deux cas, l'histogramme et le tableau sont générés normalement, sans interrompre l'analyse.
 
 > **ℹ️ Remarque :** Lors de l'analyse d'un champ de résultat de simulation dynamique, les **limites de classe sont calculées une fois** en tenant compte de tous les instants simultanément. Au fur et à mesure de l'étape de simulation, le nombre d'éléments par barre varie, mais les limites restent constantes, permettant **de comparer les distributions entre instants de temps** en toute cohérence.
 
@@ -69,7 +69,7 @@ Lorsque l'attribut de filtre est un champ de résultat de simulation, la combina
 
 ### Restreindre à la sélection active
 
-La case **Uniquement les éléments sélectionnés** limite l'analyse aux éléments actuellement sélectionnés sur la carte. La sélection est évaluée conjointement entre la couche **Inputs** et sa couche **Results** correspondante : si l'élément est sélectionné dans l'une ou l'autre couche du même type (par exemple, `Pipes` dans Inputs et son thème de résultats de pipeline), il est inclus dans le calcul.
+La case **Uniquement les éléments sélectionnés** limite l'analyse aux éléments actuellement sélectionnés sur la carte. La sélection est évaluée conjointement entre la couche **Entrées** et sa couche **Résultats** correspondante : si l'élément est sélectionné dans l'une ou l'autre couche du même type (par exemple, `Pipes` dans Inputs et son thème de résultats de pipeline), il est inclus dans le calcul.
 
 > ⚠️ Si vous activez la case et qu'aucun élément n'est sélectionné dans aucun des calques, le panneau affiche un avertissement et n'exécute pas l'analyse.
 
@@ -174,7 +174,7 @@ Disponible uniquement si les résultats sont téléchargés :
 | `ReactRate` | Taux de réaction |
 | `Quality` | Qualité de l'eau |
 
-> **⚠️ Remarque :** Les champs `Velocity`, `UnitHdLoss`, `FricFactor` et `ReactRate` ne sont pas disponibles lorsque le type d'élément sélectionné est **Pompes** ou **Valves** ; Ils sont exclusifs aux pipes.
+> **⚠️ Remarque :** Les champs `Velocity`, `UnitHdLoss`, `FricFactor` et `ReactRate` ne sont pas disponibles lorsque le type d'élément sélectionné est **Pompes** ou **Vannes** ; Ils sont exclusifs aux pipes.
 
 ---
 

@@ -58,7 +58,7 @@ Renomme le réseau et met automatiquement à jour le nom de **tous les fichiers*
 
 1. Sélectionnez le projet.
 2. Appuyez sur **Renommer**.
-3. La boîte de dialogue propose trois cases indépendantes : **Renommer les données du projet** (renomme les fichiers de données réseau) et **Renommer le fichier de carte du projet** (renomme également le projet QGIS `.qgz`/`.qgs`, s'il existe) — toutes deux cochées par défaut — et **Rename project folder:** (renomme également le dossier contenant le projet), décochée par défaut. Au moins une doit être marquée.
+3. La boîte de dialogue propose trois cases indépendantes : **Renommer les données du projet** (renomme les fichiers de données réseau) et **Renommer le fichier de carte du projet** (renomme également le projet QGIS `.qgz`/`.qgs`, s'il existe) — toutes deux cochées par défaut — et **Renommer le dossier du projet :** (renomme également le dossier contenant le projet), décochée par défaut. Au moins une doit être marquée.
 4. Saisissez le nouveau nom dans le champ correspondant à chaque case active. Le champ du dossier suggère automatiquement le même nom que le projet tant qu'il n'est pas modifié à la main.
 
 > 📝 **Rename project folder** est désactivée, avec l'avertissement _"Another project in this folder is currently open in QGIS"_, si le dossier contient un autre projet que celui que vous renommez et que cet autre projet est actuellement ouvert dans QGIS — afin de ne pas déplacer ni supprimer des fichiers sur lesquels QGIS maintient un verrou. Les autres projets partageant le dossier continuent d'apparaître normalement dans la liste après le renommage.

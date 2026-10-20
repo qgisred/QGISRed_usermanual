@@ -51,7 +51,7 @@ Deux combos situés sous les contrôles horaires :
 
 > 💡 En modes **Maximum** et **Minimum**, les étiquettes de la carte affichent la valeur ainsi que l'heure d'occurrence au format `valor (@ HH:MM:SS)`. Lorsque vous placez le curseur sur un élément de la carte, l'info-bulle inclut une ligne supplémentaire `@ HH:MM:SS` avec le moment exact auquel ce maximum ou ce minimum s'est produit.
 
-> 💡 Avec n'importe quel mode statistique actif, l'info-bulle ajoute à la valeur l'abréviation de la statistique affichée : **Max**, **Min**, **Avg** (Moyenne), **Rng** (Plage) ou **Std** (StdDev). Par exemple, `Max 45.2` au lieu de simplement `45.2`.
+> 💡 Avec n'importe quel mode statistique actif, l'info-bulle ajoute à la valeur l'abréviation de la statistique affichée : **Max**, **Min**, **Moyenne** (Moyenne), **Plage** (Plage) ou **Écart type** (StdDev). Par exemple, `Max 45.2` au lieu de simplement `45.2`.
 
 #### Groupe de mappage — Nœuds
 
@@ -74,13 +74,13 @@ Deux combos situés sous les contrôles horaires :
 | **Afficher l'histogramme des liens** | Histogramme intégré au dock avec répartition de la valeur actuelle dans les canalisations. |
 | **Afficher l'évolution du lien** | Mini-graphique intégré avec l'évolution temporelle du pipeline sélectionné sur la carte. |
 
-> 💡 De même, lorsqu'une variable est sélectionnée dans le combo **Liens**, un label apparaît à côté de l'en-tête du groupe avec le nom de la variable en gras et son unité entre parenthèses (par exemple, **Velocity** (m/s)).
+> 💡 De même, lorsqu'une variable est sélectionnée dans le combo **Liens**, un label apparaît à côté de l'en-tête du groupe avec le nom de la variable en gras et son unité entre parenthèses (par exemple, **Vitesse** (m/s)).
 
-> ⚠️ Lorsque la variable **Links** est **Status**, les étiquettes de texte sont simplifiées : les ~13 états internes que EPANET peut retourner sont regroupés en seulement deux textes, **"Fermé"** (inclut "Temp Closed") et **"Active"** (inclut "Active (Rev Pump)"). Les liens avec n'importe quel état **"Ouvert*"** n'affichent aucune étiquette, afin de ne pas encombrer la carte avec la plupart des tuyaux (qui sont généralement ouverts). Ce n'est pas une erreur si, avec le statut actif, la plupart des tuyaux apparaissent sans étiquette.
+> ⚠️ Lorsque la variable **Liens** est **État**, les étiquettes de texte sont simplifiées : les ~13 états internes que EPANET peut retourner sont regroupés en seulement deux textes, **"Fermé"** (inclut "Temp Closed") et **"Actif"** (inclut "Active (Rev Pump)"). Les liens avec n'importe quel état **"Ouvert*"** n'affichent aucune étiquette, afin de ne pas encombrer la carte avec la plupart des tuyaux (qui sont généralement ouverts). Ce n'est pas une erreur si, avec le statut actif, la plupart des tuyaux apparaissent sans étiquette.
 
 > Le bouton **Apparence** (icône en entête du groupe Nœuds) vous amène directement à l'onglet Apparence sans avoir à naviguer dans les onglets.
 
-> 💡 Lorsque le combo **Nodes** ou **Links** est réglé sur « None », la couche correspondante ne disparaît pas de la carte : elle s'affiche avec un symbole gris uniforme et sans légende, afin que le réseau reste visible comme référence tant qu'aucune variable de résultat n'est active pour ce type d'élément.
+> 💡 Lorsque le combo **Nœuds** ou **Liens** est réglé sur « None », la couche correspondante ne disparaît pas de la carte : elle s'affiche avec un symbole gris uniforme et sans légende, afin que le réseau reste visible comme référence tant qu'aucune variable de résultat n'est active pour ce type d'élément.
 
 > 💡 Dans le panneau des couches de QGIS, chaque couche de résultats ouverte affiche le nom de la propriété représentée avec son unité (par exemple, **Pressions (m)**), et chaque classe de sa légende indique entre parenthèses le nombre d'éléments qu'elle contient — tout comme le font déjà les couches d'entrée.
 
@@ -107,7 +107,7 @@ Concentre toutes les options de présentation visuelle des résultats sur la car
 
 > 💡 Chaque commande numérique de l'onglet Apparence possède un petit bouton individuel ↺ qui restaure uniquement ce champ à sa valeur par défaut, sans affecter le reste des paramètres.
 
-> ⚠️ Les contrôles du groupe **Nodes** sont automatiquement désactivés lorsque le combo Nodes est défini sur "Aucun", et il en va de même pour **Links**. De plus, le contrôle **Décimales** est désactivé lorsque la variable active est **Statut** (variable catégorielle sans décimales applicables).
+> ⚠️ Les contrôles du groupe **Nœuds** sont automatiquement désactivés lorsque le combo Nodes est défini sur "Aucun", et il en va de même pour **Liens**. De plus, le contrôle **Décimales** est désactivé lorsque la variable active est **Statut** (variable catégorielle sans décimales applicables).
 
 #### Étiquettes de carte
 
@@ -115,8 +115,8 @@ Concentre toutes les options de présentation visuelle des résultats sur la car
 |--------|-------------|
 | **Taille de police (pt)** | Taille de police des étiquettes sur la carte (6 à 24 pts, 8 par défaut). |
 | **Nœuds / Liens décimaux** | Nombre de décimales affichées respectivement sur les étiquettes des nœuds et des tuyaux (0 à 6). Le contrôle est étiqueté avec le nom de la variable actuellement active. |
-| **Couleur du texte** | Couleur par défaut : nœuds **#333333** (gris foncé), passepoil **#0A143C** (bleu marine). **Noir** : texte toujours noir. **Par plage** : La couleur du texte suit la palette de la plage de valeurs active. Lorsque **Show Node ID** ou **Show Link ID** est actif, la ligne Id utilise la couleur de l'élément lui-même et la ligne de valeur utilise la couleur du symbole ou de la plage. |
-| **Contexte** | Couleur d’arrière-plan derrière les étiquettes de carte. Comprend un sélecteur de couleurs et un bouton de suppression pour supprimer l'arrière-plan. A côté du sélecteur se trouve une icône **cadenas** : ouvert (par défaut), le fond des étiquettes est indépendant du fond de la carte ; Lorsque vous le fermez, le sélecteur et le bouton d'effacement sont désactivés et l'arrière-plan des étiquettes est lié à la couleur **Map Background** (voir ci-dessous), donc changer cette couleur modifie également automatiquement l'arrière-plan des étiquettes. |
+| **Couleur du texte** | Couleur par défaut : nœuds **#333333** (gris foncé), passepoil **#0A143C** (bleu marine). **Noir** : texte toujours noir. **Par plage** : La couleur du texte suit la palette de la plage de valeurs active. Lorsque **Afficher l'ID des noeuds** ou **Afficher l'ID des liens** est actif, la ligne Id utilise la couleur de l'élément lui-même et la ligne de valeur utilise la couleur du symbole ou de la plage. |
+| **Contexte** | Couleur d’arrière-plan derrière les étiquettes de carte. Comprend un sélecteur de couleurs et un bouton de suppression pour supprimer l'arrière-plan. A côté du sélecteur se trouve une icône **cadenas** : ouvert (par défaut), le fond des étiquettes est indépendant du fond de la carte ; Lorsque vous le fermez, le sélecteur et le bouton d'effacement sont désactivés et l'arrière-plan des étiquettes est lié à la couleur **Fond de carte** (voir ci-dessous), donc changer cette couleur modifie également automatiquement l'arrière-plan des étiquettes. |
 | **Tampon** | Couleur du contour (halo) autour du texte de l'étiquette, avec son propre sélecteur de couleur et son propre bouton de suppression. Il est indépendant du Fond et n’est jamais lié au Fond de la Carte. Sans couleur attribuée (par défaut), aucun halo n'est dessiné. |
 | **Afficher l'ID du nœud** / **Afficher l'ID du lien** | Deux cases indépendantes : ajoutez respectivement l'ID du nœud ou du canal dans la première ligne de son label. |
 
@@ -134,7 +134,7 @@ Concentre toutes les options de présentation visuelle des résultats sur la car
 
 #### Fond de carte
 
-Vous permet de définir une couleur d’arrière-plan unie pour le canevas de la carte lors de l’affichage des résultats. La couleur est restaurée à l'original lorsque le quai est fermé. Le bouton ****** supprime la couleur d'arrière-plan.
+Vous permet de définir une couleur d’arrière-plan unie pour le canevas de la carte lors de l’affichage des résultats. La couleur est restaurée à l'original lorsque le quai est fermé. Le bouton **×** supprime la couleur d'arrière-plan.
 
 > 💡 Le contour des symboles des réservoirs et des bâches est automatiquement recalculé pour rester visible sur la couleur de fond choisie.
 
@@ -174,7 +174,7 @@ Le dock prend en charge plusieurs scénarios de résultats. Chaque scénario est
 | `ReactRate` | Taux de réaction (modèles de qualité) |
 | `Quality` | Qualité de l'eau |
 
-> 💡 Les étiquettes de carte pour la variable **Flow** affichent toujours la valeur absolue (sans signe négatif), même dans les modes statistiques Maximum et Minimum. Le sens du flux est indiqué par les flèches de direction et non par le signe de valeur.
+> 💡 Les étiquettes de carte pour la variable **Débit** affichent toujours la valeur absolue (sans signe négatif), même dans les modes statistiques Maximum et Minimum. Le sens du flux est indiqué par les flèches de direction et non par le signe de valeur.
 
 ---
 
@@ -207,7 +207,7 @@ Active un outil de sélection interactif qui trace l'évolution temporelle de to
 
 ### Propriétés supplémentaires pour les buckets
 
-Pour le type d'élément **Tank**, deux quantités supplémentaires sont disponibles :
+Pour le type d'élément **Réservoir**, deux quantités supplémentaires sont disponibles :
 
 | Magnitude | Descriptif |
 |----------|-------------|

@@ -81,7 +81,7 @@ La couche `IsolationValves.shp` doit exister dans le répertoire du projet. S'il
 ### Quand l'utiliser
 
 - Avant de simuler un scénario opérationnel précis (par exemple avec un secteur fermé pour maintenance).
-- Après avoir mis à jour l'état de plusieurs vannes de coupure sur la carte et avant de lancer **Run model**.
+- Après avoir mis à jour l'état de plusieurs vannes de coupure sur la carte et avant de lancer **Exécuter le modèle**.
 
 > Cette opération modifie le modèle EPANET (champ `InitStatus` de `Pipes`). Pour revenir à l'état d'origine, utilisez **Scenario builder** (barre d'outils) si vous aviez enregistré le scénario de base avant l'opération.
 

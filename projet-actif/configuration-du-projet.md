@@ -1,6 +1,6 @@
 # Configuration du projet
 
-Cette page regroupe trois boîtes de dialogue de configuration qui affectent le comportement hydraulique du modèle et les valeurs par défaut avec lesquelles les nouveaux éléments sont créés : Options d'analyse (barre **Analysis**) et Valeurs par défaut / Table des matières (barre **Project**).
+Cette page regroupe trois boîtes de dialogue de configuration qui affectent le comportement hydraulique du modèle et les valeurs par défaut avec lesquelles les nouveaux éléments sont créés : Options d'analyse (barre **Analyse**) et Valeurs par défaut / Table des matières (barre **Projet**).
 
 ---
 

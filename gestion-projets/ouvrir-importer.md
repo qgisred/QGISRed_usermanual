@@ -27,7 +27,7 @@ Ouvre un projet QGISRed existant (précédemment créé avec le plugin) qui n'ap
 
 ### Que se passe-t-il lorsque vous ouvrez
 
-- Le groupe de couches **Inputs** est chargé avec les 6 SHP de base plus toutes les couches auxiliaires (requêtes multiples, sources, etc.).
+- Le groupe de couches **Entrées** est chargé avec les 6 SHP de base plus toutes les couches auxiliaires (requêtes multiples, sources, etc.).
 - Si le projet comporte des résultats de simulations précédentes, le groupe **Résultats** est également chargé.
 - Les options du projet (`_Options.dbf`) sont lues et l'indicateur d'unités dans la barre principale est mis à jour.
 - Si les styles visuels (QML) ont changé par rapport à la version du plugin avec lequel ils ont été enregistrés, ils sont automatiquement mis à jour.
@@ -53,7 +53,7 @@ Le cas le plus courant : vous disposez d’un modèle EPANET existant et vous so
 2. Indique le **nom du réseau** que portera le projet QGISRed (il peut être différent du nom interne de l'INP).
 3. Choisissez le **dossier de destination** où les SHP seront créés.
 4. QGISRed convertit tous les éléments (nœuds, tuyaux, vannes, pompes, courbes, modulations, contrôles...) en structure SHP+DBF.
-5. Case **Separate overlapping nodes** : certains logiciels exportent les pompes et les vannes comme des liens dont les nœuds d'extrémité partagent les mêmes coordonnées. En activant cette option, ces nœuds sont légèrement séparés afin qu'aucun élément ne soit perdu lors de l'importation.
+5. Case **Séparer les nœuds superposés** : certains logiciels exportent les pompes et les vannes comme des liens dont les nœuds d'extrémité partagent les mêmes coordonnées. En activant cette option, ces nœuds sont légèrement séparés afin qu'aucun élément ne soit perdu lors de l'importation.
 
 > ⚠️ Les coordonnées de `.inp` doivent être dans le même CRS que vous utiliserez dans QGISRed. Le plugin ne reprojete pas lors de l'importation.
 
@@ -142,4 +142,4 @@ Si vous copiez le dossier du projet sur un autre ordinateur :
 
 1. Utilisez **Télécharger** dans le Gestionnaire de projets pour l'ajouter à l'historique local.
 2. Si le projet a un `.qgz` enregistré, ouvrez-le normalement depuis QGIS — QGISRed le reconnaîtra automatiquement.
-3. Si le `.qgz` n'est pas là ou si les chemins ont changé, utilisez **Open Project** pour le charger directement depuis les SHP.
+3. Si le `.qgz` n'est pas là ou si les chemins ont changé, utilisez **Ouvrir un projet** pour le charger directement depuis les SHP.

@@ -1,6 +1,6 @@
 # ✏️Édition
 
-La barre **Edition** contient tous les outils pour construire et modifier le réseau directement sur la carte QGIS. Travaillez sur les couches du projet actif sans avoir à ouvrir des tables attributaires ou des fichiers externes.
+La barre **Édition** contient tous les outils pour construire et modifier le réseau directement sur la carte QGIS. Travaillez sur les couches du projet actif sans avoir à ouvrir des tables attributaires ou des fichiers externes.
 
 <figure><img src="../assets/images/editing/toolbar.png" alt="Barre d'outils QGISRed Edition"><figcaption><p>Barre d'outils QGISRed Edition</p></figcaption></figure>
 *Bar Edition : création d'éléments, édition géométrique et topologique, propriétés et données d'exploitation.*

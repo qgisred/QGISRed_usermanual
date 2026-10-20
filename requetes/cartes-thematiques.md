@@ -93,4 +93,4 @@ Si vous cochez et confirmez à nouveau une case déjà générée, QGISRed rempl
 
 - La génération des cartes thématiques ne modifie aucune donnée du modèle ; il crée uniquement de nouveaux calques avec la symbologie correspondante.
 - Pour supprimer une carte, décochez-la dans la boîte de dialogue (voir "Processus" ci-dessus) ou supprimez sa couche directement depuis le panneau des couches QGIS.
-- La carte **Total Base Demand** nécessite l'existence de nœuds avec une demande assignée ; Si le projet n'a aucune demande chargée, la couche est générée vide.
+- La carte **Demande de base totale** nécessite l'existence de nœuds avec une demande assignée ; Si le projet n'a aucune demande chargée, la couche est générée vide.
