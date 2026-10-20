@@ -662,6 +662,34 @@ def remove_new_layers(before, label=""):
     return len(new_ids)
 
 
+def wait_for_canvas_refresh(max_seconds=10.0):
+    """refresh() + pump(N) de duracion fija es una apuesta a ciegas: si el
+    repintado real tarda mas de N, se captura un lienzo a medias (o en
+    blanco); si tarda menos, se espera de mas sin necesidad. mapCanvasRefreshed()
+    se emite justo cuando el render job termina de verdad -- esperar a esa
+    senal en vez de a un reloj es determinista por construccion. max_seconds
+    es solo una red de seguridad (avisa y sigue si nunca llega, no cuelga
+    el resto de la captura)."""
+    from qgis.PyQt.QtWidgets import QApplication
+    done = [False]
+
+    def _on_refreshed():
+        done[0] = True
+
+    canvas = iface.mapCanvas()
+    canvas.mapCanvasRefreshed.connect(_on_refreshed)
+    try:
+        canvas.refresh()
+        end = time.time() + max_seconds
+        while not done[0] and time.time() < end:
+            QApplication.processEvents()
+            time.sleep(0.05)
+    finally:
+        canvas.mapCanvasRefreshed.disconnect(_on_refreshed)
+    if not done[0]:
+        log(f"AVISO: mapCanvasRefreshed no llego tras {max_seconds}s, capturando de todas formas")
+
+
 def capture_dock(action_fn, out_rel, delay=1.5, hide_cons=True, refresh_canvas=False):
     """Para paneles acoplables (QDockWidget) anadidos con iface.addDockWidget
     -- viven DENTRO de la ventana principal, no son una ventana top-level
@@ -679,8 +707,19 @@ def capture_dock(action_fn, out_rel, delay=1.5, hide_cons=True, refresh_canvas=F
         return
     pump(delay)
     if refresh_canvas:
-        iface.mapCanvas().refresh()
-        pump(1.5)
+        # La causa real NO era timing (confirmado con wait_for_canvas_refresh()
+        # + un volcado de diagnostico de canvas.layers()/canvas.extent(): la
+        # senal de fin de render llegaba siempre, canvas.layers() ya incluia
+        # las capas de resultado correctas -- pero canvas.extent() seguia
+        # siendo el de un paso ANTERIOR del mismo run_all() (p.ej. tras
+        # acercarse a un elemento concreto en una captura de edicion), muy
+        # lejos de las coordenadas reales de la red demo ([COORDINATES] del
+        # .inp: X entre -15 y 95, Y entre 0 y 95 -- el extent capturado en el
+        # diagnostico era X 151-418, Y 84-184, sin solape posible). Cambiar
+        # de tema a Resultados no reencuadra la vista por si solo. Encuadrar
+        # explicitamente antes de refrescar.
+        iface.mapCanvas().zoomToFullExtent()
+        wait_for_canvas_refresh()
     if hide_cons:
         hide_console()
         pump(0.3)
@@ -933,6 +972,56 @@ def reload_demo_project():
     return ok
 
 
+def _curate_project_manager_list(capture_fn):
+    """Ejecuta capture_fn() con la lista de QGISRed.Projects (.gpl) curada,
+    restaurando SIEMPRE la real en un finally -- mismo patron que
+    _capture_dependencias() (backup/curar/restaurar), para el Gestor de
+    proyectos (project-manager.png y el dialogo de Clonar proyecto, los dos
+    unicos puntos que muestran twProjectList).
+
+    La lista real del .gpl acumula dos tipos de filas que no deben salir en
+    una captura publica:
+    - El proyecto demo (sample_project), que reload_demo_project() vuelve a
+      anadir a la lista CADA VEZ que se abre (no vale con limpiarlo una vez
+      antes de lanzar el script, reaparece solo).
+    - Proyectos reales del usuario, confirmado en vivo que incluyen al menos
+      uno de un cliente real ("Sant Cugat EPANET") -- nunca debe aparecer en
+      una captura del manual publico.
+
+    Se filtran por esos dos criterios (ruta con sample_project, o nombre
+    exacto del proyecto cliente conocido) en vez de sustituir la lista
+    entera por una fija, para que el resto de proyectos reales del usuario
+    (si los hay) sigan apareciendo con normalidad."""
+    import os
+    gpl_path = Path(os.environ["APPDATA"]) / "QGISRed" / "qgisredprojectlist.gpl"
+    backup_path = gpl_path.with_name("qgisredprojectlist_capture_backup.gpl")
+    if not gpl_path.is_file():
+        log("AVISO: no se encontro qgisredprojectlist.gpl real, se captura el Gestor de proyectos sin curar")
+        capture_fn()
+        return
+    if backup_path.exists():
+        log("AVISO: qgisredprojectlist_capture_backup.gpl ya existia (resto de una ejecucion anterior interrumpida) -- se reutiliza")
+    else:
+        gpl_path.rename(backup_path)
+    try:
+        lines = backup_path.read_text(encoding="utf-8").splitlines()
+        curated = [
+            line for line in lines
+            if line.strip()
+            and "sample_project" not in line
+            and not line.startswith("Sant Cugat EPANET;")
+        ]
+        gpl_path.write_text("\n".join(curated) + ("\n" if curated else ""), encoding="utf-8")
+        log(f"Lista de proyectos curada para la captura: {len(lines)} -> {len(curated)} filas")
+        capture_fn()
+    finally:
+        if backup_path.exists():
+            if gpl_path.exists():
+                gpl_path.unlink()
+            backup_path.rename(gpl_path)
+            log("qgisredprojectlist.gpl restaurada")
+
+
 # ── Las 44 capturas propias de QGISRed (todo lo que no sea instalacion/) ───
 
 def run_all():
@@ -1038,6 +1127,16 @@ def run_all():
         QTimer.singleShot(400, _poll)
         try:
             p.runModel()
+            # cbNodes/cbLinks nacen con "Ninguna" (lbl_none) como primer
+            # item (ver populateVariableComboboxes() en
+            # qgisred_results_dock.py) -- sin seleccionar nada aqui, la
+            # captura no tiene ninguna variable que colorear ni en la
+            # leyenda ni en el mapa, da igual cuanto se espere al repintado.
+            # Presion/Caudal son las variables mas representativas para la
+            # captura del manual.
+            if p.ResultDockwidget is not None:
+                p.ResultDockwidget.cbNodes.setCurrentText(p.ResultDockwidget.lbl_pressure)
+                p.ResultDockwidget.cbLinks.setCurrentText(p.ResultDockwidget.lbl_flow)
         finally:
             running[0] = False
 
@@ -1077,6 +1176,8 @@ def run_all():
             w.tbInpFile.setText(str(DOCS_DEMO_DIR / "demo_network.inp"))
         else:
             log("AVISO: no se encontro tbInpFile en el dialogo de importacion")
+        if w is not None and hasattr(w, "cbCreateSubfolder"):
+            w.cbCreateSubfolder.setChecked(True)
 
     def _open_import_fresh():
         iface.newProject(True)
@@ -1102,6 +1203,12 @@ def run_all():
         if hasattr(w, "inspectZipFile"):
             w.inspectZipFile()
         pump(0.3)
+        # inspectZipFile() puede desmarcar Y deshabilitar cbCreateSubfolder
+        # si el ZIP ya trae su propia carpeta de proyecto (hasOwnRootFolder,
+        # ver qgisred_import_dialog.py:1359-1366) -- marcarla solo si sigue
+        # habilitada, si no se queda en su estado real (deshabilitada).
+        if hasattr(w, "cbCreateSubfolder") and w.cbCreateSubfolder.isEnabled():
+            w.cbCreateSubfolder.setChecked(True)
 
     capture_blocking(_open_import_fresh, None, "project-management/import-qgisred-project.png",
                       before_close=_fill_zip_field)
@@ -1131,6 +1238,8 @@ def run_all():
         finally:
             QFileDialog.getExistingDirectory = _orig
         pump(0.5)
+        if hasattr(w, "cbCreateSubfolder") and w.cbCreateSubfolder.isEnabled():
+            w.cbCreateSubfolder.setChecked(True)
 
     capture_blocking(_open_import_fresh, None, "project-management/import-shp.png",
                       before_close=_fill_shp_tab)
@@ -1140,7 +1249,6 @@ def run_all():
     reload_demo_project()
 
     capture_blocking(p.runCreateProject, None, "project-management/create-project.png")
-    capture_blocking(p.runProjectManager, None, "project-management/project-manager.png")
 
     def _capture_clone_project_dialog():
         """cloneProject() (qgisred_projectmanager_dialog.py:569, conectado
@@ -1201,7 +1309,11 @@ def run_all():
         except Exception as exc:
             log(f"EXCEPCION capturando Clonar proyecto: {exc!r}")
 
-    _capture_clone_project_dialog()
+    def _project_manager_captures():
+        capture_blocking(p.runProjectManager, None, "project-management/project-manager.png")
+        _capture_clone_project_dialog()
+
+    _curate_project_manager_list(_project_manager_captures)
 
     log(f"=== Fin run_all() LANG={LANG} -- {len(LOG)} lineas de log ===")
     log_path = SCRIPTS_DIR / f"capture_inside_{LANG}.log"
