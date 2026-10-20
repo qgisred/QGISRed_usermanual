@@ -3370,7 +3370,15 @@
   "| **UPV**            | [![Logo UPV](../assets/images/credits/logo-upv.png)](http://www.upv.es)             |": "| **UPV**            | [![UPV Logo](../assets/images/credits/logo-upv.png)](http://www.upv.es)             |",
   "| **WaterPi**       | ![Logo WaterPi](../assets/images/credits/logo-waterpi.png)             |": "| **WaterPi**       | ![WaterPi Logo](../assets/images/credits/logo-waterpi.png)             |",
   "| **Ingeniousware** | ![Logo Ingeniousware](../assets/images/credits/logo-ingeniousware.png)                       |": "| **Ingeniousware** | ![Logo Ingeniousware](../assets/images/credits/logo-ingeniousware.png)                       |",
-  "| **Banco Interamericano de Desarrollo (BID)** | [![Logo BID](../assets/images/credits/logo-bid.png)](https://www.iadb.org/es) |": "| ** Inter-American Development Bank (IDB)** | [![IDB logo](../assets/images/credits/logo-bid.png)](https://www.iadb.org/es) |",
+  "| **Banco Interamericano de Desarrollo (BID)** | [![Logo BID](../assets/images/credits/logo-bid.png)](https://www.iadb.org/es) |": "| **Inter-American Development Bank (IDB)** | [![IDB logo](../assets/images/credits/logo-bid.png)](https://www.iadb.org/es) |",
   "No muestra ningún diálogo propio: selecciona directamente en el mapa los elementos con problemas y resume el resultado en el panel de mensajes de QGIS.": "It does not display any dialog of its own: it selects directly on the map the items with problems and summarizes the result in the QGIS message pane.",
-  "Resultado de Check pipe materials: tuberías con material no válido seleccionadas en el mapa": "Check pipe materials result: pipes with invalid material selected on the map"
+  "Resultado de Check pipe materials: tuberías con material no válido seleccionadas en el mapa": "Check pipe materials result: pipes with invalid material selected on the map",
+  "nestor@fluit.es": "nestor@fluit.es",
+  "elena@fluit.es": "elena@fluit.es",
+  "![Logo Fluit": "![Logo Fluit",
+  "  * 🏢 Fluit (desde v 0.19)": "* 🏢 Fluit (from v 0.19)",
+  "  * 📧 [nestor@fluit.es](mailto:nestor@fluit.es)": "* 📧 [nestor@fluit.es](mailto:nestor@fluit.es)",
+  "* **Elena Melchor Gil**": "* **Elena Melchor Gil**",
+  "  * 📧 [elena@fluit.es](mailto:elena@fluit.es)": "* 📧 [elena@fluit.es](mailto:elena@fluit.es)",
+  "| **Fluit**         | [![Logo Fluit](../assets/images/credits/logo-fluit.png)](https://fluit.es) |": "| **Fluit**         | [![Logo Fluit](../assets/images/credits/logo-fluit.png)](https://fluit.es) |"
 }
