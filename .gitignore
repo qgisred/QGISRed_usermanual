@@ -4,3 +4,7 @@ scripts/__pycache__/
 scripts/.qgis_profiles/
 scripts/capture_inside_*.log
 scripts/.orchestrator.lock
+
+# Manual site build (HTML+PDF generator)
+node_modules/
+dist/
