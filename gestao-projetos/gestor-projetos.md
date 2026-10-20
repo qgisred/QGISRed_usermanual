@@ -58,7 +58,7 @@ Renomeia a rede e atualiza automaticamente o nome de **todos os arquivos** do pr
 
 1. Selecione o projeto.
 2. Pressione **Renomear**.
-3. A caixa de diálogo oferece três caixas independentes: **Renomear dados do projeto** (renomeia os arquivos de dados da rede) e **Renomear arquivo de mapa do projeto** (também renomeia o projeto QGIS `.qgz`/`.qgs`, se existir) — ambas marcadas por padrão — e **Rename project folder:** (também renomeia a pasta que contém o projeto), desmarcada por padrão. Pelo menos uma deve estar marcada.
+3. A caixa de diálogo oferece três caixas independentes: **Renomear dados do projeto** (renomeia os arquivos de dados da rede) e **Renomear arquivo de mapa do projeto** (também renomeia o projeto QGIS `.qgz`/`.qgs`, se existir) — ambas marcadas por padrão — e **Renomear pasta do projeto:** (também renomeia a pasta que contém o projeto), desmarcada por padrão. Pelo menos uma deve estar marcada.
 4. Insira o novo nome no campo correspondente a cada caixa ativa. O campo da pasta sugere automaticamente o mesmo nome do projeto enquanto não for editado manualmente.
 
 > 📝 **Rename project folder** fica desabilitada, com o aviso _"Another project in this folder is currently open in QGIS"_, se a pasta contiver outro projeto diferente daquele que você está renomeando e esse outro projeto estiver atualmente aberto no QGIS — para não mover nem excluir arquivos sobre os quais o QGIS mantém um bloqueio. Os demais projetos que compartilham a pasta continuam aparecendo normalmente na lista após a renomeação.

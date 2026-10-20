@@ -34,7 +34,7 @@ Ative a barra **Edição** e desenhe a rede no mapa:
 
 ## Passo 4 — Verifique a qualidade do modelo
 
-Antes de simular, use a barra **Debug**:
+Antes de simular, use a barra **Depuração**:
 
 1. **Consolidar e revisar dados** — detecta atributos incompletos ou inconsistentes.
 2. **Verifique a conectividade** — identifica áreas isoladas sem fonte de pressão.

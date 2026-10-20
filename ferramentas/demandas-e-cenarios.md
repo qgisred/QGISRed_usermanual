@@ -113,11 +113,11 @@ Exporte e importe parâmetros do modelo em massa, criando “instantâneos” do
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| **Roughness** | Coeficientes de rugosidade de todos os tubos |
+| **Rugosidade** | Coeficientes de rugosidade de todos os tubos |
 | **InitStatus** | Estados abertos/fechados de tubos e válvulas |
-| **Demands** | Demandas básicas de todos os nós |
+| **Consumos** | Demandas básicas de todos os nós |
 | **InitQuality** | Qualidades iniciais de nós e tubulações |
-| **Elevations** | Níveis de nós, RNVs e RNFs |
+| **Cotas** | Níveis de nós, RNVs e RNFs |
 
 ### Fluxo de trabalho típico
 

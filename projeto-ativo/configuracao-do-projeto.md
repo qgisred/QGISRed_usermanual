@@ -1,6 +1,6 @@
 # Configuração do Projeto
 
-Esta página reúne três diálogos de configuração que afetam o comportamento hidráulico do modelo e os valores padrão com que os novos elementos são criados: Opções de análise (barra **Analysis**) e Valores padrão / Tabela de materiais (barra **Project**).
+Esta página reúne três diálogos de configuração que afetam o comportamento hidráulico do modelo e os valores padrão com que os novos elementos são criados: Opções de análise (barra **Análise**) e Valores padrão / Tabela de materiais (barra **Projeto**).
 
 ---
 

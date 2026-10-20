@@ -64,7 +64,7 @@ Ao confirmar a criação, o QGISRed gera os seguintes arquivos na pasta escolhid
 | `{Red}_Options.dbf` | Opções EPANET (unidades, fórmula, qualidade...) |
 | `{Red}_Title.dbf` | Metadados do projeto (nome do cenário, notas…) |
 
-Eles estão todos agrupados na legenda do QGIS em um grupo chamado **"{Red}" → "Inputs"**.
+Eles estão todos agrupados na legenda do QGIS em um grupo chamado **"{Red}" → "Entradas"**.
 
 ---
 

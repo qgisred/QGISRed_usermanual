@@ -1,6 +1,6 @@
 # ✅ Depurar
 
-A barra **Debug** agrupa as ferramentas de verificação e depuração do modelo. O seu objectivo é detectar e corrigir erros topológicos, inconsistências de atributos e problemas de conectividade **antes de iniciar a simulação**, evitando assim erros de difícil diagnóstico no EPANET.
+A barra **Depuração** agrupa as ferramentas de verificação e depuração do modelo. O seu objectivo é detectar e corrigir erros topológicos, inconsistências de atributos e problemas de conectividade **antes de iniciar a simulação**, evitando assim erros de difícil diagnóstico no EPANET.
 
 <figure><img src="../assets/images/debug/toolbar.png" alt="Barra de ferramentas de depuração QGISRed"><figcaption><p>Barra de ferramentas de depuração QGISRed</p></figcaption></figure>
 *Barra de depuração: validação de dados, depuração topológica, revisão de atributos e setores hidráulicos.*

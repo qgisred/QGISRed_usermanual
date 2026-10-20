@@ -24,9 +24,9 @@ A caixa de diálogo de propriedades é a ferramenta central para visualizar e ed
 | Campo | Descrição |
 |-------|-------------|
 | **ID** | Identificador exclusivo de tubo |
-| **Length** | Comprimento calculado automaticamente a partir da geometria (m ou pés) |
-| **Diameter** | Diâmetro interno (mm ou polegadas) |
-| **Roughness Coeff** | Rugosidade para a fórmula de perda de carga configurada |
+| **Comprimento** | Comprimento calculado automaticamente a partir da geometria (m ou pés) |
+| **Diâmetro** | Diâmetro interno (mm ou polegadas) |
+| **Coef. de Rugosidade** | Rugosidade para a fórmula de perda de carga configurada |
 | **MinorLoss** | Coeficiente de perda menor (0 se não aplicável) |
 | **InitStatus** | Estado inicial: Aberto, Fechado ou CV (Válvula de Retenção) |
 | **Material** | Código do material (referenciado na Tabela de Materiais) |
@@ -41,8 +41,8 @@ A caixa de diálogo de propriedades é a ferramenta central para visualizar e ed
 | Campo | Descrição |
 |-------|-------------|
 | **ID** | Identificador único de nó |
-| **Elevation** | Altura do nó (m ou pés) |
-| **Demand** | Demanda base (em unidades de fluxo do projeto) |
+| **Cota** | Altura do nó (m ou pés) |
+| **Consumo** | Demanda base (em unidades de fluxo do projeto) |
 | **Pattern** | ID do padrão de demanda aplicado |
 | **EmitterCoeff** | Coeficiente do emissor (para modelar fugas dependentes da pressão) |
 | **InitQuality** | Concentração ou idade inicial da água (apenas se o modelo de qualidade estiver activo) |
@@ -53,9 +53,9 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 
 | Campo | Descrição |
 |-------|-------------|
-| **Demand** | Valor de demanda para esta categoria |
+| **Consumo** | Valor de demanda para esta categoria |
 | **Pattern** | Padrão de demanda específico da categoria |
-| **Name** | Etiqueta da categoria (informativa) |
+| **Nome** | Etiqueta da categoria (informativa) |
 
 ---
 
@@ -64,11 +64,11 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 | Campo | Descrição |
 |-------|-------------|
 | **ID** | Identificador único |
-| **Elevation** | Nível inferior do RNV |
+| **Cota** | Nível inferior do RNV |
 | **InitLevel** | Nível inicial de água no fundo |
 | **MinLevel** | Nível operacional mínimo |
 | **MaxLevel** | Nível operacional máximo |
-| **Diameter** | Diâmetro do RNV (0 se utilizar curva de volume) |
+| **Diâmetro** | Diâmetro do RNV (0 se utilizar curva de volume) |
 | **MinVol** | Volume mínimo (m³) |
 | **VolCurve** | ID da curva de volume (para geometria não cilíndrica) |
 | **MixModel** | Modelo de mixagem: MIXED, 2COMP, FIFO, LIFO. Por padrão, MIXED em um RNV novo |
@@ -83,7 +83,7 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 | Campo | Descrição |
 |-------|-------------|
 | **ID** | Identificador único |
-| **Head** | Cabeça piezométrica fixa (m ou pés) |
+| **Carga** | Cabeça piezométrica fixa (m ou pés) |
 | **Pattern** | Padrão de variação de carga ao longo do tempo |
 
 ---
@@ -93,9 +93,9 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 | Campo | Descrição |
 |-------|-------------|
 | **ID** | Identificador único |
-| **Diameter** | Diâmetro (mm ou polegadas) |
-| **Valve Type** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
-| **Setting** | Ponto de ajuste de regulação (pressão, vazão ou perda de carga dependendo do tipo) |
+| **Diâmetro** | Diâmetro (mm ou polegadas) |
+| **Tipo de Válvula** | Tipo de válvula: PRV, PSV, PBV, FCV, TCV, GPV |
+| **Parâmetro de Controle** | Ponto de ajuste de regulação (pressão, vazão ou perda de carga dependendo do tipo) |
 | **MinorLoss** | Coeficiente de perda menor |
 | **InitStatus** | Estado inicial: Aberto, Fechado, Ativo |
 
@@ -107,9 +107,9 @@ Os nós podem ter mais de uma demanda (categorias de usuários: residencial, ind
 |-------|-------------|
 | **ID** | Identificador único |
 | **Curve** | ID da curva H-Q da bomba |
-| **Speed** | Fator de velocidade de giro (1,0 = nominal) |
+| **Velocidade** | Fator de velocidade de giro (1,0 = nominal) |
 | **Pattern** | Padrão de variação de velocidade |
-| **Power** | Potência constante (alternativa à curva H-Q) |
+| **Potência** | Potência constante (alternativa à curva H-Q) |
 | **EfficiencyCurve** | ID da curva de eficiência (para análise energética) |
 | **EnergyPrice** | Preço específico da energia para esta bomba |
 | **PricePattern** | Padrão de variação do preço da energia |
@@ -137,5 +137,5 @@ Estes campos não fazem parte do padrão EPANET mas são utilizados pelo plugin:
 |-------|------|-------------|
 | **Material** | Tubos | Código do material referenciado na Tabela de Materiais |
 | **InstallYear** | Tubos | Ano de instalação para cálculo da rugosidade devido ao envelhecimento |
-| **IsActive** | Vários | Habilitar/desabilitar o elemento no Digital Twin |
-| **Tag** | Todos | Tag grátis (equivalente ao campo EPANET TAG) |
+| **Está Ativo** | Vários | Habilitar/desabilitar o elemento no Digital Twin |
+| **Etiqueta** | Todos | Tag grátis (equivalente ao campo EPANET TAG) |

@@ -15,15 +15,15 @@ A caixa de diálogo é **sem janela restrita**: você ainda pode interagir com o
 
 | Elemento | Descrição |
 |----------|-------------|
-| **Junctions** | Nós de rede |
-| **Multiple Demands** | Demandas múltiplas por categoria |
-| **Pipes** | Tubos |
-| **Tanks** | RNVs |
-| **Reservoirs** | RNFs |
-| **Pumps** | Bombas |
-| **Valves** | Válvulas |
-| **Sources** | Fontes de qualidade |
-| **Service Connections** | Ramais |
+| **Nós de demanda** | Nós de rede |
+| **Consumos Múltiplos** | Demandas múltiplas por categoria |
+| **Tubulações** | Tubos |
+| **Tanques** | RNVs |
+| **Reservatórios** | RNFs |
+| **Bombas** | Bombas |
+| **Válvulas** | Válvulas |
+| **Fontes** | Fontes de qualidade |
+| **Ligações de Serviço** | Ramais |
 | **Válvulas de isolamento** | Válvulas de isolamento |
 | **Metros** | Medidores de vazão |
 
@@ -42,7 +42,7 @@ O menu suspenso do campo começa com a opção **Sem filtro**. Enquanto a seleç
 Quando você seleciona um campo específico, os controles de operador e valor aparecem:
 
 - O **operador** determina o tipo de comparação (ver tabela abaixo).
-- O **valor** é preenchido automaticamente com os valores únicos presentes na camada. A lista inclui **NULL** como primeira opção:
+- O **valor** é preenchido automaticamente com os valores únicos presentes na camada. A lista inclui **NULO** como primeira opção:
 - O operador `=` com NULL gera um filtro **IS NULL**.
 - O operador `≠` com NULL gera um filtro **IS NOT NULL**.
 - O campo de valor possui um botão **×** para excluí-lo rapidamente. Além disso, o campo é **editável**: o usuário pode inserir um valor personalizado que não esteja listado na lista suspensa.

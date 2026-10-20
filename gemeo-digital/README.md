@@ -1,6 +1,6 @@
 # 🧬Gêmeo Digital
 
-O barramento **Digital Twin** agrega ao modelo hidráulico os elementos de infraestrutura que conectam a rede ao usuário final e aos sistemas de monitoramento de campo: conexões, válvulas de corte, medidores e sensores. Estes elementos não fazem parte estritamente do modelo EPANET, mas enriquecem o gémeo digital com informação operacional e de leitura remota.
+O barramento **Gémeo Digital** agrega ao modelo hidráulico os elementos de infraestrutura que conectam a rede ao usuário final e aos sistemas de monitoramento de campo: conexões, válvulas de corte, medidores e sensores. Estes elementos não fazem parte estritamente do modelo EPANET, mas enriquecem o gémeo digital com informação operacional e de leitura remota.
 
 <figure><img src="../assets/images/digital-twin/toolbar.png" alt="Barra de ferramentas digital dupla QGISRed"><figcaption><p>Barra de ferramentas digital dupla QGISRed</p></figcaption></figure>
 *Digital Twin Bar: conexões, válvulas de corte, medidores e carregamento de dados de campo.*

@@ -15,7 +15,7 @@ Abre o painel **Estatísticas**, que calcula e exibe a distribuição estatísti
 
 O painel Estatísticas está organizado em duas guias:
 
-- **Setup**: define o que é analisado e como é classificado.
+- **Configuração**: define o que é analisado e como é classificado.
 - **Relatório**: mostra o histograma e a tabela de resultados. Ele é ativado automaticamente após a execução da análise.
 
 ---
@@ -36,7 +36,7 @@ Selecione o tipo de elemento (Junções, Tubulações, RNVs...) e a propriedade 
 
 #### Métodos de classificação disponíveis
 
-Os métodos a seguir estão disponíveis para a classificação principal e para a segunda classificação. O método padrão é **Pretty Breaks**.
+Os métodos a seguir estão disponíveis para a classificação principal e para a segunda classificação. O método padrão é **Quebras Arredondadas**.
 
 | Método | Descrição |
 |--------|-------------|
@@ -48,7 +48,7 @@ Os métodos a seguir estão disponíveis para a classificação principal e para
 
 > **ℹ️ Nota:** Quando todos os valores são idênticos ou muito semelhantes, os endpoints de classe duplicados são recolhidos mostrando um único valor em vez de "100,0 - 100,0".
 
-> **ℹ️ Nota — Campos sem dados úteis:** Caso o campo escolhido para classificar não possua nenhum valor calculado, o painel não apresenta mensagem de erro: gera diretamente uma única classe **NULL** que agrupa todos os elementos sem valor. Se o campo tiver valores, mas todos forem iguais (incluindo o caso em que todos são zero), uma única classe será gerada com esse valor, assim como no caso anterior de endpoints recolhidos. Em ambos os casos o histograma e a tabela são gerados normalmente, sem interromper a análise.
+> **ℹ️ Nota — Campos sem dados úteis:** Caso o campo escolhido para classificar não possua nenhum valor calculado, o painel não apresenta mensagem de erro: gera diretamente uma única classe **NULO** que agrupa todos os elementos sem valor. Se o campo tiver valores, mas todos forem iguais (incluindo o caso em que todos são zero), uma única classe será gerada com esse valor, assim como no caso anterior de endpoints recolhidos. Em ambos os casos o histograma e a tabela são gerados normalmente, sem interromper a análise.
 
 > **ℹ️ Nota:** Ao analisar um campo de resultado de simulação dinâmica, os **limites de classe são calculados uma vez** considerando todos os instantes de tempo simultaneamente. À medida que a etapa de simulação avança, a contagem de elementos por barra varia, mas os limites permanecem constantes, permitindo **comparar distribuições entre instantes de tempo** com total consistência.
 

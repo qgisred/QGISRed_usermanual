@@ -51,7 +51,7 @@ Dois combos localizados sob os controles de tempo:
 
 > 💡 Nos modos **Máximo** e **Mínimo**, os rótulos do mapa mostram o valor junto com o horário de ocorrência no formato `valor (@ HH:MM:SS)`. Quando você coloca o cursor sobre um elemento do mapa, a dica de ferramenta inclui uma linha adicional `@ HH:MM:SS` com o momento exato em que ocorreu aquele máximo ou mínimo.
 
-> 💡 Com qualquer modo de estatística ativo, a dica de ferramenta precede o valor com a abreviatura da estatística exibida: **Max**, **Min**, **Avg** (Média), **Rng** (Intervalo) ou **Std** (StdDev). Por exemplo, `Max 45.2` em vez de simplesmente `45.2`.
+> 💡 Com qualquer modo de estatística ativo, a dica de ferramenta precede o valor com a abreviatura da estatística exibida: **Máx**, **Mín**, **Média** (Média), **Amp** (Intervalo) ou **Desv** (StdDev). Por exemplo, `Max 45.2` em vez de simplesmente `45.2`.
 
 #### Grupo de Mapeamento — Nós
 
@@ -62,7 +62,7 @@ Dois combos localizados sob os controles de tempo:
 | **Mostrar histograma de nós** | Abre um histograma integrado no dock com a distribuição do valor atual em nós. |
 | **Mostrar evolução do nó** | Abre um minigráfico integrado com a evolução temporal do nó selecionado no mapa. |
 
-> 💡 Quando uma variável é selecionada no combo **Nodes**, um rótulo aparece próximo ao cabeçalho do grupo com o nome da variável em negrito e sua unidade entre parênteses (por exemplo, **Pressão** (m)).
+> 💡 Quando uma variável é selecionada no combo **Nós**, um rótulo aparece próximo ao cabeçalho do grupo com o nome da variável em negrito e sua unidade entre parênteses (por exemplo, **Pressão** (m)).
 
 #### Grupo de Mapeamento — Links
 
@@ -74,13 +74,13 @@ Dois combos localizados sob os controles de tempo:
 | **Mostrar histograma de links** | Histograma integrado ao dock com distribuição do valor atual em pipelines. |
 | **Mostrar evolução do link** | Minigráfico integrado com a evolução temporal do pipeline selecionado no mapa. |
 
-> 💡 Da mesma forma, quando uma variável é selecionada no combo **Links**, um rótulo aparece próximo ao cabeçalho do grupo com o nome da variável em negrito e sua unidade entre parênteses (por exemplo, **Velocidade** (m/s)).
+> 💡 Da mesma forma, quando uma variável é selecionada no combo **Trechos**, um rótulo aparece próximo ao cabeçalho do grupo com o nome da variável em negrito e sua unidade entre parênteses (por exemplo, **Velocidade** (m/s)).
 
-> ⚠️ Quando a variável **Links** é **Status**, os rótulos de texto são simplificados: os ~13 estados internos que o EPANET pode retornar são agrupados em apenas dois textos, **"Closed"** (inclui "Temp Closed") e **"Active"** (inclui "Active (Rev Pump)"). Links com qualquer estado **"Aberto*"** não mostram nenhum rótulo, para não sobrecarregar o mapa com a maioria dos pipes (que geralmente são abertos). Não é um erro se, com o Status ativo, a maioria dos pipes aparecer sem etiqueta.
+> ⚠️ Quando a variável **Trechos** é **Estado**, os rótulos de texto são simplificados: os ~13 estados internos que o EPANET pode retornar são agrupados em apenas dois textos, **"Fechada"** (inclui "Temp Closed") e **"Ativa"** (inclui "Active (Rev Pump)"). Links com qualquer estado **"Aberto*"** não mostram nenhum rótulo, para não sobrecarregar o mapa com a maioria dos pipes (que geralmente são abertos). Não é um erro se, com o Status ativo, a maioria dos pipes aparecer sem etiqueta.
 
 > O botão **Aparência** (ícone no cabeçalho do grupo Nós) leva você diretamente para a aba Aparência sem precisar navegar pelas abas.
 
-> 💡 Quando o combo **Nodes** ou **Links** está em "None", a camada correspondente não desaparece do mapa: ela é exibida com um símbolo cinza uniforme e sem legenda, para que a rede continue visível como referência enquanto não houver nenhuma variável de resultado ativa nesse tipo de elemento.
+> 💡 Quando o combo **Nós** ou **Trechos** está em "Nenhuma", a camada correspondente não desaparece do mapa: ela é exibida com um símbolo cinza uniforme e sem legenda, para que a rede continue visível como referência enquanto não houver nenhuma variável de resultado ativa nesse tipo de elemento.
 
 > 💡 No painel de camadas do QGIS, cada camada de resultados aberta mostra o nome da propriedade representada junto com sua unidade (por exemplo, **Pressões (m)**), e cada classe de sua legenda indica entre parênteses o número de elementos que ela contém — assim como já fazem as camadas de entrada.
 
@@ -107,7 +107,7 @@ Concentra todas as opções de apresentação visual dos resultados no mapa. As 
 
 > 💡 Cada controle numérico na aba Aparência possui um pequeno botão ↺ individual que restaura apenas aquele campo ao seu valor padrão, sem afetar o restante das configurações.
 
-> ⚠️ Os controles do grupo **Nodes** são desativados automaticamente quando o combo Nodes é definido como "None", e o mesmo se aplica a **Links**. Além disso, o controle **Decimais** é desabilitado quando a variável ativa é **Status** (variável categórica sem decimais aplicáveis).
+> ⚠️ Os controles do grupo **Nós** são desativados automaticamente quando o combo Nodes é definido como "Nenhuma", e o mesmo se aplica a **Trechos**. Além disso, o controle **Decimais** é desabilitado quando a variável ativa é **Estado** (variável categórica sem decimais aplicáveis).
 
 #### Etiquetas do mapa
 
@@ -134,7 +134,7 @@ Concentra todas as opções de apresentação visual dos resultados no mapa. As 
 
 #### Plano de fundo do mapa
 
-Permite definir uma cor de fundo sólida para a tela do mapa durante a visualização dos resultados. A cor é restaurada ao original quando o encaixe é fechado. O botão ****** remove a cor de fundo.
+Permite definir uma cor de fundo sólida para a tela do mapa durante a visualização dos resultados. A cor é restaurada ao original quando o encaixe é fechado. O botão **×** remove a cor de fundo.
 
 > 💡 O contorno dos símbolos de RNVs e RNFs é recalculado automaticamente para continuar visível sobre a cor de fundo escolhida.
 
@@ -207,7 +207,7 @@ Ativa uma ferramenta de seleção interativa que traça a evolução temporal de
 
 ### Propriedades adicionais para RNVs
 
-Para o tipo de elemento **Tank** (RNV — Reservatório de Nível Variável), duas quantidades adicionais estão disponíveis:
+Para o tipo de elemento **Tanque** (RNV — Reservatório de Nível Variável), duas quantidades adicionais estão disponíveis:
 
 | Magnitude | Descrição |
 |----------|-------------|

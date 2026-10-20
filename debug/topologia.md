@@ -23,7 +23,7 @@ As ferramentas do primeiro grupo da barra Debug detectam e corrigem os erros est
 - Se tudo for válido: mensagem _"Dados de entrada são válidos"_ em verde.
 - Se houver erros: lista de problemas com o ID e tipo do elemento afetado. Itens com erros são selecionados automaticamente no mapa para facilitar sua localização.
 
-> Execute **Check && commit data** sempre que você tiver editado a tabela de atributos manualmente (fora da caixa de diálogo de propriedades), pois essas alterações não passam pela validação automática do plugin.
+> Execute **Verificar && confirmar dados** sempre que você tiver editado a tabela de atributos manualmente (fora da caixa de diálogo de propriedades), pois essas alterações não passam pela validação automática do plugin.
 
 ---
 

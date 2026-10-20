@@ -14,7 +14,7 @@ Abre o painel **Consultas por Propriedades**, ferramenta de filtragem que destac
 O painel tem uma cor de identificação **roxo** (`#7B1FA2`) em seu cabeçalho para distingui-lo do resto dos painéis QGISRed. Contém:
 
 - **Seletor de tipo de elemento**: Tubulações, Junções, RNVs, RNFs, Bombas, Válvulas
-- **Modo de critério**: duas opções, **One Criterion** (uma única condição ativa) e **Multiple Criteria** (lista de condições combináveis, veja abaixo)
+- **Modo de critério**: duas opções, **Um Critério** (uma única condição ativa) e **Múltiplos Critérios** (lista de condições combináveis, veja abaixo)
 - **Área de condições**: uma ou mais linhas com campo, operador e valor
 - **Botão Executar**: aplica a consulta e destaca o resultado
 - **Botão Limpar**: remove o destaque do mapa
@@ -79,15 +79,15 @@ Campos como `Tag` ou `Id`:
 
 ## Modo de critério único ou múltiplo
 
-O botão **One Criterion** limita o painel a uma única condição ativa por vez: alterar o campo, o operador ou o valor substitui a condição anterior. É o modo mais simples para consultas pontuais.
+O botão **Um Critério** limita o painel a uma única condição ativa por vez: alterar o campo, o operador ou o valor substitui a condição anterior. É o modo mais simples para consultas pontuais.
 
-O botão **Multiple Criteria** abre uma lista de condições independentes que podem ser combinadas entre si:
+O botão **Múltiplos Critérios** abre uma lista de condições independentes que podem ser combinadas entre si:
 
-- **Add**: adiciona a condição configurada acima à lista, marcada como condição de **inclusão** (`+`).
-- **Subtract**: adiciona a condição configurada acima à lista, marcada como condição de **exclusão** (`-`).
-- Cada linha da lista pode ser **reordenada** (setas para cima/baixo), **editada** (clique duplo ou botão de edição), **excluída**, ou **ativada/desativada** temporariamente sem excluí-la (botão "Enable/disable selected criterion") para testar combinações sem perder as condições já definidas.
+- **Adicionar**: adiciona a condição configurada acima à lista, marcada como condição de **inclusão** (`+`).
+- **Subtrair**: adiciona a condição configurada acima à lista, marcada como condição de **exclusão** (`-`).
+- Cada linha da lista pode ser **reordenada** (setas para cima/baixo), **editada** (clique duplo ou botão de edição), **excluída**, ou **ativada/desativada** temporariamente sem excluí-la (botão "Ativar/desativar critério selecionado") para testar combinações sem perder as condições já definidas.
 
-Ao passar de **Multiple Criteria** para **One Criterion** com mais de uma condição na lista, o QGISRed pede confirmação: apenas a primeira é mantida, o restante é descartado.
+Ao passar de **Múltiplos Critérios** para **Um Critério** com mais de uma condição na lista, o QGISRed pede confirmação: apenas a primeira é mantida, o restante é descartado.
 
 ### Lógica de combinação
 
@@ -95,9 +95,9 @@ As condições de inclusão (`+`) se combinam entre si com **OR**: um elemento �
 
 > *(qualquer condição de inclusão)* **AND NOT** *(todas as condições de exclusão)*
 
-Por exemplo, para encontrar todos os tubos com diâmetro ≥ 300 mm que **não** sejam de ferro fundido: uma condição `Diameter >= 300` marcada com **Add**, e uma condição `Material = Cast Iron` marcada com **Subtract**.
+Por exemplo, para encontrar todos os tubos com diâmetro ≥ 300 mm que **não** sejam de ferro fundido: uma condição `Diameter >= 300` marcada com **Adicionar**, e uma condição `Material = Cast Iron` marcada com **Subtrair**.
 
-No modo **One Criterion** há apenas uma condição, portanto essa combinação não se aplica.
+No modo **Um Critério** há apenas uma condição, portanto essa combinação não se aplica.
 
 ---
 
@@ -117,11 +117,11 @@ As colunas dependem do tipo de propriedade:
 
 | Propriedade | Colunas |
 |---|---|
-| Campo de texto ou lista | **Count** (número de elementos) |
-| Campo numérico | **Count**, **Avg**, **Min**, **Max**, e **Sum** ou **StdD** de acordo com a propriedade (vazões e demandas mostram a soma; o restante, o desvio padrão) |
-| **None** (sem propriedade) | apenas **Count** |
+| Campo de texto ou lista | **Contagem** (número de elementos) |
+| Campo numérico | **Contagem**, **Média**, **Mín**, **Máx**, e **Soma** ou **DesvP** de acordo com a propriedade (vazões e demandas mostram a soma; o restante, o desvio padrão) |
+| **Nenhuma** (sem propriedade) | apenas **Contagem** |
 
-No modo **One Criterion** a tabela mostra uma única linha com o resultado da condição ativa. No modo **Multiple Criteria** com várias condições habilitadas, mostra uma linha para cada condição (rotulada `Cr1`, `Cr2`...) e uma linha final **All** em amarelo com o resultado combinado (a mesma lógica de inclusão/exclusão do destaque no mapa) — assim é possível comparar quantos elementos cada condição contribui isoladamente em relação ao total combinado.
+No modo **Um Critério** a tabela mostra uma única linha com o resultado da condição ativa. No modo **Múltiplos Critérios** com várias condições habilitadas, mostra uma linha para cada condição (rotulada `Cr1`, `Cr2`...) e uma linha final **Todos** em amarelo com o resultado combinado (a mesma lógica de inclusão/exclusão do destaque no mapa) — assim é possível comparar quantos elementos cada condição contribui isoladamente em relação ao total combinado.
 
 ## Exportar critérios e estatísticas
 

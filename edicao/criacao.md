@@ -52,11 +52,11 @@ Coloque um Reservatório de Nível Variável (RNV) no mapa. Os RNVs possuem nív
 
 | Parâmetro | Descrição |
 |-----------|-------------|
-| **Elevation** | Elevação do fundo do RNV (m ou pés) |
+| **Cota** | Elevação do fundo do RNV (m ou pés) |
 | **InitLevel** | Nível inicial da água acima do fundo |
 | **MinLevel** | Nível operacional mínimo |
 | **MaxLevel** | Nível operacional máximo |
-| **Diameter** | Diâmetro do RNV (para seção circular); se você usar curva de volume, coloque 0 |
+| **Diâmetro** | Diâmetro do RNV (para seção circular); se você usar curva de volume, coloque 0 |
 | **MinVol** | Volume mínimo (opcional) |
 | **VolCurve** | ID da curva de volume (para geometria não cilíndrica) |
 
@@ -102,10 +102,10 @@ Insira uma válvula em um tubo existente. O tubo original é **dividido em duas 
 
 | Tipo | Nome | Função |
 |------|--------|---------|
-| **PRV** | Válvula Redutora de Pressão | Reduz a pressão a jusante até o ponto de ajuste |
-| **PSV** | Válvula de sustentação de pressão | Mantém a pressão a montante no ponto de ajuste |
+| **VRP** | Válvula Redutora de Pressão | Reduz a pressão a jusante até o ponto de ajuste |
+| **VSP** | Válvula de sustentação de pressão | Mantém a pressão a montante no ponto de ajuste |
 | **PBV** | Válvula quebra-pressão | Produz uma perda de carga fixa |
-| **FCV** | Válvula de controle de fluxo | Limita o fluxo ao setpoint |
+| **VRV** | Válvula de controle de fluxo | Limita o fluxo ao setpoint |
 | **TCV** | Válvula de controle do acelerador | Simula uma válvula parcialmente fechada usando um coeficiente de perda |
 | **GPV** | Válvula de uso geral | Perda de carga definida por uma curva personalizada |
 
@@ -130,6 +130,6 @@ Insira uma bomba em um tubo existente, dividindo-o exatamente da mesma forma que
 | **Curva** | ID da curva H-Q (obrigatório para simular) |
 | **Velocidade** | Fator de velocidade inicial (1,0 = velocidade nominal) |
 | **Pattern** | Padrão de variação de velocidade |
-| **Power** | Potência constante (alternativa à curva H-Q) |
+| **Potência** | Potência constante (alternativa à curva H-Q) |
 
 > Se a bomba exigir uma curva de eficiência para cálculo de energia, defina-a no **Editor de padrões e curvas** e faça referência a ela nas propriedades da bomba.
