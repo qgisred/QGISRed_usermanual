@@ -1,6 +1,6 @@
 import { Marked, type Tokens } from "marked";
 import { posix } from "node:path";
-import { pageUrl, slugify } from "./summary.ts";
+import { pageUrl, relativeBase, slugify } from "./summary.ts";
 import type { ManualUi } from "./ui.ts";
 
 // ---------------------------------------------------------------------------
@@ -98,6 +98,7 @@ export function renderChapter(markdown: string, options: RenderOptions): Rendere
   const { ui, file, mode, pageKeys, readSource, report } = options;
   const key = pageKeys.get(file) ?? "";
   const directory = posix.dirname(file);
+  const base = relativeBase(file);
   const headings: Heading[] = [];
   const anchors = new Set<string>();
   const anchorLinks: [string, string][] = [];
@@ -165,7 +166,7 @@ export function renderChapter(markdown: string, options: RenderOptions): Rendere
           if (anchor) anchorLinks.push([target, anchor]);
           const url =
             mode === "web"
-              ? pageUrl(target) + (anchor ? `#${anchor}` : "")
+              ? base + pageUrl(target) + (anchor ? `#${anchor}` : "")
               : `#${pageKeys.get(target)}${anchor ? `--${anchor}` : ""}`;
           return `<a href="${url}"${titleAttribute}>${text}</a>`;
         }

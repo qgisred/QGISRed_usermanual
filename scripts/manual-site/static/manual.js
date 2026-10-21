@@ -31,12 +31,17 @@
   var results = document.getElementById("m-search-results");
   if (!input || !results) return;
 
+  // Same "../" prefix the page's own CSS/JS links use (template.ts) -- the
+  // manual isn't necessarily deployed at its host's root, so a path that
+  // reads from the manual's own root needs this to resolve from here too.
+  var base = document.body.getAttribute("data-base") || "";
+
   var index = null;
   var indexPromise = null;
 
   function loadIndex() {
     if (!indexPromise) {
-      indexPromise = fetch("search-index.json")
+      indexPromise = fetch(base + "search-index.json")
         .then(function (response) {
           return response.ok ? response.json() : [];
         })
@@ -65,7 +70,7 @@
     entries.slice(0, 20).forEach(function (entry) {
       var li = document.createElement("li");
       var a = document.createElement("a");
-      a.href = entry.u;
+      a.href = base + entry.u;
       var title = document.createElement("strong");
       title.textContent = entry.h ? entry.p + " — " + entry.h : entry.p;
       var path = document.createElement("span");
