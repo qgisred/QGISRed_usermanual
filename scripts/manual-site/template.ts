@@ -72,7 +72,7 @@ function renderHeader(language: ManualLanguage, base: string): string {
   const ui = UI[language];
   return `    <header class="m-header">
       <button class="m-btn m-menu" type="button" data-menu-toggle aria-label="${escapeHtml(ui.menu)}" aria-expanded="false">☰</button>
-      <a class="m-brand" href="${base}index.html"><img src="${base}favicon.svg" alt="" />QGISRed <span>${escapeHtml(ui.contents)}</span></a>
+      <a class="m-brand" href="${base}index.html"><img src="${base}favicon.svg" alt="" />QGISRed</a>
       <div class="m-search">
         <input id="m-search-input" type="search" placeholder="${escapeHtml(ui.searchPlaceholder)}" aria-label="${escapeHtml(ui.searchPlaceholder)}" data-empty="${escapeHtml(ui.searchNoResults)}" autocomplete="off" />
         <ul id="m-search-results" class="m-results" hidden></ul>
