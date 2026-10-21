@@ -103,7 +103,7 @@ jobs:
             set ftp:ssl-protect-data true;
             set ftp:ssl-protect-list true;
             set ssl:verify-certificate yes;
-            open -u \$FTP_USERNAME,\$FTP_PASSWORD \$FTP_SERVER;
-            mirror --reverse --delete --verbose --parallel=3 ./dist/ \$REMOTE_DIR;
+            open -u $FTP_USERNAME,$FTP_PASSWORD $FTP_SERVER;
+            mirror --reverse --delete --verbose --parallel=3 ./dist/ $REMOTE_DIR;
             bye
           "
