@@ -217,11 +217,11 @@ figcaption {
   border: none;
   border-radius: 0;
 }
-.m-brand span {
-  font-weight: 400;
-  color: var(--brand-teal);
-}
-.m-menu {
+/* button.m-menu, not .m-menu: this button is also .m-btn, whose own
+   `display: inline-flex` (below) has the same specificity and comes later
+   in the sheet, so a bare class selector here would lose the cascade and
+   the toggle would stay visible outside the mobile breakpoint too. */
+button.m-menu {
   display: none;
   background: none;
   border: none;
@@ -446,7 +446,7 @@ figcaption {
 }
 
 @media (max-width: 900px) {
-  .m-menu {
+  button.m-menu {
     display: inline-flex;
   }
   .m-search {
