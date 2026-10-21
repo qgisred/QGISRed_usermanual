@@ -67,6 +67,21 @@ export function pageUrl(file: string): string {
   return file.replace(/\.md$/i, ".html");
 }
 
+/**
+ * "../" repeated once per directory level separating `file` from the
+ * manual's own root -- e.g. "introduccion/creditos.md" -> "../",
+ * "README.md" -> "". pageUrl() returns a path relative to that root, so
+ * every href built from it (nav, pager, content links, and the static
+ * assets in template.ts) needs this prefix too: the manual isn't
+ * necessarily deployed at its host's root (see manuals/<version>/<lang>/),
+ * so a root-relative href only resolves correctly from a page that is
+ * itself at the root.
+ */
+export function relativeBase(file: string): string {
+  const depth = file.split("/").length - 1;
+  return depth > 0 ? "../".repeat(depth) : "";
+}
+
 /** Lowercase, accents stripped, anything else a hyphen -- a heading's anchor. */
 export function slugify(text: string): string {
   return text
