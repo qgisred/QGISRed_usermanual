@@ -31,8 +31,17 @@ jobs:
         run: |
           set -euo pipefail
           if [[ "$GITHUB_REF_NAME" =~ ^v([0-9]+\.[0-9]+)_([a-zA-Z-]+)$ ]]; then
+            language="${BASH_REMATCH[2]}"
             echo "version=${BASH_REMATCH[1]}" >> "$GITHUB_OUTPUT"
-            echo "language=${BASH_REMATCH[2]}" >> "$GITHUB_OUTPUT"
+            echo "language=$language" >> "$GITHUB_OUTPUT"
+            # Public URL folder differs from the internal language code
+            # for Brazilian Portuguese: "pt-BR" everywhere else (UI
+            # strings, PDF filename, translate.py) but just "pt" here.
+            if [[ "$language" == "pt-BR" ]]; then
+              echo "deploy_language=pt" >> "$GITHUB_OUTPUT"
+            else
+              echo "deploy_language=$language" >> "$GITHUB_OUTPUT"
+            fi
           else
             echo "::error::Branch '$GITHUB_REF_NAME' does not match 'v<version>_<language>' (e.g. v0.19_es)."
             exit 1
@@ -91,7 +100,7 @@ jobs:
           FTP_SERVER: ${{ secrets.FTP_SERVER }}
           FTP_USERNAME: ${{ secrets.FTP_USERNAME }}
           FTP_PASSWORD: ${{ secrets.FTP_PASSWORD }}
-          REMOTE_DIR: manuals/${{ steps.branch.outputs.version }}/${{ steps.branch.outputs.language }}/
+          REMOTE_DIR: manuals/${{ steps.branch.outputs.version }}/${{ steps.branch.outputs.deploy_language }}/
         run: |
           set -euo pipefail
           lftp -e "
